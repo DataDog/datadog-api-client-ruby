@@ -2026,6 +2026,23 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.CreateDashboardSecureEmbed" => {
+            "dashboard_id" => "String",
+            "body" => "SecureEmbedCreateRequest",
+    },
+    "v2.DeleteDashboardSecureEmbed" => {
+            "dashboard_id" => "String",
+            "token" => "String",
+    },
+    "v2.GetDashboardSecureEmbed" => {
+            "dashboard_id" => "String",
+            "token" => "String",
+    },
+    "v2.UpdateDashboardSecureEmbed" => {
+            "dashboard_id" => "String",
+            "token" => "String",
+            "body" => "SecureEmbedUpdateRequest",
+    },
     "v2.CreateDataset" => {
             "body" => "DatasetCreateRequest",
     },

@@ -17,20 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A Grok parsing rule used in the `parse_grok` processor. Each rule defines how to extract structured fields
-  # from a specific log field using Grok patterns.
-  class ObservabilityPipelineParseGrokProcessorRule
+  # Response for updating a secure embed shared dashboard.
+  class SecureEmbedUpdateResponse
     include BaseGenericModel
 
-    # A list of Grok parsing rules that define how to extract fields from the source field.
-    # Each rule must contain a name and a valid Grok pattern.
-    attr_reader :match_rules
-
-    # The name of the field in the log event to apply the Grok rules to.
-    attr_reader :source
-
-    # A list of Grok helper rules that can be referenced by the parsing rules.
-    attr_accessor :support_rules
+    # Data object for a secure embed update response.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -38,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'match_rules' => :'match_rules',
-        :'source' => :'source',
-        :'support_rules' => :'support_rules'
+        :'data' => :'data'
       }
     end
 
@@ -48,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'match_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>',
-        :'source' => :'String',
-        :'support_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>'
+        :'data' => :'SecureEmbedUpdateResponseData'
       }
     end
 
@@ -59,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessorRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecureEmbedUpdateResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,20 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'match_rules')
-        if (value = attributes[:'match_rules']).is_a?(Array)
-          self.match_rules = value
-        end
-      end
-
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
-      end
-
-      if attributes.key?(:'support_rules')
-        if (value = attributes[:'support_rules']).is_a?(Array)
-          self.support_rules = value
-        end
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -93,29 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @match_rules.nil?
-      return false if @source.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param match_rules [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def match_rules=(match_rules)
-      if match_rules.nil?
-        fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @match_rules = match_rules
-    end
-
-    # Custom attribute writer method with validation
-    # @param source [Object] Object to be assigned
-    # @!visibility private
-    def source=(source)
-      if source.nil?
-        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
-      end
-      @source = source
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -144,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          match_rules == o.match_rules &&
-          source == o.source &&
-          support_rules == o.support_rules &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [match_rules, source, support_rules, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
