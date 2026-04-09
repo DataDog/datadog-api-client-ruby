@@ -37,6 +37,9 @@ module DatadogAPIClient::V2
     # Regex to use with the condition. Only used with match_regex and !match_regex operator.
     attr_accessor :regex
 
+    # The type of the value to compare against. Only used with the equals and !equals operator.
+    attr_accessor :type
+
     # Store the captured value in the specified tag name. Only used with the capture_data operator.
     attr_accessor :value
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V2
         :'list' => :'list',
         :'options' => :'options',
         :'regex' => :'regex',
+        :'type' => :'type',
         :'value' => :'value'
       }
     end
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
         :'list' => :'Array<String>',
         :'options' => :'ApplicationSecurityWafCustomRuleConditionOptions',
         :'regex' => :'String',
+        :'type' => :'ApplicationSecurityWafCustomRuleConditionParametersType',
         :'value' => :'String'
       }
     end
@@ -108,6 +113,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'regex')
         self.regex = attributes[:'regex']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
       if attributes.key?(:'value')
@@ -164,6 +173,7 @@ module DatadogAPIClient::V2
           list == o.list &&
           options == o.options &&
           regex == o.regex &&
+          type == o.type &&
           value == o.value &&
           additional_properties == o.additional_properties
     end
@@ -172,7 +182,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, inputs, list, options, regex, value, additional_properties].hash
+      [data, inputs, list, options, regex, type, value, additional_properties].hash
     end
   end
 end

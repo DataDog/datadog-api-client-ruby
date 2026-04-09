@@ -32,5 +32,9 @@ module DatadogAPIClient::V2
     IP_MATCH = "ip_match".freeze
     NOT_IP_MATCH = "!ip_match".freeze
     CAPTURE_DATA = "capture_data".freeze
+    EXISTS = "exists".freeze
+    NOT_EXISTS = "!exists".freeze
+    EQUALS = "equals".freeze
+    NOT_EQUALS = "!equals".freeze
   end
 end

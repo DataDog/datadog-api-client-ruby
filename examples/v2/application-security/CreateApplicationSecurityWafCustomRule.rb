@@ -31,6 +31,7 @@ body = DatadogAPIClient::V2::ApplicationSecurityWafCustomRuleCreateRequest.new({
               min_length: 0,
             }),
             regex: "path.*",
+            type: DatadogAPIClient::V2::ApplicationSecurityWafCustomRuleConditionParametersType::STRING,
             value: "custom_tag",
           }),
         }),
