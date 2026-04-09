@@ -3,7 +3,7 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::DashboardListsAPI.new
 
-body = DatadogAPIClient::V2::DashboardListDeleteItemsRequest.new({
+body = DatadogAPIClient::V2::DashboardListRemoveItemsRequest.new({
   dashboards: [
     DatadogAPIClient::V2::DashboardListItemRequest.new({
       id: "q5j-nti-fv6",

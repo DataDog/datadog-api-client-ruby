@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request containing a list of dashboards to delete.
-  class DashboardListDeleteItemsRequest
+  # Request containing a list of dashboards to remove.
+  class DashboardListRemoveItemsRequest
     include BaseGenericModel
 
     # List of dashboards to delete from the dashboard list.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DashboardListDeleteItemsRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DashboardListRemoveItemsRequest` initialize method"
       end
 
       self.additional_properties = {}

@@ -2013,7 +2013,7 @@ ScenariosModelMappings = {
     },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
-            "body" => "DashboardListDeleteItemsRequest",
+            "body" => "DashboardListRemoveItemsRequest",
     },
     "v2.GetDashboardListItems" => {
             "dashboard_list_id" => "Integer",

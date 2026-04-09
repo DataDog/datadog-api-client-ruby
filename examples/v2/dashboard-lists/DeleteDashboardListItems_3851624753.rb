@@ -9,7 +9,7 @@ DASHBOARD_LIST_ID = ENV["DASHBOARD_LIST_ID"]
 # there is a valid "screenboard_dashboard" in the system
 SCREENBOARD_DASHBOARD_ID = ENV["SCREENBOARD_DASHBOARD_ID"]
 
-body = DatadogAPIClient::V2::DashboardListDeleteItemsRequest.new({
+body = DatadogAPIClient::V2::DashboardListRemoveItemsRequest.new({
   dashboards: [
     DatadogAPIClient::V2::DashboardListItemRequest.new({
       id: SCREENBOARD_DASHBOARD_ID,

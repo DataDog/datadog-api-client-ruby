@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
     # Delete dashboards from an existing dashboard list.
     #
     # @param dashboard_list_id [Integer] ID of the dashboard list to delete items from.
-    # @param body [DashboardListDeleteItemsRequest] Dashboards to delete from the dashboard list.
+    # @param body [DashboardListRemoveItemsRequest] Dashboards to delete from the dashboard list.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListDeleteItemsResponse, Integer, Hash)>] DashboardListDeleteItemsResponse data, response status code and response headers
     def delete_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
