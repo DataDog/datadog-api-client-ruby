@@ -17,19 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines how to map log fields to enrichment table columns during lookups.
-  class ObservabilityPipelineEnrichmentTableFileKeyItems
+  # Evaluates a VRL expression to produce the lookup key.
+  class ObservabilityPipelineEnrichmentTableFieldVrlLookup
     include BaseGenericModel
 
-    # The `items` `column`.
-    attr_reader :column
-
-    # Defines how to compare key fields for enrichment table lookups.
-    attr_reader :comparison
-
-    # Specifies the source of the key value used for enrichment table lookups.
-    # Can be a plain field path string or an object specifying `event`, `vrl`, or `secret`.
-    attr_reader :field
+    # A VRL expression that returns the value to use as the lookup key.
+    attr_reader :vrl
 
     attr_accessor :additional_properties
 
@@ -37,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'column' => :'column',
-        :'comparison' => :'comparison',
-        :'field' => :'field'
+        :'vrl' => :'vrl'
       }
     end
 
@@ -47,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'column' => :'String',
-        :'comparison' => :'ObservabilityPipelineEnrichmentTableFileKeyItemsComparison',
-        :'field' => :'ObservabilityPipelineEnrichmentTableFileKeyItemField'
+        :'vrl' => :'String'
       }
     end
 
@@ -58,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineEnrichmentTableFileKeyItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineEnrichmentTableFieldVrlLookup` initialize method"
       end
 
       self.additional_properties = {}
@@ -71,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'column')
-        self.column = attributes[:'column']
-      end
-
-      if attributes.key?(:'comparison')
-        self.comparison = attributes[:'comparison']
-      end
-
-      if attributes.key?(:'field')
-        self.field = attributes[:'field']
+      if attributes.key?(:'vrl')
+        self.vrl = attributes[:'vrl']
       end
     end
 
@@ -88,40 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @column.nil?
-      return false if @comparison.nil?
-      return false if @field.nil?
+      return false if @vrl.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param column [Object] Object to be assigned
+    # @param vrl [Object] Object to be assigned
     # @!visibility private
-    def column=(column)
-      if column.nil?
-        fail ArgumentError, 'invalid value for "column", column cannot be nil.'
+    def vrl=(vrl)
+      if vrl.nil?
+        fail ArgumentError, 'invalid value for "vrl", vrl cannot be nil.'
       end
-      @column = column
-    end
-
-    # Custom attribute writer method with validation
-    # @param comparison [Object] Object to be assigned
-    # @!visibility private
-    def comparison=(comparison)
-      if comparison.nil?
-        fail ArgumentError, 'invalid value for "comparison", comparison cannot be nil.'
-      end
-      @comparison = comparison
-    end
-
-    # Custom attribute writer method with validation
-    # @param field [Object] Object to be assigned
-    # @!visibility private
-    def field=(field)
-      if field.nil?
-        fail ArgumentError, 'invalid value for "field", field cannot be nil.'
-      end
-      @field = field
+      @vrl = vrl
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -150,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          column == o.column &&
-          comparison == o.comparison &&
-          field == o.field &&
+          vrl == o.vrl &&
           additional_properties == o.additional_properties
     end
 
@@ -160,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [column, comparison, field, additional_properties].hash
+      [vrl, additional_properties].hash
     end
   end
 end

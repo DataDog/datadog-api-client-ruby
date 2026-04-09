@@ -29,6 +29,10 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
+    # When `true`, the Splunk HEC token from the incoming request is stored in the event metadata.
+    # This allows downstream components to forward the token to other Splunk HEC destinations.
+    attr_accessor :store_hec_token
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
       {
         :'address_key' => :'address_key',
         :'id' => :'id',
+        :'store_hec_token' => :'store_hec_token',
         :'tls' => :'tls',
         :'type' => :'type'
       }
@@ -54,6 +59,7 @@ module DatadogAPIClient::V2
       {
         :'address_key' => :'String',
         :'id' => :'String',
+        :'store_hec_token' => :'Boolean',
         :'tls' => :'ObservabilityPipelineTls',
         :'type' => :'ObservabilityPipelineSplunkHecSourceType'
       }
@@ -83,6 +89,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'store_hec_token')
+        self.store_hec_token = attributes[:'store_hec_token']
       end
 
       if attributes.key?(:'tls')
@@ -151,6 +161,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           address_key == o.address_key &&
           id == o.id &&
+          store_hec_token == o.store_hec_token &&
           tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -160,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, id, tls, type, additional_properties].hash
+      [address_key, id, store_hec_token, tls, type, additional_properties].hash
     end
   end
 end
