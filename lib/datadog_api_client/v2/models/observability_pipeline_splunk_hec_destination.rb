@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Name of the environment variable or secret that holds the Splunk HEC token.
     attr_accessor :token_key
 
+    # Controls how the Splunk HEC token is supplied. Use `custom` to provide a token with `token_key`, or `from_source` to forward the token received from an upstream Splunk HEC source.
+    attr_accessor :token_strategy
+
     # The destination type. Always `splunk_hec`.
     attr_reader :type
 
@@ -73,6 +76,7 @@ module DatadogAPIClient::V2
         :'inputs' => :'inputs',
         :'sourcetype' => :'sourcetype',
         :'token_key' => :'token_key',
+        :'token_strategy' => :'token_strategy',
         :'type' => :'type'
       }
     end
@@ -91,6 +95,7 @@ module DatadogAPIClient::V2
         :'inputs' => :'Array<String>',
         :'sourcetype' => :'String',
         :'token_key' => :'String',
+        :'token_strategy' => :'ObservabilityPipelineSplunkHecDestinationTokenStrategy',
         :'type' => :'ObservabilityPipelineSplunkHecDestinationType'
       }
     end
@@ -155,6 +160,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'token_key')
         self.token_key = attributes[:'token_key']
+      end
+
+      if attributes.key?(:'token_strategy')
+        self.token_strategy = attributes[:'token_strategy']
       end
 
       if attributes.key?(:'type')
@@ -238,6 +247,7 @@ module DatadogAPIClient::V2
           inputs == o.inputs &&
           sourcetype == o.sourcetype &&
           token_key == o.token_key &&
+          token_strategy == o.token_strategy &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -246,7 +256,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_extract_timestamp, buffer, encoding, endpoint_url_key, id, index, indexed_fields, inputs, sourcetype, token_key, type, additional_properties].hash
+      [auto_extract_timestamp, buffer, encoding, endpoint_url_key, id, index, indexed_fields, inputs, sourcetype, token_key, token_strategy, type, additional_properties].hash
     end
   end
 end
