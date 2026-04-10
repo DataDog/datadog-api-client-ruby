@@ -1408,6 +1408,12 @@ ScenariosModelMappings = {
     "v2.SearchCIAppPipelineEvents" => {
             "body" => "CIAppPipelineEventsRequest",
     },
+    "v2.UpdateFlakyTestsManagementPolicies" => {
+            "body" => "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
+    },
+    "v2.GetFlakyTestsManagementPolicies" => {
+            "body" => "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
+    },
     "v2.DeleteTestOptimizationServiceSettings" => {
             "body" => "TestOptimizationDeleteServiceSettingsRequest",
     },
