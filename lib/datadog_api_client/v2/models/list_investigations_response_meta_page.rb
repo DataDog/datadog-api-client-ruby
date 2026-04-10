@@ -17,19 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Automatic disable triggering rule based on a time window and test status.
-  class TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule
+  # Pagination metadata.
+  class ListInvestigationsResponseMetaPage
     include BaseGenericModel
 
-    # Whether this auto-disable rule is enabled.
-    attr_accessor :enabled
+    # Maximum number of results per page.
+    attr_reader :limit
 
-    # Test status that the disable policy applies to.
-    # Must be either `active` or `quarantined`.
-    attr_accessor :status
+    # Offset of the current page.
+    attr_reader :offset
 
-    # Time window in seconds over which flakiness is evaluated. Must be greater than 0.
-    attr_accessor :window_seconds
+    # Total number of investigations.
+    attr_reader :total
 
     attr_accessor :additional_properties
 
@@ -37,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'enabled' => :'enabled',
-        :'status' => :'status',
-        :'window_seconds' => :'window_seconds'
+        :'limit' => :'limit',
+        :'offset' => :'offset',
+        :'total' => :'total'
       }
     end
 
@@ -47,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'enabled' => :'Boolean',
-        :'status' => :'TestOptimizationFlakyTestsManagementPoliciesDisabledStatus',
-        :'window_seconds' => :'Integer'
+        :'limit' => :'Integer',
+        :'offset' => :'Integer',
+        :'total' => :'Integer'
       }
     end
 
@@ -58,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListInvestigationsResponseMetaPage` initialize method"
       end
 
       self.additional_properties = {}
@@ -71,17 +70,57 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
       end
 
-      if attributes.key?(:'window_seconds')
-        self.window_seconds = attributes[:'window_seconds']
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @limit.nil?
+      return false if @offset.nil?
+      return false if @total.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param limit [Object] Object to be assigned
+    # @!visibility private
+    def limit=(limit)
+      if limit.nil?
+        fail ArgumentError, 'invalid value for "limit", limit cannot be nil.'
+      end
+      @limit = limit
+    end
+
+    # Custom attribute writer method with validation
+    # @param offset [Object] Object to be assigned
+    # @!visibility private
+    def offset=(offset)
+      if offset.nil?
+        fail ArgumentError, 'invalid value for "offset", offset cannot be nil.'
+      end
+      @offset = offset
+    end
+
+    # Custom attribute writer method with validation
+    # @param total [Object] Object to be assigned
+    # @!visibility private
+    def total=(total)
+      if total.nil?
+        fail ArgumentError, 'invalid value for "total", total cannot be nil.'
+      end
+      @total = total
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -110,9 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          enabled == o.enabled &&
-          status == o.status &&
-          window_seconds == o.window_seconds &&
+          limit == o.limit &&
+          offset == o.offset &&
+          total == o.total &&
           additional_properties == o.additional_properties
     end
 
@@ -120,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, status, window_seconds, additional_properties].hash
+      [limit, offset, total, additional_properties].hash
     end
   end
 end

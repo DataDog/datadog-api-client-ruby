@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Automatic quarantine triggering rule based on a time window.
-  class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule
+  # Metadata for the list investigations response.
+  class ListInvestigationsResponseMeta
     include BaseGenericModel
 
-    # Whether this auto-quarantine rule is enabled.
-    attr_accessor :enabled
-
-    # Time window in seconds over which flakiness is evaluated. Must be greater than 0.
-    attr_accessor :window_seconds
+    # Pagination metadata.
+    attr_reader :page
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'enabled' => :'enabled',
-        :'window_seconds' => :'window_seconds'
+        :'page' => :'page'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'enabled' => :'Boolean',
-        :'window_seconds' => :'Integer'
+        :'page' => :'ListInvestigationsResponseMetaPage'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListInvestigationsResponseMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
+    end
 
-      if attributes.key?(:'window_seconds')
-        self.window_seconds = attributes[:'window_seconds']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @page.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param page [Object] Object to be assigned
+    # @!visibility private
+    def page=(page)
+      if page.nil?
+        fail ArgumentError, 'invalid value for "page", page cannot be nil.'
       end
+      @page = page
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          enabled == o.enabled &&
-          window_seconds == o.window_seconds &&
+          page == o.page &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, window_seconds, additional_properties].hash
+      [page, additional_properties].hash
     end
   end
 end

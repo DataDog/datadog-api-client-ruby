@@ -17,22 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating Flaky Tests Management policies.
-  # Only provided policy blocks are updated; omitted blocks are left unchanged.
-  class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes
+  # Attributes for a monitor alert trigger.
+  class MonitorAlertTriggerAttributes
     include BaseGenericModel
 
-    # Configuration for the attempt-to-fix Flaky Tests Management policy.
-    attr_accessor :attempt_to_fix
+    # The event ID associated with the monitor alert.
+    attr_reader :event_id
 
-    # Configuration for the disabled Flaky Tests Management policy.
-    attr_accessor :disabled
+    # The timestamp of the event in Unix milliseconds.
+    attr_reader :event_ts
 
-    # Configuration for the quarantined Flaky Tests Management policy.
-    attr_accessor :quarantined
-
-    # The repository identifier.
-    attr_reader :repository_id
+    # The monitor ID that triggered the alert.
+    attr_reader :monitor_id
 
     attr_accessor :additional_properties
 
@@ -40,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attempt_to_fix' => :'attempt_to_fix',
-        :'disabled' => :'disabled',
-        :'quarantined' => :'quarantined',
-        :'repository_id' => :'repository_id'
+        :'event_id' => :'event_id',
+        :'event_ts' => :'event_ts',
+        :'monitor_id' => :'monitor_id'
       }
     end
 
@@ -51,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attempt_to_fix' => :'TestOptimizationFlakyTestsManagementPoliciesAttemptToFix',
-        :'disabled' => :'TestOptimizationFlakyTestsManagementPoliciesDisabled',
-        :'quarantined' => :'TestOptimizationFlakyTestsManagementPoliciesQuarantined',
-        :'repository_id' => :'String'
+        :'event_id' => :'String',
+        :'event_ts' => :'Integer',
+        :'monitor_id' => :'Integer'
       }
     end
 
@@ -63,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorAlertTriggerAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -76,20 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attempt_to_fix')
-        self.attempt_to_fix = attributes[:'attempt_to_fix']
+      if attributes.key?(:'event_id')
+        self.event_id = attributes[:'event_id']
       end
 
-      if attributes.key?(:'disabled')
-        self.disabled = attributes[:'disabled']
+      if attributes.key?(:'event_ts')
+        self.event_ts = attributes[:'event_ts']
       end
 
-      if attributes.key?(:'quarantined')
-        self.quarantined = attributes[:'quarantined']
-      end
-
-      if attributes.key?(:'repository_id')
-        self.repository_id = attributes[:'repository_id']
+      if attributes.key?(:'monitor_id')
+        self.monitor_id = attributes[:'monitor_id']
       end
     end
 
@@ -97,22 +87,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @repository_id.nil?
-      return false if @repository_id.to_s.length < 1
+      return false if @event_id.nil?
+      return false if @event_ts.nil?
+      return false if @monitor_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param repository_id [Object] Object to be assigned
+    # @param event_id [Object] Object to be assigned
     # @!visibility private
-    def repository_id=(repository_id)
-      if repository_id.nil?
-        fail ArgumentError, 'invalid value for "repository_id", repository_id cannot be nil.'
+    def event_id=(event_id)
+      if event_id.nil?
+        fail ArgumentError, 'invalid value for "event_id", event_id cannot be nil.'
       end
-      if repository_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "repository_id", the character length must be great than or equal to 1.'
+      @event_id = event_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param event_ts [Object] Object to be assigned
+    # @!visibility private
+    def event_ts=(event_ts)
+      if event_ts.nil?
+        fail ArgumentError, 'invalid value for "event_ts", event_ts cannot be nil.'
       end
-      @repository_id = repository_id
+      @event_ts = event_ts
+    end
+
+    # Custom attribute writer method with validation
+    # @param monitor_id [Object] Object to be assigned
+    # @!visibility private
+    def monitor_id=(monitor_id)
+      if monitor_id.nil?
+        fail ArgumentError, 'invalid value for "monitor_id", monitor_id cannot be nil.'
+      end
+      @monitor_id = monitor_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -141,10 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attempt_to_fix == o.attempt_to_fix &&
-          disabled == o.disabled &&
-          quarantined == o.quarantined &&
-          repository_id == o.repository_id &&
+          event_id == o.event_id &&
+          event_ts == o.event_ts &&
+          monitor_id == o.monitor_id &&
           additional_properties == o.additional_properties
     end
 
@@ -152,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attempt_to_fix, disabled, quarantined, repository_id, additional_properties].hash
+      [event_id, event_ts, monitor_id, additional_properties].hash
     end
   end
 end

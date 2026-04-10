@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of the Flaky Tests Management policies for a repository.
-  class TestOptimizationFlakyTestsManagementPoliciesAttributes
+  # Attributes of an investigation list item.
+  class ListInvestigationsResponseDataAttributes
     include BaseGenericModel
 
-    # Configuration for the attempt-to-fix Flaky Tests Management policy.
-    attr_accessor :attempt_to_fix
+    # The current status of the investigation.
+    attr_reader :status
 
-    # Configuration for the disabled Flaky Tests Management policy.
-    attr_accessor :disabled
-
-    # Configuration for the quarantined Flaky Tests Management policy.
-    attr_accessor :quarantined
-
-    # The repository identifier.
-    attr_accessor :repository_id
+    # The title of the investigation.
+    attr_reader :title
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attempt_to_fix' => :'attempt_to_fix',
-        :'disabled' => :'disabled',
-        :'quarantined' => :'quarantined',
-        :'repository_id' => :'repository_id'
+        :'status' => :'status',
+        :'title' => :'title'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attempt_to_fix' => :'TestOptimizationFlakyTestsManagementPoliciesAttemptToFix',
-        :'disabled' => :'TestOptimizationFlakyTestsManagementPoliciesDisabled',
-        :'quarantined' => :'TestOptimizationFlakyTestsManagementPoliciesQuarantined',
-        :'repository_id' => :'String'
+        :'status' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListInvestigationsResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,21 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attempt_to_fix')
-        self.attempt_to_fix = attributes[:'attempt_to_fix']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'disabled')
-        self.disabled = attributes[:'disabled']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
+    end
 
-      if attributes.key?(:'quarantined')
-        self.quarantined = attributes[:'quarantined']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @status.nil?
+      return false if @title.nil?
+      true
+    end
 
-      if attributes.key?(:'repository_id')
-        self.repository_id = attributes[:'repository_id']
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    # @!visibility private
+    def status=(status)
+      if status.nil?
+        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
       end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    # @!visibility private
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,10 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attempt_to_fix == o.attempt_to_fix &&
-          disabled == o.disabled &&
-          quarantined == o.quarantined &&
-          repository_id == o.repository_id &&
+          status == o.status &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attempt_to_fix, disabled, quarantined, repository_id, additional_properties].hash
+      [status, title, additional_properties].hash
     end
   end
 end

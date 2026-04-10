@@ -17,16 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for get Flaky Tests Management policies request.
-  class TestOptimizationFlakyTestsManagementPoliciesGetRequestData
+  # Attributes for the trigger investigation response.
+  class TriggerInvestigationResponseDataAttributes
     include BaseGenericModel
 
-    # Attributes for requesting Flaky Tests Management policies.
-    attr_reader :attributes
-
-    # JSON:API type for get Flaky Tests Management policies request.
-    # The value must always be `test_optimization_get_flaky_tests_management_policies_request`.
-    attr_reader :type
+    # The ID of the investigation that was created.
+    attr_reader :investigation_id
 
     attr_accessor :additional_properties
 
@@ -34,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'type' => :'type'
+        :'investigation_id' => :'investigation_id'
       }
     end
 
@@ -43,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes',
-        :'type' => :'TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType'
+        :'investigation_id' => :'String'
       }
     end
 
@@ -53,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesGetRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerInvestigationResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -66,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'investigation_id')
+        self.investigation_id = attributes[:'investigation_id']
       end
     end
 
@@ -79,29 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if @investigation_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param investigation_id [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def investigation_id=(investigation_id)
+      if investigation_id.nil?
+        fail ArgumentError, 'invalid value for "investigation_id", investigation_id cannot be nil.'
       end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @investigation_id = investigation_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -130,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          type == o.type &&
+          investigation_id == o.investigation_id &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [investigation_id, additional_properties].hash
     end
   end
 end

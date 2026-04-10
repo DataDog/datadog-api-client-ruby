@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for the quarantined Flaky Tests Management policy.
-  class TestOptimizationFlakyTestsManagementPoliciesQuarantined
+  # Data for an investigation list item.
+  class ListInvestigationsResponseData
     include BaseGenericModel
 
-    # Automatic quarantine triggering rule based on a time window.
-    attr_accessor :auto_quarantine_rule
+    # Attributes of an investigation list item.
+    attr_reader :attributes
 
-    # Branch filtering rule for a Flaky Tests Management policy.
-    attr_accessor :branch_rule
+    # The unique identifier of the investigation.
+    attr_reader :id
 
-    # Whether the quarantined policy is enabled.
-    attr_accessor :enabled
-
-    # Failure-rate-based rule for the quarantined policy.
-    attr_accessor :failure_rate_rule
+    # The resource type for investigations.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'auto_quarantine_rule' => :'auto_quarantine_rule',
-        :'branch_rule' => :'branch_rule',
-        :'enabled' => :'enabled',
-        :'failure_rate_rule' => :'failure_rate_rule'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'auto_quarantine_rule' => :'TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule',
-        :'branch_rule' => :'TestOptimizationFlakyTestsManagementPoliciesBranchRule',
-        :'enabled' => :'Boolean',
-        :'failure_rate_rule' => :'TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule'
+        :'attributes' => :'ListInvestigationsResponseDataAttributes',
+        :'id' => :'String',
+        :'type' => :'InvestigationType'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesQuarantined` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListInvestigationsResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,21 +70,57 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'auto_quarantine_rule')
-        self.auto_quarantine_rule = attributes[:'auto_quarantine_rule']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'branch_rule')
-        self.branch_rule = attributes[:'branch_rule']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
 
-      if attributes.key?(:'failure_rate_rule')
-        self.failure_rate_rule = attributes[:'failure_rate_rule']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,10 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          auto_quarantine_rule == o.auto_quarantine_rule &&
-          branch_rule == o.branch_rule &&
-          enabled == o.enabled &&
-          failure_rate_rule == o.failure_rate_rule &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_quarantine_rule, branch_rule, enabled, failure_rate_rule, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

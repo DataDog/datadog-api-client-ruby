@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Failure-rate-based rule for the quarantined policy.
-  class TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule
+  # Attributes of the investigation.
+  class GetInvestigationResponseDataAttributes
     include BaseGenericModel
 
-    # List of branches to which this rule applies.
-    attr_accessor :branches
+    # The conclusions drawn from the investigation.
+    attr_reader :conclusions
 
-    # Whether this failure rate rule is enabled.
-    attr_accessor :enabled
+    # The current status of the investigation.
+    attr_reader :status
 
-    # Minimum number of runs required before the rule is evaluated. Must be greater than or equal to 0.
-    attr_accessor :min_runs
-
-    # Failure rate threshold (0.0–1.0) above which the rule triggers.
-    attr_accessor :threshold
+    # The title of the investigation.
+    attr_reader :title
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'branches' => :'branches',
-        :'enabled' => :'enabled',
-        :'min_runs' => :'min_runs',
-        :'threshold' => :'threshold'
+        :'conclusions' => :'conclusions',
+        :'status' => :'status',
+        :'title' => :'title'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'branches' => :'Array<String>',
-        :'enabled' => :'Boolean',
-        :'min_runs' => :'Integer',
-        :'threshold' => :'Float'
+        :'conclusions' => :'Array<InvestigationConclusion>',
+        :'status' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetInvestigationResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,23 +70,59 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'branches')
-        if (value = attributes[:'branches']).is_a?(Array)
-          self.branches = value
+      if attributes.key?(:'conclusions')
+        if (value = attributes[:'conclusions']).is_a?(Array)
+          self.conclusions = value
         end
       end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'min_runs')
-        self.min_runs = attributes[:'min_runs']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
+    end
 
-      if attributes.key?(:'threshold')
-        self.threshold = attributes[:'threshold']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @conclusions.nil?
+      return false if @status.nil?
+      return false if @title.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param conclusions [Object] Object to be assigned
+    # @!visibility private
+    def conclusions=(conclusions)
+      if conclusions.nil?
+        fail ArgumentError, 'invalid value for "conclusions", conclusions cannot be nil.'
       end
+      @conclusions = conclusions
+    end
+
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    # @!visibility private
+    def status=(status)
+      if status.nil?
+        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    # @!visibility private
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,10 +151,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          branches == o.branches &&
-          enabled == o.enabled &&
-          min_runs == o.min_runs &&
-          threshold == o.threshold &&
+          conclusions == o.conclusions &&
+          status == o.status &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [branches, enabled, min_runs, threshold, additional_properties].hash
+      [conclusions, status, title, additional_properties].hash
     end
   end
 end

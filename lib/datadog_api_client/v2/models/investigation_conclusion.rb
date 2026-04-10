@@ -17,19 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for Flaky Tests Management policies response.
-  class TestOptimizationFlakyTestsManagementPoliciesData
+  # A full explanation of the finding, including root cause analysis and supporting evidence.
+  class InvestigationConclusion
     include BaseGenericModel
 
-    # Attributes of the Flaky Tests Management policies for a repository.
-    attr_accessor :attributes
+    # A full explanation of the finding, including root cause analysis and supporting evidence.
+    attr_reader :description
 
-    # The repository identifier used as the resource ID.
-    attr_accessor :id
+    # A summary of the finding, including affected components and timeframe.
+    attr_reader :summary
 
-    # JSON:API type for Flaky Tests Management policies response.
-    # The value must always be `test_optimization_flaky_tests_management_policies`.
-    attr_accessor :type
+    # The title of the conclusion.
+    attr_reader :title
 
     attr_accessor :additional_properties
 
@@ -37,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'description' => :'description',
+        :'summary' => :'summary',
+        :'title' => :'title'
       }
     end
 
@@ -47,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'TestOptimizationFlakyTestsManagementPoliciesAttributes',
-        :'id' => :'String',
-        :'type' => :'TestOptimizationFlakyTestsManagementPoliciesType'
+        :'description' => :'String',
+        :'summary' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -58,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::InvestigationConclusion` initialize method"
       end
 
       self.additional_properties = {}
@@ -71,17 +70,57 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @description.nil?
+      return false if @summary.nil?
+      return false if @title.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param description [Object] Object to be assigned
+    # @!visibility private
+    def description=(description)
+      if description.nil?
+        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
+      end
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param summary [Object] Object to be assigned
+    # @!visibility private
+    def summary=(summary)
+      if summary.nil?
+        fail ArgumentError, 'invalid value for "summary", summary cannot be nil.'
+      end
+      @summary = summary
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    # @!visibility private
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -110,9 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          description == o.description &&
+          summary == o.summary &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -120,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [description, summary, title, additional_properties].hash
     end
   end
 end

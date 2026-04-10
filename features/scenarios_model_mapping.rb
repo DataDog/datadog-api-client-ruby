@@ -1178,6 +1178,17 @@ ScenariosModelMappings = {
             "authn_mapping_id" => "String",
             "body" => "AuthNMappingUpdateRequest",
     },
+    "v2.ListInvestigations" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "filter_monitor_id" => "Integer",
+    },
+    "v2.TriggerInvestigation" => {
+            "body" => "TriggerInvestigationRequest",
+    },
+    "v2.GetInvestigation" => {
+            "id" => "String",
+    },
     "v2.SearchCases" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -1396,12 +1407,6 @@ ScenariosModelMappings = {
     },
     "v2.SearchCIAppPipelineEvents" => {
             "body" => "CIAppPipelineEventsRequest",
-    },
-    "v2.UpdateFlakyTestsManagementPolicies" => {
-            "body" => "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
-    },
-    "v2.GetFlakyTestsManagementPolicies" => {
-            "body" => "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
     },
     "v2.DeleteTestOptimizationServiceSettings" => {
             "body" => "TestOptimizationDeleteServiceSettingsRequest",

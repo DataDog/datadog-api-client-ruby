@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Test status that the disable policy applies to.
-  # Must be either `active` or `quarantined`.
-  class TestOptimizationFlakyTestsManagementPoliciesDisabledStatus
+  # The resource type for investigations.
+  class InvestigationType
     include BaseEnumModel
 
-    ACTIVE = "active".freeze
-    QUARANTINED = "quarantined".freeze
+    INVESTIGATION = "investigation".freeze
   end
 end

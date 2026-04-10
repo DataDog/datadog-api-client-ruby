@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API type for Flaky Tests Management policies response.
-  # The value must always be `test_optimization_flaky_tests_management_policies`.
-  class TestOptimizationFlakyTestsManagementPoliciesType
+  # The resource type for trigger investigation requests.
+  class TriggerInvestigationRequestType
     include BaseEnumModel
 
-    TEST_OPTIMIZATION_FLAKY_TESTS_MANAGEMENT_POLICIES = "test_optimization_flaky_tests_management_policies".freeze
+    TRIGGER_INVESTIGATION_REQUEST = "trigger_investigation_request".freeze
   end
 end

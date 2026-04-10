@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request object for getting Flaky Tests Management policies.
-  class TestOptimizationFlakyTestsManagementPoliciesGetRequest
+  # Response for listing investigations.
+  class ListInvestigationsResponse
     include BaseGenericModel
 
-    # Data object for get Flaky Tests Management policies request.
+    # List of investigations.
     attr_reader :data
+
+    # Pagination links for the list investigations response.
+    attr_reader :links
+
+    # Metadata for the list investigations response.
+    attr_reader :meta
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TestOptimizationFlakyTestsManagementPoliciesGetRequestData'
+        :'data' => :'Array<ListInvestigationsResponseData>',
+        :'links' => :'ListInvestigationsResponseLinks',
+        :'meta' => :'ListInvestigationsResponseMeta'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesGetRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListInvestigationsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,7 +71,17 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
+      end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -70,6 +90,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @data.nil?
+      return false if @links.nil?
+      return false if @meta.nil?
       true
     end
 
@@ -81,6 +103,26 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
       @data = data
+    end
+
+    # Custom attribute writer method with validation
+    # @param links [Object] Object to be assigned
+    # @!visibility private
+    def links=(links)
+      if links.nil?
+        fail ArgumentError, 'invalid value for "links", links cannot be nil.'
+      end
+      @links = links
+    end
+
+    # Custom attribute writer method with validation
+    # @param meta [Object] Object to be assigned
+    # @!visibility private
+    def meta=(meta)
+      if meta.nil?
+        fail ArgumentError, 'invalid value for "meta", meta cannot be nil.'
+      end
+      @meta = meta
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -110,6 +152,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          links == o.links &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [data, links, meta, additional_properties].hash
     end
   end
 end
