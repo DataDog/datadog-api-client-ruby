@@ -17,25 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Failure-rate-based rule for the disabled policy.
-  class TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule
+  # Data for the trigger investigation response.
+  class TriggerInvestigationResponseData
     include BaseGenericModel
 
-    # List of branches to which this rule applies.
-    attr_accessor :branches
+    # Attributes for the trigger investigation response.
+    attr_reader :attributes
 
-    # Whether this failure rate rule is enabled.
-    attr_accessor :enabled
+    # Unique identifier for the trigger response.
+    attr_reader :id
 
-    # Minimum number of runs required before the rule is evaluated. Must be greater than or equal to 0.
-    attr_accessor :min_runs
-
-    # Test status that the disable policy applies to.
-    # Must be either `active` or `quarantined`.
-    attr_accessor :status
-
-    # Failure rate threshold (0.0–1.0) above which the rule triggers.
-    attr_accessor :threshold
+    # The resource type for trigger investigation responses.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -43,11 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'branches' => :'branches',
-        :'enabled' => :'enabled',
-        :'min_runs' => :'min_runs',
-        :'status' => :'status',
-        :'threshold' => :'threshold'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -55,11 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'branches' => :'Array<String>',
-        :'enabled' => :'Boolean',
-        :'min_runs' => :'Integer',
-        :'status' => :'TestOptimizationFlakyTestsManagementPoliciesDisabledStatus',
-        :'threshold' => :'Float'
+        :'attributes' => :'TriggerInvestigationResponseDataAttributes',
+        :'id' => :'String',
+        :'type' => :'TriggerInvestigationResponseType'
       }
     end
 
@@ -68,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerInvestigationResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -81,27 +70,57 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'branches')
-        if (value = attributes[:'branches']).is_a?(Array)
-          self.branches = value
-        end
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'min_runs')
-        self.min_runs = attributes[:'min_runs']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @type.nil?
+      true
+    end
 
-      if attributes.key?(:'threshold')
-        self.threshold = attributes[:'threshold']
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -130,11 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          branches == o.branches &&
-          enabled == o.enabled &&
-          min_runs == o.min_runs &&
-          status == o.status &&
-          threshold == o.threshold &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -142,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [branches, enabled, min_runs, status, threshold, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

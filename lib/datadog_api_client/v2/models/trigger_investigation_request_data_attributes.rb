@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request object for updating Flaky Tests Management policies.
-  class TestOptimizationFlakyTestsManagementPoliciesUpdateRequest
+  # Attributes for the trigger investigation request.
+  class TriggerInvestigationRequestDataAttributes
     include BaseGenericModel
 
-    # Data object for update Flaky Tests Management policies request.
-    attr_reader :data
+    # The trigger definition for starting an investigation.
+    attr_reader :trigger
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'trigger' => :'trigger'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData'
+        :'trigger' => :'TriggerAttributes'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerInvestigationRequestDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'trigger')
+        self.trigger = attributes[:'trigger']
       end
     end
 
@@ -69,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @trigger.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param trigger [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def trigger=(trigger)
+      if trigger.nil?
+        fail ArgumentError, 'invalid value for "trigger", trigger cannot be nil.'
       end
-      @data = data
+      @trigger = trigger
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          trigger == o.trigger &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [trigger, additional_properties].hash
     end
   end
 end

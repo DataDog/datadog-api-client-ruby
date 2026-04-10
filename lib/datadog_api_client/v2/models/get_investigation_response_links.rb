@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for the disabled Flaky Tests Management policy.
-  class TestOptimizationFlakyTestsManagementPoliciesDisabled
+  # Links related to the investigation.
+  class GetInvestigationResponseLinks
     include BaseGenericModel
 
-    # Automatic disable triggering rule based on a time window and test status.
-    attr_accessor :auto_disable_rule
-
-    # Branch filtering rule for a Flaky Tests Management policy.
-    attr_accessor :branch_rule
-
-    # Whether the disabled policy is enabled.
-    attr_accessor :enabled
-
-    # Failure-rate-based rule for the disabled policy.
-    attr_accessor :failure_rate_rule
+    # The URL to the investigation in the Datadog app.
+    attr_reader :_self
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'auto_disable_rule' => :'auto_disable_rule',
-        :'branch_rule' => :'branch_rule',
-        :'enabled' => :'enabled',
-        :'failure_rate_rule' => :'failure_rate_rule'
+        :'_self' => :'self'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'auto_disable_rule' => :'TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule',
-        :'branch_rule' => :'TestOptimizationFlakyTestsManagementPoliciesBranchRule',
-        :'enabled' => :'Boolean',
-        :'failure_rate_rule' => :'TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule'
+        :'_self' => :'String'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesDisabled` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetInvestigationResponseLinks` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,21 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'auto_disable_rule')
-        self.auto_disable_rule = attributes[:'auto_disable_rule']
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
+    end
 
-      if attributes.key?(:'branch_rule')
-        self.branch_rule = attributes[:'branch_rule']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @_self.nil?
+      true
+    end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+    # Custom attribute writer method with validation
+    # @param _self [Object] Object to be assigned
+    # @!visibility private
+    def _self=(_self)
+      if _self.nil?
+        fail ArgumentError, 'invalid value for "_self", _self cannot be nil.'
       end
-
-      if attributes.key?(:'failure_rate_rule')
-        self.failure_rate_rule = attributes[:'failure_rate_rule']
-      end
+      @_self = _self
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,10 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          auto_disable_rule == o.auto_disable_rule &&
-          branch_rule == o.branch_rule &&
-          enabled == o.enabled &&
-          failure_rate_rule == o.failure_rate_rule &&
+          _self == o._self &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_disable_rule, branch_rule, enabled, failure_rate_rule, additional_properties].hash
+      [_self, additional_properties].hash
     end
   end
 end

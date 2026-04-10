@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Branch filtering rule for a Flaky Tests Management policy.
-  class TestOptimizationFlakyTestsManagementPoliciesBranchRule
+  # Request to trigger a new investigation.
+  class TriggerInvestigationRequest
     include BaseGenericModel
 
-    # List of branches to which the policy applies.
-    attr_accessor :branches
-
-    # Whether this branch rule is enabled.
-    attr_accessor :enabled
-
-    # List of branches excluded from the policy.
-    attr_accessor :excluded_branches
-
-    # List of test services excluded from the policy.
-    attr_accessor :excluded_test_services
+    # Data for the trigger investigation request.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'branches' => :'branches',
-        :'enabled' => :'enabled',
-        :'excluded_branches' => :'excluded_branches',
-        :'excluded_test_services' => :'excluded_test_services'
+        :'data' => :'data'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'branches' => :'Array<String>',
-        :'enabled' => :'Boolean',
-        :'excluded_branches' => :'Array<String>',
-        :'excluded_test_services' => :'Array<String>'
+        :'data' => :'TriggerInvestigationRequestData'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesBranchRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerInvestigationRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,27 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'branches')
-        if (value = attributes[:'branches']).is_a?(Array)
-          self.branches = value
-        end
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
+    end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
 
-      if attributes.key?(:'excluded_branches')
-        if (value = attributes[:'excluded_branches']).is_a?(Array)
-          self.excluded_branches = value
-        end
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-
-      if attributes.key?(:'excluded_test_services')
-        if (value = attributes[:'excluded_test_services']).is_a?(Array)
-          self.excluded_test_services = value
-        end
-      end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -124,10 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          branches == o.branches &&
-          enabled == o.enabled &&
-          excluded_branches == o.excluded_branches &&
-          excluded_test_services == o.excluded_test_services &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -135,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [branches, enabled, excluded_branches, excluded_test_services, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

@@ -17,17 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for update Flaky Tests Management policies request.
-  class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData
+  # Pagination links for the list investigations response.
+  class ListInvestigationsResponseLinks
     include BaseGenericModel
 
-    # Attributes for updating Flaky Tests Management policies.
-    # Only provided policy blocks are updated; omitted blocks are left unchanged.
-    attr_reader :attributes
+    # Link to the first page.
+    attr_reader :first
 
-    # JSON:API type for update Flaky Tests Management policies request.
-    # The value must always be `test_optimization_update_flaky_tests_management_policies_request`.
-    attr_reader :type
+    # Link to the last page.
+    attr_accessor :last
+
+    # Link to the next page.
+    attr_reader :_next
+
+    # Link to the previous page.
+    attr_accessor :prev
+
+    # Link to the current page.
+    attr_reader :_self
 
     attr_accessor :additional_properties
 
@@ -35,8 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'type' => :'type'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'prev' => :'prev',
+        :'_self' => :'self'
       }
     end
 
@@ -44,9 +54,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes',
-        :'type' => :'TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'prev' => :'String',
+        :'_self' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'last',
+        :'prev',
+      ])
     end
 
     # Initializes the object
@@ -54,7 +76,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListInvestigationsResponseLinks` initialize method"
       end
 
       self.additional_properties = {}
@@ -67,12 +89,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
+      end
+
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
+      end
+
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
+      end
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -80,29 +114,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if @first.nil?
+      return false if @_next.nil?
+      return false if @_self.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param first [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def first=(first)
+      if first.nil?
+        fail ArgumentError, 'invalid value for "first", first cannot be nil.'
       end
-      @attributes = attributes
+      @first = first
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param _next [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def _next=(_next)
+      if _next.nil?
+        fail ArgumentError, 'invalid value for "_next", _next cannot be nil.'
       end
-      @type = type
+      @_next = _next
+    end
+
+    # Custom attribute writer method with validation
+    # @param _self [Object] Object to be assigned
+    # @!visibility private
+    def _self=(_self)
+      if _self.nil?
+        fail ArgumentError, 'invalid value for "_self", _self cannot be nil.'
+      end
+      @_self = _self
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -131,8 +176,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          type == o.type &&
+          first == o.first &&
+          last == o.last &&
+          _next == o._next &&
+          prev == o.prev &&
+          _self == o._self &&
           additional_properties == o.additional_properties
     end
 
@@ -140,7 +188,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [first, last, _next, prev, _self, additional_properties].hash
     end
   end
 end

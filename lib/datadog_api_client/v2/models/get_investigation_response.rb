@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for requesting Flaky Tests Management policies.
-  class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes
+  # Response for a single Bits AI investigation.
+  class GetInvestigationResponse
     include BaseGenericModel
 
-    # The repository identifier.
-    attr_reader :repository_id
+    # Data for the get investigation response.
+    attr_reader :data
+
+    # Links related to the investigation.
+    attr_reader :links
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'repository_id' => :'repository_id'
+        :'data' => :'data',
+        :'links' => :'links'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'repository_id' => :'String'
+        :'data' => :'GetInvestigationResponseData',
+        :'links' => :'GetInvestigationResponseLinks'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetInvestigationResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'repository_id')
-        self.repository_id = attributes[:'repository_id']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
       end
     end
 
@@ -69,22 +78,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @repository_id.nil?
-      return false if @repository_id.to_s.length < 1
+      return false if @data.nil?
+      return false if @links.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param repository_id [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def repository_id=(repository_id)
-      if repository_id.nil?
-        fail ArgumentError, 'invalid value for "repository_id", repository_id cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      if repository_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "repository_id", the character length must be great than or equal to 1.'
+      @data = data
+    end
+
+    # Custom attribute writer method with validation
+    # @param links [Object] Object to be assigned
+    # @!visibility private
+    def links=(links)
+      if links.nil?
+        fail ArgumentError, 'invalid value for "links", links cannot be nil.'
       end
-      @repository_id = repository_id
+      @links = links
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -113,7 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          repository_id == o.repository_id &&
+          data == o.data &&
+          links == o.links &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [repository_id, additional_properties].hash
+      [data, links, additional_properties].hash
     end
   end
 end

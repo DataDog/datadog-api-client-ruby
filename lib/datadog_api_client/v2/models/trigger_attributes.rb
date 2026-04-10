@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for the attempt-to-fix Flaky Tests Management policy.
-  class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix
+  # The trigger definition for starting an investigation.
+  class TriggerAttributes
     include BaseGenericModel
 
-    # Number of retries when attempting to fix a flaky test. Must be greater than 0.
-    attr_accessor :retries
+    # Attributes for a monitor alert trigger.
+    attr_reader :monitor_alert_trigger
+
+    # The type of trigger for the investigation.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'retries' => :'retries'
+        :'monitor_alert_trigger' => :'monitor_alert_trigger',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'retries' => :'Integer'
+        :'monitor_alert_trigger' => :'MonitorAlertTriggerAttributes',
+        :'type' => :'TriggerType'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TestOptimizationFlakyTestsManagementPoliciesAttemptToFix` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'retries')
-        self.retries = attributes[:'retries']
+      if attributes.key?(:'monitor_alert_trigger')
+        self.monitor_alert_trigger = attributes[:'monitor_alert_trigger']
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @monitor_alert_trigger.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param monitor_alert_trigger [Object] Object to be assigned
+    # @!visibility private
+    def monitor_alert_trigger=(monitor_alert_trigger)
+      if monitor_alert_trigger.nil?
+        fail ArgumentError, 'invalid value for "monitor_alert_trigger", monitor_alert_trigger cannot be nil.'
+      end
+      @monitor_alert_trigger = monitor_alert_trigger
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          retries == o.retries &&
+          monitor_alert_trigger == o.monitor_alert_trigger &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [retries, additional_properties].hash
+      [monitor_alert_trigger, type, additional_properties].hash
     end
   end
 end
