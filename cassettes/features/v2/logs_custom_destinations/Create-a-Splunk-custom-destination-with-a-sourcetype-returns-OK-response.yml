@@ -1,0 +1,46 @@
+http_interactions:
+- recorded_at: Wed, 25 Mar 2026 16:23:49 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":false,"forward_tags":false,"forwarder_destination":{"access_token":"my-access-token","endpoint":"https://example.com","sourcetype":"my-sourcetype","type":"splunk_hec"},"name":"Nginx
+        logs","query":"source:nginx"},"type":"custom_destination"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"429e154f-5cf5-41ce-ae15-4bc41563f46f","attributes":{"name":"Nginx
+        logs","query":"source:nginx","enabled":false,"forwarder_destination":{"endpoint":"https://example.com","type":"splunk_hec","sourcetype":"my-sourcetype"},"forward_tags_restriction_list_type":"ALLOW_LIST","forward_tags_restriction_list":[],"forward_tags":false},"type":"custom_destination"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 25 Mar 2026 16:23:49 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/429e154f-5cf5-41ce-ae15-4bc41563f46f
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
