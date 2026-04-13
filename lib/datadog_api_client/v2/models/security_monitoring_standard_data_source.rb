@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
+  # Source of events, either logs, audit trail, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
   class SecurityMonitoringStandardDataSource
     include BaseEnumModel
 
@@ -28,6 +28,5 @@ module DatadogAPIClient::V2
     SECURITY_RUNTIME = "security_runtime".freeze
     NETWORK = "network".freeze
     EVENTS = "events".freeze
-    SECURITY_SIGNALS = "security_signals".freeze
   end
 end
