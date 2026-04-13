@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
-    # Source of events, either logs, audit trail, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
+    # Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
     attr_accessor :data_source
 
     # Field for which the cardinality is measured. Sent as an array.
