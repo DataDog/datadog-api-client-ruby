@@ -17,20 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A Grok parsing rule used in the `parse_grok` processor. Each rule defines how to extract structured fields
-  # from a specific log field using Grok patterns.
-  class ObservabilityPipelineParseGrokProcessorRule
+  # A template variable that viewers can modify on the secure embed shared dashboard.
+  class SecureEmbedSelectableTemplateVariable
     include BaseGenericModel
 
-    # A list of Grok parsing rules that define how to extract fields from the source field.
-    # Each rule must contain a name and a valid Grok pattern.
-    attr_reader :match_rules
+    # Default selected values for the variable.
+    attr_accessor :default_values
 
-    # The name of the field in the log event to apply the Grok rules to.
-    attr_reader :source
+    # Name of the template variable. Usually matches the prefix unless you want a different display name.
+    attr_accessor :name
 
-    # A list of Grok helper rules that can be referenced by the parsing rules.
-    attr_accessor :support_rules
+    # Tag prefix for the variable (e.g., `environment`, `service`).
+    attr_accessor :prefix
+
+    # Restrict which tag values are visible to the viewer.
+    attr_accessor :visible_tags
 
     attr_accessor :additional_properties
 
@@ -38,9 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'match_rules' => :'match_rules',
-        :'source' => :'source',
-        :'support_rules' => :'support_rules'
+        :'default_values' => :'default_values',
+        :'name' => :'name',
+        :'prefix' => :'prefix',
+        :'visible_tags' => :'visible_tags'
       }
     end
 
@@ -48,9 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'match_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>',
-        :'source' => :'String',
-        :'support_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>'
+        :'default_values' => :'Array<String>',
+        :'name' => :'String',
+        :'prefix' => :'String',
+        :'visible_tags' => :'Array<String>'
       }
     end
 
@@ -59,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessorRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecureEmbedSelectableTemplateVariable` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,50 +75,25 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'match_rules')
-        if (value = attributes[:'match_rules']).is_a?(Array)
-          self.match_rules = value
+      if attributes.key?(:'default_values')
+        if (value = attributes[:'default_values']).is_a?(Array)
+          self.default_values = value
         end
       end
 
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'support_rules')
-        if (value = attributes[:'support_rules']).is_a?(Array)
-          self.support_rules = value
+      if attributes.key?(:'prefix')
+        self.prefix = attributes[:'prefix']
+      end
+
+      if attributes.key?(:'visible_tags')
+        if (value = attributes[:'visible_tags']).is_a?(Array)
+          self.visible_tags = value
         end
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @match_rules.nil?
-      return false if @source.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param match_rules [Object] Object to be assigned
-    # @!visibility private
-    def match_rules=(match_rules)
-      if match_rules.nil?
-        fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
-      end
-      @match_rules = match_rules
-    end
-
-    # Custom attribute writer method with validation
-    # @param source [Object] Object to be assigned
-    # @!visibility private
-    def source=(source)
-      if source.nil?
-        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
-      end
-      @source = source
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -144,9 +122,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          match_rules == o.match_rules &&
-          source == o.source &&
-          support_rules == o.support_rules &&
+          default_values == o.default_values &&
+          name == o.name &&
+          prefix == o.prefix &&
+          visible_tags == o.visible_tags &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [match_rules, source, support_rules, additional_properties].hash
+      [default_values, name, prefix, visible_tags, additional_properties].hash
     end
   end
 end
