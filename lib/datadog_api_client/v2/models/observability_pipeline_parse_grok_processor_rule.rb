@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     # Each rule must contain a name and a valid Grok pattern.
     attr_reader :match_rules
 
-    # The name of the field in the log event to apply the Grok rules to.
+    # The value of the source field in log events to be processed by the Grok rules.
     attr_reader :source
 
     # A list of Grok helper rules that can be referenced by the parsing rules.
