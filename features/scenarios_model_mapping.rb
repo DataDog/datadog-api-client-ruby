@@ -3301,6 +3301,76 @@ ScenariosModelMappings = {
             "connection_id" => "UUID",
             "body" => "OrgConnectionUpdateRequest",
     },
+    "v2.ListOrgGroupMemberships" => {
+            "filter_org_group_id" => "UUID",
+            "filter_org_uuid" => "UUID",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "OrgGroupMembershipSortOption",
+    },
+    "v2.BulkUpdateOrgGroupMemberships" => {
+            "body" => "OrgGroupMembershipBulkUpdateRequest",
+    },
+    "v2.GetOrgGroupMembership" => {
+            "org_group_membership_id" => "UUID",
+    },
+    "v2.UpdateOrgGroupMembership" => {
+            "org_group_membership_id" => "UUID",
+            "body" => "OrgGroupMembershipUpdateRequest",
+    },
+    "v2.ListOrgGroupPolicies" => {
+            "filter_org_group_id" => "UUID",
+            "filter_policy_name" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "OrgGroupPolicySortOption",
+    },
+    "v2.CreateOrgGroupPolicy" => {
+            "body" => "OrgGroupPolicyCreateRequest",
+    },
+    "v2.DeleteOrgGroupPolicy" => {
+            "org_group_policy_id" => "UUID",
+    },
+    "v2.UpdateOrgGroupPolicy" => {
+            "org_group_policy_id" => "UUID",
+            "body" => "OrgGroupPolicyUpdateRequest",
+    },
+    "v2.ListOrgGroupPolicyOverrides" => {
+            "filter_org_group_id" => "UUID",
+            "filter_policy_id" => "UUID",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "OrgGroupPolicyOverrideSortOption",
+    },
+    "v2.CreateOrgGroupPolicyOverride" => {
+            "body" => "OrgGroupPolicyOverrideCreateRequest",
+    },
+    "v2.DeleteOrgGroupPolicyOverride" => {
+            "org_group_policy_override_id" => "UUID",
+    },
+    "v2.UpdateOrgGroupPolicyOverride" => {
+            "org_group_policy_override_id" => "UUID",
+            "body" => "OrgGroupPolicyOverrideUpdateRequest",
+    },
+    "v2.ListOrgGroups" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "OrgGroupSortOption",
+            "include" => "Array<OrgGroupIncludeOption>",
+    },
+    "v2.CreateOrgGroup" => {
+            "body" => "OrgGroupCreateRequest",
+    },
+    "v2.DeleteOrgGroup" => {
+            "org_group_id" => "UUID",
+    },
+    "v2.GetOrgGroup" => {
+            "org_group_id" => "UUID",
+    },
+    "v2.UpdateOrgGroup" => {
+            "org_group_id" => "UUID",
+            "body" => "OrgGroupUpdateRequest",
+    },
     "v2.ListRoles" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
