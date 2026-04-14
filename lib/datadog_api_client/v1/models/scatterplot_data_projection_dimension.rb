@@ -17,20 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Widget definition.
-  class ScatterPlotWidgetDefinitionRequests
+  # A single dimension mapping for a scatterplot data projection.
+  class ScatterplotDataProjectionDimension
     include BaseGenericModel
 
-    # Scatterplot table request. Supports two modes:
-    # - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
-    # - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
-    attr_accessor :table
+    # Display alias for the dimension.
+    attr_accessor :_alias
 
-    # Updated scatter plot.
-    attr_accessor :x
+    # The column name from the data source.
+    attr_reader :column
 
-    # Updated scatter plot.
-    attr_accessor :y
+    # Dimension of the Scatterplot.
+    attr_reader :dimension
+
+    # Number format options for the widget.
+    attr_accessor :number_format
 
     attr_accessor :additional_properties
 
@@ -38,9 +39,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'table' => :'table',
-        :'x' => :'x',
-        :'y' => :'y'
+        :'_alias' => :'alias',
+        :'column' => :'column',
+        :'dimension' => :'dimension',
+        :'number_format' => :'number_format'
       }
     end
 
@@ -48,9 +50,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'table' => :'ScatterplotTableRequest',
-        :'x' => :'ScatterPlotRequest',
-        :'y' => :'ScatterPlotRequest'
+        :'_alias' => :'String',
+        :'column' => :'String',
+        :'dimension' => :'ScatterplotDimension',
+        :'number_format' => :'WidgetNumberFormat'
       }
     end
 
@@ -59,7 +62,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterplotDataProjectionDimension` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,17 +75,50 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'table')
-        self.table = attributes[:'table']
+      if attributes.key?(:'_alias')
+        self._alias = attributes[:'_alias']
       end
 
-      if attributes.key?(:'x')
-        self.x = attributes[:'x']
+      if attributes.key?(:'column')
+        self.column = attributes[:'column']
       end
 
-      if attributes.key?(:'y')
-        self.y = attributes[:'y']
+      if attributes.key?(:'dimension')
+        self.dimension = attributes[:'dimension']
       end
+
+      if attributes.key?(:'number_format')
+        self.number_format = attributes[:'number_format']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @column.nil?
+      return false if @dimension.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param column [Object] Object to be assigned
+    # @!visibility private
+    def column=(column)
+      if column.nil?
+        fail ArgumentError, 'invalid value for "column", column cannot be nil.'
+      end
+      @column = column
+    end
+
+    # Custom attribute writer method with validation
+    # @param dimension [Object] Object to be assigned
+    # @!visibility private
+    def dimension=(dimension)
+      if dimension.nil?
+        fail ArgumentError, 'invalid value for "dimension", dimension cannot be nil.'
+      end
+      @dimension = dimension
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,9 +147,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          table == o.table &&
-          x == o.x &&
-          y == o.y &&
+          _alias == o._alias &&
+          column == o.column &&
+          dimension == o.dimension &&
+          number_format == o.number_format &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +158,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [table, x, y, additional_properties].hash
+      [_alias, column, dimension, number_format, additional_properties].hash
     end
   end
 end
