@@ -1149,6 +1149,7 @@ module DatadogAPIClient
           "v2.application_security_waf_custom_rule_condition_operator" => "ApplicationSecurityWafCustomRuleConditionOperator",
           "v2.application_security_waf_custom_rule_condition_options" => "ApplicationSecurityWafCustomRuleConditionOptions",
           "v2.application_security_waf_custom_rule_condition_parameters" => "ApplicationSecurityWafCustomRuleConditionParameters",
+          "v2.application_security_waf_custom_rule_condition_parameters_type" => "ApplicationSecurityWafCustomRuleConditionParametersType",
           "v2.application_security_waf_custom_rule_create_attributes" => "ApplicationSecurityWafCustomRuleCreateAttributes",
           "v2.application_security_waf_custom_rule_create_data" => "ApplicationSecurityWafCustomRuleCreateData",
           "v2.application_security_waf_custom_rule_create_request" => "ApplicationSecurityWafCustomRuleCreateRequest",
