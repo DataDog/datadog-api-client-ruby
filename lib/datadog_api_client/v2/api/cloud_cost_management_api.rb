@@ -1596,6 +1596,8 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Page number for pagination
     # @option opts [Integer] :page_size Page size for pagination
     # @option opts [String] :filter_status Filter by file status
+    # @option opts [String] :filter_name Filter files by name with case-insensitive substring matching.
+    # @option opts [Array<String>] :filter_provider Filter by provider.
     # @option opts [String] :sort Sort key with optional descending prefix
     # @return [Array<(CustomCostsFileListResponse, Integer, Hash)>] CustomCostsFileListResponse data, response status code and response headers
     def list_custom_costs_files_with_http_info(opts = {})
@@ -1611,6 +1613,8 @@ module DatadogAPIClient::V2
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'filter[name]'] = opts[:'filter_name'] if !opts[:'filter_name'].nil?
+      query_params[:'filter[provider]'] = @api_client.build_collection_param(opts[:'filter_provider'], :multi) if !opts[:'filter_provider'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
@@ -1640,6 +1644,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging

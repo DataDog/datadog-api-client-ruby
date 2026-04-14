@@ -1913,6 +1913,8 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "page_size" => "Integer",
             "filter_status" => "String",
+            "filter_name" => "String",
+            "filter_provider" => "Array<String>",
             "sort" => "String",
     },
     "v2.UploadCustomCostsFile" => {
