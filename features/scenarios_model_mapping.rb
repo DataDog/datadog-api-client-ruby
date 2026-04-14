@@ -1061,6 +1061,26 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
+    "v2.ListPersonalAccessTokens" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "PersonalAccessTokensSort",
+            "filter" => "String",
+            "filter_owner_uuid" => "Array<String>",
+    },
+    "v2.CreatePersonalAccessToken" => {
+            "body" => "PersonalAccessTokenCreateRequest",
+    },
+    "v2.RevokePersonalAccessToken" => {
+            "pat_uuid" => "String",
+    },
+    "v2.GetPersonalAccessToken" => {
+            "pat_uuid" => "String",
+    },
+    "v2.UpdatePersonalAccessToken" => {
+            "pat_uuid" => "String",
+            "body" => "PersonalAccessTokenUpdateRequest",
+    },
     "v2.ListAPIs" => {
             "query" => "String",
             "page_limit" => "Integer",
@@ -3890,6 +3910,30 @@ ScenariosModelMappings = {
     },
     "v2.CreateServiceAccount" => {
             "body" => "ServiceAccountCreateRequest",
+    },
+    "v2.ListServiceAccountAccessTokens" => {
+            "service_account_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "PersonalAccessTokensSort",
+            "filter" => "String",
+    },
+    "v2.CreateServiceAccountAccessToken" => {
+            "service_account_id" => "String",
+            "body" => "ServiceAccountAccessTokenCreateRequest",
+    },
+    "v2.RevokeServiceAccountAccessToken" => {
+            "service_account_id" => "String",
+            "pat_uuid" => "String",
+    },
+    "v2.GetServiceAccountAccessToken" => {
+            "service_account_id" => "String",
+            "pat_uuid" => "String",
+    },
+    "v2.UpdateServiceAccountAccessToken" => {
+            "service_account_id" => "String",
+            "pat_uuid" => "String",
+            "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListServiceAccountApplicationKeys" => {
             "service_account_id" => "String",
