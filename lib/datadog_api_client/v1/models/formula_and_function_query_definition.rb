@@ -33,7 +33,10 @@ module DatadogAPIClient::V1
           :'FormulaAndFunctionApmResourceStatsQueryDefinition',
           :'FormulaAndFunctionApmMetricsQueryDefinition',
           :'FormulaAndFunctionSLOQueryDefinition',
-          :'FormulaAndFunctionCloudCostQueryDefinition'
+          :'FormulaAndFunctionCloudCostQueryDefinition',
+          :'FormulaAndFunctionProductAnalyticsExtendedQueryDefinition',
+          :'FormulaAndFunctionUserJourneyQueryDefinition',
+          :'FormulaAndFunctionRetentionQueryDefinition'
         ]
       end
       # Builds the object
