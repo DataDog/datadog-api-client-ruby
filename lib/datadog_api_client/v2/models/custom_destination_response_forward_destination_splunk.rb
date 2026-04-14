@@ -25,6 +25,13 @@ module DatadogAPIClient::V2
     # Must have HTTPS scheme and forwarding back to Datadog is not allowed.
     attr_reader :endpoint
 
+    # The Splunk sourcetype for the events sent to this Splunk destination.
+    #
+    # If absent, the default sourcetype `_json` is used. If set to null, the `sourcetype`
+    # field is omitted from the Splunk HEC payload entirely. Otherwise, the provided string
+    # value is used as the sourcetype.
+    attr_accessor :sourcetype
+
     # Type of the Splunk HTTP Event Collector (HEC) destination.
     attr_reader :type
 
@@ -35,6 +42,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'endpoint' => :'endpoint',
+        :'sourcetype' => :'sourcetype',
         :'type' => :'type'
       }
     end
@@ -44,8 +52,17 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'endpoint' => :'String',
+        :'sourcetype' => :'String',
         :'type' => :'CustomDestinationResponseForwardDestinationSplunkType'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'sourcetype',
+      ])
     end
 
     # Initializes the object
@@ -68,6 +85,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'endpoint')
         self.endpoint = attributes[:'endpoint']
+      end
+
+      if attributes.key?(:'sourcetype')
+        self.sourcetype = attributes[:'sourcetype']
       end
 
       if attributes.key?(:'type')
@@ -131,6 +152,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           endpoint == o.endpoint &&
+          sourcetype == o.sourcetype &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -139,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [endpoint, type, additional_properties].hash
+      [endpoint, sourcetype, type, additional_properties].hash
     end
   end
 end

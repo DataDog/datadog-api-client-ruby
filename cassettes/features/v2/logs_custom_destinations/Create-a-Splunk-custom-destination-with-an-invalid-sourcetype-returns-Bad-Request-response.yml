@@ -1,0 +1,28 @@
+http_interactions:
+- recorded_at: Wed, 25 Mar 2026 16:23:51 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":false,"forward_tags":false,"forwarder_destination":{"access_token":"my-access-token","endpoint":"https://example.com","sourcetype":123,"type":"splunk_hec"},"name":"Nginx
+        logs","query":"source:nginx"},"type":"custom_destination"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid custom destination configuration","Sourcetype must
+        be a string or null"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
