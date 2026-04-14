@@ -90,6 +90,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an access token for a service account.
+    #
+    # @see #create_service_account_access_token_with_http_info
+    def create_service_account_access_token(service_account_id, body, opts = {})
+      data, _status_code, _headers = create_service_account_access_token_with_http_info(service_account_id, body, opts)
+      data
+    end
+
+    # Create an access token for a service account.
+    #
+    # Create an access token for a service account.
+    #
+    # @param service_account_id [String] The ID of the service account.
+    # @param body [ServiceAccountAccessTokenCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PersonalAccessTokenCreateResponse, Integer, Hash)>] PersonalAccessTokenCreateResponse data, response status code and response headers
+    def create_service_account_access_token_with_http_info(service_account_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.create_service_account_access_token ...'
+      end
+      # verify the required parameter 'service_account_id' is set
+      if @api_client.config.client_side_validation && service_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.create_service_account_access_token"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceAccountsAPI.create_service_account_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokenCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_service_account_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceAccountsAPI#create_service_account_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an application key for this service account.
     #
     # @see #create_service_account_application_key_with_http_info
@@ -232,6 +304,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an access token for a service account.
+    #
+    # @see #get_service_account_access_token_with_http_info
+    def get_service_account_access_token(service_account_id, pat_uuid, opts = {})
+      data, _status_code, _headers = get_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts)
+      data
+    end
+
+    # Get an access token for a service account.
+    #
+    # Get a specific access token for a service account by its UUID.
+    #
+    # @param service_account_id [String] The ID of the service account.
+    # @param pat_uuid [String] The UUID of the personal access token.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
+    def get_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.get_service_account_access_token ...'
+      end
+      # verify the required parameter 'service_account_id' is set
+      if @api_client.config.client_side_validation && service_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.get_service_account_access_token"
+      end
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling ServiceAccountsAPI.get_service_account_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokenResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_service_account_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceAccountsAPI#get_service_account_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get one application key for this service account.
     #
     # @see #get_service_account_application_key_with_http_info
@@ -298,6 +440,83 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ServiceAccountsAPI#get_service_account_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List access tokens for a service account.
+    #
+    # @see #list_service_account_access_tokens_with_http_info
+    def list_service_account_access_tokens(service_account_id, opts = {})
+      data, _status_code, _headers = list_service_account_access_tokens_with_http_info(service_account_id, opts)
+      data
+    end
+
+    # List access tokens for a service account.
+    #
+    # List all access tokens for a specific service account.
+    #
+    # @param service_account_id [String] The ID of the service account.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [PersonalAccessTokensSort] :sort Personal access token attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+    # @option opts [String] :filter Filter personal access tokens by the specified string.
+    # @return [Array<(ListPersonalAccessTokensResponse, Integer, Hash)>] ListPersonalAccessTokensResponse data, response status code and response headers
+    def list_service_account_access_tokens_with_http_info(service_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.list_service_account_access_tokens ...'
+      end
+      # verify the required parameter 'service_account_id' is set
+      if @api_client.config.client_side_validation && service_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_access_tokens"
+      end
+      allowable_values = ['name', '-name', 'created_at', '-created_at', 'expires_at', '-expires_at']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListPersonalAccessTokensResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_service_account_access_tokens,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceAccountsAPI#list_service_account_access_tokens\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -379,6 +598,153 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ServiceAccountsAPI#list_service_account_application_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Revoke an access token for a service account.
+    #
+    # @see #revoke_service_account_access_token_with_http_info
+    def revoke_service_account_access_token(service_account_id, pat_uuid, opts = {})
+      revoke_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts)
+      nil
+    end
+
+    # Revoke an access token for a service account.
+    #
+    # Revoke a specific access token for a service account.
+    #
+    # @param service_account_id [String] The ID of the service account.
+    # @param pat_uuid [String] The UUID of the personal access token.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def revoke_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.revoke_service_account_access_token ...'
+      end
+      # verify the required parameter 'service_account_id' is set
+      if @api_client.config.client_side_validation && service_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.revoke_service_account_access_token"
+      end
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling ServiceAccountsAPI.revoke_service_account_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :revoke_service_account_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceAccountsAPI#revoke_service_account_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an access token for a service account.
+    #
+    # @see #update_service_account_access_token_with_http_info
+    def update_service_account_access_token(service_account_id, pat_uuid, body, opts = {})
+      data, _status_code, _headers = update_service_account_access_token_with_http_info(service_account_id, pat_uuid, body, opts)
+      data
+    end
+
+    # Update an access token for a service account.
+    #
+    # Update a specific access token for a service account.
+    #
+    # @param service_account_id [String] The ID of the service account.
+    # @param pat_uuid [String] The UUID of the personal access token.
+    # @param body [PersonalAccessTokenUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
+    def update_service_account_access_token_with_http_info(service_account_id, pat_uuid, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.update_service_account_access_token ...'
+      end
+      # verify the required parameter 'service_account_id' is set
+      if @api_client.config.client_side_validation && service_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.update_service_account_access_token"
+      end
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling ServiceAccountsAPI.update_service_account_access_token"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceAccountsAPI.update_service_account_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokenResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_service_account_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceAccountsAPI#update_service_account_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
