@@ -178,6 +178,11 @@ module DatadogAPIClient::V2
     end
 
     # Create a Network Path test.
+    #
+    # Create a Network Path test.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site.
+    #
     # @param body [SyntheticsNetworkTestEditRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
@@ -757,6 +762,11 @@ module DatadogAPIClient::V2
     end
 
     # Get a Network Path test.
+    #
+    # Get a Network Path test.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site.
+    #
     # @param public_id [String] The public ID of the Network Path test to get details from.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
@@ -1532,6 +1542,11 @@ module DatadogAPIClient::V2
     end
 
     # Edit a Network Path test.
+    #
+    # Edit a Network Path test.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site.
+    #
     # @param public_id [String] The public ID of the Network Path test to edit.
     # @param body [SyntheticsNetworkTestEditRequest] New Network Path test details to be saved.
     # @param opts [Hash] the optional parameters
