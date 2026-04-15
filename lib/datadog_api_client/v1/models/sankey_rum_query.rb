@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # Filter applied to occurrence counts when building a Product Analytics audience.
     attr_accessor :occurrences
 
-    # Query string.
+    # RUM event search query used to filter views or actions.
     attr_reader :query_string
 
     # Source.

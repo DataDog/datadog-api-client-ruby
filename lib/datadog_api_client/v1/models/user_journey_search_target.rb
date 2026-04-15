@@ -17,33 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
-  class FunnelWidgetDefinition
+  # Target for user journey search.
+  class UserJourneySearchTarget
     include BaseGenericModel
 
-    # The description of the widget.
-    attr_accessor :description
+    # End value.
+    attr_accessor :_end
 
-    # Display mode for grouped funnel results.
-    attr_accessor :grouped_display
+    # Start value.
+    attr_accessor :start
 
-    # Request payload used to query items.
-    attr_reader :requests
-
-    # Time setting for the widget.
-    attr_accessor :time
-
-    # The title of the widget.
-    attr_accessor :title
-
-    # How to align the text on the widget.
-    attr_accessor :title_align
-
-    # The size of the title.
-    attr_accessor :title_size
-
-    # Type of funnel widget.
+    # Target type.
     attr_reader :type
+
+    # Target value.
+    attr_accessor :value
 
     attr_accessor :additional_properties
 
@@ -51,14 +39,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'grouped_display' => :'grouped_display',
-        :'requests' => :'requests',
-        :'time' => :'time',
-        :'title' => :'title',
-        :'title_align' => :'title_align',
-        :'title_size' => :'title_size',
-        :'type' => :'type'
+        :'_end' => :'end',
+        :'start' => :'start',
+        :'type' => :'type',
+        :'value' => :'value'
       }
     end
 
@@ -66,14 +50,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'grouped_display' => :'FunnelGroupedDisplay',
-        :'requests' => :'Array<FunnelWidgetRequest>',
-        :'time' => :'WidgetTime',
-        :'title' => :'String',
-        :'title_align' => :'WidgetTextAlign',
-        :'title_size' => :'String',
-        :'type' => :'FunnelWidgetDefinitionType'
+        :'_end' => :'String',
+        :'start' => :'String',
+        :'type' => :'String',
+        :'value' => :'String'
       }
     end
 
@@ -82,7 +62,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FunnelWidgetDefinition` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UserJourneySearchTarget` initialize method"
       end
 
       self.additional_properties = {}
@@ -95,38 +75,20 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'_end')
+        self._end = attributes[:'_end']
       end
 
-      if attributes.key?(:'grouped_display')
-        self.grouped_display = attributes[:'grouped_display']
-      end
-
-      if attributes.key?(:'requests')
-        if (value = attributes[:'requests']).is_a?(Array)
-          self.requests = value
-        end
-      end
-
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'title_align')
-        self.title_align = attributes[:'title_align']
-      end
-
-      if attributes.key?(:'title_size')
-        self.title_size = attributes[:'title_size']
+      if attributes.key?(:'start')
+        self.start = attributes[:'start']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -134,23 +96,8 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @requests.nil?
-      return false if @requests.length < 1
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param requests [Object] Object to be assigned
-    # @!visibility private
-    def requests=(requests)
-      if requests.nil?
-        fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
-      end
-      if requests.length < 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
-      end
-      @requests = requests
     end
 
     # Custom attribute writer method with validation
@@ -189,14 +136,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          grouped_display == o.grouped_display &&
-          requests == o.requests &&
-          time == o.time &&
-          title == o.title &&
-          title_align == o.title_align &&
-          title_size == o.title_size &&
+          _end == o._end &&
+          start == o.start &&
           type == o.type &&
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -204,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, grouped_display, requests, time, title, title_align, title_size, type, additional_properties].hash
+      [_end, start, type, value, additional_properties].hash
     end
   end
 end
