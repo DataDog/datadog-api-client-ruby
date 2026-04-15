@@ -24,6 +24,12 @@ module DatadogAPIClient::V2
     # The commit SHA associated with this status change. Will be an empty string if the commit SHA is not available.
     attr_reader :commit_sha
 
+    # The policy that triggered this status change.
+    attr_accessor :policy_id
+
+    # Metadata about the policy that triggered this status change.
+    attr_accessor :policy_meta
+
     # The test status at this point in history.
     attr_reader :status
 
@@ -37,6 +43,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'commit_sha' => :'commit_sha',
+        :'policy_id' => :'policy_id',
+        :'policy_meta' => :'policy_meta',
         :'status' => :'status',
         :'timestamp' => :'timestamp'
       }
@@ -47,6 +55,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'commit_sha' => :'String',
+        :'policy_id' => :'FlakyTestHistoryPolicyId',
+        :'policy_meta' => :'FlakyTestHistoryPolicyMeta',
         :'status' => :'String',
         :'timestamp' => :'Integer'
       }
@@ -72,6 +82,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'commit_sha')
         self.commit_sha = attributes[:'commit_sha']
+      end
+
+      if attributes.key?(:'policy_id')
+        self.policy_id = attributes[:'policy_id']
+      end
+
+      if attributes.key?(:'policy_meta')
+        self.policy_meta = attributes[:'policy_meta']
       end
 
       if attributes.key?(:'status')
@@ -150,6 +168,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           commit_sha == o.commit_sha &&
+          policy_id == o.policy_id &&
+          policy_meta == o.policy_meta &&
           status == o.status &&
           timestamp == o.timestamp &&
           additional_properties == o.additional_properties
@@ -159,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commit_sha, status, timestamp, additional_properties].hash
+      [commit_sha, policy_id, policy_meta, status, timestamp, additional_properties].hash
     end
   end
 end
