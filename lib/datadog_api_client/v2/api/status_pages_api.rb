@@ -1032,6 +1032,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_offset Offset to use as the start of the page.
     # @option opts [Integer] :page_limit The number of status pages to return per page.
+    # @option opts [String] :filter_domain_prefix Filter status pages by exact domain prefix match. Returns at most one result.
     # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user.
     # @return [Array<(StatusPageArray, Integer, Hash)>] StatusPageArray data, response status code and response headers
     def list_status_pages_with_http_info(opts = {})
@@ -1046,6 +1047,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'filter[domain_prefix]'] = opts[:'filter_domain_prefix'] if !opts[:'filter_domain_prefix'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
