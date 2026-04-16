@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   # Signal-based notification rules can filter signals based on rule types application_security, log_detection,
   # workload_security, signal_correlation, cloud_configuration and infrastructure_configuration.
   # Vulnerability-based notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
-  # application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk, misconfiguration, api_security, host_vulnerability and iac_misconfiguration.
+  # application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk, misconfiguration,
+  # api_security, host_vulnerability, iac_misconfiguration, sast_vulnerability and secret_vulnerability.
   class RuleTypesItems
     include BaseEnumModel
 
@@ -40,5 +41,7 @@ module DatadogAPIClient::V2
     API_SECURITY = "api_security".freeze
     HOST_VULNERABILITY = "host_vulnerability".freeze
     IAC_MISCONFIGURATION = "iac_misconfiguration".freeze
+    SAST_VULNERABILITY = "sast_vulnerability".freeze
+    SECRET_VULNERABILITY = "secret_vulnerability".freeze
   end
 end
