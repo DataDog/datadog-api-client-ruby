@@ -22,7 +22,18 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     LOGS = "logs".freeze
+    SPANS = "spans".freeze
+    NETWORK = "network".freeze
     RUM = "rum".freeze
+    SECURITY_SIGNALS = "security_signals".freeze
+    PROFILES = "profiles".freeze
+    AUDIT = "audit".freeze
+    EVENTS = "events".freeze
+    CI_TESTS = "ci_tests".freeze
+    CI_PIPELINES = "ci_pipelines".freeze
+    INCIDENT_ANALYTICS = "incident_analytics".freeze
+    PRODUCT_ANALYTICS = "product_analytics".freeze
+    ON_CALL_EVENTS = "on_call_events".freeze
     DORA = "dora".freeze
   end
 end

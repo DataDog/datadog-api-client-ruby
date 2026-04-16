@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An individual timeseries metrics query.
+  # A query against Datadog custom metrics or Cloud Cost data sources.
   class MetricsTimeseriesQuery
     include BaseGenericModel
 

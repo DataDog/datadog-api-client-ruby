@@ -27,7 +27,13 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'MetricsScalarQuery',
-          :'EventsScalarQuery'
+          :'EventsScalarQuery',
+          :'ApmResourceStatsQuery',
+          :'ApmMetricsQuery',
+          :'ApmDependencyStatsQuery',
+          :'SloQuery',
+          :'ProcessScalarQuery',
+          :'ContainerScalarQuery'
         ]
       end
       # Builds the object

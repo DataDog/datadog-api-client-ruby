@@ -27,7 +27,13 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'MetricsTimeseriesQuery',
-          :'EventsTimeseriesQuery'
+          :'EventsTimeseriesQuery',
+          :'ApmResourceStatsQuery',
+          :'ApmMetricsQuery',
+          :'ApmDependencyStatsQuery',
+          :'SloQuery',
+          :'ProcessTimeseriesQuery',
+          :'ContainerTimeseriesQuery'
         ]
       end
       # Builds the object
