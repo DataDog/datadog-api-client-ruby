@@ -2504,6 +2504,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an indicator of compromise.
+    #
+    # @see #get_indicator_of_compromise_with_http_info
+    def get_indicator_of_compromise(indicator, opts = {})
+      data, _status_code, _headers = get_indicator_of_compromise_with_http_info(indicator, opts)
+      data
+    end
+
+    # Get an indicator of compromise.
+    #
+    # Get detailed information about a specific indicator of compromise (IoC).
+    #
+    # @param indicator [String] The indicator value to look up (for example, an IP address or domain).
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetIoCIndicatorResponse, Integer, Hash)>] GetIoCIndicatorResponse data, response status code and response headers
+    def get_indicator_of_compromise_with_http_info(indicator, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_indicator_of_compromise".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_indicator_of_compromise")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_indicator_of_compromise"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_indicator_of_compromise ...'
+      end
+      # verify the required parameter 'indicator' is set
+      if @api_client.config.client_side_validation && indicator.nil?
+        fail ArgumentError, "Missing the required parameter 'indicator' when calling SecurityMonitoringAPI.get_indicator_of_compromise"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/siem/ioc-explorer/indicator'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'indicator'] = indicator
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetIoCIndicatorResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_indicator_of_compromise,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_indicator_of_compromise\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get investigation queries for a signal.
     #
     # @see #get_investigation_log_queries_matching_signal_with_http_info
@@ -4211,6 +4283,88 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.cursor"))
         end
+    end
+
+    # List indicators of compromise.
+    #
+    # @see #list_indicators_of_compromise_with_http_info
+    def list_indicators_of_compromise(opts = {})
+      data, _status_code, _headers = list_indicators_of_compromise_with_http_info(opts)
+      data
+    end
+
+    # List indicators of compromise.
+    #
+    # Get a list of indicators of compromise (IoCs) matching the specified filters.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit Number of results per page.
+    # @option opts [Integer] :offset Pagination offset.
+    # @option opts [String] :query Search/filter query (supports field:value syntax).
+    # @option opts [String] :sort_column Sort column: score, first_seen_ts_epoch, last_seen_ts_epoch, indicator, indicator_type, signal_count, log_count, category, as_type.
+    # @option opts [String] :sort_order Sort order: asc or desc.
+    # @return [Array<(IoCExplorerListResponse, Integer, Hash)>] IoCExplorerListResponse data, response status code and response headers
+    def list_indicators_of_compromise_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_indicators_of_compromise".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_indicators_of_compromise")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_indicators_of_compromise"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_indicators_of_compromise ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SecurityMonitoringAPI.list_indicators_of_compromise, must be smaller than or equal to 2147483647.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SecurityMonitoringAPI.list_indicators_of_compromise, must be smaller than or equal to 2147483647.'
+      end
+      # resource path
+      local_var_path = '/api/v2/security/siem/ioc-explorer'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'sort[column]'] = opts[:'sort_column'] if !opts[:'sort_column'].nil?
+      query_params[:'sort[order]'] = opts[:'sort_order'] if !opts[:'sort_order'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IoCExplorerListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_indicators_of_compromise,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_indicators_of_compromise\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # Ruleset get multiple.
