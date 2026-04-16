@@ -1594,6 +1594,16 @@ ScenariosModelMappings = {
             "filter_last_success_origin" => "String",
             "filter_last_success_env" => "String",
     },
+    "v2.ListIndicatorsOfCompromise" => {
+            "limit" => "Integer",
+            "offset" => "Integer",
+            "query" => "String",
+            "sort_column" => "String",
+            "sort_order" => "String",
+    },
+    "v2.GetIndicatorOfCompromise" => {
+            "indicator" => "String",
+    },
     "v2.CreateSignalNotificationRule" => {
             "body" => "CreateNotificationRuleParameters",
     },
