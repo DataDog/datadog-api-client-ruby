@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class IssuesSearchRequestDataAttributes
     include BaseGenericModel
 
+    # Filter issues by assignee IDs. Multiple values are combined with OR logic.
+    attr_reader :assignee_ids
+
     # Start date (inclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :from
 
@@ -32,6 +35,9 @@ module DatadogAPIClient::V2
 
     # Search query following the event search syntax.
     attr_reader :query
+
+    # Filter issues by team IDs. Multiple values are combined with OR logic.
+    attr_reader :team_ids
 
     # End date (exclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :to
@@ -45,10 +51,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'assignee_ids' => :'assignee_ids',
         :'from' => :'from',
         :'order_by' => :'order_by',
         :'persona' => :'persona',
         :'query' => :'query',
+        :'team_ids' => :'team_ids',
         :'to' => :'to',
         :'track' => :'track'
       }
@@ -58,10 +66,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'assignee_ids' => :'Array<UUID>',
         :'from' => :'Integer',
         :'order_by' => :'IssuesSearchRequestDataAttributesOrderBy',
         :'persona' => :'IssuesSearchRequestDataAttributesPersona',
         :'query' => :'String',
+        :'team_ids' => :'Array<UUID>',
         :'to' => :'Integer',
         :'track' => :'IssuesSearchRequestDataAttributesTrack'
       }
@@ -85,6 +95,12 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'assignee_ids')
+        if (value = attributes[:'assignee_ids']).is_a?(Array)
+          self.assignee_ids = value
+        end
+      end
+
       if attributes.key?(:'from')
         self.from = attributes[:'from']
       end
@@ -101,6 +117,12 @@ module DatadogAPIClient::V2
         self.query = attributes[:'query']
       end
 
+      if attributes.key?(:'team_ids')
+        if (value = attributes[:'team_ids']).is_a?(Array)
+          self.team_ids = value
+        end
+      end
+
       if attributes.key?(:'to')
         self.to = attributes[:'to']
       end
@@ -114,10 +136,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@assignee_ids.nil? && @assignee_ids.length > 50
       return false if @from.nil?
       return false if @query.nil?
+      return false if !@team_ids.nil? && @team_ids.length > 50
       return false if @to.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param assignee_ids [Object] Object to be assigned
+    # @!visibility private
+    def assignee_ids=(assignee_ids)
+      if !assignee_ids.nil? && assignee_ids.length > 50
+        fail ArgumentError, 'invalid value for "assignee_ids", number of items must be less than or equal to 50.'
+      end
+      @assignee_ids = assignee_ids
     end
 
     # Custom attribute writer method with validation
@@ -138,6 +172,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param team_ids [Object] Object to be assigned
+    # @!visibility private
+    def team_ids=(team_ids)
+      if !team_ids.nil? && team_ids.length > 50
+        fail ArgumentError, 'invalid value for "team_ids", number of items must be less than or equal to 50.'
+      end
+      @team_ids = team_ids
     end
 
     # Custom attribute writer method with validation
@@ -176,10 +220,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          assignee_ids == o.assignee_ids &&
           from == o.from &&
           order_by == o.order_by &&
           persona == o.persona &&
           query == o.query &&
+          team_ids == o.team_ids &&
           to == o.to &&
           track == o.track &&
           additional_properties == o.additional_properties
@@ -189,7 +235,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, order_by, persona, query, to, track, additional_properties].hash
+      [assignee_ids, from, order_by, persona, query, team_ids, to, track, additional_properties].hash
     end
   end
 end
