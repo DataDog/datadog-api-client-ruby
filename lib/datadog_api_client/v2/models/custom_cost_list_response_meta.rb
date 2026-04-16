@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class CustomCostListResponseMeta
     include BaseGenericModel
 
+    # Number of Custom Costs files per status.
+    attr_accessor :count_by_status
+
+    # List of available providers.
+    attr_accessor :providers
+
     # Number of Custom Costs files returned by the List Custom Costs endpoint
     attr_accessor :total_filtered_count
 
@@ -33,6 +39,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'count_by_status' => :'count_by_status',
+        :'providers' => :'providers',
         :'total_filtered_count' => :'total_filtered_count',
         :'version' => :'version'
       }
@@ -42,6 +50,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'count_by_status' => :'Hash<String, Integer>',
+        :'providers' => :'Array<String>',
         :'total_filtered_count' => :'Integer',
         :'version' => :'String'
       }
@@ -64,6 +74,16 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'count_by_status')
+        self.count_by_status = attributes[:'count_by_status']
+      end
+
+      if attributes.key?(:'providers')
+        if (value = attributes[:'providers']).is_a?(Array)
+          self.providers = value
+        end
+      end
 
       if attributes.key?(:'total_filtered_count')
         self.total_filtered_count = attributes[:'total_filtered_count']
@@ -100,6 +120,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          count_by_status == o.count_by_status &&
+          providers == o.providers &&
           total_filtered_count == o.total_filtered_count &&
           version == o.version &&
           additional_properties == o.additional_properties
@@ -109,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_filtered_count, version, additional_properties].hash
+      [count_by_status, providers, total_filtered_count, version, additional_properties].hash
     end
   end
 end
