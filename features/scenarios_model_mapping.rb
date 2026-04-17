@@ -1869,25 +1869,25 @@ ScenariosModelMappings = {
     "v2.GetSecurityMonitoringHistsignal" => {
             "histsignal_id" => "String",
     },
-    "v2.ListThreatHuntingJobs" => {
+    "v2.ListHistoricalJobs" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
             "sort" => "String",
             "filter_query" => "String",
     },
-    "v2.RunThreatHuntingJob" => {
-            "body" => "RunThreatHuntingJobRequest",
+    "v2.RunHistoricalJob" => {
+            "body" => "RunHistoricalJobRequest",
     },
     "v2.ConvertJobResultToSignal" => {
             "body" => "ConvertJobResultsToSignalsRequest",
     },
-    "v2.DeleteThreatHuntingJob" => {
+    "v2.DeleteHistoricalJob" => {
             "job_id" => "String",
     },
-    "v2.GetThreatHuntingJob" => {
+    "v2.GetHistoricalJob" => {
             "job_id" => "String",
     },
-    "v2.CancelThreatHuntingJob" => {
+    "v2.CancelHistoricalJob" => {
             "job_id" => "String",
     },
     "v2.GetSecurityMonitoringHistsignalsByJobId" => {

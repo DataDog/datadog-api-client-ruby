@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Definition of a threat hunting job.
+  # Definition of a historical job.
   class JobDefinition
     include BaseGenericModel
 
@@ -97,8 +97,8 @@ module DatadogAPIClient::V2
         :'index' => :'String',
         :'message' => :'String',
         :'name' => :'String',
-        :'options' => :'ThreatHuntingJobOptions',
-        :'queries' => :'Array<ThreatHuntingJobQuery>',
+        :'options' => :'HistoricalJobOptions',
+        :'queries' => :'Array<HistoricalJobQuery>',
         :'reference_tables' => :'Array<SecurityMonitoringReferenceTable>',
         :'tags' => :'Array<String>',
         :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCaseCreate>',
