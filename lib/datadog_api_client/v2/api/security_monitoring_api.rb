@@ -442,6 +442,92 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Export security monitoring resources to Terraform.
+    #
+    # @see #bulk_export_security_monitoring_terraform_resources_with_http_info
+    def bulk_export_security_monitoring_terraform_resources(resource_type, body, opts = {})
+      data, _status_code, _headers = bulk_export_security_monitoring_terraform_resources_with_http_info(resource_type, body, opts)
+      data
+    end
+
+    # Export security monitoring resources to Terraform.
+    #
+    # Export multiple security monitoring resources to Terraform, packaged as a zip archive.
+    # The `resource_type` path parameter specifies the type of resources to export
+    # and must be one of `suppressions` or `critical_assets`.
+    # A maximum of 1000 resources can be exported in a single request.
+    #
+    # @param resource_type [SecurityMonitoringTerraformResourceType] The type of security monitoring resource to export.
+    # @param body [SecurityMonitoringTerraformBulkExportRequest] The resource IDs to export.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def bulk_export_security_monitoring_terraform_resources_with_http_info(resource_type, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.bulk_export_security_monitoring_terraform_resources".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.bulk_export_security_monitoring_terraform_resources")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.bulk_export_security_monitoring_terraform_resources"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_export_security_monitoring_terraform_resources ...'
+      end
+      # verify the required parameter 'resource_type' is set
+      if @api_client.config.client_side_validation && resource_type.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_type' when calling SecurityMonitoringAPI.bulk_export_security_monitoring_terraform_resources"
+      end
+      # verify enum value
+      allowable_values = ['suppressions', 'critical_assets']
+      if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
+        fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.bulk_export_security_monitoring_terraform_resources"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/terraform/{resource_type}/bulk'.sub('{resource_type}', CGI.escape(resource_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/zip', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_export_security_monitoring_terraform_resources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#bulk_export_security_monitoring_terraform_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Cancel a threat hunting job.
     #
     # @see #cancel_threat_hunting_job_with_http_info
@@ -726,6 +812,91 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#convert_security_monitoring_rule_from_json_to_terraform\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert security monitoring resource to Terraform.
+    #
+    # @see #convert_security_monitoring_terraform_resource_with_http_info
+    def convert_security_monitoring_terraform_resource(resource_type, body, opts = {})
+      data, _status_code, _headers = convert_security_monitoring_terraform_resource_with_http_info(resource_type, body, opts)
+      data
+    end
+
+    # Convert security monitoring resource to Terraform.
+    #
+    # Convert a security monitoring resource that doesn't (yet) exist from JSON to Terraform.
+    # The `resource_type` path parameter specifies the type of resource to convert
+    # and must be one of `suppressions` or `critical_assets`.
+    #
+    # @param resource_type [SecurityMonitoringTerraformResourceType] The type of security monitoring resource to export.
+    # @param body [SecurityMonitoringTerraformConvertRequest] The resource JSON to convert.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringTerraformExportResponse, Integer, Hash)>] SecurityMonitoringTerraformExportResponse data, response status code and response headers
+    def convert_security_monitoring_terraform_resource_with_http_info(resource_type, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.convert_security_monitoring_terraform_resource".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_security_monitoring_terraform_resource")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_security_monitoring_terraform_resource"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_security_monitoring_terraform_resource ...'
+      end
+      # verify the required parameter 'resource_type' is set
+      if @api_client.config.client_side_validation && resource_type.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_type' when calling SecurityMonitoringAPI.convert_security_monitoring_terraform_resource"
+      end
+      # verify enum value
+      allowable_values = ['suppressions', 'critical_assets']
+      if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
+        fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.convert_security_monitoring_terraform_resource"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/terraform/{resource_type}/convert'.sub('{resource_type}', CGI.escape(resource_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringTerraformExportResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :convert_security_monitoring_terraform_resource,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#convert_security_monitoring_terraform_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2221,6 +2392,89 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Export security monitoring resource to Terraform.
+    #
+    # @see #export_security_monitoring_terraform_resource_with_http_info
+    def export_security_monitoring_terraform_resource(resource_type, resource_id, opts = {})
+      data, _status_code, _headers = export_security_monitoring_terraform_resource_with_http_info(resource_type, resource_id, opts)
+      data
+    end
+
+    # Export security monitoring resource to Terraform.
+    #
+    # Export a security monitoring resource to a Terraform configuration.
+    # The `resource_type` path parameter specifies the type of resource to export
+    # and must be one of `suppressions` or `critical_assets`.
+    #
+    # @param resource_type [SecurityMonitoringTerraformResourceType] The type of security monitoring resource to export.
+    # @param resource_id [String] The ID of the security monitoring resource to export.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringTerraformExportResponse, Integer, Hash)>] SecurityMonitoringTerraformExportResponse data, response status code and response headers
+    def export_security_monitoring_terraform_resource_with_http_info(resource_type, resource_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.export_security_monitoring_terraform_resource".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.export_security_monitoring_terraform_resource")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.export_security_monitoring_terraform_resource"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.export_security_monitoring_terraform_resource ...'
+      end
+      # verify the required parameter 'resource_type' is set
+      if @api_client.config.client_side_validation && resource_type.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_type' when calling SecurityMonitoringAPI.export_security_monitoring_terraform_resource"
+      end
+      # verify enum value
+      allowable_values = ['suppressions', 'critical_assets']
+      if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
+        fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'resource_id' is set
+      if @api_client.config.client_side_validation && resource_id.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_id' when calling SecurityMonitoringAPI.export_security_monitoring_terraform_resource"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/terraform/{resource_type}/{resource_id}'.sub('{resource_type}', CGI.escape(resource_type.to_s).gsub('%2F', '/')).sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringTerraformExportResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :export_security_monitoring_terraform_resource,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#export_security_monitoring_terraform_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
