@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'id' => :'String',
-        :'type' => :'ThreatHuntingJobDataType'
+        :'type' => :'HistoricalJobDataType'
       }
     end
 
