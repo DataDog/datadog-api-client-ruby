@@ -23,6 +23,79 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Approve a flag suggestion.
+    #
+    # @see #approve_flag_suggestion_with_http_info
+    def approve_flag_suggestion(suggestion_id, body, opts = {})
+      data, _status_code, _headers = approve_flag_suggestion_with_http_info(suggestion_id, body, opts)
+      data
+    end
+
+    # Approve a flag suggestion.
+    #
+    # Approve a pending flag change suggestion. The change is applied immediately
+    # upon approval. A user cannot approve their own suggestion.
+    #
+    # @param suggestion_id [UUID] The ID of the flag suggestion.
+    # @param body [ReviewFlagSuggestionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FlagSuggestionResponse, Integer, Hash)>] FlagSuggestionResponse data, response status code and response headers
+    def approve_flag_suggestion_with_http_info(suggestion_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.approve_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.approve_flag_suggestion"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.approve_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}/approve'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :approve_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#approve_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Archive a feature flag.
     #
     # @see #archive_feature_flag_with_http_info
@@ -300,6 +373,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a flag suggestion.
+    #
+    # @see #create_flag_suggestion_with_http_info
+    def create_flag_suggestion(feature_flag_id, body, opts = {})
+      data, _status_code, _headers = create_flag_suggestion_with_http_info(feature_flag_id, body, opts)
+      data
+    end
+
+    # Create a flag suggestion.
+    #
+    # Create a change suggestion for a feature flag. Suggestions require approval
+    # before the change is applied. The request must include at least one
+    # notification_rule_targets handle to receive approval or rejection notifications.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param body [CreateFlagSuggestionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FlagSuggestionResponse, Integer, Hash)>] FlagSuggestionResponse data, response status code and response headers
+    def create_flag_suggestion_with_http_info(feature_flag_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.create_flag_suggestion ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.create_flag_suggestion"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.create_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/suggestions'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#create_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an environment.
     #
     # @see #delete_feature_flags_environment_with_http_info
@@ -361,6 +508,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#delete_feature_flags_environment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a flag suggestion.
+    #
+    # @see #delete_flag_suggestion_with_http_info
+    def delete_flag_suggestion(suggestion_id, opts = {})
+      delete_flag_suggestion_with_http_info(suggestion_id, opts)
+      nil
+    end
+
+    # Delete a flag suggestion.
+    #
+    # Delete a pending flag change suggestion. Approved suggestions cannot be deleted.
+    #
+    # @param suggestion_id [UUID] The ID of the flag suggestion.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_flag_suggestion_with_http_info(suggestion_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.delete_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.delete_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#delete_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -636,6 +848,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a flag suggestion.
+    #
+    # @see #get_flag_suggestion_with_http_info
+    def get_flag_suggestion(suggestion_id, opts = {})
+      data, _status_code, _headers = get_flag_suggestion_with_http_info(suggestion_id, opts)
+      data
+    end
+
+    # Get a flag suggestion.
+    #
+    # Get a flag change suggestion by ID.
+    #
+    # @param suggestion_id [UUID] The ID of the flag suggestion.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FlagSuggestionResponse, Integer, Hash)>] FlagSuggestionResponse data, response status code and response headers
+    def get_flag_suggestion_with_http_info(suggestion_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.get_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.get_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#get_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List feature flags.
     #
     # @see #list_feature_flags_with_http_info
@@ -853,6 +1130,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#pause_exposure_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reject a flag suggestion.
+    #
+    # @see #reject_flag_suggestion_with_http_info
+    def reject_flag_suggestion(suggestion_id, body, opts = {})
+      data, _status_code, _headers = reject_flag_suggestion_with_http_info(suggestion_id, body, opts)
+      data
+    end
+
+    # Reject a flag suggestion.
+    #
+    # Reject a pending flag change suggestion. The suggested change is not applied.
+    #
+    # @param suggestion_id [UUID] The ID of the flag suggestion.
+    # @param body [ReviewFlagSuggestionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FlagSuggestionResponse, Integer, Hash)>] FlagSuggestionResponse data, response status code and response headers
+    def reject_flag_suggestion_with_http_info(suggestion_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.reject_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.reject_flag_suggestion"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.reject_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}/reject'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :reject_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#reject_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
