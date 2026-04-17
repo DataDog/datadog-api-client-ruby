@@ -89,10 +89,10 @@ Feature: App Builder
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @skip-typescript @team:DataDog/app-builder-backend
+  @skip-typescript @team:DataDog/app-builder-backend @replay-only
   Scenario: Get App returns "Gone" response
-    Given new "GetApp" request
-    And there is a valid "app" in the system
+    Given there is a valid "app" in the system
+    And new "GetApp" request
     And request contains "app_id" parameter from "app.data.id"
     And request contains "version" parameter with value "31"
     When the request is sent
