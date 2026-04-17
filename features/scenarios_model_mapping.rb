@@ -1843,6 +1843,18 @@ ScenariosModelMappings = {
     "v2.GetSuggestedActionsMatchingSignal" => {
             "signal_id" => "String",
     },
+    "v2.BulkExportSecurityMonitoringTerraformResources" => {
+            "resource_type" => "SecurityMonitoringTerraformResourceType",
+            "body" => "SecurityMonitoringTerraformBulkExportRequest",
+    },
+    "v2.ConvertSecurityMonitoringTerraformResource" => {
+            "resource_type" => "SecurityMonitoringTerraformResourceType",
+            "body" => "SecurityMonitoringTerraformConvertRequest",
+    },
+    "v2.ExportSecurityMonitoringTerraformResource" => {
+            "resource_type" => "SecurityMonitoringTerraformResourceType",
+            "resource_id" => "String",
+    },
     "v2.ListSecurityMonitoringHistsignals" => {
             "filter_query" => "String",
             "filter_from" => "Time",
