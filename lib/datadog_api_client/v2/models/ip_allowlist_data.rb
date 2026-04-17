@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes of the IP allowlist.
     attr_accessor :attributes
 
-    # The unique identifier of the org.
+    # The unique identifier of the organization.
     attr_accessor :id
 
     # IP allowlist type.
