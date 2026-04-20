@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::DeletedTestsRequestDeleteRequest.new({
   data: DatadogAPIClient::V2::DeletedTestsRequestDelete.new({
     attributes: DatadogAPIClient::V2::DeletedTestsRequestDeleteAttributes.new({
       public_ids: [
-        "",
+        "abc-def-123",
       ],
     }),
     type: DatadogAPIClient::V2::DeletedTestsRequestType::DELETE_TESTS_REQUEST,

@@ -20,7 +20,7 @@ body = DatadogAPIClient::V2::UpdateTenancyConfigRequest.new({
         enabled: true,
         enabled_services: [
           "service_1",
-          "service_1",
+          "service_2",
         ],
       }),
       metrics_config: DatadogAPIClient::V2::UpdateTenancyConfigDataAttributesMetricsConfig.new({
@@ -31,7 +31,7 @@ body = DatadogAPIClient::V2::UpdateTenancyConfigRequest.new({
         enabled: true,
         excluded_services: [
           "service_1",
-          "service_1",
+          "service_2",
         ],
       }),
       regions_config: DatadogAPIClient::V2::UpdateTenancyConfigDataAttributesRegionsConfig.new({
