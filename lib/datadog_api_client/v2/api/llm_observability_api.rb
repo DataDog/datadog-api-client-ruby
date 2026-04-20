@@ -710,6 +710,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a custom evaluator configuration.
+    #
+    # @see #delete_llm_obs_custom_eval_config_with_http_info
+    def delete_llm_obs_custom_eval_config(eval_name, opts = {})
+      delete_llm_obs_custom_eval_config_with_http_info(eval_name, opts)
+      nil
+    end
+
+    # Delete a custom evaluator configuration.
+    #
+    # Delete a custom LLM Observability evaluator configuration by its name.
+    #
+    # @param eval_name [String] The name of the custom LLM Observability evaluator configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_llm_obs_custom_eval_config_with_http_info(eval_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_llm_obs_custom_eval_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_llm_obs_custom_eval_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_llm_obs_custom_eval_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.delete_llm_obs_custom_eval_config ...'
+      end
+      # verify the required parameter 'eval_name' is set
+      if @api_client.config.client_side_validation && eval_name.nil?
+        fail ArgumentError, "Missing the required parameter 'eval_name' when calling LLMObservabilityAPI.delete_llm_obs_custom_eval_config"
+      end
+      # resource path
+      local_var_path = '/api/unstable/llm-obs/config/evaluators/custom/{eval_name}'.sub('{eval_name}', CGI.escape(eval_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_llm_obs_custom_eval_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#delete_llm_obs_custom_eval_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete LLM Observability dataset records.
     #
     # @see #delete_llm_obs_dataset_records_with_http_info
@@ -1084,6 +1155,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_annotated_interactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a custom evaluator configuration.
+    #
+    # @see #get_llm_obs_custom_eval_config_with_http_info
+    def get_llm_obs_custom_eval_config(eval_name, opts = {})
+      data, _status_code, _headers = get_llm_obs_custom_eval_config_with_http_info(eval_name, opts)
+      data
+    end
+
+    # Get a custom evaluator configuration.
+    #
+    # Retrieve a custom LLM Observability evaluator configuration by its name.
+    #
+    # @param eval_name [String] The name of the custom LLM Observability evaluator configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsCustomEvalConfigResponse, Integer, Hash)>] LLMObsCustomEvalConfigResponse data, response status code and response headers
+    def get_llm_obs_custom_eval_config_with_http_info(eval_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_custom_eval_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_custom_eval_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_custom_eval_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_custom_eval_config ...'
+      end
+      # verify the required parameter 'eval_name' is set
+      if @api_client.config.client_side_validation && eval_name.nil?
+        fail ArgumentError, "Missing the required parameter 'eval_name' when calling LLMObservabilityAPI.get_llm_obs_custom_eval_config"
+      end
+      # resource path
+      local_var_path = '/api/unstable/llm-obs/config/evaluators/custom/{eval_name}'.sub('{eval_name}', CGI.escape(eval_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsCustomEvalConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_custom_eval_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_custom_eval_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1545,6 +1687,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_annotation_queue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update a custom evaluator configuration.
+    #
+    # @see #update_llm_obs_custom_eval_config_with_http_info
+    def update_llm_obs_custom_eval_config(eval_name, body, opts = {})
+      update_llm_obs_custom_eval_config_with_http_info(eval_name, body, opts)
+      nil
+    end
+
+    # Create or update a custom evaluator configuration.
+    #
+    # Create or update a custom LLM Observability evaluator configuration by its name.
+    #
+    # @param eval_name [String] The name of the custom LLM Observability evaluator configuration.
+    # @param body [LLMObsCustomEvalConfigUpdateRequest] Custom evaluator configuration payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_llm_obs_custom_eval_config_with_http_info(eval_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_llm_obs_custom_eval_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_llm_obs_custom_eval_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_llm_obs_custom_eval_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.update_llm_obs_custom_eval_config ...'
+      end
+      # verify the required parameter 'eval_name' is set
+      if @api_client.config.client_side_validation && eval_name.nil?
+        fail ArgumentError, "Missing the required parameter 'eval_name' when calling LLMObservabilityAPI.update_llm_obs_custom_eval_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.update_llm_obs_custom_eval_config"
+      end
+      # resource path
+      local_var_path = '/api/unstable/llm-obs/config/evaluators/custom/{eval_name}'.sub('{eval_name}', CGI.escape(eval_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_llm_obs_custom_eval_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_custom_eval_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
