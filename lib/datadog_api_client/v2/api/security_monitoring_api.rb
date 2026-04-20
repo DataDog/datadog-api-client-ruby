@@ -237,6 +237,74 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Bulk update security signals.
+    #
+    # @see #bulk_edit_security_monitoring_signals_with_http_info
+    def bulk_edit_security_monitoring_signals(body, opts = {})
+      data, _status_code, _headers = bulk_edit_security_monitoring_signals_with_http_info(body, opts)
+      data
+    end
+
+    # Bulk update security signals.
+    #
+    # Update the triage state or assignee of multiple security signals at once.
+    # The maximum number of signals that can be updated in a single request is 199.
+    #
+    # @param body [SecurityMonitoringSignalsBulkUpdateRequest] Attributes describing the signal updates.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalsBulkTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalsBulkTriageUpdateResponse data, response status code and response headers
+    def bulk_edit_security_monitoring_signals_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_edit_security_monitoring_signals ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.bulk_edit_security_monitoring_signals"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/bulk/update'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsBulkTriageUpdateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_edit_security_monitoring_signals,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#bulk_edit_security_monitoring_signals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk update triage assignee of security signals.
     #
     # @see #bulk_edit_security_monitoring_signals_assignee_with_http_info
@@ -2176,6 +2244,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#detach_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update security signal triage state or assignee.
+    #
+    # @see #edit_security_monitoring_signal_with_http_info
+    def edit_security_monitoring_signal(signal_id, body, opts = {})
+      data, _status_code, _headers = edit_security_monitoring_signal_with_http_info(signal_id, body, opts)
+      data
+    end
+
+    # Update security signal triage state or assignee.
+    #
+    # Update the triage state or assignee of a security signal.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param body [SecurityMonitoringSignalUpdateRequest] Attributes describing the signal triage state or assignee update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
+    def edit_security_monitoring_signal_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.edit_security_monitoring_signal"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.edit_security_monitoring_signal"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/update'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalTriageUpdateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :edit_security_monitoring_signal,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

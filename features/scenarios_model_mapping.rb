@@ -1933,6 +1933,9 @@ ScenariosModelMappings = {
     "v2.BulkEditSecurityMonitoringSignalsState" => {
             "body" => "SecurityMonitoringSignalsBulkStateUpdateRequest",
     },
+    "v2.BulkEditSecurityMonitoringSignals" => {
+            "body" => "SecurityMonitoringSignalsBulkUpdateRequest",
+    },
     "v2.SearchSecurityMonitoringSignals" => {
             "body" => "SecurityMonitoringSignalListRequest",
     },
@@ -1956,6 +1959,10 @@ ScenariosModelMappings = {
     },
     "v2.GetSuggestedActionsMatchingSignal" => {
             "signal_id" => "String",
+    },
+    "v2.EditSecurityMonitoringSignal" => {
+            "signal_id" => "String",
+            "body" => "SecurityMonitoringSignalUpdateRequest",
     },
     "v2.BulkExportSecurityMonitoringTerraformResources" => {
             "resource_type" => "SecurityMonitoringTerraformResourceType",
