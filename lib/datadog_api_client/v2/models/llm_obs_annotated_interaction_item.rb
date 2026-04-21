@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # List of annotations for this interaction.
     attr_reader :annotations
 
-    # Identifier of the content for this interaction.
+    # Identifier of the content (trace ID or session ID) for this interaction.
     attr_reader :content_id
 
     # Unique identifier of the interaction.

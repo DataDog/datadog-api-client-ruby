@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Timestamp bucket indicating when logs were last collected.
+  # Timestamp bucket indicating when logs were last collected
   class SecurityMonitoringContentPackTimestampBucket
     include BaseEnumModel
 

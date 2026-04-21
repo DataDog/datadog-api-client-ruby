@@ -24,23 +24,22 @@ module DatadogAPIClient::V2
     # Whether the cloud SIEM index configuration is incorrect (only applies to certain pricing models)
     attr_reader :cloud_siem_index_incorrect
 
-    # The activation status of a content pack.
+    # The activation status of a content pack
     attr_reader :cp_activation
 
-    # Whether filters (Security Filters or Index Query depending on the pricing model) are
-    # present and correctly configured to route logs into Cloud SIEM.
+    # Whether filters (Security Filters or Index Query depending on the pricing model) are configured for logs
     attr_reader :filters_configured_for_logs
 
-    # The installation status of the related integration.
+    # The installation status of the related integration
     attr_accessor :integration_installed_status
 
-    # Timestamp bucket indicating when logs were last collected.
+    # Timestamp bucket indicating when logs were last collected
     attr_reader :logs_last_collected
 
-    # Whether logs for this content pack have been seen in any Datadog index within the last 72 hours.
+    # Whether logs have been seen from any index
     attr_reader :logs_seen_from_any_index
 
-    # The current operational status of a content pack.
+    # The current status of a content pack
     attr_reader :state
 
     attr_accessor :additional_properties
