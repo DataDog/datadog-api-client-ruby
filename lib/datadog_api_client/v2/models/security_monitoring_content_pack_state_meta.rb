@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Whether the cloud SIEM index configuration is incorrect at the organization level
     attr_reader :cloud_siem_index_incorrect
 
-    # The SIEM pricing model (SKU) for the organization
+    # The Cloud SIEM pricing model (SKU) for the organization.
     attr_reader :sku
 
     attr_accessor :additional_properties
