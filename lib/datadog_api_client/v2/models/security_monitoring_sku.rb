@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Cloud SIEM pricing model (SKU) for the organization.
+  # The SIEM pricing model (SKU) for the organization
   class SecurityMonitoringSKU
     include BaseEnumModel
 

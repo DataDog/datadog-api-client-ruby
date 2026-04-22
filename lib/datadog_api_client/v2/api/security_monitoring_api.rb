@@ -33,11 +33,11 @@ module DatadogAPIClient::V2
 
     # Activate content pack.
     #
-    # Activate a Cloud SIEM content pack. This operation configures the necessary
+    # Activate a security monitoring content pack. This operation configures the necessary
     # log filters or security filters depending on the pricing model and updates the content
     # pack activation state.
     #
-    # @param content_pack_id [String] The ID of the content pack to activate (for example, `aws-cloudtrail`).
+    # @param content_pack_id [String] The ID of the content pack to activate.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def activate_content_pack_with_http_info(content_pack_id, opts = {})
@@ -76,7 +76,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :activate_content_pack,
@@ -1587,10 +1587,10 @@ module DatadogAPIClient::V2
 
     # Deactivate content pack.
     #
-    # Deactivate a Cloud SIEM content pack. This operation removes the content pack's
+    # Deactivate a security monitoring content pack. This operation removes the content pack's
     # configuration from log filters or security filters and updates the content pack activation state.
     #
-    # @param content_pack_id [String] The ID of the content pack to deactivate (for example, `aws-cloudtrail`).
+    # @param content_pack_id [String] The ID of the content pack to deactivate.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def deactivate_content_pack_with_http_info(content_pack_id, opts = {})
@@ -1629,7 +1629,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :deactivate_content_pack,
@@ -2629,8 +2629,9 @@ module DatadogAPIClient::V2
 
     # Get content pack states.
     #
-    # Get the activation state, integration status, and log collection status
-    # for all Cloud SIEM content packs.
+    # Get the activation and configuration states for all security monitoring content packs.
+    # This endpoint returns status information about each content pack including activation state,
+    # integration status, and log collection status.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringContentPackStatesResponse, Integer, Hash)>] SecurityMonitoringContentPackStatesResponse data, response status code and response headers
@@ -2666,7 +2667,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringContentPackStatesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_content_packs_states,
