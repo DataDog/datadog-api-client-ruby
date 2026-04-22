@@ -234,6 +234,7 @@ module DatadogAPIClient
             "v2.update_llm_obs_dataset_records": false,
             "v2.update_llm_obs_experiment": false,
             "v2.update_llm_obs_project": false,
+            "v2.anonymize_users": false,
             "v2.create_open_api": false,
             "v2.delete_open_api": false,
             "v2.get_open_api": false,

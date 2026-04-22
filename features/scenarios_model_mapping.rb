@@ -1131,6 +1131,42 @@ ScenariosModelMappings = {
     "v2.GetAwsOnDemandTask" => {
             "task_id" => "String",
     },
+    "v2.AnonymizeUsers" => {
+            "body" => "AnonymizeUsersRequest",
+    },
+    "v2.SendInvitations" => {
+            "body" => "UserInvitationsRequest",
+    },
+    "v2.GetInvitation" => {
+            "user_invitation_uuid" => "String",
+    },
+    "v2.ListUsers" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "sort_dir" => "QuerySortOrder",
+            "filter" => "String",
+            "filter_status" => "String",
+    },
+    "v2.CreateUser" => {
+            "body" => "UserCreateRequest",
+    },
+    "v2.DisableUser" => {
+            "user_id" => "String",
+    },
+    "v2.GetUser" => {
+            "user_id" => "String",
+    },
+    "v2.UpdateUser" => {
+            "user_id" => "String",
+            "body" => "UserUpdateRequest",
+    },
+    "v2.ListUserOrganizations" => {
+            "user_id" => "String",
+    },
+    "v2.ListUserPermissions" => {
+            "user_id" => "String",
+    },
     "v2.ListAPIKeys" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -4508,39 +4544,6 @@ ScenariosModelMappings = {
     "v2.UpdateIncidentTeam" => {
             "team_id" => "String",
             "body" => "IncidentTeamUpdateRequest",
-    },
-    "v2.SendInvitations" => {
-            "body" => "UserInvitationsRequest",
-    },
-    "v2.GetInvitation" => {
-            "user_invitation_uuid" => "String",
-    },
-    "v2.ListUsers" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "sort" => "String",
-            "sort_dir" => "QuerySortOrder",
-            "filter" => "String",
-            "filter_status" => "String",
-    },
-    "v2.CreateUser" => {
-            "body" => "UserCreateRequest",
-    },
-    "v2.DisableUser" => {
-            "user_id" => "String",
-    },
-    "v2.GetUser" => {
-            "user_id" => "String",
-    },
-    "v2.UpdateUser" => {
-            "user_id" => "String",
-            "body" => "UserUpdateRequest",
-    },
-    "v2.ListUserOrganizations" => {
-            "user_id" => "String",
-    },
-    "v2.ListUserPermissions" => {
-            "user_id" => "String",
     },
     "v2.SearchWidgets" => {
             "experience_type" => "WidgetExperienceType",
