@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The activation status of a content pack
+  # The activation status of a content pack.
   class SecurityMonitoringContentPackActivation
     include BaseEnumModel
 
