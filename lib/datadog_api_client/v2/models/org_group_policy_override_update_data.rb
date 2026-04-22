@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class OrgGroupPolicyOverrideUpdateData
     include BaseGenericModel
 
-    # Attributes for updating a policy override. The `org_uuid` and `org_site` fields must match the existing override and cannot be changed.
+    # Attributes for updating a policy override.
     attr_reader :attributes
 
     # The ID of the policy override.

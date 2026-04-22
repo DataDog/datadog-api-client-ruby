@@ -415,8 +415,6 @@ module DatadogAPIClient
             "v2.delete_org_group_policy_override": false,
             "v2.get_org_group": false,
             "v2.get_org_group_membership": false,
-            "v2.get_org_group_policy": false,
-            "v2.get_org_group_policy_override": false,
             "v2.list_org_group_memberships": false,
             "v2.list_org_group_policies": false,
             "v2.list_org_group_policy_configs": false,

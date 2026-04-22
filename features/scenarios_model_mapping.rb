@@ -1247,13 +1247,13 @@ ScenariosModelMappings = {
             "body" => "PersonalAccessTokenCreateRequest",
     },
     "v2.RevokePersonalAccessToken" => {
-            "pat_id" => "String",
+            "pat_uuid" => "String",
     },
     "v2.GetPersonalAccessToken" => {
-            "pat_id" => "String",
+            "pat_uuid" => "String",
     },
     "v2.UpdatePersonalAccessToken" => {
-            "pat_id" => "String",
+            "pat_uuid" => "String",
             "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListAPIs" => {
@@ -3470,9 +3470,6 @@ ScenariosModelMappings = {
     "v2.DeleteOrgGroupPolicy" => {
             "org_group_policy_id" => "UUID",
     },
-    "v2.GetOrgGroupPolicy" => {
-            "org_group_policy_id" => "UUID",
-    },
     "v2.UpdateOrgGroupPolicy" => {
             "org_group_policy_id" => "UUID",
             "body" => "OrgGroupPolicyUpdateRequest",
@@ -3488,9 +3485,6 @@ ScenariosModelMappings = {
             "body" => "OrgGroupPolicyOverrideCreateRequest",
     },
     "v2.DeleteOrgGroupPolicyOverride" => {
-            "org_group_policy_override_id" => "UUID",
-    },
-    "v2.GetOrgGroupPolicyOverride" => {
             "org_group_policy_override_id" => "UUID",
     },
     "v2.UpdateOrgGroupPolicyOverride" => {
@@ -4032,15 +4026,15 @@ ScenariosModelMappings = {
     },
     "v2.RevokeServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_id" => "String",
+            "pat_uuid" => "String",
     },
     "v2.GetServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_id" => "String",
+            "pat_uuid" => "String",
     },
     "v2.UpdateServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_id" => "String",
+            "pat_uuid" => "String",
             "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListServiceAccountApplicationKeys" => {

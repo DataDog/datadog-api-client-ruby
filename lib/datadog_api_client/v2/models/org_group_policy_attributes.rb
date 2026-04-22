@@ -24,17 +24,14 @@ module DatadogAPIClient::V2
     # The policy content as key-value pairs.
     attr_accessor :content
 
-    # The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
-    attr_reader :enforcement_tier
+    # Timestamp when the policy was enforced.
+    attr_reader :enforced_at
 
     # Timestamp when the policy was last modified.
     attr_reader :modified_at
 
     # The name of the policy.
     attr_reader :policy_name
-
-    # The type of the policy. Only `org_config` is supported, indicating a policy backed by an organization configuration setting.
-    attr_reader :policy_type
 
     attr_accessor :additional_properties
 
@@ -43,10 +40,9 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'content' => :'content',
-        :'enforcement_tier' => :'enforcement_tier',
+        :'enforced_at' => :'enforced_at',
         :'modified_at' => :'modified_at',
-        :'policy_name' => :'policy_name',
-        :'policy_type' => :'policy_type'
+        :'policy_name' => :'policy_name'
       }
     end
 
@@ -55,10 +51,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'content' => :'Hash<String, Object>',
-        :'enforcement_tier' => :'OrgGroupPolicyEnforcementTier',
+        :'enforced_at' => :'Time',
         :'modified_at' => :'Time',
-        :'policy_name' => :'String',
-        :'policy_type' => :'OrgGroupPolicyPolicyType'
+        :'policy_name' => :'String'
       }
     end
 
@@ -84,8 +79,8 @@ module DatadogAPIClient::V2
         self.content = attributes[:'content']
       end
 
-      if attributes.key?(:'enforcement_tier')
-        self.enforcement_tier = attributes[:'enforcement_tier']
+      if attributes.key?(:'enforced_at')
+        self.enforced_at = attributes[:'enforced_at']
       end
 
       if attributes.key?(:'modified_at')
@@ -95,31 +90,26 @@ module DatadogAPIClient::V2
       if attributes.key?(:'policy_name')
         self.policy_name = attributes[:'policy_name']
       end
-
-      if attributes.key?(:'policy_type')
-        self.policy_type = attributes[:'policy_type']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @enforcement_tier.nil?
+      return false if @enforced_at.nil?
       return false if @modified_at.nil?
       return false if @policy_name.nil?
-      return false if @policy_type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param enforcement_tier [Object] Object to be assigned
+    # @param enforced_at [Object] Object to be assigned
     # @!visibility private
-    def enforcement_tier=(enforcement_tier)
-      if enforcement_tier.nil?
-        fail ArgumentError, 'invalid value for "enforcement_tier", enforcement_tier cannot be nil.'
+    def enforced_at=(enforced_at)
+      if enforced_at.nil?
+        fail ArgumentError, 'invalid value for "enforced_at", enforced_at cannot be nil.'
       end
-      @enforcement_tier = enforcement_tier
+      @enforced_at = enforced_at
     end
 
     # Custom attribute writer method with validation
@@ -140,16 +130,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "policy_name", policy_name cannot be nil.'
       end
       @policy_name = policy_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param policy_type [Object] Object to be assigned
-    # @!visibility private
-    def policy_type=(policy_type)
-      if policy_type.nil?
-        fail ArgumentError, 'invalid value for "policy_type", policy_type cannot be nil.'
-      end
-      @policy_type = policy_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -179,10 +159,9 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           content == o.content &&
-          enforcement_tier == o.enforcement_tier &&
+          enforced_at == o.enforced_at &&
           modified_at == o.modified_at &&
           policy_name == o.policy_name &&
-          policy_type == o.policy_type &&
           additional_properties == o.additional_properties
     end
 
@@ -190,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [content, enforcement_tier, modified_at, policy_name, policy_type, additional_properties].hash
+      [content, enforced_at, modified_at, policy_name, additional_properties].hash
     end
   end
 end

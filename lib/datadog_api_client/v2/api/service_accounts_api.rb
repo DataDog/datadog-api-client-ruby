@@ -307,8 +307,8 @@ module DatadogAPIClient::V2
     # Get an access token for a service account.
     #
     # @see #get_service_account_access_token_with_http_info
-    def get_service_account_access_token(service_account_id, pat_id, opts = {})
-      data, _status_code, _headers = get_service_account_access_token_with_http_info(service_account_id, pat_id, opts)
+    def get_service_account_access_token(service_account_id, pat_uuid, opts = {})
+      data, _status_code, _headers = get_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts)
       data
     end
 
@@ -317,10 +317,10 @@ module DatadogAPIClient::V2
     # Get a specific access token for a service account by its UUID.
     #
     # @param service_account_id [String] The ID of the service account.
-    # @param pat_id [String] The ID of the personal access token.
+    # @param pat_uuid [String] The UUID of the personal access token.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
-    def get_service_account_access_token_with_http_info(service_account_id, pat_id, opts = {})
+    def get_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.get_service_account_access_token ...'
@@ -329,12 +329,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.get_service_account_access_token"
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling ServiceAccountsAPI.get_service_account_access_token"
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling ServiceAccountsAPI.get_service_account_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -605,8 +605,8 @@ module DatadogAPIClient::V2
     # Revoke an access token for a service account.
     #
     # @see #revoke_service_account_access_token_with_http_info
-    def revoke_service_account_access_token(service_account_id, pat_id, opts = {})
-      revoke_service_account_access_token_with_http_info(service_account_id, pat_id, opts)
+    def revoke_service_account_access_token(service_account_id, pat_uuid, opts = {})
+      revoke_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts)
       nil
     end
 
@@ -615,10 +615,10 @@ module DatadogAPIClient::V2
     # Revoke a specific access token for a service account.
     #
     # @param service_account_id [String] The ID of the service account.
-    # @param pat_id [String] The ID of the personal access token.
+    # @param pat_uuid [String] The UUID of the personal access token.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def revoke_service_account_access_token_with_http_info(service_account_id, pat_id, opts = {})
+    def revoke_service_account_access_token_with_http_info(service_account_id, pat_uuid, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.revoke_service_account_access_token ...'
@@ -627,12 +627,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.revoke_service_account_access_token"
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling ServiceAccountsAPI.revoke_service_account_access_token"
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling ServiceAccountsAPI.revoke_service_account_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -675,8 +675,8 @@ module DatadogAPIClient::V2
     # Update an access token for a service account.
     #
     # @see #update_service_account_access_token_with_http_info
-    def update_service_account_access_token(service_account_id, pat_id, body, opts = {})
-      data, _status_code, _headers = update_service_account_access_token_with_http_info(service_account_id, pat_id, body, opts)
+    def update_service_account_access_token(service_account_id, pat_uuid, body, opts = {})
+      data, _status_code, _headers = update_service_account_access_token_with_http_info(service_account_id, pat_uuid, body, opts)
       data
     end
 
@@ -685,11 +685,11 @@ module DatadogAPIClient::V2
     # Update a specific access token for a service account.
     #
     # @param service_account_id [String] The ID of the service account.
-    # @param pat_id [String] The ID of the personal access token.
+    # @param pat_uuid [String] The UUID of the personal access token.
     # @param body [PersonalAccessTokenUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
-    def update_service_account_access_token_with_http_info(service_account_id, pat_id, body, opts = {})
+    def update_service_account_access_token_with_http_info(service_account_id, pat_uuid, body, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.update_service_account_access_token ...'
@@ -698,16 +698,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.update_service_account_access_token"
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling ServiceAccountsAPI.update_service_account_access_token"
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling ServiceAccountsAPI.update_service_account_access_token"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling ServiceAccountsAPI.update_service_account_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
