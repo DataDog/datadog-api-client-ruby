@@ -17,20 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Widget definition.
-  class ScatterPlotWidgetDefinitionRequests
+  # The query for a scatterplot data projection request.
+  class ScatterplotDataProjectionQuery
     include BaseGenericModel
 
-    # Scatterplot table request. Supports two modes:
-    # - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
-    # - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
-    attr_accessor :table
+    # Data source for event platform-based queries.
+    attr_reader :data_source
 
-    # Updated scatter plot.
-    attr_accessor :x
+    # Indexes to search.
+    attr_accessor :indexes
 
-    # Updated scatter plot.
-    attr_accessor :y
+    # The search query string.
+    attr_reader :query_string
+
+    # Storage tier to query.
+    attr_accessor :storage
 
     attr_accessor :additional_properties
 
@@ -38,9 +39,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'table' => :'table',
-        :'x' => :'x',
-        :'y' => :'y'
+        :'data_source' => :'data_source',
+        :'indexes' => :'indexes',
+        :'query_string' => :'query_string',
+        :'storage' => :'storage'
       }
     end
 
@@ -48,9 +50,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'table' => :'ScatterplotTableRequest',
-        :'x' => :'ScatterPlotRequest',
-        :'y' => :'ScatterPlotRequest'
+        :'data_source' => :'FormulaAndFunctionEventsDataSource',
+        :'indexes' => :'Array<String>',
+        :'query_string' => :'String',
+        :'storage' => :'ScatterplotDataProjectionQueryStorage'
       }
     end
 
@@ -59,7 +62,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterplotDataProjectionQuery` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,17 +75,52 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'table')
-        self.table = attributes[:'table']
+      if attributes.key?(:'data_source')
+        self.data_source = attributes[:'data_source']
       end
 
-      if attributes.key?(:'x')
-        self.x = attributes[:'x']
+      if attributes.key?(:'indexes')
+        if (value = attributes[:'indexes']).is_a?(Array)
+          self.indexes = value
+        end
       end
 
-      if attributes.key?(:'y')
-        self.y = attributes[:'y']
+      if attributes.key?(:'query_string')
+        self.query_string = attributes[:'query_string']
       end
+
+      if attributes.key?(:'storage')
+        self.storage = attributes[:'storage']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data_source.nil?
+      return false if @query_string.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    # @!visibility private
+    def data_source=(data_source)
+      if data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param query_string [Object] Object to be assigned
+    # @!visibility private
+    def query_string=(query_string)
+      if query_string.nil?
+        fail ArgumentError, 'invalid value for "query_string", query_string cannot be nil.'
+      end
+      @query_string = query_string
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,9 +149,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          table == o.table &&
-          x == o.x &&
-          y == o.y &&
+          data_source == o.data_source &&
+          indexes == o.indexes &&
+          query_string == o.query_string &&
+          storage == o.storage &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +160,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [table, x, y, additional_properties].hash
+      [data_source, indexes, query_string, storage, additional_properties].hash
     end
   end
 end
