@@ -587,7 +587,8 @@ module DatadogAPIClient
                 "ap1.datadoghq.com",
                 "ap2.datadoghq.com",
                 "datadoghq.eu",
-                "ddog-gov.com"
+                "ddog-gov.com",
+                "us2.ddog-gov.com"
               ]
             },
             subdomain: {
@@ -644,7 +645,8 @@ module DatadogAPIClient
                   "ap1.datadoghq.com",
                   "ap2.datadoghq.com",
                   "datadoghq.eu",
-                  "ddog-gov.com"
+                  "ddog-gov.com",
+                  "us2.ddog-gov.com"
                 ]
               },
               subdomain: {
@@ -693,7 +695,8 @@ module DatadogAPIClient
                   "ap1.datadoghq.com",
                   "ap2.datadoghq.com",
                   "datadoghq.eu",
-                  "ddog-gov.com"
+                  "ddog-gov.com",
+                  "us2.ddog-gov.com"
                 ]
               },
               subdomain: {
@@ -746,7 +749,8 @@ module DatadogAPIClient
                   "ap1.datadoghq.com",
                   "ap2.datadoghq.com",
                   "datadoghq.eu",
-                  "ddog-gov.com"
+                  "ddog-gov.com",
+                  "us2.ddog-gov.com"
                 ]
               },
               subdomain: {
@@ -799,7 +803,8 @@ module DatadogAPIClient
                   "ap1.datadoghq.com",
                   "ap2.datadoghq.com",
                   "datadoghq.eu",
-                  "ddog-gov.com"
+                  "ddog-gov.com",
+                  "us2.ddog-gov.com"
                 ]
               },
               subdomain: {
