@@ -57,6 +57,9 @@ module DatadogAPIClient::V2
     # Title of the user.
     attr_accessor :title
 
+    # UUID of the user.
+    attr_accessor :uuid
+
     # Whether the user is verified.
     attr_accessor :verified
 
@@ -78,6 +81,7 @@ module DatadogAPIClient::V2
         :'service_account' => :'service_account',
         :'status' => :'status',
         :'title' => :'title',
+        :'uuid' => :'uuid',
         :'verified' => :'verified'
       }
     end
@@ -98,6 +102,7 @@ module DatadogAPIClient::V2
         :'service_account' => :'Boolean',
         :'status' => :'String',
         :'title' => :'String',
+        :'uuid' => :'String',
         :'verified' => :'Boolean'
       }
     end
@@ -178,6 +183,10 @@ module DatadogAPIClient::V2
         self.title = attributes[:'title']
       end
 
+      if attributes.key?(:'uuid')
+        self.uuid = attributes[:'uuid']
+      end
+
       if attributes.key?(:'verified')
         self.verified = attributes[:'verified']
       end
@@ -221,6 +230,7 @@ module DatadogAPIClient::V2
           service_account == o.service_account &&
           status == o.status &&
           title == o.title &&
+          uuid == o.uuid &&
           verified == o.verified &&
           additional_properties == o.additional_properties
     end
@@ -229,7 +239,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, disabled, email, handle, icon, last_login_time, mfa_enabled, modified_at, name, service_account, status, title, verified, additional_properties].hash
+      [created_at, disabled, email, handle, icon, last_login_time, mfa_enabled, modified_at, name, service_account, status, title, uuid, verified, additional_properties].hash
     end
   end
 end

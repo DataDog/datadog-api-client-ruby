@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class PersonalAccessTokenAttributes
     include BaseGenericModel
 
-    # The alias (short identifier) of the personal access token.
-    attr_accessor :_alias
-
     # Creation date of the personal access token.
     attr_accessor :created_at
 
@@ -51,7 +48,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'_alias' => :'alias',
         :'created_at' => :'created_at',
         :'expires_at' => :'expires_at',
         :'last_used_at' => :'last_used_at',
@@ -66,7 +62,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'_alias' => :'String',
         :'created_at' => :'Time',
         :'expires_at' => :'Time',
         :'last_used_at' => :'Time',
@@ -104,10 +99,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'_alias')
-        self._alias = attributes[:'_alias']
-      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -166,7 +157,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _alias == o._alias &&
           created_at == o.created_at &&
           expires_at == o.expires_at &&
           last_used_at == o.last_used_at &&
@@ -181,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, created_at, expires_at, last_used_at, modified_at, name, public_portion, scopes, additional_properties].hash
+      [created_at, expires_at, last_used_at, modified_at, name, public_portion, scopes, additional_properties].hash
     end
   end
 end
