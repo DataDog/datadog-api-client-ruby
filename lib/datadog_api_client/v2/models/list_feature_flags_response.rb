@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<FeatureFlag>',
+        :'data' => :'Array<FeatureFlagListItem>',
         :'meta' => :'FeatureFlagsPaginationMeta'
       }
     end

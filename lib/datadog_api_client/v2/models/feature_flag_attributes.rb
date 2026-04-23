@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Indicates whether this feature flag requires approval for changes.
     attr_accessor :require_approval
 
+    # Indicates the whether a feature flag is stale or not.
+    attr_accessor :staleness_status
+
     # Tags associated with the feature flag.
     attr_accessor :tags
 
@@ -83,6 +86,7 @@ module DatadogAPIClient::V2
         :'last_updated_by' => :'last_updated_by',
         :'name' => :'name',
         :'require_approval' => :'require_approval',
+        :'staleness_status' => :'staleness_status',
         :'tags' => :'tags',
         :'updated_at' => :'updated_at',
         :'value_type' => :'value_type',
@@ -105,6 +109,7 @@ module DatadogAPIClient::V2
         :'last_updated_by' => :'UUID',
         :'name' => :'String',
         :'require_approval' => :'Boolean',
+        :'staleness_status' => :'String',
         :'tags' => :'Array<String>',
         :'updated_at' => :'Time',
         :'value_type' => :'ValueType',
@@ -183,6 +188,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'require_approval')
         self.require_approval = attributes[:'require_approval']
+      end
+
+      if attributes.key?(:'staleness_status')
+        self.staleness_status = attributes[:'staleness_status']
       end
 
       if attributes.key?(:'tags')
@@ -305,6 +314,7 @@ module DatadogAPIClient::V2
           last_updated_by == o.last_updated_by &&
           name == o.name &&
           require_approval == o.require_approval &&
+          staleness_status == o.staleness_status &&
           tags == o.tags &&
           updated_at == o.updated_at &&
           value_type == o.value_type &&
@@ -316,7 +326,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, json_schema, key, last_updated_by, name, require_approval, tags, updated_at, value_type, variants, additional_properties].hash
+      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, json_schema, key, last_updated_by, name, require_approval, staleness_status, tags, updated_at, value_type, variants, additional_properties].hash
     end
   end
 end
