@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The installation status of the related integration.
+  # The installation status of the related integration
   class SecurityMonitoringContentPackIntegrationStatus
     include BaseEnumModel
 

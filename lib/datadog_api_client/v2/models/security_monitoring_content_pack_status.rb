@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The current operational status of a content pack.
+  # The current status of a content pack
   class SecurityMonitoringContentPackStatus
     include BaseEnumModel
 
