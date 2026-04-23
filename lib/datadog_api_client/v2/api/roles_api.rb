@@ -251,6 +251,8 @@ module DatadogAPIClient::V2
     #
     # Create a new role for your organization.
     #
+    # **Note**: When a role is created, the following permissions are automatically added, regardless of whether they are included in the request: Dashboards Read, Notebooks Read, Monitors Read, APM Read, Vulnerability Management Read, RUM Apps Read, Incidents Read, SLOs Read, CI Visibility Read, and CD Visibility Read.
+    #
     # @param body [RoleCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleCreateResponse, Integer, Hash)>] RoleCreateResponse data, response status code and response headers
