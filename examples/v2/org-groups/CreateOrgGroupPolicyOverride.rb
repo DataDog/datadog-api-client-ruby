@@ -9,7 +9,7 @@ api_instance = DatadogAPIClient::V2::OrgGroupsAPI.new
 body = DatadogAPIClient::V2::OrgGroupPolicyOverrideCreateRequest.new({
   data: DatadogAPIClient::V2::OrgGroupPolicyOverrideCreateData.new({
     attributes: DatadogAPIClient::V2::OrgGroupPolicyOverrideCreateAttributes.new({
-      org_site: "us1",
+      org_site: "datadoghq.com",
       org_uuid: "c3d4e5f6-a7b8-9012-cdef-012345678901",
     }),
     relationships: DatadogAPIClient::V2::OrgGroupPolicyOverrideCreateRelationships.new({

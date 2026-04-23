@@ -12,7 +12,6 @@ body = DatadogAPIClient::V2::OrgGroupPolicyUpdateRequest.new({
       content: {
         "value": "UTC",
       },
-      enforcement_tier: DatadogAPIClient::V2::OrgGroupPolicyEnforcementTier::DEFAULT,
     }),
     id: "1a2b3c4d-5e6f-7890-abcd-ef0123456789",
     type: DatadogAPIClient::V2::OrgGroupPolicyType::ORG_GROUP_POLICIES,

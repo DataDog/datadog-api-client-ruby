@@ -622,8 +622,8 @@ module DatadogAPIClient::V2
     # Get a personal access token.
     #
     # @see #get_personal_access_token_with_http_info
-    def get_personal_access_token(pat_id, opts = {})
-      data, _status_code, _headers = get_personal_access_token_with_http_info(pat_id, opts)
+    def get_personal_access_token(pat_uuid, opts = {})
+      data, _status_code, _headers = get_personal_access_token_with_http_info(pat_uuid, opts)
       data
     end
 
@@ -631,20 +631,20 @@ module DatadogAPIClient::V2
     #
     # Get a specific personal access token by its UUID.
     #
-    # @param pat_id [String] The ID of the personal access token.
+    # @param pat_uuid [String] The UUID of the personal access token.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
-    def get_personal_access_token_with_http_info(pat_id, opts = {})
+    def get_personal_access_token_with_http_info(pat_uuid, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_personal_access_token ...'
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling KeyManagementAPI.get_personal_access_token"
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling KeyManagementAPI.get_personal_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/personal_access_tokens/{pat_id}'.sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/personal_access_tokens/{pat_uuid}'.sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1004,8 +1004,8 @@ module DatadogAPIClient::V2
     # Revoke a personal access token.
     #
     # @see #revoke_personal_access_token_with_http_info
-    def revoke_personal_access_token(pat_id, opts = {})
-      revoke_personal_access_token_with_http_info(pat_id, opts)
+    def revoke_personal_access_token(pat_uuid, opts = {})
+      revoke_personal_access_token_with_http_info(pat_uuid, opts)
       nil
     end
 
@@ -1013,20 +1013,20 @@ module DatadogAPIClient::V2
     #
     # Revoke a specific personal access token.
     #
-    # @param pat_id [String] The ID of the personal access token.
+    # @param pat_uuid [String] The UUID of the personal access token.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def revoke_personal_access_token_with_http_info(pat_id, opts = {})
+    def revoke_personal_access_token_with_http_info(pat_uuid, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.revoke_personal_access_token ...'
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling KeyManagementAPI.revoke_personal_access_token"
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling KeyManagementAPI.revoke_personal_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/personal_access_tokens/{pat_id}'.sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/personal_access_tokens/{pat_uuid}'.sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1286,8 +1286,8 @@ module DatadogAPIClient::V2
     # Update a personal access token.
     #
     # @see #update_personal_access_token_with_http_info
-    def update_personal_access_token(pat_id, body, opts = {})
-      data, _status_code, _headers = update_personal_access_token_with_http_info(pat_id, body, opts)
+    def update_personal_access_token(pat_uuid, body, opts = {})
+      data, _status_code, _headers = update_personal_access_token_with_http_info(pat_uuid, body, opts)
       data
     end
 
@@ -1295,25 +1295,25 @@ module DatadogAPIClient::V2
     #
     # Update a specific personal access token.
     #
-    # @param pat_id [String] The ID of the personal access token.
+    # @param pat_uuid [String] The UUID of the personal access token.
     # @param body [PersonalAccessTokenUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
-    def update_personal_access_token_with_http_info(pat_id, body, opts = {})
+    def update_personal_access_token_with_http_info(pat_uuid, body, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_personal_access_token ...'
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling KeyManagementAPI.update_personal_access_token"
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling KeyManagementAPI.update_personal_access_token"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_personal_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/personal_access_tokens/{pat_id}'.sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/personal_access_tokens/{pat_uuid}'.sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class OrgGroupPolicyCreateData
     include BaseGenericModel
 
-    # Attributes for creating an org group policy. If `policy_type` or `enforcement_tier` are not provided, they default to `org_config` and `DEFAULT` respectively.
+    # Attributes for creating an org group policy.
     attr_reader :attributes
 
     # Relationships for creating a policy.
