@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating an org group policy.
+  # Attributes for creating an org group policy. If `policy_type` or `enforcement_tier` are not provided, they default to `org_config` and `DEFAULT` respectively.
   class OrgGroupPolicyCreateAttributes
     include BaseGenericModel
 
     # The policy content as key-value pairs.
     attr_reader :content
 
+    # The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
+    attr_accessor :enforcement_tier
+
     # The name of the policy.
     attr_reader :policy_name
+
+    # The type of the policy. Only `org_config` is supported, indicating a policy backed by an organization configuration setting.
+    attr_accessor :policy_type
 
     attr_accessor :additional_properties
 
@@ -34,7 +40,9 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'content' => :'content',
-        :'policy_name' => :'policy_name'
+        :'enforcement_tier' => :'enforcement_tier',
+        :'policy_name' => :'policy_name',
+        :'policy_type' => :'policy_type'
       }
     end
 
@@ -43,7 +51,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'content' => :'Hash<String, Object>',
-        :'policy_name' => :'String'
+        :'enforcement_tier' => :'OrgGroupPolicyEnforcementTier',
+        :'policy_name' => :'String',
+        :'policy_type' => :'OrgGroupPolicyPolicyType'
       }
     end
 
@@ -69,8 +79,16 @@ module DatadogAPIClient::V2
         self.content = attributes[:'content']
       end
 
+      if attributes.key?(:'enforcement_tier')
+        self.enforcement_tier = attributes[:'enforcement_tier']
+      end
+
       if attributes.key?(:'policy_name')
         self.policy_name = attributes[:'policy_name']
+      end
+
+      if attributes.key?(:'policy_type')
+        self.policy_type = attributes[:'policy_type']
       end
     end
 
@@ -130,7 +148,9 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           content == o.content &&
+          enforcement_tier == o.enforcement_tier &&
           policy_name == o.policy_name &&
+          policy_type == o.policy_type &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [content, policy_name, additional_properties].hash
+      [content, enforcement_tier, policy_name, policy_type, additional_properties].hash
     end
   end
 end

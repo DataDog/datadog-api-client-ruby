@@ -3470,6 +3470,9 @@ ScenariosModelMappings = {
     "v2.DeleteOrgGroupPolicy" => {
             "org_group_policy_id" => "UUID",
     },
+    "v2.GetOrgGroupPolicy" => {
+            "org_group_policy_id" => "UUID",
+    },
     "v2.UpdateOrgGroupPolicy" => {
             "org_group_policy_id" => "UUID",
             "body" => "OrgGroupPolicyUpdateRequest",
@@ -3485,6 +3488,9 @@ ScenariosModelMappings = {
             "body" => "OrgGroupPolicyOverrideCreateRequest",
     },
     "v2.DeleteOrgGroupPolicyOverride" => {
+            "org_group_policy_override_id" => "UUID",
+    },
+    "v2.GetOrgGroupPolicyOverride" => {
             "org_group_policy_override_id" => "UUID",
     },
     "v2.UpdateOrgGroupPolicyOverride" => {
