@@ -28,13 +28,13 @@ module DatadogAPIClient::V2
     # gRPC call type (for example, `unary`, `healthCheck`, or `reflection`).
     attr_accessor :call_type
 
-    # TLS certificate details, present for SSL tests.
+    # SSL/TLS certificate information returned from an SSL test.
     attr_accessor :cert
 
     # Total duration of the test in milliseconds.
     attr_accessor :duration
 
-    # Failure details if the fast test did not pass.
+    # Details about the failure of a Synthetic test.
     attr_accessor :failure
 
     # Unix timestamp (ms) of when the test finished.
@@ -46,16 +46,16 @@ module DatadogAPIClient::V2
     # Whether this result is from an automatic fast retry.
     attr_accessor :is_fast_retry
 
-    # Details of the outgoing request made during the test.
+    # Details of the outgoing request made during the test execution.
     attr_accessor :request
 
     # IP address resolved for the target host.
     attr_accessor :resolved_ip
 
-    # Details of the response received during the test.
+    # Details of the response received during the test execution.
     attr_accessor :response
 
-    # Run type indicating how this test was triggered (for example, `fast`).
+    # The type of run for a Synthetic test result.
     attr_accessor :run_type
 
     # Unix timestamp (ms) of when the test started.
@@ -111,23 +111,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'assertions' => :'Array<Hash<String, Object>>',
+        :'assertions' => :'Array<SyntheticsTestResultAssertionResult>',
         :'call_type' => :'String',
-        :'cert' => :'Hash<String, Object>',
+        :'cert' => :'SyntheticsTestResultCertificate',
         :'duration' => :'Float',
-        :'failure' => :'SyntheticsFastTestResultFailure',
+        :'failure' => :'SyntheticsTestResultFailure',
         :'finished_at' => :'Integer',
         :'id' => :'String',
         :'is_fast_retry' => :'Boolean',
-        :'request' => :'Hash<String, Object>',
+        :'request' => :'SyntheticsTestResultRequestInfo',
         :'resolved_ip' => :'String',
-        :'response' => :'Hash<String, Object>',
-        :'run_type' => :'String',
+        :'response' => :'SyntheticsTestResultResponseInfo',
+        :'run_type' => :'SyntheticsTestResultRunType',
         :'started_at' => :'Integer',
         :'status' => :'String',
-        :'steps' => :'Array<Hash<String, Object>>',
+        :'steps' => :'Array<SyntheticsTestResultStep>',
         :'timings' => :'Hash<String, Object>',
-        :'traceroute' => :'Array<Hash<String, Object>>',
+        :'traceroute' => :'Array<SyntheticsTestResultTracerouteHop>',
         :'triggered_at' => :'Integer',
         :'tunnel' => :'Boolean'
       }
