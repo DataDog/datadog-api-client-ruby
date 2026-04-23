@@ -1247,13 +1247,13 @@ ScenariosModelMappings = {
             "body" => "PersonalAccessTokenCreateRequest",
     },
     "v2.RevokePersonalAccessToken" => {
-            "pat_uuid" => "String",
+            "pat_id" => "String",
     },
     "v2.GetPersonalAccessToken" => {
-            "pat_uuid" => "String",
+            "pat_id" => "String",
     },
     "v2.UpdatePersonalAccessToken" => {
-            "pat_uuid" => "String",
+            "pat_id" => "String",
             "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListAPIs" => {
@@ -4026,15 +4026,15 @@ ScenariosModelMappings = {
     },
     "v2.RevokeServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_uuid" => "String",
+            "pat_id" => "String",
     },
     "v2.GetServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_uuid" => "String",
+            "pat_id" => "String",
     },
     "v2.UpdateServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_uuid" => "String",
+            "pat_id" => "String",
             "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListServiceAccountApplicationKeys" => {
