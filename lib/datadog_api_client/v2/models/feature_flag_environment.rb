@@ -54,12 +54,6 @@ module DatadogAPIClient::V2
     # Indicates whether feature flag changes require approval in this environment.
     attr_accessor :require_feature_flag_approval
 
-    # Rollout percentage for this environment.
-    attr_reader :rollout_percentage
-
-    # Environment targeting rules for this feature flag.
-    attr_accessor :rules
-
     # The status of a feature flag in an environment.
     attr_reader :status
 
@@ -80,8 +74,6 @@ module DatadogAPIClient::V2
         :'override_variant_id' => :'override_variant_id',
         :'pending_suggestion_id' => :'pending_suggestion_id',
         :'require_feature_flag_approval' => :'require_feature_flag_approval',
-        :'rollout_percentage' => :'rollout_percentage',
-        :'rules' => :'rules',
         :'status' => :'status'
       }
     end
@@ -101,8 +93,6 @@ module DatadogAPIClient::V2
         :'override_variant_id' => :'String',
         :'pending_suggestion_id' => :'String',
         :'require_feature_flag_approval' => :'Boolean',
-        :'rollout_percentage' => :'Integer',
-        :'rules' => :'Array<Hash<String, Object>>',
         :'status' => :'FeatureFlagStatus'
       }
     end
@@ -182,16 +172,6 @@ module DatadogAPIClient::V2
         self.require_feature_flag_approval = attributes[:'require_feature_flag_approval']
       end
 
-      if attributes.key?(:'rollout_percentage')
-        self.rollout_percentage = attributes[:'rollout_percentage']
-      end
-
-      if attributes.key?(:'rules')
-        if (value = attributes[:'rules']).is_a?(Array)
-          self.rules = value
-        end
-      end
-
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -202,8 +182,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @environment_id.nil?
-      return false if !@rollout_percentage.nil? && @rollout_percentage > 100
-      return false if !@rollout_percentage.nil? && @rollout_percentage < 0
       return false if @status.nil?
       true
     end
@@ -216,19 +194,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "environment_id", environment_id cannot be nil.'
       end
       @environment_id = environment_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param rollout_percentage [Object] Object to be assigned
-    # @!visibility private
-    def rollout_percentage=(rollout_percentage)
-      if !rollout_percentage.nil? && rollout_percentage > 100
-        fail ArgumentError, 'invalid value for "rollout_percentage", must be smaller than or equal to 100.'
-      end
-      if !rollout_percentage.nil? && rollout_percentage < 0
-        fail ArgumentError, 'invalid value for "rollout_percentage", must be greater than or equal to 0.'
-      end
-      @rollout_percentage = rollout_percentage
     end
 
     # Custom attribute writer method with validation
@@ -278,8 +243,6 @@ module DatadogAPIClient::V2
           override_variant_id == o.override_variant_id &&
           pending_suggestion_id == o.pending_suggestion_id &&
           require_feature_flag_approval == o.require_feature_flag_approval &&
-          rollout_percentage == o.rollout_percentage &&
-          rules == o.rules &&
           status == o.status &&
           additional_properties == o.additional_properties
     end
@@ -288,7 +251,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, rollout_percentage, rules, status, additional_properties].hash
+      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, additional_properties].hash
     end
   end
 end
