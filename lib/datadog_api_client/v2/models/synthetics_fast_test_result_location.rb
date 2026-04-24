@@ -17,21 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Details of the CI pipeline.
-  class SyntheticsTestResultCIPipeline
+  # Location from which the fast test was executed.
+  class SyntheticsFastTestResultLocation
     include BaseGenericModel
 
-    # Pipeline identifier.
+    # ID of the location.
     attr_accessor :id
 
-    # Pipeline name.
+    # Display name of the location.
     attr_accessor :name
 
-    # Pipeline number.
-    attr_accessor :number
+    # Agent version running at this location.
+    attr_accessor :version
 
-    # Pipeline URL.
-    attr_accessor :url
+    # Identifier of the specific worker that ran the test.
+    attr_accessor :worker_id
 
     attr_accessor :additional_properties
 
@@ -41,8 +41,8 @@ module DatadogAPIClient::V2
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'number' => :'number',
-        :'url' => :'url'
+        :'version' => :'version',
+        :'worker_id' => :'worker_id'
       }
     end
 
@@ -52,8 +52,8 @@ module DatadogAPIClient::V2
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'number' => :'Integer',
-        :'url' => :'String'
+        :'version' => :'String',
+        :'worker_id' => :'String'
       }
     end
 
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsTestResultCIPipeline` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsFastTestResultLocation` initialize method"
       end
 
       self.additional_properties = {}
@@ -83,12 +83,12 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'number')
-        self.number = attributes[:'number']
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
 
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.key?(:'worker_id')
+        self.worker_id = attributes[:'worker_id']
       end
     end
 
@@ -120,8 +120,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          number == o.number &&
-          url == o.url &&
+          version == o.version &&
+          worker_id == o.worker_id &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, name, number, url, additional_properties].hash
+      [id, name, version, worker_id, additional_properties].hash
     end
   end
 end

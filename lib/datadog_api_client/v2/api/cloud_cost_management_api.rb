@@ -242,11 +242,11 @@ module DatadogAPIClient::V2
     # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
     #
     # **Filter Conditions:**
-    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+    # - Use **value** for single-value conditions: "is", "is not", "contains", "=", "!=", "like", "not like"
     # - Use **values** for multi-value conditions: "in", "not in"
     # - Cannot use both value and values simultaneously.
     #
-    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+    # **Supported operators**: is, is not, contains, in, not in, =, !=, like, not like
     #
     # @param body [ArbitraryCostUpsertRequest] 
     # @param opts [Hash] the optional parameters
@@ -2088,11 +2088,11 @@ module DatadogAPIClient::V2
     # - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
     #
     # **Filter Conditions:**
-    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+    # - Use **value** for single-value conditions: "is", "is not", "contains", "=", "!=", "like", "not like"
     # - Use **values** for multi-value conditions: "in", "not in"
     # - Cannot use both value and values simultaneously.
     #
-    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+    # **Supported operators**: is, is not, contains, in, not in, =, !=, like, not like
     #
     # @param rule_id [Integer] The unique identifier of the custom allocation rule
     # @param body [ArbitraryCostUpsertRequest] 

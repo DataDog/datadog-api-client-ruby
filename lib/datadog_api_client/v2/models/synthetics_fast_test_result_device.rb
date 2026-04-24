@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Wrapper object for a Synthetic test result summary.
-  class SyntheticsTestResultSummaryData
+  # Device information for browser-based fast tests.
+  class SyntheticsFastTestResultDevice
     include BaseGenericModel
 
-    # Attributes of a Synthetic test result summary.
-    attr_accessor :attributes
-
-    # The result ID.
+    # Device identifier.
     attr_accessor :id
 
-    # Relationships for a Synthetic test result.
-    attr_accessor :relationships
-
-    # Type of the Synthetic test result summary resource, `result_summary`.
-    attr_accessor :type
+    # Display name of the device.
+    attr_accessor :name
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'name' => :'name'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'SyntheticsTestResultSummaryAttributes',
         :'id' => :'String',
-        :'relationships' => :'SyntheticsTestResultRelationships',
-        :'type' => :'SyntheticsTestResultSummaryType'
+        :'name' => :'String'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsTestResultSummaryData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsFastTestResultDevice` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -118,10 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
-          type == o.type &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [id, name, additional_properties].hash
     end
   end
 end

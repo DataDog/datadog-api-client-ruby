@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class SyntheticsFastTestResultAttributes
     include BaseGenericModel
 
-    # Device information for the test result (browser and mobile tests).
+    # Device information for browser-based fast tests.
     attr_accessor :device
 
-    # Location information for a Synthetic test result.
+    # Location from which the fast test was executed.
     attr_accessor :location
 
     # Detailed result data for the fast test run. The exact shape of nested fields
@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     # Subtype of the Synthetic test that produced this result.
     attr_accessor :test_sub_type
 
-    # Type of the Synthetic fast test that produced this result.
+    # The type of the Synthetic test that produced this result (for example, `api` or `browser`).
     attr_accessor :test_type
 
     # Version of the test at the time the fast test was triggered.
@@ -59,11 +59,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'device' => :'SyntheticsTestResultDevice',
-        :'location' => :'SyntheticsTestResultLocation',
+        :'device' => :'SyntheticsFastTestResultDevice',
+        :'location' => :'SyntheticsFastTestResultLocation',
         :'result' => :'SyntheticsFastTestResultDetail',
         :'test_sub_type' => :'SyntheticsFastTestSubType',
-        :'test_type' => :'SyntheticsFastTestType',
+        :'test_type' => :'String',
         :'test_version' => :'Integer'
       }
     end
