@@ -670,6 +670,148 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an org group policy.
+    #
+    # @see #get_org_group_policy_with_http_info
+    def get_org_group_policy(org_group_policy_id, opts = {})
+      data, _status_code, _headers = get_org_group_policy_with_http_info(org_group_policy_id, opts)
+      data
+    end
+
+    # Get an org group policy.
+    #
+    # Get a specific organization group policy by its ID.
+    #
+    # @param org_group_policy_id [UUID] The ID of the org group policy.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OrgGroupPolicyResponse, Integer, Hash)>] OrgGroupPolicyResponse data, response status code and response headers
+    def get_org_group_policy_with_http_info(org_group_policy_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_org_group_policy".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_org_group_policy")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_org_group_policy"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgGroupsAPI.get_org_group_policy ...'
+      end
+      # verify the required parameter 'org_group_policy_id' is set
+      if @api_client.config.client_side_validation && org_group_policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'org_group_policy_id' when calling OrgGroupsAPI.get_org_group_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_group_policies/{org_group_policy_id}'.sub('{org_group_policy_id}', CGI.escape(org_group_policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OrgGroupPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_org_group_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgGroupsAPI#get_org_group_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an org group policy override.
+    #
+    # @see #get_org_group_policy_override_with_http_info
+    def get_org_group_policy_override(org_group_policy_override_id, opts = {})
+      data, _status_code, _headers = get_org_group_policy_override_with_http_info(org_group_policy_override_id, opts)
+      data
+    end
+
+    # Get an org group policy override.
+    #
+    # Get a specific organization group policy override by its ID.
+    #
+    # @param org_group_policy_override_id [UUID] The ID of the org group policy override.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OrgGroupPolicyOverrideResponse, Integer, Hash)>] OrgGroupPolicyOverrideResponse data, response status code and response headers
+    def get_org_group_policy_override_with_http_info(org_group_policy_override_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_org_group_policy_override".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_org_group_policy_override")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_org_group_policy_override"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgGroupsAPI.get_org_group_policy_override ...'
+      end
+      # verify the required parameter 'org_group_policy_override_id' is set
+      if @api_client.config.client_side_validation && org_group_policy_override_id.nil?
+        fail ArgumentError, "Missing the required parameter 'org_group_policy_override_id' when calling OrgGroupsAPI.get_org_group_policy_override"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_group_policy_overrides/{org_group_policy_override_id}'.sub('{org_group_policy_override_id}', CGI.escape(org_group_policy_override_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OrgGroupPolicyOverrideResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_org_group_policy_override,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgGroupsAPI#get_org_group_policy_override\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List org group memberships.
     #
     # @see #list_org_group_memberships_with_http_info
@@ -1264,7 +1406,7 @@ module DatadogAPIClient::V2
 
     # Update an org group policy.
     #
-    # Update the content of an existing organization group policy.
+    # Update an existing organization group policy.
     #
     # @param org_group_policy_id [UUID] The ID of the org group policy.
     # @param body [OrgGroupPolicyUpdateRequest] 

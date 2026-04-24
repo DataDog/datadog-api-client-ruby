@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::OrgGroupMembershipBulkUpdateRequest.new({
     attributes: DatadogAPIClient::V2::OrgGroupMembershipBulkUpdateAttributes.new({
       orgs: [
         DatadogAPIClient::V2::GlobalOrgIdentifier.new({
-          org_site: "datadoghq.com",
+          org_site: "us1",
           org_uuid: "c3d4e5f6-a7b8-9012-cdef-012345678901",
         }),
       ],
