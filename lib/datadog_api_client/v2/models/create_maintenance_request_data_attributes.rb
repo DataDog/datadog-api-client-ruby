@@ -22,22 +22,22 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Timestamp of when the maintenance was completed.
-    attr_accessor :completed_date
+    attr_reader :completed_date
 
     # The description shown when the maintenance is completed.
-    attr_accessor :completed_description
+    attr_reader :completed_description
 
     # The components affected by the maintenance.
     attr_reader :components_affected
 
     # The description shown while the maintenance is in progress.
-    attr_accessor :in_progress_description
+    attr_reader :in_progress_description
 
     # The description shown when the maintenance is scheduled.
-    attr_accessor :scheduled_description
+    attr_reader :scheduled_description
 
     # Timestamp of when the maintenance is scheduled to start.
-    attr_accessor :start_date
+    attr_reader :start_date
 
     # The title of the maintenance.
     attr_reader :title
@@ -125,9 +125,34 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @completed_date.nil?
+      return false if @completed_description.nil?
       return false if @components_affected.nil?
+      return false if @in_progress_description.nil?
+      return false if @scheduled_description.nil?
+      return false if @start_date.nil?
       return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param completed_date [Object] Object to be assigned
+    # @!visibility private
+    def completed_date=(completed_date)
+      if completed_date.nil?
+        fail ArgumentError, 'invalid value for "completed_date", completed_date cannot be nil.'
+      end
+      @completed_date = completed_date
+    end
+
+    # Custom attribute writer method with validation
+    # @param completed_description [Object] Object to be assigned
+    # @!visibility private
+    def completed_description=(completed_description)
+      if completed_description.nil?
+        fail ArgumentError, 'invalid value for "completed_description", completed_description cannot be nil.'
+      end
+      @completed_description = completed_description
     end
 
     # Custom attribute writer method with validation
@@ -138,6 +163,36 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "components_affected", components_affected cannot be nil.'
       end
       @components_affected = components_affected
+    end
+
+    # Custom attribute writer method with validation
+    # @param in_progress_description [Object] Object to be assigned
+    # @!visibility private
+    def in_progress_description=(in_progress_description)
+      if in_progress_description.nil?
+        fail ArgumentError, 'invalid value for "in_progress_description", in_progress_description cannot be nil.'
+      end
+      @in_progress_description = in_progress_description
+    end
+
+    # Custom attribute writer method with validation
+    # @param scheduled_description [Object] Object to be assigned
+    # @!visibility private
+    def scheduled_description=(scheduled_description)
+      if scheduled_description.nil?
+        fail ArgumentError, 'invalid value for "scheduled_description", scheduled_description cannot be nil.'
+      end
+      @scheduled_description = scheduled_description
+    end
+
+    # Custom attribute writer method with validation
+    # @param start_date [Object] Object to be assigned
+    # @!visibility private
+    def start_date=(start_date)
+      if start_date.nil?
+        fail ArgumentError, 'invalid value for "start_date", start_date cannot be nil.'
+      end
+      @start_date = start_date
     end
 
     # Custom attribute writer method with validation
