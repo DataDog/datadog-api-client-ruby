@@ -1,5 +1,56 @@
 # CHANGELOG
 
+## 2.53.0/2026-04-24
+
+### Changed
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3255](https://github.com/DataDog/datadog-api-client-ruby/pull/3255)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3251](https://github.com/DataDog/datadog-api-client-ruby/pull/3251)
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3237](https://github.com/DataDog/datadog-api-client-ruby/pull/3237)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3234](https://github.com/DataDog/datadog-api-client-ruby/pull/3234)
+* Security Monitoring - Revert rename of historical job API endpoints to threat hunting [#3221](https://github.com/DataDog/datadog-api-client-ruby/pull/3221)
+* Update SearchFlakyTests endpoint documentation [#3196](https://github.com/DataDog/datadog-api-client-ruby/pull/3196)
+
+### Removed
+* Remove unsupported operators from CCM Custom Allocation Rules feature [#3249](https://github.com/DataDog/datadog-api-client-ruby/pull/3249)
+
+### Added
+* Add us2.ddog-gov.com. [#3246](https://github.com/DataDog/datadog-api-client-ruby/pull/3246)
+* Add OpenAPI spec for v2 Synthetics test result endpoints [#3242](https://github.com/DataDog/datadog-api-client-ruby/pull/3242)
+* Document signals triage update endpoints [#3240](https://github.com/DataDog/datadog-api-client-ruby/pull/3240)
+* Security notifications - Add SAST and secret rule types [#3235](https://github.com/DataDog/datadog-api-client-ruby/pull/3235)
+* Add OpenAPI documentation for list and get indicators of compromise endpoints [#3232](https://github.com/DataDog/datadog-api-client-ruby/pull/3232)
+* Cloud SIEM - Document content packs SIEM endpoints [#3230](https://github.com/DataDog/datadog-api-client-ruby/pull/3230)
+* Add domain prefix filter query parameter to list status pages API [#3226](https://github.com/DataDog/datadog-api-client-ruby/pull/3226)
+* Add OpenAPI documentation for LLM Observability eval config CRUD endpoints [#3224](https://github.com/DataDog/datadog-api-client-ruby/pull/3224)
+* Add OpenAPI spec for Bits AI SRE investigations [#3220](https://github.com/DataDog/datadog-api-client-ruby/pull/3220)
+* Add API spec for security monitoring terraform export endpoints [#3219](https://github.com/DataDog/datadog-api-client-ruby/pull/3219)
+* Add team and assignee filters for Search Error Tracking Issues API [#3218](https://github.com/DataDog/datadog-api-client-ruby/pull/3218)
+* Add missing params to ListCustomCostsFiles [#3216](https://github.com/DataDog/datadog-api-client-ruby/pull/3216)
+* Add Product Analytics widget definitions [#3215](https://github.com/DataDog/datadog-api-client-ruby/pull/3215)
+* Add OpenAPI spec for Dashboard Secure Embed endpoints [#3214](https://github.com/DataDog/datadog-api-client-ruby/pull/3214)
+* Add fleet tracers, clusters, and instrumented pods endpoints [#3213](https://github.com/DataDog/datadog-api-client-ruby/pull/3213)
+* Adding all Observability Pipeline new hec_token related features into the api [#3212](https://github.com/DataDog/datadog-api-client-ruby/pull/3212)
+* Add public POST/PATCH endpoints for Flaky Tests Management policies [#3211](https://github.com/DataDog/datadog-api-client-ruby/pull/3211)
+* Add CCM spend usage type breakdown fields [#3210](https://github.com/DataDog/datadog-api-client-ruby/pull/3210)
+* Adding compression optional field to Amazon S3 source [#3205](https://github.com/DataDog/datadog-api-client-ruby/pull/3205)
+* Add Annotations endpoints [#3203](https://github.com/DataDog/datadog-api-client-ruby/pull/3203)
+* Add Org Groups API specification [#3202](https://github.com/DataDog/datadog-api-client-ruby/pull/3202)
+* Add unstable PUT /api/v2/anonymize_users endpoint [#3201](https://github.com/DataDog/datadog-api-client-ruby/pull/3201)
+* Add Obs Pipelines Elasticsearch metrics destination and new fields [#3195](https://github.com/DataDog/datadog-api-client-ruby/pull/3195)
+* Add OpenAPI spec for Bits AI SRE investigations [#3194](https://github.com/DataDog/datadog-api-client-ruby/pull/3194)
+* Add PAT/SAT management API endpoints [#3192](https://github.com/DataDog/datadog-api-client-ruby/pull/3192)
+* Add query type schemas for timeseries-query data sources [#3189](https://github.com/DataDog/datadog-api-client-ruby/pull/3189)
+* Add OpenAPI documentation for signal investigation queries and suggested actions endpoints [#3188](https://github.com/DataDog/datadog-api-client-ruby/pull/3188)
+* add api spec for feature flags allocations and exposure schedules endpoints [#3184](https://github.com/DataDog/datadog-api-client-ruby/pull/3184)
+* Add Publish and Unpublish API documentation for Status Pages [#3182](https://github.com/DataDog/datadog-api-client-ruby/pull/3182)
+* feat: add drag and drop as new synthetics browser step type  [#3179](https://github.com/DataDog/datadog-api-client-ruby/pull/3179)
+* Allow monitor notification rule on restriction policy [#3175](https://github.com/DataDog/datadog-api-client-ruby/pull/3175)
+* Add support for configuring Splunk sourcetype in Custom Destinations [#3164](https://github.com/DataDog/datadog-api-client-ruby/pull/3164)
+* Add OpenAPI documentation for scorecards endpoints [#2984](https://github.com/DataDog/datadog-api-client-ruby/pull/2984)
+
+### Fixed
+* Add security_signals to SecurityMonitoringStandardDataSource [#3204](https://github.com/DataDog/datadog-api-client-ruby/pull/3204)
+
 ## 2.52.0/2026-04-01
 
 ### Added
