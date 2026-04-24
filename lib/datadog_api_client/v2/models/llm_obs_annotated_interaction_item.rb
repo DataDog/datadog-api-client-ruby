@@ -27,8 +27,14 @@ module DatadogAPIClient::V2
     # Identifier of the content for this interaction.
     attr_reader :content_id
 
+    # Timestamp when the interaction was added to the queue.
+    attr_reader :created_at
+
     # Unique identifier of the interaction.
     attr_reader :id
+
+    # Timestamp when the interaction was last updated.
+    attr_reader :modified_at
 
     # Type of interaction in an annotation queue.
     attr_reader :type
@@ -41,7 +47,9 @@ module DatadogAPIClient::V2
       {
         :'annotations' => :'annotations',
         :'content_id' => :'content_id',
+        :'created_at' => :'created_at',
         :'id' => :'id',
+        :'modified_at' => :'modified_at',
         :'type' => :'type'
       }
     end
@@ -52,7 +60,9 @@ module DatadogAPIClient::V2
       {
         :'annotations' => :'Array<LLMObsAnnotationItem>',
         :'content_id' => :'String',
+        :'created_at' => :'Time',
         :'id' => :'String',
+        :'modified_at' => :'Time',
         :'type' => :'LLMObsInteractionType'
       }
     end
@@ -85,8 +95,16 @@ module DatadogAPIClient::V2
         self.content_id = attributes[:'content_id']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
       end
 
       if attributes.key?(:'type')
@@ -100,7 +118,9 @@ module DatadogAPIClient::V2
     def valid?
       return false if @annotations.nil?
       return false if @content_id.nil?
+      return false if @created_at.nil?
       return false if @id.nil?
+      return false if @modified_at.nil?
       return false if @type.nil?
       true
     end
@@ -126,6 +146,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param created_at [Object] Object to be assigned
+    # @!visibility private
+    def created_at=(created_at)
+      if created_at.nil?
+        fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
+      end
+      @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
     # @param id [Object] Object to be assigned
     # @!visibility private
     def id=(id)
@@ -133,6 +163,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param modified_at [Object] Object to be assigned
+    # @!visibility private
+    def modified_at=(modified_at)
+      if modified_at.nil?
+        fail ArgumentError, 'invalid value for "modified_at", modified_at cannot be nil.'
+      end
+      @modified_at = modified_at
     end
 
     # Custom attribute writer method with validation
@@ -173,7 +213,9 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           annotations == o.annotations &&
           content_id == o.content_id &&
+          created_at == o.created_at &&
           id == o.id &&
+          modified_at == o.modified_at &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -182,7 +224,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotations, content_id, id, type, additional_properties].hash
+      [annotations, content_id, created_at, id, modified_at, type, additional_properties].hash
     end
   end
 end
