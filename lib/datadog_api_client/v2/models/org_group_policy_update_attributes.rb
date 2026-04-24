@@ -24,13 +24,17 @@ module DatadogAPIClient::V2
     # The policy content as key-value pairs.
     attr_accessor :content
 
+    # The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
+    attr_accessor :enforcement_tier
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'content' => :'content'
+        :'content' => :'content',
+        :'enforcement_tier' => :'enforcement_tier'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'content' => :'Hash<String, Object>'
+        :'content' => :'Hash<String, Object>',
+        :'enforcement_tier' => :'OrgGroupPolicyEnforcementTier'
       }
     end
 
@@ -62,6 +67,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'content')
         self.content = attributes[:'content']
+      end
+
+      if attributes.key?(:'enforcement_tier')
+        self.enforcement_tier = attributes[:'enforcement_tier']
       end
     end
 
@@ -92,6 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           content == o.content &&
+          enforcement_tier == o.enforcement_tier &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [content, additional_properties].hash
+      [content, enforcement_tier, additional_properties].hash
     end
   end
 end

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating a policy override.
+  # Attributes for updating a policy override. The `org_uuid` and `org_site` fields must match the existing override and cannot be changed.
   class OrgGroupPolicyOverrideUpdateAttributes
     include BaseGenericModel
 
