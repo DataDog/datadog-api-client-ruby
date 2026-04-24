@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object for a Synthetic test's latest result summaries.
-  class SyntheticsTestLatestResultsResponse
+  # Failure details if the fast test did not pass.
+  class SyntheticsFastTestResultFailure
     include BaseGenericModel
 
-    # Array of Synthetic test result summaries.
-    attr_accessor :data
+    # Error code identifying the failure type.
+    attr_accessor :code
 
-    # Array of included related resources, such as the test definition.
-    attr_accessor :included
+    # Human-readable description of the failure.
+    attr_accessor :message
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included'
+        :'code' => :'code',
+        :'message' => :'message'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<SyntheticsTestResultSummaryData>',
-        :'included' => :'Array<SyntheticsTestResultIncludedItem>'
+        :'code' => :'String',
+        :'message' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsTestLatestResultsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsFastTestResultFailure` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,16 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
     end
 
@@ -104,8 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          included == o.included &&
+          code == o.code &&
+          message == o.message &&
           additional_properties == o.additional_properties
     end
 
@@ -113,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, additional_properties].hash
+      [code, message, additional_properties].hash
     end
   end
 end
