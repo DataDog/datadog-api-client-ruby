@@ -686,6 +686,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a browser test result.
+    #
+    # @see #get_synthetics_browser_test_result_with_http_info
+    def get_synthetics_browser_test_result(public_id, result_id, opts = {})
+      data, _status_code, _headers = get_synthetics_browser_test_result_with_http_info(public_id, result_id, opts)
+      data
+    end
+
+    # Get a browser test result.
+    #
+    # Get a specific full result from a given Synthetic browser test.
+    #
+    # @param public_id [String] The public ID of the Synthetic browser test to which the target result belongs.
+    # @param result_id [String] The ID of the result to get.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :event_id The event ID used to look up the result in the event store.
+    # @option opts [Integer] :timestamp Timestamp in seconds to look up the result.
+    # @return [Array<(SyntheticsTestResultResponse, Integer, Hash)>] SyntheticsTestResultResponse data, response status code and response headers
+    def get_synthetics_browser_test_result_with_http_info(public_id, result_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_browser_test_result ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_synthetics_browser_test_result"
+      end
+      # verify the required parameter 'result_id' is set
+      if @api_client.config.client_side_validation && result_id.nil?
+        fail ArgumentError, "Missing the required parameter 'result_id' when calling SyntheticsAPI.get_synthetics_browser_test_result"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/browser/{public_id}/results/{result_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/')).sub('{result_id}', CGI.escape(result_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'event_id'] = opts[:'event_id'] if !opts[:'event_id'].nil?
+      query_params[:'timestamp'] = opts[:'timestamp'] if !opts[:'timestamp'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestResultResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_synthetics_browser_test_result,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_browser_test_result\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a fast test result.
     #
     # @see #get_synthetics_fast_test_result_with_http_info
@@ -868,6 +942,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_suite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a test result.
+    #
+    # @see #get_synthetics_test_result_with_http_info
+    def get_synthetics_test_result(public_id, result_id, opts = {})
+      data, _status_code, _headers = get_synthetics_test_result_with_http_info(public_id, result_id, opts)
+      data
+    end
+
+    # Get a test result.
+    #
+    # Get a specific full result from a given Synthetic test.
+    #
+    # @param public_id [String] The public ID of the Synthetic test to which the target result belongs.
+    # @param result_id [String] The ID of the result to get.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :event_id The event ID used to look up the result in the event store.
+    # @option opts [Integer] :timestamp Timestamp in seconds to look up the result.
+    # @return [Array<(SyntheticsTestResultResponse, Integer, Hash)>] SyntheticsTestResultResponse data, response status code and response headers
+    def get_synthetics_test_result_with_http_info(public_id, result_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_test_result ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_synthetics_test_result"
+      end
+      # verify the required parameter 'result_id' is set
+      if @api_client.config.client_side_validation && result_id.nil?
+        fail ArgumentError, "Missing the required parameter 'result_id' when calling SyntheticsAPI.get_synthetics_test_result"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/results/{result_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/')).sub('{result_id}', CGI.escape(result_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'event_id'] = opts[:'event_id'] if !opts[:'event_id'].nil?
+      query_params[:'timestamp'] = opts[:'timestamp'] if !opts[:'timestamp'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestResultResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_synthetics_test_result,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_test_result\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1157,6 +1305,178 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a browser test's latest results.
+    #
+    # @see #list_synthetics_browser_test_latest_results_with_http_info
+    def list_synthetics_browser_test_latest_results(public_id, opts = {})
+      data, _status_code, _headers = list_synthetics_browser_test_latest_results_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get a browser test's latest results.
+    #
+    # Get the latest result summaries for a given Synthetic browser test.
+    #
+    # @param public_id [String] The public ID of the Synthetic browser test for which to search results.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
+    # @option opts [SyntheticsTestResultStatus] :status Filter results by status.
+    # @option opts [SyntheticsTestResultRunType] :run_type Filter results by run type.
+    # @option opts [Array<String>] :probe_dc Locations for which to query results.
+    # @option opts [Array<String>] :device_id Device IDs for which to query results.
+    # @return [Array<(SyntheticsTestLatestResultsResponse, Integer, Hash)>] SyntheticsTestLatestResultsResponse data, response status code and response headers
+    def list_synthetics_browser_test_latest_results_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_browser_test_latest_results ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.list_synthetics_browser_test_latest_results"
+      end
+      allowable_values = ['passed', 'failed', 'no_data']
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['scheduled', 'fast', 'ci', 'triggered']
+      if @api_client.config.client_side_validation && opts[:'run_type'] && !allowable_values.include?(opts[:'run_type'])
+        fail ArgumentError, "invalid value for \"run_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/browser/{public_id}/results'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'from_ts'] = opts[:'from_ts'] if !opts[:'from_ts'].nil?
+      query_params[:'to_ts'] = opts[:'to_ts'] if !opts[:'to_ts'].nil?
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'runType'] = opts[:'run_type'] if !opts[:'run_type'].nil?
+      query_params[:'probe_dc'] = @api_client.build_collection_param(opts[:'probe_dc'], :multi) if !opts[:'probe_dc'].nil?
+      query_params[:'device_id'] = @api_client.build_collection_param(opts[:'device_id'], :multi) if !opts[:'device_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestLatestResultsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_synthetics_browser_test_latest_results,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#list_synthetics_browser_test_latest_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a test's latest results.
+    #
+    # @see #list_synthetics_test_latest_results_with_http_info
+    def list_synthetics_test_latest_results(public_id, opts = {})
+      data, _status_code, _headers = list_synthetics_test_latest_results_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get a test's latest results.
+    #
+    # Get the latest result summaries for a given Synthetic test.
+    #
+    # @param public_id [String] The public ID of the Synthetic test for which to search results.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
+    # @option opts [SyntheticsTestResultStatus] :status Filter results by status.
+    # @option opts [SyntheticsTestResultRunType] :run_type Filter results by run type.
+    # @option opts [Array<String>] :probe_dc Locations for which to query results.
+    # @option opts [Array<String>] :device_id Device IDs for which to query results.
+    # @return [Array<(SyntheticsTestLatestResultsResponse, Integer, Hash)>] SyntheticsTestLatestResultsResponse data, response status code and response headers
+    def list_synthetics_test_latest_results_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_test_latest_results ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.list_synthetics_test_latest_results"
+      end
+      allowable_values = ['passed', 'failed', 'no_data']
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['scheduled', 'fast', 'ci', 'triggered']
+      if @api_client.config.client_side_validation && opts[:'run_type'] && !allowable_values.include?(opts[:'run_type'])
+        fail ArgumentError, "invalid value for \"run_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/results'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'from_ts'] = opts[:'from_ts'] if !opts[:'from_ts'].nil?
+      query_params[:'to_ts'] = opts[:'to_ts'] if !opts[:'to_ts'].nil?
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'runType'] = opts[:'run_type'] if !opts[:'run_type'].nil?
+      query_params[:'probe_dc'] = @api_client.build_collection_param(opts[:'probe_dc'], :multi) if !opts[:'probe_dc'].nil?
+      query_params[:'device_id'] = @api_client.build_collection_param(opts[:'device_id'], :multi) if !opts[:'device_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestLatestResultsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_synthetics_test_latest_results,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#list_synthetics_test_latest_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get version history of a test.
     #
     # @see #list_synthetics_test_versions_with_http_info
@@ -1382,6 +1702,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#patch_test_suite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Poll for test results.
+    #
+    # @see #poll_synthetics_test_results_with_http_info
+    def poll_synthetics_test_results(result_ids, opts = {})
+      data, _status_code, _headers = poll_synthetics_test_results_with_http_info(result_ids, opts)
+      data
+    end
+
+    # Poll for test results.
+    #
+    # Poll for test results given a list of result IDs. This is typically used after
+    # triggering tests with CI/CD to retrieve results once they are available.
+    #
+    # @param result_ids [String] A JSON-encoded array of result IDs to poll for.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsPollTestResultsResponse, Integer, Hash)>] SyntheticsPollTestResultsResponse data, response status code and response headers
+    def poll_synthetics_test_results_with_http_info(result_ids, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.poll_synthetics_test_results ...'
+      end
+      # verify the required parameter 'result_ids' is set
+      if @api_client.config.client_side_validation && result_ids.nil?
+        fail ArgumentError, "Missing the required parameter 'result_ids' when calling SyntheticsAPI.poll_synthetics_test_results"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/poll_results'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'result_ids'] = result_ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsPollTestResultsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :poll_synthetics_test_results,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#poll_synthetics_test_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

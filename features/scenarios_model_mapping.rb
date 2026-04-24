@@ -4333,6 +4333,21 @@ ScenariosModelMappings = {
             "public_id" => "String",
             "body" => "SuiteJsonPatchRequest",
     },
+    "v2.ListSyntheticsBrowserTestLatestResults" => {
+            "public_id" => "String",
+            "from_ts" => "Integer",
+            "to_ts" => "Integer",
+            "status" => "SyntheticsTestResultStatus",
+            "run_type" => "SyntheticsTestResultRunType",
+            "probe_dc" => "Array<String>",
+            "device_id" => "Array<String>",
+    },
+    "v2.GetSyntheticsBrowserTestResult" => {
+            "public_id" => "String",
+            "result_id" => "String",
+            "event_id" => "String",
+            "timestamp" => "Integer",
+    },
     "v2.DeleteSyntheticsTests" => {
             "body" => "DeletedTestsRequestDeleteRequest",
     },
@@ -4348,6 +4363,9 @@ ScenariosModelMappings = {
     "v2.UpdateSyntheticsNetworkTest" => {
             "public_id" => "String",
             "body" => "SyntheticsNetworkTestEditRequest",
+    },
+    "v2.PollSyntheticsTestResults" => {
+            "result_ids" => "String",
     },
     "v2.GetTestFileDownloadUrl" => {
             "public_id" => "String",
@@ -4367,6 +4385,21 @@ ScenariosModelMappings = {
     },
     "v2.GetTestParentSuites" => {
             "public_id" => "String",
+    },
+    "v2.ListSyntheticsTestLatestResults" => {
+            "public_id" => "String",
+            "from_ts" => "Integer",
+            "to_ts" => "Integer",
+            "status" => "SyntheticsTestResultStatus",
+            "run_type" => "SyntheticsTestResultRunType",
+            "probe_dc" => "Array<String>",
+            "device_id" => "Array<String>",
+    },
+    "v2.GetSyntheticsTestResult" => {
+            "public_id" => "String",
+            "result_id" => "String",
+            "event_id" => "String",
+            "timestamp" => "Integer",
     },
     "v2.ListSyntheticsTestVersions" => {
             "public_id" => "String",
