@@ -148,6 +148,68 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List your managed organizations.
+    #
+    # @see #list_orgs_with_http_info
+    def list_orgs(opts = {})
+      data, _status_code, _headers = list_orgs_with_http_info(opts)
+      data
+    end
+
+    # List your managed organizations.
+    #
+    # Returns the current organization and its managed organizations in JSON:API format.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_name Filter managed organizations by name.
+    # @return [Array<(ManagedOrgsResponse, Integer, Hash)>] ManagedOrgsResponse data, response status code and response headers
+    def list_orgs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.list_orgs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/org'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[name]'] = opts[:'filter_name'] if !opts[:'filter_name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ManagedOrgsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_orgs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#list_orgs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a specific Org Config.
     #
     # @see #update_org_config_with_http_info

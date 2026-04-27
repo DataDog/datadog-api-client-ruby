@@ -1161,6 +1161,9 @@ ScenariosModelMappings = {
             "user_id" => "String",
             "body" => "UserUpdateRequest",
     },
+    "v2.DeleteUserInvitations" => {
+            "user_id" => "UUID",
+    },
     "v2.ListUserOrganizations" => {
             "user_id" => "String",
     },
@@ -3413,6 +3416,9 @@ ScenariosModelMappings = {
     },
     "v2.ResolveOnCallPage" => {
             "page_id" => "UUID",
+    },
+    "v2.ListOrgs" => {
+            "filter_name" => "String",
     },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
