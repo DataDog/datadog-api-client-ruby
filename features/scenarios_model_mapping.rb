@@ -4306,6 +4306,31 @@ ScenariosModelMappings = {
     "v2.GetApiMultistepSubtestParents" => {
             "public_id" => "String",
     },
+    "v2.ListSyntheticsDowntimes" => {
+            "filter_test_ids" => "String",
+            "filter_active" => "String",
+    },
+    "v2.CreateSyntheticsDowntime" => {
+            "body" => "SyntheticsDowntimeRequest",
+    },
+    "v2.DeleteSyntheticsDowntime" => {
+            "downtime_id" => "String",
+    },
+    "v2.GetSyntheticsDowntime" => {
+            "downtime_id" => "String",
+    },
+    "v2.UpdateSyntheticsDowntime" => {
+            "downtime_id" => "String",
+            "body" => "SyntheticsDowntimeRequest",
+    },
+    "v2.RemoveTestFromSyntheticsDowntime" => {
+            "downtime_id" => "String",
+            "test_id" => "String",
+    },
+    "v2.AddTestToSyntheticsDowntime" => {
+            "downtime_id" => "String",
+            "test_id" => "String",
+    },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
