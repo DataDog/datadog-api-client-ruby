@@ -2,7 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::StatusPagesAPI.new
-
-# there is a valid "status_page" in the system
-STATUS_PAGE_DATA_ID = ENV["STATUS_PAGE_DATA_ID"]
-api_instance.unpublish_status_page(STATUS_PAGE_DATA_ID)
+api_instance.unpublish_status_page("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
