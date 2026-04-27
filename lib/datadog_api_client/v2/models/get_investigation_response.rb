@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for a single Bits AI investigation.
+  # Response for a single Bits AI SRE investigation.
   class GetInvestigationResponse
     include BaseGenericModel
 

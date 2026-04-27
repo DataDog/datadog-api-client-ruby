@@ -6316,7 +6316,7 @@ module DatadogAPIClient
         "v2.authn_mappings_api" => "AuthNMappingsAPI",
         "v2.aws_integration_api" => "AWSIntegrationAPI",
         "v2.aws_logs_integration_api" => "AWSLogsIntegrationAPI",
-        "v2.bits_ai_api" => "BitsAIAPI",
+        "v2.bits_ai_sre_api" => "BitsAISREAPI",
         "v2.case_management_api" => "CaseManagementAPI",
         "v2.case_management_attribute_api" => "CaseManagementAttributeAPI",
         "v2.case_management_type_api" => "CaseManagementTypeAPI",
