@@ -1921,6 +1921,9 @@ ScenariosModelMappings = {
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
+    "v2.BulkDeleteSecurityMonitoringRules" => {
+            "body" => "SecurityMonitoringRuleBulkDeletePayload",
+    },
     "v2.BulkExportSecurityMonitoringRules" => {
             "body" => "SecurityMonitoringRuleBulkExportPayload",
     },
