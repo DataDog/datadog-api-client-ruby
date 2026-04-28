@@ -6079,6 +6079,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Mute or unmute security findings.
+    #
+    # @see #mute_security_findings_with_http_info
+    def mute_security_findings(body, opts = {})
+      data, _status_code, _headers = mute_security_findings_with_http_info(body, opts)
+      data
+    end
+
+    # Mute or unmute security findings.
+    #
+    # Mute or unmute security findings.
+    # You can mute or unmute up to 100 security findings per request. The request body must include `is_muted` and `reason` attributes. The allowed reasons depend on whether the finding is being muted or unmuted:
+    #   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `OTHER`, `NO_FIX`, `DUPLICATE`, `RISK_ACCEPTED`.
+    #   - To unmute a finding: `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.
+    #
+    # @param body [MuteFindingsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MuteFindingsResponse, Integer, Hash)>] MuteFindingsResponse data, response status code and response headers
+    def mute_security_findings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.mute_security_findings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.mute_security_findings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.mute_security_findings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.mute_security_findings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.mute_security_findings"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/mute'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MuteFindingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :mute_security_findings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#mute_security_findings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patch a signal-based notification rule.
     #
     # @see #patch_signal_notification_rule_with_http_info
