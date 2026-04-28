@@ -64,6 +64,7 @@ module DatadogAPIClient::V1
     INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage".freeze
     INDEXED_SPANS_USAGE = "indexed_spans_usage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
+    INFRA_HOST_BASIC_USAGE = "infra_host_basic_usage".freeze
     INGESTED_LOGS_BYTES_USAGE = "ingested_logs_bytes_usage".freeze
     INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
