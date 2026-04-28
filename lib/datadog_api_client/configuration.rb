@@ -292,6 +292,7 @@ module DatadogAPIClient
             "v2.list_vulnerabilities": false,
             "v2.list_vulnerable_assets": false,
             "v2.mute_findings": false,
+            "v2.mute_security_findings": false,
             "v2.run_historical_job": false,
             "v2.search_security_monitoring_histsignals": false,
             "v2.get_code_coverage_branch_summary": false,
