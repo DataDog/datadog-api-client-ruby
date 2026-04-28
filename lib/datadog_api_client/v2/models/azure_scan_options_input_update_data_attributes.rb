@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AzureScanOptionsInputUpdateDataAttributes
     include BaseGenericModel
 
+    # Indicates whether host compliance scanning is enabled.
+    attr_accessor :compliance_host
+
     # Indicates if scanning for vulnerabilities in containers is enabled.
     attr_accessor :vuln_containers_os
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'compliance_host' => :'compliance_host',
         :'vuln_containers_os' => :'vuln_containers_os',
         :'vuln_host_os' => :'vuln_host_os'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'compliance_host' => :'Boolean',
         :'vuln_containers_os' => :'Boolean',
         :'vuln_host_os' => :'Boolean'
       }
@@ -64,6 +69,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'compliance_host')
+        self.compliance_host = attributes[:'compliance_host']
+      end
 
       if attributes.key?(:'vuln_containers_os')
         self.vuln_containers_os = attributes[:'vuln_containers_os']
@@ -100,6 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          compliance_host == o.compliance_host &&
           vuln_containers_os == o.vuln_containers_os &&
           vuln_host_os == o.vuln_host_os &&
           additional_properties == o.additional_properties
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [vuln_containers_os, vuln_host_os, additional_properties].hash
+      [compliance_host, vuln_containers_os, vuln_host_os, additional_properties].hash
     end
   end
 end
