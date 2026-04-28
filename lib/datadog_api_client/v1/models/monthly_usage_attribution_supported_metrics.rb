@@ -90,6 +90,8 @@ module DatadogAPIClient::V1
     INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE = "incident_management_monthly_active_users_percentage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
+    INFRA_HOST_BASIC_USAGE = "infra_host_basic_usage".freeze
+    INFRA_HOST_BASIC_PERCENTAGE = "infra_host_basic_percentage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     INVOCATIONS_PERCENTAGE = "invocations_percentage".freeze
     LAMBDA_TRACED_INVOCATIONS_USAGE = "lambda_traced_invocations_usage".freeze
