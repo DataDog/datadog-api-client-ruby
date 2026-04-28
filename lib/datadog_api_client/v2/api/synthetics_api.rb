@@ -96,6 +96,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Add a test to a Synthetics downtime.
+    #
+    # @see #add_test_to_synthetics_downtime_with_http_info
+    def add_test_to_synthetics_downtime(downtime_id, test_id, opts = {})
+      data, _status_code, _headers = add_test_to_synthetics_downtime_with_http_info(downtime_id, test_id, opts)
+      data
+    end
+
+    # Add a test to a Synthetics downtime.
+    #
+    # Associate a Synthetics test with a downtime.
+    #
+    # @param downtime_id [String] The ID of the downtime.
+    # @param test_id [String] The public ID of the Synthetics test to associate with the downtime.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
+    def add_test_to_synthetics_downtime_with_http_info(downtime_id, test_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.add_test_to_synthetics_downtime ...'
+      end
+      # verify the required parameter 'downtime_id' is set
+      if @api_client.config.client_side_validation && downtime_id.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling SyntheticsAPI.add_test_to_synthetics_downtime"
+      end
+      # verify the required parameter 'test_id' is set
+      if @api_client.config.client_side_validation && test_id.nil?
+        fail ArgumentError, "Missing the required parameter 'test_id' when calling SyntheticsAPI.add_test_to_synthetics_downtime"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/')).sub('{test_id}', CGI.escape(test_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :add_test_to_synthetics_downtime,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#add_test_to_synthetics_downtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Complete a multipart upload of a test file.
     #
     # @see #complete_test_file_multipart_upload_with_http_info
@@ -165,6 +235,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#complete_test_file_multipart_upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a Synthetics downtime.
+    #
+    # @see #create_synthetics_downtime_with_http_info
+    def create_synthetics_downtime(body, opts = {})
+      data, _status_code, _headers = create_synthetics_downtime_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Synthetics downtime.
+    #
+    # Create a new Synthetics downtime.
+    #
+    # @param body [SyntheticsDowntimeRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
+    def create_synthetics_downtime_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_downtime ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_synthetics_downtime"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_synthetics_downtime,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#create_synthetics_downtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -293,6 +430,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#create_synthetics_suite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a Synthetics downtime.
+    #
+    # @see #delete_synthetics_downtime_with_http_info
+    def delete_synthetics_downtime(downtime_id, opts = {})
+      delete_synthetics_downtime_with_http_info(downtime_id, opts)
+      nil
+    end
+
+    # Delete a Synthetics downtime.
+    #
+    # Delete a Synthetics downtime by its ID.
+    #
+    # @param downtime_id [String] The ID of the downtime to delete.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_synthetics_downtime_with_http_info(downtime_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_synthetics_downtime ...'
+      end
+      # verify the required parameter 'downtime_id' is set
+      if @api_client.config.client_side_validation && downtime_id.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling SyntheticsAPI.delete_synthetics_downtime"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_synthetics_downtime,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#delete_synthetics_downtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -756,6 +958,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_browser_test_result\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a Synthetics downtime.
+    #
+    # @see #get_synthetics_downtime_with_http_info
+    def get_synthetics_downtime(downtime_id, opts = {})
+      data, _status_code, _headers = get_synthetics_downtime_with_http_info(downtime_id, opts)
+      data
+    end
+
+    # Get a Synthetics downtime.
+    #
+    # Get a Synthetics downtime by its ID.
+    #
+    # @param downtime_id [String] The ID of the downtime to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
+    def get_synthetics_downtime_with_http_info(downtime_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_downtime ...'
+      end
+      # verify the required parameter 'downtime_id' is set
+      if @api_client.config.client_side_validation && downtime_id.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling SyntheticsAPI.get_synthetics_downtime"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_synthetics_downtime,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_downtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1391,6 +1658,70 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List Synthetics downtimes.
+    #
+    # @see #list_synthetics_downtimes_with_http_info
+    def list_synthetics_downtimes(opts = {})
+      data, _status_code, _headers = list_synthetics_downtimes_with_http_info(opts)
+      data
+    end
+
+    # List Synthetics downtimes.
+    #
+    # Get a list of all Synthetics downtimes for your organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_test_ids Comma-separated list of Synthetics test public IDs to filter downtimes by.
+    # @option opts [String] :filter_active If set to `true`, return only downtimes that are currently active.
+    # @return [Array<(SyntheticsDowntimesResponse, Integer, Hash)>] SyntheticsDowntimesResponse data, response status code and response headers
+    def list_synthetics_downtimes_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_downtimes ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[test_ids]'] = opts[:'filter_test_ids'] if !opts[:'filter_test_ids'].nil?
+      query_params[:'filter[active]'] = opts[:'filter_active'] if !opts[:'filter_active'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsDowntimesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_synthetics_downtimes,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#list_synthetics_downtimes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a test's latest results.
     #
     # @see #list_synthetics_test_latest_results_with_http_info
@@ -1773,6 +2104,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Remove a test from a Synthetics downtime.
+    #
+    # @see #remove_test_from_synthetics_downtime_with_http_info
+    def remove_test_from_synthetics_downtime(downtime_id, test_id, opts = {})
+      data, _status_code, _headers = remove_test_from_synthetics_downtime_with_http_info(downtime_id, test_id, opts)
+      data
+    end
+
+    # Remove a test from a Synthetics downtime.
+    #
+    # Disassociate a Synthetics test from a downtime.
+    #
+    # @param downtime_id [String] The ID of the downtime.
+    # @param test_id [String] The public ID of the Synthetics test to disassociate from the downtime.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
+    def remove_test_from_synthetics_downtime_with_http_info(downtime_id, test_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.remove_test_from_synthetics_downtime ...'
+      end
+      # verify the required parameter 'downtime_id' is set
+      if @api_client.config.client_side_validation && downtime_id.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling SyntheticsAPI.remove_test_from_synthetics_downtime"
+      end
+      # verify the required parameter 'test_id' is set
+      if @api_client.config.client_side_validation && test_id.nil?
+        fail ArgumentError, "Missing the required parameter 'test_id' when calling SyntheticsAPI.remove_test_from_synthetics_downtime"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/')).sub('{test_id}', CGI.escape(test_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :remove_test_from_synthetics_downtime,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#remove_test_from_synthetics_downtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search test suites.
     #
     # @see #search_suites_with_http_info
@@ -1906,6 +2307,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#set_on_demand_concurrency_cap\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a Synthetics downtime.
+    #
+    # @see #update_synthetics_downtime_with_http_info
+    def update_synthetics_downtime(downtime_id, body, opts = {})
+      data, _status_code, _headers = update_synthetics_downtime_with_http_info(downtime_id, body, opts)
+      data
+    end
+
+    # Update a Synthetics downtime.
+    #
+    # Update a Synthetics downtime by its ID.
+    #
+    # @param downtime_id [String] The ID of the downtime to update.
+    # @param body [SyntheticsDowntimeRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
+    def update_synthetics_downtime_with_http_info(downtime_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_synthetics_downtime ...'
+      end
+      # verify the required parameter 'downtime_id' is set
+      if @api_client.config.client_side_validation && downtime_id.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling SyntheticsAPI.update_synthetics_downtime"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_synthetics_downtime"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/downtimes/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_synthetics_downtime,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#update_synthetics_downtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
