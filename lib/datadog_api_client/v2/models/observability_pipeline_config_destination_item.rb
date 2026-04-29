@@ -49,6 +49,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSplunkHecDestination',
           :'ObservabilityPipelineSumoLogicDestination',
           :'ObservabilityPipelineSyslogNgDestination',
+          :'ObservabilityPipelineDatabricksZerobusDestination',
           :'ObservabilityPipelineDatadogMetricsDestination'
         ]
       end
