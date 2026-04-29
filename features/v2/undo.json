@@ -5663,6 +5663,12 @@
       "type": "unsafe"
     }
   },
+  "BulkDeleteSecurityMonitoringRules": {
+    "tag": "Security Monitoring",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "BulkExportSecurityMonitoringRules": {
     "tag": "Security Monitoring",
     "undo": {
