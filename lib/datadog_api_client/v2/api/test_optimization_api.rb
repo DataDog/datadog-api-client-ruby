@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_test_optimization_service_settings_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_test_optimization_service_settings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_test_optimization_service_settings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_test_optimization_service_settings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.delete_test_optimization_service_settings ...'
@@ -112,12 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TestOptimizationFlakyTestsManagementPoliciesResponse, Integer, Hash)>] TestOptimizationFlakyTestsManagementPoliciesResponse data, response status code and response headers
     def get_flaky_tests_management_policies_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_flaky_tests_management_policies".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_flaky_tests_management_policies")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_flaky_tests_management_policies"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.get_flaky_tests_management_policies ...'
@@ -185,12 +173,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TestOptimizationServiceSettingsResponse, Integer, Hash)>] TestOptimizationServiceSettingsResponse data, response status code and response headers
     def get_test_optimization_service_settings_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_test_optimization_service_settings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_test_optimization_service_settings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_test_optimization_service_settings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.get_test_optimization_service_settings ...'
@@ -271,12 +253,6 @@ module DatadogAPIClient::V2
     # @option opts [FlakyTestsSearchRequest] :body 
     # @return [Array<(FlakyTestsSearchResponse, Integer, Hash)>] FlakyTestsSearchResponse data, response status code and response headers
     def search_flaky_tests_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.search_flaky_tests".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_flaky_tests")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_flaky_tests"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.search_flaky_tests ...'
@@ -361,12 +337,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdateFlakyTestsResponse, Integer, Hash)>] UpdateFlakyTestsResponse data, response status code and response headers
     def update_flaky_tests_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_flaky_tests".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_flaky_tests")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_flaky_tests"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.update_flaky_tests ...'
@@ -435,12 +405,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TestOptimizationFlakyTestsManagementPoliciesResponse, Integer, Hash)>] TestOptimizationFlakyTestsManagementPoliciesResponse data, response status code and response headers
     def update_flaky_tests_management_policies_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_flaky_tests_management_policies".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_flaky_tests_management_policies")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_flaky_tests_management_policies"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.update_flaky_tests_management_policies ...'
@@ -509,12 +473,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TestOptimizationServiceSettingsResponse, Integer, Hash)>] TestOptimizationServiceSettingsResponse data, response status code and response headers
     def update_test_optimization_service_settings_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_test_optimization_service_settings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_test_optimization_service_settings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_test_optimization_service_settings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.update_test_optimization_service_settings ...'
