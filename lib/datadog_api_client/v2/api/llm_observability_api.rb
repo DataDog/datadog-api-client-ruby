@@ -33,8 +33,10 @@ module DatadogAPIClient::V2
 
     # Create an LLM Observability annotation queue.
     #
-    # Create a new annotation queue. Only `name`, `project_id`, and `description` are accepted.
-    # Fields such as `created_by`, `owned_by`, `created_at`, `modified_by`, and `modified_at` are inferred by the backend.
+    # Create an annotation queue. The `name` and `project_id` fields are required.
+    # An optional `annotation_schema` can be provided to define the labels for the queue.
+    # Fields such as `created_by`, `owned_by`, `created_at`, `modified_by`,
+    # and `modified_at` are inferred by the backend.
     #
     # @param body [LLMObsAnnotationQueueRequest] Create annotation queue payload.
     # @param opts [Hash] the optional parameters
@@ -1159,6 +1161,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get annotation queue label schema.
+    #
+    # @see #get_llm_obs_annotation_queue_label_schema_with_http_info
+    def get_llm_obs_annotation_queue_label_schema(queue_id, opts = {})
+      data, _status_code, _headers = get_llm_obs_annotation_queue_label_schema_with_http_info(queue_id, opts)
+      data
+    end
+
+    # Get annotation queue label schema.
+    #
+    # Retrieve the label schema for a given annotation queue.
+    #
+    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsAnnotationQueueLabelSchemaResponse, Integer, Hash)>] LLMObsAnnotationQueueLabelSchemaResponse data, response status code and response headers
+    def get_llm_obs_annotation_queue_label_schema_with_http_info(queue_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_annotation_queue_label_schema".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_annotation_queue_label_schema")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_annotation_queue_label_schema"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_annotation_queue_label_schema ...'
+      end
+      # verify the required parameter 'queue_id' is set
+      if @api_client.config.client_side_validation && queue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'queue_id' when calling LLMObservabilityAPI.get_llm_obs_annotation_queue_label_schema"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema'.sub('{queue_id}', CGI.escape(queue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueLabelSchemaResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_annotation_queue_label_schema,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_annotation_queue_label_schema\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a custom evaluator configuration.
     #
     # @see #get_llm_obs_custom_eval_config_with_http_info
@@ -1623,7 +1696,7 @@ module DatadogAPIClient::V2
 
     # Update an LLM Observability annotation queue.
     #
-    # Partially update an annotation queue. Only `name` and `description` can be updated.
+    # Partially update an annotation queue. The `name`, `description`, and `annotation_schema` fields can be updated.
     #
     # @param queue_id [String] The ID of the LLM Observability annotation queue.
     # @param body [LLMObsAnnotationQueueUpdateRequest] Update annotation queue payload.
@@ -1687,6 +1760,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_annotation_queue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update annotation queue label schema.
+    #
+    # @see #update_llm_obs_annotation_queue_label_schema_with_http_info
+    def update_llm_obs_annotation_queue_label_schema(queue_id, body, opts = {})
+      data, _status_code, _headers = update_llm_obs_annotation_queue_label_schema_with_http_info(queue_id, body, opts)
+      data
+    end
+
+    # Update annotation queue label schema.
+    #
+    # Create or replace the label schema for a given annotation queue.
+    # The label schema defines the labels annotators can apply to interactions in the queue.
+    # Label names must be unique within the queue and match the pattern `^[a-zA-Z0-9_-]+$`.
+    # Each label must have a valid type: score, categorical, boolean, or text.
+    #
+    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param body [LLMObsAnnotationQueueLabelSchemaUpdateRequest] Update label schema payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsAnnotationQueueLabelSchemaResponse, Integer, Hash)>] LLMObsAnnotationQueueLabelSchemaResponse data, response status code and response headers
+    def update_llm_obs_annotation_queue_label_schema_with_http_info(queue_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_llm_obs_annotation_queue_label_schema".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_llm_obs_annotation_queue_label_schema")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_llm_obs_annotation_queue_label_schema"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.update_llm_obs_annotation_queue_label_schema ...'
+      end
+      # verify the required parameter 'queue_id' is set
+      if @api_client.config.client_side_validation && queue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'queue_id' when calling LLMObservabilityAPI.update_llm_obs_annotation_queue_label_schema"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.update_llm_obs_annotation_queue_label_schema"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema'.sub('{queue_id}', CGI.escape(queue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueLabelSchemaResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_llm_obs_annotation_queue_label_schema,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_annotation_queue_label_schema\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

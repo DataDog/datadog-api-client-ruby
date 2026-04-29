@@ -944,6 +944,13 @@ ScenariosModelMappings = {
             "queue_id" => "String",
             "body" => "LLMObsDeleteAnnotationQueueInteractionsRequest",
     },
+    "v2.GetLLMObsAnnotationQueueLabelSchema" => {
+            "queue_id" => "String",
+    },
+    "v2.UpdateLLMObsAnnotationQueueLabelSchema" => {
+            "queue_id" => "String",
+            "body" => "LLMObsAnnotationQueueLabelSchemaUpdateRequest",
+    },
     "v2.ListLLMObsExperiments" => {
             "filter_project_id" => "String",
             "filter_dataset_id" => "String",
