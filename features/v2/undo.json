@@ -1452,6 +1452,12 @@
       "type": "idempotent"
     }
   },
+  "ListCostOCIConfigs": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "GetActiveBillingDimensions": {
     "tag": "Usage Metering",
     "undo": {

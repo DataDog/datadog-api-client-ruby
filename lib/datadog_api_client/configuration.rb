@@ -299,6 +299,7 @@ module DatadogAPIClient
             "v2.search_security_monitoring_histsignals": false,
             "v2.get_code_coverage_branch_summary": false,
             "v2.get_code_coverage_commit_summary": false,
+            "v2.list_cost_oci_configs": false,
             "v2.create_dashboard_secure_embed": false,
             "v2.delete_dashboard_secure_embed": false,
             "v2.get_dashboard_secure_embed": false,
