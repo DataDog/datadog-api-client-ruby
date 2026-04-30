@@ -42,6 +42,9 @@ module DatadogAPIClient::V2
     # The title of the maintenance.
     attr_reader :title
 
+    #
+    attr_accessor :updates
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -54,7 +57,8 @@ module DatadogAPIClient::V2
         :'in_progress_description' => :'in_progress_description',
         :'scheduled_description' => :'scheduled_description',
         :'start_date' => :'start_date',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'updates' => :'updates'
       }
     end
 
@@ -68,7 +72,8 @@ module DatadogAPIClient::V2
         :'in_progress_description' => :'String',
         :'scheduled_description' => :'String',
         :'start_date' => :'Time',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'updates' => :'Array<CreateMaintenanceRequestDataAttributesUpdatesItems>'
       }
     end
 
@@ -118,6 +123,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'updates')
+        if (value = attributes[:'updates']).is_a?(Array)
+          self.updates = value
+        end
       end
     end
 
@@ -238,6 +249,7 @@ module DatadogAPIClient::V2
           scheduled_description == o.scheduled_description &&
           start_date == o.start_date &&
           title == o.title &&
+          updates == o.updates &&
           additional_properties == o.additional_properties
     end
 
@@ -245,7 +257,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [completed_date, completed_description, components_affected, in_progress_description, scheduled_description, start_date, title, additional_properties].hash
+      [completed_date, completed_description, components_affected, in_progress_description, scheduled_description, start_date, title, updates, additional_properties].hash
     end
   end
 end
