@@ -23,6 +23,166 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create backfilled degradation.
+    #
+    # @see #create_backfilled_degradation_with_http_info
+    def create_backfilled_degradation(page_id, body, opts = {})
+      data, _status_code, _headers = create_backfilled_degradation_with_http_info(page_id, body, opts)
+      data
+    end
+
+    # Create backfilled degradation.
+    #
+    # Creates a new backfilled degradation with pre-defined updates.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param body [CreateBackfilledDegradationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(Degradation, Integer, Hash)>] Degradation data, response status code and response headers
+    def create_backfilled_degradation_with_http_info(page_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_backfilled_degradation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_backfilled_degradation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_backfilled_degradation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.create_backfilled_degradation ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.create_backfilled_degradation"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.create_backfilled_degradation"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradations/backfill'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Degradation'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_backfilled_degradation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#create_backfilled_degradation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create backfilled maintenance.
+    #
+    # @see #create_backfilled_maintenance_with_http_info
+    def create_backfilled_maintenance(page_id, body, opts = {})
+      data, _status_code, _headers = create_backfilled_maintenance_with_http_info(page_id, body, opts)
+      data
+    end
+
+    # Create backfilled maintenance.
+    #
+    # Creates a new backfilled maintenance with pre-defined updates.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param body [CreateBackfilledMaintenanceRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(Maintenance, Integer, Hash)>] Maintenance data, response status code and response headers
+    def create_backfilled_maintenance_with_http_info(page_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_backfilled_maintenance".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_backfilled_maintenance")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_backfilled_maintenance"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.create_backfilled_maintenance ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.create_backfilled_maintenance"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.create_backfilled_maintenance"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenances/backfill'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Maintenance'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_backfilled_maintenance,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#create_backfilled_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create component.
     #
     # @see #create_component_with_http_info

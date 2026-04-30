@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     attr_accessor :email_header_image
 
     # Whether the status page is enabled.
-    attr_reader :enabled
+    attr_accessor :enabled
 
     # Base64-encoded image data displayed in the browser tab.
     attr_accessor :favicon
@@ -153,7 +153,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @domain_prefix.nil?
-      return false if @enabled.nil?
       return false if @name.nil?
       return false if @type.nil?
       return false if @visualization_type.nil?
@@ -168,16 +167,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "domain_prefix", domain_prefix cannot be nil.'
       end
       @domain_prefix = domain_prefix
-    end
-
-    # Custom attribute writer method with validation
-    # @param enabled [Object] Object to be assigned
-    # @!visibility private
-    def enabled=(enabled)
-      if enabled.nil?
-        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
-      end
-      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
