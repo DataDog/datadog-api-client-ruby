@@ -2072,6 +2072,9 @@ ScenariosModelMappings = {
     "v2.ListMultipleRulesets" => {
             "body" => "GetMultipleRulesetsRequest",
     },
+    "v2.UpsertSyncConfig" => {
+            "body" => "UpsertCloudInventorySyncConfigRequest",
+    },
     "v2.GetCodeCoverageBranchSummary" => {
             "body" => "BranchCoverageSummaryRequest",
     },
