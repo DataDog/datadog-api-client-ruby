@@ -6,6 +6,7 @@ api_instance = DatadogAPIClient::V2::LogsArchivesAPI.new
 body = DatadogAPIClient::V2::LogsArchiveCreateRequest.new({
   data: DatadogAPIClient::V2::LogsArchiveCreateRequestDefinition.new({
     attributes: DatadogAPIClient::V2::LogsArchiveCreateRequestAttributes.new({
+      compression_method: DatadogAPIClient::V2::LogsArchiveAttributesCompressionMethod::GZIP,
       destination: DatadogAPIClient::V2::LogsArchiveDestinationAzure.new({
         container: "container-name",
         integration: DatadogAPIClient::V2::LogsArchiveIntegrationAzure.new({

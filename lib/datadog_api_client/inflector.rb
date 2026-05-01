@@ -3625,6 +3625,7 @@ module DatadogAPIClient
           "v2.logs_aggregation_function" => "LogsAggregationFunction",
           "v2.logs_archive" => "LogsArchive",
           "v2.logs_archive_attributes" => "LogsArchiveAttributes",
+          "v2.logs_archive_attributes_compression_method" => "LogsArchiveAttributesCompressionMethod",
           "v2.logs_archive_create_request" => "LogsArchiveCreateRequest",
           "v2.logs_archive_create_request_attributes" => "LogsArchiveCreateRequestAttributes",
           "v2.logs_archive_create_request_definition" => "LogsArchiveCreateRequestDefinition",
