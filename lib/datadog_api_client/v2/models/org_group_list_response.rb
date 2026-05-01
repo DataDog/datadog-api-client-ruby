@@ -27,7 +27,10 @@ module DatadogAPIClient::V2
     # Related resources included in the response when requested with the `include` parameter.
     attr_accessor :included
 
-    # Pagination metadata.
+    # Pagination links for navigating between pages of an org group list response.
+    attr_accessor :links
+
+    # Pagination metadata for org group list responses.
     attr_accessor :meta
 
     attr_accessor :additional_properties
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'data' => :'data',
         :'included' => :'included',
+        :'links' => :'links',
         :'meta' => :'meta'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<OrgGroupData>',
         :'included' => :'Array<OrgGroupMembershipData>',
+        :'links' => :'OrgGroupPaginationLinks',
         :'meta' => :'OrgGroupPaginationMeta'
       }
     end
@@ -80,6 +85,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'included']).is_a?(Array)
           self.included = value
         end
+      end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
       end
 
       if attributes.key?(:'meta')
@@ -133,6 +142,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           data == o.data &&
           included == o.included &&
+          links == o.links &&
           meta == o.meta &&
           additional_properties == o.additional_properties
     end
@@ -141,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, meta, additional_properties].hash
+      [data, included, links, meta, additional_properties].hash
     end
   end
 end

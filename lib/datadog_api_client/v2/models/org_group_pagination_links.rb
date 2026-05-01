@@ -17,18 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of org group policies.
-  class OrgGroupPolicyListResponse
+  # Pagination links for navigating between pages of an org group list response.
+  class OrgGroupPaginationLinks
     include BaseGenericModel
 
-    # An array of org group policies.
-    attr_reader :data
+    # Link to the first page.
+    attr_accessor :first
 
-    # Pagination links for navigating between pages of an org group list response.
-    attr_accessor :links
+    # Link to the last page.
+    attr_accessor :last
 
-    # Pagination metadata for org group list responses.
-    attr_accessor :meta
+    # Link to the next page.
+    attr_accessor :_next
+
+    # Link to the previous page.
+    attr_accessor :prev
+
+    # Link to the current page.
+    attr_accessor :_self
 
     attr_accessor :additional_properties
 
@@ -36,9 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'prev' => :'prev',
+        :'_self' => :'self'
       }
     end
 
@@ -46,10 +54,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<OrgGroupPolicyData>',
-        :'links' => :'OrgGroupPaginationLinks',
-        :'meta' => :'OrgGroupPaginationMeta'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'prev' => :'String',
+        :'_self' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'_next',
+        :'prev',
+      ])
     end
 
     # Initializes the object
@@ -57,7 +76,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgGroupPolicyListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgGroupPaginationLinks` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,37 +89,25 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
       end
-      @data = data
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,9 +136,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
-          meta == o.meta &&
+          first == o.first &&
+          last == o.last &&
+          _next == o._next &&
+          prev == o.prev &&
+          _self == o._self &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta, additional_properties].hash
+      [first, last, _next, prev, _self, additional_properties].hash
     end
   end
 end

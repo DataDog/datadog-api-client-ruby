@@ -17,12 +17,33 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Page-based pagination details.
+  # Page-based pagination details for org group list responses.
   class OrgGroupPaginationMetaPage
     include BaseGenericModel
 
-    # The total number of items.
-    attr_reader :total_count
+    # First page number.
+    attr_accessor :first_number
+
+    # Last page number.
+    attr_accessor :last_number
+
+    # Next page number.
+    attr_accessor :next_number
+
+    # Page number.
+    attr_accessor :number
+
+    # Previous page number.
+    attr_accessor :prev_number
+
+    # Page size.
+    attr_accessor :size
+
+    # Total number of results.
+    attr_accessor :total
+
+    # Pagination type.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +51,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'total_count' => :'total_count'
+        :'first_number' => :'first_number',
+        :'last_number' => :'last_number',
+        :'next_number' => :'next_number',
+        :'number' => :'number',
+        :'prev_number' => :'prev_number',
+        :'size' => :'size',
+        :'total' => :'total',
+        :'type' => :'type'
       }
     end
 
@@ -38,8 +66,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'total_count' => :'Integer'
+        :'first_number' => :'Integer',
+        :'last_number' => :'Integer',
+        :'next_number' => :'Integer',
+        :'number' => :'Integer',
+        :'prev_number' => :'Integer',
+        :'size' => :'Integer',
+        :'total' => :'Integer',
+        :'type' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'last_number',
+        :'next_number',
+        :'prev_number',
+      ])
     end
 
     # Initializes the object
@@ -60,27 +105,37 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'total_count')
-        self.total_count = attributes[:'total_count']
+      if attributes.key?(:'first_number')
+        self.first_number = attributes[:'first_number']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @total_count.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param total_count [Object] Object to be assigned
-    # @!visibility private
-    def total_count=(total_count)
-      if total_count.nil?
-        fail ArgumentError, 'invalid value for "total_count", total_count cannot be nil.'
+      if attributes.key?(:'last_number')
+        self.last_number = attributes[:'last_number']
       end
-      @total_count = total_count
+
+      if attributes.key?(:'next_number')
+        self.next_number = attributes[:'next_number']
+      end
+
+      if attributes.key?(:'number')
+        self.number = attributes[:'number']
+      end
+
+      if attributes.key?(:'prev_number')
+        self.prev_number = attributes[:'prev_number']
+      end
+
+      if attributes.key?(:'size')
+        self.size = attributes[:'size']
+      end
+
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +164,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
+          first_number == o.first_number &&
+          last_number == o.last_number &&
+          next_number == o.next_number &&
+          number == o.number &&
+          prev_number == o.prev_number &&
+          size == o.size &&
+          total == o.total &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_count, additional_properties].hash
+      [first_number, last_number, next_number, number, prev_number, size, total, type, additional_properties].hash
     end
   end
 end
