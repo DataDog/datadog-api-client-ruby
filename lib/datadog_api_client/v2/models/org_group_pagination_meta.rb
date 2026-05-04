@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Pagination metadata.
+  # Pagination metadata for org group list responses.
   class OrgGroupPaginationMeta
     include BaseGenericModel
 
-    # Page-based pagination details.
-    attr_reader :page
+    # Page-based pagination details for org group list responses.
+    attr_accessor :page
 
     attr_accessor :additional_properties
 
@@ -63,24 +63,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'page')
         self.page = attributes[:'page']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @page.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param page [Object] Object to be assigned
-    # @!visibility private
-    def page=(page)
-      if page.nil?
-        fail ArgumentError, 'invalid value for "page", page cannot be nil.'
-      end
-      @page = page
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

@@ -4368,6 +4368,7 @@ module DatadogAPIClient
           "v2.org_group_membership_update_data" => "OrgGroupMembershipUpdateData",
           "v2.org_group_membership_update_relationships" => "OrgGroupMembershipUpdateRelationships",
           "v2.org_group_membership_update_request" => "OrgGroupMembershipUpdateRequest",
+          "v2.org_group_pagination_links" => "OrgGroupPaginationLinks",
           "v2.org_group_pagination_meta" => "OrgGroupPaginationMeta",
           "v2.org_group_pagination_meta_page" => "OrgGroupPaginationMetaPage",
           "v2.org_group_policy_attributes" => "OrgGroupPolicyAttributes",
