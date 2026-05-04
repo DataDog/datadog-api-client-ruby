@@ -290,6 +290,7 @@ module DatadogAPIClient
             "v2.mute_security_findings": false,
             "v2.run_historical_job": false,
             "v2.search_security_monitoring_histsignals": false,
+            "v2.upsert_sync_config": false,
             "v2.get_code_coverage_branch_summary": false,
             "v2.get_code_coverage_commit_summary": false,
             "v2.create_dashboard_secure_embed": false,
