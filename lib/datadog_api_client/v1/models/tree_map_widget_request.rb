@@ -33,6 +33,12 @@ module DatadogAPIClient::V1
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
 
+    # The controls for sorting the widget.
+    attr_accessor :sort
+
+    # Define request widget style.
+    attr_accessor :style
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +48,9 @@ module DatadogAPIClient::V1
         :'formulas' => :'formulas',
         :'q' => :'q',
         :'queries' => :'queries',
-        :'response_format' => :'response_format'
+        :'response_format' => :'response_format',
+        :'sort' => :'sort',
+        :'style' => :'style'
       }
     end
 
@@ -53,7 +61,9 @@ module DatadogAPIClient::V1
         :'formulas' => :'Array<WidgetFormula>',
         :'q' => :'String',
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
-        :'response_format' => :'FormulaAndFunctionResponseFormat'
+        :'response_format' => :'FormulaAndFunctionResponseFormat',
+        :'sort' => :'WidgetSortBy',
+        :'style' => :'WidgetRequestStyle'
       }
     end
 
@@ -94,6 +104,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'response_format')
         self.response_format = attributes[:'response_format']
       end
+
+      if attributes.key?(:'sort')
+        self.sort = attributes[:'sort']
+      end
+
+      if attributes.key?(:'style')
+        self.style = attributes[:'style']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -126,6 +144,8 @@ module DatadogAPIClient::V1
           q == o.q &&
           queries == o.queries &&
           response_format == o.response_format &&
+          sort == o.sort &&
+          style == o.style &&
           additional_properties == o.additional_properties
     end
 
@@ -133,7 +153,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formulas, q, queries, response_format, additional_properties].hash
+      [formulas, q, queries, response_format, sort, style, additional_properties].hash
     end
   end
 end
