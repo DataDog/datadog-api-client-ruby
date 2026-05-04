@@ -33,9 +33,6 @@ module DatadogAPIClient::V2
     # Base64-encoded image data included in email notifications sent to status page subscribers.
     attr_accessor :email_header_image
 
-    # Whether the status page is enabled.
-    attr_reader :enabled
-
     # Base64-encoded image data displayed in the browser tab.
     attr_accessor :favicon
 
@@ -61,7 +58,6 @@ module DatadogAPIClient::V2
         :'components' => :'components',
         :'domain_prefix' => :'domain_prefix',
         :'email_header_image' => :'email_header_image',
-        :'enabled' => :'enabled',
         :'favicon' => :'favicon',
         :'name' => :'name',
         :'subscriptions_enabled' => :'subscriptions_enabled',
@@ -78,7 +74,6 @@ module DatadogAPIClient::V2
         :'components' => :'Array<CreateStatusPageRequestDataAttributesComponentsItems>',
         :'domain_prefix' => :'String',
         :'email_header_image' => :'String',
-        :'enabled' => :'Boolean',
         :'favicon' => :'String',
         :'name' => :'String',
         :'subscriptions_enabled' => :'Boolean',
@@ -123,10 +118,6 @@ module DatadogAPIClient::V2
         self.email_header_image = attributes[:'email_header_image']
       end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
-      end
-
       if attributes.key?(:'favicon')
         self.favicon = attributes[:'favicon']
       end
@@ -153,7 +144,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @domain_prefix.nil?
-      return false if @enabled.nil?
       return false if @name.nil?
       return false if @type.nil?
       return false if @visualization_type.nil?
@@ -168,16 +158,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "domain_prefix", domain_prefix cannot be nil.'
       end
       @domain_prefix = domain_prefix
-    end
-
-    # Custom attribute writer method with validation
-    # @param enabled [Object] Object to be assigned
-    # @!visibility private
-    def enabled=(enabled)
-      if enabled.nil?
-        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
-      end
-      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
@@ -240,7 +220,6 @@ module DatadogAPIClient::V2
           components == o.components &&
           domain_prefix == o.domain_prefix &&
           email_header_image == o.email_header_image &&
-          enabled == o.enabled &&
           favicon == o.favicon &&
           name == o.name &&
           subscriptions_enabled == o.subscriptions_enabled &&
@@ -253,7 +232,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, components, domain_prefix, email_header_image, enabled, favicon, name, subscriptions_enabled, type, visualization_type, additional_properties].hash
+      [company_logo, components, domain_prefix, email_header_image, favicon, name, subscriptions_enabled, type, visualization_type, additional_properties].hash
     end
   end
 end
