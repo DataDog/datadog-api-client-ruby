@@ -60,6 +60,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :security_query
 
+    # The controls for sorting the widget.
+    attr_accessor :sort
+
     # Widget style definition.
     attr_accessor :style
 
@@ -82,6 +85,7 @@ module DatadogAPIClient::V1
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
+        :'sort' => :'sort',
         :'style' => :'style'
       }
     end
@@ -103,6 +107,7 @@ module DatadogAPIClient::V1
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
+        :'sort' => :'WidgetSortBy',
         :'style' => :'WidgetStyle'
       }
     end
@@ -181,6 +186,10 @@ module DatadogAPIClient::V1
         self.security_query = attributes[:'security_query']
       end
 
+      if attributes.key?(:'sort')
+        self.sort = attributes[:'sort']
+      end
+
       if attributes.key?(:'style')
         self.style = attributes[:'style']
       end
@@ -225,6 +234,7 @@ module DatadogAPIClient::V1
           response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
+          sort == o.sort &&
           style == o.style &&
           additional_properties == o.additional_properties
     end
@@ -233,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, audit_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style, additional_properties].hash
+      [apm_query, audit_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort, style, additional_properties].hash
     end
   end
 end
