@@ -20,7 +20,6 @@ body = DatadogAPIClient::V2::CreateStatusPageRequest.new({
           position: 1,
         }),
       ],
-      enabled: true,
       type: DatadogAPIClient::V2::CreateStatusPageRequestDataAttributesType::INTERNAL,
       visualization_type: DatadogAPIClient::V2::CreateStatusPageRequestDataAttributesVisualizationType::BARS_AND_UPTIME_PERCENTAGE,
     }),
