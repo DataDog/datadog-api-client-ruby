@@ -1520,6 +1520,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List Cloud Cost Management OCI configs.
+    #
+    # @see #list_cost_oci_configs_with_http_info
+    def list_cost_oci_configs(opts = {})
+      data, _status_code, _headers = list_cost_oci_configs_with_http_info(opts)
+      data
+    end
+
+    # List Cloud Cost Management OCI configs.
+    #
+    # List the OCI configs.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OCIConfigsResponse, Integer, Hash)>] OCIConfigsResponse data, response status code and response headers
+    def list_cost_oci_configs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_oci_configs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/oci_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OCIConfigsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_oci_configs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_oci_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List custom allocation rules.
     #
     # @see #list_custom_allocation_rules_with_http_info
