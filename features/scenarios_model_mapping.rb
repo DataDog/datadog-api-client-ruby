@@ -1266,24 +1266,6 @@ ScenariosModelMappings = {
             "pat_id" => "String",
             "body" => "PersonalAccessTokenUpdateRequest",
     },
-    "v2.ListAPIs" => {
-            "query" => "String",
-            "page_limit" => "Integer",
-            "page_offset" => "Integer",
-    },
-    "v2.DeleteOpenAPI" => {
-            "id" => "UUID",
-    },
-    "v2.GetOpenAPI" => {
-            "id" => "UUID",
-    },
-    "v2.UpdateOpenAPI" => {
-            "id" => "UUID",
-            "openapi_spec_file" => "File",
-    },
-    "v2.CreateOpenAPI" => {
-            "openapi_spec_file" => "File",
-    },
     "v2.CreateSpansMetric" => {
             "body" => "SpansMetricCreateRequest",
     },
