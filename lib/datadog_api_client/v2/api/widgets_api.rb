@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Create a new widget for a given experience type.
     #
     # @param experience_type [WidgetExperienceType] The experience type for the widget.
-    # @param body [CreateOrUpdateWidgetRequest] Widget request body.
+    # @param body [CreateOrUpdateWidgetRequest] Widget request body. The `definition` object's required fields vary by `widget.definition.type`: every type requires `requests`, and some types require additional fields (e.g. `cloud_cost_summary` requires `graph_options`, `geomap` requires `style` and `view`). The example below shows a complete `cloud_cost_summary` payload for the `ccm_reports` experience type.
     # @param opts [Hash] the optional parameters
     # @return [Array<(WidgetResponse, Integer, Hash)>] WidgetResponse data, response status code and response headers
     def create_widget_with_http_info(experience_type, body, opts = {})
@@ -360,7 +360,7 @@ module DatadogAPIClient::V2
     #
     # @param experience_type [WidgetExperienceType] The experience type for the widget.
     # @param uuid [UUID] The UUID of the widget.
-    # @param body [CreateOrUpdateWidgetRequest] Widget request body.
+    # @param body [CreateOrUpdateWidgetRequest] Widget request body. The `definition` object's required fields vary by `widget.definition.type`; see `CreateWidget` above for a complete worked payload. Update is a full replacement of the widget definition.
     # @param opts [Hash] the optional parameters
     # @return [Array<(WidgetResponse, Integer, Hash)>] WidgetResponse data, response status code and response headers
     def update_widget_with_http_info(experience_type, uuid, body, opts = {})
