@@ -26,6 +26,7 @@ body = DatadogAPIClient::V1::AzureAccount.new({
       namespace: "Microsoft.Compute",
     }),
   ],
+  secretless_auth_enabled: true,
   tenant_name: "testc44-1234-5678-9101-cc00736ftest",
   usage_metrics_enabled: true,
 })

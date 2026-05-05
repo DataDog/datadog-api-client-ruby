@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 17 Dec 2024 21:43:00 GMT
+- recorded_at: Mon, 04 May 2026 13:56:51 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17344717-0000-0000-0000-173447178000","client_secret":"TestingRh2nx664kUy5dIApvM54T4AtO","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","metrics_enabled":true,"metrics_enabled_default":true,"new_client_id":"17344717-0000-0000-0000-173447178000","new_tenant_name":"17344717-0000-0000-0000-173447178000","resource_collection_enabled":true,"resource_provider_configs":[{"metrics_enabled":false,"namespace":"Microsoft.Compute"},{"metrics_enabled":false,"namespace":"Microsoft.Web"}],"tenant_name":"17344717-0000-0000-0000-173447178000","usage_metrics_enabled":true}'
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17779030-0000-0000-0000-177790301100","client_secret":"TestingRh2nx664kUy5dIApvM54T4AtO","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","metrics_enabled":true,"metrics_enabled_default":true,"new_client_id":"17779030-0000-0000-0000-177790301100","new_tenant_name":"17779030-0000-0000-0000-177790301100","resource_collection_enabled":true,"resource_provider_configs":[{"metrics_enabled":false,"namespace":"Microsoft.Compute"},{"metrics_enabled":false,"namespace":"Microsoft.Web"}],"secretless_auth_enabled":false,"tenant_name":"17779030-0000-0000-0000-177790301100","usage_metrics_enabled":true}'
     headers:
       Accept:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 17 Dec 2024 21:43:00 GMT
+- recorded_at: Mon, 04 May 2026 13:56:51 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"client_id":"17344717-0000-0000-0000-173447178000","tenant_name":"17344717-0000-0000-0000-173447178000"}'
+      string: '{"client_id":"17779030-0000-0000-0000-177790301100","tenant_name":"17779030-0000-0000-0000-177790301100"}'
     headers:
       Accept:
       - application/json
@@ -47,11 +47,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 17 Dec 2024 21:43:00 GMT
+- recorded_at: Mon, 04 May 2026 13:56:51 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"client_id":"17344717-0000-0000-0000-173447178000","tenant_name":"17344717-0000-0000-0000-173447178000"}'
+      string: '{"client_id":"17779030-0000-0000-0000-177790301100","tenant_name":"17779030-0000-0000-0000-177790301100"}'
     headers:
       Accept:
       - application/json
