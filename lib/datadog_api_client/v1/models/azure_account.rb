@@ -70,9 +70,6 @@ module DatadogAPIClient::V1
     # Configuration settings applied to resources from the specified Azure resource providers.
     attr_accessor :resource_provider_configs
 
-    # (Preview) When enabled, Datadog authenticates with this app registration using federated workload identity credentials instead of a client secret.
-    attr_accessor :secretless_auth_enabled
-
     # Your Azure Active Directory ID.
     attr_accessor :tenant_name
 
@@ -100,7 +97,6 @@ module DatadogAPIClient::V1
         :'new_tenant_name' => :'new_tenant_name',
         :'resource_collection_enabled' => :'resource_collection_enabled',
         :'resource_provider_configs' => :'resource_provider_configs',
-        :'secretless_auth_enabled' => :'secretless_auth_enabled',
         :'tenant_name' => :'tenant_name',
         :'usage_metrics_enabled' => :'usage_metrics_enabled'
       }
@@ -125,7 +121,6 @@ module DatadogAPIClient::V1
         :'new_tenant_name' => :'String',
         :'resource_collection_enabled' => :'Boolean',
         :'resource_provider_configs' => :'Array<ResourceProviderConfig>',
-        :'secretless_auth_enabled' => :'Boolean',
         :'tenant_name' => :'String',
         :'usage_metrics_enabled' => :'Boolean'
       }
@@ -213,10 +208,6 @@ module DatadogAPIClient::V1
         end
       end
 
-      if attributes.key?(:'secretless_auth_enabled')
-        self.secretless_auth_enabled = attributes[:'secretless_auth_enabled']
-      end
-
       if attributes.key?(:'tenant_name')
         self.tenant_name = attributes[:'tenant_name']
       end
@@ -267,7 +258,6 @@ module DatadogAPIClient::V1
           new_tenant_name == o.new_tenant_name &&
           resource_collection_enabled == o.resource_collection_enabled &&
           resource_provider_configs == o.resource_provider_configs &&
-          secretless_auth_enabled == o.secretless_auth_enabled &&
           tenant_name == o.tenant_name &&
           usage_metrics_enabled == o.usage_metrics_enabled &&
           additional_properties == o.additional_properties
@@ -277,7 +267,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_enabled, metrics_enabled_default, new_client_id, new_tenant_name, resource_collection_enabled, resource_provider_configs, secretless_auth_enabled, tenant_name, usage_metrics_enabled, additional_properties].hash
+      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_enabled, metrics_enabled_default, new_client_id, new_tenant_name, resource_collection_enabled, resource_provider_configs, tenant_name, usage_metrics_enabled, additional_properties].hash
     end
   end
 end
