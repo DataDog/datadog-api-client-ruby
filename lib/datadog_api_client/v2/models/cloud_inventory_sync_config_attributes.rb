@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for a cloud inventory sync configuration. Values beyond `id` may be omitted immediately after upsert.
+  # Attributes for a Storage Management configuration. Fields other than `id` may be empty in the response immediately after a create or update; subsequent reads return the full configuration.
   class CloudInventorySyncConfigAttributes
     include BaseGenericModel
 
@@ -60,7 +60,7 @@ module DatadogAPIClient::V2
     # Service account email for bucket access.
     attr_reader :gcp_service_account_email
 
-    # Object key prefix or `/` when the entire bucket is synced.
+    # Object key prefix where inventory reports are written. Returns `/` when reports are written at the bucket root.
     attr_reader :prefix
 
     attr_accessor :additional_properties

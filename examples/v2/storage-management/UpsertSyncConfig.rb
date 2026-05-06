@@ -1,10 +1,7 @@
-# Create or update a sync configuration returns "OK" response
+# Enable Storage Management for a bucket returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.upsert_sync_config".to_sym] = true
-end
-api_instance = DatadogAPIClient::V2::CloudInventorySyncConfigsAPI.new
+api_instance = DatadogAPIClient::V2::StorageManagementAPI.new
 
 body = DatadogAPIClient::V2::UpsertCloudInventorySyncConfigRequest.new({
   data: DatadogAPIClient::V2::UpsertCloudInventorySyncConfigRequestData.new({

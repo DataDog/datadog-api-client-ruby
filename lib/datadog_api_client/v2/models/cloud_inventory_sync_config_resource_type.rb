@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API type for sync configuration resources.
+  # Always `sync_configs`.
   class CloudInventorySyncConfigResourceType
     include BaseEnumModel
 
