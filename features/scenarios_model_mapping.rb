@@ -4282,6 +4282,11 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "CreateDegradationRequest",
     },
+    "v2.CreateBackfilledDegradation" => {
+            "include" => "String",
+            "page_id" => "UUID",
+            "body" => "CreateBackfilledDegradationRequest",
+    },
     "v2.DeleteDegradation" => {
             "page_id" => "UUID",
             "degradation_id" => "UUID",
@@ -4303,6 +4308,11 @@ ScenariosModelMappings = {
             "notify_subscribers" => "Boolean",
             "include" => "String",
             "body" => "CreateMaintenanceRequest",
+    },
+    "v2.CreateBackfilledMaintenance" => {
+            "include" => "String",
+            "page_id" => "UUID",
+            "body" => "CreateBackfilledMaintenanceRequest",
     },
     "v2.GetMaintenance" => {
             "page_id" => "UUID",
