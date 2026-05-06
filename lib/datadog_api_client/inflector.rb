@@ -6082,6 +6082,8 @@ module DatadogAPIClient
           "v2.trigger_rate_limit" => "TriggerRateLimit",
           "v2.trigger_source" => "TriggerSource",
           "v2.trigger_type" => "TriggerType",
+          "v2.trigger_workflow_automation_action" => "TriggerWorkflowAutomationAction",
+          "v2.trigger_workflow_automation_action_type" => "TriggerWorkflowAutomationActionType",
           "v2.uc_config_pair" => "UCConfigPair",
           "v2.uc_config_pair_data" => "UCConfigPairData",
           "v2.uc_config_pair_data_attributes" => "UCConfigPairDataAttributes",
