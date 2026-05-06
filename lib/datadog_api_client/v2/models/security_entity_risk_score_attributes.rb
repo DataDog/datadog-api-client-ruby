@@ -100,8 +100,8 @@ module DatadogAPIClient::V2
         :'first_detected' => :'Integer',
         :'last_activity_title' => :'String',
         :'last_detected' => :'Integer',
-        :'risk_score' => :'Float',
-        :'risk_score_evolution' => :'Float',
+        :'risk_score' => :'Integer',
+        :'risk_score_evolution' => :'Integer',
         :'severity' => :'SecurityEntityRiskScoreAttributesSeverity',
         :'signals_detected' => :'Integer'
       }
