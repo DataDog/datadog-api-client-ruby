@@ -14,33 +14,6 @@ body = DatadogAPIClient::V2::TeamRoutingRulesRequest.new({
     attributes: DatadogAPIClient::V2::TeamRoutingRulesRequestDataAttributes.new({
       rules: [
         DatadogAPIClient::V2::TeamRoutingRulesRequestRule.new({
-          actions: [
-            DatadogAPIClient::V2::SendSlackMessageAction.new({
-              channel: "channel",
-              type: DatadogAPIClient::V2::SendSlackMessageActionType::SEND_SLACK_MESSAGE,
-              workspace: "workspace",
-            }),
-          ],
-          query: "tags.service:test",
-          time_restriction: DatadogAPIClient::V2::TimeRestrictions.new({
-            time_zone: "Europe/Paris",
-            restrictions: [
-              DatadogAPIClient::V2::TimeRestriction.new({
-                end_day: DatadogAPIClient::V2::Weekday::MONDAY,
-                end_time: "17:00:00",
-                start_day: DatadogAPIClient::V2::Weekday::MONDAY,
-                start_time: "09:00:00",
-              }),
-              DatadogAPIClient::V2::TimeRestriction.new({
-                end_day: DatadogAPIClient::V2::Weekday::TUESDAY,
-                end_time: "17:00:00",
-                start_day: DatadogAPIClient::V2::Weekday::TUESDAY,
-                start_time: "09:00:00",
-              }),
-            ],
-          }),
-        }),
-        DatadogAPIClient::V2::TeamRoutingRulesRequestRule.new({
           policy_id: ESCALATION_POLICY_DATA_ID,
           query: "",
           urgency: DatadogAPIClient::V2::Urgency::LOW,
