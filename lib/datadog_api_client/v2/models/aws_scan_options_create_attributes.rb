@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AwsScanOptionsCreateAttributes
     include BaseGenericModel
 
+    # Indicates whether host compliance scanning is enabled.
+    attr_reader :compliance_host
+
     # Indicates if scanning of Lambda functions is enabled.
     attr_reader :lambda
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'compliance_host' => :'compliance_host',
         :'lambda' => :'lambda',
         :'sensitive_data' => :'sensitive_data',
         :'vuln_containers_os' => :'vuln_containers_os',
@@ -50,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'compliance_host' => :'Boolean',
         :'lambda' => :'Boolean',
         :'sensitive_data' => :'Boolean',
         :'vuln_containers_os' => :'Boolean',
@@ -75,6 +80,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'compliance_host')
+        self.compliance_host = attributes[:'compliance_host']
+      end
+
       if attributes.key?(:'lambda')
         self.lambda = attributes[:'lambda']
       end
@@ -96,11 +105,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @compliance_host.nil?
       return false if @lambda.nil?
       return false if @sensitive_data.nil?
       return false if @vuln_containers_os.nil?
       return false if @vuln_host_os.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param compliance_host [Object] Object to be assigned
+    # @!visibility private
+    def compliance_host=(compliance_host)
+      if compliance_host.nil?
+        fail ArgumentError, 'invalid value for "compliance_host", compliance_host cannot be nil.'
+      end
+      @compliance_host = compliance_host
     end
 
     # Custom attribute writer method with validation
@@ -169,6 +189,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          compliance_host == o.compliance_host &&
           lambda == o.lambda &&
           sensitive_data == o.sensitive_data &&
           vuln_containers_os == o.vuln_containers_os &&
@@ -180,7 +201,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [lambda, sensitive_data, vuln_containers_os, vuln_host_os, additional_properties].hash
+      [compliance_host, lambda, sensitive_data, vuln_containers_os, vuln_host_os, additional_properties].hash
     end
   end
 end
