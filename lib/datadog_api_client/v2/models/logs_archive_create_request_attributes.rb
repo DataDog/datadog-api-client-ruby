@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class LogsArchiveCreateRequestAttributes
     include BaseGenericModel
 
+    # The type of compression for the archive.
+    attr_accessor :compression_method
+
     # An archive's destination.
     attr_reader :destination
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'compression_method' => :'compression_method',
         :'destination' => :'destination',
         :'include_tags' => :'include_tags',
         :'name' => :'name',
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'compression_method' => :'LogsArchiveAttributesCompressionMethod',
         :'destination' => :'LogsArchiveCreateRequestDestination',
         :'include_tags' => :'Boolean',
         :'name' => :'String',
@@ -93,6 +98,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'compression_method')
+        self.compression_method = attributes[:'compression_method']
+      end
 
       if attributes.key?(:'destination')
         self.destination = attributes[:'destination']
@@ -187,6 +196,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          compression_method == o.compression_method &&
           destination == o.destination &&
           include_tags == o.include_tags &&
           name == o.name &&
@@ -200,7 +210,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags, additional_properties].hash
+      [compression_method, destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags, additional_properties].hash
     end
   end
 end
