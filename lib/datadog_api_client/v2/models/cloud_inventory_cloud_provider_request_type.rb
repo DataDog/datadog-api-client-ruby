@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API type for upsert sync configuration requests.
+  # Always `cloud_provider`.
   class CloudInventoryCloudProviderRequestType
     include BaseEnumModel
 

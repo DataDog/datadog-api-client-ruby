@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API data object for a sync configuration.
+  # Storage Management configuration data.
   class CloudInventorySyncConfigResponseData
     include BaseGenericModel
 
-    # Attributes for a cloud inventory sync configuration. Values beyond `id` may be omitted immediately after upsert.
+    # Attributes for a Storage Management configuration. Fields other than `id` may be empty in the response immediately after a create or update; subsequent reads return the full configuration.
     attr_reader :attributes
 
-    # Unique identifier for the recurring sync configuration.
+    # Unique identifier for this Storage Management configuration.
     attr_reader :id
 
-    # JSON:API type for sync configuration resources.
+    # Always `sync_configs`.
     attr_reader :type
 
     attr_accessor :additional_properties
