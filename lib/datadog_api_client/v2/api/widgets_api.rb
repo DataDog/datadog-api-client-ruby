@@ -260,7 +260,16 @@ module DatadogAPIClient::V2
 
     # Search widgets.
     #
-    # Search and list widgets for a given experience type. Supports filtering by widget type, creator, title, and tags, as well as sorting and pagination.
+    # Search and list widgets for a given experience type, with filtering, sorting, and pagination.
+    #
+    # **Response meta** carries totals scoped to the current filter:
+    # - `filtered_total` — widgets matching the filter.
+    # - `created_by_you_total` — among the matches, how many the current user created.
+    # - `favorited_by_you_total` — among the matches, how many the current user has favorited.
+    # - `created_by_anyone_total` — total widgets in the experience type, ignoring filters.
+    #
+    # Each returned widget includes `is_favorited` reflecting the current user's favorite status.
+    # Favoriting itself is performed through the shared favorites API, not this endpoint.
     #
     # @param experience_type [WidgetExperienceType] The experience type for the widget.
     # @param opts [Hash] the optional parameters
@@ -269,7 +278,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_is_favorited Filter to only widgets favorited by the current user.
     # @option opts [String] :filter_title Filter widgets by title (substring match).
     # @option opts [String] :filter_tags Filter widgets by tags. Format as bracket-delimited CSV, e.g. `[tag1,tag2]`.
-    # @option opts [String] :sort Sort field for the results. Prefix with `-` for descending order. Allowed values: `title`, `created_at`, `modified_at`.
+    # @option opts [String] :sort Sort field for the results.  **`title`, `created_at`, `modified_at`** — both ascending and descending are supported. Use the bare field name for ascending (e.g. `sort=title`) or prefix with `-` for descending (e.g. `sort=-modified_at`).  **`is_favorited`** — returns favorites-first ordering (favorited widgets first, then the rest). Direction is fixed; the `-` prefix is ignored for this field.
     # @option opts [Integer] :page_number Page number for pagination (0-indexed).
     # @option opts [Integer] :page_size Number of widgets per page.
     # @return [Array<(WidgetListResponse, Integer, Hash)>] WidgetListResponse data, response status code and response headers

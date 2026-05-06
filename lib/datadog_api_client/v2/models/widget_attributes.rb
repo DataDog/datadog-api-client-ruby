@@ -27,7 +27,11 @@ module DatadogAPIClient::V2
     # The definition of a widget, including its type and configuration.
     attr_reader :definition
 
-    # Will be implemented soon. Currently always returns false.
+    # Whether the current user has favorited this widget. Populated on get,
+    # batch_get, update, and search responses; create responses always return
+    # `false` because a widget can only be favorited after it exists.
+    # Favoriting itself is performed through the shared favorites API, not
+    # this service.
     attr_reader :is_favorited
 
     # ISO 8601 timestamp of when the widget was last modified.
