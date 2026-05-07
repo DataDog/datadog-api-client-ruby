@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
 
     # Add annotation queue interactions.
     #
-    # Add one or more interactions (traces) to an annotation queue.
+    # Add one or more interactions (traces or sessions) to an annotation queue.
     # At least one interaction must be provided.
     #
     # @param queue_id [String] The ID of the LLM Observability annotation queue.
@@ -1100,7 +1100,7 @@ module DatadogAPIClient::V2
 
     # Get annotated queue interactions.
     #
-    # Retrieve all interactions and their annotations for a given annotation queue.
+    # Retrieve all interactions (traces and sessions) and their annotations for a given annotation queue.
     #
     # @param queue_id [String] The ID of the LLM Observability annotation queue.
     # @param opts [Hash] the optional parameters

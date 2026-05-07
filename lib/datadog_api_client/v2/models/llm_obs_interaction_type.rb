@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     TRACE = "trace".freeze
     EXPERIMENT_TRACE = "experiment_trace".freeze
+    SESSION = "session".freeze
   end
 end

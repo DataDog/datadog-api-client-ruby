@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LLMObsAnnotationQueueInteractionItem
     include BaseGenericModel
 
-    # Identifier of the content (such as trace ID) for this interaction.
+    # Identifier of the content (trace ID or session ID) for this interaction.
     attr_reader :content_id
 
     # Type of interaction in an annotation queue.
