@@ -28,13 +28,13 @@ module DatadogAPIClient::V2
     attr_reader :env
 
     # Tag keys to group results by.
-    attr_accessor :group_by
+    attr_reader :group_by
 
     # The variable name for use in formulas.
     attr_reader :name
 
     # The APM operation name.
-    attr_accessor :operation_name
+    attr_reader :operation_name
 
     # Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
     attr_accessor :primary_tag_name
@@ -154,7 +154,9 @@ module DatadogAPIClient::V2
     def valid?
       return false if @data_source.nil?
       return false if @env.nil?
+      return false if @group_by.nil?
       return false if @name.nil?
+      return false if @operation_name.nil?
       return false if @service.nil?
       return false if @stat.nil?
       true
@@ -181,6 +183,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param group_by [Object] Object to be assigned
+    # @!visibility private
+    def group_by=(group_by)
+      if group_by.nil?
+        fail ArgumentError, 'invalid value for "group_by", group_by cannot be nil.'
+      end
+      @group_by = group_by
+    end
+
+    # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
@@ -188,6 +200,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param operation_name [Object] Object to be assigned
+    # @!visibility private
+    def operation_name=(operation_name)
+      if operation_name.nil?
+        fail ArgumentError, 'invalid value for "operation_name", operation_name cannot be nil.'
+      end
+      @operation_name = operation_name
     end
 
     # Custom attribute writer method with validation
