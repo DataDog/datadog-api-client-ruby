@@ -2434,6 +2434,9 @@ ScenariosModelMappings = {
             "page_offset" => "Integer",
             "page_limit" => "Integer",
     },
+    "v2.CreateEmailTransportWebhookIntake" => {
+            "body" => "Array<TransportWebhookLog>",
+    },
     "v2.SearchIssues" => {
             "include" => "Array<SearchIssuesIncludeQueryParameterItem>",
             "body" => "IssuesSearchRequest",

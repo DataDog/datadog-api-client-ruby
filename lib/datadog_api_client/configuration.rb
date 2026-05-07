@@ -317,6 +317,7 @@ module DatadogAPIClient
             "v2.trigger_deployment_gates_evaluation": false,
             "v2.update_deployment_gate": false,
             "v2.update_deployment_rule": false,
+            "v2.create_email_transport_webhook_intake": false,
             "v2.create_hamr_org_connection": false,
             "v2.get_hamr_org_connection": false,
             "v2.create_global_incident_handle": false,
