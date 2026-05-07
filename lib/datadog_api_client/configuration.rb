@@ -462,11 +462,6 @@ module DatadogAPIClient
             "v2.add_member_team": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
-            "v2.create_incident_team": false,
-            "v2.delete_incident_team": false,
-            "v2.get_incident_team": false,
-            "v2.list_incident_teams": false,
-            "v2.update_incident_team": false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'

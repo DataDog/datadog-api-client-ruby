@@ -4605,26 +4605,6 @@ ScenariosModelMappings = {
     "v2.GetUserMemberships" => {
             "user_uuid" => "String",
     },
-    "v2.ListIncidentTeams" => {
-            "include" => "IncidentRelatedObject",
-            "page_size" => "Integer",
-            "page_offset" => "Integer",
-            "filter" => "String",
-    },
-    "v2.CreateIncidentTeam" => {
-            "body" => "IncidentTeamCreateRequest",
-    },
-    "v2.DeleteIncidentTeam" => {
-            "team_id" => "String",
-    },
-    "v2.GetIncidentTeam" => {
-            "team_id" => "String",
-            "include" => "IncidentRelatedObject",
-    },
-    "v2.UpdateIncidentTeam" => {
-            "team_id" => "String",
-            "body" => "IncidentTeamUpdateRequest",
-    },
     "v2.SearchWidgets" => {
             "experience_type" => "WidgetExperienceType",
             "filter_widget_type" => "WidgetType",
