@@ -890,6 +890,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get preferred cost allocation tags.
+    #
+    # @see #get_cost_ai_preferred_tags_with_http_info
+    def get_cost_ai_preferred_tags(opts = {})
+      data, _status_code, _headers = get_cost_ai_preferred_tags_with_http_info(opts)
+      data
+    end
+
+    # Get preferred cost allocation tags.
+    #
+    # Get the preferred cost allocation tags for AI agent use. Returns a simplified response with contextual messaging based on configuration status.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostAIPreferredTagsResponse, Integer, Hash)>] CostAIPreferredTagsResponse data, response status code and response headers
+    def get_cost_ai_preferred_tags_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_cost_ai_preferred_tags".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_cost_ai_preferred_tags")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_cost_ai_preferred_tags"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_ai_preferred_tags ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/ai/preferred_tags'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostAIPreferredTagsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_ai_preferred_tags,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_ai_preferred_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cost AWS CUR config.
     #
     # @see #get_cost_awscur_config_with_http_info
@@ -1081,6 +1147,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get cost setting.
+    #
+    # @see #get_cost_setting_with_http_info
+    def get_cost_setting(setting_type, opts = {})
+      data, _status_code, _headers = get_cost_setting_with_http_info(setting_type, opts)
+      data
+    end
+
+    # Get cost setting.
+    #
+    # Get a specific cost management setting by type.
+    #
+    # @param setting_type [String] The type of cost setting.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostSettingResponse, Integer, Hash)>] CostSettingResponse data, response status code and response headers
+    def get_cost_setting_with_http_info(setting_type, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_cost_setting".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_cost_setting")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_cost_setting"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_setting ...'
+      end
+      # verify the required parameter 'setting_type' is set
+      if @api_client.config.client_side_validation && setting_type.nil?
+        fail ArgumentError, "Missing the required parameter 'setting_type' when calling CloudCostManagementAPI.get_cost_setting"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/settings/{setting_type}'.sub('{setting_type}', CGI.escape(setting_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostSettingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_setting,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_setting\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1580,6 +1717,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List active tag pipeline keys.
+    #
+    # @see #list_cost_tag_pipeline_active_keys_with_http_info
+    def list_cost_tag_pipeline_active_keys(opts = {})
+      data, _status_code, _headers = list_cost_tag_pipeline_active_keys_with_http_info(opts)
+      data
+    end
+
+    # List active tag pipeline keys.
+    #
+    # List the tag keys that are actively set by tag pipeline rules, sorted by rule count in descending order.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostTagPipelineActiveKeyResponse, Integer, Hash)>] CostTagPipelineActiveKeyResponse data, response status code and response headers
+    def list_cost_tag_pipeline_active_keys_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_pipeline_active_keys".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_tag_pipeline_active_keys")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_tag_pipeline_active_keys"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_pipeline_active_keys ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/ai/tag_pipelines/active_keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagPipelineActiveKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_pipeline_active_keys,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_pipeline_active_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List custom allocation rules.
     #
     # @see #list_custom_allocation_rules_with_http_info
@@ -1636,6 +1839,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_custom_allocation_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List custom allocation rule statuses.
+    #
+    # @see #list_custom_allocation_rules_status_with_http_info
+    def list_custom_allocation_rules_status(opts = {})
+      data, _status_code, _headers = list_custom_allocation_rules_status_with_http_info(opts)
+      data
+    end
+
+    # List custom allocation rule statuses.
+    #
+    # List the processing status of all custom allocation rules.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomAllocationRuleStatusResponse, Integer, Hash)>] CustomAllocationRuleStatusResponse data, response status code and response headers
+    def list_custom_allocation_rules_status_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_custom_allocation_rules_status".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_custom_allocation_rules_status")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_custom_allocation_rules_status"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_custom_allocation_rules_status ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/status'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomAllocationRuleStatusResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_custom_allocation_rules_status,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_custom_allocation_rules_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1769,6 +2038,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_tag_pipelines_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List tag pipeline ruleset statuses.
+    #
+    # @see #list_tag_pipelines_rulesets_status_with_http_info
+    def list_tag_pipelines_rulesets_status(opts = {})
+      data, _status_code, _headers = list_tag_pipelines_rulesets_status_with_http_info(opts)
+      data
+    end
+
+    # List tag pipeline ruleset statuses.
+    #
+    # List the processing status of all tag pipeline rulesets.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TagPipelinesRulesetStatusResponse, Integer, Hash)>] TagPipelinesRulesetStatusResponse data, response status code and response headers
+    def list_tag_pipelines_rulesets_status_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_tag_pipelines_rulesets_status".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_tag_pipelines_rulesets_status")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_tag_pipelines_rulesets_status"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_tag_pipelines_rulesets_status ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment/status'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TagPipelinesRulesetStatusResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_tag_pipelines_rulesets_status,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_tag_pipelines_rulesets_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
