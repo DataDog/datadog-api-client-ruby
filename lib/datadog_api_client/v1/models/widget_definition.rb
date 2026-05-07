@@ -49,6 +49,7 @@ module DatadogAPIClient::V1
           :'MonitorSummaryWidgetDefinition',
           :'NoteWidgetDefinition',
           :'PowerpackWidgetDefinition',
+          :'PointPlotWidgetDefinition',
           :'QueryValueWidgetDefinition',
           :'RetentionCurveWidgetDefinition',
           :'RunWorkflowWidgetDefinition',
