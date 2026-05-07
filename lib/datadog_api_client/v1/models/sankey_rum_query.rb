@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Sankey widget with RUM data source query.
+  # Query configuration for Product Analytics or RUM Sankey widget.
   class SankeyRumQuery
     include BaseGenericModel
 
     # Product Analytics/RUM audience filters.
     attr_accessor :audience_filters
 
-    # Sankey widget with RUM data source.
+    # Product Analytics or RUM data source type.
     attr_reader :data_source
 
     # Entries per step.
@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # Join keys.
     attr_accessor :join_keys
 
-    # Sankey mode for RUM queries.
+    # Sankey mode for Product Analytics or RUM queries.
     attr_reader :mode
 
     # Number of steps.

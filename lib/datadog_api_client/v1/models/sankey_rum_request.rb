@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Sankey widget with RUM data source.
+  # Sankey widget request for Product Analytics or RUM data source.
   class SankeyRumRequest
     include BaseGenericModel
 
-    # Sankey widget with RUM data source query.
+    # Query configuration for Product Analytics or RUM Sankey widget.
     attr_reader :query
 
     # Type of the Sankey widget.

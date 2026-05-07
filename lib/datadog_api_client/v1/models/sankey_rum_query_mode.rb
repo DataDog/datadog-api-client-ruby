@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Sankey mode for RUM queries.
+  # Sankey mode for Product Analytics or RUM queries.
   class SankeyRumQueryMode
     include BaseEnumModel
 

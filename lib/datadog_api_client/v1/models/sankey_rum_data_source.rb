@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Sankey widget with RUM data source.
+  # Product Analytics or RUM data source type.
   class SankeyRumDataSource
     include BaseEnumModel
 
