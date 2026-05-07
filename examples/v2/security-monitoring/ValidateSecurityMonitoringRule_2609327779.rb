@@ -22,9 +22,9 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRulePayload.new({
     max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::TEN_MINUTES,
     detection_method: DatadogAPIClient::V2::SecurityMonitoringRuleDetectionMethod::NEW_VALUE,
     new_value_options: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptions.new({
-      forget_after: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsForgetAfter::ONE_WEEK,
+      forget_after: 7,
       instantaneous_baseline: true,
-      learning_duration: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningDuration::ONE_DAY,
+      learning_duration: 1,
       learning_threshold: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningThreshold::ZERO_OCCURRENCES,
       learning_method: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningMethod::DURATION,
     }),
