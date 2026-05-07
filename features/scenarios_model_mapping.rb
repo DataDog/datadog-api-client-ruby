@@ -1352,6 +1352,40 @@ ScenariosModelMappings = {
     "v2.PublishApp" => {
             "app_id" => "UUID",
     },
+    "v2.UpdateAppFavorite" => {
+            "app_id" => "UUID",
+            "body" => "UpdateAppFavoriteRequest",
+    },
+    "v2.UpdateProtectionLevel" => {
+            "app_id" => "UUID",
+            "body" => "UpdateAppProtectionLevelRequest",
+    },
+    "v2.CreatePublishRequest" => {
+            "app_id" => "UUID",
+            "body" => "CreatePublishRequestRequest",
+    },
+    "v2.RevertApp" => {
+            "app_id" => "UUID",
+            "version" => "String",
+    },
+    "v2.UpdateAppSelfService" => {
+            "app_id" => "UUID",
+            "body" => "UpdateAppSelfServiceRequest",
+    },
+    "v2.UpdateAppTags" => {
+            "app_id" => "UUID",
+            "body" => "UpdateAppTagsRequest",
+    },
+    "v2.UpdateAppVersionName" => {
+            "app_id" => "UUID",
+            "version" => "String",
+            "body" => "UpdateAppVersionNameRequest",
+    },
+    "v2.ListAppVersions" => {
+            "app_id" => "UUID",
+            "limit" => "Integer",
+            "page" => "Integer",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",
