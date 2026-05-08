@@ -3768,6 +3768,24 @@ ScenariosModelMappings = {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
     },
+    "v2.ListReplayAnalysisIssues" => {
+            "filter_application_id" => "String",
+            "filter_severity" => "String",
+            "filter_view_name" => "String",
+            "filter_issue_category" => "String",
+            "sort" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.GetReplayAnalysisIssue" => {
+            "issue_id" => "String",
+    },
+    "v2.ListReplayAnalysisIssueSessions" => {
+            "issue_id" => "String",
+            "sort" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
     "v2.ListReplayHeatmapSnapshots" => {
             "filter_device_type" => "String",
             "filter_view_name" => "String",
@@ -3783,6 +3801,12 @@ ScenariosModelMappings = {
     "v2.UpdateReplayHeatmapSnapshot" => {
             "snapshot_id" => "String",
             "body" => "SnapshotUpdateRequest",
+    },
+    "v2.GenerateReplaySummary" => {
+            "session_id" => "String",
+            "data_source" => "String",
+            "ts" => "Integer",
+            "body" => "ReplaySummaryRequest",
     },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
