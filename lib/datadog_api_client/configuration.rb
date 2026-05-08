@@ -297,6 +297,8 @@ module DatadogAPIClient
             "v2.delete_dashboard_secure_embed": false,
             "v2.get_dashboard_secure_embed": false,
             "v2.update_dashboard_secure_embed": false,
+            "v2.list_dataset_restrictions": false,
+            "v2.update_dataset_restriction": false,
             "v2.create_dataset": false,
             "v2.delete_dataset": false,
             "v2.get_all_datasets": false,
