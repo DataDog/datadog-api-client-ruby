@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ApmDependencyStatsQuery
     include BaseGenericModel
 
+    # Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
+    attr_reader :cross_org_uuids
+
     # A data source for APM dependency statistics queries.
     attr_reader :data_source
 
@@ -57,6 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cross_org_uuids' => :'cross_org_uuids',
         :'data_source' => :'data_source',
         :'env' => :'env',
         :'is_upstream' => :'is_upstream',
@@ -74,6 +78,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cross_org_uuids' => :'Array<String>',
         :'data_source' => :'ApmDependencyStatsDataSource',
         :'env' => :'String',
         :'is_upstream' => :'Boolean',
@@ -104,6 +109,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cross_org_uuids')
+        if (value = attributes[:'cross_org_uuids']).is_a?(Array)
+          self.cross_org_uuids = value
+        end
+      end
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
@@ -150,6 +161,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@cross_org_uuids.nil? && @cross_org_uuids.length > 1
       return false if @data_source.nil?
       return false if @env.nil?
       return false if @name.nil?
@@ -158,6 +170,16 @@ module DatadogAPIClient::V2
       return false if @service.nil?
       return false if @stat.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cross_org_uuids [Object] Object to be assigned
+    # @!visibility private
+    def cross_org_uuids=(cross_org_uuids)
+      if !cross_org_uuids.nil? && cross_org_uuids.length > 1
+        fail ArgumentError, 'invalid value for "cross_org_uuids", number of items must be less than or equal to 1.'
+      end
+      @cross_org_uuids = cross_org_uuids
     end
 
     # Custom attribute writer method with validation
@@ -256,6 +278,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cross_org_uuids == o.cross_org_uuids &&
           data_source == o.data_source &&
           env == o.env &&
           is_upstream == o.is_upstream &&
@@ -273,7 +296,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, env, is_upstream, name, operation_name, primary_tag_name, primary_tag_value, resource_name, service, stat, additional_properties].hash
+      [cross_org_uuids, data_source, env, is_upstream, name, operation_name, primary_tag_name, primary_tag_value, resource_name, service, stat, additional_properties].hash
     end
   end
 end
