@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # Search query following the event search syntax.
     attr_reader :query
 
+    # Filter issues by state. Multiple values are combined with OR logic.
+    attr_reader :states
+
     # Filter issues by team IDs. Multiple values are combined with OR logic.
     attr_reader :team_ids
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
         :'order_by' => :'order_by',
         :'persona' => :'persona',
         :'query' => :'query',
+        :'states' => :'states',
         :'team_ids' => :'team_ids',
         :'to' => :'to',
         :'track' => :'track'
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
         :'order_by' => :'IssuesSearchRequestDataAttributesOrderBy',
         :'persona' => :'IssuesSearchRequestDataAttributesPersona',
         :'query' => :'String',
+        :'states' => :'Array<IssueState>',
         :'team_ids' => :'Array<UUID>',
         :'to' => :'Integer',
         :'track' => :'IssuesSearchRequestDataAttributesTrack'
@@ -117,6 +122,12 @@ module DatadogAPIClient::V2
         self.query = attributes[:'query']
       end
 
+      if attributes.key?(:'states')
+        if (value = attributes[:'states']).is_a?(Array)
+          self.states = value
+        end
+      end
+
       if attributes.key?(:'team_ids')
         if (value = attributes[:'team_ids']).is_a?(Array)
           self.team_ids = value
@@ -139,6 +150,7 @@ module DatadogAPIClient::V2
       return false if !@assignee_ids.nil? && @assignee_ids.length > 50
       return false if @from.nil?
       return false if @query.nil?
+      return false if !@states.nil? && @states.length > 20
       return false if !@team_ids.nil? && @team_ids.length > 50
       return false if @to.nil?
       true
@@ -172,6 +184,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param states [Object] Object to be assigned
+    # @!visibility private
+    def states=(states)
+      if !states.nil? && states.length > 20
+        fail ArgumentError, 'invalid value for "states", number of items must be less than or equal to 20.'
+      end
+      @states = states
     end
 
     # Custom attribute writer method with validation
@@ -225,6 +247,7 @@ module DatadogAPIClient::V2
           order_by == o.order_by &&
           persona == o.persona &&
           query == o.query &&
+          states == o.states &&
           team_ids == o.team_ids &&
           to == o.to &&
           track == o.track &&
@@ -235,7 +258,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignee_ids, from, order_by, persona, query, team_ids, to, track, additional_properties].hash
+      [assignee_ids, from, order_by, persona, query, states, team_ids, to, track, additional_properties].hash
     end
   end
 end
