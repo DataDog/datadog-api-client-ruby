@@ -2305,6 +2305,10 @@ ScenariosModelMappings = {
             "token" => "String",
             "body" => "SecureEmbedUpdateRequest",
     },
+    "v2.UpdateDatasetRestriction" => {
+            "product_type" => "String",
+            "body" => "DatasetRestrictionUpdateRequest",
+    },
     "v2.CreateDataset" => {
             "body" => "DatasetCreateRequest",
     },
