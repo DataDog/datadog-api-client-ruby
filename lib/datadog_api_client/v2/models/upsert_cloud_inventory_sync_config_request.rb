@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class UpsertCloudInventorySyncConfigRequest
     include BaseGenericModel
 
-    # JSON:API data envelope for an upsert sync configuration request.
+    # Storage Management configuration data for the create or update request.
     attr_reader :data
 
     attr_accessor :additional_properties

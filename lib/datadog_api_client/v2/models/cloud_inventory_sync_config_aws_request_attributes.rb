@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS settings for the customer bucket that stores inventory reports.
+  # AWS settings for the S3 bucket Storage Management reads inventory reports from.
   class CloudInventorySyncConfigAWSRequestAttributes
     include BaseGenericModel
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # AWS Region of the inventory bucket.
     attr_reader :destination_bucket_region
 
-    # Optional object key prefix for inventory files. Use `/` or omit for the entire bucket.
+    # Object key prefix where inventory reports are written. Omit or set to `/` when reports are written at the bucket root.
     attr_accessor :destination_prefix
 
     attr_accessor :additional_properties

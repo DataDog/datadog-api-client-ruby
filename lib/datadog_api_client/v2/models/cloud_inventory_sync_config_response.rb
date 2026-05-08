@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing the upserted sync configuration. Additional read-only fields appear on list and get.
+  # Storage Management configuration returned after a create or update. Additional read-only fields appear on list and get responses.
   class CloudInventorySyncConfigResponse
     include BaseGenericModel
 
-    # JSON:API data object for a sync configuration.
+    # Storage Management configuration data.
     attr_reader :data
 
     attr_accessor :additional_properties
