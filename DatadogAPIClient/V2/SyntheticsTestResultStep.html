@@ -1,0 +1,3153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: DatadogAPIClient::V2::SyntheticsTestResultStep
+  
+    &mdash; datadog-api-client 2.53.0 documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "DatadogAPIClient::V2::SyntheticsTestResultStep";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
+     &raquo; 
+    <span class="title">SyntheticsTestResultStep</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: DatadogAPIClient::V2::SyntheticsTestResultStep
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">DatadogAPIClient::V2::SyntheticsTestResultStep</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="BaseGenericModel.html" title="DatadogAPIClient::V2::BaseGenericModel (module)">BaseGenericModel</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/datadog_api_client/v2/models/synthetics_test_result_step.rb
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>A step result from a browser, mobile, or multistep API test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#additional_properties-instance_method" title="#additional_properties (instance method)">#<strong>additional_properties</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute additional_properties.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow_failure-instance_method" title="#allow_failure (instance method)">#<strong>allow_failure</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether the test continues when this step fails.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#api_test-instance_method" title="#api_test (instance method)">#<strong>api_test</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Inner API test definition for browser <code>runApiTest</code> steps.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assertion_result-instance_method" title="#assertion_result (instance method)">#<strong>assertion_result</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Assertion result for a browser or mobile step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assertions-instance_method" title="#assertions (instance method)">#<strong>assertions</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Assertion results produced by the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#blocked_requests_urls-instance_method" title="#blocked_requests_urls (instance method)">#<strong>blocked_requests_urls</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>URLs of requests blocked during the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bounds-instance_method" title="#bounds (instance method)">#<strong>bounds</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Bounding box of an element on the page.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#browser_errors-instance_method" title="#browser_errors (instance method)">#<strong>browser_errors</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Browser errors captured during the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bucket_keys-instance_method" title="#bucket_keys (instance method)">#<strong>bucket_keys</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Storage bucket keys for artifacts produced during a step or test.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cdn_resources-instance_method" title="#cdn_resources (instance method)">#<strong>cdn_resources</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>CDN resources encountered during the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#click_type-instance_method" title="#click_type (instance method)">#<strong>click_type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Click type performed in a browser step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compressed_json_descriptor-instance_method" title="#compressed_json_descriptor (instance method)">#<strong>compressed_json_descriptor</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Compressed JSON descriptor for the step (internal format).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config-instance_method" title="#config (instance method)">#<strong>config</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Request configuration executed by this step (API test steps).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Human-readable description of the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#duration-instance_method" title="#duration (instance method)">#<strong>duration</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Duration of the step in milliseconds.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element_description-instance_method" title="#element_description (instance method)">#<strong>element_description</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Description of the element interacted with by the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element_updates-instance_method" title="#element_updates (instance method)">#<strong>element_updates</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Element locator updates produced during a step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extracted_value-instance_method" title="#extracted_value (instance method)">#<strong>extracted_value</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A variable used or extracted during a test.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure-instance_method" title="#failure (instance method)">#<strong>failure</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Details about the failure of a Synthetic test.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_results-instance_method" title="#http_results (instance method)">#<strong>http_results</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>HTTP results produced by an MCP step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Identifier of the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_critical-instance_method" title="#is_critical (instance method)">#<strong>is_critical</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether this step is critical for the test outcome.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#javascript_custom_assertion_code-instance_method" title="#javascript_custom_assertion_code (instance method)">#<strong>javascript_custom_assertion_code</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether the step uses a custom JavaScript assertion.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#locate_element_duration-instance_method" title="#locate_element_duration (instance method)">#<strong>locate_element_duration</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Time taken to locate the element in milliseconds.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Name of the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request-instance_method" title="#request (instance method)">#<strong>request</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Details of the outgoing request made during the test execution.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#response-instance_method" title="#response (instance method)">#<strong>response</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Details of the response received during the test execution.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retries-instance_method" title="#retries (instance method)">#<strong>retries</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retry results for the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retry_count-instance_method" title="#retry_count (instance method)">#<strong>retry_count</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Number of times this step was retried.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rum_context-instance_method" title="#rum_context (instance method)">#<strong>rum_context</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>RUM application context associated with a step or sub-test.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#started_at-instance_method" title="#started_at (instance method)">#<strong>started_at</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Unix timestamp (ms) of when the step started.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status-instance_method" title="#status (instance method)">#<strong>status</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Status of the step (for example, <code>passed</code>, <code>failed</code>).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub_step-instance_method" title="#sub_step (instance method)">#<strong>sub_step</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Information about a sub-step in a nested test execution.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub_test-instance_method" title="#sub_test (instance method)">#<strong>sub_test</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Information about a sub-test played from a parent browser test.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subtype-instance_method" title="#subtype (instance method)">#<strong>subtype</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Subtype of the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tabs-instance_method" title="#tabs (instance method)">#<strong>tabs</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Browser tabs involved in the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timings-instance_method" title="#timings (instance method)">#<strong>timings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Timing breakdown of the step execution.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tunnel-instance_method" title="#tunnel (instance method)">#<strong>tunnel</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether the step was executed through a Synthetics tunnel.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Type of the step (for example, <code>click</code>, <code>assertElementContent</code>, <code>runApiTest</code>).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#url-instance_method" title="#url (instance method)">#<strong>url</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>URL associated with the step (for navigation steps).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" title="#value (instance method)">#<strong>value</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Step value.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#variables-instance_method" title="#variables (instance method)">#<strong>variables</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Variables captured during a test step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vitals_metrics-instance_method" title="#vitals_metrics (instance method)">#<strong>vitals_metrics</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Web vitals metrics captured during the step.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warnings-instance_method" title="#warnings (instance method)">#<strong>warnings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Warnings emitted during the step.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h2>Method Summary</h2>
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="BaseGenericModel.html" title="DatadogAPIClient::V2::BaseGenericModel (module)">BaseGenericModel</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseGenericModel.html#included-class_method" title="DatadogAPIClient::V2::BaseGenericModel.included (method)">included</a></span></p>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="additional_properties=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="additional_properties-instance_method">
+  
+    #<strong>additional_properties</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute additional_properties.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 153</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
+  <span class='ivar'>@additional_properties</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="allow_failure=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="allow_failure-instance_method">
+  
+    #<strong>allow_failure</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether the test continues when this step fails.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allow_failure'>allow_failure</span>
+  <span class='ivar'>@allow_failure</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="api_test=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="api_test-instance_method">
+  
+    #<strong>api_test</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Inner API test definition for browser <code>runApiTest</code> steps.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_api_test'>api_test</span>
+  <span class='ivar'>@api_test</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="assertion_result=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="assertion_result-instance_method">
+  
+    #<strong>assertion_result</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Assertion result for a browser or mobile step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_assertion_result'>assertion_result</span>
+  <span class='ivar'>@assertion_result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="assertions=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="assertions-instance_method">
+  
+    #<strong>assertions</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Assertion results produced by the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_assertions'>assertions</span>
+  <span class='ivar'>@assertions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="blocked_requests_urls=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="blocked_requests_urls-instance_method">
+  
+    #<strong>blocked_requests_urls</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>URLs of requests blocked during the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_blocked_requests_urls'>blocked_requests_urls</span>
+  <span class='ivar'>@blocked_requests_urls</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="bounds=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="bounds-instance_method">
+  
+    #<strong>bounds</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Bounding box of an element on the page.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bounds'>bounds</span>
+  <span class='ivar'>@bounds</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="browser_errors=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="browser_errors-instance_method">
+  
+    #<strong>browser_errors</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Browser errors captured during the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_browser_errors'>browser_errors</span>
+  <span class='ivar'>@browser_errors</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="bucket_keys=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="bucket_keys-instance_method">
+  
+    #<strong>bucket_keys</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Storage bucket keys for artifacts produced during a step or test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bucket_keys'>bucket_keys</span>
+  <span class='ivar'>@bucket_keys</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="cdn_resources=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cdn_resources-instance_method">
+  
+    #<strong>cdn_resources</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>CDN resources encountered during the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cdn_resources'>cdn_resources</span>
+  <span class='ivar'>@cdn_resources</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="click_type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="click_type-instance_method">
+  
+    #<strong>click_type</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Click type performed in a browser step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_click_type'>click_type</span>
+  <span class='ivar'>@click_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="compressed_json_descriptor=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="compressed_json_descriptor-instance_method">
+  
+    #<strong>compressed_json_descriptor</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Compressed JSON descriptor for the step (internal format).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compressed_json_descriptor'>compressed_json_descriptor</span>
+  <span class='ivar'>@compressed_json_descriptor</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="config=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="config-instance_method">
+  
+    #<strong>config</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Request configuration executed by this step (API test steps).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
+  <span class='ivar'>@config</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="description=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="description-instance_method">
+  
+    #<strong>description</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Human-readable description of the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='ivar'>@description</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="duration=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="duration-instance_method">
+  
+    #<strong>duration</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Duration of the step in milliseconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_duration'>duration</span>
+  <span class='ivar'>@duration</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="element_description=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="element_description-instance_method">
+  
+    #<strong>element_description</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Description of the element interacted with by the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element_description'>element_description</span>
+  <span class='ivar'>@element_description</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="element_updates=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="element_updates-instance_method">
+  
+    #<strong>element_updates</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Element locator updates produced during a step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element_updates'>element_updates</span>
+  <span class='ivar'>@element_updates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="extracted_value=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="extracted_value-instance_method">
+  
+    #<strong>extracted_value</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A variable used or extracted during a test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_extracted_value'>extracted_value</span>
+  <span class='ivar'>@extracted_value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="failure=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="failure-instance_method">
+  
+    #<strong>failure</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Details about the failure of a Synthetic test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failure'>failure</span>
+  <span class='ivar'>@failure</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="http_results=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="http_results-instance_method">
+  
+    #<strong>http_results</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>HTTP results produced by an MCP step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_http_results'>http_results</span>
+  <span class='ivar'>@http_results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="id-instance_method">
+  
+    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Identifier of the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
+  <span class='ivar'>@id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="is_critical=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="is_critical-instance_method">
+  
+    #<strong>is_critical</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether this step is critical for the test outcome.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_critical'>is_critical</span>
+  <span class='ivar'>@is_critical</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="javascript_custom_assertion_code=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="javascript_custom_assertion_code-instance_method">
+  
+    #<strong>javascript_custom_assertion_code</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether the step uses a custom JavaScript assertion.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_javascript_custom_assertion_code'>javascript_custom_assertion_code</span>
+  <span class='ivar'>@javascript_custom_assertion_code</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="locate_element_duration=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="locate_element_duration-instance_method">
+  
+    #<strong>locate_element_duration</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Time taken to locate the element in milliseconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_locate_element_duration'>locate_element_duration</span>
+  <span class='ivar'>@locate_element_duration</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    #<strong>name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Name of the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="request=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="request-instance_method">
+  
+    #<strong>request</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Details of the outgoing request made during the test execution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_request'>request</span>
+  <span class='ivar'>@request</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="response=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="response-instance_method">
+  
+    #<strong>response</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Details of the response received during the test execution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 100</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_response'>response</span>
+  <span class='ivar'>@response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="retries=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="retries-instance_method">
+  
+    #<strong>retries</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retry results for the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retries'>retries</span>
+  <span class='ivar'>@retries</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="retry_count=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="retry_count-instance_method">
+  
+    #<strong>retry_count</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Number of times this step was retried.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 106</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retry_count'>retry_count</span>
+  <span class='ivar'>@retry_count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rum_context=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rum_context-instance_method">
+  
+    #<strong>rum_context</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>RUM application context associated with a step or sub-test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rum_context'>rum_context</span>
+  <span class='ivar'>@rum_context</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="started_at=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="started_at-instance_method">
+  
+    #<strong>started_at</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Unix timestamp (ms) of when the step started.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_started_at'>started_at</span>
+  <span class='ivar'>@started_at</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="status=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="status-instance_method">
+  
+    #<strong>status</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Status of the step (for example, <code>passed</code>, <code>failed</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
+  <span class='ivar'>@status</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sub_step=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sub_step-instance_method">
+  
+    #<strong>sub_step</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Information about a sub-step in a nested test execution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sub_step'>sub_step</span>
+  <span class='ivar'>@sub_step</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sub_test=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sub_test-instance_method">
+  
+    #<strong>sub_test</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Information about a sub-test played from a parent browser test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sub_test'>sub_test</span>
+  <span class='ivar'>@sub_test</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="subtype=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="subtype-instance_method">
+  
+    #<strong>subtype</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Subtype of the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subtype'>subtype</span>
+  <span class='ivar'>@subtype</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="tabs=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="tabs-instance_method">
+  
+    #<strong>tabs</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Browser tabs involved in the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tabs'>tabs</span>
+  <span class='ivar'>@tabs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="timings=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="timings-instance_method">
+  
+    #<strong>timings</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Timing breakdown of the step execution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_timings'>timings</span>
+  <span class='ivar'>@timings</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="tunnel=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="tunnel-instance_method">
+  
+    #<strong>tunnel</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether the step was executed through a Synthetics tunnel.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tunnel'>tunnel</span>
+  <span class='ivar'>@tunnel</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="type-instance_method">
+  
+    #<strong>type</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Type of the step (for example, <code>click</code>, <code>assertElementContent</code>, <code>runApiTest</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='ivar'>@type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="url=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="url-instance_method">
+  
+    #<strong>url</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>URL associated with the step (for navigation steps).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
+  <span class='ivar'>@url</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="value=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="value-instance_method">
+  
+    #<strong>value</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Step value. Its type depends on the step type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 142</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
+  <span class='ivar'>@value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="variables=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="variables-instance_method">
+  
+    #<strong>variables</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Variables captured during a test step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 145</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_variables'>variables</span>
+  <span class='ivar'>@variables</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="vitals_metrics=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vitals_metrics-instance_method">
+  
+    #<strong>vitals_metrics</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Web vitals metrics captured during the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vitals_metrics'>vitals_metrics</span>
+  <span class='ivar'>@vitals_metrics</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="warnings=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="warnings-instance_method">
+  
+    #<strong>warnings</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Warnings emitted during the step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/synthetics_test_result_step.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_warnings'>warnings</span>
+  <span class='ivar'>@warnings</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+</div>
+
+      <div id="footer">
+  Generated on Fri May  8 06:35:15 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.43 (ruby-2.7.8).
+</div>
+
+    </div>
+  </body>
+</html>
