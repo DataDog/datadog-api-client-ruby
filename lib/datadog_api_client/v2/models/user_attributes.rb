@@ -21,46 +21,47 @@ module DatadogAPIClient::V2
   class UserAttributes
     include BaseGenericModel
 
-    # Creation time of the user.
+    # The ISO 8601 timestamp of when the user account was created.
     attr_accessor :created_at
 
-    # Whether the user is disabled.
+    # Whether the user account is deactivated. Disabled users cannot log in.
     attr_accessor :disabled
 
-    # Email of the user.
+    # The email address of the user, used for login and notifications.
     attr_accessor :email
 
-    # Handle of the user.
+    # The unique handle (username) of the user, typically matching their email prefix.
     attr_accessor :handle
 
-    # URL of the user's icon.
+    # URL of the user's profile icon, typically a Gravatar URL derived from the email address.
     attr_accessor :icon
 
-    # The last time the user logged in.
+    # The ISO 8601 timestamp of the user's most recent login, or null if the user has never logged in.
     attr_accessor :last_login_time
 
-    # If user has MFA enabled.
+    # Whether multi-factor authentication (MFA) is enabled for the user's account.
     attr_accessor :mfa_enabled
 
-    # Time that the user was last modified.
+    # The ISO 8601 timestamp of when the user account was last modified.
     attr_accessor :modified_at
 
-    # Name of the user.
+    # The full display name of the user as shown in the Datadog UI.
     attr_accessor :name
 
-    # Whether the user is a service account.
+    # Whether this is a service account rather than a human user.
+    # Service accounts are used for programmatic API access.
     attr_accessor :service_account
 
-    # Status of the user.
+    # The current status of the user account (for example, `Active`, `Pending`, or `Disabled`).
     attr_accessor :status
 
-    # Title of the user.
+    # The job title of the user (for example, "Senior Engineer" or "Product Manager").
     attr_accessor :title
 
-    # UUID of the user.
+    # The globally unique identifier (UUID) of the user.
     attr_accessor :uuid
 
-    # Whether the user is verified.
+    # Whether the user's email address has been verified.
     attr_accessor :verified
 
     attr_accessor :additional_properties
