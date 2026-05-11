@@ -4820,6 +4820,8 @@ module DatadogAPIClient
           "v2.routing_rule" => "RoutingRule",
           "v2.routing_rule_action" => "RoutingRuleAction",
           "v2.routing_rule_attributes" => "RoutingRuleAttributes",
+          "v2.routing_rule_escalation_policy_action" => "RoutingRuleEscalationPolicyAction",
+          "v2.routing_rule_escalation_policy_action_type" => "RoutingRuleEscalationPolicyActionType",
           "v2.routing_rule_relationships" => "RoutingRuleRelationships",
           "v2.routing_rule_relationships_policy" => "RoutingRuleRelationshipsPolicy",
           "v2.routing_rule_relationships_policy_data" => "RoutingRuleRelationshipsPolicyData",

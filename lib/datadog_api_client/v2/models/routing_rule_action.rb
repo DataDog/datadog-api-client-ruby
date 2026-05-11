@@ -28,7 +28,8 @@ module DatadogAPIClient::V2
         [
           :'SendSlackMessageAction',
           :'SendTeamsMessageAction',
-          :'TriggerWorkflowAutomationAction'
+          :'TriggerWorkflowAutomationAction',
+          :'RoutingRuleEscalationPolicyAction'
         ]
       end
       # Builds the object
