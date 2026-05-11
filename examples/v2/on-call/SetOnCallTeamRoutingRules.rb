@@ -41,9 +41,36 @@ body = DatadogAPIClient::V2::TeamRoutingRulesRequest.new({
           }),
         }),
         DatadogAPIClient::V2::TeamRoutingRulesRequestRule.new({
-          policy_id: ESCALATION_POLICY_DATA_ID,
+          actions: [
+            DatadogAPIClient::V2::RoutingRuleEscalationPolicyAction.new({
+              ack_timeout_minutes: 10,
+              policy_id: ESCALATION_POLICY_DATA_ID,
+              support_hours: DatadogAPIClient::V2::TimeRestrictions.new({
+                time_zone: "Europe/Paris",
+                restrictions: [
+                  DatadogAPIClient::V2::TimeRestriction.new({
+                    end_day: DatadogAPIClient::V2::Weekday::FRIDAY,
+                    end_time: "17:00:00",
+                    start_day: DatadogAPIClient::V2::Weekday::MONDAY,
+                    start_time: "09:00:00",
+                  }),
+                ],
+              }),
+              type: DatadogAPIClient::V2::RoutingRuleEscalationPolicyActionType::ESCALATION_POLICY,
+              urgency: DatadogAPIClient::V2::Urgency::LOW,
+            }),
+          ],
+          query: "tags.service:test",
+        }),
+        DatadogAPIClient::V2::TeamRoutingRulesRequestRule.new({
+          actions: [
+            DatadogAPIClient::V2::RoutingRuleEscalationPolicyAction.new({
+              policy_id: ESCALATION_POLICY_DATA_ID,
+              type: DatadogAPIClient::V2::RoutingRuleEscalationPolicyActionType::ESCALATION_POLICY,
+              urgency: DatadogAPIClient::V2::Urgency::LOW,
+            }),
+          ],
           query: "",
-          urgency: DatadogAPIClient::V2::Urgency::LOW,
         }),
       ],
     }),
