@@ -17,12 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Environment-specific settings for a feature flag.
-  class FeatureFlagEnvironment
+  # Environment-specific settings for a feature flag in list responses.
+  class FeatureFlagEnvironmentListItem
     include BaseGenericModel
-
-    # Allocation metadata for this environment.
-    attr_accessor :allocations
 
     # The allocation key used for the default variant.
     attr_accessor :default_allocation_key
@@ -63,7 +60,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'allocations' => :'allocations',
         :'default_allocation_key' => :'default_allocation_key',
         :'default_variant_id' => :'default_variant_id',
         :'environment_id' => :'environment_id',
@@ -82,7 +78,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'allocations' => :'Hash<String, Object>',
         :'default_allocation_key' => :'String',
         :'default_variant_id' => :'String',
         :'environment_id' => :'UUID',
@@ -101,7 +96,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'allocations',
         :'default_variant_id',
         :'override_variant_id',
         :'pending_suggestion_id',
@@ -113,7 +107,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FeatureFlagEnvironment` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FeatureFlagEnvironmentListItem` initialize method"
       end
 
       self.additional_properties = {}
@@ -125,10 +119,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'allocations')
-        self.allocations = attributes[:'allocations']
-      end
 
       if attributes.key?(:'default_allocation_key')
         self.default_allocation_key = attributes[:'default_allocation_key']
@@ -232,7 +222,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          allocations == o.allocations &&
           default_allocation_key == o.default_allocation_key &&
           default_variant_id == o.default_variant_id &&
           environment_id == o.environment_id &&
@@ -251,7 +240,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, additional_properties].hash
+      [default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, additional_properties].hash
     end
   end
 end

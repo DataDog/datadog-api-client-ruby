@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a feature flag.
-  class FeatureFlagAttributes
+  # Attributes of a feature flag in list responses.
+  class FeatureFlagListItemAttributes
     include BaseGenericModel
 
     # The timestamp when the feature flag was archived.
@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
     # Indicates whether this feature flag requires approval for changes.
     attr_accessor :require_approval
 
-    # Indicates the whether a feature flag is stale or not.
+    # Indicates the staleness status of the feature flag.
     attr_accessor :staleness_status
 
     # Tags associated with the feature flag.
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
         :'created_by' => :'UUID',
         :'description' => :'String',
         :'distribution_channel' => :'String',
-        :'feature_flag_environments' => :'Array<FeatureFlagEnvironment>',
+        :'feature_flag_environments' => :'Array<FeatureFlagEnvironmentListItem>',
         :'json_schema' => :'String',
         :'key' => :'String',
         :'last_updated_by' => :'UUID',
@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FeatureFlagAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FeatureFlagListItemAttributes` initialize method"
       end
 
       self.additional_properties = {}
