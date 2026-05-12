@@ -2185,6 +2185,9 @@ ScenariosModelMappings = {
             "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
     },
+    "v2.ListCostTagDescriptions" => {
+            "filter_cloud" => "String",
+    },
     "v2.CreateTagPipelinesRuleset" => {
             "body" => "CreateRulesetRequest",
     },
