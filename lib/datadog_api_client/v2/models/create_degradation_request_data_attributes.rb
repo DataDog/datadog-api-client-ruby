@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # The title of the degradation.
     attr_reader :title
 
+    #
+    attr_accessor :updates
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +45,8 @@ module DatadogAPIClient::V2
         :'components_affected' => :'components_affected',
         :'description' => :'description',
         :'status' => :'status',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'updates' => :'updates'
       }
     end
 
@@ -53,7 +57,8 @@ module DatadogAPIClient::V2
         :'components_affected' => :'Array<CreateDegradationRequestDataAttributesComponentsAffectedItems>',
         :'description' => :'String',
         :'status' => :'CreateDegradationRequestDataAttributesStatus',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'updates' => :'Array<CreateDegradationRequestDataAttributesUpdatesItems>'
       }
     end
 
@@ -91,6 +96,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'updates')
+        if (value = attributes[:'updates']).is_a?(Array)
+          self.updates = value
+        end
       end
     end
 
@@ -164,6 +175,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           status == o.status &&
           title == o.title &&
+          updates == o.updates &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components_affected, description, status, title, additional_properties].hash
+      [components_affected, description, status, title, updates, additional_properties].hash
     end
   end
 end
