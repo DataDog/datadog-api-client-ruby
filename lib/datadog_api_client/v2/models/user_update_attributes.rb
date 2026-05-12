@@ -21,14 +21,20 @@ module DatadogAPIClient::V2
   class UserUpdateAttributes
     include BaseGenericModel
 
-    # If the user is enabled or disabled.
+    # When set to `true`, the user is deactivated and can no longer log in.
+    # When `false`, the user is active.
     attr_accessor :disabled
 
-    # The email of the user.
+    # The email address of the user, used for login and notifications.
+    # Must be a valid email format.
     attr_accessor :email
 
-    # The name of the user.
+    # The full display name of the user as shown in the Datadog UI.
+    # Maximum 55 characters, cannot contain `<` or `>`.
     attr_accessor :name
+
+    # The job title of the user (for example, "Senior Engineer" or "Product Manager").
+    attr_accessor :title
 
     attr_accessor :additional_properties
 
@@ -38,7 +44,8 @@ module DatadogAPIClient::V2
       {
         :'disabled' => :'disabled',
         :'email' => :'email',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'title' => :'title'
       }
     end
 
@@ -48,8 +55,17 @@ module DatadogAPIClient::V2
       {
         :'disabled' => :'Boolean',
         :'email' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'title' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'title',
+      ])
     end
 
     # Initializes the object
@@ -80,6 +96,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
     end
 
@@ -112,6 +132,7 @@ module DatadogAPIClient::V2
           disabled == o.disabled &&
           email == o.email &&
           name == o.name &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disabled, email, name, additional_properties].hash
+      [disabled, email, name, title, additional_properties].hash
     end
   end
 end

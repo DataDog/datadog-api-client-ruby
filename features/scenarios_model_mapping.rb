@@ -1141,6 +1141,9 @@ ScenariosModelMappings = {
     "v2.AnonymizeUsers" => {
             "body" => "AnonymizeUsersRequest",
     },
+    "v2.UpdateCurrentUser" => {
+            "body" => "UserUpdateRequest",
+    },
     "v2.SendInvitations" => {
             "body" => "UserInvitationsRequest",
     },
