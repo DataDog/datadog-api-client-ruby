@@ -1580,6 +1580,68 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List Cloud Cost Management tag descriptions.
+    #
+    # @see #list_cost_tag_descriptions_with_http_info
+    def list_cost_tag_descriptions(opts = {})
+      data, _status_code, _headers = list_cost_tag_descriptions_with_http_info(opts)
+      data
+    end
+
+    # List Cloud Cost Management tag descriptions.
+    #
+    # List Cloud Cost Management tag key descriptions for the organization. Use `filter[cloud]` to scope the result to a single cloud provider; when omitted, both cross-cloud defaults and cloud-specific descriptions are returned.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_cloud Filter descriptions to a specific cloud provider (for example, `aws`). Omit to return descriptions across all clouds.
+    # @return [Array<(CostTagDescriptionsResponse, Integer, Hash)>] CostTagDescriptionsResponse data, response status code and response headers
+    def list_cost_tag_descriptions_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_descriptions ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_descriptions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[cloud]'] = opts[:'filter_cloud'] if !opts[:'filter_cloud'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagDescriptionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_descriptions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_descriptions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List custom allocation rules.
     #
     # @see #list_custom_allocation_rules_with_http_info
