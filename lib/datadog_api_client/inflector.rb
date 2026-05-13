@@ -3331,6 +3331,7 @@ module DatadogAPIClient
           "v2.issue_language" => "IssueLanguage",
           "v2.issue_platform" => "IssuePlatform",
           "v2.issue_reference" => "IssueReference",
+          "v2.issue_regression" => "IssueRegression",
           "v2.issue_relationships" => "IssueRelationships",
           "v2.issue_response" => "IssueResponse",
           "v2.issues_search_request" => "IssuesSearchRequest",
