@@ -879,12 +879,13 @@ module DatadogAPIClient::V2
 
     # List distinct metric volumes by metric name.
     #
-    # View distinct metrics volumes for the given metric name.
+    # View hourly average metric volumes for the given metric name over the look back period.
     #
     # Custom metrics generated in-app from other products will return `null` for ingested volumes.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now). Default value is 3,600 (1 hour), maximum value is 2,592,000 (1 month).
     # @return [Array<(MetricVolumesResponse, Integer, Hash)>] MetricVolumesResponse data, response status code and response headers
     def list_volumes_by_metric_name_with_http_info(metric_name, opts = {})
 
@@ -900,6 +901,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

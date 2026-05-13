@@ -3231,6 +3231,7 @@ ScenariosModelMappings = {
     },
     "v2.ListVolumesByMetricName" => {
             "metric_name" => "String",
+            "window_seconds" => "Integer",
     },
     "v2.QueryScalarData" => {
             "body" => "ScalarFormulaQueryRequest",
