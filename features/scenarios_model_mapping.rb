@@ -2354,6 +2354,54 @@ ScenariosModelMappings = {
     "v2.CancelDataDeletionRequest" => {
             "id" => "String",
     },
+    "v2.CreateAIWorkflow" => {
+            "body" => "CreateAIWorkflowRequest",
+    },
+    "v2.ListAIWorkflows" => {
+            "idp_campaign_id" => "String",
+            "repository" => "String",
+            "user" => "String",
+            "completed" => "Boolean",
+            "created_after" => "Time",
+            "created_before" => "Time",
+            "limit" => "Integer",
+            "offset" => "Integer",
+    },
+    "v2.DeleteAIWorkflow" => {
+            "id" => "UUID",
+    },
+    "v2.GetAIWorkflow" => {
+            "id" => "UUID",
+    },
+    "v2.UpdateAIWorkflow" => {
+            "id" => "UUID",
+            "body" => "UpdateAIWorkflowRequest",
+    },
+    "v2.CancelWorkflowExecutions" => {
+            "id" => "UUID",
+    },
+    "v2.DeleteWorkflowExecutions" => {
+            "id" => "UUID",
+    },
+    "v2.CreateWorkflowExecution" => {
+            "id" => "UUID",
+            "max_instances" => "Integer",
+    },
+    "v2.ListAIWorkflowInstances" => {
+            "id" => "UUID",
+    },
+    "v2.CancelWorkflowExecution" => {
+            "id" => "UUID",
+    },
+    "v2.ListPROutputs" => {
+            "id" => "UUID",
+    },
+    "v2.RerunWorkflowExecution" => {
+            "id" => "UUID",
+    },
+    "v2.ListExecutionSteps" => {
+            "id" => "UUID",
+    },
     "v2.ListDeploymentGates" => {
             "page_cursor" => "String",
             "page_size" => "Integer",
