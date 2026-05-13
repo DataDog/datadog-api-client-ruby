@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Platform associated with the issue.
     attr_accessor :platform
 
+    # Regression information for an issue that was previously resolved and then reopened.
+    attr_accessor :regression
+
     # Service name.
     attr_accessor :service
 
@@ -77,6 +80,7 @@ module DatadogAPIClient::V2
         :'last_seen' => :'last_seen',
         :'last_seen_version' => :'last_seen_version',
         :'platform' => :'platform',
+        :'regression' => :'regression',
         :'service' => :'service',
         :'state' => :'state'
       }
@@ -97,6 +101,7 @@ module DatadogAPIClient::V2
         :'last_seen' => :'Integer',
         :'last_seen_version' => :'String',
         :'platform' => :'IssuePlatform',
+        :'regression' => :'IssueRegression',
         :'service' => :'String',
         :'state' => :'IssueState'
       }
@@ -166,6 +171,10 @@ module DatadogAPIClient::V2
         self.platform = attributes[:'platform']
       end
 
+      if attributes.key?(:'regression')
+        self.regression = attributes[:'regression']
+      end
+
       if attributes.key?(:'service')
         self.service = attributes[:'service']
       end
@@ -212,6 +221,7 @@ module DatadogAPIClient::V2
           last_seen == o.last_seen &&
           last_seen_version == o.last_seen_version &&
           platform == o.platform &&
+          regression == o.regression &&
           service == o.service &&
           state == o.state &&
           additional_properties == o.additional_properties
@@ -221,7 +231,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error_message, error_type, file_path, first_seen, first_seen_version, function_name, is_crash, languages, last_seen, last_seen_version, platform, service, state, additional_properties].hash
+      [error_message, error_type, file_path, first_seen, first_seen_version, function_name, is_crash, languages, last_seen, last_seen_version, platform, regression, service, state, additional_properties].hash
     end
   end
 end
