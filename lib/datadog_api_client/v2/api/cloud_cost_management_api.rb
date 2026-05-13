@@ -890,6 +890,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get cost anomaly.
+    #
+    # @see #get_cost_anomaly_with_http_info
+    def get_cost_anomaly(anomaly_id, opts = {})
+      data, _status_code, _headers = get_cost_anomaly_with_http_info(anomaly_id, opts)
+      data
+    end
+
+    # Get cost anomaly.
+    #
+    # Get a detected Cloud Cost Management anomaly by UUID.
+    #
+    # @param anomaly_id [String] The UUID of the cost anomaly.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostAnomalyResponse, Integer, Hash)>] CostAnomalyResponse data, response status code and response headers
+    def get_cost_anomaly_with_http_info(anomaly_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_cost_anomaly".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_cost_anomaly")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_cost_anomaly"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_anomaly ...'
+      end
+      # verify the required parameter 'anomaly_id' is set
+      if @api_client.config.client_side_validation && anomaly_id.nil?
+        fail ArgumentError, "Missing the required parameter 'anomaly_id' when calling CloudCostManagementAPI.get_cost_anomaly"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/anomalies/{anomaly_id}'.sub('{anomaly_id}', CGI.escape(anomaly_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostAnomalyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_anomaly,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_anomaly\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cost AWS CUR config.
     #
     # @see #get_cost_awscur_config_with_http_info
@@ -1336,6 +1407,95 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_budgets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List cost anomalies.
+    #
+    # @see #list_cost_anomalies_with_http_info
+    def list_cost_anomalies(opts = {})
+      data, _status_code, _headers = list_cost_anomalies_with_http_info(opts)
+      data
+    end
+
+    # List cost anomalies.
+    #
+    # List detected Cloud Cost Management anomalies for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :start Start time as Unix milliseconds. Defaults to the start of the latest stable seven-day window.
+    # @option opts [Integer] :_end End time as Unix milliseconds. Defaults to the end of the latest stable seven-day window.
+    # @option opts [String] :filter Optional JSON object mapping cost tag keys to allowed values, for example `{"team":["payments"],"env":["prod"]}`. Filters match anomaly dimensions or correlated tags.
+    # @option opts [String] :min_anomalous_threshold Minimum absolute anomalous cost change to include. Numeric value; defaults to `1`.
+    # @option opts [String] :min_cost_threshold Minimum absolute actual cost to include. Numeric value; defaults to `0`.
+    # @option opts [String] :dismissal_cause Filter by resolution state. Use `none` for unresolved anomalies, `all` or `*` for resolved anomalies, or a comma-separated list of causes.
+    # @option opts [String] :order_by Sort field. One of `start_date`, `end_date`, `duration`, `max_cost`, `anomalous_cost`, or `dismissal_date`. Defaults to `anomalous_cost`.
+    # @option opts [String] :order Sort direction. One of `asc` or `desc`. Defaults to `desc`.
+    # @option opts [Integer] :limit Maximum number of anomalies to return. Defaults to `200`.
+    # @option opts [Integer] :offset Pagination offset. Defaults to `0`.
+    # @option opts [Array<String>] :provider_ids Optional repeated cloud or SaaS provider filters, such as `aws`, `gcp`, `azure`, `Oracle`, `datadog`, `OpenAI`, or `Anthropic`.
+    # @return [Array<(CostAnomaliesResponse, Integer, Hash)>] CostAnomaliesResponse data, response status code and response headers
+    def list_cost_anomalies_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_anomalies".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_anomalies")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_anomalies"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_anomalies ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/anomalies'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+      query_params[:'end'] = opts[:'_end'] if !opts[:'_end'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'min_anomalous_threshold'] = opts[:'min_anomalous_threshold'] if !opts[:'min_anomalous_threshold'].nil?
+      query_params[:'min_cost_threshold'] = opts[:'min_cost_threshold'] if !opts[:'min_cost_threshold'].nil?
+      query_params[:'dismissal_cause'] = opts[:'dismissal_cause'] if !opts[:'dismissal_cause'].nil?
+      query_params[:'order_by'] = opts[:'order_by'] if !opts[:'order_by'].nil?
+      query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'provider_ids'] = @api_client.build_collection_param(opts[:'provider_ids'], :multi) if !opts[:'provider_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostAnomaliesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_anomalies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_anomalies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

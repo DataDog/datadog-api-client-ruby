@@ -2101,6 +2101,22 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.ListCostAnomalies" => {
+            "start" => "Integer",
+            "_end" => "Integer",
+            "filter" => "String",
+            "min_anomalous_threshold" => "String",
+            "min_cost_threshold" => "String",
+            "dismissal_cause" => "String",
+            "order_by" => "String",
+            "order" => "String",
+            "limit" => "Integer",
+            "offset" => "Integer",
+            "provider_ids" => "Array<String>",
+    },
+    "v2.GetCostAnomaly" => {
+            "anomaly_id" => "String",
+    },
     "v2.CreateCustomAllocationRule" => {
             "body" => "ArbitraryCostUpsertRequest",
     },
