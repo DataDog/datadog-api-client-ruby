@@ -17,7 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # APM resource stats query using formulas and functions.
+  # APM resource stats query using formulas and functions. Deprecated - Use `apm_metrics` query type instead.
+  #
+  # @deprecated This model is deprecated.
   class FormulaAndFunctionApmResourceStatsQueryDefinition
     include BaseGenericModel
 
@@ -96,6 +98,7 @@ module DatadogAPIClient::V1
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `FormulaAndFunctionApmResourceStatsQueryDefinition` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionApmResourceStatsQueryDefinition` initialize method"
       end
