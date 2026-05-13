@@ -1156,6 +1156,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a Cloud Cost Management tag key.
+    #
+    # @see #get_cost_tag_key_with_http_info
+    def get_cost_tag_key(tag_key, opts = {})
+      data, _status_code, _headers = get_cost_tag_key_with_http_info(tag_key, opts)
+      data
+    end
+
+    # Get a Cloud Cost Management tag key.
+    #
+    # Get details for a specific Cloud Cost Management tag key, including example tag values and description.
+    #
+    # @param tag_key [String] The Cloud Cost Management tag key. Tag keys can contain forward slashes (for example, `kubernetes/instance`).
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_metric The Cloud Cost Management metric to scope the tag key details to. When omitted, returns details across all metrics.
+    # @option opts [Integer] :page_size Controls the size of the internal tag value search scope. This does **not** restrict the number of example tag values returned in the response. Defaults to 50, maximum 10000.
+    # @return [Array<(CostTagKeyResponse, Integer, Hash)>] CostTagKeyResponse data, response status code and response headers
+    def get_cost_tag_key_with_http_info(tag_key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_tag_key ...'
+      end
+      # verify the required parameter 'tag_key' is set
+      if @api_client.config.client_side_validation && tag_key.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_key' when calling CloudCostManagementAPI.get_cost_tag_key"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling CloudCostManagementAPI.get_cost_tag_key, must be smaller than or equal to 10000.'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_keys/{tag_key}'.sub('{tag_key}', CGI.escape(tag_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[metric]'] = opts[:'filter_metric'] if !opts[:'filter_metric'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_tag_key,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_tag_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get custom allocation rule.
     #
     # @see #get_custom_allocation_rule_with_http_info
@@ -1798,6 +1870,145 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_descriptions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Cloud Cost Management tag keys.
+    #
+    # @see #list_cost_tag_keys_with_http_info
+    def list_cost_tag_keys(opts = {})
+      data, _status_code, _headers = list_cost_tag_keys_with_http_info(opts)
+      data
+    end
+
+    # List Cloud Cost Management tag keys.
+    #
+    # List Cloud Cost Management tag keys.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_metric The Cloud Cost Management metric to scope the tag keys to. When omitted, returns tag keys across all metrics.
+    # @option opts [Array<String>] :filter_tags Filter to return only tag keys that appear with the given `key:value` tag values. For example, `filter[tags]=providername:aws` returns tag keys found on the same cost data, such as `is_aws_ec2_compute` and `aws_instance_type`.
+    # @return [Array<(CostTagKeysResponse, Integer, Hash)>] CostTagKeysResponse data, response status code and response headers
+    def list_cost_tag_keys_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_keys ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[metric]'] = opts[:'filter_metric'] if !opts[:'filter_metric'].nil?
+      query_params[:'filter[tags]'] = @api_client.build_collection_param(opts[:'filter_tags'], :multi) if !opts[:'filter_tags'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagKeysResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_keys,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Cloud Cost Management tags.
+    #
+    # @see #list_cost_tags_with_http_info
+    def list_cost_tags(opts = {})
+      data, _status_code, _headers = list_cost_tags_with_http_info(opts)
+      data
+    end
+
+    # List Cloud Cost Management tags.
+    #
+    # List Cloud Cost Management tags for a given metric.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_metric The Cloud Cost Management metric to scope the tags to. When omitted, returns tags across all metrics.
+    # @option opts [String] :filter_match A substring used to filter the returned tags by name.
+    # @option opts [Array<String>] :filter_tags Filter to return only tags that appear with the given `key:value` tag values. For example, `filter[tags]=providername:aws` returns tags found on the same cost data, such as `aws_instance_type:t3.micro` and `aws_instance_type:m5.large`.
+    # @option opts [Array<String>] :filter_tag_keys Restrict the returned tags to those whose key matches one of the given tag keys.
+    # @option opts [Integer] :page_size Controls the size of the internal tag search scope. This does **not** restrict the number of tags returned in the response. Defaults to 50, maximum 10000.
+    # @return [Array<(CostTagsResponse, Integer, Hash)>] CostTagsResponse data, response status code and response headers
+    def list_cost_tags_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tags ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling CloudCostManagementAPI.list_cost_tags, must be smaller than or equal to 10000.'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tags'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[metric]'] = opts[:'filter_metric'] if !opts[:'filter_metric'].nil?
+      query_params[:'filter[match]'] = opts[:'filter_match'] if !opts[:'filter_match'].nil?
+      query_params[:'filter[tags]'] = @api_client.build_collection_param(opts[:'filter_tags'], :multi) if !opts[:'filter_tags'].nil?
+      query_params[:'filter[tag_keys]'] = @api_client.build_collection_param(opts[:'filter_tag_keys'], :multi) if !opts[:'filter_tag_keys'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tags,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

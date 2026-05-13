@@ -2204,6 +2204,22 @@ ScenariosModelMappings = {
     "v2.ListCostTagDescriptions" => {
             "filter_cloud" => "String",
     },
+    "v2.ListCostTagKeys" => {
+            "filter_metric" => "String",
+            "filter_tags" => "Array<String>",
+    },
+    "v2.GetCostTagKey" => {
+            "tag_key" => "String",
+            "filter_metric" => "String",
+            "page_size" => "Integer",
+    },
+    "v2.ListCostTags" => {
+            "filter_metric" => "String",
+            "filter_match" => "String",
+            "filter_tags" => "Array<String>",
+            "filter_tag_keys" => "Array<String>",
+            "page_size" => "Integer",
+    },
     "v2.CreateTagPipelinesRuleset" => {
             "body" => "CreateRulesetRequest",
     },
