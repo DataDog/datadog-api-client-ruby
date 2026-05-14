@@ -2087,6 +2087,15 @@ ScenariosModelMappings = {
     "v2.GetCodeCoverageCommitSummary" => {
             "body" => "CommitCoverageSummaryRequest",
     },
+    "v2.GetRuleBasedView" => {
+            "to" => "Integer",
+            "framework" => "String",
+            "version" => "String",
+            "query_findings_without_framework_version" => "Boolean",
+            "include_rules_without_findings" => "Boolean",
+            "is_custom" => "Boolean",
+            "query" => "String",
+    },
     "v2.ListContainerImages" => {
             "filter_tags" => "String",
             "group_by" => "String",
