@@ -376,6 +376,7 @@ module DatadogAPIClient
           "v1.monitor_formula_and_function_cost_aggregator" => "MonitorFormulaAndFunctionCostAggregator",
           "v1.monitor_formula_and_function_cost_data_source" => "MonitorFormulaAndFunctionCostDataSource",
           "v1.monitor_formula_and_function_cost_query_definition" => "MonitorFormulaAndFunctionCostQueryDefinition",
+          "v1.monitor_formula_and_function_data_jobs_query_definition" => "MonitorFormulaAndFunctionDataJobsQueryDefinition",
           "v1.monitor_formula_and_function_data_quality_data_source" => "MonitorFormulaAndFunctionDataQualityDataSource",
           "v1.monitor_formula_and_function_data_quality_model_type_override" => "MonitorFormulaAndFunctionDataQualityModelTypeOverride",
           "v1.monitor_formula_and_function_data_quality_monitor_options" => "MonitorFormulaAndFunctionDataQualityMonitorOptions",

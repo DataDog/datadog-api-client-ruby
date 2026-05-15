@@ -29,6 +29,7 @@ module DatadogAPIClient::V1
           :'MonitorFormulaAndFunctionEventQueryDefinition',
           :'MonitorFormulaAndFunctionCostQueryDefinition',
           :'MonitorFormulaAndFunctionDataQualityQueryDefinition',
+          :'MonitorFormulaAndFunctionDataJobsQueryDefinition',
           :'MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition',
           :'MonitorFormulaAndFunctionAggregateFilteredQueryDefinition'
         ]
