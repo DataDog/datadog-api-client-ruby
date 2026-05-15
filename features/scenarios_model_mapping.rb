@@ -2315,6 +2315,29 @@ ScenariosModelMappings = {
             "filter_metric" => "String",
             "page_size" => "Integer",
     },
+    "v2.ListCostTagMetadata" => {
+            "filter_month" => "String",
+            "filter_provider" => "String",
+            "filter_metric" => "String",
+            "filter_tag_key" => "String",
+            "filter_daily" => "CostTagMetadataDailyFilter",
+    },
+    "v2.GetCostTagMetadataCurrency" => {
+            "filter_month" => "String",
+            "filter_provider" => "String",
+    },
+    "v2.ListCostTagMetadataMetrics" => {
+            "filter_month" => "String",
+            "filter_provider" => "String",
+    },
+    "v2.ListCostTagMetadataOrchestrators" => {
+            "filter_month" => "String",
+            "filter_provider" => "String",
+    },
+    "v2.ListCostTagKeySources" => {
+            "filter_month" => "String",
+            "filter_provider" => "String",
+    },
     "v2.ListCostTags" => {
             "filter_metric" => "String",
             "filter_match" => "String",
