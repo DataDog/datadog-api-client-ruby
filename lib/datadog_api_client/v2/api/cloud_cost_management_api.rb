@@ -2022,6 +2022,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get the Cloud Cost Management billing currency.
+    #
+    # @see #get_cost_tag_metadata_currency_with_http_info
+    def get_cost_tag_metadata_currency(filter_month, opts = {})
+      data, _status_code, _headers = get_cost_tag_metadata_currency_with_http_info(filter_month, opts)
+      data
+    end
+
+    # Get the Cloud Cost Management billing currency.
+    #
+    # Get the dominant billing currency observed in Cloud Cost Management data for the requested period. The response wraps the currency in a JSON:API `data` array containing at most one entry; the array is empty when no currency data is available.
+    #
+    # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @return [Array<(CostCurrencyResponse, Integer, Hash)>] CostCurrencyResponse data, response status code and response headers
+    def get_cost_tag_metadata_currency_with_http_info(filter_month, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_cost_tag_metadata_currency".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_cost_tag_metadata_currency")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_cost_tag_metadata_currency"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_tag_metadata_currency ...'
+      end
+      # verify the required parameter 'filter_month' is set
+      if @api_client.config.client_side_validation && filter_month.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_month' when calling CloudCostManagementAPI.get_cost_tag_metadata_currency"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_metadata/currency'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[month]'] = filter_month
+      query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostCurrencyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_tag_metadata_currency,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_tag_metadata_currency\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get custom allocation rule.
     #
     # @see #get_custom_allocation_rule_with_http_info
@@ -2729,6 +2803,312 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Cloud Cost Management tag sources.
+    #
+    # @see #list_cost_tag_key_sources_with_http_info
+    def list_cost_tag_key_sources(filter_month, opts = {})
+      data, _status_code, _headers = list_cost_tag_key_sources_with_http_info(filter_month, opts)
+      data
+    end
+
+    # List Cloud Cost Management tag sources.
+    #
+    # List Cloud Cost Management tag keys observed for the requested period, along with the origin sources that produced them (for example, `aws-user-defined`, `custom`).
+    #
+    # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @return [Array<(CostTagKeySourcesResponse, Integer, Hash)>] CostTagKeySourcesResponse data, response status code and response headers
+    def list_cost_tag_key_sources_with_http_info(filter_month, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_key_sources".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_tag_key_sources")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_tag_key_sources"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_key_sources ...'
+      end
+      # verify the required parameter 'filter_month' is set
+      if @api_client.config.client_side_validation && filter_month.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_month' when calling CloudCostManagementAPI.list_cost_tag_key_sources"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_metadata/tag_sources'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[month]'] = filter_month
+      query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagKeySourcesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_key_sources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_key_sources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Cloud Cost Management tag key metadata.
+    #
+    # @see #list_cost_tag_metadata_with_http_info
+    def list_cost_tag_metadata(filter_month, opts = {})
+      data, _status_code, _headers = list_cost_tag_metadata_with_http_info(filter_month, opts)
+      data
+    end
+
+    # List Cloud Cost Management tag key metadata.
+    #
+    # List Cloud Cost Management tag key metadata, including row counts, cost covered, cardinality, and a sample of top tag values per cloud account. Use `filter[daily]=true` to return daily rows instead of the default monthly roll-up.
+    #
+    # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @option opts [String] :filter_metric Filter results to a specific Cloud Cost Management metric (for example, `aws.cost.net.amortized`). When omitted, every available metric for the requested period is returned.
+    # @option opts [String] :filter_tag_key Restrict results to a single tag key.
+    # @option opts [CostTagMetadataDailyFilter] :filter_daily When `true`, return one row per day with the day in the `date` attribute. Defaults to the monthly roll-up when omitted.
+    # @return [Array<(CostTagKeyMetadataResponse, Integer, Hash)>] CostTagKeyMetadataResponse data, response status code and response headers
+    def list_cost_tag_metadata_with_http_info(filter_month, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_metadata".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_tag_metadata")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_tag_metadata"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_metadata ...'
+      end
+      # verify the required parameter 'filter_month' is set
+      if @api_client.config.client_side_validation && filter_month.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_month' when calling CloudCostManagementAPI.list_cost_tag_metadata"
+      end
+      allowable_values = ['true', 'false']
+      if @api_client.config.client_side_validation && opts[:'filter_daily'] && !allowable_values.include?(opts[:'filter_daily'])
+        fail ArgumentError, "invalid value for \"filter_daily\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_metadata'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[month]'] = filter_month
+      query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+      query_params[:'filter[metric]'] = opts[:'filter_metric'] if !opts[:'filter_metric'].nil?
+      query_params[:'filter[tag_key]'] = opts[:'filter_tag_key'] if !opts[:'filter_tag_key'].nil?
+      query_params[:'filter[daily]'] = opts[:'filter_daily'] if !opts[:'filter_daily'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagKeyMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_metadata,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List available Cloud Cost Management metrics.
+    #
+    # @see #list_cost_tag_metadata_metrics_with_http_info
+    def list_cost_tag_metadata_metrics(filter_month, opts = {})
+      data, _status_code, _headers = list_cost_tag_metadata_metrics_with_http_info(filter_month, opts)
+      data
+    end
+
+    # List available Cloud Cost Management metrics.
+    #
+    # List Cloud Cost Management metrics that have data for the requested period.
+    #
+    # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @return [Array<(CostMetricsResponse, Integer, Hash)>] CostMetricsResponse data, response status code and response headers
+    def list_cost_tag_metadata_metrics_with_http_info(filter_month, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_metadata_metrics".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_tag_metadata_metrics")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_tag_metadata_metrics"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_metadata_metrics ...'
+      end
+      # verify the required parameter 'filter_month' is set
+      if @api_client.config.client_side_validation && filter_month.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_month' when calling CloudCostManagementAPI.list_cost_tag_metadata_metrics"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_metadata/metrics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[month]'] = filter_month
+      query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostMetricsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_metadata_metrics,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_metadata_metrics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Cloud Cost Management orchestrators.
+    #
+    # @see #list_cost_tag_metadata_orchestrators_with_http_info
+    def list_cost_tag_metadata_orchestrators(filter_month, opts = {})
+      data, _status_code, _headers = list_cost_tag_metadata_orchestrators_with_http_info(filter_month, opts)
+      data
+    end
+
+    # List Cloud Cost Management orchestrators.
+    #
+    # List container orchestrators (for example, `kubernetes`, `ecs`) detected in Cloud Cost Management data for the requested period.
+    #
+    # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @return [Array<(CostOrchestratorsResponse, Integer, Hash)>] CostOrchestratorsResponse data, response status code and response headers
+    def list_cost_tag_metadata_orchestrators_with_http_info(filter_month, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_metadata_orchestrators".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_tag_metadata_orchestrators")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_tag_metadata_orchestrators"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_metadata_orchestrators ...'
+      end
+      # verify the required parameter 'filter_month' is set
+      if @api_client.config.client_side_validation && filter_month.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_month' when calling CloudCostManagementAPI.list_cost_tag_metadata_orchestrators"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_metadata/orchestrators'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[month]'] = filter_month
+      query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostOrchestratorsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_tag_metadata_orchestrators,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_tag_metadata_orchestrators\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
