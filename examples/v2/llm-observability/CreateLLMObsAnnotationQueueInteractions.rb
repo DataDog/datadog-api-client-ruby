@@ -10,9 +10,9 @@ body = DatadogAPIClient::V2::LLMObsAnnotationQueueInteractionsRequest.new({
   data: DatadogAPIClient::V2::LLMObsAnnotationQueueInteractionsDataRequest.new({
     attributes: DatadogAPIClient::V2::LLMObsAnnotationQueueInteractionsDataAttributesRequest.new({
       interactions: [
-        DatadogAPIClient::V2::LLMObsAnnotationQueueInteractionItem.new({
+        DatadogAPIClient::V2::LLMObsTraceInteractionItem.new({
           content_id: "trace-abc-123",
-          type: DatadogAPIClient::V2::LLMObsInteractionType::TRACE,
+          type: DatadogAPIClient::V2::LLMObsTraceInteractionType::TRACE,
         }),
       ],
     }),
