@@ -890,6 +890,800 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get commitments list.
+    #
+    # @see #get_commitments_commitment_list_with_http_info
+    def get_commitments_commitment_list(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_commitment_list_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments list.
+    #
+    # Get a list of individual cloud commitments (Reserved Instances or Savings Plans) with their utilization details. The response schema varies based on the provider, product, and commitment type.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @option opts [CommitmentsCommitmentType] :commitment_type Type of commitment to query. ri for Reserved Instances, sp for Savings Plans. Defaults to ri.
+    # @return [Array<(CommitmentsListResponse, Integer, Hash)>] CommitmentsListResponse data, response status code and response headers
+    def get_commitments_commitment_list_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_commitment_list".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_commitment_list")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_commitment_list"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_commitment_list ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_commitment_list"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_commitment_list"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_commitment_list"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_commitment_list"
+      end
+      allowable_values = ['ri', 'sp']
+      if @api_client.config.client_side_validation && opts[:'commitment_type'] && !allowable_values.include?(opts[:'commitment_type'])
+        fail ArgumentError, "invalid value for \"commitment_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/commitment-list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+      query_params[:'commitmentType'] = opts[:'commitment_type'] if !opts[:'commitment_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_commitment_list,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_commitment_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments coverage (scalar).
+    #
+    # @see #get_commitments_coverage_scalar_with_http_info
+    def get_commitments_coverage_scalar(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_coverage_scalar_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments coverage (scalar).
+    #
+    # Get scalar coverage metrics for cloud commitment programs, including hours and cost coverage percentages.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @return [Array<(CommitmentsCoverageScalarResponse, Integer, Hash)>] CommitmentsCoverageScalarResponse data, response status code and response headers
+    def get_commitments_coverage_scalar_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_coverage_scalar".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_coverage_scalar")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_coverage_scalar"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_coverage_scalar ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_coverage_scalar"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_coverage_scalar"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_coverage_scalar"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_coverage_scalar"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/coverage/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsCoverageScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_coverage_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_coverage_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments coverage (timeseries).
+    #
+    # @see #get_commitments_coverage_timeseries_with_http_info
+    def get_commitments_coverage_timeseries(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_coverage_timeseries_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments coverage (timeseries).
+    #
+    # Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type (Reserved Instances, Savings Plans, On-Demand, and Spot) for both hours and cost.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @return [Array<(CommitmentsCoverageTimeseriesResponse, Integer, Hash)>] CommitmentsCoverageTimeseriesResponse data, response status code and response headers
+    def get_commitments_coverage_timeseries_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_coverage_timeseries".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_coverage_timeseries")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_coverage_timeseries"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_coverage_timeseries ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_coverage_timeseries"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_coverage_timeseries"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_coverage_timeseries"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_coverage_timeseries"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/coverage/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsCoverageTimeseriesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_coverage_timeseries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_coverage_timeseries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments on-demand hot spots (scalar).
+    #
+    # @see #get_commitments_on_demand_hotspots_scalar_with_http_info
+    def get_commitments_on_demand_hotspots_scalar(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_on_demand_hotspots_scalar_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments on-demand hot spots (scalar).
+    #
+    # Get scalar on-demand hot-spots data for cloud commitment programs, showing per-dimension breakdowns of on-demand spending with coverage metrics and potential savings.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @return [Array<(CommitmentsOnDemandHotspotsScalarResponse, Integer, Hash)>] CommitmentsOnDemandHotspotsScalarResponse data, response status code and response headers
+    def get_commitments_on_demand_hotspots_scalar_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_on_demand_hotspots_scalar".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_on_demand_hotspots_scalar")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_on_demand_hotspots_scalar"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_on_demand_hotspots_scalar ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_on_demand_hotspots_scalar"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_on_demand_hotspots_scalar"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_on_demand_hotspots_scalar"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_on_demand_hotspots_scalar"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/on-demand-hot-spots/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsOnDemandHotspotsScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_on_demand_hotspots_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_on_demand_hotspots_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments savings (scalar).
+    #
+    # @see #get_commitments_savings_scalar_with_http_info
+    def get_commitments_savings_scalar(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_savings_scalar_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments savings (scalar).
+    #
+    # Get scalar savings metrics for cloud commitment programs, including realized savings and effective savings rate.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @return [Array<(CommitmentsSavingsScalarResponse, Integer, Hash)>] CommitmentsSavingsScalarResponse data, response status code and response headers
+    def get_commitments_savings_scalar_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_savings_scalar".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_savings_scalar")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_savings_scalar"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_savings_scalar ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_savings_scalar"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_savings_scalar"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_savings_scalar"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_savings_scalar"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/savings/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsSavingsScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_savings_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_savings_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments savings (timeseries).
+    #
+    # @see #get_commitments_savings_timeseries_with_http_info
+    def get_commitments_savings_timeseries(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_savings_timeseries_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments savings (timeseries).
+    #
+    # Get timeseries savings metrics for cloud commitment programs, including actual cost, on-demand equivalent cost, realized savings, and effective savings rate over time.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @return [Array<(CommitmentsSavingsTimeseriesResponse, Integer, Hash)>] CommitmentsSavingsTimeseriesResponse data, response status code and response headers
+    def get_commitments_savings_timeseries_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_savings_timeseries".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_savings_timeseries")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_savings_timeseries"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_savings_timeseries ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_savings_timeseries"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_savings_timeseries"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_savings_timeseries"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_savings_timeseries"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/savings/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsSavingsTimeseriesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_savings_timeseries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_savings_timeseries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments utilization (scalar).
+    #
+    # @see #get_commitments_utilization_scalar_with_http_info
+    def get_commitments_utilization_scalar(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_utilization_scalar_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments utilization (scalar).
+    #
+    # Get scalar utilization metrics for cloud commitment programs, including utilization percentage and unused cost.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @option opts [CommitmentsCommitmentType] :commitment_type Type of commitment to query. ri for Reserved Instances, sp for Savings Plans. Defaults to ri.
+    # @return [Array<(CommitmentsUtilizationScalarResponse, Integer, Hash)>] CommitmentsUtilizationScalarResponse data, response status code and response headers
+    def get_commitments_utilization_scalar_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_utilization_scalar".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_utilization_scalar")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_utilization_scalar"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_utilization_scalar ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_utilization_scalar"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_utilization_scalar"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_utilization_scalar"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_utilization_scalar"
+      end
+      allowable_values = ['ri', 'sp']
+      if @api_client.config.client_side_validation && opts[:'commitment_type'] && !allowable_values.include?(opts[:'commitment_type'])
+        fail ArgumentError, "invalid value for \"commitment_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/utilization/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+      query_params[:'commitmentType'] = opts[:'commitment_type'] if !opts[:'commitment_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsUtilizationScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_utilization_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_utilization_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get commitments utilization (timeseries).
+    #
+    # @see #get_commitments_utilization_timeseries_with_http_info
+    def get_commitments_utilization_timeseries(provider, product, start, _end, opts = {})
+      data, _status_code, _headers = get_commitments_utilization_timeseries_with_http_info(provider, product, start, _end, opts)
+      data
+    end
+
+    # Get commitments utilization (timeseries).
+    #
+    # Get timeseries utilization metrics for cloud commitment programs, including used and unused cost series over time.
+    #
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
+    # @param start [Integer] Start of the query time range in Unix milliseconds.
+    # @param _end [Integer] End of the query time range in Unix milliseconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_by Optional filter expression to narrow down results.
+    # @option opts [CommitmentsCommitmentType] :commitment_type Type of commitment to query. ri for Reserved Instances, sp for Savings Plans. Defaults to ri.
+    # @return [Array<(CommitmentsUtilizationTimeseriesResponse, Integer, Hash)>] CommitmentsUtilizationTimeseriesResponse data, response status code and response headers
+    def get_commitments_utilization_timeseries_with_http_info(provider, product, start, _end, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_commitments_utilization_timeseries".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_commitments_utilization_timeseries")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_commitments_utilization_timeseries"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_commitments_utilization_timeseries ...'
+      end
+      # verify the required parameter 'provider' is set
+      if @api_client.config.client_side_validation && provider.nil?
+        fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_utilization_timeseries"
+      end
+      # verify enum value
+      allowable_values = ['aws', 'azure']
+      if @api_client.config.client_side_validation && !allowable_values.include?(provider)
+        fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'product' is set
+      if @api_client.config.client_side_validation && product.nil?
+        fail ArgumentError, "Missing the required parameter 'product' when calling CloudCostManagementAPI.get_commitments_utilization_timeseries"
+      end
+      # verify the required parameter 'start' is set
+      if @api_client.config.client_side_validation && start.nil?
+        fail ArgumentError, "Missing the required parameter 'start' when calling CloudCostManagementAPI.get_commitments_utilization_timeseries"
+      end
+      # verify the required parameter '_end' is set
+      if @api_client.config.client_side_validation && _end.nil?
+        fail ArgumentError, "Missing the required parameter '_end' when calling CloudCostManagementAPI.get_commitments_utilization_timeseries"
+      end
+      allowable_values = ['ri', 'sp']
+      if @api_client.config.client_side_validation && opts[:'commitment_type'] && !allowable_values.include?(opts[:'commitment_type'])
+        fail ArgumentError, "invalid value for \"commitment_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/commitments/utilization/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'provider'] = provider
+      query_params[:'product'] = product
+      query_params[:'start'] = start
+      query_params[:'end'] = _end
+      query_params[:'filterBy'] = opts[:'filter_by'] if !opts[:'filter_by'].nil?
+      query_params[:'commitmentType'] = opts[:'commitment_type'] if !opts[:'commitment_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommitmentsUtilizationTimeseriesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_commitments_utilization_timeseries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_commitments_utilization_timeseries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cost anomaly.
     #
     # @see #get_cost_anomaly_with_http_info
