@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 2.54.0/2026-05-15
+
+### Added
+* Add Compliance Findings rule-based view endpoint to OpenAPI v2 [#3329](https://github.com/DataDog/datadog-api-client-ruby/pull/3329)
+* Add window[seconds] query parameter for look back [#3327](https://github.com/DataDog/datadog-api-client-ruby/pull/3327)
+* Add OpenAPI spec for cost-planning-api commitment program endpoints [#3324](https://github.com/DataDog/datadog-api-client-ruby/pull/3324)
+* Add regression fields to Error Tracking API responses [#3323](https://github.com/DataDog/datadog-api-client-ruby/pull/3323)
+* Add OpenAPI for Cloud Cost Management anomalies endpoints [#3320](https://github.com/DataDog/datadog-api-client-ruby/pull/3320)
+* Allow errors data source in formula event queries for dashboards [#3314](https://github.com/DataDog/datadog-api-client-ruby/pull/3314)
+* Document Cloud Cost Management v2 tags and tag_keys endpoints [#3313](https://github.com/DataDog/datadog-api-client-ruby/pull/3313)
+* Add OpenAPI definition for CCM ListCostTagDescriptions [#3310](https://github.com/DataDog/datadog-api-client-ruby/pull/3310)
+* Add OpenAPI spec for current user endpoints [#3306](https://github.com/DataDog/datadog-api-client-ruby/pull/3306)
+* Add state filter for Search Error Tracking Issues API [#3300](https://github.com/DataDog/datadog-api-client-ruby/pull/3300)
+* Add OpenAPI spec for email transport webhook intake [#3299](https://github.com/DataDog/datadog-api-client-ruby/pull/3299)
+* Add integration_type for Microsoft Teams to IncidentIntegrationMetadataAttributes [#3298](https://github.com/DataDog/datadog-api-client-ruby/pull/3298)
+* Add cross_org_uuids to v2 query endpoints [#3296](https://github.com/DataDog/datadog-api-client-ruby/pull/3296)
+* Add GKE Autopilot usage types to API documentation [#3291](https://github.com/DataDog/datadog-api-client-ruby/pull/3291)
+* Add session interaction type to LLM Observability API spec [#3290](https://github.com/DataDog/datadog-api-client-ruby/pull/3290)
+* Add OpenAPI spec for authn-validation /api/v2/validate endpoint [#3289](https://github.com/DataDog/datadog-api-client-ruby/pull/3289)
+* Add OpenAPI definitions for CCM status endpoints [#3288](https://github.com/DataDog/datadog-api-client-ruby/pull/3288)
+* Add style and sort to TreeMapWidgetRequest and sort to SunburstWidgetRequest for Dashboards [#3278](https://github.com/DataDog/datadog-api-client-ruby/pull/3278)
+* Add `compression_method` field to Log Archives [#3277](https://github.com/DataDog/datadog-api-client-ruby/pull/3277)
+* Cloud inventory api sync config endpoint documentation [#3276](https://github.com/DataDog/datadog-api-client-ruby/pull/3276)
+* Add Point Plot widget to dashboard API spec [#3274](https://github.com/DataDog/datadog-api-client-ruby/pull/3274)
+* Add backfilled degradation and maintenance endpoints to Status Pages [#3273](https://github.com/DataDog/datadog-api-client-ruby/pull/3273)
+* Add Cloud Cost Management ListCostOCIConfigs endpoint [#3272](https://github.com/DataDog/datadog-api-client-ruby/pull/3272)
+* Add Observability pipelines databricks_zerobus destination [#3266](https://github.com/DataDog/datadog-api-client-ruby/pull/3266)
+* Add infra_storage_mgmt_objects_count_avg fields to usage summary API [#3265](https://github.com/DataDog/datadog-api-client-ruby/pull/3265)
+* RUM - Add Source Map Intake API endpoint specification [#3264](https://github.com/DataDog/datadog-api-client-ruby/pull/3264)
+* Document bulk delete security monitoring rules endpoint [#3260](https://github.com/DataDog/datadog-api-client-ruby/pull/3260)
+* Add compliance_host to Agentless Scanning scan options [#3259](https://github.com/DataDog/datadog-api-client-ruby/pull/3259)
+* Add MuteSecurityFindings endpoint spec [#3253](https://github.com/DataDog/datadog-api-client-ruby/pull/3253)
+* Add OpenAPI documentation for Synthetics downtime endpoints [#3252](https://github.com/DataDog/datadog-api-client-ruby/pull/3252)
+* Add feature_flags_config_requests to usage summary API [#3225](https://github.com/DataDog/datadog-api-client-ruby/pull/3225)
+* Add specs for ListOrgsV2 and DeleteUserInvitations [#3206](https://github.com/DataDog/datadog-api-client-ruby/pull/3206)
+* Add infra_host_basic and eph_infra_host_basic to usage metering API [#3178](https://github.com/DataDog/datadog-api-client-ruby/pull/3178)
+
+### Changed
+* Mark email transport webhook endpoint as private [#3318](https://github.com/DataDog/datadog-api-client-ruby/pull/3318)
+* Mark Test Optimization endpoints as stable [#3270](https://github.com/DataDog/datadog-api-client-ruby/pull/3270)
+* Document Annotations label schema API for AI Observability [#3268](https://github.com/DataDog/datadog-api-client-ruby/pull/3268)
+* Security Monitoring - expand learningDuration and forgetAfter to support up to 30 days [#3231](https://github.com/DataDog/datadog-api-client-ruby/pull/3231)
+
+### Removed
+* Remove deprecated incident teams endpoints [#3304](https://github.com/DataDog/datadog-api-client-ruby/pull/3304)
+* Remove deprecated allocation key fields from feature flags API [#3247](https://github.com/DataDog/datadog-api-client-ruby/pull/3247)
+
+### Fixed
+* Widgets API - add complete create/update example for cloud_cost_summary [#3286](https://github.com/DataDog/datadog-api-client-ruby/pull/3286)
+* Fix Org Groups pagination response shape (meta.page + links) [#3279](https://github.com/DataDog/datadog-api-client-ruby/pull/3279)
+* Clarify metrics API query strings [#3269](https://github.com/DataDog/datadog-api-client-ruby/pull/3269)
+
+### Deprecated
+* Update Status Pages API documentation to reflect deprecation of creating a published status page [#3256](https://github.com/DataDog/datadog-api-client-ruby/pull/3256)
+
 ## 2.53.0/2026-04-24
 
 ### Changed
