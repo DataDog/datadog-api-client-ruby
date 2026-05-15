@@ -34,5 +34,6 @@ module DatadogAPIClient::V1
     INCIDENT_ANALYTICS = "incident_analytics".freeze
     PRODUCT_ANALYTICS = "product_analytics".freeze
     ON_CALL_EVENTS = "on_call_events".freeze
+    ERRORS = "errors".freeze
   end
 end
