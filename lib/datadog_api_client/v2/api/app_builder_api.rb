@@ -90,6 +90,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create Publish Request.
+    #
+    # @see #create_publish_request_with_http_info
+    def create_publish_request(app_id, body, opts = {})
+      data, _status_code, _headers = create_publish_request_with_http_info(app_id, body, opts)
+      data
+    end
+
+    # Create Publish Request.
+    #
+    # Create a publish request to ask for approval to publish an app whose protection level is `approval_required`. Publishing happens automatically once the request is approved by a user with the appropriate permissions.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param body [CreatePublishRequestRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PublishAppResponse, Integer, Hash)>] PublishAppResponse data, response status code and response headers
+    def create_publish_request_with_http_info(app_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.create_publish_request ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.create_publish_request"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AppBuilderAPI.create_publish_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/publish-request'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PublishAppResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_publish_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#create_publish_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete App.
     #
     # @see #delete_app_with_http_info
@@ -371,6 +443,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List App Versions.
+    #
+    # @see #list_app_versions_with_http_info
+    def list_app_versions(app_id, opts = {})
+      data, _status_code, _headers = list_app_versions_with_http_info(app_id, opts)
+      data
+    end
+
+    # List App Versions.
+    #
+    # List the versions of an app. This endpoint is paginated.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit The number of versions to return per page.
+    # @option opts [Integer] :page The page number to return.
+    # @return [Array<(ListAppVersionsResponse, Integer, Hash)>] ListAppVersionsResponse data, response status code and response headers
+    def list_app_versions_with_http_info(app_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.list_app_versions ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.list_app_versions"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/versions'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListAppVersionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_app_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#list_app_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Publish App.
     #
     # @see #publish_app_with_http_info
@@ -432,6 +573,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AppBuilderAPI#publish_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Revert App.
+    #
+    # @see #revert_app_with_http_info
+    def revert_app(app_id, version, opts = {})
+      data, _status_code, _headers = revert_app_with_http_info(app_id, version, opts)
+      data
+    end
+
+    # Revert App.
+    #
+    # Revert an app to a previous version. The version to revert to is selected through the `version` query parameter. The reverted version becomes the new latest version of the app.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param version [String] The version number of the app to revert to. Cannot be `latest`. The special value `deployed` can be used to revert to the currently published version.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpdateAppResponse, Integer, Hash)>] UpdateAppResponse data, response status code and response headers
+    def revert_app_with_http_info(app_id, version, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.revert_app ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.revert_app"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling AppBuilderAPI.revert_app"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/revert'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'version'] = version
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateAppResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :revert_app,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#revert_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -569,6 +781,372 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AppBuilderAPI#update_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update App Favorite Status.
+    #
+    # @see #update_app_favorite_with_http_info
+    def update_app_favorite(app_id, body, opts = {})
+      update_app_favorite_with_http_info(app_id, body, opts)
+      nil
+    end
+
+    # Update App Favorite Status.
+    #
+    # Add or remove an app from the current user's favorites. Favorited apps can be filtered for using the `filter[favorite]` query parameter on the [List Apps](https://docs.datadoghq.com/api/latest/app-builder/#list-apps) endpoint.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param body [UpdateAppFavoriteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_app_favorite_with_http_info(app_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.update_app_favorite ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.update_app_favorite"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AppBuilderAPI.update_app_favorite"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/favorite'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_app_favorite,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#update_app_favorite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update App Self-Service Status.
+    #
+    # @see #update_app_self_service_with_http_info
+    def update_app_self_service(app_id, body, opts = {})
+      update_app_self_service_with_http_info(app_id, body, opts)
+      nil
+    end
+
+    # Update App Self-Service Status.
+    #
+    # Enable or disable self-service for an app. Self-service apps can be discovered and run by users in your organization without explicit access being granted.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param body [UpdateAppSelfServiceRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_app_self_service_with_http_info(app_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.update_app_self_service ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.update_app_self_service"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AppBuilderAPI.update_app_self_service"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/self-service'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_app_self_service,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#update_app_self_service\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update App Tags.
+    #
+    # @see #update_app_tags_with_http_info
+    def update_app_tags(app_id, body, opts = {})
+      update_app_tags_with_http_info(app_id, body, opts)
+      nil
+    end
+
+    # Update App Tags.
+    #
+    # Replace the tags on an app. The provided list overwrites the existing tags entirely; tags not present in the request body are removed.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param body [UpdateAppTagsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_app_tags_with_http_info(app_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.update_app_tags ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.update_app_tags"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AppBuilderAPI.update_app_tags"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/tags'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_app_tags,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#update_app_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Name App Version.
+    #
+    # @see #update_app_version_name_with_http_info
+    def update_app_version_name(app_id, version, body, opts = {})
+      update_app_version_name_with_http_info(app_id, version, body, opts)
+      nil
+    end
+
+    # Name App Version.
+    #
+    # Assign a human-readable name to a specific version of an app. The version is selected through the `version` query parameter.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param version [String] The version number of the app to name. The special values `latest` and `deployed` can also be used to target the latest or currently published version.
+    # @param body [UpdateAppVersionNameRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_app_version_name_with_http_info(app_id, version, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.update_app_version_name ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.update_app_version_name"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling AppBuilderAPI.update_app_version_name"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AppBuilderAPI.update_app_version_name"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/version-name'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'version'] = version
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_app_version_name,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#update_app_version_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update App Protection Level.
+    #
+    # @see #update_protection_level_with_http_info
+    def update_protection_level(app_id, body, opts = {})
+      data, _status_code, _headers = update_protection_level_with_http_info(app_id, body, opts)
+      data
+    end
+
+    # Update App Protection Level.
+    #
+    # Update the publication protection level of an app. When set to `approval_required`, future publishes must go through an approval workflow before going live.
+    #
+    # @param app_id [UUID] The ID of the app.
+    # @param body [UpdateAppProtectionLevelRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpdateAppResponse, Integer, Hash)>] UpdateAppResponse data, response status code and response headers
+    def update_protection_level_with_http_info(app_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.update_protection_level ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppBuilderAPI.update_protection_level"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AppBuilderAPI.update_protection_level"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/apps/{app_id}/protection-level'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateAppResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_protection_level,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#update_protection_level\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
