@@ -32,8 +32,8 @@ module DatadogAPIClient::V2
     # The unique identifier for this component.
     attr_reader :id
 
-    # Your Databricks Zerobus ingestion endpoint. This is the endpoint used to stream data directly into your Databricks Lakehouse.
-    attr_reader :ingestion_endpoint
+    # Name of the environment variable or the secret identifier that references the Databricks Zerobus ingestion endpoint, which is used to stream data directly into your Databricks Lakehouse.
+    attr_accessor :ingestion_endpoint_key
 
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
@@ -44,8 +44,8 @@ module DatadogAPIClient::V2
     # The destination type. The value must be `databricks_zerobus`.
     attr_reader :type
 
-    # Your Databricks workspace URL. This is used to communicate with the Unity Catalog API.
-    attr_reader :unity_catalog_endpoint
+    # Name of the environment variable or the secret identifier that references your Databricks workspace URL, which is used to communicate with the Unity Catalog API.
+    attr_accessor :unity_catalog_endpoint_key
 
     attr_accessor :additional_properties
 
@@ -56,11 +56,11 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'buffer' => :'buffer',
         :'id' => :'id',
-        :'ingestion_endpoint' => :'ingestion_endpoint',
+        :'ingestion_endpoint_key' => :'ingestion_endpoint_key',
         :'inputs' => :'inputs',
         :'table_name' => :'table_name',
         :'type' => :'type',
-        :'unity_catalog_endpoint' => :'unity_catalog_endpoint'
+        :'unity_catalog_endpoint_key' => :'unity_catalog_endpoint_key'
       }
     end
 
@@ -71,11 +71,11 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineDatabricksZerobusDestinationAuth',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'id' => :'String',
-        :'ingestion_endpoint' => :'String',
+        :'ingestion_endpoint_key' => :'String',
         :'inputs' => :'Array<String>',
         :'table_name' => :'String',
         :'type' => :'ObservabilityPipelineDatabricksZerobusDestinationType',
-        :'unity_catalog_endpoint' => :'String'
+        :'unity_catalog_endpoint_key' => :'String'
       }
     end
 
@@ -109,8 +109,8 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'ingestion_endpoint')
-        self.ingestion_endpoint = attributes[:'ingestion_endpoint']
+      if attributes.key?(:'ingestion_endpoint_key')
+        self.ingestion_endpoint_key = attributes[:'ingestion_endpoint_key']
       end
 
       if attributes.key?(:'inputs')
@@ -127,8 +127,8 @@ module DatadogAPIClient::V2
         self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'unity_catalog_endpoint')
-        self.unity_catalog_endpoint = attributes[:'unity_catalog_endpoint']
+      if attributes.key?(:'unity_catalog_endpoint_key')
+        self.unity_catalog_endpoint_key = attributes[:'unity_catalog_endpoint_key']
       end
     end
 
@@ -138,11 +138,9 @@ module DatadogAPIClient::V2
     def valid?
       return false if @auth.nil?
       return false if @id.nil?
-      return false if @ingestion_endpoint.nil?
       return false if @inputs.nil?
       return false if @table_name.nil?
       return false if @type.nil?
-      return false if @unity_catalog_endpoint.nil?
       true
     end
 
@@ -164,16 +162,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param ingestion_endpoint [Object] Object to be assigned
-    # @!visibility private
-    def ingestion_endpoint=(ingestion_endpoint)
-      if ingestion_endpoint.nil?
-        fail ArgumentError, 'invalid value for "ingestion_endpoint", ingestion_endpoint cannot be nil.'
-      end
-      @ingestion_endpoint = ingestion_endpoint
     end
 
     # Custom attribute writer method with validation
@@ -206,16 +194,6 @@ module DatadogAPIClient::V2
       @type = type
     end
 
-    # Custom attribute writer method with validation
-    # @param unity_catalog_endpoint [Object] Object to be assigned
-    # @!visibility private
-    def unity_catalog_endpoint=(unity_catalog_endpoint)
-      if unity_catalog_endpoint.nil?
-        fail ArgumentError, 'invalid value for "unity_catalog_endpoint", unity_catalog_endpoint cannot be nil.'
-      end
-      @unity_catalog_endpoint = unity_catalog_endpoint
-    end
-
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -245,11 +223,11 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           buffer == o.buffer &&
           id == o.id &&
-          ingestion_endpoint == o.ingestion_endpoint &&
+          ingestion_endpoint_key == o.ingestion_endpoint_key &&
           inputs == o.inputs &&
           table_name == o.table_name &&
           type == o.type &&
-          unity_catalog_endpoint == o.unity_catalog_endpoint &&
+          unity_catalog_endpoint_key == o.unity_catalog_endpoint_key &&
           additional_properties == o.additional_properties
     end
 
@@ -257,7 +235,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, buffer, id, ingestion_endpoint, inputs, table_name, type, unity_catalog_endpoint, additional_properties].hash
+      [auth, buffer, id, ingestion_endpoint_key, inputs, table_name, type, unity_catalog_endpoint_key, additional_properties].hash
     end
   end
 end
