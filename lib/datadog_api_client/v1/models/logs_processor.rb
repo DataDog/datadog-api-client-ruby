@@ -45,7 +45,8 @@ module DatadogAPIClient::V1
           :'LogsSpanRemapper',
           :'LogsArrayProcessor',
           :'LogsDecoderProcessor',
-          :'LogsSchemaProcessor'
+          :'LogsSchemaProcessor',
+          :'LogsExcludeAttributeProcessor'
         ]
       end
       # Builds the object

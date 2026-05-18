@@ -292,6 +292,8 @@ module DatadogAPIClient
           "v1.logs_decoder_processor_binary_to_text_encoding" => "LogsDecoderProcessorBinaryToTextEncoding",
           "v1.logs_decoder_processor_input_representation" => "LogsDecoderProcessorInputRepresentation",
           "v1.logs_decoder_processor_type" => "LogsDecoderProcessorType",
+          "v1.logs_exclude_attribute_processor" => "LogsExcludeAttributeProcessor",
+          "v1.logs_exclude_attribute_processor_type" => "LogsExcludeAttributeProcessorType",
           "v1.logs_exclusion" => "LogsExclusion",
           "v1.logs_exclusion_filter" => "LogsExclusionFilter",
           "v1.logs_filter" => "LogsFilter",
