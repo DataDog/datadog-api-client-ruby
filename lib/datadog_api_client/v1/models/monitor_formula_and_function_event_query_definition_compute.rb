@@ -33,6 +33,9 @@ module DatadogAPIClient::V1
     # The name assigned to this aggregation, when multiple aggregations are defined for a query.
     attr_accessor :name
 
+    # Source reference for composite query payloads.
+    attr_accessor :source
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +45,8 @@ module DatadogAPIClient::V1
         :'aggregation' => :'aggregation',
         :'interval' => :'interval',
         :'metric' => :'metric',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'source' => :'source'
       }
     end
 
@@ -53,7 +57,8 @@ module DatadogAPIClient::V1
         :'aggregation' => :'MonitorFormulaAndFunctionEventAggregation',
         :'interval' => :'Integer',
         :'metric' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'source' => :'String'
       }
     end
 
@@ -89,6 +94,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
     end
 
@@ -140,6 +149,7 @@ module DatadogAPIClient::V1
           interval == o.interval &&
           metric == o.metric &&
           name == o.name &&
+          source == o.source &&
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, interval, metric, name, additional_properties].hash
+      [aggregation, interval, metric, name, source, additional_properties].hash
     end
   end
 end
