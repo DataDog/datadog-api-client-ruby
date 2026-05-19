@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Timeline cell JSON:API resource
+  # A timeline cell resource representing a single entry in a case's activity timeline.
   class TimelineCellResource
     include BaseGenericModel
 
-    # timeline cell
+    # Attributes of a timeline cell, representing a single event in a case's chronological activity log (for example, a comment, status change, or assignment update).
     attr_reader :attributes
 
     # Timeline cell's identifier
     attr_reader :id
 
-    # Timeline cell JSON:API resource type
+    # JSON:API resource type for timeline cells.
     attr_reader :type
 
     attr_accessor :additional_properties
