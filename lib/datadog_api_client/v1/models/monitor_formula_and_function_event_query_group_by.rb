@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Options for sorting group by results.
     attr_accessor :sort
 
+    # Source reference for composite query payloads.
+    attr_accessor :source
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V1
       {
         :'facet' => :'facet',
         :'limit' => :'limit',
-        :'sort' => :'sort'
+        :'sort' => :'sort',
+        :'source' => :'source'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V1
       {
         :'facet' => :'String',
         :'limit' => :'Integer',
-        :'sort' => :'MonitorFormulaAndFunctionEventQueryGroupBySort'
+        :'sort' => :'MonitorFormulaAndFunctionEventQueryGroupBySort',
+        :'source' => :'String'
       }
     end
 
@@ -80,6 +85,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'sort')
         self.sort = attributes[:'sort']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
     end
 
@@ -130,6 +139,7 @@ module DatadogAPIClient::V1
           facet == o.facet &&
           limit == o.limit &&
           sort == o.sort &&
+          source == o.source &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facet, limit, sort, additional_properties].hash
+      [facet, limit, sort, source, additional_properties].hash
     end
   end
 end
