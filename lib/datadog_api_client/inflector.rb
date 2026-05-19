@@ -5817,6 +5817,7 @@ module DatadogAPIClient
           "v2.synthetics_downtime_time_slot_request" => "SyntheticsDowntimeTimeSlotRequest",
           "v2.synthetics_downtime_time_slot_response" => "SyntheticsDowntimeTimeSlotResponse",
           "v2.synthetics_downtime_weekday" => "SyntheticsDowntimeWeekday",
+          "v2.synthetics_downtime_weekday_position" => "SyntheticsDowntimeWeekdayPosition",
           "v2.synthetics_fast_test_result" => "SyntheticsFastTestResult",
           "v2.synthetics_fast_test_result_attributes" => "SyntheticsFastTestResultAttributes",
           "v2.synthetics_fast_test_result_data" => "SyntheticsFastTestResultData",
