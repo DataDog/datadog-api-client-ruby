@@ -151,10 +151,10 @@ module DatadogAPIClient
       sleep_time
     end
 
-    #Redact api and app key in the request header
+    #Redact api key, app key, and Authorization (Bearer) header in the request log
     def sanitize_request_header(request_header)
       sanitized_headers= request_header.dup
-      keys_to_redact = ["DD-API-KEY", "DD-APPLICATION-KEY"]
+      keys_to_redact = ["DD-API-KEY", "DD-APPLICATION-KEY", "Authorization"]
       keys_to_redact.each do |key_to_redact|
         if sanitized_headers.key?(key_to_redact)
           sanitized_headers[key_to_redact] = "REDACTED"

@@ -191,6 +191,33 @@ describe DatadogAPIClient::APIClient do
     end
   end
 
+  describe '#sanitize_request_header' do
+    let(:api_client) { DatadogAPIClient::APIClient.new }
+
+    # Verifies the debug log path redacts api key, app key, and Authorization
+    # (Bearer) header before the @config.logger.debug call. Without redacting
+    # Authorization, callers running with debug logging and a PAT or delegated
+    # token would leak the bearer to stderr / CI artifacts / log shippers.
+    # See CRED-2625.
+    it 'redacts DD-API-KEY, DD-APPLICATION-KEY, and Authorization' do
+      headers = {
+        'DD-API-KEY'         => 'api-key-secret-value',
+        'DD-APPLICATION-KEY' => 'app-key-secret-value',
+        'Authorization'      => 'Bearer ddpat_supersecret_should_not_leak',
+        'Content-Type'       => 'application/json',
+      }
+      sanitized = api_client.sanitize_request_header(headers)
+
+      expect(sanitized['DD-API-KEY']).to eq('REDACTED')
+      expect(sanitized['DD-APPLICATION-KEY']).to eq('REDACTED')
+      expect(sanitized['Authorization']).to eq('REDACTED')
+      # Non-credential headers pass through unchanged.
+      expect(sanitized['Content-Type']).to eq('application/json')
+      # Original hash unchanged (defensive dup).
+      expect(headers['Authorization']).to eq('Bearer ddpat_supersecret_should_not_leak')
+    end
+  end
+
   describe '#sanitize_filename' do
     let(:api_client) { DatadogAPIClient::APIClient.new }
 
