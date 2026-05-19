@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CustomAttributeConfig` object.
+  # A custom attribute configuration that defines an organization-specific metadata field on cases. Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined select options.
   class CustomAttributeConfig
     include BaseGenericModel
 
-    # Custom attribute resource attributes
+    # Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to cases of a given type.
     attr_accessor :attributes
 
     # Custom attribute configs identifier
     attr_accessor :id
 
-    # Custom attributes config JSON:API resource type
+    # JSON:API resource type for custom attribute configurations.
     attr_accessor :type
 
     attr_accessor :additional_properties

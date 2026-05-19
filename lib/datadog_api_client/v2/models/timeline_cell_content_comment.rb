@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # comment content
+  # The content of a comment timeline cell.
   class TimelineCellContentComment
     include BaseGenericModel
 
-    # comment message
+    # The text content of the comment. Supports Markdown formatting.
     attr_accessor :message
 
     attr_accessor :additional_properties

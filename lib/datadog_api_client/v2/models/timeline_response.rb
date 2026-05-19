@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Timeline response
+  # Response containing the chronological list of timeline cells for a case.
   class TimelineResponse
     include BaseGenericModel
 

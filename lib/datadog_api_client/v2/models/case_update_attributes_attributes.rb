@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseUpdateAttributesAttributes
     include BaseGenericModel
 
-    # The definition of `CaseObjectAttributes` object.
+    # Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
     attr_reader :attributes
 
     attr_accessor :additional_properties

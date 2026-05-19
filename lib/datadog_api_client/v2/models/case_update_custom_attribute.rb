@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class CaseUpdateCustomAttribute
     include BaseGenericModel
 
-    # Custom attribute values
+    # A typed value for a custom attribute on a specific case.
     attr_reader :attributes
 
-    # Case resource type
+    # JSON:API resource type for cases.
     attr_reader :type
 
     attr_accessor :additional_properties
