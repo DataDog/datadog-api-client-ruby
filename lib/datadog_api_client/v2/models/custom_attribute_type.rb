@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The data type of the custom attribute, which determines the allowed values and UI input control.
+  # Custom attributes type
   class CustomAttributeType
     include BaseEnumModel
 

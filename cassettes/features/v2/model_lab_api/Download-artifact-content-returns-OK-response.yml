@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Mon, 18 May 2026 16:45:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/octet-stream, application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/model-lab-api/artifacts/content?project_id=2387&artifact_path=f635c73b70594ab6bb6e212cdf87d0d5%2Fartifacts%2Flora_model%2Fadapter_config.json
+  response:
+    body:
+      encoding: UTF-8
+      string: data
+    headers:
+      Content-Type:
+      - application/octet-stream
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of content in the timeline cell. Currently only `COMMENT` is supported in this endpoint.
+  # Timeline cell content type
   class TimelineCellType
     include BaseEnumModel
 

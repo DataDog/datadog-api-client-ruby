@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes required to create a custom attribute configuration.
+  # Custom attribute config resource attributes
   class CustomAttributeConfigAttributesCreate
     include BaseGenericModel
 
-    # A description explaining the purpose and expected values for this custom attribute.
+    # Custom attribute description.
     attr_accessor :description
 
-    # The human-readable label shown in the Case Management UI for this custom attribute.
+    # Custom attribute name.
     attr_reader :display_name
 
-    # If `true`, this attribute accepts an array of values. If `false`, only a single value is allowed.
+    # Whether multiple values can be set
     attr_reader :is_multi
 
-    # The programmatic key used to reference this custom attribute in search queries and API calls.
+    # Custom attribute key. This will be the value use to search on this custom attribute
     attr_reader :key
 
-    # The data type of the custom attribute, which determines the allowed values and UI input control.
+    # Custom attributes type
     attr_reader :type
 
     attr_accessor :additional_properties

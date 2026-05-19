@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for timeline cells.
+  # Timeline cell JSON:API resource type
   class TimelineCellResourceType
     include BaseEnumModel
 

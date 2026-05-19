@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for creating a case type.
+  # Case type
   class CaseTypeCreate
     include BaseGenericModel
 
-    # Attributes of a case type, which define a classification category for cases. Organizations use case types to model different workflows (for example, Security Incident, Bug Report, Change Request).
+    # Case Type resource attributes
     attr_reader :attributes
 
-    # JSON:API resource type for case types.
+    # Case type resource type
     attr_reader :type
 
     attr_accessor :additional_properties

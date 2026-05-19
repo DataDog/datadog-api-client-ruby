@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Create custom attribute config for a case type
     #
-    # @param case_type_id [String] The UUID of the case type.
+    # @param case_type_id [String] Case type's UUID
     # @param body [CustomAttributeConfigCreateRequest] Custom attribute config payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomAttributeConfigResponse, Integer, Hash)>] CustomAttributeConfigResponse data, response status code and response headers
@@ -107,7 +107,7 @@ module DatadogAPIClient::V2
     #
     # Delete custom attribute config
     #
-    # @param case_type_id [String] The UUID of the case type.
+    # @param case_type_id [String] Case type's UUID
     # @param custom_attribute_id [String] Case Custom attribute's UUID
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -177,7 +177,7 @@ module DatadogAPIClient::V2
     #
     # Get all custom attribute config of case type
     #
-    # @param case_type_id [String] The UUID of the case type.
+    # @param case_type_id [String] Case type's UUID
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomAttributeConfigsResponse, Integer, Hash)>] CustomAttributeConfigsResponse data, response status code and response headers
     def get_all_custom_attribute_configs_by_case_type_with_http_info(case_type_id, opts = {})
@@ -286,89 +286,6 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAttributeAPI#get_all_custom_attributes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Update custom attribute config.
-    #
-    # @see #update_custom_attribute_config_with_http_info
-    def update_custom_attribute_config(case_type_id, custom_attribute_id, body, opts = {})
-      data, _status_code, _headers = update_custom_attribute_config_with_http_info(case_type_id, custom_attribute_id, body, opts)
-      data
-    end
-
-    # Update custom attribute config.
-    #
-    # Updates the display name, description, type, or options of an existing custom attribute configuration for a case type.
-    #
-    # @param case_type_id [String] The UUID of the case type.
-    # @param custom_attribute_id [String] Case Custom attribute's UUID
-    # @param body [CustomAttributeConfigUpdateRequest] Custom attribute config payload.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(CustomAttributeConfigResponse, Integer, Hash)>] CustomAttributeConfigResponse data, response status code and response headers
-    def update_custom_attribute_config_with_http_info(case_type_id, custom_attribute_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_custom_attribute_config".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_custom_attribute_config")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_custom_attribute_config"))
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CaseManagementAttributeAPI.update_custom_attribute_config ...'
-      end
-      # verify the required parameter 'case_type_id' is set
-      if @api_client.config.client_side_validation && case_type_id.nil?
-        fail ArgumentError, "Missing the required parameter 'case_type_id' when calling CaseManagementAttributeAPI.update_custom_attribute_config"
-      end
-      # verify the required parameter 'custom_attribute_id' is set
-      if @api_client.config.client_side_validation && custom_attribute_id.nil?
-        fail ArgumentError, "Missing the required parameter 'custom_attribute_id' when calling CaseManagementAttributeAPI.update_custom_attribute_config"
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAttributeAPI.update_custom_attribute_config"
-      end
-      # resource path
-      local_var_path = '/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}'.sub('{case_type_id}', CGI.escape(case_type_id.to_s).gsub('%2F', '/')).sub('{custom_attribute_id}', CGI.escape(custom_attribute_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'CustomAttributeConfigResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :update_custom_attribute_config,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CaseManagementAttributeAPI#update_custom_attribute_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

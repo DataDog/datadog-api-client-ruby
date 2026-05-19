@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for creating a custom attribute configuration.
+  # Custom attribute config
   class CustomAttributeConfigCreate
     include BaseGenericModel
 
-    # Attributes required to create a custom attribute configuration.
+    # Custom attribute config resource attributes
     attr_reader :attributes
 
-    # JSON:API resource type for custom attribute configurations.
+    # Custom attributes config JSON:API resource type
     attr_reader :type
 
     attr_accessor :additional_properties

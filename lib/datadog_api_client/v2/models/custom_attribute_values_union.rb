@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The value of a custom attribute. The accepted format depends on the attribute's type and whether it accepts multiple values.
+  # Union of supported value for a custom attribute
   module CustomAttributeValuesUnion
     class << self
       include BaseOneOfModel

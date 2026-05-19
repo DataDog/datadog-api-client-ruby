@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Relationships formed with the case on creation
     attr_accessor :relationships
 
-    # JSON:API resource type for cases.
+    # Case resource type
     attr_reader :type
 
     attr_accessor :additional_properties

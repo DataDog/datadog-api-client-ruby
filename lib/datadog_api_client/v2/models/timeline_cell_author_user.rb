@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A user who authored a timeline cell.
+  # timeline cell user author
   class TimelineCellAuthorUser
     include BaseGenericModel
 
-    # Profile information for the user who authored the timeline cell.
+    # user author content.
     attr_accessor :content
 
-    # The type of timeline cell author. Currently only `USER` is supported.
+    # user author type.
     attr_accessor :type
 
     attr_accessor :additional_properties

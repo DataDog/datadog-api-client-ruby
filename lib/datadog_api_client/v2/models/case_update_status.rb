@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Case update status attributes
     attr_reader :attributes
 
-    # JSON:API resource type for cases.
+    # Case resource type
     attr_reader :type
 
     attr_accessor :additional_properties
