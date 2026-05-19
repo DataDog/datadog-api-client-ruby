@@ -4292,6 +4292,18 @@ ScenariosModelMappings = {
             "filter_scorecard_name" => "String",
             "filter_scorecard_description" => "String",
     },
+    "v2.ListScorecardScores" => {
+            "aggregation" => "ScorecardScoresAggregation",
+            "filter_rule_id" => "String",
+            "filter_rule_name" => "String",
+            "filter_rule_level" => "String",
+            "filter_rule_scorecard_id" => "String",
+            "filter_rule_is_custom" => "Boolean",
+            "filter_rule_is_enabled" => "Boolean",
+            "sort" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+    },
     "v2.UnassignSeatsUser" => {
             "body" => "UnassignSeatsUserRequest",
     },

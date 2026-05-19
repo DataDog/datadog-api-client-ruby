@@ -774,6 +774,94 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List all scores.
+    #
+    # @see #list_scorecard_scores_with_http_info
+    def list_scorecard_scores(aggregation, opts = {})
+      data, _status_code, _headers = list_scorecard_scores_with_http_info(aggregation, opts)
+      data
+    end
+
+    # List all scores.
+    #
+    # Returns a list of scorecard scores for each aggregation type, with score breakdowns.
+    #
+    # @param aggregation [ScorecardScoresAggregation] The type of scores being requested.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_rule_id Filter scores by rule ID(s), comma-separated.
+    # @option opts [String] :filter_rule_name Filter scores by rule name.
+    # @option opts [String] :filter_rule_level Filter scores by rule level(s), comma-separated.
+    # @option opts [String] :filter_rule_scorecard_id Filter scores by scorecard ID(s), comma-separated.
+    # @option opts [Boolean] :filter_rule_is_custom Filter scores to show only custom rules.
+    # @option opts [Boolean] :filter_rule_is_enabled Filter scores to show only enabled rules.
+    # @option opts [String] :sort Sort scores by field. Use a hyphen prefix for descending order. Options: score, numerator, denominator, total_pass, total_fail, total_skip, total_no_data.
+    # @option opts [Integer] :page_offset Offset for pagination.
+    # @option opts [Integer] :page_limit Number of scores to return. Max is 1000.
+    # @return [Array<(ListScorecardScoresResponse, Integer, Hash)>] ListScorecardScoresResponse data, response status code and response headers
+    def list_scorecard_scores_with_http_info(aggregation, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ScorecardsAPI.list_scorecard_scores ...'
+      end
+      # verify the required parameter 'aggregation' is set
+      if @api_client.config.client_side_validation && aggregation.nil?
+        fail ArgumentError, "Missing the required parameter 'aggregation' when calling ScorecardsAPI.list_scorecard_scores"
+      end
+      # verify enum value
+      allowable_values = ['by-entity', 'by-rule', 'by-scorecard', 'by-team', 'by-kind']
+      if @api_client.config.client_side_validation && !allowable_values.include?(aggregation)
+        fail ArgumentError, "invalid value for \"aggregation\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/scores/{aggregation}'.sub('{aggregation}', CGI.escape(aggregation.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[rule][id]'] = opts[:'filter_rule_id'] if !opts[:'filter_rule_id'].nil?
+      query_params[:'filter[rule][name]'] = opts[:'filter_rule_name'] if !opts[:'filter_rule_name'].nil?
+      query_params[:'filter[rule][level]'] = opts[:'filter_rule_level'] if !opts[:'filter_rule_level'].nil?
+      query_params[:'filter[rule][scorecard_id]'] = opts[:'filter_rule_scorecard_id'] if !opts[:'filter_rule_scorecard_id'].nil?
+      query_params[:'filter[rule][is_custom]'] = opts[:'filter_rule_is_custom'] if !opts[:'filter_rule_is_custom'].nil?
+      query_params[:'filter[rule][is_enabled]'] = opts[:'filter_rule_is_enabled'] if !opts[:'filter_rule_is_enabled'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListScorecardScoresResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_scorecard_scores,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ScorecardsAPI#list_scorecard_scores\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a campaign.
     #
     # @see #update_scorecard_campaign_with_http_info
