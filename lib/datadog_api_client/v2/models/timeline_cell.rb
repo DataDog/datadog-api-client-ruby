@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # timeline cell
+  # Attributes of a timeline cell, representing a single event in a case's chronological activity log (for example, a comment, status change, or assignment update).
   class TimelineCell
     include BaseGenericModel
 
-    # author of the timeline cell
+    # The author of the timeline cell. Currently only user authors are supported.
     attr_accessor :author
 
-    # timeline cell content
+    # The content payload of a timeline cell, varying by cell type.
     attr_accessor :cell_content
 
     # Timestamp of when the cell was created
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Timestamp of when the cell was last modified
     attr_accessor :modified_at
 
-    # Timeline cell content type
+    # The type of content in the timeline cell. Currently only `COMMENT` is supported in this endpoint.
     attr_accessor :type
 
     attr_accessor :additional_properties

@@ -23,6 +23,82 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Aggregate LLM Observability experimentation.
+    #
+    # @see #aggregate_llm_obs_experimentation_with_http_info
+    def aggregate_llm_obs_experimentation(body, opts = {})
+      data, _status_code, _headers = aggregate_llm_obs_experimentation_with_http_info(body, opts)
+      data
+    end
+
+    # Aggregate LLM Observability experimentation.
+    #
+    # Execute an analytics aggregation over LLM Observability experimentation data.
+    # Use this endpoint to compute metrics (for example average eval scores) grouped by fields such as `span_id` or `experiment_id`.
+    #
+    # At least one `compute` definition and one `index` must be provided.
+    #
+    # @param body [LLMObsExperimentationAnalyticsRequest] Analytics payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsExperimentationAnalyticsResponse, Integer, Hash)>] LLMObsExperimentationAnalyticsResponse data, response status code and response headers
+    def aggregate_llm_obs_experimentation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.aggregate_llm_obs_experimentation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.aggregate_llm_obs_experimentation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.aggregate_llm_obs_experimentation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.aggregate_llm_obs_experimentation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.aggregate_llm_obs_experimentation"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/experimentation/analytics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsExperimentationAnalyticsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :aggregate_llm_obs_experimentation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#aggregate_llm_obs_experimentation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an LLM Observability annotation queue.
     #
     # @see #create_llm_obs_annotation_queue_with_http_info
@@ -1544,6 +1620,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List events for an LLM Observability experiment.
+    #
+    # @see #list_llm_obs_experiment_events_with_http_info
+    def list_llm_obs_experiment_events(experiment_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_experiment_events_with_http_info(experiment_id, opts)
+      data
+    end
+
+    # List events for an LLM Observability experiment.
+    #
+    # Retrieve spans and experiment-level summary metrics for a given experiment with cursor-based pagination.
+    #
+    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit Maximum number of spans to return per page. Defaults to 5000.
+    # @option opts [String] :page_cursor Opaque cursor from a previous response to fetch the next page of results.
+    # @return [Array<(LLMObsExperimentEventsV2Response, Integer, Hash)>] LLMObsExperimentEventsV2Response data, response status code and response headers
+    def list_llm_obs_experiment_events_with_http_info(experiment_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_experiment_events".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_experiment_events")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_experiment_events"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_experiment_events ...'
+      end
+      # verify the required parameter 'experiment_id' is set
+      if @api_client.config.client_side_validation && experiment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'experiment_id' when calling LLMObservabilityAPI.list_llm_obs_experiment_events"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v3/experiments/{experiment_id}/events'.sub('{experiment_id}', CGI.escape(experiment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsExperimentEventsV2Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_experiment_events,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_experiment_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List LLM Observability experiments.
     #
     # @see #list_llm_obs_experiments_with_http_info
@@ -1690,6 +1841,159 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_projects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search LLM Observability experimentation entities.
+    #
+    # @see #search_llm_obs_experimentation_with_http_info
+    def search_llm_obs_experimentation(body, opts = {})
+      data, _status_code, _headers = search_llm_obs_experimentation_with_http_info(body, opts)
+      data
+    end
+
+    # Search LLM Observability experimentation entities.
+    #
+    # Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
+    #
+    # The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
+    #
+    # Returns `200 OK` when all results fit in a single page. Returns `206 Partial Content` with a cursor in `meta.after` when additional pages are available.
+    #
+    # @param body [LLMObsExperimentationSearchRequest] Experimentation search payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsExperimentationSearchResponse, Integer, Hash)>] LLMObsExperimentationSearchResponse data, response status code and response headers
+    def search_llm_obs_experimentation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_llm_obs_experimentation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_llm_obs_experimentation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_llm_obs_experimentation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.search_llm_obs_experimentation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.search_llm_obs_experimentation"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/experimentation/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsExperimentationSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :search_llm_obs_experimentation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#search_llm_obs_experimentation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Simple search experimentation entities.
+    #
+    # @see #simple_search_llm_obs_experimentation_with_http_info
+    def simple_search_llm_obs_experimentation(body, opts = {})
+      data, _status_code, _headers = simple_search_llm_obs_experimentation_with_http_info(body, opts)
+      data
+    end
+
+    # Simple search experimentation entities.
+    #
+    # Search across LLM Observability experimentation entities using offset-based (page-number) pagination.
+    # Use this endpoint when you need total page count or want to navigate to a specific page number.
+    #
+    # The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
+    #
+    # @param body [LLMObsExperimentationSimpleSearchRequest] Simple search payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsExperimentationSimpleSearchResponse, Integer, Hash)>] LLMObsExperimentationSimpleSearchResponse data, response status code and response headers
+    def simple_search_llm_obs_experimentation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.simple_search_llm_obs_experimentation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.simple_search_llm_obs_experimentation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.simple_search_llm_obs_experimentation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.simple_search_llm_obs_experimentation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.simple_search_llm_obs_experimentation"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/experimentation/simple-search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsExperimentationSimpleSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :simple_search_llm_obs_experimentation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#simple_search_llm_obs_experimentation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

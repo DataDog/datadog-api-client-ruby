@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case types response.
+  # Response containing a list of case types.
   class CaseTypesResponse
     include BaseGenericModel
 
