@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The author of the timeline cell. Currently only user authors are supported.
+  # author of the timeline cell
   module TimelineCellAuthor
     class << self
       include BaseOneOfModel

@@ -1441,28 +1441,6 @@ ScenariosModelMappings = {
     "v2.CreateCase" => {
             "body" => "CaseCreateRequest",
     },
-    "v2.AggregateCases" => {
-            "body" => "CaseAggregateRequest",
-    },
-    "v2.BulkUpdateCases" => {
-            "body" => "CaseBulkUpdateRequest",
-    },
-    "v2.CountCases" => {
-            "query_filter" => "String",
-            "group_bys" => "String",
-            "limit" => "Integer",
-    },
-    "v2.ListCaseLinks" => {
-            "entity_type" => "String",
-            "entity_id" => "String",
-            "relationship" => "String",
-    },
-    "v2.CreateCaseLink" => {
-            "body" => "CaseLinkCreateRequest",
-    },
-    "v2.DeleteCaseLink" => {
-            "link_id" => "String",
-    },
     "v2.CreateProject" => {
             "body" => "ProjectCreateRequest",
     },
@@ -1475,12 +1453,6 @@ ScenariosModelMappings = {
     "v2.UpdateProject" => {
             "project_id" => "String",
             "body" => "ProjectUpdateRequest",
-    },
-    "v2.UnfavoriteCaseProject" => {
-            "project_id" => "String",
-    },
-    "v2.FavoriteCaseProject" => {
-            "project_id" => "String",
     },
     "v2.GetProjectNotificationRules" => {
             "project_id" => "String",
@@ -1497,50 +1469,6 @@ ScenariosModelMappings = {
             "project_id" => "String",
             "notification_rule_id" => "String",
             "body" => "CaseNotificationRuleUpdateRequest",
-    },
-    "v2.ListCaseAutomationRules" => {
-            "project_id" => "String",
-    },
-    "v2.CreateCaseAutomationRule" => {
-            "project_id" => "String",
-            "body" => "AutomationRuleCreateRequest",
-    },
-    "v2.DeleteCaseAutomationRule" => {
-            "project_id" => "String",
-            "rule_id" => "String",
-    },
-    "v2.GetCaseAutomationRule" => {
-            "project_id" => "String",
-            "rule_id" => "String",
-    },
-    "v2.UpdateCaseAutomationRule" => {
-            "project_id" => "String",
-            "rule_id" => "String",
-            "body" => "AutomationRuleUpdateRequest",
-    },
-    "v2.DisableCaseAutomationRule" => {
-            "project_id" => "String",
-            "rule_id" => "String",
-    },
-    "v2.EnableCaseAutomationRule" => {
-            "project_id" => "String",
-            "rule_id" => "String",
-    },
-    "v2.ListCaseViews" => {
-            "project_id" => "String",
-    },
-    "v2.CreateCaseView" => {
-            "body" => "CaseViewCreateRequest",
-    },
-    "v2.DeleteCaseView" => {
-            "view_id" => "String",
-    },
-    "v2.GetCaseView" => {
-            "view_id" => "String",
-    },
-    "v2.UpdateCaseView" => {
-            "view_id" => "String",
-            "body" => "CaseViewUpdateRequest",
     },
     "v2.GetCase" => {
             "case_id" => "String",
@@ -1565,11 +1493,6 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "cell_id" => "String",
     },
-    "v2.UpdateCaseComment" => {
-            "case_id" => "String",
-            "cell_id" => "String",
-            "body" => "CaseUpdateCommentRequest",
-    },
     "v2.DeleteCaseCustomAttribute" => {
             "case_id" => "String",
             "custom_attribute_key" => "String",
@@ -1582,18 +1505,6 @@ ScenariosModelMappings = {
     "v2.UpdateCaseDescription" => {
             "case_id" => "String",
             "body" => "CaseUpdateDescriptionRequest",
-    },
-    "v2.UpdateCaseDueDate" => {
-            "case_id" => "String",
-            "body" => "CaseUpdateDueDateRequest",
-    },
-    "v2.RemoveCaseInsights" => {
-            "case_id" => "String",
-            "body" => "CaseInsightsRequest",
-    },
-    "v2.AddCaseInsights" => {
-            "case_id" => "String",
-            "body" => "CaseInsightsRequest",
     },
     "v2.UpdatePriority" => {
             "case_id" => "String",
@@ -1626,19 +1537,9 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "ServiceNowTicketCreateRequest",
     },
-    "v2.UpdateCaseResolvedReason" => {
-            "case_id" => "String",
-            "body" => "CaseUpdateResolvedReasonRequest",
-    },
     "v2.UpdateStatus" => {
             "case_id" => "String",
             "body" => "CaseUpdateStatusRequest",
-    },
-    "v2.ListCaseTimeline" => {
-            "case_id" => "String",
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "sort_ascending" => "Boolean",
     },
     "v2.UpdateCaseTitle" => {
             "case_id" => "String",
@@ -1652,36 +1553,11 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
     },
-    "v2.ListCaseWatchers" => {
-            "case_id" => "String",
-    },
-    "v2.UnwatchCase" => {
-            "case_id" => "String",
-            "user_uuid" => "String",
-    },
-    "v2.WatchCase" => {
-            "case_id" => "String",
-            "user_uuid" => "String",
-    },
-    "v2.CreateMaintenanceWindow" => {
-            "body" => "MaintenanceWindowCreateRequest",
-    },
-    "v2.DeleteMaintenanceWindow" => {
-            "maintenance_window_id" => "String",
-    },
-    "v2.UpdateMaintenanceWindow" => {
-            "maintenance_window_id" => "String",
-            "body" => "MaintenanceWindowUpdateRequest",
-    },
     "v2.CreateCaseType" => {
             "body" => "CaseTypeCreateRequest",
     },
     "v2.DeleteCaseType" => {
             "case_type_id" => "String",
-    },
-    "v2.UpdateCaseType" => {
-            "case_type_id" => "String",
-            "body" => "CaseTypeUpdateRequest",
     },
     "v2.GetAllCustomAttributeConfigsByCaseType" => {
             "case_type_id" => "String",
@@ -1693,11 +1569,6 @@ ScenariosModelMappings = {
     "v2.DeleteCustomAttributeConfig" => {
             "case_type_id" => "String",
             "custom_attribute_id" => "String",
-    },
-    "v2.UpdateCustomAttributeConfig" => {
-            "case_type_id" => "String",
-            "custom_attribute_id" => "String",
-            "body" => "CustomAttributeConfigUpdateRequest",
     },
     "v2.ListCatalogEntity" => {
             "page_offset" => "Integer",
@@ -3516,6 +3387,74 @@ ScenariosModelMappings = {
     "v2.SubmitMetrics" => {
             "content_encoding" => "MetricContentEncoding",
             "body" => "MetricPayload",
+    },
+    "v2.GetModelLabArtifactContent" => {
+            "project_id" => "String",
+            "artifact_path" => "String",
+    },
+    "v2.ListModelLabRunFacetKeys" => {
+            "filter_project_id" => "Integer",
+    },
+    "v2.ListModelLabRunFacetValues" => {
+            "filter_project_id" => "Integer",
+            "facet_type" => "ModelLabFacetType",
+            "facet_name" => "String",
+    },
+    "v2.ListModelLabProjectFacetValues" => {
+            "facet_type" => "ModelLabProjectFacetType",
+            "facet_name" => "String",
+    },
+    "v2.ListModelLabProjects" => {
+            "filter" => "String",
+            "filter_owner_id" => "UUID",
+            "filter_tags" => "String",
+            "sort" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.GetModelLabProject" => {
+            "project_id" => "Integer",
+    },
+    "v2.ListModelLabProjectArtifacts" => {
+            "project_id" => "Integer",
+    },
+    "v2.UnstarModelLabProject" => {
+            "project_id" => "Integer",
+    },
+    "v2.StarModelLabProject" => {
+            "project_id" => "Integer",
+    },
+    "v2.ListModelLabRuns" => {
+            "filter_id" => "String",
+            "filter" => "String",
+            "filter_owner_id" => "String",
+            "filter_status" => "ModelLabRunStatus",
+            "filter_project_id" => "Integer",
+            "filter_tags" => "String",
+            "filter_params" => "String",
+            "filter_parent_run_id" => "String",
+            "pinned_first" => "Boolean",
+            "include_pinned" => "Boolean",
+            "include_descendant_matches" => "Boolean",
+            "sort" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.DeleteModelLabRun" => {
+            "run_id" => "Integer",
+    },
+    "v2.GetModelLabRun" => {
+            "run_id" => "Integer",
+    },
+    "v2.ListModelLabRunArtifacts" => {
+            "run_id" => "Integer",
+            "path" => "String",
+    },
+    "v2.UnpinModelLabRun" => {
+            "run_id" => "Integer",
+    },
+    "v2.PinModelLabRun" => {
+            "run_id" => "Integer",
     },
     "v2.GetMonitorNotificationRules" => {
             "page" => "Integer",

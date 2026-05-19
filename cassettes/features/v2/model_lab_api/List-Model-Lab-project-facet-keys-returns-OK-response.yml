@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Mon, 18 May 2026 16:45:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/model-lab-api/project-facet-keys
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"facet_keys","attributes":{"metrics":null,"parameters":[],"tags":["age","beatings","mlflow.experimentKind","mlflow.experiment.ownerID","morale","team","usecase","weather"]}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

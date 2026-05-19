@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of custom attribute configurations.
+  # Custom attribute configs response.
   class CustomAttributeConfigsResponse
     include BaseGenericModel
 

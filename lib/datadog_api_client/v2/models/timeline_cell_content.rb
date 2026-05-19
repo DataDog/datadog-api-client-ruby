@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The content payload of a timeline cell, varying by cell type.
+  # timeline cell content
   module TimelineCellContent
     class << self
       include BaseOneOfModel

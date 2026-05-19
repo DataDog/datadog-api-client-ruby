@@ -1,0 +1,18 @@
+http_interactions:
+- recorded_at: Mon, 18 May 2026 16:45:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/model-lab-api/projects/2387/star
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

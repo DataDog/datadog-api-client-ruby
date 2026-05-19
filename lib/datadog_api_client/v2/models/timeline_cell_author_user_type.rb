@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of timeline cell author. Currently only `USER` is supported.
+  # user author type.
   class TimelineCellAuthorUserType
     include BaseEnumModel
 

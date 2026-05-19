@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a case type, which define a classification category for cases. Organizations use case types to model different workflows (for example, Security Incident, Bug Report, Change Request).
+  # Case Type resource attributes
   class CaseTypeResourceAttributes
     include BaseGenericModel
 
-    # Timestamp when the case type was marked as deleted. A null value indicates the case type is active.
+    # Timestamp of when the case type was deleted
     attr_accessor :deleted_at
 
-    # A detailed description explaining when this case type should be used.
+    # Case type description.
     attr_accessor :description
 
-    # An emoji icon representing the case type in the UI.
+    # Case type emoji.
     attr_accessor :emoji
 
-    # The display name of the case type, shown in the Case Management UI when creating or viewing cases.
+    # Case type name.
     attr_reader :name
 
     attr_accessor :additional_properties

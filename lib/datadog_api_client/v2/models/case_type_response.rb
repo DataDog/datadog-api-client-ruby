@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single case type.
+  # Case type response
   class CaseTypeResponse
     include BaseGenericModel
 
-    # A case type that defines a classification category for cases. Each case type can have its own custom attributes, statuses, and automation rules.
+    # The definition of `CaseType` object.
     attr_accessor :data
 
     attr_accessor :additional_properties
