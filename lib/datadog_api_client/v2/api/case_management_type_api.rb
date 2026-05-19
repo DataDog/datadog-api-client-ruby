@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
     #
     # Delete a case type
     #
-    # @param case_type_id [String] Case type's UUID
+    # @param case_type_id [String] The UUID of the case type.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_type_with_http_info(case_type_id, opts = {})
@@ -211,6 +211,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementTypeAPI#get_all_case_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a case type.
+    #
+    # @see #update_case_type_with_http_info
+    def update_case_type(case_type_id, body, opts = {})
+      data, _status_code, _headers = update_case_type_with_http_info(case_type_id, body, opts)
+      data
+    end
+
+    # Update a case type.
+    #
+    # Updates the name, emoji, or description of an existing case type.
+    #
+    # @param case_type_id [String] The UUID of the case type.
+    # @param body [CaseTypeUpdateRequest] Case type payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseTypeResponse, Integer, Hash)>] CaseTypeResponse data, response status code and response headers
+    def update_case_type_with_http_info(case_type_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_type".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_type")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_type"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementTypeAPI.update_case_type ...'
+      end
+      # verify the required parameter 'case_type_id' is set
+      if @api_client.config.client_side_validation && case_type_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_type_id' when calling CaseManagementTypeAPI.update_case_type"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementTypeAPI.update_case_type"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/types/{case_type_id}'.sub('{case_type_id}', CGI.escape(case_type_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseTypeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_type,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementTypeAPI#update_case_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -23,6 +23,157 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Add insights to a case.
+    #
+    # @see #add_case_insights_with_http_info
+    def add_case_insights(case_id, body, opts = {})
+      data, _status_code, _headers = add_case_insights_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Add insights to a case.
+    #
+    # Adds one or more insights to a case. Insights are references to related Datadog resources (such as monitors, security signals, incidents, or error tracking issues) that provide investigative context. Up to 100 insights can be added per request. Each insight requires a type (see `CaseInsightType` for allowed values), a ref (URL path to the resource), and a resource_id.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseInsightsRequest] Case insights request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def add_case_insights_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.add_case_insights".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.add_case_insights")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.add_case_insights"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.add_case_insights ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.add_case_insights"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.add_case_insights"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/insights'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :add_case_insights,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#add_case_insights\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Aggregate cases.
+    #
+    # @see #aggregate_cases_with_http_info
+    def aggregate_cases(body, opts = {})
+      data, _status_code, _headers = aggregate_cases_with_http_info(body, opts)
+      data
+    end
+
+    # Aggregate cases.
+    #
+    # Performs an aggregation query over cases, grouping results by specified fields and returning counts per group along with a total. Useful for dashboards and analytics.
+    #
+    # @param body [CaseAggregateRequest] Case aggregate request payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseAggregateResponse, Integer, Hash)>] CaseAggregateResponse data, response status code and response headers
+    def aggregate_cases_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.aggregate_cases".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.aggregate_cases")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.aggregate_cases"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.aggregate_cases ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.aggregate_cases"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/aggregate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseAggregateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :aggregate_cases,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#aggregate_cases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Archive case.
     #
     # @see #archive_case_with_http_info
@@ -167,6 +318,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Bulk update cases.
+    #
+    # @see #bulk_update_cases_with_http_info
+    def bulk_update_cases(body, opts = {})
+      bulk_update_cases_with_http_info(body, opts)
+      nil
+    end
+
+    # Bulk update cases.
+    #
+    # Applies a single action (such as changing priority, status, assignment, or archiving) to multiple cases at once. The list of case IDs and the action type with its payload are specified in the request body.
+    #
+    # @param body [CaseBulkUpdateRequest] Case bulk update request payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def bulk_update_cases_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.bulk_update_cases".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.bulk_update_cases")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.bulk_update_cases"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.bulk_update_cases ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.bulk_update_cases"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/bulk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_update_cases,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#bulk_update_cases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Comment case.
     #
     # @see #comment_case_with_http_info
@@ -239,6 +463,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Count cases.
+    #
+    # @see #count_cases_with_http_info
+    def count_cases(opts = {})
+      data, _status_code, _headers = count_cases_with_http_info(opts)
+      data
+    end
+
+    # Count cases.
+    #
+    # Returns case counts, optionally grouped by one or more fields (for example, status, priority). Supports a query filter to narrow the scope.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query_filter Filter query for cases.
+    # @option opts [String] :group_bys Comma-separated fields to group by.
+    # @option opts [Integer] :limit Maximum facet values to return.
+    # @return [Array<(CaseCountResponse, Integer, Hash)>] CaseCountResponse data, response status code and response headers
+    def count_cases_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.count_cases".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.count_cases")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.count_cases"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.count_cases ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/count'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query_filter'] = opts[:'query_filter'] if !opts[:'query_filter'].nil?
+      query_params[:'group_bys'] = opts[:'group_bys'] if !opts[:'group_bys'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :count_cases,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#count_cases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a case.
     #
     # @see #create_case_with_http_info
@@ -302,6 +598,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#create_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create an automation rule.
+    #
+    # @see #create_case_automation_rule_with_http_info
+    def create_case_automation_rule(project_id, body, opts = {})
+      data, _status_code, _headers = create_case_automation_rule_with_http_info(project_id, body, opts)
+      data
+    end
+
+    # Create an automation rule.
+    #
+    # Creates an automation rule for a project. The rule defines a trigger event (for example, case created, status transitioned) and an action to execute.
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param body [AutomationRuleCreateRequest] Automation rule payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
+    def create_case_automation_rule_with_http_info(project_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_automation_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_automation_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_automation_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_automation_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.create_case_automation_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_case_automation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AutomationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_case_automation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_automation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -380,6 +754,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_jira_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a case link.
+    #
+    # @see #create_case_link_with_http_info
+    def create_case_link(body, opts = {})
+      data, _status_code, _headers = create_case_link_with_http_info(body, opts)
+      data
+    end
+
+    # Create a case link.
+    #
+    # Creates a directional link between two cases (for example, case A blocks case B). The parent and child cases and their relationship type must be specified.
+    #
+    # @param body [CaseLinkCreateRequest] Case link create request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseLinkResponse, Integer, Hash)>] CaseLinkResponse data, response status code and response headers
+    def create_case_link_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_link".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_link")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_link"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_link ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_case_link"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/link'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseLinkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_case_link,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -540,6 +987,152 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a case view.
+    #
+    # @see #create_case_view_with_http_info
+    def create_case_view(body, opts = {})
+      data, _status_code, _headers = create_case_view_with_http_info(body, opts)
+      data
+    end
+
+    # Create a case view.
+    #
+    # Creates a new saved case view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
+    #
+    # @param body [CaseViewCreateRequest] Case view payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
+    def create_case_view_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_view".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_view")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_view"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_view ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_case_view"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/views'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseViewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_case_view,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_view\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a maintenance window.
+    #
+    # @see #create_maintenance_window_with_http_info
+    def create_maintenance_window(body, opts = {})
+      data, _status_code, _headers = create_maintenance_window_with_http_info(body, opts)
+      data
+    end
+
+    # Create a maintenance window.
+    #
+    # Creates a maintenance window for event management cases with a name, case filter query, and time range (start and end).
+    #
+    # @param body [MaintenanceWindowCreateRequest] Maintenance window payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MaintenanceWindowResponse, Integer, Hash)>] MaintenanceWindowResponse data, response status code and response headers
+    def create_maintenance_window_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_maintenance_window".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_maintenance_window")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_maintenance_window"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_maintenance_window ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_maintenance_window"
+      end
+      # resource path
+      local_var_path = '/api/v2/maintenance_windows'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceWindowResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_maintenance_window,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_maintenance_window\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a project.
     #
     # @see #create_project_with_http_info
@@ -679,6 +1272,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an automation rule.
+    #
+    # @see #delete_case_automation_rule_with_http_info
+    def delete_case_automation_rule(project_id, rule_id, opts = {})
+      delete_case_automation_rule_with_http_info(project_id, rule_id, opts)
+      nil
+    end
+
+    # Delete an automation rule.
+    #
+    # Permanently deletes an automation rule from a project.
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param rule_id [String] The UUID of the automation rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_case_automation_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_case_automation_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_case_automation_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_automation_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.delete_case_automation_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CaseManagementAPI.delete_case_automation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules/{rule_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_case_automation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_case_automation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete case comment.
     #
     # @see #delete_case_comment_with_http_info
@@ -692,7 +1361,7 @@ module DatadogAPIClient::V2
     # Delete case comment
     #
     # @param case_id [String] Case's UUID or key
-    # @param cell_id [String] Timeline cell's UUID
+    # @param cell_id [String] The UUID of the timeline cell (comment) to update.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_comment_with_http_info(case_id, cell_id, opts = {})
@@ -815,6 +1484,219 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#delete_case_custom_attribute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a case link.
+    #
+    # @see #delete_case_link_with_http_info
+    def delete_case_link(link_id, opts = {})
+      delete_case_link_with_http_info(link_id, opts)
+      nil
+    end
+
+    # Delete a case link.
+    #
+    # Deletes an existing link between cases by link ID.
+    #
+    # @param link_id [String] The UUID of the case link.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_case_link_with_http_info(link_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_case_link".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_case_link")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_case_link"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_link ...'
+      end
+      # verify the required parameter 'link_id' is set
+      if @api_client.config.client_side_validation && link_id.nil?
+        fail ArgumentError, "Missing the required parameter 'link_id' when calling CaseManagementAPI.delete_case_link"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/link/{link_id}'.sub('{link_id}', CGI.escape(link_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_case_link,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_case_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a case view.
+    #
+    # @see #delete_case_view_with_http_info
+    def delete_case_view(view_id, opts = {})
+      delete_case_view_with_http_info(view_id, opts)
+      nil
+    end
+
+    # Delete a case view.
+    #
+    # Permanently deletes a saved case view.
+    #
+    # @param view_id [String] The UUID of the case view.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_case_view_with_http_info(view_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_case_view".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_case_view")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_case_view"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_view ...'
+      end
+      # verify the required parameter 'view_id' is set
+      if @api_client.config.client_side_validation && view_id.nil?
+        fail ArgumentError, "Missing the required parameter 'view_id' when calling CaseManagementAPI.delete_case_view"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/views/{view_id}'.sub('{view_id}', CGI.escape(view_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_case_view,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_case_view\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a maintenance window.
+    #
+    # @see #delete_maintenance_window_with_http_info
+    def delete_maintenance_window(maintenance_window_id, opts = {})
+      delete_maintenance_window_with_http_info(maintenance_window_id, opts)
+      nil
+    end
+
+    # Delete a maintenance window.
+    #
+    # Permanently deletes a maintenance window.
+    #
+    # @param maintenance_window_id [String] The UUID of the maintenance window.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_maintenance_window_with_http_info(maintenance_window_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_maintenance_window".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_maintenance_window")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_maintenance_window"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_maintenance_window ...'
+      end
+      # verify the required parameter 'maintenance_window_id' is set
+      if @api_client.config.client_side_validation && maintenance_window_id.nil?
+        fail ArgumentError, "Missing the required parameter 'maintenance_window_id' when calling CaseManagementAPI.delete_maintenance_window"
+      end
+      # resource path
+      local_var_path = '/api/v2/maintenance_windows/{maintenance_window_id}'.sub('{maintenance_window_id}', CGI.escape(maintenance_window_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_maintenance_window,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_maintenance_window\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -954,6 +1836,229 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Disable an automation rule.
+    #
+    # @see #disable_case_automation_rule_with_http_info
+    def disable_case_automation_rule(project_id, rule_id, opts = {})
+      data, _status_code, _headers = disable_case_automation_rule_with_http_info(project_id, rule_id, opts)
+      data
+    end
+
+    # Disable an automation rule.
+    #
+    # Disables an automation rule so it no longer triggers on case events. The rule configuration is preserved.
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param rule_id [String] The UUID of the automation rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
+    def disable_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.disable_case_automation_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.disable_case_automation_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.disable_case_automation_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.disable_case_automation_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.disable_case_automation_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CaseManagementAPI.disable_case_automation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules/{rule_id}/disable'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AutomationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :disable_case_automation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#disable_case_automation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Enable an automation rule.
+    #
+    # @see #enable_case_automation_rule_with_http_info
+    def enable_case_automation_rule(project_id, rule_id, opts = {})
+      data, _status_code, _headers = enable_case_automation_rule_with_http_info(project_id, rule_id, opts)
+      data
+    end
+
+    # Enable an automation rule.
+    #
+    # Enables a previously disabled automation rule so it triggers on matching case events.
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param rule_id [String] The UUID of the automation rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
+    def enable_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.enable_case_automation_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.enable_case_automation_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.enable_case_automation_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.enable_case_automation_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.enable_case_automation_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CaseManagementAPI.enable_case_automation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules/{rule_id}/enable'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AutomationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :enable_case_automation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#enable_case_automation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Favorite a project.
+    #
+    # @see #favorite_case_project_with_http_info
+    def favorite_case_project(project_id, opts = {})
+      favorite_case_project_with_http_info(project_id, opts)
+      nil
+    end
+
+    # Favorite a project.
+    #
+    # Marks a case project as a favorite for the current authenticated user.
+    #
+    # @param project_id [String] Project UUID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def favorite_case_project_with_http_info(project_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.favorite_case_project".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.favorite_case_project")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.favorite_case_project"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.favorite_case_project ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.favorite_case_project"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/favorites'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :favorite_case_project,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#favorite_case_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the details of a case.
     #
     # @see #get_case_with_http_info
@@ -1015,6 +2120,153 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#get_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an automation rule.
+    #
+    # @see #get_case_automation_rule_with_http_info
+    def get_case_automation_rule(project_id, rule_id, opts = {})
+      data, _status_code, _headers = get_case_automation_rule_with_http_info(project_id, rule_id, opts)
+      data
+    end
+
+    # Get an automation rule.
+    #
+    # Returns a single automation rule identified by its UUID, including its trigger, action, and current state (enabled/disabled).
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param rule_id [String] The UUID of the automation rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
+    def get_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_case_automation_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_case_automation_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_case_automation_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.get_case_automation_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.get_case_automation_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CaseManagementAPI.get_case_automation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules/{rule_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AutomationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_case_automation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#get_case_automation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a case view.
+    #
+    # @see #get_case_view_with_http_info
+    def get_case_view(view_id, opts = {})
+      data, _status_code, _headers = get_case_view_with_http_info(view_id, opts)
+      data
+    end
+
+    # Get a case view.
+    #
+    # Returns a single saved case view identified by its UUID, including its query, associated project, and timestamps.
+    #
+    # @param view_id [String] The UUID of the case view.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
+    def get_case_view_with_http_info(view_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_case_view".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_case_view")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_case_view"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.get_case_view ...'
+      end
+      # verify the required parameter 'view_id' is set
+      if @api_client.config.client_side_validation && view_id.nil?
+        fail ArgumentError, "Missing the required parameter 'view_id' when calling CaseManagementAPI.get_case_view"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/views/{view_id}'.sub('{view_id}', CGI.escape(view_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseViewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_case_view,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#get_case_view\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1365,6 +2617,509 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List automation rules.
+    #
+    # @see #list_case_automation_rules_with_http_info
+    def list_case_automation_rules(project_id, opts = {})
+      data, _status_code, _headers = list_case_automation_rules_with_http_info(project_id, opts)
+      data
+    end
+
+    # List automation rules.
+    #
+    # Returns all automation rules configured for a project. Automation rules allow automatic actions to be triggered by case events like creation, status transitions, or attribute changes.
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AutomationRulesResponse, Integer, Hash)>] AutomationRulesResponse data, response status code and response headers
+    def list_case_automation_rules_with_http_info(project_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_automation_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_automation_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_automation_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_automation_rules ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.list_case_automation_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AutomationRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_case_automation_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_case_automation_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List case links.
+    #
+    # @see #list_case_links_with_http_info
+    def list_case_links(entity_type, entity_id, opts = {})
+      data, _status_code, _headers = list_case_links_with_http_info(entity_type, entity_id, opts)
+      data
+    end
+
+    # List case links.
+    #
+    # Returns all links associated with a case. Links define relationships (for example, BLOCKS) between cases. Requires entity_type and entity_id query parameters.
+    #
+    # @param entity_type [String] The entity type to look up links for. Use `CASE` to find links for a specific case.
+    # @param entity_id [String] The UUID of the entity to look up links for.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :relationship Optional filter to only return links of a specific relationship type (for example, `BLOCKS` or `CAUSES`).
+    # @return [Array<(CaseLinksResponse, Integer, Hash)>] CaseLinksResponse data, response status code and response headers
+    def list_case_links_with_http_info(entity_type, entity_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_links".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_links")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_links"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_links ...'
+      end
+      # verify the required parameter 'entity_type' is set
+      if @api_client.config.client_side_validation && entity_type.nil?
+        fail ArgumentError, "Missing the required parameter 'entity_type' when calling CaseManagementAPI.list_case_links"
+      end
+      # verify the required parameter 'entity_id' is set
+      if @api_client.config.client_side_validation && entity_id.nil?
+        fail ArgumentError, "Missing the required parameter 'entity_id' when calling CaseManagementAPI.list_case_links"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/link'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'entity_type'] = entity_type
+      query_params[:'entity_id'] = entity_id
+      query_params[:'relationship'] = opts[:'relationship'] if !opts[:'relationship'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseLinksResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_case_links,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_case_links\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get case timeline.
+    #
+    # @see #list_case_timeline_with_http_info
+    def list_case_timeline(case_id, opts = {})
+      data, _status_code, _headers = list_case_timeline_with_http_info(case_id, opts)
+      data
+    end
+
+    # Get case timeline.
+    #
+    # Returns the timeline of events for a case, including comments, status changes, and other activity. Supports pagination and sort order.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Number of timeline cells to return per page.
+    # @option opts [Integer] :page_number Zero-based page number for pagination.
+    # @option opts [Boolean] :sort_ascending If `true`, returns timeline cells in chronological order (oldest first). Defaults to `false` (newest first).
+    # @return [Array<(TimelineResponse, Integer, Hash)>] TimelineResponse data, response status code and response headers
+    def list_case_timeline_with_http_info(case_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_timeline".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_timeline")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_timeline"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_timeline ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.list_case_timeline"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/timelines'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort[ascending]'] = opts[:'sort_ascending'] if !opts[:'sort_ascending'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TimelineResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_case_timeline,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_case_timeline\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List case views.
+    #
+    # @see #list_case_views_with_http_info
+    def list_case_views(project_id, opts = {})
+      data, _status_code, _headers = list_case_views_with_http_info(project_id, opts)
+      data
+    end
+
+    # List case views.
+    #
+    # Returns all saved case views for a given project. Views are saved search queries that allow quick access to filtered lists of cases.
+    #
+    # @param project_id [String] Filter views by project identifier.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseViewsResponse, Integer, Hash)>] CaseViewsResponse data, response status code and response headers
+    def list_case_views_with_http_info(project_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_views".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_views")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_views"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_views ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.list_case_views"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/views'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'project_id'] = project_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseViewsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_case_views,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_case_views\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List case watchers.
+    #
+    # @see #list_case_watchers_with_http_info
+    def list_case_watchers(case_id, opts = {})
+      data, _status_code, _headers = list_case_watchers_with_http_info(case_id, opts)
+      data
+    end
+
+    # List case watchers.
+    #
+    # Returns the list of users who are watching a case. Watchers receive notifications about updates to the case.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseWatchersResponse, Integer, Hash)>] CaseWatchersResponse data, response status code and response headers
+    def list_case_watchers_with_http_info(case_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_watchers".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_watchers")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_watchers"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_watchers ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.list_case_watchers"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/watchers'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseWatchersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_case_watchers,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_case_watchers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List maintenance windows.
+    #
+    # @see #list_maintenance_windows_with_http_info
+    def list_maintenance_windows(opts = {})
+      data, _status_code, _headers = list_maintenance_windows_with_http_info(opts)
+      data
+    end
+
+    # List maintenance windows.
+    #
+    # Returns all configured maintenance windows for event management cases. Maintenance windows define time periods during which case notifications and automation rules are suppressed for cases matching a given query.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MaintenanceWindowsResponse, Integer, Hash)>] MaintenanceWindowsResponse data, response status code and response headers
+    def list_maintenance_windows_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_maintenance_windows".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_maintenance_windows")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_maintenance_windows"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_maintenance_windows ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/maintenance_windows'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceWindowsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_maintenance_windows,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_maintenance_windows\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List project favorites.
+    #
+    # @see #list_user_case_project_favorites_with_http_info
+    def list_user_case_project_favorites(opts = {})
+      data, _status_code, _headers = list_user_case_project_favorites_with_http_info(opts)
+      data
+    end
+
+    # List project favorites.
+    #
+    # Returns the list of case projects that the current authenticated user has marked as favorites.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProjectFavoritesResponse, Integer, Hash)>] ProjectFavoritesResponse data, response status code and response headers
+    def list_user_case_project_favorites_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_user_case_project_favorites".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_user_case_project_favorites")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_user_case_project_favorites"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_user_case_project_favorites ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/favorites'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProjectFavoritesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_user_case_project_favorites,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_user_case_project_favorites\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update case project.
     #
     # @see #move_case_to_project_with_http_info
@@ -1439,6 +3194,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#move_case_to_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove insights from a case.
+    #
+    # @see #remove_case_insights_with_http_info
+    def remove_case_insights(case_id, body, opts = {})
+      data, _status_code, _headers = remove_case_insights_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Remove insights from a case.
+    #
+    # Removes one or more previously added insights from a case by specifying their type and resource identifier in the request body.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseInsightsRequest] Case insights request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def remove_case_insights_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.remove_case_insights".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_case_insights")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.remove_case_insights"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.remove_case_insights ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.remove_case_insights"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.remove_case_insights"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/insights'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :remove_case_insights,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#remove_case_insights\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1683,6 +3516,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Unfavorite a project.
+    #
+    # @see #unfavorite_case_project_with_http_info
+    def unfavorite_case_project(project_id, opts = {})
+      unfavorite_case_project_with_http_info(project_id, opts)
+      nil
+    end
+
+    # Unfavorite a project.
+    #
+    # Removes a case project from the current user's favorites list.
+    #
+    # @param project_id [String] Project UUID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def unfavorite_case_project_with_http_info(project_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.unfavorite_case_project".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unfavorite_case_project")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unfavorite_case_project"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unfavorite_case_project ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.unfavorite_case_project"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/favorites'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :unfavorite_case_project,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#unfavorite_case_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove Jira issue link from case.
     #
     # @see #unlink_jira_issue_with_http_info
@@ -1750,6 +3654,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#unlink_jira_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Unwatch a case.
+    #
+    # @see #unwatch_case_with_http_info
+    def unwatch_case(case_id, user_uuid, opts = {})
+      unwatch_case_with_http_info(case_id, user_uuid, opts)
+      nil
+    end
+
+    # Unwatch a case.
+    #
+    # Removes a user from the watchers list of a case. The user no longer receives notifications about updates to the case.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param user_uuid [String] The UUID of the user to add or remove as a watcher.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def unwatch_case_with_http_info(case_id, user_uuid, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.unwatch_case".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unwatch_case")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unwatch_case"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unwatch_case ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.unwatch_case"
+      end
+      # verify the required parameter 'user_uuid' is set
+      if @api_client.config.client_side_validation && user_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling CaseManagementAPI.unwatch_case"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/watchers/{user_uuid}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{user_uuid}', CGI.escape(user_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :unwatch_case,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#unwatch_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1822,6 +3802,172 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#update_attributes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an automation rule.
+    #
+    # @see #update_case_automation_rule_with_http_info
+    def update_case_automation_rule(project_id, rule_id, body, opts = {})
+      data, _status_code, _headers = update_case_automation_rule_with_http_info(project_id, rule_id, body, opts)
+      data
+    end
+
+    # Update an automation rule.
+    #
+    # Updates the trigger, action, name, or state of an existing automation rule.
+    #
+    # @param project_id [String] The UUID of the project that owns the automation rules.
+    # @param rule_id [String] The UUID of the automation rule.
+    # @param body [AutomationRuleUpdateRequest] Automation rule payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
+    def update_case_automation_rule_with_http_info(project_id, rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_automation_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_automation_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_automation_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_automation_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.update_case_automation_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CaseManagementAPI.update_case_automation_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_automation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/rules/{rule_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AutomationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_automation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_automation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update case comment.
+    #
+    # @see #update_case_comment_with_http_info
+    def update_case_comment(case_id, cell_id, body, opts = {})
+      update_case_comment_with_http_info(case_id, cell_id, body, opts)
+      nil
+    end
+
+    # Update case comment.
+    #
+    # Updates the text content of an existing comment on a case timeline. The comment is identified by its cell ID.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param cell_id [String] The UUID of the timeline cell (comment) to update.
+    # @param body [CaseUpdateCommentRequest] Case update comment payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_case_comment_with_http_info(case_id, cell_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_comment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_comment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_comment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_comment ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_case_comment"
+      end
+      # verify the required parameter 'cell_id' is set
+      if @api_client.config.client_side_validation && cell_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cell_id' when calling CaseManagementAPI.update_case_comment"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_comment"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/comment/{cell_id}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{cell_id}', CGI.escape(cell_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_comment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_comment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1975,6 +4121,162 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update case due date.
+    #
+    # @see #update_case_due_date_with_http_info
+    def update_case_due_date(case_id, body, opts = {})
+      data, _status_code, _headers = update_case_due_date_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Update case due date.
+    #
+    # Sets or updates the due date for a case. The due date is a calendar date (without a time component) indicating when the case should be resolved.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseUpdateDueDateRequest] Case due date update payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def update_case_due_date_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_due_date".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_due_date")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_due_date"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_due_date ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_case_due_date"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_due_date"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/due_date'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_due_date,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_due_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update case resolved reason.
+    #
+    # @see #update_case_resolved_reason_with_http_info
+    def update_case_resolved_reason(case_id, body, opts = {})
+      data, _status_code, _headers = update_case_resolved_reason_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Update case resolved reason.
+    #
+    # Sets the resolved reason for a security case (for example, FALSE_POSITIVE, TRUE_POSITIVE). Applicable to security-type cases.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseUpdateResolvedReasonRequest] Case resolved reason update payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def update_case_resolved_reason_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_resolved_reason".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_resolved_reason")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_resolved_reason"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_resolved_reason ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_case_resolved_reason"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_resolved_reason"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/resolved_reason'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_resolved_reason,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_resolved_reason\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update case title.
     #
     # @see #update_case_title_with_http_info
@@ -2043,6 +4345,162 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_title\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a case view.
+    #
+    # @see #update_case_view_with_http_info
+    def update_case_view(view_id, body, opts = {})
+      data, _status_code, _headers = update_case_view_with_http_info(view_id, body, opts)
+      data
+    end
+
+    # Update a case view.
+    #
+    # Updates the name, query, or notification rule of an existing case view.
+    #
+    # @param view_id [String] The UUID of the case view.
+    # @param body [CaseViewUpdateRequest] Case view payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
+    def update_case_view_with_http_info(view_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_view".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_view")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_view"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_view ...'
+      end
+      # verify the required parameter 'view_id' is set
+      if @api_client.config.client_side_validation && view_id.nil?
+        fail ArgumentError, "Missing the required parameter 'view_id' when calling CaseManagementAPI.update_case_view"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_view"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/views/{view_id}'.sub('{view_id}', CGI.escape(view_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseViewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_view,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_view\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a maintenance window.
+    #
+    # @see #update_maintenance_window_with_http_info
+    def update_maintenance_window(maintenance_window_id, body, opts = {})
+      data, _status_code, _headers = update_maintenance_window_with_http_info(maintenance_window_id, body, opts)
+      data
+    end
+
+    # Update a maintenance window.
+    #
+    # Updates the name, query, start time, or end time of an existing maintenance window.
+    #
+    # @param maintenance_window_id [String] The UUID of the maintenance window.
+    # @param body [MaintenanceWindowUpdateRequest] Maintenance window payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MaintenanceWindowResponse, Integer, Hash)>] MaintenanceWindowResponse data, response status code and response headers
+    def update_maintenance_window_with_http_info(maintenance_window_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_maintenance_window".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_maintenance_window")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_maintenance_window"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_maintenance_window ...'
+      end
+      # verify the required parameter 'maintenance_window_id' is set
+      if @api_client.config.client_side_validation && maintenance_window_id.nil?
+        fail ArgumentError, "Missing the required parameter 'maintenance_window_id' when calling CaseManagementAPI.update_maintenance_window"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_maintenance_window"
+      end
+      # resource path
+      local_var_path = '/api/v2/maintenance_windows/{maintenance_window_id}'.sub('{maintenance_window_id}', CGI.escape(maintenance_window_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceWindowResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_maintenance_window,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_maintenance_window\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2336,6 +4794,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#update_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Watch a case.
+    #
+    # @see #watch_case_with_http_info
+    def watch_case(case_id, user_uuid, opts = {})
+      watch_case_with_http_info(case_id, user_uuid, opts)
+      nil
+    end
+
+    # Watch a case.
+    #
+    # Adds a user (identified by their UUID) as a watcher of a case. The user receives notifications about subsequent updates to the case.
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param user_uuid [String] The UUID of the user to add or remove as a watcher.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def watch_case_with_http_info(case_id, user_uuid, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.watch_case".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.watch_case")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.watch_case"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.watch_case ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.watch_case"
+      end
+      # verify the required parameter 'user_uuid' is set
+      if @api_client.config.client_side_validation && user_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling CaseManagementAPI.watch_case"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/watchers/{user_uuid}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{user_uuid}', CGI.escape(user_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :watch_case,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#watch_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

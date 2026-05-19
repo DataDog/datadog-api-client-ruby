@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Custom attributes config JSON:API resource type
+  # JSON:API resource type for custom attribute configurations.
   class CustomAttributeConfigResourceType
     include BaseEnumModel
 

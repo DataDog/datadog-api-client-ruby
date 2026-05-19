@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Custom attribute values
+  # A typed value for a custom attribute on a specific case.
   class CustomAttributeValue
     include BaseGenericModel
 
     # If true, value must be an array
     attr_reader :is_multi
 
-    # Custom attributes type
+    # The data type of the custom attribute, which determines the allowed values and UI input control.
     attr_reader :type
 
-    # Union of supported value for a custom attribute
+    # The value of a custom attribute. The accepted format depends on the attribute's type and whether it accepts multiple values.
     attr_reader :value
 
     attr_accessor :additional_properties

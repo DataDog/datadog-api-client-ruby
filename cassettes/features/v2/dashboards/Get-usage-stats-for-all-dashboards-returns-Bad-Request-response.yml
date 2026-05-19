@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Mon, 18 May 2026 14:40:28 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/dashboards/usage?page%5Blimit%5D=10000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Input should be less than or equal to 500"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

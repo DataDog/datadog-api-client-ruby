@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case type resource type
+  # JSON:API resource type for case types.
   class CaseTypeResourceType
     include BaseEnumModel
 

@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # A specific date and time used to define the start or end of a Synthetics downtime time slot.
     attr_accessor :_until
 
+    # Positions of the weekdays within a month for a monthly Synthetics downtime recurrence. Used in combination with `weekdays` to schedule occurrences such as "the first Monday of the month".
+    attr_accessor :weekday_positions
+
     # Days of the week for a Synthetics downtime recurrence schedule.
     attr_reader :weekdays
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
         :'frequency' => :'frequency',
         :'interval' => :'interval',
         :'_until' => :'until',
+        :'weekday_positions' => :'weekdayPositions',
         :'weekdays' => :'weekdays'
       }
     end
@@ -53,6 +57,7 @@ module DatadogAPIClient::V2
         :'frequency' => :'SyntheticsDowntimeFrequency',
         :'interval' => :'Integer',
         :'_until' => :'SyntheticsDowntimeTimeSlotDate',
+        :'weekday_positions' => :'Array<SyntheticsDowntimeWeekdayPosition>',
         :'weekdays' => :'Array<SyntheticsDowntimeWeekday>'
       }
     end
@@ -85,6 +90,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'_until')
         self._until = attributes[:'_until']
+      end
+
+      if attributes.key?(:'weekday_positions')
+        if (value = attributes[:'weekday_positions']).is_a?(Array)
+          self.weekday_positions = value
+        end
       end
 
       if attributes.key?(:'weekdays')
@@ -163,6 +174,7 @@ module DatadogAPIClient::V2
           frequency == o.frequency &&
           interval == o.interval &&
           _until == o._until &&
+          weekday_positions == o.weekday_positions &&
           weekdays == o.weekdays &&
           additional_properties == o.additional_properties
     end
@@ -171,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [frequency, interval, _until, weekdays, additional_properties].hash
+      [frequency, interval, _until, weekday_positions, weekdays, additional_properties].hash
     end
   end
 end

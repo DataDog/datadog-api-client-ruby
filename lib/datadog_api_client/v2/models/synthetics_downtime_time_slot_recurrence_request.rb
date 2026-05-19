@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The interval between recurrences, relative to the frequency.
     attr_accessor :interval
 
+    # Positions of the weekdays within a month for a monthly Synthetics downtime recurrence. Used in combination with `weekdays` to schedule occurrences such as "the first Monday of the month".
+    attr_accessor :weekday_positions
+
     # Days of the week for a Synthetics downtime recurrence schedule.
     attr_accessor :weekdays
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
         :'_end' => :'end',
         :'frequency' => :'frequency',
         :'interval' => :'interval',
+        :'weekday_positions' => :'weekdayPositions',
         :'weekdays' => :'weekdays'
       }
     end
@@ -53,6 +57,7 @@ module DatadogAPIClient::V2
         :'_end' => :'SyntheticsDowntimeTimeSlotDate',
         :'frequency' => :'SyntheticsDowntimeFrequency',
         :'interval' => :'Integer',
+        :'weekday_positions' => :'Array<SyntheticsDowntimeWeekdayPosition>',
         :'weekdays' => :'Array<SyntheticsDowntimeWeekday>'
       }
     end
@@ -85,6 +90,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'interval')
         self.interval = attributes[:'interval']
+      end
+
+      if attributes.key?(:'weekday_positions')
+        if (value = attributes[:'weekday_positions']).is_a?(Array)
+          self.weekday_positions = value
+        end
       end
 
       if attributes.key?(:'weekdays')
@@ -141,6 +152,7 @@ module DatadogAPIClient::V2
           _end == o._end &&
           frequency == o.frequency &&
           interval == o.interval &&
+          weekday_positions == o.weekday_positions &&
           weekdays == o.weekdays &&
           additional_properties == o.additional_properties
     end
@@ -149,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_end, frequency, interval, weekdays, additional_properties].hash
+      [_end, frequency, interval, weekday_positions, weekdays, additional_properties].hash
     end
   end
 end

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Custom attribute config response.
+  # Response containing a single custom attribute configuration.
   class CustomAttributeConfigResponse
     include BaseGenericModel
 
-    # The definition of `CustomAttributeConfig` object.
+    # A custom attribute configuration that defines an organization-specific metadata field on cases. Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined select options.
     attr_accessor :data
 
     attr_accessor :additional_properties

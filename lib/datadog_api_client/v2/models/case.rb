@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Resources related to a case
     attr_accessor :relationships
 
-    # Case resource type
+    # JSON:API resource type for cases.
     attr_reader :type
 
     attr_accessor :additional_properties
