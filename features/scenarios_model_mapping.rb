@@ -2468,6 +2468,13 @@ ScenariosModelMappings = {
             "token" => "String",
             "body" => "SecureEmbedUpdateRequest",
     },
+    "v2.ListDashboardsUsage" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+    },
+    "v2.GetDashboardUsage" => {
+            "dashboard_id" => "String",
+    },
     "v2.CreateDataset" => {
             "body" => "DatasetCreateRequest",
     },
