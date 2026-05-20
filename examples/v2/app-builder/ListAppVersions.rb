@@ -2,4 +2,7 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AppBuilderAPI.new
-p api_instance.list_app_versions("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
+
+# there is a valid "app" in the system
+APP_DATA_ID = ENV["APP_DATA_ID"]
+p api_instance.list_app_versions(APP_DATA_ID)

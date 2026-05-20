@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Mon, 18 May 2026 19:51:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/7addb29b-f935-472c-ae79-d1963979a23e/revert?version=1
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","id":"09483925-ee8b-44c8-882a-35b53e209584","title":"app
+        not found","detail":"app with id 7addb29b-f935-472c-ae79-d1963979a23e not
+        found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
