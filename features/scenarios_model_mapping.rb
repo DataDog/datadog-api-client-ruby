@@ -919,6 +919,9 @@ ScenariosModelMappings = {
             "eval_name" => "String",
             "body" => "LLMObsCustomEvalConfigUpdateRequest",
     },
+    "v2.DeleteLLMObsData" => {
+            "body" => "LLMObsDataDeletionRequest",
+    },
     "v2.ListLLMObsAnnotationQueues" => {
             "project_id" => "String",
             "queue_ids" => "Array<String>",
@@ -996,6 +999,23 @@ ScenariosModelMappings = {
     "v2.UpdateLLMObsProject" => {
             "project_id" => "String",
             "body" => "LLMObsProjectUpdateRequest",
+    },
+    "v2.ListLLMObsSpans" => {
+            "filter_from" => "String",
+            "filter_to" => "String",
+            "filter_query" => "String",
+            "filter_span_id" => "String",
+            "filter_trace_id" => "String",
+            "filter_span_kind" => "String",
+            "filter_span_name" => "String",
+            "filter_ml_app" => "String",
+            "page_limit" => "Integer",
+            "page_cursor" => "String",
+            "sort" => "String",
+            "include_attachments" => "Boolean",
+    },
+    "v2.SearchLLMObsSpans" => {
+            "body" => "LLMObsSearchSpansRequest",
     },
     "v2.ListLLMObsDatasets" => {
             "project_id" => "String",
