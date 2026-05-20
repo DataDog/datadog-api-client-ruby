@@ -33,7 +33,9 @@ module DatadogAPIClient::V1
     # Type of the request body.
     attr_accessor :body_type
 
-    # The type of gRPC call to perform.
+    # The type of call to perform. Used by gRPC steps (`healthcheck`, `unary`)
+    # and MCP steps (`init`, `tool_list`, `tool_call`). Valid values depend on
+    # the parent step's `subtype`.
     attr_accessor :call_type
 
     # Client certificate to use when performing the test request.
@@ -81,6 +83,9 @@ module DatadogAPIClient::V1
     # Whether the message is base64 encoded.
     attr_accessor :is_message_base64_encoded
 
+    # The MCP protocol version used by the step. See https://modelcontextprotocol.io/specification.
+    attr_accessor :mcp_protocol_version
+
     # Message to send for UDP or WebSocket tests.
     attr_accessor :message
 
@@ -122,6 +127,12 @@ module DatadogAPIClient::V1
     # Timeout in seconds for the test.
     attr_accessor :timeout
 
+    # Arguments to pass to the MCP tool. Free-form object whose shape depends on the tool. Used when `callType` is `tool_call`.
+    attr_accessor :tool_args
+
+    # The name of the MCP tool to call. Required when `callType` is `tool_call`.
+    attr_accessor :tool_name
+
     # URL to perform the test with.
     attr_accessor :url
 
@@ -151,6 +162,7 @@ module DatadogAPIClient::V1
         :'host' => :'host',
         :'http_version' => :'httpVersion',
         :'is_message_base64_encoded' => :'isMessageBase64Encoded',
+        :'mcp_protocol_version' => :'mcpProtocolVersion',
         :'message' => :'message',
         :'metadata' => :'metadata',
         :'method' => :'method',
@@ -164,6 +176,8 @@ module DatadogAPIClient::V1
         :'service' => :'service',
         :'should_track_hops' => :'shouldTrackHops',
         :'timeout' => :'timeout',
+        :'tool_args' => :'toolArgs',
+        :'tool_name' => :'toolName',
         :'url' => :'url'
       }
     end
@@ -192,6 +206,7 @@ module DatadogAPIClient::V1
         :'host' => :'String',
         :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
         :'is_message_base64_encoded' => :'Boolean',
+        :'mcp_protocol_version' => :'SyntheticsMCPProtocolVersion',
         :'message' => :'String',
         :'metadata' => :'Hash<String, String>',
         :'method' => :'String',
@@ -205,6 +220,8 @@ module DatadogAPIClient::V1
         :'service' => :'String',
         :'should_track_hops' => :'Boolean',
         :'timeout' => :'Float',
+        :'tool_args' => :'Hash<String, Object>',
+        :'tool_name' => :'String',
         :'url' => :'String'
       }
     end
@@ -311,6 +328,10 @@ module DatadogAPIClient::V1
         self.is_message_base64_encoded = attributes[:'is_message_base64_encoded']
       end
 
+      if attributes.key?(:'mcp_protocol_version')
+        self.mcp_protocol_version = attributes[:'mcp_protocol_version']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
       end
@@ -361,6 +382,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'timeout')
         self.timeout = attributes[:'timeout']
+      end
+
+      if attributes.key?(:'tool_args')
+        self.tool_args = attributes[:'tool_args']
+      end
+
+      if attributes.key?(:'tool_name')
+        self.tool_name = attributes[:'tool_name']
       end
 
       if attributes.key?(:'url')
@@ -436,6 +465,7 @@ module DatadogAPIClient::V1
           host == o.host &&
           http_version == o.http_version &&
           is_message_base64_encoded == o.is_message_base64_encoded &&
+          mcp_protocol_version == o.mcp_protocol_version &&
           message == o.message &&
           metadata == o.metadata &&
           method == o.method &&
@@ -449,6 +479,8 @@ module DatadogAPIClient::V1
           service == o.service &&
           should_track_hops == o.should_track_hops &&
           timeout == o.timeout &&
+          tool_args == o.tool_args &&
+          tool_name == o.tool_name &&
           url == o.url &&
           additional_properties == o.additional_properties
     end
@@ -457,7 +489,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, disable_aia_intermediate_fetching, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, is_message_base64_encoded, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, disable_aia_intermediate_fetching, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, is_message_base64_encoded, mcp_protocol_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, tool_args, tool_name, url, additional_properties].hash
     end
   end
 end

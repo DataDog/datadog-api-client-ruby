@@ -17,16 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The type of call to perform. Used by gRPC steps (`healthcheck`, `unary`)
-  # and MCP steps (`init`, `tool_list`, `tool_call`). Valid values depend on
-  # the parent step's `subtype`.
-  class SyntheticsTestCallType
+  # Type of the assertion.
+  class SyntheticsAssertionMCPServerCapabilitiesType
     include BaseEnumModel
 
-    HEALTHCHECK = "healthcheck".freeze
-    UNARY = "unary".freeze
-    INIT = "init".freeze
-    TOOL_LIST = "tool_list".freeze
-    TOOL_CALL = "tool_call".freeze
+    MCP_SERVER_CAPABILITIES = "mcpServerCapabilities".freeze
   end
 end

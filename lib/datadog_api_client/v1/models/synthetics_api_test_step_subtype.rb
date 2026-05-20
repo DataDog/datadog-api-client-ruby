@@ -29,5 +29,6 @@ module DatadogAPIClient::V1
     UDP = "udp".freeze
     ICMP = "icmp".freeze
     WEBSOCKET = "websocket".freeze
+    MCP = "mcp".freeze
   end
 end

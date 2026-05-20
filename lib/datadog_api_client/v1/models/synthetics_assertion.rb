@@ -32,7 +32,9 @@ module DatadogAPIClient::V1
           :'SyntheticsAssertionJSONPathTarget',
           :'SyntheticsAssertionJSONSchemaTarget',
           :'SyntheticsAssertionXPathTarget',
-          :'SyntheticsAssertionJavascript'
+          :'SyntheticsAssertionJavascript',
+          :'SyntheticsAssertionMCPServerCapabilitiesTarget',
+          :'SyntheticsAssertionMCPRespectsSpecification'
         ]
       end
       # Builds the object
