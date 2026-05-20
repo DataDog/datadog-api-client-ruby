@@ -867,6 +867,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete LLM Observability data.
+    #
+    # @see #delete_llm_obs_data_with_http_info
+    def delete_llm_obs_data(body, opts = {})
+      data, _status_code, _headers = delete_llm_obs_data_with_http_info(body, opts)
+      data
+    end
+
+    # Delete LLM Observability data.
+    #
+    # Submit a request to delete LLM Observability span data matching a trace ID filter within a specified time range.
+    #
+    # @param body [LLMObsDataDeletionRequest] Data deletion request payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDataDeletionResponse, Integer, Hash)>] LLMObsDataDeletionResponse data, response status code and response headers
+    def delete_llm_obs_data_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_llm_obs_data".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_llm_obs_data")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_llm_obs_data"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.delete_llm_obs_data ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.delete_llm_obs_data"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/deletion/data/llmobs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDataDeletionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_llm_obs_data,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#delete_llm_obs_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete LLM Observability dataset records.
     #
     # @see #delete_llm_obs_dataset_records_with_http_info
@@ -1845,6 +1918,96 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List LLM Observability spans.
+    #
+    # @see #list_llm_obs_spans_with_http_info
+    def list_llm_obs_spans(opts = {})
+      data, _status_code, _headers = list_llm_obs_spans_with_http_info(opts)
+      data
+    end
+
+    # List LLM Observability spans.
+    #
+    # List LLM Observability spans matching the specified filters.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_from Start of the time range. Accepts ISO 8601 or relative format (e.g., `now-15m`). Defaults to `now-15m`.
+    # @option opts [String] :filter_to End of the time range. Accepts ISO 8601 or relative format. Defaults to `now`.
+    # @option opts [String] :filter_query Search query using LLM Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`filter[span_id]`, `filter[trace_id]`, etc.) are ignored.
+    # @option opts [String] :filter_span_id Filter by exact span ID.
+    # @option opts [String] :filter_trace_id Filter by exact trace ID.
+    # @option opts [String] :filter_span_kind Filter by span kind (e.g., llm, agent, tool, task, workflow).
+    # @option opts [String] :filter_span_name Filter by span name.
+    # @option opts [String] :filter_ml_app Filter by ML application name.
+    # @option opts [Integer] :page_limit Maximum number of spans to return. Defaults to `10`.
+    # @option opts [String] :page_cursor Cursor from the previous response to retrieve the next page.
+    # @option opts [String] :sort Sort order for the results.
+    # @option opts [Boolean] :include_attachments Whether to include attachment data in the response. Defaults to `true`.
+    # @return [Array<(LLMObsSpansResponse, Integer, Hash)>] LLMObsSpansResponse data, response status code and response headers
+    def list_llm_obs_spans_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_spans".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_spans")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_spans"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_spans ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/spans/events'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'filter[span_id]'] = opts[:'filter_span_id'] if !opts[:'filter_span_id'].nil?
+      query_params[:'filter[trace_id]'] = opts[:'filter_trace_id'] if !opts[:'filter_trace_id'].nil?
+      query_params[:'filter[span_kind]'] = opts[:'filter_span_kind'] if !opts[:'filter_span_kind'].nil?
+      query_params[:'filter[span_name]'] = opts[:'filter_span_name'] if !opts[:'filter_span_name'].nil?
+      query_params[:'filter[ml_app]'] = opts[:'filter_ml_app'] if !opts[:'filter_ml_app'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'include_attachments'] = opts[:'include_attachments'] if !opts[:'include_attachments'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsSpansResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_spans,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_spans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search LLM Observability experimentation entities.
     #
     # @see #search_llm_obs_experimentation_with_http_info
@@ -1918,6 +2081,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#search_llm_obs_experimentation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search LLM Observability spans.
+    #
+    # @see #search_llm_obs_spans_with_http_info
+    def search_llm_obs_spans(body, opts = {})
+      data, _status_code, _headers = search_llm_obs_spans_with_http_info(body, opts)
+      data
+    end
+
+    # Search LLM Observability spans.
+    #
+    # Search LLM Observability spans using structured filters in the request body.
+    #
+    # @param body [LLMObsSearchSpansRequest] Search spans payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsSpansResponse, Integer, Hash)>] LLMObsSpansResponse data, response status code and response headers
+    def search_llm_obs_spans_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_llm_obs_spans".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_llm_obs_spans")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_llm_obs_spans"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.search_llm_obs_spans ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.search_llm_obs_spans"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/spans/events/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsSpansResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :search_llm_obs_spans,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#search_llm_obs_spans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
