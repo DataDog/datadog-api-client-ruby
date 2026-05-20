@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case type create request
+  # Request payload for creating a case type.
   class CaseTypeCreateRequest
     include BaseGenericModel
 
-    # Case type
+    # Data object for creating a case type.
     attr_reader :data
 
     attr_accessor :additional_properties

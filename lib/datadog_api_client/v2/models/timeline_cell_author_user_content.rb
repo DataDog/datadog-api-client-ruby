@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # user author content.
+  # Profile information for the user who authored the timeline cell.
   class TimelineCellAuthorUserContent
     include BaseGenericModel
 
-    # user email
+    # The email address of the user.
     attr_accessor :email
 
-    # user handle
+    # The Datadog handle of the user.
     attr_accessor :handle
 
-    # user UUID
+    # The UUID of the user.
     attr_accessor :id
 
-    # user name
+    # The display name of the user.
     attr_accessor :name
 
     attr_accessor :additional_properties

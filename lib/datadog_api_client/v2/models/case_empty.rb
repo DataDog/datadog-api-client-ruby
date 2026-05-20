@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseEmpty
     include BaseGenericModel
 
-    # Case resource type
+    # JSON:API resource type for cases.
     attr_reader :type
 
     attr_accessor :additional_properties
