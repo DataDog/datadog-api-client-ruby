@@ -30,10 +30,12 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
         DatadogAPIClient::V1::SyntheticsTestRequestBodyFile.new({}),
       ],
       http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP1,
+      mcp_protocol_version: DatadogAPIClient::V1::SyntheticsMCPProtocolVersion::VERSION_2025_06_18,
       proxy: DatadogAPIClient::V1::SyntheticsTestRequestProxy.new({
         url: "https://example.com",
       }),
       service: "Greeter",
+      tool_name: "search",
       url: "https://example.com",
     }),
     variables: [

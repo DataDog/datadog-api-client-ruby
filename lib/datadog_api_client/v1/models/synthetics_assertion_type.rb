@@ -42,5 +42,7 @@ module DatadogAPIClient::V1
     CONNECTION = "connection".freeze
     MULTI_NETWORK_HOP = "multiNetworkHop".freeze
     JITTER = "jitter".freeze
+    MCP_TOOL_NAME_LENGTH = "mcpToolNameLength".freeze
+    MCP_TOOL_COUNT = "mcpToolCount".freeze
   end
 end
