@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Defines the query or condition that triggers this routing rule.
     attr_accessor :query
 
-    # Holds time zone information and a list of time restrictions for a routing rule.
+    # Time restrictions during which the routing rule is active. Outside of these hours, the rule does not match and routing continues to subsequent rules. This is mutually exclusive with the action-level `support_hours` field.
     attr_accessor :time_restriction
 
     # Specifies the level of urgency for a routing rule (low, high, or dynamic).
