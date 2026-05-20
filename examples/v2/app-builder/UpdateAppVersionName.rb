@@ -3,6 +3,9 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AppBuilderAPI.new
 
+# there is a valid "app" in the system
+APP_DATA_ID = ENV["APP_DATA_ID"]
+
 body = DatadogAPIClient::V2::UpdateAppVersionNameRequest.new({
   data: DatadogAPIClient::V2::UpdateAppVersionNameRequestData.new({
     attributes: DatadogAPIClient::V2::UpdateAppVersionNameRequestDataAttributes.new({
@@ -11,4 +14,4 @@ body = DatadogAPIClient::V2::UpdateAppVersionNameRequest.new({
     type: DatadogAPIClient::V2::AppVersionNameType::VERSIONNAMES,
   }),
 })
-api_instance.update_app_version_name("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d", "version", body)
+api_instance.update_app_version_name(APP_DATA_ID, "latest", body)

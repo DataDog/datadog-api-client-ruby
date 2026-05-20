@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Mon, 18 May 2026 19:51:56 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"v1.2.0 - bug fix release"},"type":"versionNames"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/7addb29b-f935-472c-ae79-d1963979a23e/version-name?version=latest
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","id":"16fc993f-2445-4b88-b1e7-c924feed5141","title":"app
+        not found","detail":"app with id 7addb29b-f935-472c-ae79-d1963979a23e not
+        found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
