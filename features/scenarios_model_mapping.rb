@@ -984,6 +984,18 @@ ScenariosModelMappings = {
             "experiment_id" => "String",
             "body" => "LLMObsExperimentEventsRequest",
     },
+    "v2.ListLLMObsIntegrationAccounts" => {
+            "integration" => "LLMObsIntegrationName",
+    },
+    "v2.CreateLLMObsIntegrationInference" => {
+            "integration" => "LLMObsIntegrationName",
+            "account_id" => "String",
+            "body" => "LLMObsIntegrationInferenceRequest",
+    },
+    "v2.ListLLMObsIntegrationModels" => {
+            "integration" => "LLMObsIntegrationName",
+            "account_id" => "String",
+    },
     "v2.ListLLMObsProjects" => {
             "filter_id" => "String",
             "filter_name" => "String",

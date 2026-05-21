@@ -574,6 +574,94 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Run an LLM inference.
+    #
+    # @see #create_llm_obs_integration_inference_with_http_info
+    def create_llm_obs_integration_inference(integration, account_id, body, opts = {})
+      data, _status_code, _headers = create_llm_obs_integration_inference_with_http_info(integration, account_id, body, opts)
+      data
+    end
+
+    # Run an LLM inference.
+    #
+    # Run an LLM inference request through the specified integration and account, returning the model response and token usage.
+    #
+    # @param integration [LLMObsIntegrationName] The name of the LLM integration.
+    # @param account_id [String] The ID of the integration account.
+    # @param body [LLMObsIntegrationInferenceRequest] Inference request parameters.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsIntegrationInferenceResponse, Integer, Hash)>] LLMObsIntegrationInferenceResponse data, response status code and response headers
+    def create_llm_obs_integration_inference_with_http_info(integration, account_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_llm_obs_integration_inference".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_llm_obs_integration_inference")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_llm_obs_integration_inference"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.create_llm_obs_integration_inference ...'
+      end
+      # verify the required parameter 'integration' is set
+      if @api_client.config.client_side_validation && integration.nil?
+        fail ArgumentError, "Missing the required parameter 'integration' when calling LLMObservabilityAPI.create_llm_obs_integration_inference"
+      end
+      # verify enum value
+      allowable_values = ['openai', 'amazon_bedrock', 'anthropic', 'azure_openai', 'vertex_ai', 'llmproxy']
+      if @api_client.config.client_side_validation && !allowable_values.include?(integration)
+        fail ArgumentError, "invalid value for \"integration\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling LLMObservabilityAPI.create_llm_obs_integration_inference"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.create_llm_obs_integration_inference"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/inference'.sub('{integration}', CGI.escape(integration.to_s).gsub('%2F', '/')).sub('{account_id}', CGI.escape(account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsIntegrationInferenceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_llm_obs_integration_inference,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#create_llm_obs_integration_inference\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an LLM Observability project.
     #
     # @see #create_llm_obs_project_with_http_info
@@ -1840,6 +1928,163 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_experiments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List LLM integration accounts.
+    #
+    # @see #list_llm_obs_integration_accounts_with_http_info
+    def list_llm_obs_integration_accounts(integration, opts = {})
+      data, _status_code, _headers = list_llm_obs_integration_accounts_with_http_info(integration, opts)
+      data
+    end
+
+    # List LLM integration accounts.
+    #
+    # Retrieve the list of configured accounts for the specified LLM provider integration.
+    #
+    # @param integration [LLMObsIntegrationName] The name of the LLM integration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Array<LLMObsIntegrationAccount>, Integer, Hash)>] Array<LLMObsIntegrationAccount> data, response status code and response headers
+    def list_llm_obs_integration_accounts_with_http_info(integration, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_integration_accounts".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_integration_accounts")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_integration_accounts"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_integration_accounts ...'
+      end
+      # verify the required parameter 'integration' is set
+      if @api_client.config.client_side_validation && integration.nil?
+        fail ArgumentError, "Missing the required parameter 'integration' when calling LLMObservabilityAPI.list_llm_obs_integration_accounts"
+      end
+      # verify enum value
+      allowable_values = ['openai', 'amazon_bedrock', 'anthropic', 'azure_openai', 'vertex_ai', 'llmproxy']
+      if @api_client.config.client_side_validation && !allowable_values.include?(integration)
+        fail ArgumentError, "invalid value for \"integration\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/integrations/{integration}/accounts'.sub('{integration}', CGI.escape(integration.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<LLMObsIntegrationAccount>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_integration_accounts,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_integration_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List LLM integration models.
+    #
+    # @see #list_llm_obs_integration_models_with_http_info
+    def list_llm_obs_integration_models(integration, account_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_integration_models_with_http_info(integration, account_id, opts)
+      data
+    end
+
+    # List LLM integration models.
+    #
+    # Retrieve the list of models available for the specified LLM provider integration and account.
+    #
+    # @param integration [LLMObsIntegrationName] The name of the LLM integration.
+    # @param account_id [String] The ID of the integration account.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Array<LLMObsIntegrationModel>, Integer, Hash)>] Array<LLMObsIntegrationModel> data, response status code and response headers
+    def list_llm_obs_integration_models_with_http_info(integration, account_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_integration_models".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_integration_models")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_integration_models"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_integration_models ...'
+      end
+      # verify the required parameter 'integration' is set
+      if @api_client.config.client_side_validation && integration.nil?
+        fail ArgumentError, "Missing the required parameter 'integration' when calling LLMObservabilityAPI.list_llm_obs_integration_models"
+      end
+      # verify enum value
+      allowable_values = ['openai', 'amazon_bedrock', 'anthropic', 'azure_openai', 'vertex_ai', 'llmproxy']
+      if @api_client.config.client_side_validation && !allowable_values.include?(integration)
+        fail ArgumentError, "invalid value for \"integration\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling LLMObservabilityAPI.list_llm_obs_integration_models"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/models'.sub('{integration}', CGI.escape(integration.to_s).gsub('%2F', '/')).sub('{account_id}', CGI.escape(account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<LLMObsIntegrationModel>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_integration_models,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_integration_models\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
