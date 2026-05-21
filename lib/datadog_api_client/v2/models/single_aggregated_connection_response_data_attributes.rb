@@ -42,17 +42,35 @@ module DatadogAPIClient::V2
     # The number of TCP connections in a closed state. Measured in connections per second from the client.
     attr_accessor :tcp_closed_connections
 
+    # The number of TCP segments acknowledged with the ECN Congestion Experienced (CE) mark, indicating that an upstream router marked packets as experiencing congestion.
+    attr_accessor :tcp_delivered_ce
+
     # The number of TCP connections in an established state. Measured in connections per second from the client.
     attr_accessor :tcp_established_connections
 
+    # The number of TCP zero-window probes sent. These probes are sent when the receiver advertises a zero receive window, indicating it cannot accept more data.
+    attr_accessor :tcp_probe0_count
+
+    # The number of TCP packets received out of order. This indicates network-level packet reordering, which can degrade TCP performance by triggering spurious retransmissions and reducing throughput.
+    attr_accessor :tcp_rcv_ooo_pack
+
+    # The number of TCP fast recovery events. Fast recovery retransmits lost segments detected through duplicate ACKs or selective acknowledgment (SACK) without waiting for a retransmission timeout.
+    attr_accessor :tcp_recovery_count
+
     # The number of TCP connections that were refused by the server. Typically this indicates an attempt to connect to an IP/port that is not receiving connections, or a firewall/security misconfiguration.
     attr_accessor :tcp_refusals
+
+    # The number of times reordering of sent packets was detected. Reordering detection adjusts the duplicate ACK threshold, preventing spurious retransmissions caused by out-of-order delivery.
+    attr_accessor :tcp_reord_seen
 
     # The number of TCP connections that were reset by the server.
     attr_accessor :tcp_resets
 
     # TCP Retransmits represent detected failures that are retransmitted to ensure delivery. Measured in count of retransmits from the client.
     attr_accessor :tcp_retransmits
+
+    # The number of TCP retransmission timeouts (RTOs). An RTO occurs when an ACK is not received within the estimated round-trip time, forcing the sender to retransmit and halve its congestion window.
+    attr_accessor :tcp_rto_count
 
     # The number of TCP connections that timed out from the perspective of the operating system. This can indicate general connectivity and latency issues.
     attr_accessor :tcp_timeouts
@@ -70,10 +88,16 @@ module DatadogAPIClient::V2
         :'packets_sent_by_server' => :'packets_sent_by_server',
         :'rtt_micro_seconds' => :'rtt_micro_seconds',
         :'tcp_closed_connections' => :'tcp_closed_connections',
+        :'tcp_delivered_ce' => :'tcp_delivered_ce',
         :'tcp_established_connections' => :'tcp_established_connections',
+        :'tcp_probe0_count' => :'tcp_probe0_count',
+        :'tcp_rcv_ooo_pack' => :'tcp_rcv_ooo_pack',
+        :'tcp_recovery_count' => :'tcp_recovery_count',
         :'tcp_refusals' => :'tcp_refusals',
+        :'tcp_reord_seen' => :'tcp_reord_seen',
         :'tcp_resets' => :'tcp_resets',
         :'tcp_retransmits' => :'tcp_retransmits',
+        :'tcp_rto_count' => :'tcp_rto_count',
         :'tcp_timeouts' => :'tcp_timeouts'
       }
     end
@@ -89,10 +113,16 @@ module DatadogAPIClient::V2
         :'packets_sent_by_server' => :'Integer',
         :'rtt_micro_seconds' => :'Integer',
         :'tcp_closed_connections' => :'Integer',
+        :'tcp_delivered_ce' => :'Integer',
         :'tcp_established_connections' => :'Integer',
+        :'tcp_probe0_count' => :'Integer',
+        :'tcp_rcv_ooo_pack' => :'Integer',
+        :'tcp_recovery_count' => :'Integer',
         :'tcp_refusals' => :'Integer',
+        :'tcp_reord_seen' => :'Integer',
         :'tcp_resets' => :'Integer',
         :'tcp_retransmits' => :'Integer',
+        :'tcp_rto_count' => :'Integer',
         :'tcp_timeouts' => :'Integer'
       }
     end
@@ -143,12 +173,32 @@ module DatadogAPIClient::V2
         self.tcp_closed_connections = attributes[:'tcp_closed_connections']
       end
 
+      if attributes.key?(:'tcp_delivered_ce')
+        self.tcp_delivered_ce = attributes[:'tcp_delivered_ce']
+      end
+
       if attributes.key?(:'tcp_established_connections')
         self.tcp_established_connections = attributes[:'tcp_established_connections']
       end
 
+      if attributes.key?(:'tcp_probe0_count')
+        self.tcp_probe0_count = attributes[:'tcp_probe0_count']
+      end
+
+      if attributes.key?(:'tcp_rcv_ooo_pack')
+        self.tcp_rcv_ooo_pack = attributes[:'tcp_rcv_ooo_pack']
+      end
+
+      if attributes.key?(:'tcp_recovery_count')
+        self.tcp_recovery_count = attributes[:'tcp_recovery_count']
+      end
+
       if attributes.key?(:'tcp_refusals')
         self.tcp_refusals = attributes[:'tcp_refusals']
+      end
+
+      if attributes.key?(:'tcp_reord_seen')
+        self.tcp_reord_seen = attributes[:'tcp_reord_seen']
       end
 
       if attributes.key?(:'tcp_resets')
@@ -157,6 +207,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'tcp_retransmits')
         self.tcp_retransmits = attributes[:'tcp_retransmits']
+      end
+
+      if attributes.key?(:'tcp_rto_count')
+        self.tcp_rto_count = attributes[:'tcp_rto_count']
       end
 
       if attributes.key?(:'tcp_timeouts')
@@ -197,10 +251,16 @@ module DatadogAPIClient::V2
           packets_sent_by_server == o.packets_sent_by_server &&
           rtt_micro_seconds == o.rtt_micro_seconds &&
           tcp_closed_connections == o.tcp_closed_connections &&
+          tcp_delivered_ce == o.tcp_delivered_ce &&
           tcp_established_connections == o.tcp_established_connections &&
+          tcp_probe0_count == o.tcp_probe0_count &&
+          tcp_rcv_ooo_pack == o.tcp_rcv_ooo_pack &&
+          tcp_recovery_count == o.tcp_recovery_count &&
           tcp_refusals == o.tcp_refusals &&
+          tcp_reord_seen == o.tcp_reord_seen &&
           tcp_resets == o.tcp_resets &&
           tcp_retransmits == o.tcp_retransmits &&
+          tcp_rto_count == o.tcp_rto_count &&
           tcp_timeouts == o.tcp_timeouts &&
           additional_properties == o.additional_properties
     end
@@ -209,7 +269,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bytes_sent_by_client, bytes_sent_by_server, group_bys, packets_sent_by_client, packets_sent_by_server, rtt_micro_seconds, tcp_closed_connections, tcp_established_connections, tcp_refusals, tcp_resets, tcp_retransmits, tcp_timeouts, additional_properties].hash
+      [bytes_sent_by_client, bytes_sent_by_server, group_bys, packets_sent_by_client, packets_sent_by_server, rtt_micro_seconds, tcp_closed_connections, tcp_delivered_ce, tcp_established_connections, tcp_probe0_count, tcp_rcv_ooo_pack, tcp_recovery_count, tcp_refusals, tcp_reord_seen, tcp_resets, tcp_retransmits, tcp_rto_count, tcp_timeouts, additional_properties].hash
     end
   end
 end
