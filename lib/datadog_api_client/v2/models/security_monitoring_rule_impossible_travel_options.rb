@@ -25,13 +25,17 @@ module DatadogAPIClient::V2
     # access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
     attr_accessor :baseline_user_locations
 
+    # The duration in days during which Datadog learns the user's regular access locations. After this period, signals are generated for accesses from unknown locations.
+    attr_reader :baseline_user_locations_duration
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'baseline_user_locations' => :'baselineUserLocations'
+        :'baseline_user_locations' => :'baselineUserLocations',
+        :'baseline_user_locations_duration' => :'baselineUserLocationsDuration'
       }
     end
 
@@ -39,8 +43,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'baseline_user_locations' => :'Boolean'
+        :'baseline_user_locations' => :'Boolean',
+        :'baseline_user_locations_duration' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'baseline_user_locations_duration',
+      ])
     end
 
     # Initializes the object
@@ -64,6 +77,32 @@ module DatadogAPIClient::V2
       if attributes.key?(:'baseline_user_locations')
         self.baseline_user_locations = attributes[:'baseline_user_locations']
       end
+
+      if attributes.key?(:'baseline_user_locations_duration')
+        self.baseline_user_locations_duration = attributes[:'baseline_user_locations_duration']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@baseline_user_locations_duration.nil? && @baseline_user_locations_duration > 30
+      return false if !@baseline_user_locations_duration.nil? && @baseline_user_locations_duration < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param baseline_user_locations_duration [Object] Object to be assigned
+    # @!visibility private
+    def baseline_user_locations_duration=(baseline_user_locations_duration)
+      if !baseline_user_locations_duration.nil? && baseline_user_locations_duration > 30
+        fail ArgumentError, 'invalid value for "baseline_user_locations_duration", must be smaller than or equal to 30.'
+      end
+      if !baseline_user_locations_duration.nil? && baseline_user_locations_duration < 1
+        fail ArgumentError, 'invalid value for "baseline_user_locations_duration", must be greater than or equal to 1.'
+      end
+      @baseline_user_locations_duration = baseline_user_locations_duration
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -93,6 +132,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           baseline_user_locations == o.baseline_user_locations &&
+          baseline_user_locations_duration == o.baseline_user_locations_duration &&
           additional_properties == o.additional_properties
     end
 
@@ -100,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [baseline_user_locations, additional_properties].hash
+      [baseline_user_locations, baseline_user_locations_duration, additional_properties].hash
     end
   end
 end
