@@ -1435,6 +1435,19 @@ ScenariosModelMappings = {
             "limit" => "Integer",
             "page" => "Integer",
     },
+    "v2.GetBlueprint" => {
+            "blueprint_id" => "UUID",
+    },
+    "v2.ListBlueprints" => {
+            "limit" => "Integer",
+            "page" => "Integer",
+    },
+    "v2.GetBlueprintsByIntegrationId" => {
+            "integration_id" => "String",
+    },
+    "v2.GetBlueprintsBySlugs" => {
+            "slugs" => "String",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",

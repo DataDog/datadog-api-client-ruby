@@ -361,6 +361,201 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get Blueprint.
+    #
+    # @see #get_blueprint_with_http_info
+    def get_blueprint(blueprint_id, opts = {})
+      data, _status_code, _headers = get_blueprint_with_http_info(blueprint_id, opts)
+      data
+    end
+
+    # Get Blueprint.
+    #
+    # Retrieve an app blueprint by its ID.
+    #
+    # @param blueprint_id [UUID] The ID of the blueprint to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetBlueprintResponse, Integer, Hash)>] GetBlueprintResponse data, response status code and response headers
+    def get_blueprint_with_http_info(blueprint_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.get_blueprint ...'
+      end
+      # verify the required parameter 'blueprint_id' is set
+      if @api_client.config.client_side_validation && blueprint_id.nil?
+        fail ArgumentError, "Missing the required parameter 'blueprint_id' when calling AppBuilderAPI.get_blueprint"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/blueprint/{blueprint_id}'.sub('{blueprint_id}', CGI.escape(blueprint_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetBlueprintResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_blueprint,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#get_blueprint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Blueprints by Integration ID.
+    #
+    # @see #get_blueprints_by_integration_id_with_http_info
+    def get_blueprints_by_integration_id(integration_id, opts = {})
+      data, _status_code, _headers = get_blueprints_by_integration_id_with_http_info(integration_id, opts)
+      data
+    end
+
+    # Get Blueprints by Integration ID.
+    #
+    # List app blueprints associated with a specific integration ID.
+    #
+    # @param integration_id [String] The integration ID to filter blueprints by.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetBlueprintsResponse, Integer, Hash)>] GetBlueprintsResponse data, response status code and response headers
+    def get_blueprints_by_integration_id_with_http_info(integration_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.get_blueprints_by_integration_id ...'
+      end
+      # verify the required parameter 'integration_id' is set
+      if @api_client.config.client_side_validation && integration_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_id' when calling AppBuilderAPI.get_blueprints_by_integration_id"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/blueprints/integration-id/{integration_id}'.sub('{integration_id}', CGI.escape(integration_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetBlueprintsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_blueprints_by_integration_id,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#get_blueprints_by_integration_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Blueprints by Slugs.
+    #
+    # @see #get_blueprints_by_slugs_with_http_info
+    def get_blueprints_by_slugs(slugs, opts = {})
+      data, _status_code, _headers = get_blueprints_by_slugs_with_http_info(slugs, opts)
+      data
+    end
+
+    # Get Blueprints by Slugs.
+    #
+    # Retrieve app blueprints by their slugs.
+    #
+    # @param slugs [String] A comma-separated list of blueprint slugs.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetBlueprintsResponse, Integer, Hash)>] GetBlueprintsResponse data, response status code and response headers
+    def get_blueprints_by_slugs_with_http_info(slugs, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.get_blueprints_by_slugs ...'
+      end
+      # verify the required parameter 'slugs' is set
+      if @api_client.config.client_side_validation && slugs.nil?
+        fail ArgumentError, "Missing the required parameter 'slugs' when calling AppBuilderAPI.get_blueprints_by_slugs"
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/blueprints/slugs/{slugs}'.sub('{slugs}', CGI.escape(slugs.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetBlueprintsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_blueprints_by_slugs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#get_blueprints_by_slugs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Apps.
     #
     # @see #list_apps_with_http_info
@@ -508,6 +703,130 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AppBuilderAPI#list_app_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Blueprints.
+    #
+    # @see #list_blueprints_with_http_info
+    def list_blueprints(opts = {})
+      data, _status_code, _headers = list_blueprints_with_http_info(opts)
+      data
+    end
+
+    # List Blueprints.
+    #
+    # List available app blueprints.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit The number of blueprints to return per page. Defaults to 10. Maximum is 100.
+    # @option opts [Integer] :page The page of results to return. Starts at 0.
+    # @return [Array<(ListBlueprintsResponse, Integer, Hash)>] ListBlueprintsResponse data, response status code and response headers
+    def list_blueprints_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.list_blueprints ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/blueprints'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListBlueprintsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_blueprints,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#list_blueprints\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Tags.
+    #
+    # @see #list_tags_with_http_info
+    def list_tags(opts = {})
+      data, _status_code, _headers = list_tags_with_http_info(opts)
+      data
+    end
+
+    # List Tags.
+    #
+    # List all tags associated with the authenticated user's apps.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AppBuilderListTagsResponse, Integer, Hash)>] AppBuilderListTagsResponse data, response status code and response headers
+    def list_tags_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AppBuilderAPI.list_tags ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/app-builder/tags'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AppBuilderListTagsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_tags,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AppBuilderAPI#list_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
