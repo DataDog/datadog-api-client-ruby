@@ -50,6 +50,11 @@ module DatadogAPIClient::V2
     # Name of the environment variable or secret that holds the username (used when `auth_strategy` is `plain`).
     attr_accessor :username_key
 
+    # A list of tokens that are accepted for authenticating incoming HTTP requests. When set,
+    # the source rejects any request whose token does not match an enabled entry in this list.
+    # Cannot be combined with the `plain` auth strategy.
+    attr_reader :valid_tokens
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -64,7 +69,8 @@ module DatadogAPIClient::V2
         :'password_key' => :'password_key',
         :'tls' => :'tls',
         :'type' => :'type',
-        :'username_key' => :'username_key'
+        :'username_key' => :'username_key',
+        :'valid_tokens' => :'valid_tokens'
       }
     end
 
@@ -80,7 +86,8 @@ module DatadogAPIClient::V2
         :'password_key' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
         :'type' => :'ObservabilityPipelineHttpServerSourceType',
-        :'username_key' => :'String'
+        :'username_key' => :'String',
+        :'valid_tokens' => :'Array<ObservabilityPipelineHttpServerSourceValidToken>'
       }
     end
 
@@ -137,6 +144,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'username_key')
         self.username_key = attributes[:'username_key']
       end
+
+      if attributes.key?(:'valid_tokens')
+        if (value = attributes[:'valid_tokens']).is_a?(Array)
+          self.valid_tokens = value
+        end
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -147,6 +160,8 @@ module DatadogAPIClient::V2
       return false if @decoding.nil?
       return false if @id.nil?
       return false if @type.nil?
+      return false if !@valid_tokens.nil? && @valid_tokens.length > 1000
+      return false if !@valid_tokens.nil? && @valid_tokens.length < 1
       true
     end
 
@@ -190,6 +205,19 @@ module DatadogAPIClient::V2
       @type = type
     end
 
+    # Custom attribute writer method with validation
+    # @param valid_tokens [Object] Object to be assigned
+    # @!visibility private
+    def valid_tokens=(valid_tokens)
+      if !valid_tokens.nil? && valid_tokens.length > 1000
+        fail ArgumentError, 'invalid value for "valid_tokens", number of items must be less than or equal to 1000.'
+      end
+      if !valid_tokens.nil? && valid_tokens.length < 1
+        fail ArgumentError, 'invalid value for "valid_tokens", number of items must be greater than or equal to 1.'
+      end
+      @valid_tokens = valid_tokens
+    end
+
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -225,6 +253,7 @@ module DatadogAPIClient::V2
           tls == o.tls &&
           type == o.type &&
           username_key == o.username_key &&
+          valid_tokens == o.valid_tokens &&
           additional_properties == o.additional_properties
     end
 
@@ -232,7 +261,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, auth_strategy, custom_key, decoding, id, password_key, tls, type, username_key, additional_properties].hash
+      [address_key, auth_strategy, custom_key, decoding, id, password_key, tls, type, username_key, valid_tokens, additional_properties].hash
     end
   end
 end
