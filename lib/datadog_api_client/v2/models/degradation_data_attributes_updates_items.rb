@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Identifier of the update.
     attr_accessor :id
 
+    # UUID of the user who last modified the resource.
+    attr_accessor :last_modified_by_user_uuid
+
     # Timestamp of when the update was last modified.
     attr_accessor :modified_at
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'description' => :'description',
         :'id' => :'id',
+        :'last_modified_by_user_uuid' => :'last_modified_by_user_uuid',
         :'modified_at' => :'modified_at',
         :'started_at' => :'started_at',
         :'status' => :'status'
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'description' => :'String',
         :'id' => :'UUID',
+        :'last_modified_by_user_uuid' => :'String',
         :'modified_at' => :'Time',
         :'started_at' => :'Time',
         :'status' => :'CreateDegradationRequestDataAttributesStatus'
@@ -106,6 +111,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'last_modified_by_user_uuid')
+        self.last_modified_by_user_uuid = attributes[:'last_modified_by_user_uuid']
       end
 
       if attributes.key?(:'modified_at')
@@ -151,6 +160,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           description == o.description &&
           id == o.id &&
+          last_modified_by_user_uuid == o.last_modified_by_user_uuid &&
           modified_at == o.modified_at &&
           started_at == o.started_at &&
           status == o.status &&
@@ -161,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components_affected, created_at, description, id, modified_at, started_at, status, additional_properties].hash
+      [components_affected, created_at, description, id, last_modified_by_user_uuid, modified_at, started_at, status, additional_properties].hash
     end
   end
 end
