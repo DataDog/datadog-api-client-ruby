@@ -2478,6 +2478,11 @@ ScenariosModelMappings = {
             "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
     },
+    "v2.SearchCostRecommendations" => {
+            "page_size" => "String",
+            "page_token" => "String",
+            "body" => "RecommendationsFilterRequest",
+    },
     "v2.ListCostTagDescriptions" => {
             "filter_cloud" => "String",
     },
