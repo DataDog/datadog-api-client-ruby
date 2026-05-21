@@ -39,6 +39,10 @@ module DatadogAPIClient::V2
     # The source type. Always `splunk_hec`.
     attr_reader :type
 
+    # A list of tokens that are accepted for authenticating incoming HEC requests. When set, the source
+    # rejects any request whose HEC token does not match an enabled entry in this list.
+    attr_reader :valid_tokens
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -49,7 +53,8 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'store_hec_token' => :'store_hec_token',
         :'tls' => :'tls',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'valid_tokens' => :'valid_tokens'
       }
     end
 
@@ -61,7 +66,8 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'store_hec_token' => :'Boolean',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineSplunkHecSourceType'
+        :'type' => :'ObservabilityPipelineSplunkHecSourceType',
+        :'valid_tokens' => :'Array<ObservabilityPipelineSplunkHecSourceValidToken>'
       }
     end
 
@@ -102,6 +108,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
+      if attributes.key?(:'valid_tokens')
+        if (value = attributes[:'valid_tokens']).is_a?(Array)
+          self.valid_tokens = value
+        end
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -110,6 +122,8 @@ module DatadogAPIClient::V2
     def valid?
       return false if @id.nil?
       return false if @type.nil?
+      return false if !@valid_tokens.nil? && @valid_tokens.length > 1000
+      return false if !@valid_tokens.nil? && @valid_tokens.length < 1
       true
     end
 
@@ -131,6 +145,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param valid_tokens [Object] Object to be assigned
+    # @!visibility private
+    def valid_tokens=(valid_tokens)
+      if !valid_tokens.nil? && valid_tokens.length > 1000
+        fail ArgumentError, 'invalid value for "valid_tokens", number of items must be less than or equal to 1000.'
+      end
+      if !valid_tokens.nil? && valid_tokens.length < 1
+        fail ArgumentError, 'invalid value for "valid_tokens", number of items must be greater than or equal to 1.'
+      end
+      @valid_tokens = valid_tokens
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -164,6 +191,7 @@ module DatadogAPIClient::V2
           store_hec_token == o.store_hec_token &&
           tls == o.tls &&
           type == o.type &&
+          valid_tokens == o.valid_tokens &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, id, store_hec_token, tls, type, additional_properties].hash
+      [address_key, id, store_hec_token, tls, type, valid_tokens, additional_properties].hash
     end
   end
 end
