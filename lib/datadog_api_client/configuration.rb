@@ -352,6 +352,7 @@ module DatadogAPIClient
             "v2.list_cost_tag_metadata": false,
             "v2.list_cost_tag_metadata_metrics": false,
             "v2.list_cost_tag_metadata_orchestrators": false,
+            "v2.search_cost_recommendations": false,
             "v2.create_dashboard_secure_embed": false,
             "v2.delete_dashboard_secure_embed": false,
             "v2.get_dashboard_secure_embed": false,
