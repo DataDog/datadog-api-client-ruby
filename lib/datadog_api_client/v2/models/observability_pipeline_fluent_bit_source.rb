@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
     attr_accessor :tls
 
     # The source type. The value should always be `fluent_bit`.
@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
       {
         :'address_key' => :'String',
         :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTls',
         :'type' => :'ObservabilityPipelineFluentBitSourceType'
       }
     end

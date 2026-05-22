@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     # Protocol used to receive logs.
     attr_reader :mode
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
     attr_accessor :tls
 
     # The source type. The value should always be `socket`.
@@ -64,7 +64,7 @@ module DatadogAPIClient::V2
         :'framing' => :'ObservabilityPipelineSocketSourceFraming',
         :'id' => :'String',
         :'mode' => :'ObservabilityPipelineSocketSourceMode',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTls',
         :'type' => :'ObservabilityPipelineSocketSourceType'
       }
     end

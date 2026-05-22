@@ -4484,6 +4484,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_metric_tags_processor_rule_mode" => "ObservabilityPipelineMetricTagsProcessorRuleMode",
           "v2.observability_pipeline_metric_tags_processor_type" => "ObservabilityPipelineMetricTagsProcessorType",
           "v2.observability_pipeline_metric_value" => "ObservabilityPipelineMetricValue",
+          "v2.observability_pipeline_mtls_server_tls" => "ObservabilityPipelineMtlsServerTls",
           "v2.observability_pipeline_new_relic_destination" => "ObservabilityPipelineNewRelicDestination",
           "v2.observability_pipeline_new_relic_destination_region" => "ObservabilityPipelineNewRelicDestinationRegion",
           "v2.observability_pipeline_new_relic_destination_type" => "ObservabilityPipelineNewRelicDestinationType",

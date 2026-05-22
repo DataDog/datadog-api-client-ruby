@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # This allows downstream components to forward the token to other Splunk HEC destinations.
     attr_accessor :store_hec_token
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
     attr_accessor :tls
 
     # The source type. Always `splunk_hec`.
@@ -65,7 +65,7 @@ module DatadogAPIClient::V2
         :'address_key' => :'String',
         :'id' => :'String',
         :'store_hec_token' => :'Boolean',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTls',
         :'type' => :'ObservabilityPipelineSplunkHecSourceType',
         :'valid_tokens' => :'Array<ObservabilityPipelineSplunkHecSourceValidToken>'
       }
