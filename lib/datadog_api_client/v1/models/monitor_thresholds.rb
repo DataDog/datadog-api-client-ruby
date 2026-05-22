@@ -24,8 +24,14 @@ module DatadogAPIClient::V1
     # The monitor `CRITICAL` threshold.
     attr_accessor :critical
 
+    # Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and options['variables']. Cannot be combined with static thresholds. This field is in preview.
+    attr_accessor :critical_query
+
     # The monitor `CRITICAL` recovery threshold.
     attr_accessor :critical_recovery
+
+    # Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and options['variables']. Cannot be combined with static thresholds. This field is in preview.
+    attr_accessor :critical_recovery_query
 
     # The monitor `OK` threshold.
     attr_accessor :ok
@@ -46,7 +52,9 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'critical' => :'critical',
+        :'critical_query' => :'critical_query',
         :'critical_recovery' => :'critical_recovery',
+        :'critical_recovery_query' => :'critical_recovery_query',
         :'ok' => :'ok',
         :'unknown' => :'unknown',
         :'warning' => :'warning',
@@ -59,7 +67,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'critical' => :'Float',
+        :'critical_query' => :'String',
         :'critical_recovery' => :'Float',
+        :'critical_recovery_query' => :'String',
         :'ok' => :'Float',
         :'unknown' => :'Float',
         :'warning' => :'Float',
@@ -101,8 +111,16 @@ module DatadogAPIClient::V1
         self.critical = attributes[:'critical']
       end
 
+      if attributes.key?(:'critical_query')
+        self.critical_query = attributes[:'critical_query']
+      end
+
       if attributes.key?(:'critical_recovery')
         self.critical_recovery = attributes[:'critical_recovery']
+      end
+
+      if attributes.key?(:'critical_recovery_query')
+        self.critical_recovery_query = attributes[:'critical_recovery_query']
       end
 
       if attributes.key?(:'ok')
@@ -149,7 +167,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           critical == o.critical &&
+          critical_query == o.critical_query &&
           critical_recovery == o.critical_recovery &&
+          critical_recovery_query == o.critical_recovery_query &&
           ok == o.ok &&
           unknown == o.unknown &&
           warning == o.warning &&
@@ -161,7 +181,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [critical, critical_recovery, ok, unknown, warning, warning_recovery, additional_properties].hash
+      [critical, critical_query, critical_recovery, critical_recovery_query, ok, unknown, warning, warning_recovery, additional_properties].hash
     end
   end
 end
