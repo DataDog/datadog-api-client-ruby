@@ -237,6 +237,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Bulk subscribe to sample log generation.
+    #
+    # @see #bulk_create_sample_log_generation_subscriptions_with_http_info
+    def bulk_create_sample_log_generation_subscriptions(body, opts = {})
+      data, _status_code, _headers = bulk_create_sample_log_generation_subscriptions_with_http_info(body, opts)
+      data
+    end
+
+    # Bulk subscribe to sample log generation.
+    #
+    # Subscribe to sample log generation for multiple Cloud SIEM content packs in a single call.
+    # Each requested content pack is processed independently; the response includes a per-item
+    # status so partial successes can be inspected.
+    #
+    # **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an
+    # eligible pricing model. Non-trial orgs receive `403 Forbidden`, the feature flag may also reject
+    # requests with `400 Bad Request`, and legacy pricing tiers receive per-item responses with `status: not_available`.
+    #
+    # @param body [SampleLogGenerationBulkSubscriptionRequest] The content packs to subscribe to and the desired duration of the subscriptions.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SampleLogGenerationBulkSubscriptionResponse, Integer, Hash)>] SampleLogGenerationBulkSubscriptionResponse data, response status code and response headers
+    def bulk_create_sample_log_generation_subscriptions_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.bulk_create_sample_log_generation_subscriptions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.bulk_create_sample_log_generation_subscriptions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.bulk_create_sample_log_generation_subscriptions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_create_sample_log_generation_subscriptions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.bulk_create_sample_log_generation_subscriptions"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/sample_log_generation/subscriptions/bulk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SampleLogGenerationBulkSubscriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_create_sample_log_generation_subscriptions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#bulk_create_sample_log_generation_subscriptions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk delete security monitoring rules.
     #
     # @see #bulk_delete_security_monitoring_rules_with_http_info
@@ -1239,6 +1318,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Subscribe to sample log generation.
+    #
+    # @see #create_sample_log_generation_subscription_with_http_info
+    def create_sample_log_generation_subscription(body, opts = {})
+      data, _status_code, _headers = create_sample_log_generation_subscription_with_http_info(body, opts)
+      data
+    end
+
+    # Subscribe to sample log generation.
+    #
+    # Subscribe to sample log generation for a Cloud SIEM content pack. Sample logs for the
+    # requested content pack are injected into the Logs platform for the duration of the subscription,
+    # so detection rules can be exercised without onboarding the underlying integration first.
+    #
+    # **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an
+    # eligible pricing model. Non-trial orgs receive `403 Forbidden`, the feature flag may also reject
+    # requests with `400 Bad Request`, and legacy pricing tiers receive a response with `status: not_available`.
+    #
+    # @param body [SampleLogGenerationSubscriptionCreateRequest] The content pack to subscribe to and the desired duration of the subscription.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SampleLogGenerationSubscriptionResponse, Integer, Hash)>] SampleLogGenerationSubscriptionResponse data, response status code and response headers
+    def create_sample_log_generation_subscription_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_sample_log_generation_subscription".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_sample_log_generation_subscription")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_sample_log_generation_subscription"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_sample_log_generation_subscription ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_sample_log_generation_subscription"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/sample_log_generation/subscriptions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SampleLogGenerationSubscriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_sample_log_generation_subscription,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_sample_log_generation_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a security filter.
     #
     # @see #create_security_filter_with_http_info
@@ -1372,6 +1530,81 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create an entity context sync configuration.
+    #
+    # @see #create_security_monitoring_integration_config_with_http_info
+    def create_security_monitoring_integration_config(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_integration_config_with_http_info(body, opts)
+      data
+    end
+
+    # Create an entity context sync configuration.
+    #
+    # Create a new entity context sync configuration so Cloud SIEM can ingest entities from an external
+    # source. The credentials provided in `secrets` are validated against the source before the configuration
+    # is stored and never returned in subsequent responses.
+    #
+    # @param body [SecurityMonitoringIntegrationConfigCreateRequest] The definition of the new integration configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringIntegrationConfigResponse, Integer, Hash)>] SecurityMonitoringIntegrationConfigResponse data, response status code and response headers
+    def create_security_monitoring_integration_config_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_monitoring_integration_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_monitoring_integration_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_monitoring_integration_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_integration_config ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_integration_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringIntegrationConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_integration_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_integration_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1857,6 +2090,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Unsubscribe from sample log generation.
+    #
+    # @see #delete_sample_log_generation_subscription_with_http_info
+    def delete_sample_log_generation_subscription(content_pack_id, opts = {})
+      data, _status_code, _headers = delete_sample_log_generation_subscription_with_http_info(content_pack_id, opts)
+      data
+    end
+
+    # Unsubscribe from sample log generation.
+    #
+    # Unsubscribe from sample log generation for a Cloud SIEM content pack.
+    # After unsubscribing, no more sample logs are generated for the requested content pack.
+    #
+    # **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an
+    # eligible pricing model. Non-trial orgs receive `403 Forbidden`, the feature flag may also reject
+    # requests with `400 Bad Request`, and legacy pricing tiers receive a response with `status: not_available`.
+    #
+    # @param content_pack_id [String] The identifier of the Cloud SIEM content pack to operate on (for example, `aws-cloudtrail`).
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SampleLogGenerationSubscriptionResponse, Integer, Hash)>] SampleLogGenerationSubscriptionResponse data, response status code and response headers
+    def delete_sample_log_generation_subscription_with_http_info(content_pack_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_sample_log_generation_subscription".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_sample_log_generation_subscription")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_sample_log_generation_subscription"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_sample_log_generation_subscription ...'
+      end
+      # verify the required parameter 'content_pack_id' is set
+      if @api_client.config.client_side_validation && content_pack_id.nil?
+        fail ArgumentError, "Missing the required parameter 'content_pack_id' when calling SecurityMonitoringAPI.delete_sample_log_generation_subscription"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/sample_log_generation/subscriptions/{content_pack_id}'.sub('{content_pack_id}', CGI.escape(content_pack_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SampleLogGenerationSubscriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_sample_log_generation_subscription,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_sample_log_generation_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a security filter.
     #
     # @see #delete_security_filter_with_http_info
@@ -1983,6 +2292,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an entity context sync configuration.
+    #
+    # @see #delete_security_monitoring_integration_config_with_http_info
+    def delete_security_monitoring_integration_config(integration_config_id, opts = {})
+      delete_security_monitoring_integration_config_with_http_info(integration_config_id, opts)
+      nil
+    end
+
+    # Delete an entity context sync configuration.
+    #
+    # Delete an entity context sync configuration. Cloud SIEM stops ingesting entities from this source,
+    # and the credentials stored for the configuration are removed from the secrets store.
+    #
+    # @param integration_config_id [String] The ID of the entity context sync configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_integration_config_with_http_info(integration_config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_security_monitoring_integration_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_security_monitoring_integration_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_security_monitoring_integration_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_integration_config ...'
+      end
+      # verify the required parameter 'integration_config_id' is set
+      if @api_client.config.client_side_validation && integration_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_config_id' when calling SecurityMonitoringAPI.delete_security_monitoring_integration_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}'.sub('{integration_config_id}', CGI.escape(integration_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_integration_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_integration_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2888,6 +3269,87 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get entity context.
+    #
+    # @see #get_entity_context_with_http_info
+    def get_entity_context(opts = {})
+      data, _status_code, _headers = get_entity_context_with_http_info(opts)
+      data
+    end
+
+    # Get entity context.
+    #
+    # Search the Cloud SIEM entity context store for entities that match a query, and return the historical
+    # revisions of each entity in the requested time range. The endpoint can either return revisions across an
+    # interval (`from` / `to`) or the snapshot of each entity at a single point in time (`as_of`); the two modes
+    # are mutually exclusive.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query A free-text query (for example, an email address or principal ID) used to filter the entities returned.
+    # @option opts [String] :from The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`). Defaults to `now-7d`. Ignored when `as_of` is set.
+    # @option opts [String] :to The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`). Defaults to `now`. Ignored when `as_of` is set.
+    # @option opts [String] :as_of A point in time at which to query the entity revisions, as an RFC3339 timestamp, a Unix timestamp (in seconds), or a relative time (for example, `now-1d`). When set, `from` and `to` are ignored. Cannot be combined with custom `from` / `to` values.
+    # @option opts [Integer] :limit The maximum number of entities to return.
+    # @option opts [String] :page_token An opaque token used to fetch the next page of results, as returned in `meta.page.next_token` of a previous response.
+    # @return [Array<(EntityContextResponse, Integer, Hash)>] EntityContextResponse data, response status code and response headers
+    def get_entity_context_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_entity_context".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_entity_context")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_entity_context"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_entity_context ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/entity_context'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'from'] = opts[:'from'] if !opts[:'from'].nil?
+      query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
+      query_params[:'as_of'] = opts[:'as_of'] if !opts[:'as_of'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'page_token'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EntityContextResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_entity_context,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_entity_context\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a finding.
     #
     # @see #get_finding_with_http_info
@@ -3757,6 +4219,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an entity context sync configuration.
+    #
+    # @see #get_security_monitoring_integration_config_with_http_info
+    def get_security_monitoring_integration_config(integration_config_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_integration_config_with_http_info(integration_config_id, opts)
+      data
+    end
+
+    # Get an entity context sync configuration.
+    #
+    # Get the details of a specific entity context sync configuration.
+    #
+    # @param integration_config_id [String] The ID of the entity context sync configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringIntegrationConfigResponse, Integer, Hash)>] SecurityMonitoringIntegrationConfigResponse data, response status code and response headers
+    def get_security_monitoring_integration_config_with_http_info(integration_config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_integration_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_integration_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_integration_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_integration_config ...'
+      end
+      # verify the required parameter 'integration_config_id' is set
+      if @api_client.config.client_side_validation && integration_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_config_id' when calling SecurityMonitoringAPI.get_security_monitoring_integration_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}'.sub('{integration_config_id}', CGI.escape(integration_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringIntegrationConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_integration_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_integration_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a rule's details.
     #
     # @see #get_security_monitoring_rule_with_http_info
@@ -3948,6 +4481,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get entities related to a signal.
+    #
+    # @see #get_signal_entities_with_http_info
+    def get_signal_entities(signal_id, opts = {})
+      data, _status_code, _headers = get_signal_entities_with_http_info(signal_id, opts)
+      data
+    end
+
+    # Get entities related to a signal.
+    #
+    # Get the list of entities related to a security signal, captured at the signal's timestamp.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit The maximum number of entities to return.
+    # @return [Array<(SignalEntitiesResponse, Integer, Hash)>] SignalEntitiesResponse data, response status code and response headers
+    def get_signal_entities_with_http_info(signal_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_signal_entities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_signal_entities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_signal_entities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_signal_entities ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.get_signal_entities"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SecurityMonitoringAPI.get_signal_entities, must be smaller than or equal to 1000.'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/entities'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SignalEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_signal_entities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_signal_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4974,6 +5583,88 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get sample log generation subscriptions.
+    #
+    # @see #list_sample_log_generation_subscriptions_with_http_info
+    def list_sample_log_generation_subscriptions(opts = {})
+      data, _status_code, _headers = list_sample_log_generation_subscriptions_with_http_info(opts)
+      data
+    end
+
+    # Get sample log generation subscriptions.
+    #
+    # Get the sample log generation subscriptions for the organization.
+    # Sample log generation injects representative example logs for a given Cloud SIEM content pack into the Logs platform,
+    # which can be used to test detection rules without onboarding the underlying integration first.
+    #
+    # **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an eligible
+    # pricing model. Other organizations receive a `403 Forbidden` (non-trial orgs) or a `400 Bad Request`
+    # (feature disabled), and legacy pricing tiers receive a response with `status: not_available`.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [SampleLogGenerationSubscriptionsStatusFilter] :status Filter the subscriptions by status. Use `active` to return only currently active subscriptions, or `all` to return every subscription including expired ones. Ignored when `start_timestamp` is provided. Defaults to `active`.
+    # @option opts [Time] :start_timestamp The start of the time range, as an RFC3339 timestamp. When provided, the response includes every subscription that was active at any point in `[start_timestamp, end_timestamp]`, and the `status` filter is ignored.
+    # @option opts [Time] :end_timestamp The end of the time range, as an RFC3339 timestamp. Ignored unless `start_timestamp` is set. Defaults to the current time when `start_timestamp` is provided.
+    # @return [Array<(SampleLogGenerationSubscriptionsResponse, Integer, Hash)>] SampleLogGenerationSubscriptionsResponse data, response status code and response headers
+    def list_sample_log_generation_subscriptions_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_sample_log_generation_subscriptions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_sample_log_generation_subscriptions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_sample_log_generation_subscriptions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_sample_log_generation_subscriptions ...'
+      end
+      allowable_values = ['active', 'all']
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/sample_log_generation/subscriptions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'start_timestamp'] = opts[:'start_timestamp'] if !opts[:'start_timestamp'].nil?
+      query_params[:'end_timestamp'] = opts[:'end_timestamp'] if !opts[:'end_timestamp'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SampleLogGenerationSubscriptionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_sample_log_generation_subscriptions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_sample_log_generation_subscriptions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List scanned assets metadata.
     #
     # @see #list_scanned_assets_metadata_with_http_info
@@ -5158,6 +5849,68 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the version history of security filters.
+    #
+    # @see #list_security_filter_versions_with_http_info
+    def list_security_filter_versions(opts = {})
+      data, _status_code, _headers = list_security_filter_versions_with_http_info(opts)
+      data
+    end
+
+    # Get the version history of security filters.
+    #
+    # Get the configured security filters at each historical version of the configuration.
+    # Each entry in the response represents the set of all security filters at a given version,
+    # ordered from the most recent version to the oldest.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityFilterVersionsResponse, Integer, Hash)>] SecurityFilterVersionsResponse data, response status code and response headers
+    def list_security_filter_versions_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_filter_versions ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/versions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityFilterVersionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_filter_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_filter_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5408,6 +6161,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_histsignals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List entity context sync configurations.
+    #
+    # @see #list_security_monitoring_integration_configs_with_http_info
+    def list_security_monitoring_integration_configs(opts = {})
+      data, _status_code, _headers = list_security_monitoring_integration_configs_with_http_info(opts)
+      data
+    end
+
+    # List entity context sync configurations.
+    #
+    # List the entity context sync configurations for Cloud SIEM. Each configuration connects Cloud SIEM
+    # to an external source that provides entities (for example, users from an identity provider) for use
+    # in signals and the entity explorer.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [SecurityMonitoringIntegrationType] :filter_integration_type Filter the entity context sync configurations by source type.
+    # @return [Array<(SecurityMonitoringIntegrationConfigsResponse, Integer, Hash)>] SecurityMonitoringIntegrationConfigsResponse data, response status code and response headers
+    def list_security_monitoring_integration_configs_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_monitoring_integration_configs".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_monitoring_integration_configs")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_monitoring_integration_configs"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_integration_configs ...'
+      end
+      allowable_values = ['GOOGLE_WORKSPACE', 'OKTA', 'ENTRA_ID']
+      if @api_client.config.client_side_validation && opts[:'filter_integration_type'] && !allowable_values.include?(opts[:'filter_integration_type'])
+        fail ArgumentError, "invalid value for \"filter_integration_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[integration_type]'] = opts[:'filter_integration_type'] if !opts[:'filter_integration_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringIntegrationConfigsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_integration_configs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_integration_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -7116,6 +7943,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update an entity context sync configuration.
+    #
+    # @see #update_security_monitoring_integration_config_with_http_info
+    def update_security_monitoring_integration_config(integration_config_id, body, opts = {})
+      data, _status_code, _headers = update_security_monitoring_integration_config_with_http_info(integration_config_id, body, opts)
+      data
+    end
+
+    # Update an entity context sync configuration.
+    #
+    # Update an existing entity context sync configuration. Supports partial updates; only the fields provided in the request body are modified.
+    #
+    # @param integration_config_id [String] The ID of the entity context sync configuration.
+    # @param body [SecurityMonitoringIntegrationConfigUpdateRequest] The fields to update on the integration configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringIntegrationConfigResponse, Integer, Hash)>] SecurityMonitoringIntegrationConfigResponse data, response status code and response headers
+    def update_security_monitoring_integration_config_with_http_info(integration_config_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_monitoring_integration_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_monitoring_integration_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_monitoring_integration_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_integration_config ...'
+      end
+      # verify the required parameter 'integration_config_id' is set
+      if @api_client.config.client_side_validation && integration_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_config_id' when calling SecurityMonitoringAPI.update_security_monitoring_integration_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_integration_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}'.sub('{integration_config_id}', CGI.escape(integration_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringIntegrationConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_monitoring_integration_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_integration_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update an existing rule.
     #
     # @see #update_security_monitoring_rule_with_http_info
@@ -7259,6 +8164,152 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate an entity context sync configuration.
+    #
+    # @see #validate_security_monitoring_integration_config_with_http_info
+    def validate_security_monitoring_integration_config(integration_config_id, opts = {})
+      validate_security_monitoring_integration_config_with_http_info(integration_config_id, opts)
+      nil
+    end
+
+    # Validate an entity context sync configuration.
+    #
+    # Validate the credentials currently stored on an existing entity context sync configuration.
+    # Returns a 200 status code if the credentials are still valid against the external entity source.
+    #
+    # @param integration_config_id [String] The ID of the entity context sync configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def validate_security_monitoring_integration_config_with_http_info(integration_config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.validate_security_monitoring_integration_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_security_monitoring_integration_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_security_monitoring_integration_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.validate_security_monitoring_integration_config ...'
+      end
+      # verify the required parameter 'integration_config_id' is set
+      if @api_client.config.client_side_validation && integration_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_config_id' when calling SecurityMonitoringAPI.validate_security_monitoring_integration_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}/validate'.sub('{integration_config_id}', CGI.escape(integration_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :validate_security_monitoring_integration_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#validate_security_monitoring_integration_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate entity context sync credentials.
+    #
+    # @see #validate_security_monitoring_integration_credentials_with_http_info
+    def validate_security_monitoring_integration_credentials(body, opts = {})
+      validate_security_monitoring_integration_credentials_with_http_info(body, opts)
+      nil
+    end
+
+    # Validate entity context sync credentials.
+    #
+    # Validate a set of credentials against the external entity source before creating a sync configuration.
+    # Returns a 200 status code if the credentials are valid.
+    #
+    # @param body [SecurityMonitoringIntegrationCredentialsValidateRequest] The credentials to validate.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def validate_security_monitoring_integration_credentials_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.validate_security_monitoring_integration_credentials".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_security_monitoring_integration_credentials")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_security_monitoring_integration_credentials"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.validate_security_monitoring_integration_credentials ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.validate_security_monitoring_integration_credentials"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/validate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :validate_security_monitoring_integration_credentials,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#validate_security_monitoring_integration_credentials\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

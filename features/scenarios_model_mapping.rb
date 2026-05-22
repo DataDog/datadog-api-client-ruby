@@ -2098,6 +2098,28 @@ ScenariosModelMappings = {
             "critical_asset_id" => "String",
             "body" => "SecurityMonitoringCriticalAssetUpdateRequest",
     },
+    "v2.ListSecurityMonitoringIntegrationConfigs" => {
+            "filter_integration_type" => "SecurityMonitoringIntegrationType",
+    },
+    "v2.CreateSecurityMonitoringIntegrationConfig" => {
+            "body" => "SecurityMonitoringIntegrationConfigCreateRequest",
+    },
+    "v2.ValidateSecurityMonitoringIntegrationCredentials" => {
+            "body" => "SecurityMonitoringIntegrationCredentialsValidateRequest",
+    },
+    "v2.DeleteSecurityMonitoringIntegrationConfig" => {
+            "integration_config_id" => "String",
+    },
+    "v2.GetSecurityMonitoringIntegrationConfig" => {
+            "integration_config_id" => "String",
+    },
+    "v2.UpdateSecurityMonitoringIntegrationConfig" => {
+            "integration_config_id" => "String",
+            "body" => "SecurityMonitoringIntegrationConfigUpdateRequest",
+    },
+    "v2.ValidateSecurityMonitoringIntegrationConfig" => {
+            "integration_config_id" => "String",
+    },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
     },
@@ -2150,6 +2172,14 @@ ScenariosModelMappings = {
     "v2.DeactivateContentPack" => {
             "content_pack_id" => "String",
     },
+    "v2.GetEntityContext" => {
+            "query" => "String",
+            "from" => "String",
+            "to" => "String",
+            "as_of" => "String",
+            "limit" => "Integer",
+            "page_token" => "String",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -2196,6 +2226,20 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_number" => "Integer",
     },
+    "v2.ListSampleLogGenerationSubscriptions" => {
+            "status" => "SampleLogGenerationSubscriptionsStatusFilter",
+            "start_timestamp" => "Time",
+            "end_timestamp" => "Time",
+    },
+    "v2.CreateSampleLogGenerationSubscription" => {
+            "body" => "SampleLogGenerationSubscriptionCreateRequest",
+    },
+    "v2.BulkCreateSampleLogGenerationSubscriptions" => {
+            "body" => "SampleLogGenerationBulkSubscriptionRequest",
+    },
+    "v2.DeleteSampleLogGenerationSubscription" => {
+            "content_pack_id" => "String",
+    },
     "v2.ListSecurityMonitoringSignals" => {
             "filter_query" => "String",
             "filter_from" => "Time",
@@ -2222,6 +2266,10 @@ ScenariosModelMappings = {
     "v2.EditSecurityMonitoringSignalAssignee" => {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalAssigneeUpdateRequest",
+    },
+    "v2.GetSignalEntities" => {
+            "signal_id" => "String",
+            "limit" => "Integer",
     },
     "v2.EditSecurityMonitoringSignalIncidents" => {
             "signal_id" => "String",
