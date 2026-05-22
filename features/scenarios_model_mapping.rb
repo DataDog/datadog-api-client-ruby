@@ -4008,7 +4008,6 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "page_size" => "Integer",
             "sort" => "OrgGroupSortOption",
-            "include" => "Array<OrgGroupIncludeOption>",
     },
     "v2.CreateOrgGroup" => {
             "body" => "OrgGroupCreateRequest",
