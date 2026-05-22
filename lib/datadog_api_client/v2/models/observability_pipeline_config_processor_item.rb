@@ -47,7 +47,11 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSensitiveDataScannerProcessor',
           :'ObservabilityPipelineSplitArrayProcessor',
           :'ObservabilityPipelineThrottleProcessor',
-          :'ObservabilityPipelineMetricTagsProcessor'
+          :'ObservabilityPipelineAddMetricTagsProcessor',
+          :'ObservabilityPipelineAggregateProcessor',
+          :'ObservabilityPipelineMetricTagsProcessor',
+          :'ObservabilityPipelineRenameMetricTagsProcessor',
+          :'ObservabilityPipelineTagCardinalityLimitProcessor'
         ]
       end
       # Builds the object
