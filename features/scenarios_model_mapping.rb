@@ -2960,6 +2960,16 @@ ScenariosModelMappings = {
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
+    "v2.DeleteEntityIntegrationConfig" => {
+            "integration_id" => "String",
+    },
+    "v2.GetEntityIntegrationConfig" => {
+            "integration_id" => "String",
+    },
+    "v2.UpdateEntityIntegrationConfig" => {
+            "integration_id" => "String",
+            "body" => "EntityIntegrationConfigRequest",
+    },
     "v2.ListIncidents" => {
             "include" => "Array<IncidentRelatedObject>",
             "page_size" => "Integer",
