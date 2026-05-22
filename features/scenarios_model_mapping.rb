@@ -1054,6 +1054,18 @@ ScenariosModelMappings = {
             "dataset_id" => "String",
             "body" => "LLMObsDatasetUpdateRequest",
     },
+    "v2.GetLLMObsDatasetDraftState" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+    },
+    "v2.LockLLMObsDatasetDraftState" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+    },
+    "v2.UnlockLLMObsDatasetDraftState" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+    },
     "v2.ListLLMObsDatasetRecords" => {
             "project_id" => "String",
             "dataset_id" => "String",
@@ -1075,6 +1087,10 @@ ScenariosModelMappings = {
             "project_id" => "String",
             "dataset_id" => "String",
             "body" => "LLMObsDeleteDatasetRecordsRequest",
+    },
+    "v2.ListLLMObsDatasetVersions" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
     },
     "v2.ListLLMObsExperimentEvents" => {
             "experiment_id" => "String",

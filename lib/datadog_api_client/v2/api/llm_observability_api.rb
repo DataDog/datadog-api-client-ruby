@@ -1637,6 +1637,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get LLM Observability dataset draft state.
+    #
+    # @see #get_llm_obs_dataset_draft_state_with_http_info
+    def get_llm_obs_dataset_draft_state(project_id, dataset_id, opts = {})
+      data, _status_code, _headers = get_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts)
+      data
+    end
+
+    # Get LLM Observability dataset draft state.
+    #
+    # Retrieve the draft state of a dataset, including whether it is currently locked for editing and which user holds the lock.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDatasetDraftStateResponse, Integer, Hash)>] LLMObsDatasetDraftStateResponse data, response status code and response headers
+    def get_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_dataset_draft_state".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_dataset_draft_state")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_dataset_draft_state"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_dataset_draft_state ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.get_llm_obs_dataset_draft_state"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.get_llm_obs_dataset_draft_state"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDatasetDraftStateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_dataset_draft_state,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_dataset_draft_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List LLM Observability annotation queues.
     #
     # @see #list_llm_obs_annotation_queues_with_http_info
@@ -1866,6 +1942,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_datasets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List LLM Observability dataset versions.
+    #
+    # @see #list_llm_obs_dataset_versions_with_http_info
+    def list_llm_obs_dataset_versions(project_id, dataset_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_dataset_versions_with_http_info(project_id, dataset_id, opts)
+      data
+    end
+
+    # List LLM Observability dataset versions.
+    #
+    # List the active versions of a dataset. A version is created each time a dataset is referenced by an experiment run.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDatasetVersionsResponse, Integer, Hash)>] LLMObsDatasetVersionsResponse data, response status code and response headers
+    def list_llm_obs_dataset_versions_with_http_info(project_id, dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_dataset_versions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_dataset_versions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_dataset_versions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_dataset_versions ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.list_llm_obs_dataset_versions"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.list_llm_obs_dataset_versions"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/versions'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDatasetVersionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_dataset_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_dataset_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2342,6 +2494,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Lock LLM Observability dataset draft state.
+    #
+    # @see #lock_llm_obs_dataset_draft_state_with_http_info
+    def lock_llm_obs_dataset_draft_state(project_id, dataset_id, opts = {})
+      data, _status_code, _headers = lock_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts)
+      data
+    end
+
+    # Lock LLM Observability dataset draft state.
+    #
+    # Acquire the draft lock on a dataset for the calling user. The lock prevents other users from concurrently editing the dataset draft.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDatasetDraftStateResponse, Integer, Hash)>] LLMObsDatasetDraftStateResponse data, response status code and response headers
+    def lock_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.lock_llm_obs_dataset_draft_state".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.lock_llm_obs_dataset_draft_state")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.lock_llm_obs_dataset_draft_state"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.lock_llm_obs_dataset_draft_state ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.lock_llm_obs_dataset_draft_state"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.lock_llm_obs_dataset_draft_state"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/lock'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDatasetDraftStateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :lock_llm_obs_dataset_draft_state,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#lock_llm_obs_dataset_draft_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search LLM Observability experimentation entities.
     #
     # @see #search_llm_obs_experimentation_with_http_info
@@ -2564,6 +2792,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#simple_search_llm_obs_experimentation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Unlock LLM Observability dataset draft state.
+    #
+    # @see #unlock_llm_obs_dataset_draft_state_with_http_info
+    def unlock_llm_obs_dataset_draft_state(project_id, dataset_id, opts = {})
+      unlock_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts)
+      nil
+    end
+
+    # Unlock LLM Observability dataset draft state.
+    #
+    # Release the draft lock on a dataset held by the calling user, allowing other users to edit the dataset draft.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def unlock_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.unlock_llm_obs_dataset_draft_state".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unlock_llm_obs_dataset_draft_state")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unlock_llm_obs_dataset_draft_state"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.unlock_llm_obs_dataset_draft_state ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.unlock_llm_obs_dataset_draft_state"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.unlock_llm_obs_dataset_draft_state"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/unlock'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :unlock_llm_obs_dataset_draft_state,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#unlock_llm_obs_dataset_draft_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
