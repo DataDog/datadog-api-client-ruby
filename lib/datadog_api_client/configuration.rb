@@ -225,6 +225,7 @@ module DatadogAPIClient
             "v2.delete_llm_obs_experiments": false,
             "v2.delete_llm_obs_projects": false,
             "v2.get_llm_obs_annotated_interactions": false,
+            "v2.get_llm_obs_annotated_interactions_by_trace_i_ds": false,
             "v2.get_llm_obs_annotation_queue_label_schema": false,
             "v2.get_llm_obs_custom_eval_config": false,
             "v2.list_llm_obs_annotation_queues": false,
