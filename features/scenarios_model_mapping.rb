@@ -2982,6 +2982,33 @@ ScenariosModelMappings = {
     "v2.UpdateGlobalIncidentSettings" => {
             "body" => "GlobalIncidentSettingsRequest",
     },
+    "v2.ListIncidentJiraTemplates" => {
+            "is_default" => "Boolean",
+            "incident_type_id" => "UUID",
+            "template_type" => "String",
+    },
+    "v2.CreateIncidentJiraTemplate" => {
+            "body" => "IncidentJiraTemplateRequest",
+    },
+    "v2.DeleteIncidentJiraTemplate" => {
+            "template_id" => "UUID",
+    },
+    "v2.GetIncidentJiraTemplate" => {
+            "template_id" => "UUID",
+    },
+    "v2.UpdateIncidentJiraTemplate" => {
+            "template_id" => "UUID",
+            "body" => "IncidentJiraTemplateRequest",
+    },
+    "v2.CreateIncidentMicrosoftTeamsConfiguration" => {
+            "include" => "String",
+            "body" => "IncidentMicrosoftTeamsConfigurationRequest",
+    },
+    "v2.UpdateIncidentMicrosoftTeamsConfiguration" => {
+            "configuration_id" => "UUID",
+            "include" => "String",
+            "body" => "IncidentMicrosoftTeamsConfigurationRequest",
+    },
     "v2.ListIncidentNotificationRules" => {
             "include" => "String",
     },
@@ -2995,6 +3022,11 @@ ScenariosModelMappings = {
     "v2.GetIncidentNotificationRule" => {
             "id" => "UUID",
             "include" => "String",
+    },
+    "v2.PatchIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+            "body" => "PutIncidentNotificationRuleRequest",
     },
     "v2.UpdateIncidentNotificationRule" => {
             "id" => "UUID",
@@ -3033,6 +3065,13 @@ ScenariosModelMappings = {
     "v2.UpdateIncidentPostmortemTemplate" => {
             "template_id" => "String",
             "body" => "PostmortemTemplateRequest",
+    },
+    "v2.GetIncidentReservedRole" => {
+            "role_id" => "UUID",
+    },
+    "v2.ListIncidentTemplateVariables" => {
+            "filter_incident_type" => "UUID",
+            "include_follow_ups" => "Boolean",
     },
     "v2.ListIncidentTypes" => {
             "include_deleted" => "Boolean",
@@ -3073,9 +3112,33 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "IncidentUserDefinedFieldUpdateRequest",
     },
+    "v2.CreateIncidentZoomConfiguration" => {
+            "include" => "String",
+            "body" => "IncidentZoomConfigurationRequest",
+    },
+    "v2.UpdateIncidentZoomConfiguration" => {
+            "configuration_id" => "UUID",
+            "include" => "String",
+            "body" => "IncidentZoomConfigurationRequest",
+    },
     "v2.ImportIncident" => {
             "include" => "Array<IncidentImportRelatedObject>",
             "body" => "IncidentImportRequest",
+    },
+    "v2.ListIncidentPagerdutyServices" => {
+            "include_unresolved" => "Boolean",
+    },
+    "v2.GetIncidentPagerdutyRelatedIncidents" => {
+            "pagerduty_incident_id" => "String",
+    },
+    "v2.CreateIncidentRoleAssignment" => {
+            "body" => "IncidentRoleAssignmentRequest",
+    },
+    "v2.DeleteIncidentRoleAssignment" => {
+            "role_assignment_id" => "UUID",
+    },
+    "v2.GetIncidentRoleAssignment" => {
+            "role_assignment_id" => "UUID",
     },
     "v2.SearchIncidents" => {
             "include" => "IncidentRelatedObject",
@@ -3083,6 +3146,30 @@ ScenariosModelMappings = {
             "sort" => "IncidentSearchSortOrder",
             "page_size" => "Integer",
             "page_offset" => "Integer",
+    },
+    "v2.SearchIncidentsV2" => {
+            "query" => "String",
+            "sort" => "IncidentSearchIncidentsSortOrder",
+            "with_facets" => "Boolean",
+            "filter_with_deleted" => "Boolean",
+            "semantic_query" => "String",
+            "time_zone" => "String",
+            "include" => "Array<IncidentSearchIncidentsIncludeType>",
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+    },
+    "v2.ExportIncidents" => {
+            "body" => "IncidentSearchIncidentsExportRequest",
+    },
+    "v2.CreateIncidentStatuspageIncident" => {
+            "incident_id" => "String",
+            "body" => "IncidentStatuspageIncidentRequest",
+    },
+    "v2.UpdateIncidentStatuspageIncident" => {
+            "incident_id" => "String",
+            "page_id" => "String",
+            "statuspage_incident_id" => "String",
+            "body" => "IncidentStatuspageIncidentRequest",
     },
     "v2.DeleteIncident" => {
             "incident_id" => "String",
@@ -3120,6 +3207,44 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchAttachmentRequest",
     },
+    "v2.GetIncidentAutomationData" => {
+            "incident_id" => "String",
+            "key" => "String",
+            "include" => "String",
+    },
+    "v2.UpsertIncidentAutomationData" => {
+            "incident_id" => "String",
+            "key" => "String",
+            "include" => "String",
+            "body" => "IncidentAutomationDataRequest",
+    },
+    "v2.GetIncidentCaseSourceLink" => {
+            "incident_id" => "String",
+    },
+    "v2.ListIncidentCommunications" => {
+            "incident_id" => "String",
+            "filter_communication_type" => "String",
+    },
+    "v2.CreateIncidentCommunication" => {
+            "incident_id" => "String",
+            "body" => "IncidentCommunicationRequest",
+    },
+    "v2.DeleteIncidentCommunication" => {
+            "incident_id" => "String",
+            "communication_id" => "UUID",
+    },
+    "v2.GetIncidentCommunication" => {
+            "incident_id" => "String",
+            "communication_id" => "UUID",
+    },
+    "v2.UpdateIncidentCommunication" => {
+            "incident_id" => "String",
+            "communication_id" => "UUID",
+            "body" => "IncidentCommunicationRequest",
+    },
+    "v2.CreateIncidentGoogleMeetSpace" => {
+            "incident_id" => "String",
+    },
     "v2.ListIncidentImpacts" => {
             "incident_id" => "String",
             "include" => "Array<IncidentImpactRelatedObject>",
@@ -3132,6 +3257,16 @@ ScenariosModelMappings = {
     "v2.DeleteIncidentImpact" => {
             "incident_id" => "String",
             "impact_id" => "String",
+    },
+    "v2.CreateIncidentJiraIssue" => {
+            "incident_id" => "String",
+            "body" => "IncidentJiraIssueRequest",
+    },
+    "v2.CreateIncidentMSTeamsOnlineMeeting" => {
+            "incident_id" => "String",
+    },
+    "v2.GetIncidentPageSourceLink" => {
+            "incident_id" => "String",
     },
     "v2.ListIncidentIntegrations" => {
             "incident_id" => "String",
@@ -3172,6 +3307,68 @@ ScenariosModelMappings = {
             "incident_id" => "String",
             "todo_id" => "String",
             "body" => "IncidentTodoPatchRequest",
+    },
+    "v2.RenderIncidentTemplate" => {
+            "incident_id" => "String",
+            "body" => "IncidentRenderTemplateRequest",
+    },
+    "v2.ListIncidentRuleExecutionStates" => {
+            "incident_id" => "String",
+    },
+    "v2.BatchCreateIncidentRuleExecutionStates" => {
+            "incident_id" => "String",
+            "body" => "IncidentBatchCreateRuleExecutionStatesRequest",
+    },
+    "v2.BatchUpdateIncidentRuleExecutionStates" => {
+            "incident_id" => "String",
+            "body" => "IncidentBatchUpdateRuleExecutionStatesRequest",
+    },
+    "v2.GetIncidentStatusPagesSuggestion" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentStatusPageNotice" => {
+            "incident_id" => "String",
+            "statuspage_id" => "UUID",
+            "notify_subscribers" => "Boolean",
+            "body" => "IncidentStatusPageNoticeCreateRequest",
+    },
+    "v2.UpdateIncidentStatusPageNotice" => {
+            "incident_id" => "String",
+            "statuspage_id" => "UUID",
+            "notice_id" => "UUID",
+            "notify_subscribers" => "Boolean",
+            "body" => "IncidentStatusPageNoticeUpdateRequest",
+    },
+    "v2.ListIncidentTimelineEntries" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentTimelineEntry" => {
+            "incident_id" => "String",
+            "body" => "IncidentTimelineEntryRequest",
+    },
+    "v2.DeleteIncidentTimelineEntry" => {
+            "incident_id" => "String",
+            "timeline_entry_id" => "UUID",
+    },
+    "v2.UpdateIncidentTimelineEntry" => {
+            "incident_id" => "String",
+            "timeline_entry_id" => "UUID",
+            "body" => "IncidentTimelineEntryRequest",
+    },
+    "v2.GetIncidentTimelineEntryThread" => {
+            "incident_id" => "String",
+            "timeline_entry_id" => "UUID",
+    },
+    "v2.CreateIncidentZoomMeeting" => {
+            "incident_id" => "String",
+            "body" => "IncidentCreateZoomMeetingRequest",
+    },
+    "v2.ListStatuspageEmailSubscriptions" => {
+            "page_id" => "String",
+    },
+    "v2.CreateStatuspageEmailSubscription" => {
+            "page_id" => "String",
+            "body" => "IncidentStatuspageSubscriptionRequest",
     },
     "v2.ListAWSAccounts" => {
             "aws_account_id" => "String",
