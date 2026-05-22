@@ -12,7 +12,7 @@ body = DatadogAPIClient::V2::OrgGroupPolicyCreateRequest.new({
       content: {
         "value": "UTC",
       },
-      enforcement_tier: DatadogAPIClient::V2::OrgGroupPolicyEnforcementTier::DEFAULT,
+      enforcement_tier: DatadogAPIClient::V2::OrgGroupPolicyEnforcementTier::OVERRIDE_ALLOWED,
       policy_name: "monitor_timezone",
       policy_type: DatadogAPIClient::V2::OrgGroupPolicyPolicyType::ORG_CONFIG,
     }),

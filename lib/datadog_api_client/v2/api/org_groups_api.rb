@@ -1169,7 +1169,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number The page number to return.
     # @option opts [Integer] :page_size The number of items per page. Maximum is 1000.
     # @option opts [OrgGroupSortOption] :sort Field to sort org groups by. Supported values: `name`, `uuid`, `-name`, `-uuid`. Defaults to `uuid`.
-    # @option opts [Array<OrgGroupIncludeOption>] :include List of related resources to include.
     # @return [Array<(OrgGroupListResponse, Integer, Hash)>] OrgGroupListResponse data, response status code and response headers
     def list_org_groups_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_org_groups".to_sym]
@@ -1203,7 +1202,6 @@ module DatadogAPIClient::V2
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
