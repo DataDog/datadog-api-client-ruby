@@ -17,24 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
-  # TLS is supported for secure transmission.
-  # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineSplunkTcpSource
+  # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+  class ObservabilityPipelineMtlsServerTls
     include BaseGenericModel
 
-    # Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
-    attr_accessor :address_key
+    # Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+    attr_accessor :ca_file
 
-    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-    attr_reader :id
+    # Path to the TLS server certificate file used to used to identify the pipeline component to connecting clients.
+    attr_reader :crt_file
 
-    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-    attr_accessor :tls
+    # Path to the private key file associated with the TLS server certificate.
+    attr_accessor :key_file
 
-    # The source type. Always `splunk_tcp`.
-    attr_reader :type
+    # Name of the environment variable or secret that holds the passphrase for the private key file.
+    attr_accessor :key_pass_key
+
+    # When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+    attr_accessor :verify_certificate
 
     attr_accessor :additional_properties
 
@@ -42,10 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'address_key' => :'address_key',
-        :'id' => :'id',
-        :'tls' => :'tls',
-        :'type' => :'type'
+        :'ca_file' => :'ca_file',
+        :'crt_file' => :'crt_file',
+        :'key_file' => :'key_file',
+        :'key_pass_key' => :'key_pass_key',
+        :'verify_certificate' => :'verify_certificate'
       }
     end
 
@@ -53,10 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'address_key' => :'String',
-        :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineMtlsServerTls',
-        :'type' => :'ObservabilityPipelineSplunkTcpSourceType'
+        :'ca_file' => :'String',
+        :'crt_file' => :'String',
+        :'key_file' => :'String',
+        :'key_pass_key' => :'String',
+        :'verify_certificate' => :'Boolean'
       }
     end
 
@@ -65,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSplunkTcpSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineMtlsServerTls` initialize method"
       end
 
       self.additional_properties = {}
@@ -78,20 +80,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'address_key')
-        self.address_key = attributes[:'address_key']
+      if attributes.key?(:'ca_file')
+        self.ca_file = attributes[:'ca_file']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'crt_file')
+        self.crt_file = attributes[:'crt_file']
       end
 
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
+      if attributes.key?(:'key_file')
+        self.key_file = attributes[:'key_file']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'key_pass_key')
+        self.key_pass_key = attributes[:'key_pass_key']
+      end
+
+      if attributes.key?(:'verify_certificate')
+        self.verify_certificate = attributes[:'verify_certificate']
       end
     end
 
@@ -99,29 +105,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @crt_file.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param crt_file [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def crt_file=(crt_file)
+      if crt_file.nil?
+        fail ArgumentError, 'invalid value for "crt_file", crt_file cannot be nil.'
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @crt_file = crt_file
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -150,10 +145,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          address_key == o.address_key &&
-          id == o.id &&
-          tls == o.tls &&
-          type == o.type &&
+          ca_file == o.ca_file &&
+          crt_file == o.crt_file &&
+          key_file == o.key_file &&
+          key_pass_key == o.key_pass_key &&
+          verify_certificate == o.verify_certificate &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +157,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, id, tls, type, additional_properties].hash
+      [ca_file, crt_file, key_file, key_pass_key, verify_certificate, additional_properties].hash
     end
   end
 end

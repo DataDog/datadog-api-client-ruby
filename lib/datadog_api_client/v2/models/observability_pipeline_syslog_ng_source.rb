@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     # Protocol used by the syslog source to receive messages.
     attr_reader :mode
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
     attr_accessor :tls
 
     # The source type. The value should always be `syslog_ng`.
@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
         :'address_key' => :'String',
         :'id' => :'String',
         :'mode' => :'ObservabilityPipelineSyslogSourceMode',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTls',
         :'type' => :'ObservabilityPipelineSyslogNgSourceType'
       }
     end

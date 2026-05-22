@@ -41,7 +41,7 @@ module DatadogAPIClient::V2
     # Name of the environment variable or secret that holds the password (used when `auth_strategy` is `plain`).
     attr_accessor :password_key
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
     attr_accessor :tls
 
     # The source type. The value should always be `http_server`.
@@ -84,7 +84,7 @@ module DatadogAPIClient::V2
         :'decoding' => :'ObservabilityPipelineDecoding',
         :'id' => :'String',
         :'password_key' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTls',
         :'type' => :'ObservabilityPipelineHttpServerSourceType',
         :'username_key' => :'String',
         :'valid_tokens' => :'Array<ObservabilityPipelineHttpServerSourceValidToken>'
