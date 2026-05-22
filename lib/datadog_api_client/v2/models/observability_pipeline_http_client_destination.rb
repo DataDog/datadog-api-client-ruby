@@ -26,6 +26,9 @@ module DatadogAPIClient::V2
     # HTTP authentication strategy.
     attr_accessor :auth_strategy
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Compression configuration for HTTP requests.
     attr_accessor :compression
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auth_strategy' => :'auth_strategy',
+        :'buffer' => :'buffer',
         :'compression' => :'compression',
         :'custom_key' => :'custom_key',
         :'encoding' => :'encoding',
@@ -85,6 +89,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth_strategy' => :'ObservabilityPipelineHttpClientDestinationAuthStrategy',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'compression' => :'ObservabilityPipelineHttpClientDestinationCompression',
         :'custom_key' => :'String',
         :'encoding' => :'ObservabilityPipelineHttpClientDestinationEncoding',
@@ -119,6 +124,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'auth_strategy')
         self.auth_strategy = attributes[:'auth_strategy']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'compression')
@@ -246,6 +255,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth_strategy == o.auth_strategy &&
+          buffer == o.buffer &&
           compression == o.compression &&
           custom_key == o.custom_key &&
           encoding == o.encoding &&
@@ -264,7 +274,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_strategy, compression, custom_key, encoding, id, inputs, password_key, tls, token_key, type, uri_key, username_key, additional_properties].hash
+      [auth_strategy, buffer, compression, custom_key, encoding, id, inputs, password_key, tls, token_key, type, uri_key, username_key, additional_properties].hash
     end
   end
 end

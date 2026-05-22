@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # S3 bucket name.
     attr_reader :bucket
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Compression algorithm applied to encoded logs.
     attr_reader :compression
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'batch_settings' => :'batch_settings',
         :'bucket' => :'bucket',
+        :'buffer' => :'buffer',
         :'compression' => :'compression',
         :'encoding' => :'encoding',
         :'id' => :'id',
@@ -84,6 +88,7 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineAwsAuth',
         :'batch_settings' => :'ObservabilityPipelineAmazonS3GenericBatchSettings',
         :'bucket' => :'String',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'compression' => :'ObservabilityPipelineAmazonS3GenericCompression',
         :'encoding' => :'ObservabilityPipelineAmazonS3GenericEncoding',
         :'id' => :'String',
@@ -123,6 +128,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bucket')
         self.bucket = attributes[:'bucket']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'compression')
@@ -284,6 +293,7 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           batch_settings == o.batch_settings &&
           bucket == o.bucket &&
+          buffer == o.buffer &&
           compression == o.compression &&
           encoding == o.encoding &&
           id == o.id &&
@@ -299,7 +309,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, batch_settings, bucket, compression, encoding, id, inputs, key_prefix, region, storage_class, type, additional_properties].hash
+      [auth, batch_settings, bucket, buffer, compression, encoding, id, inputs, key_prefix, region, storage_class, type, additional_properties].hash
     end
   end
 end
