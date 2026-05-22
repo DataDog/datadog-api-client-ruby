@@ -922,6 +922,11 @@ ScenariosModelMappings = {
     "v2.DeleteLLMObsData" => {
             "body" => "LLMObsDataDeletionRequest",
     },
+    "v2.GetLLMObsAnnotatedInteractionsByTraceIDs" => {
+            "content_ids" => "Array<String>",
+            "offset" => "Integer",
+            "limit" => "Integer",
+    },
     "v2.ListLLMObsAnnotationQueues" => {
             "project_id" => "String",
             "queue_ids" => "Array<String>",

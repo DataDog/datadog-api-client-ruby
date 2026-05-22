@@ -1406,6 +1406,95 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get annotated interactions by content IDs.
+    #
+    # @see #get_llm_obs_annotated_interactions_by_trace_i_ds_with_http_info
+    def get_llm_obs_annotated_interactions_by_trace_i_ds(content_ids, opts = {})
+      data, _status_code, _headers = get_llm_obs_annotated_interactions_by_trace_i_ds_with_http_info(content_ids, opts)
+      data
+    end
+
+    # Get annotated interactions by content IDs.
+    #
+    # Returns annotated interactions across all annotation queues for the given content IDs. Results include queue metadata (ID and name) for each interaction.
+    #
+    # @param content_ids [Array<String>] One or more content IDs to retrieve annotated interactions for. At least one is required.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :offset Pagination offset. Must be >= 0. Defaults to 0.
+    # @option opts [Integer] :limit Maximum number of results to return. Must be > 0. Defaults to 100.
+    # @return [Array<(LLMObsAnnotatedInteractionsByTraceResponse, Integer, Hash)>] LLMObsAnnotatedInteractionsByTraceResponse data, response status code and response headers
+    def get_llm_obs_annotated_interactions_by_trace_i_ds_with_http_info(content_ids, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_annotated_interactions_by_trace_i_ds".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_annotated_interactions_by_trace_i_ds")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_annotated_interactions_by_trace_i_ds"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_annotated_interactions_by_trace_i_ds ...'
+      end
+      # verify the required parameter 'content_ids' is set
+      if @api_client.config.client_side_validation && content_ids.nil?
+        fail ArgumentError, "Missing the required parameter 'content_ids' when calling LLMObservabilityAPI.get_llm_obs_annotated_interactions_by_trace_i_ds"
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling LLMObservabilityAPI.get_llm_obs_annotated_interactions_by_trace_i_ds, must be smaller than or equal to 2147483647.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling LLMObservabilityAPI.get_llm_obs_annotated_interactions_by_trace_i_ds, must be greater than or equal to 0.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling LLMObservabilityAPI.get_llm_obs_annotated_interactions_by_trace_i_ds, must be smaller than or equal to 2147483647.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling LLMObservabilityAPI.get_llm_obs_annotated_interactions_by_trace_i_ds, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotated-interactions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'contentIds'] = @api_client.build_collection_param(content_ids, :multi)
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsAnnotatedInteractionsByTraceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_annotated_interactions_by_trace_i_ds,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_annotated_interactions_by_trace_i_ds\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get annotation queue label schema.
     #
     # @see #get_llm_obs_annotation_queue_label_schema_with_http_info
