@@ -2942,6 +2942,20 @@ ScenariosModelMappings = {
     "v2.StopExposureSchedule" => {
             "exposure_schedule_id" => "UUID",
     },
+    "v2.DeleteFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+    },
+    "v2.GetFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+    },
+    "v2.ApproveFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+            "body" => "ReviewFlagSuggestionRequest",
+    },
+    "v2.RejectFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+            "body" => "ReviewFlagSuggestionRequest",
+    },
     "v2.GetFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },
@@ -2969,6 +2983,10 @@ ScenariosModelMappings = {
     "v2.EnableFeatureFlagEnvironment" => {
             "feature_flag_id" => "UUID",
             "environment_id" => "UUID",
+    },
+    "v2.CreateFlagSuggestion" => {
+            "feature_flag_id" => "UUID",
+            "body" => "CreateFlagSuggestionRequest",
     },
     "v2.UnarchiveFeatureFlag" => {
             "feature_flag_id" => "UUID",
