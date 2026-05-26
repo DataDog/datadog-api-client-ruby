@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :audit_query
 
+    # A change indicator that compares the current value to a historical period.
+    attr_accessor :comparison
+
     # List of conditional formats.
     attr_accessor :conditional_formats
 
@@ -75,6 +78,7 @@ module DatadogAPIClient::V1
         :'aggregator' => :'aggregator',
         :'apm_query' => :'apm_query',
         :'audit_query' => :'audit_query',
+        :'comparison' => :'comparison',
         :'conditional_formats' => :'conditional_formats',
         :'event_query' => :'event_query',
         :'formulas' => :'formulas',
@@ -97,6 +101,7 @@ module DatadogAPIClient::V1
         :'aggregator' => :'WidgetAggregator',
         :'apm_query' => :'LogQueryDefinition',
         :'audit_query' => :'LogQueryDefinition',
+        :'comparison' => :'QueryValueWidgetComparison',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'event_query' => :'LogQueryDefinition',
         :'formulas' => :'Array<WidgetFormula>',
@@ -140,6 +145,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'audit_query')
         self.audit_query = attributes[:'audit_query']
+      end
+
+      if attributes.key?(:'comparison')
+        self.comparison = attributes[:'comparison']
       end
 
       if attributes.key?(:'conditional_formats')
@@ -226,6 +235,7 @@ module DatadogAPIClient::V1
           aggregator == o.aggregator &&
           apm_query == o.apm_query &&
           audit_query == o.audit_query &&
+          comparison == o.comparison &&
           conditional_formats == o.conditional_formats &&
           event_query == o.event_query &&
           formulas == o.formulas &&
@@ -245,7 +255,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, apm_query, audit_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, additional_properties].hash
+      [aggregator, apm_query, audit_query, comparison, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, additional_properties].hash
     end
   end
 end
