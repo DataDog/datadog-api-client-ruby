@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     # Indicates whether the WAF custom rule is enabled.
     attr_reader :enabled
 
-    # The Name of the WAF custom rule.
+    # The name of the WAF custom rule.
     attr_reader :name
 
     # The path glob for the WAF custom rule.

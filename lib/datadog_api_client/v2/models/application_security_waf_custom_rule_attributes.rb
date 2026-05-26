@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     # Metadata associated with the WAF Custom Rule.
     attr_accessor :metadata
 
-    # The Name of the WAF custom rule.
+    # The name of the WAF custom rule.
     attr_reader :name
 
     # The path glob for the WAF custom rule.
