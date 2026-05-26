@@ -237,6 +237,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get dataset dependencies.
+    #
+    # @see #batch_get_security_monitoring_dataset_dependencies_with_http_info
+    def batch_get_security_monitoring_dataset_dependencies(body, opts = {})
+      data, _status_code, _headers = batch_get_security_monitoring_dataset_dependencies_with_http_info(body, opts)
+      data
+    end
+
+    # Get dataset dependencies.
+    #
+    # Return, for each of the requested datasets, the list of detection rules that depend
+    # on it. Useful for understanding the impact of updating or deleting a dataset.
+    #
+    # @param body [SecurityMonitoringDatasetDependenciesRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringDatasetDependenciesResponse, Integer, Hash)>] SecurityMonitoringDatasetDependenciesResponse data, response status code and response headers
+    def batch_get_security_monitoring_dataset_dependencies_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.batch_get_security_monitoring_dataset_dependencies".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.batch_get_security_monitoring_dataset_dependencies")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.batch_get_security_monitoring_dataset_dependencies"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.batch_get_security_monitoring_dataset_dependencies ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.batch_get_security_monitoring_dataset_dependencies"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets/dependencies'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringDatasetDependenciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :batch_get_security_monitoring_dataset_dependencies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#batch_get_security_monitoring_dataset_dependencies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk subscribe to sample log generation.
     #
     # @see #bulk_create_sample_log_generation_subscriptions_with_http_info
@@ -1534,6 +1608,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a dataset.
+    #
+    # @see #create_security_monitoring_dataset_with_http_info
+    def create_security_monitoring_dataset(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_dataset_with_http_info(body, opts)
+      data
+    end
+
+    # Create a dataset.
+    #
+    # Create a new Cloud SIEM dataset. A dataset bundles a data source, a set of
+    # indexes, and a search query that can be referenced from detection rules.
+    #
+    # @param body [SecurityMonitoringDatasetCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringDatasetCreateResponse, Integer, Hash)>] SecurityMonitoringDatasetCreateResponse data, response status code and response headers
+    def create_security_monitoring_dataset_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_monitoring_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_monitoring_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_monitoring_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_dataset ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_dataset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringDatasetCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an entity context sync configuration.
     #
     # @see #create_security_monitoring_integration_config_with_http_info
@@ -2438,6 +2586,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a dataset.
+    #
+    # @see #delete_security_monitoring_dataset_with_http_info
+    def delete_security_monitoring_dataset(dataset_id, opts = {})
+      delete_security_monitoring_dataset_with_http_info(dataset_id, opts)
+      nil
+    end
+
+    # Delete a dataset.
+    #
+    # Delete a Cloud SIEM dataset. Out-of-the-box datasets cannot be deleted and
+    # deleting a dataset that is referenced by a detection rule is rejected.
+    #
+    # @param dataset_id [String] The UUID of the dataset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_dataset_with_http_info(dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_security_monitoring_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_security_monitoring_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_security_monitoring_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_dataset ...'
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling SecurityMonitoringAPI.delete_security_monitoring_dataset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets/{dataset_id}'.sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4200,6 +4420,228 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a dataset.
+    #
+    # @see #get_security_monitoring_dataset_with_http_info
+    def get_security_monitoring_dataset(dataset_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_dataset_with_http_info(dataset_id, opts)
+      data
+    end
+
+    # Get a dataset.
+    #
+    # Get the current version of a Cloud SIEM dataset by ID.
+    #
+    # @param dataset_id [String] The UUID of the dataset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringDatasetResponse, Integer, Hash)>] SecurityMonitoringDatasetResponse data, response status code and response headers
+    def get_security_monitoring_dataset_with_http_info(dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_dataset ...'
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling SecurityMonitoringAPI.get_security_monitoring_dataset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets/{dataset_id}'.sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringDatasetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a dataset at a specific version.
+    #
+    # @see #get_security_monitoring_dataset_by_version_with_http_info
+    def get_security_monitoring_dataset_by_version(dataset_id, version, opts = {})
+      data, _status_code, _headers = get_security_monitoring_dataset_by_version_with_http_info(dataset_id, version, opts)
+      data
+    end
+
+    # Get a dataset at a specific version.
+    #
+    # Retrieve a specific historical version of a Cloud SIEM dataset.
+    #
+    # @param dataset_id [String] The UUID of the dataset.
+    # @param version [Integer] The version number of the dataset to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringDatasetResponse, Integer, Hash)>] SecurityMonitoringDatasetResponse data, response status code and response headers
+    def get_security_monitoring_dataset_by_version_with_http_info(dataset_id, version, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_dataset_by_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_dataset_by_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_dataset_by_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_dataset_by_version ...'
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling SecurityMonitoringAPI.get_security_monitoring_dataset_by_version"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling SecurityMonitoringAPI.get_security_monitoring_dataset_by_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets/{dataset_id}/version/{version}'.sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringDatasetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_dataset_by_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_dataset_by_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the version history of a dataset.
+    #
+    # @see #get_security_monitoring_dataset_version_history_with_http_info
+    def get_security_monitoring_dataset_version_history(dataset_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_dataset_version_history_with_http_info(dataset_id, opts)
+      data
+    end
+
+    # Get the version history of a dataset.
+    #
+    # Retrieve the version history of a Cloud SIEM dataset, including the changes made at each version.
+    #
+    # @param dataset_id [String] The UUID of the dataset.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(SecurityMonitoringDatasetVersionHistoryResponse, Integer, Hash)>] SecurityMonitoringDatasetVersionHistoryResponse data, response status code and response headers
+    def get_security_monitoring_dataset_version_history_with_http_info(dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_dataset_version_history".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_dataset_version_history")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_dataset_version_history"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_dataset_version_history ...'
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling SecurityMonitoringAPI.get_security_monitoring_dataset_version_history"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets/{dataset_id}/version_history'.sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringDatasetVersionHistoryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_dataset_version_history,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_dataset_version_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -6514,6 +6956,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List datasets.
+    #
+    # @see #list_security_monitoring_datasets_with_http_info
+    def list_security_monitoring_datasets(opts = {})
+      data, _status_code, _headers = list_security_monitoring_datasets_with_http_info(opts)
+      data
+    end
+
+    # List datasets.
+    #
+    # List all Cloud SIEM datasets available to the organization, including both
+    # customer-defined datasets and Datadog out-of-the-box datasets.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort Attribute used to sort datasets. Prefix with `-` to sort in descending order.
+    # @option opts [String] :filter_query A search query to filter datasets by name or description.
+    # @return [Array<(SecurityMonitoringDatasetsListResponse, Integer, Hash)>] SecurityMonitoringDatasetsListResponse data, response status code and response headers
+    def list_security_monitoring_datasets_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_monitoring_datasets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_monitoring_datasets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_monitoring_datasets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_datasets ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringDatasetsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_datasets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_datasets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List hist signals.
     #
     # @see #list_security_monitoring_histsignals_with_http_info
@@ -8439,6 +8956,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a dataset.
+    #
+    # @see #update_security_monitoring_dataset_with_http_info
+    def update_security_monitoring_dataset(dataset_id, body, opts = {})
+      update_security_monitoring_dataset_with_http_info(dataset_id, body, opts)
+      nil
+    end
+
+    # Update a dataset.
+    #
+    # Update an existing Cloud SIEM dataset. The current version of the dataset can be
+    # provided to detect concurrent modifications.
+    #
+    # @param dataset_id [String] The UUID of the dataset.
+    # @param body [SecurityMonitoringDatasetUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_security_monitoring_dataset_with_http_info(dataset_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_monitoring_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_monitoring_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_monitoring_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_dataset ...'
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling SecurityMonitoringAPI.update_security_monitoring_dataset"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_dataset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/datasets/{dataset_id}'.sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_monitoring_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
