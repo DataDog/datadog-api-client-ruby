@@ -2366,8 +2366,28 @@ ScenariosModelMappings = {
             "page_cursor" => "String",
             "page_limit" => "Integer",
     },
+    "v2.GetStaticAnalysisDefaultRulesets" => {
+            "language" => "String",
+    },
     "v2.ListMultipleRulesets" => {
             "body" => "GetMultipleRulesetsRequest",
+    },
+    "v2.GetStaticAnalysisRuleset" => {
+            "ruleset_name" => "String",
+            "include_tests" => "Boolean",
+            "include_testing_rules" => "Boolean",
+    },
+    "v2.CreateStaticAnalysisServerAnalysis" => {
+            "body" => "AnalysisRequest",
+    },
+    "v2.CreateStaticAnalysisAst" => {
+            "body" => "GetAstRequest",
+    },
+    "v2.GetStaticAnalysisNodeTypes" => {
+            "language" => "String",
+    },
+    "v2.GetStaticAnalysisTreeSitterWasm" => {
+            "file" => "String",
     },
     "v2.UpsertSyncConfig" => {
             "body" => "UpsertCloudInventorySyncConfigRequest",
@@ -4691,6 +4711,60 @@ ScenariosModelMappings = {
     },
     "v2.CreateSCAResolveVulnerableSymbols" => {
             "body" => "ResolveVulnerableSymbolsRequest",
+    },
+    "v2.CreateAiMemoryViolationResult" => {
+            "body" => "AiMemoryViolationResultRequest",
+    },
+    "v2.DeleteAiMemoryViolationResult" => {
+            "id" => "String",
+    },
+    "v2.ListAiCustomRulesets" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateAiCustomRuleset" => {
+            "body" => "AiCustomRulesetRequest",
+    },
+    "v2.DeleteAiCustomRuleset" => {
+            "ruleset_name" => "String",
+    },
+    "v2.GetAiCustomRuleset" => {
+            "ruleset_name" => "String",
+    },
+    "v2.UpdateAiCustomRuleset" => {
+            "ruleset_name" => "String",
+            "body" => "AiCustomRulesetUpdateRequest",
+    },
+    "v2.CreateAiCustomRule" => {
+            "ruleset_name" => "String",
+            "body" => "AiCustomRuleRequest",
+    },
+    "v2.DeleteAiCustomRule" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+    },
+    "v2.GetAiCustomRule" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+    },
+    "v2.ListAiCustomRuleRevisions" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateAiCustomRuleRevision" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "body" => "AiCustomRuleRevisionRequest",
+    },
+    "v2.GetAiCustomRuleRevision" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "id" => "String",
+    },
+    "v2.CreateCustomRuleset" => {
+            "body" => "CustomRulesetRequest",
     },
     "v2.DeleteCustomRuleset" => {
             "ruleset_name" => "String",

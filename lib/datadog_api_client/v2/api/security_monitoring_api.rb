@@ -1810,6 +1810,152 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get AST for source code.
+    #
+    # @see #create_static_analysis_ast_with_http_info
+    def create_static_analysis_ast(body, opts = {})
+      data, _status_code, _headers = create_static_analysis_ast_with_http_info(body, opts)
+      data
+    end
+
+    # Get AST for source code.
+    #
+    # Parse source code into an abstract syntax tree (AST) for the specified language.
+    #
+    # @param body [GetAstRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetAstResponse, Integer, Hash)>] GetAstResponse data, response status code and response headers
+    def create_static_analysis_ast_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_static_analysis_ast".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_static_analysis_ast")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_static_analysis_ast"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_static_analysis_ast ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_static_analysis_ast"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/static-analysis-server/get-ast'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetAstResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_static_analysis_ast,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_static_analysis_ast\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Analyze code.
+    #
+    # @see #create_static_analysis_server_analysis_with_http_info
+    def create_static_analysis_server_analysis(body, opts = {})
+      data, _status_code, _headers = create_static_analysis_server_analysis_with_http_info(body, opts)
+      data
+    end
+
+    # Analyze code.
+    #
+    # Run static analysis rules against a source code file and return violations found.
+    #
+    # @param body [AnalysisRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AnalysisResponse, Integer, Hash)>] AnalysisResponse data, response status code and response headers
+    def create_static_analysis_server_analysis_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_static_analysis_server_analysis".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_static_analysis_server_analysis")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_static_analysis_server_analysis"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_static_analysis_server_analysis ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_static_analysis_server_analysis"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/static-analysis-server/analyze'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AnalysisResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_static_analysis_server_analysis,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_static_analysis_server_analysis\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new vulnerability-based notification rule.
     #
     # @see #create_vulnerability_notification_rule_with_http_info
@@ -4686,6 +4832,294 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get default rulesets for a language.
+    #
+    # @see #get_static_analysis_default_rulesets_with_http_info
+    def get_static_analysis_default_rulesets(language, opts = {})
+      data, _status_code, _headers = get_static_analysis_default_rulesets_with_http_info(language, opts)
+      data
+    end
+
+    # Get default rulesets for a language.
+    #
+    # Get the default SAST ruleset names for a given programming language.
+    #
+    # @param language [String] The programming language for which to retrieve the default rulesets.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DefaultRulesetsPerLanguageResponse, Integer, Hash)>] DefaultRulesetsPerLanguageResponse data, response status code and response headers
+    def get_static_analysis_default_rulesets_with_http_info(language, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_static_analysis_default_rulesets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_static_analysis_default_rulesets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_static_analysis_default_rulesets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_static_analysis_default_rulesets ...'
+      end
+      # verify the required parameter 'language' is set
+      if @api_client.config.client_side_validation && language.nil?
+        fail ArgumentError, "Missing the required parameter 'language' when calling SecurityMonitoringAPI.get_static_analysis_default_rulesets"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/default-rulesets/{language}'.sub('{language}', CGI.escape(language.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DefaultRulesetsPerLanguageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_static_analysis_default_rulesets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_static_analysis_default_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get node types for a language.
+    #
+    # @see #get_static_analysis_node_types_with_http_info
+    def get_static_analysis_node_types(language, opts = {})
+      data, _status_code, _headers = get_static_analysis_node_types_with_http_info(language, opts)
+      data
+    end
+
+    # Get node types for a language.
+    #
+    # Retrieve tree-sitter node type definitions for a given programming language.
+    #
+    # @param language [String] The programming language for which to retrieve node type definitions.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(NodeTypesResponse, Integer, Hash)>] NodeTypesResponse data, response status code and response headers
+    def get_static_analysis_node_types_with_http_info(language, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_static_analysis_node_types".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_static_analysis_node_types")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_static_analysis_node_types"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_static_analysis_node_types ...'
+      end
+      # verify the required parameter 'language' is set
+      if @api_client.config.client_side_validation && language.nil?
+        fail ArgumentError, "Missing the required parameter 'language' when calling SecurityMonitoringAPI.get_static_analysis_node_types"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/static-analysis-server/node-types/{language}'.sub('{language}', CGI.escape(language.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'NodeTypesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_static_analysis_node_types,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_static_analysis_node_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a SAST ruleset.
+    #
+    # @see #get_static_analysis_ruleset_with_http_info
+    def get_static_analysis_ruleset(ruleset_name, opts = {})
+      data, _status_code, _headers = get_static_analysis_ruleset_with_http_info(ruleset_name, opts)
+      data
+    end
+
+    # Get a SAST ruleset.
+    #
+    # Get a SAST ruleset by name, including all its rules.
+    #
+    # @param ruleset_name [String] The name of the ruleset to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_tests When true, test cases for each rule are included in the response.
+    # @option opts [Boolean] :include_testing_rules When true, rules that are in testing mode are included in the response.
+    # @return [Array<(SastRulesetResponse, Integer, Hash)>] SastRulesetResponse data, response status code and response headers
+    def get_static_analysis_ruleset_with_http_info(ruleset_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_static_analysis_ruleset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_static_analysis_ruleset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_static_analysis_ruleset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_static_analysis_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling SecurityMonitoringAPI.get_static_analysis_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/rulesets/{ruleset_name}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_tests'] = opts[:'include_tests'] if !opts[:'include_tests'].nil?
+      query_params[:'include_testing_rules'] = opts[:'include_testing_rules'] if !opts[:'include_testing_rules'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SastRulesetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_static_analysis_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_static_analysis_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get tree-sitter WASM file.
+    #
+    # @see #get_static_analysis_tree_sitter_wasm_with_http_info
+    def get_static_analysis_tree_sitter_wasm(file, opts = {})
+      data, _status_code, _headers = get_static_analysis_tree_sitter_wasm_with_http_info(file, opts)
+      data
+    end
+
+    # Get tree-sitter WASM file.
+    #
+    # Download the WebAssembly binary for a tree-sitter grammar by file name.
+    #
+    # @param file [String] The name of the WASM file to download.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def get_static_analysis_tree_sitter_wasm_with_http_info(file, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_static_analysis_tree_sitter_wasm".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_static_analysis_tree_sitter_wasm")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_static_analysis_tree_sitter_wasm"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_static_analysis_tree_sitter_wasm ...'
+      end
+      # verify the required parameter 'file' is set
+      if @api_client.config.client_side_validation && file.nil?
+        fail ArgumentError, "Missing the required parameter 'file' when calling SecurityMonitoringAPI.get_static_analysis_tree_sitter_wasm"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/static-analysis-server/tree-sitter-wasm/{file}'.sub('{file}', CGI.escape(file.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_static_analysis_tree_sitter_wasm,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_static_analysis_tree_sitter_wasm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get suggested actions for a signal.
     #
     # @see #get_suggested_actions_matching_signal_with_http_info
@@ -6481,6 +6915,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List codegen rulesets.
+    #
+    # @see #list_static_analysis_codegen_rulesets_with_http_info
+    def list_static_analysis_codegen_rulesets(opts = {})
+      data, _status_code, _headers = list_static_analysis_codegen_rulesets_with_http_info(opts)
+      data
+    end
+
+    # List codegen rulesets.
+    #
+    # Get the rulesets relevant for code generation for the authenticated user.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SastRulesetsResponse, Integer, Hash)>] SastRulesetsResponse data, response status code and response headers
+    def list_static_analysis_codegen_rulesets_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_static_analysis_codegen_rulesets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_static_analysis_codegen_rulesets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_static_analysis_codegen_rulesets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_static_analysis_codegen_rulesets ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/codegen/rulesets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SastRulesetsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_static_analysis_codegen_rulesets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_static_analysis_codegen_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
