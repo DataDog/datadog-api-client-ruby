@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Filter expression applied to the recommendations.
     attr_accessor :filter
 
+    # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+    attr_accessor :scope
+
     # Ordered list of sort clauses applied to the result set.
     attr_accessor :sort
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'filter' => :'filter',
+        :'scope' => :'scope',
         :'sort' => :'sort',
         :'view' => :'view'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'filter' => :'String',
+        :'scope' => :'String',
         :'sort' => :'Array<RecommendationsFilterRequestSortItems>',
         :'view' => :'String'
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
+      end
+
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
       end
 
       if attributes.key?(:'sort')
@@ -112,6 +121,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           filter == o.filter &&
+          scope == o.scope &&
           sort == o.sort &&
           view == o.view &&
           additional_properties == o.additional_properties
@@ -121,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, sort, view, additional_properties].hash
+      [filter, scope, sort, view, additional_properties].hash
     end
   end
 end
