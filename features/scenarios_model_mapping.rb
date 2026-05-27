@@ -2643,6 +2643,9 @@ ScenariosModelMappings = {
             "filter_month" => "String",
             "filter_provider" => "String",
     },
+    "v2.ListCostTagMetadataMonths" => {
+            "filter_provider" => "String",
+    },
     "v2.ListCostTagMetadataOrchestrators" => {
             "filter_month" => "String",
             "filter_provider" => "String",
