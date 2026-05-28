@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 26 May 2026 22:33:27 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/eudm/graph?by=os
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"macOS","type":"graph_items","attributes":{"type":"macOS","counts":[{"columnName":"total","count":18},{"columnName":"healthy","count":9},{"columnName":"degraded","count":4},{"columnName":"critical","count":1},{"columnName":"inactive","count":4}]}},{"id":"Windows","type":"graph_items","attributes":{"type":"Windows","counts":[{"columnName":"total","count":112},{"columnName":"healthy","count":48},{"columnName":"degraded","count":17},{"columnName":"critical","count":5},{"columnName":"inactive","count":42}]}},{"id":"linux","type":"graph_items","attributes":{"type":"linux","counts":[{"columnName":"total","count":7},{"columnName":"healthy","count":6},{"columnName":"degraded","count":0},{"columnName":"critical","count":0},{"columnName":"inactive","count":1}]}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

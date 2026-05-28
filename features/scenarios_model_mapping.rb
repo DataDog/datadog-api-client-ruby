@@ -2942,6 +2942,12 @@ ScenariosModelMappings = {
             "issue_id" => "String",
             "body" => "IssueUpdateStateRequest",
     },
+    "v2.GetEUDMDevice" => {
+            "device_id" => "String",
+    },
+    "v2.GetEUDMGraph" => {
+            "by" => "String",
+    },
     "v2.ListEvents" => {
             "filter_query" => "String",
             "filter_from" => "String",
@@ -3880,6 +3886,19 @@ ScenariosModelMappings = {
             "group_by" => "String",
             "tags" => "String",
             "limit" => "Integer",
+    },
+    "v2.DeleteScopesRestriction" => {
+            "client_uuid" => "UUID",
+    },
+    "v2.GetScopesRestriction" => {
+            "client_uuid" => "UUID",
+    },
+    "v2.UpsertScopesRestriction" => {
+            "client_uuid" => "UUID",
+            "body" => "UpsertOAuthScopesRestrictionRequest",
+    },
+    "v2.RegisterOAuthClient" => {
+            "body" => "OAuthClientRegistrationRequest",
     },
     "v2.ListPipelines" => {
             "page_size" => "Integer",
