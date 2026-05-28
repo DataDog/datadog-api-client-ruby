@@ -2271,6 +2271,9 @@ ScenariosModelMappings = {
     "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform" => {
             "body" => "SecurityMonitoringRuleConvertPayload",
     },
+    "v2.BulkConvertExistingSecurityMonitoringRules" => {
+            "body" => "SecurityMonitoringRuleConvertBulkPayload",
+    },
     "v2.TestSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleTestRequest",
     },
