@@ -99,6 +99,172 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Batch update LLM Observability dataset records.
+    #
+    # @see #batch_update_llm_obs_dataset_with_http_info
+    def batch_update_llm_obs_dataset(project_id, dataset_id, body, opts = {})
+      data, _status_code, _headers = batch_update_llm_obs_dataset_with_http_info(project_id, dataset_id, body, opts)
+      data
+    end
+
+    # Batch update LLM Observability dataset records.
+    #
+    # Insert, update, and delete records in a single dataset operation. By default, a new dataset version is created when the batch is applied.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param body [LLMObsDatasetBatchUpdateRequest] Batch update payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDatasetRecordsMutationResponse, Integer, Hash)>] LLMObsDatasetRecordsMutationResponse data, response status code and response headers
+    def batch_update_llm_obs_dataset_with_http_info(project_id, dataset_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.batch_update_llm_obs_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.batch_update_llm_obs_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.batch_update_llm_obs_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.batch_update_llm_obs_dataset ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.batch_update_llm_obs_dataset"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.batch_update_llm_obs_dataset"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.batch_update_llm_obs_dataset"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/batch_update'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDatasetRecordsMutationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :batch_update_llm_obs_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#batch_update_llm_obs_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Clone an LLM Observability dataset.
+    #
+    # @see #clone_llm_obs_dataset_with_http_info
+    def clone_llm_obs_dataset(project_id, dataset_id, body, opts = {})
+      data, _status_code, _headers = clone_llm_obs_dataset_with_http_info(project_id, dataset_id, body, opts)
+      data
+    end
+
+    # Clone an LLM Observability dataset.
+    #
+    # Clone a dataset, copying its current records into a new dataset within the same project.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the source LLM Observability dataset to clone.
+    # @param body [LLMObsDatasetCloneRequest] Clone dataset payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDatasetResponse, Integer, Hash)>] LLMObsDatasetResponse data, response status code and response headers
+    def clone_llm_obs_dataset_with_http_info(project_id, dataset_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.clone_llm_obs_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.clone_llm_obs_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.clone_llm_obs_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.clone_llm_obs_dataset ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.clone_llm_obs_dataset"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.clone_llm_obs_dataset"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.clone_llm_obs_dataset"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/clone'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDatasetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :clone_llm_obs_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#clone_llm_obs_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an LLM Observability annotation queue.
     #
     # @see #create_llm_obs_annotation_queue_with_http_info
@@ -1331,6 +1497,93 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#delete_llm_obs_projects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Export an LLM Observability dataset.
+    #
+    # @see #export_llm_obs_dataset_with_http_info
+    def export_llm_obs_dataset(project_id, dataset_id, opts = {})
+      data, _status_code, _headers = export_llm_obs_dataset_with_http_info(project_id, dataset_id, opts)
+      data
+    end
+
+    # Export an LLM Observability dataset.
+    #
+    # Download the contents of a dataset as a CSV file. The download is streamed and includes one row per dataset record.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param opts [Hash] the optional parameters
+    # @option opts [LLMObsDatasetExportFormat] :format Export format for the dataset contents. Only `csv` is currently supported.
+    # @option opts [Integer] :version Version of the dataset to export. If omitted, the current version is used. Must be between 0 and the current version of the dataset, inclusive.
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def export_llm_obs_dataset_with_http_info(project_id, dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.export_llm_obs_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.export_llm_obs_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.export_llm_obs_dataset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.export_llm_obs_dataset ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.export_llm_obs_dataset"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.export_llm_obs_dataset"
+      end
+      allowable_values = ['csv']
+      if @api_client.config.client_side_validation && opts[:'format'] && !allowable_values.include?(opts[:'format'])
+        fail ArgumentError, "invalid value for \"format\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'version'].nil? && opts[:'version'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"version"]" when calling LLMObservabilityAPI.export_llm_obs_dataset, must be smaller than or equal to 2147483647.'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/export'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'format'] = opts[:'format'] if !opts[:'format'].nil?
+      query_params[:'version'] = opts[:'version'] if !opts[:'version'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/csv', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :export_llm_obs_dataset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#export_llm_obs_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2570,6 +2823,89 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Restore an LLM Observability dataset version.
+    #
+    # @see #restore_llm_obs_dataset_version_with_http_info
+    def restore_llm_obs_dataset_version(project_id, dataset_id, body, opts = {})
+      restore_llm_obs_dataset_version_with_http_info(project_id, dataset_id, body, opts)
+      nil
+    end
+
+    # Restore an LLM Observability dataset version.
+    #
+    # Restore a dataset to a previous version. The dataset's current version is bumped, and its records are replaced with the records from the specified prior version.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param body [LLMObsDatasetRestoreVersionRequest] Restore dataset version payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def restore_llm_obs_dataset_version_with_http_info(project_id, dataset_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.restore_llm_obs_dataset_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.restore_llm_obs_dataset_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.restore_llm_obs_dataset_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.restore_llm_obs_dataset_version ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.restore_llm_obs_dataset_version"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.restore_llm_obs_dataset_version"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.restore_llm_obs_dataset_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/restore'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :restore_llm_obs_dataset_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#restore_llm_obs_dataset_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search LLM Observability experimentation entities.
     #
     # @see #search_llm_obs_experimentation_with_http_info
@@ -3427,6 +3763,101 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upload records to an LLM Observability dataset.
+    #
+    # @see #upload_llm_obs_dataset_records_file_with_http_info
+    def upload_llm_obs_dataset_records_file(project_id, dataset_id, opts = {})
+      upload_llm_obs_dataset_records_file_with_http_info(project_id, dataset_id, opts)
+      nil
+    end
+
+    # Upload records to an LLM Observability dataset.
+    #
+    # Upload records to a dataset from a file. The request is a `multipart/form-data` upload containing a single `file` part.
+    # Currently only CSV is supported. The CSV must include an `input` column. Optional columns are `id`, `expected_output`, `metadata`, and `tags`.
+    #
+    # The response is a Server-Sent Events stream (`text/event-stream`) emitting progress updates while records are processed. The stream emits the following named events:
+    #   - `progress`: incremental record counts written so far.
+    #   - `completed`: terminal event with a JSON body containing `records_created`.
+    #   - `error`: terminal event with a JSON body containing an error `message`.
+    #
+    # @param project_id [String] The ID of the LLM Observability project.
+    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :deduplicate Whether to skip records whose `input` already exists in the dataset. Defaults to `false`.
+    # @option opts [Boolean] :overwrite Whether to overwrite existing records that share the same user-provided `id`. Defaults to `true`.
+    # @option opts [Array<String>] :tags Tags to apply to every uploaded record, in addition to any tags defined on individual rows. Can be repeated, e.g. `tags=env:prod&tags=team:ai`.
+    # @option opts [Boolean] :include_user_data Whether to enrich the response with user metadata.
+    # @option opts [File] :file The records file to upload. Currently only CSV is supported. The file must include an `input` column. Optional columns include `id`, `expected_output`, `metadata`, and `tags`.
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def upload_llm_obs_dataset_records_file_with_http_info(project_id, dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upload_llm_obs_dataset_records_file".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upload_llm_obs_dataset_records_file")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upload_llm_obs_dataset_records_file"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.upload_llm_obs_dataset_records_file ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling LLMObservabilityAPI.upload_llm_obs_dataset_records_file"
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling LLMObservabilityAPI.upload_llm_obs_dataset_records_file"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v2/{project_id}/datasets/{dataset_id}/records/upload'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'deduplicate'] = opts[:'deduplicate'] if !opts[:'deduplicate'].nil?
+      query_params[:'overwrite'] = opts[:'overwrite'] if !opts[:'overwrite'].nil?
+      query_params[:'tags'] = @api_client.build_collection_param(opts[:'tags'], :multi) if !opts[:'tags'].nil?
+      query_params[:'include[user_data]'] = opts[:'include_user_data'] if !opts[:'include_user_data'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['file'] = opts[:'file'] if !opts[:'file'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :upload_llm_obs_dataset_records_file,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#upload_llm_obs_dataset_records_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
