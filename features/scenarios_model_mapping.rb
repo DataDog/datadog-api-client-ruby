@@ -4250,6 +4250,20 @@ ScenariosModelMappings = {
     "v2.ListConnections" => {
             "entity" => "String",
     },
+    "v2.GetPrunedTraceByID" => {
+            "trace_id" => "String",
+            "expand_span_id" => "Integer",
+            "time_hint" => "Integer",
+            "force_source" => "String",
+            "include_path" => "Array<String>",
+            "tag_include" => "Array<String>",
+            "tag_exclude" => "Array<String>",
+            "only_service_entry_spans" => "Boolean",
+    },
+    "v2.GetTraceByID" => {
+            "trace_id" => "String",
+            "include_fields" => "Array<String>",
+    },
     "v2.BatchRowsQuery" => {
             "body" => "BatchRowsQueryRequest",
     },
