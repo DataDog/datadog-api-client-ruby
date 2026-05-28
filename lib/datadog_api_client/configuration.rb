@@ -560,6 +560,8 @@ module DatadogAPIClient
             "v2.query_event_filtered_users": false,
             "v2.query_users": false,
             "v2.update_connection": false,
+            "v2.get_pruned_trace_by_id": false,
+            "v2.get_trace_by_id": false,
             "v2.create_scorecard_outcomes_batch": false,
             "v2.list_entity_risk_scores": false,
             "v2.create_incident_service": false,
