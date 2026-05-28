@@ -21,11 +21,26 @@ module DatadogAPIClient::V2
   class HistoricalJobQuery
     include BaseGenericModel
 
+    # Additional filters appended to the query at evaluation time.
+    attr_accessor :additional_filters
+
     # The aggregation type.
     attr_accessor :aggregation
 
+    # Fields used to correlate results across queries in sequence detection rules.
+    attr_accessor :correlated_by_fields
+
+    # Zero-based index of the query to correlate with in sequence detection rules. Up to 10 queries are supported, so valid values are 0 to 9.
+    attr_reader :correlated_query_index
+
+    # Custom query extension used to refine the base query.
+    attr_accessor :custom_query_extension
+
     # Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
     attr_accessor :data_source
+
+    # IDs of reference datasets used by this query.
+    attr_accessor :dataset_ids
 
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
@@ -36,6 +51,12 @@ module DatadogAPIClient::V2
     # When false, events without a group-by value are ignored by the query. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
     attr_accessor :has_optional_group_by_fields
 
+    # Index used to load the data for this query.
+    attr_accessor :index
+
+    # Indexes used to load the data for this query. Mutually exclusive with `index`.
+    attr_accessor :indexes
+
     # Group of target fields to aggregate over when using the sum, max, geo data, or new value aggregations. The sum, max, and geo data aggregations only accept one value in this list, whereas the new value aggregation accepts up to five values.
     attr_accessor :metrics
 
@@ -45,20 +66,31 @@ module DatadogAPIClient::V2
     # Query to run on logs.
     attr_accessor :query
 
+    # Language used to parse the query string.
+    attr_accessor :query_language
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'additional_filters' => :'additionalFilters',
         :'aggregation' => :'aggregation',
+        :'correlated_by_fields' => :'correlatedByFields',
+        :'correlated_query_index' => :'correlatedQueryIndex',
+        :'custom_query_extension' => :'customQueryExtension',
         :'data_source' => :'dataSource',
+        :'dataset_ids' => :'datasetIds',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
+        :'index' => :'index',
+        :'indexes' => :'indexes',
         :'metrics' => :'metrics',
         :'name' => :'name',
-        :'query' => :'query'
+        :'query' => :'query',
+        :'query_language' => :'queryLanguage'
       }
     end
 
@@ -66,14 +98,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'additional_filters' => :'String',
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
+        :'correlated_by_fields' => :'Array<String>',
+        :'correlated_query_index' => :'Integer',
+        :'custom_query_extension' => :'String',
         :'data_source' => :'SecurityMonitoringStandardDataSource',
+        :'dataset_ids' => :'Array<String>',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'has_optional_group_by_fields' => :'Boolean',
+        :'index' => :'String',
+        :'indexes' => :'Array<String>',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
-        :'query' => :'String'
+        :'query' => :'String',
+        :'query_language' => :'String'
       }
     end
 
@@ -95,12 +135,36 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'additional_filters')
+        self.additional_filters = attributes[:'additional_filters']
+      end
+
       if attributes.key?(:'aggregation')
         self.aggregation = attributes[:'aggregation']
       end
 
+      if attributes.key?(:'correlated_by_fields')
+        if (value = attributes[:'correlated_by_fields']).is_a?(Array)
+          self.correlated_by_fields = value
+        end
+      end
+
+      if attributes.key?(:'correlated_query_index')
+        self.correlated_query_index = attributes[:'correlated_query_index']
+      end
+
+      if attributes.key?(:'custom_query_extension')
+        self.custom_query_extension = attributes[:'custom_query_extension']
+      end
+
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
+      end
+
+      if attributes.key?(:'dataset_ids')
+        if (value = attributes[:'dataset_ids']).is_a?(Array)
+          self.dataset_ids = value
+        end
       end
 
       if attributes.key?(:'distinct_fields')
@@ -119,6 +183,16 @@ module DatadogAPIClient::V2
         self.has_optional_group_by_fields = attributes[:'has_optional_group_by_fields']
       end
 
+      if attributes.key?(:'index')
+        self.index = attributes[:'index']
+      end
+
+      if attributes.key?(:'indexes')
+        if (value = attributes[:'indexes']).is_a?(Array)
+          self.indexes = value
+        end
+      end
+
       if attributes.key?(:'metrics')
         if (value = attributes[:'metrics']).is_a?(Array)
           self.metrics = value
@@ -132,6 +206,32 @@ module DatadogAPIClient::V2
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
+
+      if attributes.key?(:'query_language')
+        self.query_language = attributes[:'query_language']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@correlated_query_index.nil? && @correlated_query_index > 9
+      return false if !@correlated_query_index.nil? && @correlated_query_index < 0
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param correlated_query_index [Object] Object to be assigned
+    # @!visibility private
+    def correlated_query_index=(correlated_query_index)
+      if !correlated_query_index.nil? && correlated_query_index > 9
+        fail ArgumentError, 'invalid value for "correlated_query_index", must be smaller than or equal to 9.'
+      end
+      if !correlated_query_index.nil? && correlated_query_index < 0
+        fail ArgumentError, 'invalid value for "correlated_query_index", must be greater than or equal to 0.'
+      end
+      @correlated_query_index = correlated_query_index
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -160,14 +260,22 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          additional_filters == o.additional_filters &&
           aggregation == o.aggregation &&
+          correlated_by_fields == o.correlated_by_fields &&
+          correlated_query_index == o.correlated_query_index &&
+          custom_query_extension == o.custom_query_extension &&
           data_source == o.data_source &&
+          dataset_ids == o.dataset_ids &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           has_optional_group_by_fields == o.has_optional_group_by_fields &&
+          index == o.index &&
+          indexes == o.indexes &&
           metrics == o.metrics &&
           name == o.name &&
           query == o.query &&
+          query_language == o.query_language &&
           additional_properties == o.additional_properties
     end
 
@@ -175,7 +283,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, metrics, name, query, additional_properties].hash
+      [additional_filters, aggregation, correlated_by_fields, correlated_query_index, custom_query_extension, data_source, dataset_ids, distinct_fields, group_by_fields, has_optional_group_by_fields, index, indexes, metrics, name, query, query_language, additional_properties].hash
     end
   end
 end

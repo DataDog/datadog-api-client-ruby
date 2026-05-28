@@ -45,6 +45,9 @@ module DatadogAPIClient::V2
     # Last modification time of the job.
     attr_accessor :modified_at
 
+    # Job execution progress as a value between 0 and 1. Available for ongoing jobs.
+    attr_accessor :progress_rate
+
     # Whether the job outputs signals.
     attr_accessor :signal_output
 
@@ -62,6 +65,7 @@ module DatadogAPIClient::V2
         :'job_name' => :'jobName',
         :'job_status' => :'jobStatus',
         :'modified_at' => :'modifiedAt',
+        :'progress_rate' => :'progressRate',
         :'signal_output' => :'signalOutput'
       }
     end
@@ -78,6 +82,7 @@ module DatadogAPIClient::V2
         :'job_name' => :'String',
         :'job_status' => :'String',
         :'modified_at' => :'String',
+        :'progress_rate' => :'Float',
         :'signal_output' => :'Boolean'
       }
     end
@@ -132,6 +137,10 @@ module DatadogAPIClient::V2
         self.modified_at = attributes[:'modified_at']
       end
 
+      if attributes.key?(:'progress_rate')
+        self.progress_rate = attributes[:'progress_rate']
+      end
+
       if attributes.key?(:'signal_output')
         self.signal_output = attributes[:'signal_output']
       end
@@ -171,6 +180,7 @@ module DatadogAPIClient::V2
           job_name == o.job_name &&
           job_status == o.job_status &&
           modified_at == o.modified_at &&
+          progress_rate == o.progress_rate &&
           signal_output == o.signal_output &&
           additional_properties == o.additional_properties
     end
@@ -179,7 +189,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by_handle, created_by_name, created_from_rule_id, job_definition, job_name, job_status, modified_at, signal_output, additional_properties].hash
+      [created_at, created_by_handle, created_by_name, created_from_rule_id, job_definition, job_name, job_status, modified_at, progress_rate, signal_output, additional_properties].hash
     end
   end
 end

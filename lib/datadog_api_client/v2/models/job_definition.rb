@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Calculated fields.
     attr_accessor :calculated_fields
 
-    # Cases used for generating job results.
+    # Cases used for generating job results. Up to 10 cases are allowed.
     attr_reader :cases
 
     # Starting time of data analyzed by the job.
@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     # Job options.
     attr_accessor :options
 
-    # Queries for selecting logs analyzed by the job.
+    # Queries for selecting logs analyzed by the job. Up to 10 queries are allowed.
     attr_reader :queries
 
     # Reference tables used in the queries.
@@ -54,8 +54,8 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
-    # Cases for generating results from third-party detection method. Only available for third-party detection method.
-    attr_accessor :third_party_cases
+    # Cases for generating results from third-party detection method. Only available for third-party detection method. Up to 10 cases are allowed.
+    attr_reader :third_party_cases
 
     # Ending time of data analyzed by the job.
     attr_reader :to
@@ -201,11 +201,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @cases.nil?
+      return false if @cases.length > 10
       return false if @from.nil?
       return false if @index.nil?
       return false if @message.nil?
       return false if @name.nil?
       return false if @queries.nil?
+      return false if @queries.length > 10
+      return false if !@third_party_cases.nil? && @third_party_cases.length > 10
       return false if @to.nil?
       true
     end
@@ -216,6 +219,9 @@ module DatadogAPIClient::V2
     def cases=(cases)
       if cases.nil?
         fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
+      end
+      if cases.length > 10
+        fail ArgumentError, 'invalid value for "cases", number of items must be less than or equal to 10.'
       end
       @cases = cases
     end
@@ -267,7 +273,20 @@ module DatadogAPIClient::V2
       if queries.nil?
         fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
       end
+      if queries.length > 10
+        fail ArgumentError, 'invalid value for "queries", number of items must be less than or equal to 10.'
+      end
       @queries = queries
+    end
+
+    # Custom attribute writer method with validation
+    # @param third_party_cases [Object] Object to be assigned
+    # @!visibility private
+    def third_party_cases=(third_party_cases)
+      if !third_party_cases.nil? && third_party_cases.length > 10
+        fail ArgumentError, 'invalid value for "third_party_cases", number of items must be less than or equal to 10.'
+      end
+      @third_party_cases = third_party_cases
     end
 
     # Custom attribute writer method with validation

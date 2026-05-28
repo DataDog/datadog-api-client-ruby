@@ -24,11 +24,11 @@ module DatadogAPIClient::V2
     # Definition of a historical job based on a security monitoring rule.
     attr_accessor :from_rule
 
-    # Request ID.
-    attr_accessor :id
-
     # Definition of a historical job.
     attr_accessor :job_definition
+
+    # Whether the job outputs signals when results are converted.
+    attr_accessor :signal_output
 
     attr_accessor :additional_properties
 
@@ -37,8 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'from_rule' => :'fromRule',
-        :'id' => :'id',
-        :'job_definition' => :'jobDefinition'
+        :'job_definition' => :'jobDefinition',
+        :'signal_output' => :'signalOutput'
       }
     end
 
@@ -47,8 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'from_rule' => :'JobDefinitionFromRule',
-        :'id' => :'String',
-        :'job_definition' => :'JobDefinition'
+        :'job_definition' => :'JobDefinition',
+        :'signal_output' => :'Boolean'
       }
     end
 
@@ -74,12 +74,12 @@ module DatadogAPIClient::V2
         self.from_rule = attributes[:'from_rule']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.key?(:'job_definition')
         self.job_definition = attributes[:'job_definition']
+      end
+
+      if attributes.key?(:'signal_output')
+        self.signal_output = attributes[:'signal_output']
       end
     end
 
@@ -110,8 +110,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           from_rule == o.from_rule &&
-          id == o.id &&
           job_definition == o.job_definition &&
+          signal_output == o.signal_output &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_rule, id, job_definition, additional_properties].hash
+      [from_rule, job_definition, signal_output, additional_properties].hash
     end
   end
 end
