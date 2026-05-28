@@ -8009,12 +8009,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MuteFindingsResponse, Integer, Hash)>] MuteFindingsResponse data, response status code and response headers
     def mute_security_findings_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.mute_security_findings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.mute_security_findings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.mute_security_findings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.mute_security_findings ...'
