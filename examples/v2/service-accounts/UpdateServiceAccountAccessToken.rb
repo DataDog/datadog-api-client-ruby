@@ -10,12 +10,12 @@ SERVICE_ACCOUNT_USER_DATA_ID = ENV["SERVICE_ACCOUNT_USER_DATA_ID"]
 SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ATTRIBUTES_NAME = ENV["SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ATTRIBUTES_NAME"]
 SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID = ENV["SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID"]
 
-body = DatadogAPIClient::V2::PersonalAccessTokenUpdateRequest.new({
-  data: DatadogAPIClient::V2::PersonalAccessTokenUpdateData.new({
+body = DatadogAPIClient::V2::ServiceAccountAccessTokenUpdateRequest.new({
+  data: DatadogAPIClient::V2::ServiceAccountAccessTokenUpdateData.new({
     id: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
-    type: DatadogAPIClient::V2::PersonalAccessTokensType::PERSONAL_ACCESS_TOKENS,
-    attributes: DatadogAPIClient::V2::PersonalAccessTokenUpdateAttributes.new({
-      name: "My Personal Access Token-updated",
+    type: DatadogAPIClient::V2::ServiceAccessTokensType::SERVICE_ACCESS_TOKENS,
+    attributes: DatadogAPIClient::V2::ServiceAccountAccessTokenUpdateAttributes.new({
+      name: "My Access Token-updated",
     }),
   }),
 })

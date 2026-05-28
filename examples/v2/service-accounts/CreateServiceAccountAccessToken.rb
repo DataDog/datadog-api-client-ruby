@@ -8,7 +8,7 @@ SERVICE_ACCOUNT_USER_DATA_ID = ENV["SERVICE_ACCOUNT_USER_DATA_ID"]
 
 body = DatadogAPIClient::V2::ServiceAccountAccessTokenCreateRequest.new({
   data: DatadogAPIClient::V2::ServiceAccountAccessTokenCreateData.new({
-    type: DatadogAPIClient::V2::PersonalAccessTokensType::PERSONAL_ACCESS_TOKENS,
+    type: DatadogAPIClient::V2::ServiceAccessTokensType::SERVICE_ACCESS_TOKENS,
     attributes: DatadogAPIClient::V2::ServiceAccountAccessTokenCreateAttributes.new({
       name: "Example-Service-Account",
       scopes: [

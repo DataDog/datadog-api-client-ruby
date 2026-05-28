@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a full personal access token, including the token key.
+  # Attributes of a full access token, including the token key.
   class FullPersonalAccessTokenAttributes
     include BaseGenericModel
 
-    # Creation date of the personal access token.
+    # Creation date of the access token.
     attr_accessor :created_at
 
-    # Expiration date of the personal access token.
+    # Expiration date of the access token.
     attr_accessor :expires_at
 
-    # The personal access token key. Only returned upon creation.
+    # The access token key. Only returned upon creation.
     attr_accessor :key
 
-    # Name of the personal access token.
+    # Name of the access token.
     attr_accessor :name
 
-    # The public portion of the personal access token.
+    # The public portion of the access token.
     attr_accessor :public_portion
 
-    # Array of scopes granted to the personal access token.
+    # Array of scopes granted to the access token.
     attr_accessor :scopes
 
     attr_accessor :additional_properties

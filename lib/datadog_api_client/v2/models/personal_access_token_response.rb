@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for retrieving a personal access token.
+  # Response for retrieving an access token.
   class PersonalAccessTokenResponse
     include BaseGenericModel
 
-    # Datadog personal access token.
+    # Datadog access token.
     attr_accessor :data
 
     attr_accessor :additional_properties

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes used to create a service account access token.
     attr_reader :attributes
 
-    # Personal access tokens resource type.
+    # Service access tokens resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'ServiceAccountAccessTokenCreateAttributes',
-        :'type' => :'PersonalAccessTokensType'
+        :'type' => :'ServiceAccessTokensType'
       }
     end
 

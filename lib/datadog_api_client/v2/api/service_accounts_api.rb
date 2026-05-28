@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
     # @param service_account_id [String] The ID of the service account.
     # @param body [ServiceAccountAccessTokenCreateRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(PersonalAccessTokenCreateResponse, Integer, Hash)>] PersonalAccessTokenCreateResponse data, response status code and response headers
+    # @return [Array<(ServiceAccessTokenCreateResponse, Integer, Hash)>] ServiceAccessTokenCreateResponse data, response status code and response headers
     def create_service_account_access_token_with_http_info(service_account_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PersonalAccessTokenCreateResponse'
+      return_type = opts[:debug_return_type] || 'ServiceAccessTokenCreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -307,20 +307,20 @@ module DatadogAPIClient::V2
     # Get an access token for a service account.
     #
     # @see #get_service_account_access_token_with_http_info
-    def get_service_account_access_token(service_account_id, pat_id, opts = {})
-      data, _status_code, _headers = get_service_account_access_token_with_http_info(service_account_id, pat_id, opts)
+    def get_service_account_access_token(service_account_id, token_id, opts = {})
+      data, _status_code, _headers = get_service_account_access_token_with_http_info(service_account_id, token_id, opts)
       data
     end
 
     # Get an access token for a service account.
     #
-    # Get a specific access token for a service account by its UUID.
+    # Get a specific access token for a service account by its ID.
     #
     # @param service_account_id [String] The ID of the service account.
-    # @param pat_id [String] The ID of the personal access token.
+    # @param token_id [String] The ID of the access token.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
-    def get_service_account_access_token_with_http_info(service_account_id, pat_id, opts = {})
+    # @return [Array<(ServiceAccessTokenResponse, Integer, Hash)>] ServiceAccessTokenResponse data, response status code and response headers
+    def get_service_account_access_token_with_http_info(service_account_id, token_id, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.get_service_account_access_token ...'
@@ -329,12 +329,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.get_service_account_access_token"
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling ServiceAccountsAPI.get_service_account_access_token"
+      # verify the required parameter 'token_id' is set
+      if @api_client.config.client_side_validation && token_id.nil?
+        fail ArgumentError, "Missing the required parameter 'token_id' when calling ServiceAccountsAPI.get_service_account_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{token_id}', CGI.escape(token_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -351,7 +351,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PersonalAccessTokenResponse'
+      return_type = opts[:debug_return_type] || 'ServiceAccessTokenResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -460,9 +460,9 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [PersonalAccessTokensSort] :sort Personal access token attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
-    # @option opts [String] :filter Filter personal access tokens by the specified string.
-    # @return [Array<(ListPersonalAccessTokensResponse, Integer, Hash)>] ListPersonalAccessTokensResponse data, response status code and response headers
+    # @option opts [PersonalAccessTokensSort] :sort Access token attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+    # @option opts [String] :filter Filter access tokens by the specified string.
+    # @return [Array<(ListServiceAccessTokensResponse, Integer, Hash)>] ListServiceAccessTokensResponse data, response status code and response headers
     def list_service_account_access_tokens_with_http_info(service_account_id, opts = {})
 
       if @api_client.config.debugging
@@ -472,7 +472,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_access_tokens"
       end
-      allowable_values = ['name', '-name', 'created_at', '-created_at', 'expires_at', '-expires_at']
+      allowable_values = ['name', '-name', 'created_at', '-created_at', 'expires_at', '-expires_at', 'last_used_at', '-last_used_at']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -498,7 +498,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ListPersonalAccessTokensResponse'
+      return_type = opts[:debug_return_type] || 'ListServiceAccessTokensResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -605,8 +605,8 @@ module DatadogAPIClient::V2
     # Revoke an access token for a service account.
     #
     # @see #revoke_service_account_access_token_with_http_info
-    def revoke_service_account_access_token(service_account_id, pat_id, opts = {})
-      revoke_service_account_access_token_with_http_info(service_account_id, pat_id, opts)
+    def revoke_service_account_access_token(service_account_id, token_id, opts = {})
+      revoke_service_account_access_token_with_http_info(service_account_id, token_id, opts)
       nil
     end
 
@@ -615,10 +615,10 @@ module DatadogAPIClient::V2
     # Revoke a specific access token for a service account.
     #
     # @param service_account_id [String] The ID of the service account.
-    # @param pat_id [String] The ID of the personal access token.
+    # @param token_id [String] The ID of the access token.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def revoke_service_account_access_token_with_http_info(service_account_id, pat_id, opts = {})
+    def revoke_service_account_access_token_with_http_info(service_account_id, token_id, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.revoke_service_account_access_token ...'
@@ -627,12 +627,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.revoke_service_account_access_token"
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling ServiceAccountsAPI.revoke_service_account_access_token"
+      # verify the required parameter 'token_id' is set
+      if @api_client.config.client_side_validation && token_id.nil?
+        fail ArgumentError, "Missing the required parameter 'token_id' when calling ServiceAccountsAPI.revoke_service_account_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{token_id}', CGI.escape(token_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -675,8 +675,8 @@ module DatadogAPIClient::V2
     # Update an access token for a service account.
     #
     # @see #update_service_account_access_token_with_http_info
-    def update_service_account_access_token(service_account_id, pat_id, body, opts = {})
-      data, _status_code, _headers = update_service_account_access_token_with_http_info(service_account_id, pat_id, body, opts)
+    def update_service_account_access_token(service_account_id, token_id, body, opts = {})
+      data, _status_code, _headers = update_service_account_access_token_with_http_info(service_account_id, token_id, body, opts)
       data
     end
 
@@ -685,11 +685,11 @@ module DatadogAPIClient::V2
     # Update a specific access token for a service account.
     #
     # @param service_account_id [String] The ID of the service account.
-    # @param pat_id [String] The ID of the personal access token.
-    # @param body [PersonalAccessTokenUpdateRequest] 
+    # @param token_id [String] The ID of the access token.
+    # @param body [ServiceAccountAccessTokenUpdateRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
-    def update_service_account_access_token_with_http_info(service_account_id, pat_id, body, opts = {})
+    # @return [Array<(ServiceAccessTokenResponse, Integer, Hash)>] ServiceAccessTokenResponse data, response status code and response headers
+    def update_service_account_access_token_with_http_info(service_account_id, token_id, body, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.update_service_account_access_token ...'
@@ -698,16 +698,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.update_service_account_access_token"
       end
-      # verify the required parameter 'pat_id' is set
-      if @api_client.config.client_side_validation && pat_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pat_id' when calling ServiceAccountsAPI.update_service_account_access_token"
+      # verify the required parameter 'token_id' is set
+      if @api_client.config.client_side_validation && token_id.nil?
+        fail ArgumentError, "Missing the required parameter 'token_id' when calling ServiceAccountsAPI.update_service_account_access_token"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling ServiceAccountsAPI.update_service_account_access_token"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{pat_id}', CGI.escape(pat_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{token_id}', CGI.escape(token_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -726,7 +726,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PersonalAccessTokenResponse'
+      return_type = opts[:debug_return_type] || 'ServiceAccessTokenResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]

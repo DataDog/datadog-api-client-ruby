@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class PersonalAccessTokenResponseMetaPage
     include BaseGenericModel
 
-    # Total filtered personal access token count.
+    # Total filtered access token count.
     attr_accessor :total_filtered_count
 
     attr_accessor :additional_properties

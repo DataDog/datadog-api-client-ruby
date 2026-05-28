@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Additional information related to the personal access token response.
+  # Additional information related to the access token response.
   class PersonalAccessTokenResponseMeta
     include BaseGenericModel
 

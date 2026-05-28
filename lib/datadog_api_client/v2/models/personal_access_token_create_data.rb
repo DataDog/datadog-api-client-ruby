@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object used to create a personal access token.
+  # Object used to create an access token.
   class PersonalAccessTokenCreateData
     include BaseGenericModel
 
-    # Attributes used to create a personal access token.
+    # Attributes used to create an access token.
     attr_reader :attributes
 
     # Personal access tokens resource type.

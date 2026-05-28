@@ -17,29 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a personal access token.
+  # Attributes of an access token.
   class PersonalAccessTokenAttributes
     include BaseGenericModel
 
-    # Creation date of the personal access token.
+    # Creation date of the access token.
     attr_accessor :created_at
 
-    # Expiration date of the personal access token.
+    # Expiration date of the access token.
     attr_accessor :expires_at
 
-    # Date the personal access token was last used.
+    # Date the access token was last used.
     attr_accessor :last_used_at
 
-    # Date of last modification of the personal access token.
+    # Date of last modification of the access token.
     attr_accessor :modified_at
 
-    # Name of the personal access token.
+    # Name of the access token.
     attr_accessor :name
 
-    # The public portion of the personal access token.
+    # The public portion of the access token.
     attr_accessor :public_portion
 
-    # Array of scopes granted to the personal access token.
+    # Array of scopes granted to the access token.
     attr_accessor :scopes
 
     attr_accessor :additional_properties

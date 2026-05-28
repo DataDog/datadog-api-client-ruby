@@ -27,5 +27,7 @@ module DatadogAPIClient::V2
     CREATED_AT_DESCENDING = "-created_at".freeze
     EXPIRES_AT_ASCENDING = "expires_at".freeze
     EXPIRES_AT_DESCENDING = "-expires_at".freeze
+    LAST_USED_AT_ASCENDING = "last_used_at".freeze
+    LAST_USED_AT_DESCENDING = "-last_used_at".freeze
   end
 end
