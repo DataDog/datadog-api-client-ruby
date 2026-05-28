@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class ConvertJobResultsToSignalsAttributes
     include BaseGenericModel
 
-    # Request ID.
-    attr_accessor :id
-
     # Job result IDs.
     attr_reader :job_result_ids
 
@@ -42,7 +39,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
         :'job_result_ids' => :'jobResultIds',
         :'notifications' => :'notifications',
         :'signal_message' => :'signalMessage',
@@ -54,7 +50,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
         :'job_result_ids' => :'Array<String>',
         :'notifications' => :'Array<String>',
         :'signal_message' => :'String',
@@ -79,10 +74,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
 
       if attributes.key?(:'job_result_ids')
         if (value = attributes[:'job_result_ids']).is_a?(Array)
@@ -182,7 +173,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           job_result_ids == o.job_result_ids &&
           notifications == o.notifications &&
           signal_message == o.signal_message &&
@@ -194,7 +184,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, job_result_ids, notifications, signal_message, signal_severity, additional_properties].hash
+      [job_result_ids, notifications, signal_message, signal_severity, additional_properties].hash
     end
   end
 end
