@@ -1205,6 +1205,27 @@ ScenariosModelMappings = {
     "v2.GetAwsOnDemandTask" => {
             "task_id" => "String",
     },
+    "v2.ListAnnotations" => {
+            "page_id" => "String",
+            "start_time" => "Integer",
+            "end_time" => "Integer",
+            "widget_id" => "String",
+    },
+    "v2.CreateAnnotation" => {
+            "body" => "AnnotationCreateRequest",
+    },
+    "v2.GetPageAnnotations" => {
+            "page_id" => "String",
+            "start_time" => "Integer",
+            "end_time" => "Integer",
+    },
+    "v2.DeleteAnnotation" => {
+            "annotation_id" => "UUID",
+    },
+    "v2.UpdateAnnotation" => {
+            "annotation_id" => "UUID",
+            "body" => "AnnotationUpdateRequest",
+    },
     "v2.AnonymizeUsers" => {
             "body" => "AnonymizeUsersRequest",
     },
@@ -3880,6 +3901,19 @@ ScenariosModelMappings = {
             "group_by" => "String",
             "tags" => "String",
             "limit" => "Integer",
+    },
+    "v2.DeleteScopesRestriction" => {
+            "client_uuid" => "UUID",
+    },
+    "v2.GetScopesRestriction" => {
+            "client_uuid" => "UUID",
+    },
+    "v2.UpsertScopesRestriction" => {
+            "client_uuid" => "UUID",
+            "body" => "UpsertOAuthScopesRestrictionRequest",
+    },
+    "v2.RegisterOAuthClient" => {
+            "body" => "OAuthClientRegistrationRequest",
     },
     "v2.ListPipelines" => {
             "page_size" => "Integer",
