@@ -50,7 +50,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSumoLogicDestination',
           :'ObservabilityPipelineSyslogNgDestination',
           :'ObservabilityPipelineDatabricksZerobusDestination',
-          :'ObservabilityPipelineDatadogMetricsDestination'
+          :'ObservabilityPipelineDatadogMetricsDestination',
+          :'ObservabilityPipelineSplunkHecMetricsDestination'
         ]
       end
       # Builds the object

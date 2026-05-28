@@ -2423,6 +2423,9 @@ ScenariosModelMappings = {
     "v2.UpsertSyncConfig" => {
             "body" => "UpsertCloudInventorySyncConfigRequest",
     },
+    "v2.DeleteSyncConfig" => {
+            "id" => "String",
+    },
     "v2.GetCodeCoverageBranchSummary" => {
             "body" => "BranchCoverageSummaryRequest",
     },
