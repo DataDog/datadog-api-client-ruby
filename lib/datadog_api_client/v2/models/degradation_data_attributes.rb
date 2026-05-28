@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Description of the degradation.
     attr_accessor :description
 
+    # Whether the degradation was backfilled.
+    attr_accessor :is_backfilled
+
     # Timestamp of when the degradation was last modified.
     attr_accessor :modified_at
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'components_affected' => :'components_affected',
         :'created_at' => :'created_at',
         :'description' => :'description',
+        :'is_backfilled' => :'is_backfilled',
         :'modified_at' => :'modified_at',
         :'source' => :'source',
         :'status' => :'status',
@@ -69,6 +73,7 @@ module DatadogAPIClient::V2
         :'components_affected' => :'Array<DegradationDataAttributesComponentsAffectedItems>',
         :'created_at' => :'Time',
         :'description' => :'String',
+        :'is_backfilled' => :'Boolean',
         :'modified_at' => :'Time',
         :'source' => :'DegradationDataAttributesSource',
         :'status' => :'CreateDegradationRequestDataAttributesStatus',
@@ -107,6 +112,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'is_backfilled')
+        self.is_backfilled = attributes[:'is_backfilled']
       end
 
       if attributes.key?(:'modified_at')
@@ -161,6 +170,7 @@ module DatadogAPIClient::V2
           components_affected == o.components_affected &&
           created_at == o.created_at &&
           description == o.description &&
+          is_backfilled == o.is_backfilled &&
           modified_at == o.modified_at &&
           source == o.source &&
           status == o.status &&
@@ -173,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components_affected, created_at, description, modified_at, source, status, title, updates, additional_properties].hash
+      [components_affected, created_at, description, is_backfilled, modified_at, source, status, title, updates, additional_properties].hash
     end
   end
 end

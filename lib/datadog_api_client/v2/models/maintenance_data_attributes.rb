@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # The description shown while the maintenance is in progress.
     attr_accessor :in_progress_description
 
+    # Whether the maintenance was backfilled.
+    attr_accessor :is_backfilled
+
     # Timestamp of when the maintenance was last modified.
     attr_accessor :modified_at
 
@@ -64,6 +67,7 @@ module DatadogAPIClient::V2
         :'completed_description' => :'completed_description',
         :'components_affected' => :'components_affected',
         :'in_progress_description' => :'in_progress_description',
+        :'is_backfilled' => :'is_backfilled',
         :'modified_at' => :'modified_at',
         :'published_date' => :'published_date',
         :'scheduled_description' => :'scheduled_description',
@@ -82,6 +86,7 @@ module DatadogAPIClient::V2
         :'completed_description' => :'String',
         :'components_affected' => :'Array<MaintenanceDataAttributesComponentsAffectedItems>',
         :'in_progress_description' => :'String',
+        :'is_backfilled' => :'Boolean',
         :'modified_at' => :'Time',
         :'published_date' => :'Time',
         :'scheduled_description' => :'String',
@@ -126,6 +131,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'in_progress_description')
         self.in_progress_description = attributes[:'in_progress_description']
+      end
+
+      if attributes.key?(:'is_backfilled')
+        self.is_backfilled = attributes[:'is_backfilled']
       end
 
       if attributes.key?(:'modified_at')
@@ -189,6 +198,7 @@ module DatadogAPIClient::V2
           completed_description == o.completed_description &&
           components_affected == o.components_affected &&
           in_progress_description == o.in_progress_description &&
+          is_backfilled == o.is_backfilled &&
           modified_at == o.modified_at &&
           published_date == o.published_date &&
           scheduled_description == o.scheduled_description &&
@@ -203,7 +213,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [completed_date, completed_description, components_affected, in_progress_description, modified_at, published_date, scheduled_description, start_date, status, title, updates, additional_properties].hash
+      [completed_date, completed_description, components_affected, in_progress_description, is_backfilled, modified_at, published_date, scheduled_description, start_date, status, title, updates, additional_properties].hash
     end
   end
 end
