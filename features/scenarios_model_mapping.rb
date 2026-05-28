@@ -2622,6 +2622,21 @@ ScenariosModelMappings = {
     "v2.ListCostTagDescriptions" => {
             "filter_cloud" => "String",
     },
+    "v2.DeleteCostTagDescriptionByKey" => {
+            "tag_key" => "String",
+            "cloud" => "String",
+    },
+    "v2.GetCostTagDescriptionByKey" => {
+            "tag_key" => "String",
+            "filter_cloud" => "String",
+    },
+    "v2.UpsertCostTagDescriptionByKey" => {
+            "tag_key" => "String",
+            "body" => "CostTagDescriptionUpsertRequest",
+    },
+    "v2.GenerateCostTagDescriptionByKey" => {
+            "tag_key" => "String",
+    },
     "v2.ListCostTagKeys" => {
             "filter_metric" => "String",
             "filter_tags" => "Array<String>",
@@ -3880,6 +3895,19 @@ ScenariosModelMappings = {
             "group_by" => "String",
             "tags" => "String",
             "limit" => "Integer",
+    },
+    "v2.DeleteScopesRestriction" => {
+            "client_uuid" => "UUID",
+    },
+    "v2.GetScopesRestriction" => {
+            "client_uuid" => "UUID",
+    },
+    "v2.UpsertScopesRestriction" => {
+            "client_uuid" => "UUID",
+            "body" => "UpsertOAuthScopesRestrictionRequest",
+    },
+    "v2.RegisterOAuthClient" => {
+            "body" => "OAuthClientRegistrationRequest",
     },
     "v2.ListPipelines" => {
             "page_size" => "Integer",

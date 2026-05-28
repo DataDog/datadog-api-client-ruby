@@ -630,6 +630,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a Cloud Cost Management tag description.
+    #
+    # @see #delete_cost_tag_description_by_key_with_http_info
+    def delete_cost_tag_description_by_key(tag_key, opts = {})
+      delete_cost_tag_description_by_key_with_http_info(tag_key, opts)
+      nil
+    end
+
+    # Delete a Cloud Cost Management tag description.
+    #
+    # Delete a Cloud Cost Management tag key description. When `cloud` is omitted, deletes every description for the tag key, falling back to Datadog's global default when available. When `cloud` is provided, deletes only the description scoped to that cloud provider.
+    #
+    # @param tag_key [String] The tag key whose description is being deleted.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :cloud Cloud provider to scope the deletion to (for example, `aws`). Omit to delete every description for the tag key.
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_cost_tag_description_by_key_with_http_info(tag_key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_tag_description_by_key ...'
+      end
+      # verify the required parameter 'tag_key' is set
+      if @api_client.config.client_side_validation && tag_key.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_key' when calling CloudCostManagementAPI.delete_cost_tag_description_by_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_descriptions/{tag_key}'.sub('{tag_key}', CGI.escape(tag_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'cloud'] = opts[:'cloud'] if !opts[:'cloud'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_cost_tag_description_by_key,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_cost_tag_description_by_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete custom allocation rule.
     #
     # @see #delete_custom_allocation_rule_with_http_info
@@ -821,6 +888,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate a Cloud Cost Management tag description.
+    #
+    # @see #generate_cost_tag_description_by_key_with_http_info
+    def generate_cost_tag_description_by_key(tag_key, opts = {})
+      data, _status_code, _headers = generate_cost_tag_description_by_key_with_http_info(tag_key, opts)
+      data
+    end
+
+    # Generate a Cloud Cost Management tag description.
+    #
+    # Use AI to draft a Cloud Cost Management tag key description based on associated cost data. The generated description is returned in the response and is not persisted by this endpoint; follow up with `UpsertCostTagDescriptionByKey` to save it.
+    #
+    # @param tag_key [String] The tag key to generate an AI description for.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GenerateCostTagDescriptionResponse, Integer, Hash)>] GenerateCostTagDescriptionResponse data, response status code and response headers
+    def generate_cost_tag_description_by_key_with_http_info(tag_key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.generate_cost_tag_description_by_key ...'
+      end
+      # verify the required parameter 'tag_key' is set
+      if @api_client.config.client_side_validation && tag_key.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_key' when calling CloudCostManagementAPI.generate_cost_tag_description_by_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_descriptions/{tag_key}/generate'.sub('{tag_key}', CGI.escape(tag_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GenerateCostTagDescriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :generate_cost_tag_description_by_key,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#generate_cost_tag_description_by_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1946,6 +2078,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a Cloud Cost Management tag description.
+    #
+    # @see #get_cost_tag_description_by_key_with_http_info
+    def get_cost_tag_description_by_key(tag_key, opts = {})
+      data, _status_code, _headers = get_cost_tag_description_by_key_with_http_info(tag_key, opts)
+      data
+    end
+
+    # Get a Cloud Cost Management tag description.
+    #
+    # Get the Cloud Cost Management description for a single tag key. Use `filter[cloud]` to scope the lookup to a specific cloud provider; when omitted, the response resolves the description in fallback order (cloud-specific organization override, then cloudless organization default, then Datadog's global default).
+    #
+    # @param tag_key [String] The tag key whose description is being fetched.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_cloud Cloud provider to scope the lookup to (for example, `aws`). Omit to use the resolved fallback.
+    # @return [Array<(CostTagDescriptionResponse, Integer, Hash)>] CostTagDescriptionResponse data, response status code and response headers
+    def get_cost_tag_description_by_key_with_http_info(tag_key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_tag_description_by_key ...'
+      end
+      # verify the required parameter 'tag_key' is set
+      if @api_client.config.client_side_validation && tag_key.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_key' when calling CloudCostManagementAPI.get_cost_tag_description_by_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_descriptions/{tag_key}'.sub('{tag_key}', CGI.escape(tag_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[cloud]'] = opts[:'filter_cloud'] if !opts[:'filter_cloud'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostTagDescriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_tag_description_by_key,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_tag_description_by_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4293,6 +4492,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#upsert_budget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upsert a Cloud Cost Management tag description.
+    #
+    # @see #upsert_cost_tag_description_by_key_with_http_info
+    def upsert_cost_tag_description_by_key(tag_key, body, opts = {})
+      upsert_cost_tag_description_by_key_with_http_info(tag_key, body, opts)
+      nil
+    end
+
+    # Upsert a Cloud Cost Management tag description.
+    #
+    # Create or update a Cloud Cost Management tag key description. The new description and optional cloud scoping are supplied in the request body. Omit `cloud` to set a cross-cloud default for the tag key.
+    #
+    # @param tag_key [String] The tag key whose description is being upserted.
+    # @param body [CostTagDescriptionUpsertRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def upsert_cost_tag_description_by_key_with_http_info(tag_key, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_cost_tag_description_by_key ...'
+      end
+      # verify the required parameter 'tag_key' is set
+      if @api_client.config.client_side_validation && tag_key.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_key' when calling CloudCostManagementAPI.upsert_cost_tag_description_by_key"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.upsert_cost_tag_description_by_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/tag_descriptions/{tag_key}'.sub('{tag_key}', CGI.escape(tag_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :upsert_cost_tag_description_by_key,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#upsert_cost_tag_description_by_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
