@@ -17,23 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Query definition for the host map widget. Supports two mutually exclusive formats distinguished by the presence of `request_type`: the legacy metric-based format (`fill`/`size`) and the infrastructure-backed format (`request_type`, `node_type`, `enrichments`).
-  class HostMapWidgetDefinitionRequests
+  # Infrastructure-backed host map child request (leaf node, no further nesting supported).
+  class HostMapWidgetInfrastructureRequestLeaf
     include BaseGenericModel
-
-    # Infrastructure-backed request for the host map widget. Supports entity-based
-    # visualization with metric query enrichments, tag-based filtering, flexible grouping,
-    # and hierarchical views.
-    attr_accessor :child
 
     # List of conditional formatting rules applied to fill values.
     attr_accessor :conditional_formats
 
     # Metric or event queries joined to the entity set. Each formula specifies a visual dimension.
-    attr_accessor :enrichments
-
-    # Updated host map.
-    attr_accessor :fill
+    attr_reader :enrichments
 
     # Filter string for the entity set in tag format (for example, `env:prod`).
     attr_accessor :filter
@@ -49,13 +41,10 @@ module DatadogAPIClient::V1
     attr_accessor :no_metric_hosts
 
     # Which type of infrastructure entity to visualize in the host map.
-    attr_accessor :node_type
+    attr_reader :node_type
 
     # Identifies this as an infrastructure-backed host map request.
-    attr_accessor :request_type
-
-    # Updated host map.
-    attr_accessor :size
+    attr_reader :request_type
 
     # Style configuration for the infrastructure host map.
     attr_accessor :style
@@ -66,17 +55,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'child' => :'child',
         :'conditional_formats' => :'conditional_formats',
         :'enrichments' => :'enrichments',
-        :'fill' => :'fill',
         :'filter' => :'filter',
         :'group_by' => :'group_by',
         :'no_group_hosts' => :'no_group_hosts',
         :'no_metric_hosts' => :'no_metric_hosts',
         :'node_type' => :'node_type',
         :'request_type' => :'request_type',
-        :'size' => :'size',
         :'style' => :'style'
       }
     end
@@ -85,17 +71,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'child' => :'HostMapWidgetInfrastructureRequest',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'enrichments' => :'Array<HostMapWidgetScalarRequest>',
-        :'fill' => :'HostMapRequest',
         :'filter' => :'String',
         :'group_by' => :'Array<HostMapWidgetGroupBy>',
         :'no_group_hosts' => :'Boolean',
         :'no_metric_hosts' => :'Boolean',
         :'node_type' => :'HostMapWidgetNodeType',
         :'request_type' => :'HostMapWidgetInfrastructureRequestRequestType',
-        :'size' => :'HostMapRequest',
         :'style' => :'HostMapWidgetInfrastructureStyle'
       }
     end
@@ -105,7 +88,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostMapWidgetDefinitionRequests` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostMapWidgetInfrastructureRequestLeaf` initialize method"
       end
 
       self.additional_properties = {}
@@ -118,10 +101,6 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'child')
-        self.child = attributes[:'child']
-      end
-
       if attributes.key?(:'conditional_formats')
         if (value = attributes[:'conditional_formats']).is_a?(Array)
           self.conditional_formats = value
@@ -132,10 +111,6 @@ module DatadogAPIClient::V1
         if (value = attributes[:'enrichments']).is_a?(Array)
           self.enrichments = value
         end
-      end
-
-      if attributes.key?(:'fill')
-        self.fill = attributes[:'fill']
       end
 
       if attributes.key?(:'filter')
@@ -164,13 +139,49 @@ module DatadogAPIClient::V1
         self.request_type = attributes[:'request_type']
       end
 
-      if attributes.key?(:'size')
-        self.size = attributes[:'size']
-      end
-
       if attributes.key?(:'style')
         self.style = attributes[:'style']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @enrichments.nil?
+      return false if @node_type.nil?
+      return false if @request_type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param enrichments [Object] Object to be assigned
+    # @!visibility private
+    def enrichments=(enrichments)
+      if enrichments.nil?
+        fail ArgumentError, 'invalid value for "enrichments", enrichments cannot be nil.'
+      end
+      @enrichments = enrichments
+    end
+
+    # Custom attribute writer method with validation
+    # @param node_type [Object] Object to be assigned
+    # @!visibility private
+    def node_type=(node_type)
+      if node_type.nil?
+        fail ArgumentError, 'invalid value for "node_type", node_type cannot be nil.'
+      end
+      @node_type = node_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param request_type [Object] Object to be assigned
+    # @!visibility private
+    def request_type=(request_type)
+      if request_type.nil?
+        fail ArgumentError, 'invalid value for "request_type", request_type cannot be nil.'
+      end
+      @request_type = request_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -199,17 +210,14 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          child == o.child &&
           conditional_formats == o.conditional_formats &&
           enrichments == o.enrichments &&
-          fill == o.fill &&
           filter == o.filter &&
           group_by == o.group_by &&
           no_group_hosts == o.no_group_hosts &&
           no_metric_hosts == o.no_metric_hosts &&
           node_type == o.node_type &&
           request_type == o.request_type &&
-          size == o.size &&
           style == o.style &&
           additional_properties == o.additional_properties
     end
@@ -218,7 +226,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [child, conditional_formats, enrichments, fill, filter, group_by, no_group_hosts, no_metric_hosts, node_type, request_type, size, style, additional_properties].hash
+      [conditional_formats, enrichments, filter, group_by, no_group_hosts, no_metric_hosts, node_type, request_type, style, additional_properties].hash
     end
   end
 end
