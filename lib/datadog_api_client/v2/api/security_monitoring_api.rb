@@ -8439,7 +8439,7 @@ module DatadogAPIClient::V2
         :api_version => "V2"
       )
 
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#search_security_monitoring_histsignals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
