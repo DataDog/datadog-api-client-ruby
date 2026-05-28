@@ -28,7 +28,8 @@ module DatadogAPIClient::V1
         [
           :'FormulaAndFunctionMetricQueryDefinition',
           :'FormulaAndFunctionEventQueryDefinition',
-          :'FormulaAndFunctionApmResourceStatsQueryDefinition'
+          :'FormulaAndFunctionApmResourceStatsQueryDefinition',
+          :'FormulaAndFunctionApmMetricsQueryDefinition'
         ]
       end
       # Builds the object
