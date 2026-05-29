@@ -35,6 +35,8 @@ module DatadogAPIClient::V1
     #
     # Creates an API key with a given name.
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param body [ApiKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
@@ -103,6 +105,8 @@ module DatadogAPIClient::V1
     # Create an application key with a given name.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param body [ApplicationKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
@@ -170,6 +174,8 @@ module DatadogAPIClient::V1
     #
     # Delete a given API key.
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param key [String] The specific API key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
@@ -236,6 +242,8 @@ module DatadogAPIClient::V1
     # Delete a given application key.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
@@ -300,6 +308,8 @@ module DatadogAPIClient::V1
     # Get API key.
     #
     # Get a given API key.
+    #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
     # @param key [String] The specific API key you are working with.
     # @param opts [Hash] the optional parameters
@@ -367,6 +377,8 @@ module DatadogAPIClient::V1
     # Get a given application key.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
@@ -432,6 +444,8 @@ module DatadogAPIClient::V1
     #
     # Get all API keys available for your account.
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
@@ -493,6 +507,8 @@ module DatadogAPIClient::V1
     # Get all application keys available for your Datadog account.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyListResponse, Integer, Hash)>] ApplicationKeyListResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
@@ -552,6 +568,8 @@ module DatadogAPIClient::V1
     # Edit an API key.
     #
     # Edit an API key name.
+    #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
     # @param key [String] The specific API key you are working with.
     # @param body [ApiKey] 
@@ -625,6 +643,8 @@ module DatadogAPIClient::V1
     #
     # Edit an application key name.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
+    #
+    # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
     # @param key [String] The specific APP key you are working with.
     # @param body [ApplicationKey] 
