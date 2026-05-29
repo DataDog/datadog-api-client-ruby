@@ -35,5 +35,6 @@ module DatadogAPIClient::V1
     PRODUCT_ANALYTICS = "product_analytics".freeze
     ON_CALL_EVENTS = "on_call_events".freeze
     ERRORS = "errors".freeze
+    LLM_OBSERVABILITY = "llm_observability".freeze
   end
 end
