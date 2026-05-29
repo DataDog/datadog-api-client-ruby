@@ -166,6 +166,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a permanent RUM retention filter.
+    #
+    # @see #get_permanent_retention_filter_with_http_info
+    def get_permanent_retention_filter(app_id, permanent_rf_id, opts = {})
+      data, _status_code, _headers = get_permanent_retention_filter_with_http_info(app_id, permanent_rf_id, opts)
+      data
+    end
+
+    # Get a permanent RUM retention filter.
+    #
+    # Get a permanent RUM retention filter for a RUM application by its identifier.
+    #
+    # @param app_id [String] RUM application ID.
+    # @param permanent_rf_id [RumPermanentRetentionFilterID] The identifier of the permanent RUM retention filter.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RumPermanentRetentionFilterResponse, Integer, Hash)>] RumPermanentRetentionFilterResponse data, response status code and response headers
+    def get_permanent_retention_filter_with_http_info(app_id, permanent_rf_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.get_permanent_retention_filter ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling RumRetentionFiltersAPI.get_permanent_retention_filter"
+      end
+      # verify the required parameter 'permanent_rf_id' is set
+      if @api_client.config.client_side_validation && permanent_rf_id.nil?
+        fail ArgumentError, "Missing the required parameter 'permanent_rf_id' when calling RumRetentionFiltersAPI.get_permanent_retention_filter"
+      end
+      # verify enum value
+      allowable_values = ['rum_apm_flat_sampling', 'synthetics_sessions', 'forced_replay_sessions']
+      if @api_client.config.client_side_validation && !allowable_values.include?(permanent_rf_id)
+        fail ArgumentError, "invalid value for \"permanent_rf_id\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/')).sub('{permanent_rf_id}', CGI.escape(permanent_rf_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RumPermanentRetentionFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_permanent_retention_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumRetentionFiltersAPI#get_permanent_retention_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a RUM retention filter.
     #
     # @see #get_retention_filter_with_http_info
@@ -232,6 +307,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RumRetentionFiltersAPI#get_retention_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all permanent RUM retention filters.
+    #
+    # @see #list_permanent_retention_filters_with_http_info
+    def list_permanent_retention_filters(app_id, opts = {})
+      data, _status_code, _headers = list_permanent_retention_filters_with_http_info(app_id, opts)
+      data
+    end
+
+    # Get all permanent RUM retention filters.
+    #
+    # Get the list of permanent RUM retention filters for a RUM application.
+    # Permanent retention filters are predefined filters that cannot be created or deleted.
+    # For each filter, the `editability` block indicates which cross-product fields can be updated.
+    #
+    # @param app_id [String] RUM application ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RumPermanentRetentionFiltersResponse, Integer, Hash)>] RumPermanentRetentionFiltersResponse data, response status code and response headers
+    def list_permanent_retention_filters_with_http_info(app_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.list_permanent_retention_filters ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling RumRetentionFiltersAPI.list_permanent_retention_filters"
+      end
+      # resource path
+      local_var_path = '/api/v2/rum/applications/{app_id}/retention_filters/permanent'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RumPermanentRetentionFiltersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_permanent_retention_filters,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumRetentionFiltersAPI#list_permanent_retention_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -370,6 +512,90 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RumRetentionFiltersAPI#order_retention_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a permanent RUM retention filter.
+    #
+    # @see #update_permanent_retention_filter_with_http_info
+    def update_permanent_retention_filter(app_id, permanent_rf_id, body, opts = {})
+      data, _status_code, _headers = update_permanent_retention_filter_with_http_info(app_id, permanent_rf_id, body, opts)
+      data
+    end
+
+    # Update a permanent RUM retention filter.
+    #
+    # Update the cross-product sampling configuration of a permanent RUM retention filter for a RUM application.
+    # Only fields marked as editable in the `editability` block of the filter can be updated.
+    # Updating a non-editable field returns a `400` response.
+    #
+    # @param app_id [String] RUM application ID.
+    # @param permanent_rf_id [RumPermanentRetentionFilterID] The identifier of the permanent RUM retention filter.
+    # @param body [RumPermanentRetentionFilterUpdateRequest] New configuration of the permanent RUM retention filter.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RumPermanentRetentionFilterResponse, Integer, Hash)>] RumPermanentRetentionFilterResponse data, response status code and response headers
+    def update_permanent_retention_filter_with_http_info(app_id, permanent_rf_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.update_permanent_retention_filter ...'
+      end
+      # verify the required parameter 'app_id' is set
+      if @api_client.config.client_side_validation && app_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling RumRetentionFiltersAPI.update_permanent_retention_filter"
+      end
+      # verify the required parameter 'permanent_rf_id' is set
+      if @api_client.config.client_side_validation && permanent_rf_id.nil?
+        fail ArgumentError, "Missing the required parameter 'permanent_rf_id' when calling RumRetentionFiltersAPI.update_permanent_retention_filter"
+      end
+      # verify enum value
+      allowable_values = ['rum_apm_flat_sampling', 'synthetics_sessions', 'forced_replay_sessions']
+      if @api_client.config.client_side_validation && !allowable_values.include?(permanent_rf_id)
+        fail ArgumentError, "invalid value for \"permanent_rf_id\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RumRetentionFiltersAPI.update_permanent_retention_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/')).sub('{permanent_rf_id}', CGI.escape(permanent_rf_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RumPermanentRetentionFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_permanent_retention_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumRetentionFiltersAPI#update_permanent_retention_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

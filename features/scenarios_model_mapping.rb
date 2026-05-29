@@ -4506,6 +4506,18 @@ ScenariosModelMappings = {
             "app_id" => "String",
             "body" => "RumRetentionFilterCreateRequest",
     },
+    "v2.ListPermanentRetentionFilters" => {
+            "app_id" => "String",
+    },
+    "v2.GetPermanentRetentionFilter" => {
+            "app_id" => "String",
+            "permanent_rf_id" => "RumPermanentRetentionFilterID",
+    },
+    "v2.UpdatePermanentRetentionFilter" => {
+            "app_id" => "String",
+            "permanent_rf_id" => "RumPermanentRetentionFilterID",
+            "body" => "RumPermanentRetentionFilterUpdateRequest",
+    },
     "v2.DeleteRetentionFilter" => {
             "app_id" => "String",
             "rf_id" => "String",
