@@ -311,6 +311,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Bulk convert rules to Terraform.
+    #
+    # @see #bulk_convert_existing_security_monitoring_rules_with_http_info
+    def bulk_convert_existing_security_monitoring_rules(body, opts = {})
+      data, _status_code, _headers = bulk_convert_existing_security_monitoring_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Bulk convert rules to Terraform.
+    #
+    # Convert a list of existing security monitoring rules to Terraform for the Datadog provider
+    # resource `datadog_security_monitoring_rule`. Returns a ZIP archive containing one Terraform
+    # file per rule. You can convert rules for the following types:
+    # - App and API Protection
+    # - Cloud SIEM (log detection and signal correlation)
+    # - Workload Protection
+    #
+    # @param body [SecurityMonitoringRuleConvertBulkPayload] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def bulk_convert_existing_security_monitoring_rules_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_convert_existing_security_monitoring_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.bulk_convert_existing_security_monitoring_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/convert/bulk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/zip', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_convert_existing_security_monitoring_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#bulk_convert_existing_security_monitoring_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk subscribe to sample log generation.
     #
     # @see #bulk_create_sample_log_generation_subscriptions_with_http_info
