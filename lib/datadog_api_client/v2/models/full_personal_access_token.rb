@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Datadog personal access token, including the token key.
+  # Datadog access token, including the token key.
   class FullPersonalAccessToken
     include BaseGenericModel
 
-    # Attributes of a full personal access token, including the token key.
+    # Attributes of a full access token, including the token key.
     attr_accessor :attributes
 
-    # ID of the personal access token.
+    # ID of the access token.
     attr_accessor :id
 
-    # Resources related to the personal access token.
+    # Resources related to the access token.
     attr_accessor :relationships
 
     # Personal access tokens resource type.

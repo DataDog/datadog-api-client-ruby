@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes used to create a personal access token.
+  # Attributes used to create an access token.
   class PersonalAccessTokenCreateAttributes
     include BaseGenericModel
 
-    # Expiration date of the personal access token. Must be at least 24 hours in the future.
+    # Expiration date of the access token. Must be at least 24 hours in the future.
     attr_reader :expires_at
 
-    # Name of the personal access token.
+    # Name of the access token.
     attr_reader :name
 
-    # Array of scopes to grant the personal access token.
+    # Array of scopes to grant the access token.
     attr_reader :scopes
 
     attr_accessor :additional_properties

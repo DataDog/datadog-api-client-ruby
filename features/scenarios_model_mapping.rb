@@ -1342,19 +1342,19 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "sort" => "PersonalAccessTokensSort",
             "filter" => "String",
-            "filter_owner_uuid" => "Array<String>",
+            "filter_owned_by" => "Array<String>",
     },
     "v2.CreatePersonalAccessToken" => {
             "body" => "PersonalAccessTokenCreateRequest",
     },
     "v2.RevokePersonalAccessToken" => {
-            "pat_id" => "String",
+            "token_id" => "String",
     },
     "v2.GetPersonalAccessToken" => {
-            "pat_id" => "String",
+            "token_id" => "String",
     },
     "v2.UpdatePersonalAccessToken" => {
-            "pat_id" => "String",
+            "token_id" => "String",
             "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListAPIs" => {
@@ -4709,16 +4709,16 @@ ScenariosModelMappings = {
     },
     "v2.RevokeServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_id" => "String",
+            "token_id" => "String",
     },
     "v2.GetServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_id" => "String",
+            "token_id" => "String",
     },
     "v2.UpdateServiceAccountAccessToken" => {
             "service_account_id" => "String",
-            "pat_id" => "String",
-            "body" => "PersonalAccessTokenUpdateRequest",
+            "token_id" => "String",
+            "body" => "ServiceAccountAccessTokenUpdateRequest",
     },
     "v2.ListServiceAccountApplicationKeys" => {
             "service_account_id" => "String",

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resources related to the personal access token.
+  # Resources related to the access token.
   class PersonalAccessTokenRelationships
     include BaseGenericModel
 

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object used to update a personal access token.
+  # Object used to update an access token.
   class PersonalAccessTokenUpdateData
     include BaseGenericModel
 
-    # Attributes used to update a personal access token.
+    # Attributes used to update an access token.
     attr_reader :attributes
 
-    # ID of the personal access token.
+    # ID of the access token.
     attr_reader :id
 
     # Personal access tokens resource type.

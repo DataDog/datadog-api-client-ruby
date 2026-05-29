@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for creating a personal access token. Includes the token key.
+  # Response for creating an access token. Includes the token key.
   class PersonalAccessTokenCreateResponse
     include BaseGenericModel
 
-    # Datadog personal access token, including the token key.
+    # Datadog access token, including the token key.
     attr_accessor :data
 
     attr_accessor :additional_properties

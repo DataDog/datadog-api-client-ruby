@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for a list of personal access tokens.
+  # Response for a list of access tokens. Includes both personal and service access tokens.
   class ListPersonalAccessTokensResponse
     include BaseGenericModel
 
-    # Array of personal access tokens.
+    # Array of access tokens. Includes both personal and service access tokens.
     attr_accessor :data
 
-    # Additional information related to the personal access token response.
+    # Additional information related to the access token response.
     attr_accessor :meta
 
     attr_accessor :additional_properties
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<PersonalAccessToken>',
+        :'data' => :'Array<AccessTokenListItem>',
         :'meta' => :'PersonalAccessTokenResponseMeta'
       }
     end
