@@ -3941,6 +3941,7 @@ ScenariosModelMappings = {
             "to" => "Integer",
             "group_by" => "String",
             "tags" => "String",
+            "query" => "String",
             "limit" => "Integer",
     },
     "v2.GetAggregatedDns" => {
@@ -3948,6 +3949,7 @@ ScenariosModelMappings = {
             "to" => "Integer",
             "group_by" => "String",
             "tags" => "String",
+            "query" => "String",
             "limit" => "Integer",
     },
     "v2.DeleteScopesRestriction" => {

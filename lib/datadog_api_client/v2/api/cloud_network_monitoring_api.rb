@@ -40,6 +40,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
     # @option opts [String] :group_by Comma-separated list of fields to group connections by. The maximum number of group_by(s) is 10.
     # @option opts [String] :tags Comma-separated list of tags to filter connections by.
+    # @option opts [String] :query Free-form search query using AND/OR/NOT operators, wildcards, and parentheses. When provided, takes precedence over the `tags` parameter.
     # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 7500. The default is 100.
     # @return [Array<(SingleAggregatedConnectionResponseArray, Integer, Hash)>] SingleAggregatedConnectionResponseArray data, response status code and response headers
     def get_aggregated_connections_with_http_info(opts = {})
@@ -62,6 +63,7 @@ module DatadogAPIClient::V2
       query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
       query_params[:'group_by'] = opts[:'group_by'] if !opts[:'group_by'].nil?
       query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 
       # header parameters
@@ -116,6 +118,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
     # @option opts [String] :group_by Comma-separated list of fields to group DNS traffic by. The server side defaults to `network.dns_query` if unspecified. `server_ungrouped` may be used if groups are not desired. The maximum number of group_by(s) is 10.
     # @option opts [String] :tags Comma-separated list of tags to filter DNS traffic by.
+    # @option opts [String] :query Free-form search query using AND/OR/NOT operators, wildcards, and parentheses. When provided, takes precedence over the `tags` parameter.
     # @option opts [Integer] :limit The number of aggregated DNS entries to be returned. The maximum value is 7500. The default is 100.
     # @return [Array<(SingleAggregatedDnsResponseArray, Integer, Hash)>] SingleAggregatedDnsResponseArray data, response status code and response headers
     def get_aggregated_dns_with_http_info(opts = {})
@@ -138,6 +141,7 @@ module DatadogAPIClient::V2
       query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
       query_params[:'group_by'] = opts[:'group_by'] if !opts[:'group_by'].nil?
       query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 
       # header parameters
