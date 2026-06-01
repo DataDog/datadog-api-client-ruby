@@ -3134,6 +3134,30 @@ ScenariosModelMappings = {
     "v2.UpdateGlobalIncidentSettings" => {
             "body" => "GlobalIncidentSettingsRequest",
     },
+    "v2.CreateIncidentGoogleChatConfiguration" => {
+            "body" => "IncidentGoogleChatConfigurationRequest",
+    },
+    "v2.UpdateIncidentGoogleChatConfiguration" => {
+            "id" => "UUID",
+            "body" => "IncidentGoogleChatConfigurationPatchRequest",
+    },
+    "v2.CreateIncidentGoogleMeetConfiguration" => {
+            "body" => "IncidentGoogleMeetConfigurationRequest",
+    },
+    "v2.UpdateIncidentGoogleMeetConfiguration" => {
+            "id" => "UUID",
+            "body" => "IncidentGoogleMeetConfigurationPatchRequest",
+    },
+    "v2.CreateIncidentImpactField" => {
+            "body" => "IncidentImpactFieldRequest",
+    },
+    "v2.DeleteIncidentImpactField" => {
+            "field_id" => "UUID",
+    },
+    "v2.UpdateIncidentImpactField" => {
+            "field_id" => "UUID",
+            "body" => "IncidentImpactFieldRequest",
+    },
     "v2.ListIncidentNotificationRules" => {
             "include" => "String",
     },
@@ -3186,11 +3210,35 @@ ScenariosModelMappings = {
             "template_id" => "String",
             "body" => "PostmortemTemplateRequest",
     },
+    "v2.ListIncidentRules" => {
+            "filter_task_id" => "String",
+            "filter_trigger" => "String",
+            "incident_type_uuid" => "UUID",
+    },
+    "v2.CreateIncidentRule" => {
+            "body" => "IncidentRuleRequest",
+    },
+    "v2.DeleteIncidentRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetIncidentRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.UpdateIncidentRule" => {
+            "rule_id" => "UUID",
+            "body" => "IncidentRulePatchRequest",
+    },
     "v2.ListIncidentTypes" => {
             "include_deleted" => "Boolean",
     },
     "v2.CreateIncidentType" => {
             "body" => "IncidentTypeCreateRequest",
+    },
+    "v2.ListOrgSettings" => {
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+            "include_deleted" => "Boolean",
+            "include" => "String",
     },
     "v2.DeleteIncidentType" => {
             "incident_type_id" => "String",
@@ -3201,6 +3249,10 @@ ScenariosModelMappings = {
     "v2.UpdateIncidentType" => {
             "incident_type_id" => "String",
             "body" => "IncidentTypePatchRequest",
+    },
+    "v2.GetOrgSettingsByIncidentType" => {
+            "incident_type_id" => "UUID",
+            "include" => "String",
     },
     "v2.ListIncidentUserDefinedFields" => {
             "page_size" => "Integer",
@@ -3225,6 +3277,26 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "IncidentUserDefinedFieldUpdateRequest",
     },
+    "v2.ListIncidentUserDefinedRoles" => {
+            "filter_incident_type" => "UUID",
+            "include" => "String",
+    },
+    "v2.CreateIncidentUserDefinedRole" => {
+            "include" => "String",
+            "body" => "IncidentUserDefinedRoleRequest",
+    },
+    "v2.DeleteIncidentUserDefinedRole" => {
+            "role_id" => "UUID",
+    },
+    "v2.GetIncidentUserDefinedRole" => {
+            "role_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateIncidentUserDefinedRole" => {
+            "role_id" => "UUID",
+            "include" => "String",
+            "body" => "IncidentUserDefinedRolePatchRequest",
+    },
     "v2.ImportIncident" => {
             "include" => "Array<IncidentImportRelatedObject>",
             "body" => "IncidentImportRequest",
@@ -3247,6 +3319,9 @@ ScenariosModelMappings = {
             "incident_id" => "String",
             "include" => "Array<IncidentRelatedObject>",
             "body" => "IncidentUpdateRequest",
+    },
+    "v2.GetIncidentAIPostmortem" => {
+            "incident_id" => "String",
     },
     "v2.ListIncidentAttachments" => {
             "incident_id" => "String",
@@ -3272,6 +3347,18 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchAttachmentRequest",
     },
+    "v2.CreatePageFromIncident" => {
+            "incident_id" => "String",
+            "body" => "IncidentCreatePageFromIncidentRequest",
+    },
+    "v2.UpdateIncidentConfiguration" => {
+            "incident_id" => "String",
+            "body" => "IncidentConfigurationPatchRequest",
+    },
+    "v2.CreateIncidentConfiguration" => {
+            "incident_id" => "String",
+            "body" => "IncidentConfigurationRequest",
+    },
     "v2.ListIncidentImpacts" => {
             "incident_id" => "String",
             "include" => "Array<IncidentImpactRelatedObject>",
@@ -3284,6 +3371,26 @@ ScenariosModelMappings = {
     "v2.DeleteIncidentImpact" => {
             "incident_id" => "String",
             "impact_id" => "String",
+    },
+    "v2.PatchIncidentImpact" => {
+            "incident_id" => "String",
+            "impact_id" => "String",
+            "include" => "Array<IncidentImpactRelatedObject>",
+            "body" => "IncidentImpactCreateRequest",
+    },
+    "v2.UpdateIncidentImpact" => {
+            "incident_id" => "String",
+            "impact_id" => "String",
+            "include" => "Array<IncidentImpactRelatedObject>",
+            "body" => "IncidentImpactCreateRequest",
+    },
+    "v2.CreateOnCallPageFromIncident" => {
+            "incident_id" => "String",
+            "body" => "IncidentCreateOnCallPageRequest",
+    },
+    "v2.LinkPageToIncident" => {
+            "incident_id" => "String",
+            "body" => "IncidentOnCallPageLinkRequest",
     },
     "v2.ListIncidentIntegrations" => {
             "incident_id" => "String",
@@ -3324,6 +3431,41 @@ ScenariosModelMappings = {
             "incident_id" => "String",
             "todo_id" => "String",
             "body" => "IncidentTodoPatchRequest",
+    },
+    "v2.ListIncidentResponders" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentResponder" => {
+            "incident_id" => "String",
+            "body" => "IncidentResponderRequest",
+    },
+    "v2.DeleteIncidentResponder" => {
+            "incident_id" => "String",
+            "responder_id" => "UUID",
+    },
+    "v2.GetIncidentResponder" => {
+            "incident_id" => "String",
+            "responder_id" => "UUID",
+    },
+    "v2.CreateIncidentServiceNowRecord" => {
+            "incident_id" => "String",
+            "body" => "IncidentServiceNowRecordRequest",
+    },
+    "v2.ListTimestampOverrides" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateTimestampOverride" => {
+            "incident_id" => "String",
+            "body" => "IncidentTimestampOverrideRequest",
+    },
+    "v2.DeleteTimestampOverride" => {
+            "incident_id" => "String",
+            "id" => "UUID",
+    },
+    "v2.UpdateTimestampOverride" => {
+            "incident_id" => "String",
+            "id" => "UUID",
+            "body" => "IncidentTimestampOverridePatchRequest",
     },
     "v2.ListAWSAccounts" => {
             "aws_account_id" => "String",
