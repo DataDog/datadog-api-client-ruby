@@ -502,6 +502,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List rows.
+    #
+    # @see #list_reference_table_rows_with_http_info
+    def list_reference_table_rows(id, opts = {})
+      data, _status_code, _headers = list_reference_table_rows_with_http_info(id, opts)
+      data
+    end
+
+    # List rows.
+    #
+    # List all rows in a reference table using cursor-based pagination. Pass the `page[continuation_token]` from the previous response to fetch the next page on the same consistent snapshot. Returns 400 for tables with more than 10,000,000 rows.
+    #
+    # @param id [String] Unique identifier of the reference table to list rows from.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit Number of rows to return per page. Defaults to 100, maximum is 1000.
+    # @option opts [String] :page_continuation_token Opaque cursor from the previous response's next link. Pass this to retrieve the next page on the same consistent snapshot.
+    # @return [Array<(ListRowsResponse, Integer, Hash)>] ListRowsResponse data, response status code and response headers
+    def list_reference_table_rows_with_http_info(id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.list_reference_table_rows ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ReferenceTablesAPI.list_reference_table_rows"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ReferenceTablesAPI.list_reference_table_rows, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ReferenceTablesAPI.list_reference_table_rows, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/reference-tables/tables/{id}/rows/list'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[continuation_token]'] = opts[:'page_continuation_token'] if !opts[:'page_continuation_token'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListRowsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_reference_table_rows,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReferenceTablesAPI#list_reference_table_rows\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List tables.
     #
     # @see #list_tables_with_http_info

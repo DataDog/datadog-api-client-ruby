@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 15 May 2026 19:32:21 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/reference-tables/tables/not-a-valid-uuid/rows/list
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"table ID must be a valid
+        UUID format"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
