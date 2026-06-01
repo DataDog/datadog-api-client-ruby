@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Usage statistics for a dashboard.
+  # Usage statistics for a dashboard. The `viewer` field and all view-count fields (`total_views`, `viewed_at`, `total_views_by_type`) are populated only when Real User Monitoring (RUM) is active for the org.
   class DashboardUsageAttributes
     include BaseGenericModel
 
@@ -42,13 +42,13 @@ module DatadogAPIClient::V2
     # The dashboard title.
     attr_accessor :title
 
-    # The total number of times the dashboard has been viewed.
+    # Total view count for the dashboard. Counts only views captured by Real User Monitoring (RUM); `0` in orgs without RUM.
     attr_accessor :total_views
 
-    # View counts keyed by view type. Possible keys are `in_app`, `embed`, `public`, `shared`, `api`, and `unknown`.
+    # View counts keyed by view type (`in_app`, `embed`, `public`, `shared`, `api`, `unknown`). Counts only views captured by Real User Monitoring (RUM); empty in orgs without RUM.
     attr_accessor :total_views_by_type
 
-    # When the dashboard was most recently viewed.
+    # When the dashboard was most recently viewed. Populated only when Real User Monitoring (RUM) is active for the org; `null` in orgs without RUM.
     attr_accessor :viewed_at
 
     # A user referenced from a dashboard usage record (author or viewer).

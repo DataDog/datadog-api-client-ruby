@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Get usage stats for a dashboard.
     #
-    # Get usage statistics for a single dashboard. The response includes view counts, the most recent view and edit times, widget counts, and the dashboard quality score.
+    # Get usage statistics for a single dashboard. The response includes view counts, the most recent view and edit times, widget counts, and the dashboard quality score. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM.
     #
     # @param dashboard_id [String] The ID of the dashboard.
     # @param opts [Hash] the optional parameters
@@ -104,11 +104,13 @@ module DatadogAPIClient::V2
 
     # Get usage stats for all dashboards.
     #
-    # Get paginated usage statistics for every dashboard in the caller's organization. Use `page[limit]` and `page[offset]` to walk the result set.
+    # Get paginated usage statistics for every dashboard in the caller's organization. Use `page[limit]` and `page[offset]` to walk the result set. Use `filter[edited_before]` or `filter[viewed_before]` to narrow results by recency. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_limit Maximum number of dashboards to return per page. Server-side maximum is 500; values above 500 return a 400 Bad Request.
     # @option opts [Integer] :page_offset Zero-based offset into the result set.
+    # @option opts [String] :filter_edited_before Return only dashboards whose last edit (`edited_at`) is strictly before this ISO 8601 timestamp (`edited_at < value`; boundary matches are excluded). Must include a timezone offset (for example, `Z` or `+00:00`); naive timestamps return HTTP 400.
+    # @option opts [String] :filter_viewed_before Return only dashboards whose most recent view (`viewed_at`) is strictly before this ISO 8601 timestamp, including dashboards that have never been viewed. Must include a timezone offset; naive timestamps return HTTP 400. Orgs without Real User Monitoring (RUM) will see all dashboards returned by this filter.
     # @return [Array<(ListDashboardsUsageResponse, Integer, Hash)>] ListDashboardsUsageResponse data, response status code and response headers
     def list_dashboards_usage_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_dashboards_usage".to_sym]
@@ -131,6 +133,8 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
       query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'filter[edited_before]'] = opts[:'filter_edited_before'] if !opts[:'filter_edited_before'].nil?
+      query_params[:'filter[viewed_before]'] = opts[:'filter_viewed_before'] if !opts[:'filter_viewed_before'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
