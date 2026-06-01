@@ -4354,6 +4354,11 @@ ScenariosModelMappings = {
             "id" => "String",
             "body" => "BatchUpsertRowsRequestArray",
     },
+    "v2.ListReferenceTableRows" => {
+            "id" => "String",
+            "page_limit" => "Integer",
+            "page_continuation_token" => "String",
+    },
     "v2.CreateReferenceTableUpload" => {
             "body" => "CreateUploadRequest",
     },
