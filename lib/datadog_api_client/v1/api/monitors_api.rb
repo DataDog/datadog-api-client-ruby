@@ -849,6 +849,8 @@ module DatadogAPIClient::V1
     #
     # Validate the monitor provided in the request.
     #
+    # **Note**: Log monitors require an unscoped App Key and `logs_read_data` permission.
+    #
     # @param monitor_id [Integer] The ID of the monitor
     # @param body [Monitor] Monitor request object
     # @param opts [Hash] the optional parameters
@@ -921,7 +923,7 @@ module DatadogAPIClient::V1
     #
     # Validate the monitor provided in the request.
     #
-    # **Note**: Log monitors require an unscoped App Key.
+    # **Note**: Log monitors require an unscoped App Key and `logs_read_data` permission.
     #
     # @param body [Monitor] Monitor request object
     # @param opts [Hash] the optional parameters
