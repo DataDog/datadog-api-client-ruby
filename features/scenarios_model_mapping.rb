@@ -3491,6 +3491,19 @@ ScenariosModelMappings = {
             "integration_service_id" => "String",
             "body" => "OpsgenieServiceUpdateRequest",
     },
+    "v2.CreateIncidentTemplate" => {
+            "body" => "SalesforceIncidentsTemplateCreateRequest",
+    },
+    "v2.DeleteIncidentTemplate" => {
+            "incident_template_id" => "String",
+    },
+    "v2.UpdateIncidentTemplate" => {
+            "incident_template_id" => "String",
+            "body" => "SalesforceIncidentsTemplateUpdateRequest",
+    },
+    "v2.DeleteSalesforceOrganization" => {
+            "salesforce_org_id" => "String",
+    },
     "v2.ListServiceNowAssignmentGroups" => {
             "instance_id" => "UUID",
     },
