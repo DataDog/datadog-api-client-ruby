@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class SecurityEntityRiskScore
     include BaseGenericModel
 
-    # Attributes of an entity risk score
+    # Attributes of an entity risk score.
     attr_reader :attributes
 
     # Unique identifier for the entity
     attr_reader :id
 
-    # Resource type
+    # Resource type.
     attr_reader :type
 
     attr_accessor :additional_properties

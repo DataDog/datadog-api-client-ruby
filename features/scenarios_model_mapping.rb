@@ -4786,6 +4786,9 @@ ScenariosModelMappings = {
             "filter_query" => "String",
             "entity_type" => "Array<String>",
     },
+    "v2.GetEntityRiskScore" => {
+            "entity_id" => "String",
+    },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
     },

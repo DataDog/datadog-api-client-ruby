@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type
+  # Resource type.
   class SecurityEntityRiskScoreType
     include BaseEnumModel
 
-    SECURITY_ENTITY_RISK_SCORE = "security_entity_risk_score".freeze
+    SECURITY_ENTITY_RISK_SCORE = "SecurityEntityRiskScore".freeze
   end
 end
