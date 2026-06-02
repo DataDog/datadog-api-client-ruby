@@ -3529,6 +3529,22 @@ ScenariosModelMappings = {
             "statuspage_url_setting_id" => "String",
             "body" => "StatuspageUrlSettingUpdateRequest",
     },
+    "v2.GetAllAuthMethods" => {
+            "include" => "WebhooksAuthMethodProtocol",
+    },
+    "v2.CreateOAuth2ClientCredentials" => {
+            "body" => "WebhooksOAuth2ClientCredentialsCreateRequest",
+    },
+    "v2.DeleteOAuth2ClientCredentials" => {
+            "auth_method_id" => "String",
+    },
+    "v2.GetOAuth2ClientCredentials" => {
+            "auth_method_id" => "String",
+    },
+    "v2.UpdateOAuth2ClientCredentials" => {
+            "auth_method_id" => "String",
+            "body" => "WebhooksOAuth2ClientCredentialsUpdateRequest",
+    },
     "v2.CreateCloudflareAccount" => {
             "body" => "CloudflareAccountCreateRequest",
     },
