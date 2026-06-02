@@ -3468,6 +3468,16 @@ ScenariosModelMappings = {
             "tenancy_ocid" => "String",
             "body" => "UpdateTenancyConfigRequest",
     },
+    "v2.CreateOpsgenieAccount" => {
+            "body" => "OpsgenieAccountCreateRequest",
+    },
+    "v2.DeleteOpsgenieAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateOpsgenieAccount" => {
+            "account_id" => "String",
+            "body" => "OpsgenieAccountUpdateRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
