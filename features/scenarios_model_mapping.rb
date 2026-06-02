@@ -4606,6 +4606,15 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "RumMetricUpdateRequest",
     },
+    "v2.QueryAggregatedLongTasks" => {
+            "body" => "AggregatedLongTasksRequest",
+    },
+    "v2.QueryAggregatedSignalsProblems" => {
+            "body" => "AggregatedSignalsProblemsRequest",
+    },
+    "v2.QueryAggregatedWaterfall" => {
+            "body" => "AggregatedWaterfallRequest",
+    },
     "v2.ListRumReplayPlaylists" => {
             "filter_created_by_uuid" => "String",
             "filter_query" => "String",
