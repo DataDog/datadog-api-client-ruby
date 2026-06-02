@@ -2008,6 +2008,9 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "sort" => "SecurityFindingsSort",
     },
+    "v2.UpdateFindingsAssignee" => {
+            "body" => "AssigneeRequest",
+    },
     "v2.DetachCase" => {
             "body" => "DetachCaseRequest",
     },
@@ -2029,6 +2032,12 @@ ScenariosModelMappings = {
     },
     "v2.SearchSecurityFindings" => {
             "body" => "SecurityFindingsSearchRequest",
+    },
+    "v2.AttachServiceNowTicket" => {
+            "body" => "AttachServiceNowTicketRequest",
+    },
+    "v2.CreateServiceNowTickets" => {
+            "body" => "CreateServiceNowTicketRequestArray",
     },
     "v2.ListAssetsSBOMs" => {
             "page_token" => "String",
