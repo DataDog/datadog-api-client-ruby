@@ -571,6 +571,7 @@ module DatadogAPIClient
             "v2.query_aggregated_signals_problems": false,
             "v2.query_aggregated_waterfall": false,
             "v2.create_scorecard_outcomes_batch": false,
+            "v2.get_entity_risk_score": false,
             "v2.list_entity_risk_scores": false,
             "v2.create_incident_service": false,
             "v2.delete_incident_service": false,

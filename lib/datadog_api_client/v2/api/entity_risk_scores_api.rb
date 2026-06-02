@@ -23,6 +23,77 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Get Entity Risk Score.
+    #
+    # @see #get_entity_risk_score_with_http_info
+    def get_entity_risk_score(entity_id, opts = {})
+      data, _status_code, _headers = get_entity_risk_score_with_http_info(entity_id, opts)
+      data
+    end
+
+    # Get Entity Risk Score.
+    #
+    # Get the risk score for a specific entity by its ID. Returns security risk assessment including risk score, severity, detected signals, misconfigurations, and identity risks.
+    #
+    # @param entity_id [String] The URL-encoded unique identifier for the entity.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityEntityRiskScoreResponse, Integer, Hash)>] SecurityEntityRiskScoreResponse data, response status code and response headers
+    def get_entity_risk_score_with_http_info(entity_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_entity_risk_score".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_entity_risk_score")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_entity_risk_score"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EntityRiskScoresAPI.get_entity_risk_score ...'
+      end
+      # verify the required parameter 'entity_id' is set
+      if @api_client.config.client_side_validation && entity_id.nil?
+        fail ArgumentError, "Missing the required parameter 'entity_id' when calling EntityRiskScoresAPI.get_entity_risk_score"
+      end
+      # resource path
+      local_var_path = '/api/v2/security-entities/risk-scores/{entity_id}'.sub('{entity_id}', CGI.escape(entity_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityEntityRiskScoreResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_entity_risk_score,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EntityRiskScoresAPI#get_entity_risk_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Entity Risk Scores.
     #
     # @see #list_entity_risk_scores_with_http_info

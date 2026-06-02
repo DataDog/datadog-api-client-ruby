@@ -5806,6 +5806,7 @@ module DatadogAPIClient
           "v2.security_entity_risk_score" => "SecurityEntityRiskScore",
           "v2.security_entity_risk_score_attributes" => "SecurityEntityRiskScoreAttributes",
           "v2.security_entity_risk_score_attributes_severity" => "SecurityEntityRiskScoreAttributesSeverity",
+          "v2.security_entity_risk_score_response" => "SecurityEntityRiskScoreResponse",
           "v2.security_entity_risk_scores_meta" => "SecurityEntityRiskScoresMeta",
           "v2.security_entity_risk_scores_response" => "SecurityEntityRiskScoresResponse",
           "v2.security_entity_risk_score_type" => "SecurityEntityRiskScoreType",

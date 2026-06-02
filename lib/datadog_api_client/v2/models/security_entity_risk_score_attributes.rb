@@ -17,50 +17,56 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an entity risk score
+  # Attributes of an entity risk score.
   class SecurityEntityRiskScoreAttributes
     include BaseGenericModel
+
+    # Cloud account IDs associated with the entity.
+    attr_reader :account_ids
 
     # Configuration risks associated with the entity
     attr_reader :config_risks
 
-    # Unique identifier for the entity
-    attr_reader :entity_id
-
     # Metadata about the entity from cloud providers
     attr_reader :entity_metadata
 
-    # Human-readable name of the entity
+    # Human-readable name of the entity.
     attr_accessor :entity_name
 
-    # Cloud providers associated with the entity
+    # Cloud providers associated with the entity.
     attr_reader :entity_providers
 
-    # Roles associated with the entity
+    # Roles associated with the entity.
     attr_accessor :entity_roles
 
-    # Type of the entity (e.g., aws_iam_user, aws_ec2_instance)
-    attr_reader :entity_type
+    # Sub-types associated with the entity.
+    attr_reader :entity_sub_types
 
-    # Timestamp when the entity was first detected (Unix milliseconds)
+    # Type of the entity (for example, aws_iam_user, aws_ec2_instance).
+    attr_accessor :entity_type
+
+    # All types associated with the entity.
+    attr_accessor :entity_types
+
+    # Timestamp when the entity was first detected (Unix milliseconds).
     attr_reader :first_detected
 
-    # Title of the most recent signal detected for this entity
+    # Title of the most recent signal detected for this entity.
     attr_reader :last_activity_title
 
-    # Timestamp when the entity was last detected (Unix milliseconds)
+    # Timestamp when the entity was last detected (Unix milliseconds).
     attr_reader :last_detected
 
-    # Current risk score for the entity
+    # Current risk score for the entity.
     attr_reader :risk_score
 
-    # Change in risk score compared to previous period
+    # Change in risk score compared to previous period.
     attr_reader :risk_score_evolution
 
     # Severity level based on risk score
     attr_reader :severity
 
-    # Number of security signals detected for this entity
+    # Number of security signals detected for this entity.
     attr_reader :signals_detected
 
     attr_accessor :additional_properties
@@ -69,13 +75,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_ids' => :'accountIds',
         :'config_risks' => :'configRisks',
-        :'entity_id' => :'entityID',
         :'entity_metadata' => :'entityMetadata',
         :'entity_name' => :'entityName',
         :'entity_providers' => :'entityProviders',
         :'entity_roles' => :'entityRoles',
+        :'entity_sub_types' => :'entitySubTypes',
         :'entity_type' => :'entityType',
+        :'entity_types' => :'entityTypes',
         :'first_detected' => :'firstDetected',
         :'last_activity_title' => :'lastActivityTitle',
         :'last_detected' => :'lastDetected',
@@ -90,13 +98,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_ids' => :'Array<String>',
         :'config_risks' => :'SecurityEntityConfigRisks',
-        :'entity_id' => :'String',
         :'entity_metadata' => :'SecurityEntityMetadata',
         :'entity_name' => :'String',
         :'entity_providers' => :'Array<String>',
         :'entity_roles' => :'Array<String>',
+        :'entity_sub_types' => :'Array<String>',
         :'entity_type' => :'String',
+        :'entity_types' => :'Array<String>',
         :'first_detected' => :'Integer',
         :'last_activity_title' => :'String',
         :'last_detected' => :'Integer',
@@ -125,12 +135,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'config_risks')
-        self.config_risks = attributes[:'config_risks']
+      if attributes.key?(:'account_ids')
+        if (value = attributes[:'account_ids']).is_a?(Array)
+          self.account_ids = value
+        end
       end
 
-      if attributes.key?(:'entity_id')
-        self.entity_id = attributes[:'entity_id']
+      if attributes.key?(:'config_risks')
+        self.config_risks = attributes[:'config_risks']
       end
 
       if attributes.key?(:'entity_metadata')
@@ -153,8 +165,20 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'entity_sub_types')
+        if (value = attributes[:'entity_sub_types']).is_a?(Array)
+          self.entity_sub_types = value
+        end
+      end
+
       if attributes.key?(:'entity_type')
         self.entity_type = attributes[:'entity_type']
+      end
+
+      if attributes.key?(:'entity_types')
+        if (value = attributes[:'entity_types']).is_a?(Array)
+          self.entity_types = value
+        end
       end
 
       if attributes.key?(:'first_detected')
@@ -190,11 +214,11 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @account_ids.nil?
       return false if @config_risks.nil?
-      return false if @entity_id.nil?
       return false if @entity_metadata.nil?
       return false if @entity_providers.nil?
-      return false if @entity_type.nil?
+      return false if @entity_sub_types.nil?
       return false if @first_detected.nil?
       return false if @last_activity_title.nil?
       return false if @last_detected.nil?
@@ -206,6 +230,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param account_ids [Object] Object to be assigned
+    # @!visibility private
+    def account_ids=(account_ids)
+      if account_ids.nil?
+        fail ArgumentError, 'invalid value for "account_ids", account_ids cannot be nil.'
+      end
+      @account_ids = account_ids
+    end
+
+    # Custom attribute writer method with validation
     # @param config_risks [Object] Object to be assigned
     # @!visibility private
     def config_risks=(config_risks)
@@ -213,16 +247,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "config_risks", config_risks cannot be nil.'
       end
       @config_risks = config_risks
-    end
-
-    # Custom attribute writer method with validation
-    # @param entity_id [Object] Object to be assigned
-    # @!visibility private
-    def entity_id=(entity_id)
-      if entity_id.nil?
-        fail ArgumentError, 'invalid value for "entity_id", entity_id cannot be nil.'
-      end
-      @entity_id = entity_id
     end
 
     # Custom attribute writer method with validation
@@ -246,13 +270,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param entity_type [Object] Object to be assigned
+    # @param entity_sub_types [Object] Object to be assigned
     # @!visibility private
-    def entity_type=(entity_type)
-      if entity_type.nil?
-        fail ArgumentError, 'invalid value for "entity_type", entity_type cannot be nil.'
+    def entity_sub_types=(entity_sub_types)
+      if entity_sub_types.nil?
+        fail ArgumentError, 'invalid value for "entity_sub_types", entity_sub_types cannot be nil.'
       end
-      @entity_type = entity_type
+      @entity_sub_types = entity_sub_types
     end
 
     # Custom attribute writer method with validation
@@ -351,13 +375,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_ids == o.account_ids &&
           config_risks == o.config_risks &&
-          entity_id == o.entity_id &&
           entity_metadata == o.entity_metadata &&
           entity_name == o.entity_name &&
           entity_providers == o.entity_providers &&
           entity_roles == o.entity_roles &&
+          entity_sub_types == o.entity_sub_types &&
           entity_type == o.entity_type &&
+          entity_types == o.entity_types &&
           first_detected == o.first_detected &&
           last_activity_title == o.last_activity_title &&
           last_detected == o.last_detected &&
@@ -372,7 +398,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config_risks, entity_id, entity_metadata, entity_name, entity_providers, entity_roles, entity_type, first_detected, last_activity_title, last_detected, risk_score, risk_score_evolution, severity, signals_detected, additional_properties].hash
+      [account_ids, config_risks, entity_metadata, entity_name, entity_providers, entity_roles, entity_sub_types, entity_type, entity_types, first_detected, last_activity_title, last_detected, risk_score, risk_score_evolution, severity, signals_detected, additional_properties].hash
     end
   end
 end
