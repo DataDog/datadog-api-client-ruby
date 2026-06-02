@@ -2859,6 +2859,8 @@ ScenariosModelMappings = {
     "v2.ListDashboardsUsage" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",
+            "filter_edited_before" => "String",
+            "filter_viewed_before" => "String",
     },
     "v2.GetDashboardUsage" => {
             "dashboard_id" => "String",
