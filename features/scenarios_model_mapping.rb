@@ -3513,6 +3513,22 @@ ScenariosModelMappings = {
     "v2.ListServiceNowUsers" => {
             "instance_id" => "UUID",
     },
+    "v2.UpdateStatuspageAccount" => {
+            "body" => "StatuspageAccountUpdateRequest",
+    },
+    "v2.CreateStatuspageAccount" => {
+            "body" => "StatuspageAccountCreateRequest",
+    },
+    "v2.CreateStatuspageUrlSetting" => {
+            "body" => "StatuspageUrlSettingCreateRequest",
+    },
+    "v2.DeleteStatuspageUrlSetting" => {
+            "statuspage_url_setting_id" => "String",
+    },
+    "v2.UpdateStatuspageUrlSetting" => {
+            "statuspage_url_setting_id" => "String",
+            "body" => "StatuspageUrlSettingUpdateRequest",
+    },
     "v2.CreateCloudflareAccount" => {
             "body" => "CloudflareAccountCreateRequest",
     },
