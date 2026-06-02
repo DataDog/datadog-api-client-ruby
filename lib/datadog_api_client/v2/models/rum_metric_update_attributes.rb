@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The rum-based metric properties that will be updated.
+  # The RUM-based metric properties that will be updated.
   class RumMetricUpdateAttributes
     include BaseGenericModel
 
-    # The compute rule to compute the rum-based metric.
+    # The compute rule to compute the RUM-based metric.
     attr_accessor :compute
 
-    # The rum-based metric filter. Events matching this filter will be aggregated in this metric.
+    # The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
     attr_accessor :filter
 
     # The rules for the group by.

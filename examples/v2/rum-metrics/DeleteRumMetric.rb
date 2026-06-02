@@ -1,4 +1,4 @@
-# Delete a rum-based metric returns "No Content" response
+# Delete a RUM-based metric returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumMetricsAPI.new

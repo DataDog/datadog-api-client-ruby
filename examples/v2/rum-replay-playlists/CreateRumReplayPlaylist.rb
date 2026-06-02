@@ -1,4 +1,4 @@
-# Create rum replay playlist returns "Created" response
+# Create RUM replay playlist returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayPlaylistsAPI.new

@@ -1,4 +1,4 @@
-# Update a rum-based metric returns "OK" response
+# Update a RUM-based metric returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumMetricsAPI.new

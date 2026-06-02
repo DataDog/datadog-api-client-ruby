@@ -1,4 +1,4 @@
-# List rum replay viewership history sessions returns "OK" response
+# List RUM replay viewership history sessions returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayViewershipAPI.new

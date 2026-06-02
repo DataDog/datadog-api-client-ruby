@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The compute rule to compute the rum-based metric.
+  # The compute rule to compute the RUM-based metric.
   class RumMetricResponseCompute
     include BaseGenericModel
 
@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # Only present when `aggregation_type` is `distribution`.
     attr_accessor :include_percentiles
 
-    # The path to the value the rum-based metric will aggregate on.
+    # The path to the value the RUM-based metric will aggregate on.
     # Only present when `aggregation_type` is `distribution`.
     attr_accessor :path
 
