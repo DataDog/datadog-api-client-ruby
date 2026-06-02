@@ -616,6 +616,7 @@ module DatadogAPIClient
             "v2.revert_custom_rule_revision": false,
             "v2.update_ai_custom_ruleset": false,
             "v2.update_custom_ruleset": false,
+            "v2.get_widgets_from_image": false,
             "v2.add_member_team": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
