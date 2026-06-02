@@ -5171,6 +5171,9 @@ ScenariosModelMappings = {
     "v2.UnpublishStatusPage" => {
             "page_id" => "UUID",
     },
+    "v2.GetStegadographyWidgets" => {
+            "image" => "File",
+    },
     "v2.GetApiMultistepSubtests" => {
             "public_id" => "String",
     },
