@@ -60,6 +60,9 @@ module DatadogAPIClient::V2
     # Priority of the case.
     attr_accessor :priority
 
+    # ServiceNow ticket associated with the case.
+    attr_accessor :servicenow_ticket
+
     # Status of the case.
     attr_accessor :status
 
@@ -94,6 +97,7 @@ module DatadogAPIClient::V2
         :'key' => :'key',
         :'modified_at' => :'modified_at',
         :'priority' => :'priority',
+        :'servicenow_ticket' => :'servicenow_ticket',
         :'status' => :'status',
         :'status_group' => :'status_group',
         :'status_name' => :'status_name',
@@ -119,6 +123,7 @@ module DatadogAPIClient::V2
         :'key' => :'String',
         :'modified_at' => :'Time',
         :'priority' => :'String',
+        :'servicenow_ticket' => :'FindingServiceNowTicket',
         :'status' => :'String',
         :'status_group' => :'String',
         :'status_name' => :'String',
@@ -199,6 +204,10 @@ module DatadogAPIClient::V2
         self.priority = attributes[:'priority']
       end
 
+      if attributes.key?(:'servicenow_ticket')
+        self.servicenow_ticket = attributes[:'servicenow_ticket']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -259,6 +268,7 @@ module DatadogAPIClient::V2
           key == o.key &&
           modified_at == o.modified_at &&
           priority == o.priority &&
+          servicenow_ticket == o.servicenow_ticket &&
           status == o.status &&
           status_group == o.status_group &&
           status_name == o.status_name &&
@@ -271,7 +281,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, assigned_to, attributes, closed_at, created_at, creation_source, description, due_date, insights, jira_issue, key, modified_at, priority, status, status_group, status_name, title, type, additional_properties].hash
+      [archived_at, assigned_to, attributes, closed_at, created_at, creation_source, description, due_date, insights, jira_issue, key, modified_at, priority, servicenow_ticket, status, status_group, status_name, title, type, additional_properties].hash
     end
   end
 end

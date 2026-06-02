@@ -237,6 +237,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Attach security findings to a ServiceNow ticket.
+    #
+    # @see #attach_service_now_ticket_with_http_info
+    def attach_service_now_ticket(body, opts = {})
+      data, _status_code, _headers = attach_service_now_ticket_with_http_info(body, opts)
+      data
+    end
+
+    # Attach security findings to a ServiceNow ticket.
+    #
+    # Attach security findings to a ServiceNow ticket by providing the ServiceNow ticket URL.
+    # You can attach up to 50 security findings per ServiceNow ticket. If the ServiceNow ticket is not linked to any case, this operation will create a case for the security findings and link the ServiceNow ticket to the newly created case. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the specified ServiceNow ticket.
+    #
+    # @param body [AttachServiceNowTicketRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
+    def attach_service_now_ticket_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.attach_service_now_ticket".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.attach_service_now_ticket")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.attach_service_now_ticket"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_service_now_ticket ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.attach_service_now_ticket"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/servicenow_tickets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FindingCaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :attach_service_now_ticket,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#attach_service_now_ticket\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get dataset dependencies.
     #
     # @see #batch_get_security_monitoring_dataset_dependencies_with_http_info
@@ -1959,6 +2033,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create ServiceNow tickets for security findings.
+    #
+    # @see #create_service_now_tickets_with_http_info
+    def create_service_now_tickets(body, opts = {})
+      data, _status_code, _headers = create_service_now_tickets_with_http_info(body, opts)
+      data
+    end
+
+    # Create ServiceNow tickets for security findings.
+    #
+    # Create ServiceNow tickets for security findings.
+    # This operation creates a case in Datadog and a ServiceNow ticket linked to that case for bidirectional sync between Datadog and ServiceNow. You can create up to 50 ServiceNow tickets per request and associate up to 50 security findings per ServiceNow ticket. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the newly created ServiceNow ticket.
+    #
+    # @param body [CreateServiceNowTicketRequestArray] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
+    def create_service_now_tickets_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_service_now_tickets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_service_now_tickets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_service_now_tickets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_service_now_tickets ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_service_now_tickets"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/servicenow_tickets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FindingCaseResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_service_now_tickets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_service_now_tickets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -8810,6 +8958,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Assign or unassign security findings.
+    #
+    # @see #update_findings_assignee_with_http_info
+    def update_findings_assignee(body, opts = {})
+      data, _status_code, _headers = update_findings_assignee_with_http_info(body, opts)
+      data
+    end
+
+    # Assign or unassign security findings.
+    #
+    # Assign or unassign security findings.
+    # You can assign up to 100 security findings per request. Set `assignee_id` to the unique identifier of the Datadog user you want to assign the findings to. Omit `assignee_id` (or set it to `null`) to unassign the findings. Per-finding warnings and failures are returned in the response `meta` object.
+    #
+    # @param body [AssigneeRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AssigneeResponse, Integer, Hash)>] AssigneeResponse data, response status code and response headers
+    def update_findings_assignee_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_findings_assignee".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_findings_assignee")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_findings_assignee"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_findings_assignee ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_findings_assignee"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/assignee'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AssigneeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_findings_assignee,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_findings_assignee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
