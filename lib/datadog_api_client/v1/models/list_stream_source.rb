@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Source from which to query items to display in the stream.
+  # Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
   class ListStreamSource
     include BaseEnumModel
 
@@ -34,5 +34,6 @@ module DatadogAPIClient::V1
     EVENT_STREAM = "event_stream".freeze
     RUM_STREAM = "rum_stream".freeze
     LLM_OBSERVABILITY_STREAM = "llm_observability_stream".freeze
+    ISSUE_STREAM = "issue_stream".freeze
   end
 end

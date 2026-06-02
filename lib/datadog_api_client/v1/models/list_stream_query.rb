@@ -21,13 +21,16 @@ module DatadogAPIClient::V1
   class ListStreamQuery
     include BaseGenericModel
 
+    # Filter by assignee UUIDs. Usable only with `issue_stream`.
+    attr_accessor :assignee_uuids
+
     # Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
     attr_accessor :clustering_pattern_field_path
 
     # Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
     attr_reader :compute
 
-    # Source from which to query items to display in the stream.
+    # Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
     attr_reader :data_source
 
     # Size to use to display an event.
@@ -39,14 +42,26 @@ module DatadogAPIClient::V1
     # List of indexes.
     attr_accessor :indexes
 
+    # Persona filter for the `issue_stream` data source.
+    attr_accessor :persona
+
     # Widget query.
     attr_reader :query_string
 
     # Which column and order to sort by
     attr_accessor :sort
 
+    # Filter by issue states. Usable only with `issue_stream`.
+    attr_accessor :states
+
     # Option for storage location. Feature in Private Beta.
     attr_accessor :storage
+
+    # Filter by suspected causes. Usable only with `issue_stream`.
+    attr_accessor :suspected_causes
+
+    # Filter by team handles. Usable only with `issue_stream`.
+    attr_accessor :team_handles
 
     attr_accessor :additional_properties
 
@@ -54,15 +69,20 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'assignee_uuids' => :'assignee_uuids',
         :'clustering_pattern_field_path' => :'clustering_pattern_field_path',
         :'compute' => :'compute',
         :'data_source' => :'data_source',
         :'event_size' => :'event_size',
         :'group_by' => :'group_by',
         :'indexes' => :'indexes',
+        :'persona' => :'persona',
         :'query_string' => :'query_string',
         :'sort' => :'sort',
-        :'storage' => :'storage'
+        :'states' => :'states',
+        :'storage' => :'storage',
+        :'suspected_causes' => :'suspected_causes',
+        :'team_handles' => :'team_handles'
       }
     end
 
@@ -70,15 +90,20 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'assignee_uuids' => :'Array<String>',
         :'clustering_pattern_field_path' => :'String',
         :'compute' => :'Array<ListStreamComputeItems>',
         :'data_source' => :'ListStreamSource',
         :'event_size' => :'WidgetEventSize',
         :'group_by' => :'Array<ListStreamGroupByItems>',
         :'indexes' => :'Array<String>',
+        :'persona' => :'ListStreamIssuePersona',
         :'query_string' => :'String',
         :'sort' => :'WidgetFieldSort',
-        :'storage' => :'String'
+        :'states' => :'Array<ListStreamIssueState>',
+        :'storage' => :'String',
+        :'suspected_causes' => :'Array<String>',
+        :'team_handles' => :'Array<String>'
       }
     end
 
@@ -99,6 +124,12 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'assignee_uuids')
+        if (value = attributes[:'assignee_uuids']).is_a?(Array)
+          self.assignee_uuids = value
+        end
+      end
 
       if attributes.key?(:'clustering_pattern_field_path')
         self.clustering_pattern_field_path = attributes[:'clustering_pattern_field_path']
@@ -130,6 +161,10 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'persona')
+        self.persona = attributes[:'persona']
+      end
+
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
       end
@@ -138,8 +173,26 @@ module DatadogAPIClient::V1
         self.sort = attributes[:'sort']
       end
 
+      if attributes.key?(:'states')
+        if (value = attributes[:'states']).is_a?(Array)
+          self.states = value
+        end
+      end
+
       if attributes.key?(:'storage')
         self.storage = attributes[:'storage']
+      end
+
+      if attributes.key?(:'suspected_causes')
+        if (value = attributes[:'suspected_causes']).is_a?(Array)
+          self.suspected_causes = value
+        end
+      end
+
+      if attributes.key?(:'team_handles')
+        if (value = attributes[:'team_handles']).is_a?(Array)
+          self.team_handles = value
+        end
       end
     end
 
@@ -224,15 +277,20 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          assignee_uuids == o.assignee_uuids &&
           clustering_pattern_field_path == o.clustering_pattern_field_path &&
           compute == o.compute &&
           data_source == o.data_source &&
           event_size == o.event_size &&
           group_by == o.group_by &&
           indexes == o.indexes &&
+          persona == o.persona &&
           query_string == o.query_string &&
           sort == o.sort &&
+          states == o.states &&
           storage == o.storage &&
+          suspected_causes == o.suspected_causes &&
+          team_handles == o.team_handles &&
           additional_properties == o.additional_properties
     end
 
@@ -240,7 +298,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, query_string, sort, storage, additional_properties].hash
+      [assignee_uuids, clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, persona, query_string, sort, states, storage, suspected_causes, team_handles, additional_properties].hash
     end
   end
 end
