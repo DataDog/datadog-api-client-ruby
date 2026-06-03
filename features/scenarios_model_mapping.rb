@@ -4568,6 +4568,18 @@ ScenariosModelMappings = {
     "v2.SearchRUMEvents" => {
             "body" => "RUMSearchEventsRequest",
     },
+    "v2.ListHardcodedRetentionFilters" => {
+            "app_id" => "String",
+    },
+    "v2.GetHardcodedRetentionFilter" => {
+            "app_id" => "String",
+            "rf_id" => "String",
+    },
+    "v2.UpdateHardcodedRetentionFilter" => {
+            "app_id" => "String",
+            "rf_id" => "String",
+            "body" => "RumHardcodedRetentionFilterUpdateRequest",
+    },
     "v2.OrderRetentionFilters" => {
             "app_id" => "String",
             "body" => "RumRetentionFiltersOrderRequest",
