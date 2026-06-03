@@ -2350,6 +2350,154 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List LLM Observability experiment spans (v1).
+    #
+    # @see #list_llm_obs_experiment_events_v1_with_http_info
+    def list_llm_obs_experiment_events_v1(experiment_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_experiment_events_v1_with_http_info(experiment_id, opts)
+      data
+    end
+
+    # List LLM Observability experiment spans (v1).
+    #
+    # Retrieve spans with their evaluation metrics for a given experiment. Returns spans only, with no summary metrics and no pagination. Deprecated in favor of `ListLLMObsExperimentEventsV3`.
+    #
+    # @deprecated This API is deprecated.
+    #
+    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsExperimentSpansResponse, Integer, Hash)>] LLMObsExperimentSpansResponse data, response status code and response headers
+    def list_llm_obs_experiment_events_v1_with_http_info(experiment_id, opts = {})
+      warn "[DEPRECATION] `ListLLMObsExperimentEventsV1` is deprecated."
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_experiment_events_v1".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_experiment_events_v1")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_experiment_events_v1"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_experiment_events_v1 ...'
+      end
+      # verify the required parameter 'experiment_id' is set
+      if @api_client.config.client_side_validation && experiment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'experiment_id' when calling LLMObservabilityAPI.list_llm_obs_experiment_events_v1"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/experiments/{experiment_id}/events'.sub('{experiment_id}', CGI.escape(experiment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsExperimentSpansResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_experiment_events_v1,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_experiment_events_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List LLM Observability experiment events (v2).
+    #
+    # @see #list_llm_obs_experiment_events_v2_with_http_info
+    def list_llm_obs_experiment_events_v2(experiment_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_experiment_events_v2_with_http_info(experiment_id, opts)
+      data
+    end
+
+    # List LLM Observability experiment events (v2).
+    #
+    # Retrieve spans and experiment-level summary metrics for a given experiment. Returns the full events payload without pagination. Deprecated: use `ListLLMObsExperimentEventsV3` instead.
+    #
+    # @deprecated This API is deprecated.
+    #
+    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsExperimentEventsV2Response, Integer, Hash)>] LLMObsExperimentEventsV2Response data, response status code and response headers
+    def list_llm_obs_experiment_events_v2_with_http_info(experiment_id, opts = {})
+      warn "[DEPRECATION] `ListLLMObsExperimentEventsV2` is deprecated."
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_experiment_events_v2".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_experiment_events_v2")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_experiment_events_v2"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_experiment_events_v2 ...'
+      end
+      # verify the required parameter 'experiment_id' is set
+      if @api_client.config.client_side_validation && experiment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'experiment_id' when calling LLMObservabilityAPI.list_llm_obs_experiment_events_v2"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v2/experiments/{experiment_id}/events'.sub('{experiment_id}', CGI.escape(experiment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsExperimentEventsV2Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_experiment_events_v2,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_experiment_events_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List LLM Observability experiments.
     #
     # @see #list_llm_obs_experiments_with_http_info
@@ -2366,8 +2514,15 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_project_id Filter experiments by project ID. Required if `filter[dataset_id]` is not provided.
     # @option opts [String] :filter_dataset_id Filter experiments by dataset ID.
     # @option opts [String] :filter_id Filter experiments by experiment ID. Can be specified multiple times.
-    # @option opts [String] :page_cursor Use the Pagination cursor to retrieve the next page of results.
-    # @option opts [Integer] :page_limit Maximum number of results to return per page.
+    # @option opts [String] :filter_name Filter experiments by their exact run name.
+    # @option opts [String] :filter_experiment Filter by logical experiment name. This is the `name` field set when creating an experiment through `POST /experiments`. Returns all experiment runs that share the same name, enabling cross-commit and cross-branch comparisons.
+    # @option opts [String] :filter_metadata Filter by JSONB metadata containment. Provide a JSON object string where experiments whose metadata contains all specified key-value pairs are returned. For example: `{"commit":"abc123","branch":"main"}`.
+    # @option opts [String] :filter_parent_experiment_id Filter experiments by the ID of their parent (baseline) experiment. Returns all experiments that were run against the given baseline. Can be specified multiple times.
+    # @option opts [Boolean] :filter_is_deleted When `true`, return only soft-deleted experiments. Defaults to `false`.
+    # @option opts [Boolean] :include_user_data When `true`, enrich each experiment with its author's user data in the `author` field.
+    # @option opts [Boolean] :include_dataset_names When `true`, enrich each experiment with its dataset name in the `dataset_name` field.
+    # @option opts [String] :page_cursor Use the pagination cursor returned in `meta.after` to retrieve the next page of results.
+    # @option opts [Integer] :page_limit Maximum number of results to return per page. Values above 5000 are clamped to 5000. Defaults to 5000.
     # @return [Array<(LLMObsExperimentsResponse, Integer, Hash)>] LLMObsExperimentsResponse data, response status code and response headers
     def list_llm_obs_experiments_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_experiments".to_sym]
@@ -2380,6 +2535,9 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_experiments ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LLMObservabilityAPI.list_llm_obs_experiments, must be smaller than or equal to 5000.'
+      end
       # resource path
       local_var_path = '/api/v2/llm-obs/v1/experiments'
 
@@ -2388,6 +2546,13 @@ module DatadogAPIClient::V2
       query_params[:'filter[project_id]'] = opts[:'filter_project_id'] if !opts[:'filter_project_id'].nil?
       query_params[:'filter[dataset_id]'] = opts[:'filter_dataset_id'] if !opts[:'filter_dataset_id'].nil?
       query_params[:'filter[id]'] = opts[:'filter_id'] if !opts[:'filter_id'].nil?
+      query_params[:'filter[name]'] = opts[:'filter_name'] if !opts[:'filter_name'].nil?
+      query_params[:'filter[experiment]'] = opts[:'filter_experiment'] if !opts[:'filter_experiment'].nil?
+      query_params[:'filter[metadata]'] = opts[:'filter_metadata'] if !opts[:'filter_metadata'].nil?
+      query_params[:'filter[parent_experiment_id]'] = opts[:'filter_parent_experiment_id'] if !opts[:'filter_parent_experiment_id'].nil?
+      query_params[:'filter[is_deleted]'] = opts[:'filter_is_deleted'] if !opts[:'filter_is_deleted'].nil?
+      query_params[:'include[user_data]'] = opts[:'include_user_data'] if !opts[:'include_user_data'].nil?
+      query_params[:'include[dataset_names]'] = opts[:'include_dataset_names'] if !opts[:'include_dataset_names'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
 

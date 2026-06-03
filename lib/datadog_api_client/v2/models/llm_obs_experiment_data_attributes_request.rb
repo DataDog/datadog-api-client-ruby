@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :config
 
     # Identifier of the dataset used in this experiment.
-    attr_reader :dataset_id
+    attr_accessor :dataset_id
 
     # Version of the dataset to use. Defaults to the current version if not specified.
     attr_accessor :dataset_version
@@ -42,8 +42,14 @@ module DatadogAPIClient::V2
     # Name of the experiment.
     attr_reader :name
 
+    # Identifier of the parent (baseline) experiment this experiment is run against.
+    attr_accessor :parent_experiment_id
+
     # Identifier of the project this experiment belongs to.
     attr_reader :project_id
+
+    # Number of runs configured for this experiment.
+    attr_reader :run_count
 
     attr_accessor :additional_properties
 
@@ -58,7 +64,9 @@ module DatadogAPIClient::V2
         :'ensure_unique' => :'ensure_unique',
         :'metadata' => :'metadata',
         :'name' => :'name',
-        :'project_id' => :'project_id'
+        :'parent_experiment_id' => :'parent_experiment_id',
+        :'project_id' => :'project_id',
+        :'run_count' => :'run_count'
       }
     end
 
@@ -73,7 +81,9 @@ module DatadogAPIClient::V2
         :'ensure_unique' => :'Boolean',
         :'metadata' => :'Hash<String, Object>',
         :'name' => :'String',
-        :'project_id' => :'String'
+        :'parent_experiment_id' => :'String',
+        :'project_id' => :'String',
+        :'run_count' => :'Integer'
       }
     end
 
@@ -123,8 +133,16 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'parent_experiment_id')
+        self.parent_experiment_id = attributes[:'parent_experiment_id']
+      end
+
       if attributes.key?(:'project_id')
         self.project_id = attributes[:'project_id']
+      end
+
+      if attributes.key?(:'run_count')
+        self.run_count = attributes[:'run_count']
       end
     end
 
@@ -132,20 +150,10 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @dataset_id.nil?
       return false if @name.nil?
       return false if @project_id.nil?
+      return false if !@run_count.nil? && @run_count > 2147483647
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param dataset_id [Object] Object to be assigned
-    # @!visibility private
-    def dataset_id=(dataset_id)
-      if dataset_id.nil?
-        fail ArgumentError, 'invalid value for "dataset_id", dataset_id cannot be nil.'
-      end
-      @dataset_id = dataset_id
     end
 
     # Custom attribute writer method with validation
@@ -166,6 +174,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "project_id", project_id cannot be nil.'
       end
       @project_id = project_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param run_count [Object] Object to be assigned
+    # @!visibility private
+    def run_count=(run_count)
+      if !run_count.nil? && run_count > 2147483647
+        fail ArgumentError, 'invalid value for "run_count", must be smaller than or equal to 2147483647.'
+      end
+      @run_count = run_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -201,7 +219,9 @@ module DatadogAPIClient::V2
           ensure_unique == o.ensure_unique &&
           metadata == o.metadata &&
           name == o.name &&
+          parent_experiment_id == o.parent_experiment_id &&
           project_id == o.project_id &&
+          run_count == o.run_count &&
           additional_properties == o.additional_properties
     end
 
@@ -209,7 +229,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, dataset_id, dataset_version, description, ensure_unique, metadata, name, project_id, additional_properties].hash
+      [config, dataset_id, dataset_version, description, ensure_unique, metadata, name, parent_experiment_id, project_id, run_count, additional_properties].hash
     end
   end
 end

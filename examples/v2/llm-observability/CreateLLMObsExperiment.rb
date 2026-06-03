@@ -11,6 +11,7 @@ body = DatadogAPIClient::V2::LLMObsExperimentRequest.new({
     attributes: DatadogAPIClient::V2::LLMObsExperimentDataAttributesRequest.new({
       dataset_id: "9f64e5c7-dc5a-45c8-a17c-1b85f0bec97d",
       name: "My Experiment v1",
+      parent_experiment_id: "3fd6b5e0-8910-4b1c-a7d0-5b84de329012",
       project_id: "a33671aa-24fd-4dcd-9b33-a8ec7dde7751",
     }),
     type: DatadogAPIClient::V2::LLMObsExperimentType::EXPERIMENTS,

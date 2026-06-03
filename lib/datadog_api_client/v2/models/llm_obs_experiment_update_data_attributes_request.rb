@@ -21,11 +21,23 @@ module DatadogAPIClient::V2
   class LLMObsExperimentUpdateDataAttributesRequest
     include BaseGenericModel
 
+    # Updated identifier of the dataset used in this experiment.
+    attr_accessor :dataset_id
+
     # Updated description of the experiment.
     attr_accessor :description
 
+    # Error message describing why the experiment failed, if applicable.
+    attr_accessor :error
+
+    # Updated arbitrary metadata associated with the experiment.
+    attr_accessor :metadata
+
     # Updated name of the experiment.
     attr_accessor :name
+
+    # Execution status of an LLM Observability experiment.
+    attr_accessor :status
 
     attr_accessor :additional_properties
 
@@ -33,8 +45,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'dataset_id' => :'dataset_id',
         :'description' => :'description',
-        :'name' => :'name'
+        :'error' => :'error',
+        :'metadata' => :'metadata',
+        :'name' => :'name',
+        :'status' => :'status'
       }
     end
 
@@ -42,8 +58,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'dataset_id' => :'String',
         :'description' => :'String',
-        :'name' => :'String'
+        :'error' => :'String',
+        :'metadata' => :'Hash<String, Object>',
+        :'name' => :'String',
+        :'status' => :'LLMObsExperimentStatus'
       }
     end
 
@@ -65,12 +85,28 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'dataset_id')
+        self.dataset_id = attributes[:'dataset_id']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -100,8 +136,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          dataset_id == o.dataset_id &&
           description == o.description &&
+          error == o.error &&
+          metadata == o.metadata &&
           name == o.name &&
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, name, additional_properties].hash
+      [dataset_id, description, error, metadata, name, status, additional_properties].hash
     end
   end
 end

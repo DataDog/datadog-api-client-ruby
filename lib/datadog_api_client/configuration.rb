@@ -237,6 +237,8 @@ module DatadogAPIClient
             "v2.list_llm_obs_datasets": false,
             "v2.list_llm_obs_dataset_versions": false,
             "v2.list_llm_obs_experiment_events": false,
+            "v2.list_llm_obs_experiment_events_v1": false,
+            "v2.list_llm_obs_experiment_events_v2": false,
             "v2.list_llm_obs_experiments": false,
             "v2.list_llm_obs_integration_accounts": false,
             "v2.list_llm_obs_integration_models": false,
