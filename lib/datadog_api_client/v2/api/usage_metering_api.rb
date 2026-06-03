@@ -922,5 +922,71 @@ module DatadogAPIClient::V2
       end
       return data, status_code, headers
     end
+
+    # Get available fields for usage summary.
+    #
+    # @see #get_usage_summary_available_fields_with_http_info
+    def get_usage_summary_available_fields(opts = {})
+      data, _status_code, _headers = get_usage_summary_available_fields_with_http_info(opts)
+      data
+    end
+
+    # Get available fields for usage summary.
+    #
+    # List the field names returned by `GET /api/v1/usage/summary` at each of its
+    # three response levels. Each list contains every key the data endpoint
+    # emits—both typed fields declared in the OpenAPI spec and untyped keys
+    # exposed through `additionalProperties` (the latter used for billing
+    # dimensions and usage types added after the v1 schema freeze).
+    #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UsageSummaryAvailableFieldsResponse, Integer, Hash)>] UsageSummaryAvailableFieldsResponse data, response status code and response headers
+    def get_usage_summary_available_fields_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_summary_available_fields ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/summary/available_fields'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageSummaryAvailableFieldsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_usage_summary_available_fields,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_summary_available_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
