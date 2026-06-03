@@ -30,6 +30,21 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all agent hosts over all hours in the current month for all organizations.
     attr_accessor :agent_host_top99p_sum
 
+    # Shows the sum of all AI credits used by Agent Builder over all hours in the current month for all organizations.
+    attr_accessor :ai_credits_agent_builder_ai_credits_agg_sum
+
+    # Shows the sum of all AI credits over all hours in the current month for all organizations.
+    attr_accessor :ai_credits_agg_sum
+
+    # Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current month for all organizations.
+    attr_accessor :ai_credits_bits_assistant_ai_credits_agg_sum
+
+    # Shows the sum of all AI credits used by Bits AI Dev over all hours in the current month for all organizations.
+    attr_accessor :ai_credits_bits_dev_ai_credits_agg_sum
+
+    # Shows the sum of all AI credits used by Bits AI SRE over all hours in the current month for all organizations.
+    attr_accessor :ai_credits_bits_sre_ai_credits_agg_sum
+
     # Shows the 99th percentile of all Azure app services using APM over all hours in the current month all organizations.
     attr_accessor :apm_azure_app_service_host_top99p_sum
 
@@ -59,6 +74,9 @@ module DatadogAPIClient::V1
 
     # Shows the total number of organizations that had Audit Trail enabled over a specific number of months.
     attr_accessor :audit_trail_enabled_hwm_sum
+
+    # Shows the sum of all Audit Trail event forwarding events over all hours in the current month for all organizations.
+    attr_accessor :audit_trail_event_forwarding_events_agg_sum
 
     # The average total count for Fargate Container Profiler over all hours in the current month for all organizations.
     attr_accessor :avg_profiled_fargate_tasks_sum
@@ -285,6 +303,12 @@ module DatadogAPIClient::V1
     # Shows the sum of Data Jobs Monitoring hosts over all hours in the current months for all organizations
     attr_accessor :data_jobs_monitoring_host_hr_agg_sum
 
+    # Shows the sum of all Data Streams Monitoring hosts over all hours in the current month for all organizations.
+    attr_accessor :data_stream_monitoring_host_count_agg_sum
+
+    # Shows the 99th percentile of all Data Streams Monitoring hosts over all hours in the current month for all organizations.
+    attr_accessor :data_stream_monitoring_host_count_top99p_sum
+
     # Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
     attr_accessor :dbm_host_top99p_sum
 
@@ -429,6 +453,99 @@ module DatadogAPIClient::V1
     # Shows the sum of all log events indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :indexed_events_count_agg_sum
 
+    # Shows the sum of all indexed custom metrics points over all hours in the current month for all organizations.
+    attr_accessor :indexed_points_agg_sum
+
+    # Shows the sum of all Infrastructure vCPU cores over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_agg_sum
+
+    # Shows the average of all Infrastructure vCPU cores over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_avg_sum
+
+    # Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_agent_agg_sum
+
+    # Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_agent_avg_sum
+
+    # Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum
+
+    # Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum
+
+    # Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_aws_agg_sum
+
+    # Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_aws_avg_sum
+
+    # Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_azure_agg_sum
+
+    # Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_azure_avg_sum
+
+    # Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_gcp_agg_sum
+
+    # Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_gcp_avg_sum
+
+    # Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_nutanix_agg_sum
+
+    # Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_nutanix_avg_sum
+
+    # Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum
+
+    # Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum
+
+    # Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum
+
+    # Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum
+
+    # Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_agent_agg_sum
+
+    # Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_agent_avg_sum
+
+    # Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_aws_agg_sum
+
+    # Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_aws_avg_sum
+
+    # Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_azure_agg_sum
+
+    # Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_azure_avg_sum
+
+    # Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_gcp_agg_sum
+
+    # Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_gcp_avg_sum
+
+    # Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum
+
+    # Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum
+
+    # Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum
+
+    # Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+    attr_accessor :infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum
+
     # Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current month for all organizations.
     attr_accessor :infra_edge_monitoring_devices_top99p_sum
 
@@ -447,8 +564,17 @@ module DatadogAPIClient::V1
     # Shows the average number of storage management objects over all hours in the current month for all organizations.
     attr_accessor :infra_storage_mgmt_objects_count_avg_sum
 
+    # Shows the sum of all ingested custom metrics points over all hours in the current month for all organizations.
+    attr_accessor :ingest_points_agg_sum
+
     # Shows the sum of all log bytes ingested over all hours in the current month for all organizations.
     attr_accessor :ingested_events_bytes_agg_sum
+
+    # Shows the sum of all Application Performance Monitoring IoT hosts over all hours in the current month for all organizations.
+    attr_accessor :iot_apm_host_agg_sum
+
+    # Shows the 99th percentile of all Application Performance Monitoring IoT hosts over all hours in the current month for all organizations.
+    attr_accessor :iot_apm_host_top99p_sum
 
     # Shows the sum of all IoT devices over all hours in the current month for all organizations.
     attr_accessor :iot_device_agg_sum
@@ -465,14 +591,32 @@ module DatadogAPIClient::V1
     # Shows the sum of all live logs bytes ingested over all hours in the current month for all organizations (data available as of December 1, 2020).
     attr_accessor :live_ingested_bytes_agg_sum
 
+    # Shows the sum of all LLM Observability 15-day retention spans over all hours in the current month for all organizations.
+    attr_accessor :llm_observability_15day_retention_spans_agg_sum
+
+    # Shows the sum of all LLM Observability 30-day retention spans over all hours in the current month for all organizations.
+    attr_accessor :llm_observability_30day_retention_spans_agg_sum
+
+    # Shows the sum of all LLM Observability 60-day retention spans over all hours in the current month for all organizations.
+    attr_accessor :llm_observability_60day_retention_spans_agg_sum
+
+    # Shows the sum of all LLM Observability 90-day retention spans over all hours in the current month for all organizations.
+    attr_accessor :llm_observability_90day_retention_spans_agg_sum
+
     # Sum of all LLM observability sessions for all hours in the current month for all organizations.
     attr_accessor :llm_observability_agg_sum
 
     # Minimum spend for LLM observability sessions for all hours in the current month for all organizations.
     attr_accessor :llm_observability_min_spend_agg_sum
 
+    # Shows the sum of all Logs Archive Search scanned data over all hours in the current month for all organizations.
+    attr_accessor :logs_archive_search_gb_scanned_agg_sum
+
     # Object containing logs usage data broken down by retention period.
     attr_accessor :logs_by_retention
+
+    # Shows the sum of all custom metric names over all hours in the current month for all organizations.
+    attr_accessor :metric_names_agg_sum
 
     # Shows the sum of all mobile lite sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_lite_session_count_agg_sum
@@ -777,6 +921,12 @@ module DatadogAPIClient::V1
     # Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current month for all organizations.
     attr_accessor :siem_analyzed_logs_add_on_count_agg_sum
 
+    # Shows the sum of all Network Device Monitoring devices over all hours in the current month for all organizations.
+    attr_accessor :snmp_device_count_agg_sum
+
+    # Shows the 99th percentile of all Network Device Monitoring devices over all hours in the current month for all organizations.
+    attr_accessor :snmp_device_count_top99p_sum
+
     # Shows the first date of usage in the current month for all organizations.
     attr_accessor :start_date
 
@@ -820,6 +970,11 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'agent_host_top99p_sum' => :'agent_host_top99p_sum',
+        :'ai_credits_agent_builder_ai_credits_agg_sum' => :'ai_credits_agent_builder_ai_credits_agg_sum',
+        :'ai_credits_agg_sum' => :'ai_credits_agg_sum',
+        :'ai_credits_bits_assistant_ai_credits_agg_sum' => :'ai_credits_bits_assistant_ai_credits_agg_sum',
+        :'ai_credits_bits_dev_ai_credits_agg_sum' => :'ai_credits_bits_dev_ai_credits_agg_sum',
+        :'ai_credits_bits_sre_ai_credits_agg_sum' => :'ai_credits_bits_sre_ai_credits_agg_sum',
         :'apm_azure_app_service_host_top99p_sum' => :'apm_azure_app_service_host_top99p_sum',
         :'apm_devsecops_host_top99p_sum' => :'apm_devsecops_host_top99p_sum',
         :'apm_enterprise_standalone_hosts_top99p_sum' => :'apm_enterprise_standalone_hosts_top99p_sum',
@@ -830,6 +985,7 @@ module DatadogAPIClient::V1
         :'asm_serverless_agg_sum' => :'asm_serverless_agg_sum',
         :'audit_logs_lines_indexed_agg_sum' => :'audit_logs_lines_indexed_agg_sum',
         :'audit_trail_enabled_hwm_sum' => :'audit_trail_enabled_hwm_sum',
+        :'audit_trail_event_forwarding_events_agg_sum' => :'audit_trail_event_forwarding_events_agg_sum',
         :'avg_profiled_fargate_tasks_sum' => :'avg_profiled_fargate_tasks_sum',
         :'aws_host_top99p_sum' => :'aws_host_top99p_sum',
         :'aws_lambda_func_count' => :'aws_lambda_func_count',
@@ -905,6 +1061,8 @@ module DatadogAPIClient::V1
         :'cws_fargate_task_avg_sum' => :'cws_fargate_task_avg_sum',
         :'cws_host_top99p_sum' => :'cws_host_top99p_sum',
         :'data_jobs_monitoring_host_hr_agg_sum' => :'data_jobs_monitoring_host_hr_agg_sum',
+        :'data_stream_monitoring_host_count_agg_sum' => :'data_stream_monitoring_host_count_agg_sum',
+        :'data_stream_monitoring_host_count_top99p_sum' => :'data_stream_monitoring_host_count_top99p_sum',
         :'dbm_host_top99p_sum' => :'dbm_host_top99p_sum',
         :'dbm_queries_avg_sum' => :'dbm_queries_avg_sum',
         :'do_jobs_monitoring_orchestrators_job_hours_agg_sum' => :'do_jobs_monitoring_orchestrators_job_hours_agg_sum',
@@ -953,21 +1111,61 @@ module DatadogAPIClient::V1
         :'incident_management_monthly_active_users_hwm_sum' => :'incident_management_monthly_active_users_hwm_sum',
         :'incident_management_seats_hwm_sum' => :'incident_management_seats_hwm_sum',
         :'indexed_events_count_agg_sum' => :'indexed_events_count_agg_sum',
+        :'indexed_points_agg_sum' => :'indexed_points_agg_sum',
+        :'infra_cpu_agg_sum' => :'infra_cpu_agg_sum',
+        :'infra_cpu_avg_sum' => :'infra_cpu_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_agent_agg_sum' => :'infra_cpu_default_infra_host_vcpu_agent_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_agent_avg_sum' => :'infra_cpu_default_infra_host_vcpu_agent_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum' => :'infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum' => :'infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_aws_agg_sum' => :'infra_cpu_default_infra_host_vcpu_aws_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_aws_avg_sum' => :'infra_cpu_default_infra_host_vcpu_aws_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_azure_agg_sum' => :'infra_cpu_default_infra_host_vcpu_azure_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_azure_avg_sum' => :'infra_cpu_default_infra_host_vcpu_azure_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_gcp_agg_sum' => :'infra_cpu_default_infra_host_vcpu_gcp_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_gcp_avg_sum' => :'infra_cpu_default_infra_host_vcpu_gcp_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_agg_sum' => :'infra_cpu_default_infra_host_vcpu_nutanix_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_avg_sum' => :'infra_cpu_default_infra_host_vcpu_nutanix_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum' => :'infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum' => :'infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum',
+        :'infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum' => :'infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum',
+        :'infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum' => :'infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_agent_agg_sum' => :'infra_cpu_observed_infra_host_vcpu_agent_agg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_agent_avg_sum' => :'infra_cpu_observed_infra_host_vcpu_agent_avg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_aws_agg_sum' => :'infra_cpu_observed_infra_host_vcpu_aws_agg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_aws_avg_sum' => :'infra_cpu_observed_infra_host_vcpu_aws_avg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_azure_agg_sum' => :'infra_cpu_observed_infra_host_vcpu_azure_agg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_azure_avg_sum' => :'infra_cpu_observed_infra_host_vcpu_azure_avg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_gcp_agg_sum' => :'infra_cpu_observed_infra_host_vcpu_gcp_agg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_gcp_avg_sum' => :'infra_cpu_observed_infra_host_vcpu_gcp_avg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum' => :'infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum' => :'infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum' => :'infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum',
+        :'infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum' => :'infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum',
         :'infra_edge_monitoring_devices_top99p_sum' => :'infra_edge_monitoring_devices_top99p_sum',
         :'infra_host_basic_infra_basic_agent_top99p_sum' => :'infra_host_basic_infra_basic_agent_top99p_sum',
         :'infra_host_basic_infra_basic_vsphere_top99p_sum' => :'infra_host_basic_infra_basic_vsphere_top99p_sum',
         :'infra_host_basic_top99p_sum' => :'infra_host_basic_top99p_sum',
         :'infra_host_top99p_sum' => :'infra_host_top99p_sum',
         :'infra_storage_mgmt_objects_count_avg_sum' => :'infra_storage_mgmt_objects_count_avg_sum',
+        :'ingest_points_agg_sum' => :'ingest_points_agg_sum',
         :'ingested_events_bytes_agg_sum' => :'ingested_events_bytes_agg_sum',
+        :'iot_apm_host_agg_sum' => :'iot_apm_host_agg_sum',
+        :'iot_apm_host_top99p_sum' => :'iot_apm_host_top99p_sum',
         :'iot_device_agg_sum' => :'iot_device_agg_sum',
         :'iot_device_top99p_sum' => :'iot_device_top99p_sum',
         :'last_updated' => :'last_updated',
         :'live_indexed_events_agg_sum' => :'live_indexed_events_agg_sum',
         :'live_ingested_bytes_agg_sum' => :'live_ingested_bytes_agg_sum',
+        :'llm_observability_15day_retention_spans_agg_sum' => :'llm_observability_15day_retention_spans_agg_sum',
+        :'llm_observability_30day_retention_spans_agg_sum' => :'llm_observability_30day_retention_spans_agg_sum',
+        :'llm_observability_60day_retention_spans_agg_sum' => :'llm_observability_60day_retention_spans_agg_sum',
+        :'llm_observability_90day_retention_spans_agg_sum' => :'llm_observability_90day_retention_spans_agg_sum',
         :'llm_observability_agg_sum' => :'llm_observability_agg_sum',
         :'llm_observability_min_spend_agg_sum' => :'llm_observability_min_spend_agg_sum',
+        :'logs_archive_search_gb_scanned_agg_sum' => :'logs_archive_search_gb_scanned_agg_sum',
         :'logs_by_retention' => :'logs_by_retention',
+        :'metric_names_agg_sum' => :'metric_names_agg_sum',
         :'mobile_rum_lite_session_count_agg_sum' => :'mobile_rum_lite_session_count_agg_sum',
         :'mobile_rum_session_count_agg_sum' => :'mobile_rum_session_count_agg_sum',
         :'mobile_rum_session_count_android_agg_sum' => :'mobile_rum_session_count_android_agg_sum',
@@ -1069,6 +1267,8 @@ module DatadogAPIClient::V1
         :'siem_12mo_retention_agg_sum' => :'siem_12mo_retention_agg_sum',
         :'siem_6mo_retention_agg_sum' => :'siem_6mo_retention_agg_sum',
         :'siem_analyzed_logs_add_on_count_agg_sum' => :'siem_analyzed_logs_add_on_count_agg_sum',
+        :'snmp_device_count_agg_sum' => :'snmp_device_count_agg_sum',
+        :'snmp_device_count_top99p_sum' => :'snmp_device_count_top99p_sum',
         :'start_date' => :'start_date',
         :'synthetics_browser_check_calls_count_agg_sum' => :'synthetics_browser_check_calls_count_agg_sum',
         :'synthetics_check_calls_count_agg_sum' => :'synthetics_check_calls_count_agg_sum',
@@ -1089,6 +1289,11 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'agent_host_top99p_sum' => :'Integer',
+        :'ai_credits_agent_builder_ai_credits_agg_sum' => :'Integer',
+        :'ai_credits_agg_sum' => :'Integer',
+        :'ai_credits_bits_assistant_ai_credits_agg_sum' => :'Integer',
+        :'ai_credits_bits_dev_ai_credits_agg_sum' => :'Integer',
+        :'ai_credits_bits_sre_ai_credits_agg_sum' => :'Integer',
         :'apm_azure_app_service_host_top99p_sum' => :'Integer',
         :'apm_devsecops_host_top99p_sum' => :'Integer',
         :'apm_enterprise_standalone_hosts_top99p_sum' => :'Integer',
@@ -1099,6 +1304,7 @@ module DatadogAPIClient::V1
         :'asm_serverless_agg_sum' => :'Integer',
         :'audit_logs_lines_indexed_agg_sum' => :'Integer',
         :'audit_trail_enabled_hwm_sum' => :'Integer',
+        :'audit_trail_event_forwarding_events_agg_sum' => :'Integer',
         :'avg_profiled_fargate_tasks_sum' => :'Integer',
         :'aws_host_top99p_sum' => :'Integer',
         :'aws_lambda_func_count' => :'Integer',
@@ -1174,6 +1380,8 @@ module DatadogAPIClient::V1
         :'cws_fargate_task_avg_sum' => :'Integer',
         :'cws_host_top99p_sum' => :'Integer',
         :'data_jobs_monitoring_host_hr_agg_sum' => :'Integer',
+        :'data_stream_monitoring_host_count_agg_sum' => :'Integer',
+        :'data_stream_monitoring_host_count_top99p_sum' => :'Integer',
         :'dbm_host_top99p_sum' => :'Integer',
         :'dbm_queries_avg_sum' => :'Integer',
         :'do_jobs_monitoring_orchestrators_job_hours_agg_sum' => :'Integer',
@@ -1222,21 +1430,61 @@ module DatadogAPIClient::V1
         :'incident_management_monthly_active_users_hwm_sum' => :'Integer',
         :'incident_management_seats_hwm_sum' => :'Integer',
         :'indexed_events_count_agg_sum' => :'Integer',
+        :'indexed_points_agg_sum' => :'Integer',
+        :'infra_cpu_agg_sum' => :'Integer',
+        :'infra_cpu_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_agent_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_agent_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_aws_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_aws_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_azure_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_azure_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_gcp_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_gcp_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum' => :'Integer',
+        :'infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_agent_agg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_agent_avg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_aws_agg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_aws_avg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_azure_agg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_azure_avg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_gcp_agg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_gcp_avg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum' => :'Integer',
+        :'infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum' => :'Integer',
         :'infra_edge_monitoring_devices_top99p_sum' => :'Integer',
         :'infra_host_basic_infra_basic_agent_top99p_sum' => :'Integer',
         :'infra_host_basic_infra_basic_vsphere_top99p_sum' => :'Integer',
         :'infra_host_basic_top99p_sum' => :'Integer',
         :'infra_host_top99p_sum' => :'Integer',
         :'infra_storage_mgmt_objects_count_avg_sum' => :'Integer',
+        :'ingest_points_agg_sum' => :'Integer',
         :'ingested_events_bytes_agg_sum' => :'Integer',
+        :'iot_apm_host_agg_sum' => :'Integer',
+        :'iot_apm_host_top99p_sum' => :'Integer',
         :'iot_device_agg_sum' => :'Integer',
         :'iot_device_top99p_sum' => :'Integer',
         :'last_updated' => :'Time',
         :'live_indexed_events_agg_sum' => :'Integer',
         :'live_ingested_bytes_agg_sum' => :'Integer',
+        :'llm_observability_15day_retention_spans_agg_sum' => :'Integer',
+        :'llm_observability_30day_retention_spans_agg_sum' => :'Integer',
+        :'llm_observability_60day_retention_spans_agg_sum' => :'Integer',
+        :'llm_observability_90day_retention_spans_agg_sum' => :'Integer',
         :'llm_observability_agg_sum' => :'Integer',
         :'llm_observability_min_spend_agg_sum' => :'Integer',
+        :'logs_archive_search_gb_scanned_agg_sum' => :'Integer',
         :'logs_by_retention' => :'LogsByRetention',
+        :'metric_names_agg_sum' => :'Integer',
         :'mobile_rum_lite_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_android_agg_sum' => :'Integer',
@@ -1338,6 +1586,8 @@ module DatadogAPIClient::V1
         :'siem_12mo_retention_agg_sum' => :'Integer',
         :'siem_6mo_retention_agg_sum' => :'Integer',
         :'siem_analyzed_logs_add_on_count_agg_sum' => :'Integer',
+        :'snmp_device_count_agg_sum' => :'Integer',
+        :'snmp_device_count_top99p_sum' => :'Integer',
         :'start_date' => :'Time',
         :'synthetics_browser_check_calls_count_agg_sum' => :'Integer',
         :'synthetics_check_calls_count_agg_sum' => :'Integer',
@@ -1373,6 +1623,26 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'agent_host_top99p_sum')
         self.agent_host_top99p_sum = attributes[:'agent_host_top99p_sum']
+      end
+
+      if attributes.key?(:'ai_credits_agent_builder_ai_credits_agg_sum')
+        self.ai_credits_agent_builder_ai_credits_agg_sum = attributes[:'ai_credits_agent_builder_ai_credits_agg_sum']
+      end
+
+      if attributes.key?(:'ai_credits_agg_sum')
+        self.ai_credits_agg_sum = attributes[:'ai_credits_agg_sum']
+      end
+
+      if attributes.key?(:'ai_credits_bits_assistant_ai_credits_agg_sum')
+        self.ai_credits_bits_assistant_ai_credits_agg_sum = attributes[:'ai_credits_bits_assistant_ai_credits_agg_sum']
+      end
+
+      if attributes.key?(:'ai_credits_bits_dev_ai_credits_agg_sum')
+        self.ai_credits_bits_dev_ai_credits_agg_sum = attributes[:'ai_credits_bits_dev_ai_credits_agg_sum']
+      end
+
+      if attributes.key?(:'ai_credits_bits_sre_ai_credits_agg_sum')
+        self.ai_credits_bits_sre_ai_credits_agg_sum = attributes[:'ai_credits_bits_sre_ai_credits_agg_sum']
       end
 
       if attributes.key?(:'apm_azure_app_service_host_top99p_sum')
@@ -1413,6 +1683,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'audit_trail_enabled_hwm_sum')
         self.audit_trail_enabled_hwm_sum = attributes[:'audit_trail_enabled_hwm_sum']
+      end
+
+      if attributes.key?(:'audit_trail_event_forwarding_events_agg_sum')
+        self.audit_trail_event_forwarding_events_agg_sum = attributes[:'audit_trail_event_forwarding_events_agg_sum']
       end
 
       if attributes.key?(:'avg_profiled_fargate_tasks_sum')
@@ -1715,6 +1989,14 @@ module DatadogAPIClient::V1
         self.data_jobs_monitoring_host_hr_agg_sum = attributes[:'data_jobs_monitoring_host_hr_agg_sum']
       end
 
+      if attributes.key?(:'data_stream_monitoring_host_count_agg_sum')
+        self.data_stream_monitoring_host_count_agg_sum = attributes[:'data_stream_monitoring_host_count_agg_sum']
+      end
+
+      if attributes.key?(:'data_stream_monitoring_host_count_top99p_sum')
+        self.data_stream_monitoring_host_count_top99p_sum = attributes[:'data_stream_monitoring_host_count_top99p_sum']
+      end
+
       if attributes.key?(:'dbm_host_top99p_sum')
         self.dbm_host_top99p_sum = attributes[:'dbm_host_top99p_sum']
       end
@@ -1907,6 +2189,130 @@ module DatadogAPIClient::V1
         self.indexed_events_count_agg_sum = attributes[:'indexed_events_count_agg_sum']
       end
 
+      if attributes.key?(:'indexed_points_agg_sum')
+        self.indexed_points_agg_sum = attributes[:'indexed_points_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_agg_sum')
+        self.infra_cpu_agg_sum = attributes[:'infra_cpu_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_avg_sum')
+        self.infra_cpu_avg_sum = attributes[:'infra_cpu_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_agent_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_agent_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_agent_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_agent_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_agent_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_agent_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_aws_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_aws_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_aws_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_aws_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_aws_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_aws_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_azure_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_azure_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_azure_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_azure_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_azure_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_azure_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_gcp_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_gcp_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_gcp_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_gcp_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_gcp_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_gcp_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_nutanix_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_nutanix_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_nutanix_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_nutanix_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_nutanix_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_nutanix_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum')
+        self.infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum')
+        self.infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum = attributes[:'infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_agent_agg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_agent_agg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_agent_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_agent_avg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_agent_avg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_agent_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_aws_agg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_aws_agg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_aws_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_aws_avg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_aws_avg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_aws_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_azure_agg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_azure_agg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_azure_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_azure_avg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_azure_avg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_azure_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_gcp_agg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_gcp_agg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_gcp_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_gcp_avg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_gcp_avg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_gcp_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum']
+      end
+
+      if attributes.key?(:'infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum')
+        self.infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum = attributes[:'infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum']
+      end
+
       if attributes.key?(:'infra_edge_monitoring_devices_top99p_sum')
         self.infra_edge_monitoring_devices_top99p_sum = attributes[:'infra_edge_monitoring_devices_top99p_sum']
       end
@@ -1931,8 +2337,20 @@ module DatadogAPIClient::V1
         self.infra_storage_mgmt_objects_count_avg_sum = attributes[:'infra_storage_mgmt_objects_count_avg_sum']
       end
 
+      if attributes.key?(:'ingest_points_agg_sum')
+        self.ingest_points_agg_sum = attributes[:'ingest_points_agg_sum']
+      end
+
       if attributes.key?(:'ingested_events_bytes_agg_sum')
         self.ingested_events_bytes_agg_sum = attributes[:'ingested_events_bytes_agg_sum']
+      end
+
+      if attributes.key?(:'iot_apm_host_agg_sum')
+        self.iot_apm_host_agg_sum = attributes[:'iot_apm_host_agg_sum']
+      end
+
+      if attributes.key?(:'iot_apm_host_top99p_sum')
+        self.iot_apm_host_top99p_sum = attributes[:'iot_apm_host_top99p_sum']
       end
 
       if attributes.key?(:'iot_device_agg_sum')
@@ -1955,6 +2373,22 @@ module DatadogAPIClient::V1
         self.live_ingested_bytes_agg_sum = attributes[:'live_ingested_bytes_agg_sum']
       end
 
+      if attributes.key?(:'llm_observability_15day_retention_spans_agg_sum')
+        self.llm_observability_15day_retention_spans_agg_sum = attributes[:'llm_observability_15day_retention_spans_agg_sum']
+      end
+
+      if attributes.key?(:'llm_observability_30day_retention_spans_agg_sum')
+        self.llm_observability_30day_retention_spans_agg_sum = attributes[:'llm_observability_30day_retention_spans_agg_sum']
+      end
+
+      if attributes.key?(:'llm_observability_60day_retention_spans_agg_sum')
+        self.llm_observability_60day_retention_spans_agg_sum = attributes[:'llm_observability_60day_retention_spans_agg_sum']
+      end
+
+      if attributes.key?(:'llm_observability_90day_retention_spans_agg_sum')
+        self.llm_observability_90day_retention_spans_agg_sum = attributes[:'llm_observability_90day_retention_spans_agg_sum']
+      end
+
       if attributes.key?(:'llm_observability_agg_sum')
         self.llm_observability_agg_sum = attributes[:'llm_observability_agg_sum']
       end
@@ -1963,8 +2397,16 @@ module DatadogAPIClient::V1
         self.llm_observability_min_spend_agg_sum = attributes[:'llm_observability_min_spend_agg_sum']
       end
 
+      if attributes.key?(:'logs_archive_search_gb_scanned_agg_sum')
+        self.logs_archive_search_gb_scanned_agg_sum = attributes[:'logs_archive_search_gb_scanned_agg_sum']
+      end
+
       if attributes.key?(:'logs_by_retention')
         self.logs_by_retention = attributes[:'logs_by_retention']
+      end
+
+      if attributes.key?(:'metric_names_agg_sum')
+        self.metric_names_agg_sum = attributes[:'metric_names_agg_sum']
       end
 
       if attributes.key?(:'mobile_rum_lite_session_count_agg_sum')
@@ -2371,6 +2813,14 @@ module DatadogAPIClient::V1
         self.siem_analyzed_logs_add_on_count_agg_sum = attributes[:'siem_analyzed_logs_add_on_count_agg_sum']
       end
 
+      if attributes.key?(:'snmp_device_count_agg_sum')
+        self.snmp_device_count_agg_sum = attributes[:'snmp_device_count_agg_sum']
+      end
+
+      if attributes.key?(:'snmp_device_count_top99p_sum')
+        self.snmp_device_count_top99p_sum = attributes[:'snmp_device_count_top99p_sum']
+      end
+
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
@@ -2449,6 +2899,11 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           agent_host_top99p_sum == o.agent_host_top99p_sum &&
+          ai_credits_agent_builder_ai_credits_agg_sum == o.ai_credits_agent_builder_ai_credits_agg_sum &&
+          ai_credits_agg_sum == o.ai_credits_agg_sum &&
+          ai_credits_bits_assistant_ai_credits_agg_sum == o.ai_credits_bits_assistant_ai_credits_agg_sum &&
+          ai_credits_bits_dev_ai_credits_agg_sum == o.ai_credits_bits_dev_ai_credits_agg_sum &&
+          ai_credits_bits_sre_ai_credits_agg_sum == o.ai_credits_bits_sre_ai_credits_agg_sum &&
           apm_azure_app_service_host_top99p_sum == o.apm_azure_app_service_host_top99p_sum &&
           apm_devsecops_host_top99p_sum == o.apm_devsecops_host_top99p_sum &&
           apm_enterprise_standalone_hosts_top99p_sum == o.apm_enterprise_standalone_hosts_top99p_sum &&
@@ -2459,6 +2914,7 @@ module DatadogAPIClient::V1
           asm_serverless_agg_sum == o.asm_serverless_agg_sum &&
           audit_logs_lines_indexed_agg_sum == o.audit_logs_lines_indexed_agg_sum &&
           audit_trail_enabled_hwm_sum == o.audit_trail_enabled_hwm_sum &&
+          audit_trail_event_forwarding_events_agg_sum == o.audit_trail_event_forwarding_events_agg_sum &&
           avg_profiled_fargate_tasks_sum == o.avg_profiled_fargate_tasks_sum &&
           aws_host_top99p_sum == o.aws_host_top99p_sum &&
           aws_lambda_func_count == o.aws_lambda_func_count &&
@@ -2534,6 +2990,8 @@ module DatadogAPIClient::V1
           cws_fargate_task_avg_sum == o.cws_fargate_task_avg_sum &&
           cws_host_top99p_sum == o.cws_host_top99p_sum &&
           data_jobs_monitoring_host_hr_agg_sum == o.data_jobs_monitoring_host_hr_agg_sum &&
+          data_stream_monitoring_host_count_agg_sum == o.data_stream_monitoring_host_count_agg_sum &&
+          data_stream_monitoring_host_count_top99p_sum == o.data_stream_monitoring_host_count_top99p_sum &&
           dbm_host_top99p_sum == o.dbm_host_top99p_sum &&
           dbm_queries_avg_sum == o.dbm_queries_avg_sum &&
           do_jobs_monitoring_orchestrators_job_hours_agg_sum == o.do_jobs_monitoring_orchestrators_job_hours_agg_sum &&
@@ -2582,21 +3040,61 @@ module DatadogAPIClient::V1
           incident_management_monthly_active_users_hwm_sum == o.incident_management_monthly_active_users_hwm_sum &&
           incident_management_seats_hwm_sum == o.incident_management_seats_hwm_sum &&
           indexed_events_count_agg_sum == o.indexed_events_count_agg_sum &&
+          indexed_points_agg_sum == o.indexed_points_agg_sum &&
+          infra_cpu_agg_sum == o.infra_cpu_agg_sum &&
+          infra_cpu_avg_sum == o.infra_cpu_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_agent_agg_sum == o.infra_cpu_default_infra_host_vcpu_agent_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_agent_avg_sum == o.infra_cpu_default_infra_host_vcpu_agent_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum == o.infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum == o.infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_aws_agg_sum == o.infra_cpu_default_infra_host_vcpu_aws_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_aws_avg_sum == o.infra_cpu_default_infra_host_vcpu_aws_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_azure_agg_sum == o.infra_cpu_default_infra_host_vcpu_azure_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_azure_avg_sum == o.infra_cpu_default_infra_host_vcpu_azure_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_gcp_agg_sum == o.infra_cpu_default_infra_host_vcpu_gcp_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_gcp_avg_sum == o.infra_cpu_default_infra_host_vcpu_gcp_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_nutanix_agg_sum == o.infra_cpu_default_infra_host_vcpu_nutanix_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_nutanix_avg_sum == o.infra_cpu_default_infra_host_vcpu_nutanix_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum == o.infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum == o.infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum &&
+          infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum == o.infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum &&
+          infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum == o.infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum &&
+          infra_cpu_observed_infra_host_vcpu_agent_agg_sum == o.infra_cpu_observed_infra_host_vcpu_agent_agg_sum &&
+          infra_cpu_observed_infra_host_vcpu_agent_avg_sum == o.infra_cpu_observed_infra_host_vcpu_agent_avg_sum &&
+          infra_cpu_observed_infra_host_vcpu_aws_agg_sum == o.infra_cpu_observed_infra_host_vcpu_aws_agg_sum &&
+          infra_cpu_observed_infra_host_vcpu_aws_avg_sum == o.infra_cpu_observed_infra_host_vcpu_aws_avg_sum &&
+          infra_cpu_observed_infra_host_vcpu_azure_agg_sum == o.infra_cpu_observed_infra_host_vcpu_azure_agg_sum &&
+          infra_cpu_observed_infra_host_vcpu_azure_avg_sum == o.infra_cpu_observed_infra_host_vcpu_azure_avg_sum &&
+          infra_cpu_observed_infra_host_vcpu_gcp_agg_sum == o.infra_cpu_observed_infra_host_vcpu_gcp_agg_sum &&
+          infra_cpu_observed_infra_host_vcpu_gcp_avg_sum == o.infra_cpu_observed_infra_host_vcpu_gcp_avg_sum &&
+          infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum == o.infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum &&
+          infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum == o.infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum &&
+          infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum == o.infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum &&
+          infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum == o.infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum &&
           infra_edge_monitoring_devices_top99p_sum == o.infra_edge_monitoring_devices_top99p_sum &&
           infra_host_basic_infra_basic_agent_top99p_sum == o.infra_host_basic_infra_basic_agent_top99p_sum &&
           infra_host_basic_infra_basic_vsphere_top99p_sum == o.infra_host_basic_infra_basic_vsphere_top99p_sum &&
           infra_host_basic_top99p_sum == o.infra_host_basic_top99p_sum &&
           infra_host_top99p_sum == o.infra_host_top99p_sum &&
           infra_storage_mgmt_objects_count_avg_sum == o.infra_storage_mgmt_objects_count_avg_sum &&
+          ingest_points_agg_sum == o.ingest_points_agg_sum &&
           ingested_events_bytes_agg_sum == o.ingested_events_bytes_agg_sum &&
+          iot_apm_host_agg_sum == o.iot_apm_host_agg_sum &&
+          iot_apm_host_top99p_sum == o.iot_apm_host_top99p_sum &&
           iot_device_agg_sum == o.iot_device_agg_sum &&
           iot_device_top99p_sum == o.iot_device_top99p_sum &&
           last_updated == o.last_updated &&
           live_indexed_events_agg_sum == o.live_indexed_events_agg_sum &&
           live_ingested_bytes_agg_sum == o.live_ingested_bytes_agg_sum &&
+          llm_observability_15day_retention_spans_agg_sum == o.llm_observability_15day_retention_spans_agg_sum &&
+          llm_observability_30day_retention_spans_agg_sum == o.llm_observability_30day_retention_spans_agg_sum &&
+          llm_observability_60day_retention_spans_agg_sum == o.llm_observability_60day_retention_spans_agg_sum &&
+          llm_observability_90day_retention_spans_agg_sum == o.llm_observability_90day_retention_spans_agg_sum &&
           llm_observability_agg_sum == o.llm_observability_agg_sum &&
           llm_observability_min_spend_agg_sum == o.llm_observability_min_spend_agg_sum &&
+          logs_archive_search_gb_scanned_agg_sum == o.logs_archive_search_gb_scanned_agg_sum &&
           logs_by_retention == o.logs_by_retention &&
+          metric_names_agg_sum == o.metric_names_agg_sum &&
           mobile_rum_lite_session_count_agg_sum == o.mobile_rum_lite_session_count_agg_sum &&
           mobile_rum_session_count_agg_sum == o.mobile_rum_session_count_agg_sum &&
           mobile_rum_session_count_android_agg_sum == o.mobile_rum_session_count_android_agg_sum &&
@@ -2698,6 +3196,8 @@ module DatadogAPIClient::V1
           siem_12mo_retention_agg_sum == o.siem_12mo_retention_agg_sum &&
           siem_6mo_retention_agg_sum == o.siem_6mo_retention_agg_sum &&
           siem_analyzed_logs_add_on_count_agg_sum == o.siem_analyzed_logs_add_on_count_agg_sum &&
+          snmp_device_count_agg_sum == o.snmp_device_count_agg_sum &&
+          snmp_device_count_top99p_sum == o.snmp_device_count_top99p_sum &&
           start_date == o.start_date &&
           synthetics_browser_check_calls_count_agg_sum == o.synthetics_browser_check_calls_count_agg_sum &&
           synthetics_check_calls_count_agg_sum == o.synthetics_check_calls_count_agg_sum &&
@@ -2717,7 +3217,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_devsecops_host_top99p_sum, apm_enterprise_standalone_hosts_top99p_sum, apm_fargate_count_avg_sum, apm_host_top99p_sum, apm_pro_standalone_hosts_top99p_sum, appsec_fargate_count_avg_sum, asm_serverless_agg_sum, audit_logs_lines_indexed_agg_sum, audit_trail_enabled_hwm_sum, avg_profiled_fargate_tasks_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, bits_ai_investigations_agg_sum, browser_rum_lite_session_count_agg_sum, browser_rum_replay_session_count_agg_sum, browser_rum_units_agg_sum, ccm_anthropic_spend_last_sum, ccm_aws_spend_last_sum, ccm_azure_spend_last_sum, ccm_confluent_spend_last_sum, ccm_databricks_spend_last_sum, ccm_elastic_spend_last_sum, ccm_fastly_spend_last_sum, ccm_gcp_spend_last_sum, ccm_github_spend_last_sum, ccm_mongodb_spend_last_sum, ccm_oci_spend_last_sum, ccm_openai_spend_last_sum, ccm_snowflake_spend_last_sum, ccm_spend_monitored_ent_last_sum, ccm_spend_monitored_pro_last_sum, ccm_twilio_spend_last_sum, ci_pipeline_indexed_spans_agg_sum, ci_test_indexed_spans_agg_sum, ci_visibility_itr_committers_hwm_sum, ci_visibility_pipeline_committers_hwm_sum, ci_visibility_test_committers_hwm_sum, cloud_cost_management_aws_host_count_avg_sum, cloud_cost_management_azure_host_count_avg_sum, cloud_cost_management_gcp_host_count_avg_sum, cloud_cost_management_host_count_avg_sum, cloud_cost_management_oci_host_count_avg_sum, cloud_siem_events_agg_sum, cloud_siem_indexed_logs_agg_sum, code_analysis_sa_committers_hwm_sum, code_analysis_sca_committers_hwm_sum, code_security_host_top99p_sum, container_avg_sum, container_excl_agent_avg_sum, container_hwm_sum, csm_container_enterprise_compliance_count_agg_sum, csm_container_enterprise_cws_count_agg_sum, csm_container_enterprise_total_count_agg_sum, csm_host_enterprise_aas_host_count_top99p_sum, csm_host_enterprise_aws_host_count_top99p_sum, csm_host_enterprise_azure_host_count_top99p_sum, csm_host_enterprise_compliance_host_count_top99p_sum, csm_host_enterprise_cws_host_count_top99p_sum, csm_host_enterprise_gcp_host_count_top99p_sum, csm_host_enterprise_oci_host_count_top99p_sum, csm_host_enterprise_total_host_count_top99p_sum, csm_host_pro_hosts_agentless_scanners_agg_sum, csm_host_pro_hosts_agentless_scanners_top99p_sum, csm_host_pro_oci_host_count_top99p_sum, cspm_aas_host_top99p_sum, cspm_aws_host_top99p_sum, cspm_azure_host_top99p_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_gcp_host_top99p_sum, cspm_host_top99p_sum, cspm_hosts_agentless_scanners_agg_sum, cspm_hosts_agentless_scanners_top99p_sum, custom_historical_ts_sum, custom_live_ts_sum, custom_ts_sum, cws_container_avg_sum, cws_fargate_task_avg_sum, cws_host_top99p_sum, data_jobs_monitoring_host_hr_agg_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, do_jobs_monitoring_orchestrators_job_hours_agg_sum, end_date, eph_infra_host_agent_agg_sum, eph_infra_host_alibaba_agg_sum, eph_infra_host_aws_agg_sum, eph_infra_host_azure_agg_sum, eph_infra_host_basic_agg_sum, eph_infra_host_basic_infra_basic_agent_agg_sum, eph_infra_host_basic_infra_basic_vsphere_agg_sum, eph_infra_host_ent_agg_sum, eph_infra_host_gcp_agg_sum, eph_infra_host_heroku_agg_sum, eph_infra_host_only_aas_agg_sum, eph_infra_host_only_vsphere_agg_sum, eph_infra_host_opentelemetry_agg_sum, eph_infra_host_opentelemetry_apm_agg_sum, eph_infra_host_pro_agg_sum, eph_infra_host_proplus_agg_sum, eph_infra_host_proxmox_agg_sum, error_tracking_apm_error_events_agg_sum, error_tracking_error_events_agg_sum, error_tracking_events_agg_sum, error_tracking_rum_error_events_agg_sum, event_management_correlation_agg_sum, event_management_correlation_correlated_events_agg_sum, event_management_correlation_correlated_related_events_agg_sum, fargate_container_profiler_profiling_fargate_avg_sum, fargate_container_profiler_profiling_fargate_eks_avg_sum, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, feature_flags_config_requests_agg_sum, flex_logs_compute_large_avg_sum, flex_logs_compute_medium_avg_sum, flex_logs_compute_small_avg_sum, flex_logs_compute_xlarge_avg_sum, flex_logs_compute_xsmall_avg_sum, flex_logs_starter_avg_sum, flex_logs_starter_storage_index_avg_sum, flex_logs_starter_storage_retention_adjustment_avg_sum, flex_stored_logs_avg_sum, forwarding_events_bytes_agg_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, incident_management_seats_hwm_sum, indexed_events_count_agg_sum, infra_edge_monitoring_devices_top99p_sum, infra_host_basic_infra_basic_agent_top99p_sum, infra_host_basic_infra_basic_vsphere_top99p_sum, infra_host_basic_top99p_sum, infra_host_top99p_sum, infra_storage_mgmt_objects_count_avg_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, llm_observability_agg_sum, llm_observability_min_spend_agg_sum, logs_by_retention, mobile_rum_lite_session_count_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_flutter_agg_sum, mobile_rum_session_count_ios_agg_sum, mobile_rum_session_count_reactnative_agg_sum, mobile_rum_session_count_roku_agg_sum, mobile_rum_units_agg_sum, ndm_netflow_events_agg_sum, netflow_indexed_events_count_agg_sum, network_device_wireless_top99p_sum, network_path_agg_sum, npm_host_top99p_sum, observability_pipelines_bytes_processed_agg_sum, oci_host_agg_sum, oci_host_top99p_sum, on_call_seat_hwm_sum, online_archive_events_count_agg_sum, opentelemetry_apm_host_top99p_sum, opentelemetry_host_top99p_sum, product_analytics_agg_sum, profiling_aas_count_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, proxmox_host_agg_sum, proxmox_host_top99p_sum, published_app_hwm_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_browser_and_mobile_session_count, rum_browser_legacy_session_count_agg_sum, rum_browser_lite_session_count_agg_sum, rum_browser_replay_session_count_agg_sum, rum_indexed_sessions_agg_sum, rum_ingested_sessions_agg_sum, rum_lite_session_count_agg_sum, rum_mobile_legacy_session_count_android_agg_sum, rum_mobile_legacy_session_count_flutter_agg_sum, rum_mobile_legacy_session_count_ios_agg_sum, rum_mobile_legacy_session_count_reactnative_agg_sum, rum_mobile_legacy_session_count_roku_agg_sum, rum_mobile_lite_session_count_android_agg_sum, rum_mobile_lite_session_count_flutter_agg_sum, rum_mobile_lite_session_count_ios_agg_sum, rum_mobile_lite_session_count_kotlinmultiplatform_agg_sum, rum_mobile_lite_session_count_reactnative_agg_sum, rum_mobile_lite_session_count_roku_agg_sum, rum_mobile_lite_session_count_unity_agg_sum, rum_mobile_replay_session_count_android_agg_sum, rum_mobile_replay_session_count_ios_agg_sum, rum_mobile_replay_session_count_kotlinmultiplatform_agg_sum, rum_mobile_replay_session_count_reactnative_agg_sum, rum_replay_session_count_agg_sum, rum_session_count_agg_sum, rum_session_replay_add_on_agg_sum, rum_total_session_count_agg_sum, rum_units_agg_sum, sca_fargate_count_avg_sum, sca_fargate_count_hwm_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_apm_apm_azure_appservice_instances_avg_sum, serverless_apps_apm_apm_azure_azurefunction_instances_avg_sum, serverless_apps_apm_apm_azure_containerapp_instances_avg_sum, serverless_apps_apm_apm_fargate_ecs_tasks_avg_sum, serverless_apps_apm_apm_gcp_cloudfunction_instances_avg_sum, serverless_apps_apm_apm_gcp_cloudrun_instances_avg_sum, serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg_sum, serverless_apps_apm_avg_sum, serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg_sum, serverless_apps_apm_excl_fargate_avg_sum, serverless_apps_azure_container_app_instances_avg_sum, serverless_apps_azure_count_avg_sum, serverless_apps_azure_function_app_instances_avg_sum, serverless_apps_azure_web_app_instances_avg_sum, serverless_apps_dsm_fargate_tasks_avg_sum, serverless_apps_ecs_avg_sum, serverless_apps_eks_avg_sum, serverless_apps_excl_fargate_avg_sum, serverless_apps_excl_fargate_azure_container_app_instances_avg_sum, serverless_apps_excl_fargate_azure_function_app_instances_avg_sum, serverless_apps_excl_fargate_azure_web_app_instances_avg_sum, serverless_apps_excl_fargate_google_cloud_functions_instances_avg_sum, serverless_apps_excl_fargate_google_cloud_run_instances_avg_sum, serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg_sum, serverless_apps_google_cloud_functions_instances_avg_sum, serverless_apps_google_cloud_run_instances_avg_sum, serverless_apps_google_count_avg_sum, serverless_apps_infra_gcp_gke_autopilot_pods_avg_sum, serverless_apps_total_count_avg_sum, siem_12mo_retention_agg_sum, siem_6mo_retention_agg_sum, siem_analyzed_logs_add_on_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, synthetics_mobile_test_runs_agg_sum, synthetics_parallel_testing_max_slots_hwm_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, universal_service_monitoring_host_top99p_sum, usage, vsphere_host_top99p_sum, vuln_management_host_count_top99p_sum, workflow_executions_usage_agg_sum, additional_properties].hash
+      [agent_host_top99p_sum, ai_credits_agent_builder_ai_credits_agg_sum, ai_credits_agg_sum, ai_credits_bits_assistant_ai_credits_agg_sum, ai_credits_bits_dev_ai_credits_agg_sum, ai_credits_bits_sre_ai_credits_agg_sum, apm_azure_app_service_host_top99p_sum, apm_devsecops_host_top99p_sum, apm_enterprise_standalone_hosts_top99p_sum, apm_fargate_count_avg_sum, apm_host_top99p_sum, apm_pro_standalone_hosts_top99p_sum, appsec_fargate_count_avg_sum, asm_serverless_agg_sum, audit_logs_lines_indexed_agg_sum, audit_trail_enabled_hwm_sum, audit_trail_event_forwarding_events_agg_sum, avg_profiled_fargate_tasks_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, bits_ai_investigations_agg_sum, browser_rum_lite_session_count_agg_sum, browser_rum_replay_session_count_agg_sum, browser_rum_units_agg_sum, ccm_anthropic_spend_last_sum, ccm_aws_spend_last_sum, ccm_azure_spend_last_sum, ccm_confluent_spend_last_sum, ccm_databricks_spend_last_sum, ccm_elastic_spend_last_sum, ccm_fastly_spend_last_sum, ccm_gcp_spend_last_sum, ccm_github_spend_last_sum, ccm_mongodb_spend_last_sum, ccm_oci_spend_last_sum, ccm_openai_spend_last_sum, ccm_snowflake_spend_last_sum, ccm_spend_monitored_ent_last_sum, ccm_spend_monitored_pro_last_sum, ccm_twilio_spend_last_sum, ci_pipeline_indexed_spans_agg_sum, ci_test_indexed_spans_agg_sum, ci_visibility_itr_committers_hwm_sum, ci_visibility_pipeline_committers_hwm_sum, ci_visibility_test_committers_hwm_sum, cloud_cost_management_aws_host_count_avg_sum, cloud_cost_management_azure_host_count_avg_sum, cloud_cost_management_gcp_host_count_avg_sum, cloud_cost_management_host_count_avg_sum, cloud_cost_management_oci_host_count_avg_sum, cloud_siem_events_agg_sum, cloud_siem_indexed_logs_agg_sum, code_analysis_sa_committers_hwm_sum, code_analysis_sca_committers_hwm_sum, code_security_host_top99p_sum, container_avg_sum, container_excl_agent_avg_sum, container_hwm_sum, csm_container_enterprise_compliance_count_agg_sum, csm_container_enterprise_cws_count_agg_sum, csm_container_enterprise_total_count_agg_sum, csm_host_enterprise_aas_host_count_top99p_sum, csm_host_enterprise_aws_host_count_top99p_sum, csm_host_enterprise_azure_host_count_top99p_sum, csm_host_enterprise_compliance_host_count_top99p_sum, csm_host_enterprise_cws_host_count_top99p_sum, csm_host_enterprise_gcp_host_count_top99p_sum, csm_host_enterprise_oci_host_count_top99p_sum, csm_host_enterprise_total_host_count_top99p_sum, csm_host_pro_hosts_agentless_scanners_agg_sum, csm_host_pro_hosts_agentless_scanners_top99p_sum, csm_host_pro_oci_host_count_top99p_sum, cspm_aas_host_top99p_sum, cspm_aws_host_top99p_sum, cspm_azure_host_top99p_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_gcp_host_top99p_sum, cspm_host_top99p_sum, cspm_hosts_agentless_scanners_agg_sum, cspm_hosts_agentless_scanners_top99p_sum, custom_historical_ts_sum, custom_live_ts_sum, custom_ts_sum, cws_container_avg_sum, cws_fargate_task_avg_sum, cws_host_top99p_sum, data_jobs_monitoring_host_hr_agg_sum, data_stream_monitoring_host_count_agg_sum, data_stream_monitoring_host_count_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, do_jobs_monitoring_orchestrators_job_hours_agg_sum, end_date, eph_infra_host_agent_agg_sum, eph_infra_host_alibaba_agg_sum, eph_infra_host_aws_agg_sum, eph_infra_host_azure_agg_sum, eph_infra_host_basic_agg_sum, eph_infra_host_basic_infra_basic_agent_agg_sum, eph_infra_host_basic_infra_basic_vsphere_agg_sum, eph_infra_host_ent_agg_sum, eph_infra_host_gcp_agg_sum, eph_infra_host_heroku_agg_sum, eph_infra_host_only_aas_agg_sum, eph_infra_host_only_vsphere_agg_sum, eph_infra_host_opentelemetry_agg_sum, eph_infra_host_opentelemetry_apm_agg_sum, eph_infra_host_pro_agg_sum, eph_infra_host_proplus_agg_sum, eph_infra_host_proxmox_agg_sum, error_tracking_apm_error_events_agg_sum, error_tracking_error_events_agg_sum, error_tracking_events_agg_sum, error_tracking_rum_error_events_agg_sum, event_management_correlation_agg_sum, event_management_correlation_correlated_events_agg_sum, event_management_correlation_correlated_related_events_agg_sum, fargate_container_profiler_profiling_fargate_avg_sum, fargate_container_profiler_profiling_fargate_eks_avg_sum, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, feature_flags_config_requests_agg_sum, flex_logs_compute_large_avg_sum, flex_logs_compute_medium_avg_sum, flex_logs_compute_small_avg_sum, flex_logs_compute_xlarge_avg_sum, flex_logs_compute_xsmall_avg_sum, flex_logs_starter_avg_sum, flex_logs_starter_storage_index_avg_sum, flex_logs_starter_storage_retention_adjustment_avg_sum, flex_stored_logs_avg_sum, forwarding_events_bytes_agg_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, incident_management_seats_hwm_sum, indexed_events_count_agg_sum, indexed_points_agg_sum, infra_cpu_agg_sum, infra_cpu_avg_sum, infra_cpu_default_infra_host_vcpu_agent_agg_sum, infra_cpu_default_infra_host_vcpu_agent_avg_sum, infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum, infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum, infra_cpu_default_infra_host_vcpu_aws_agg_sum, infra_cpu_default_infra_host_vcpu_aws_avg_sum, infra_cpu_default_infra_host_vcpu_azure_agg_sum, infra_cpu_default_infra_host_vcpu_azure_avg_sum, infra_cpu_default_infra_host_vcpu_gcp_agg_sum, infra_cpu_default_infra_host_vcpu_gcp_avg_sum, infra_cpu_default_infra_host_vcpu_nutanix_agg_sum, infra_cpu_default_infra_host_vcpu_nutanix_avg_sum, infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum, infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum, infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum, infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum, infra_cpu_observed_infra_host_vcpu_agent_agg_sum, infra_cpu_observed_infra_host_vcpu_agent_avg_sum, infra_cpu_observed_infra_host_vcpu_aws_agg_sum, infra_cpu_observed_infra_host_vcpu_aws_avg_sum, infra_cpu_observed_infra_host_vcpu_azure_agg_sum, infra_cpu_observed_infra_host_vcpu_azure_avg_sum, infra_cpu_observed_infra_host_vcpu_gcp_agg_sum, infra_cpu_observed_infra_host_vcpu_gcp_avg_sum, infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum, infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum, infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum, infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum, infra_edge_monitoring_devices_top99p_sum, infra_host_basic_infra_basic_agent_top99p_sum, infra_host_basic_infra_basic_vsphere_top99p_sum, infra_host_basic_top99p_sum, infra_host_top99p_sum, infra_storage_mgmt_objects_count_avg_sum, ingest_points_agg_sum, ingested_events_bytes_agg_sum, iot_apm_host_agg_sum, iot_apm_host_top99p_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, llm_observability_15day_retention_spans_agg_sum, llm_observability_30day_retention_spans_agg_sum, llm_observability_60day_retention_spans_agg_sum, llm_observability_90day_retention_spans_agg_sum, llm_observability_agg_sum, llm_observability_min_spend_agg_sum, logs_archive_search_gb_scanned_agg_sum, logs_by_retention, metric_names_agg_sum, mobile_rum_lite_session_count_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_flutter_agg_sum, mobile_rum_session_count_ios_agg_sum, mobile_rum_session_count_reactnative_agg_sum, mobile_rum_session_count_roku_agg_sum, mobile_rum_units_agg_sum, ndm_netflow_events_agg_sum, netflow_indexed_events_count_agg_sum, network_device_wireless_top99p_sum, network_path_agg_sum, npm_host_top99p_sum, observability_pipelines_bytes_processed_agg_sum, oci_host_agg_sum, oci_host_top99p_sum, on_call_seat_hwm_sum, online_archive_events_count_agg_sum, opentelemetry_apm_host_top99p_sum, opentelemetry_host_top99p_sum, product_analytics_agg_sum, profiling_aas_count_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, proxmox_host_agg_sum, proxmox_host_top99p_sum, published_app_hwm_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_browser_and_mobile_session_count, rum_browser_legacy_session_count_agg_sum, rum_browser_lite_session_count_agg_sum, rum_browser_replay_session_count_agg_sum, rum_indexed_sessions_agg_sum, rum_ingested_sessions_agg_sum, rum_lite_session_count_agg_sum, rum_mobile_legacy_session_count_android_agg_sum, rum_mobile_legacy_session_count_flutter_agg_sum, rum_mobile_legacy_session_count_ios_agg_sum, rum_mobile_legacy_session_count_reactnative_agg_sum, rum_mobile_legacy_session_count_roku_agg_sum, rum_mobile_lite_session_count_android_agg_sum, rum_mobile_lite_session_count_flutter_agg_sum, rum_mobile_lite_session_count_ios_agg_sum, rum_mobile_lite_session_count_kotlinmultiplatform_agg_sum, rum_mobile_lite_session_count_reactnative_agg_sum, rum_mobile_lite_session_count_roku_agg_sum, rum_mobile_lite_session_count_unity_agg_sum, rum_mobile_replay_session_count_android_agg_sum, rum_mobile_replay_session_count_ios_agg_sum, rum_mobile_replay_session_count_kotlinmultiplatform_agg_sum, rum_mobile_replay_session_count_reactnative_agg_sum, rum_replay_session_count_agg_sum, rum_session_count_agg_sum, rum_session_replay_add_on_agg_sum, rum_total_session_count_agg_sum, rum_units_agg_sum, sca_fargate_count_avg_sum, sca_fargate_count_hwm_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_apm_apm_azure_appservice_instances_avg_sum, serverless_apps_apm_apm_azure_azurefunction_instances_avg_sum, serverless_apps_apm_apm_azure_containerapp_instances_avg_sum, serverless_apps_apm_apm_fargate_ecs_tasks_avg_sum, serverless_apps_apm_apm_gcp_cloudfunction_instances_avg_sum, serverless_apps_apm_apm_gcp_cloudrun_instances_avg_sum, serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg_sum, serverless_apps_apm_avg_sum, serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum, serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg_sum, serverless_apps_apm_excl_fargate_avg_sum, serverless_apps_azure_container_app_instances_avg_sum, serverless_apps_azure_count_avg_sum, serverless_apps_azure_function_app_instances_avg_sum, serverless_apps_azure_web_app_instances_avg_sum, serverless_apps_dsm_fargate_tasks_avg_sum, serverless_apps_ecs_avg_sum, serverless_apps_eks_avg_sum, serverless_apps_excl_fargate_avg_sum, serverless_apps_excl_fargate_azure_container_app_instances_avg_sum, serverless_apps_excl_fargate_azure_function_app_instances_avg_sum, serverless_apps_excl_fargate_azure_web_app_instances_avg_sum, serverless_apps_excl_fargate_google_cloud_functions_instances_avg_sum, serverless_apps_excl_fargate_google_cloud_run_instances_avg_sum, serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg_sum, serverless_apps_google_cloud_functions_instances_avg_sum, serverless_apps_google_cloud_run_instances_avg_sum, serverless_apps_google_count_avg_sum, serverless_apps_infra_gcp_gke_autopilot_pods_avg_sum, serverless_apps_total_count_avg_sum, siem_12mo_retention_agg_sum, siem_6mo_retention_agg_sum, siem_analyzed_logs_add_on_count_agg_sum, snmp_device_count_agg_sum, snmp_device_count_top99p_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, synthetics_mobile_test_runs_agg_sum, synthetics_parallel_testing_max_slots_hwm_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, universal_service_monitoring_host_top99p_sum, usage, vsphere_host_top99p_sum, vuln_management_host_count_top99p_sum, workflow_executions_usage_agg_sum, additional_properties].hash
     end
   end
 end
