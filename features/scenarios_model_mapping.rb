@@ -4964,6 +4964,12 @@ ScenariosModelMappings = {
     "v2.CreateSCAResult" => {
             "body" => "ScaRequest",
     },
+    "v2.CreateSCAScan" => {
+            "body" => "McpScanRequest",
+    },
+    "v2.GetSCAScan" => {
+            "job_id" => "String",
+    },
     "v2.CreateSCAResolveVulnerableSymbols" => {
             "body" => "ResolveVulnerableSymbolsRequest",
     },
