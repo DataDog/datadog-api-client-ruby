@@ -48,6 +48,9 @@ module DatadogAPIClient::V2
     # Key of the case.
     attr_accessor :key
 
+    # Linear issue of the case.
+    attr_accessor :linear_issue
+
     # Timestamp of when the case was last modified.
     attr_accessor :modified_at
 
@@ -78,6 +81,7 @@ module DatadogAPIClient::V2
         :'insights' => :'insights',
         :'jira_issue' => :'jira_issue',
         :'key' => :'key',
+        :'linear_issue' => :'linear_issue',
         :'modified_at' => :'modified_at',
         :'priority' => :'priority',
         :'status' => :'status',
@@ -99,6 +103,7 @@ module DatadogAPIClient::V2
         :'insights' => :'Array<IssueCaseInsight>',
         :'jira_issue' => :'IssueCaseJiraIssue',
         :'key' => :'String',
+        :'linear_issue' => :'IssueCaseLinearIssue',
         :'modified_at' => :'Time',
         :'priority' => :'CasePriority',
         :'status' => :'CaseStatus',
@@ -163,6 +168,10 @@ module DatadogAPIClient::V2
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'linear_issue')
+        self.linear_issue = attributes[:'linear_issue']
+      end
+
       if attributes.key?(:'modified_at')
         self.modified_at = attributes[:'modified_at']
       end
@@ -219,6 +228,7 @@ module DatadogAPIClient::V2
           insights == o.insights &&
           jira_issue == o.jira_issue &&
           key == o.key &&
+          linear_issue == o.linear_issue &&
           modified_at == o.modified_at &&
           priority == o.priority &&
           status == o.status &&
@@ -231,7 +241,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, closed_at, created_at, creation_source, description, due_date, insights, jira_issue, key, modified_at, priority, status, title, type, additional_properties].hash
+      [archived_at, closed_at, created_at, creation_source, description, due_date, insights, jira_issue, key, linear_issue, modified_at, priority, status, title, type, additional_properties].hash
     end
   end
 end

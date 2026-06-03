@@ -17,27 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Contains the identifiers and URL for a successfully created Jira issue.
-  class IssueCaseJiraIssueResult
+  # Contains the identifiers and URL for a successfully created Linear issue.
+  class IssueCaseLinearIssueResult
     include BaseGenericModel
 
-    # Jira account identifier.
+    # Linear account identifier.
     attr_accessor :account_id
 
-    # Jira issue identifier.
+    # Linear issue identifier.
     attr_accessor :issue_id
 
-    # Jira issue key.
+    # Linear issue key.
     attr_accessor :issue_key
 
-    # Jira issue URL.
+    # Linear issue URL.
     attr_accessor :issue_url
 
-    # Jira project identifier.
-    attr_accessor :project_id
-
-    # Jira project key.
-    attr_accessor :project_key
+    # Linear team identifier.
+    attr_accessor :team_id
 
     attr_accessor :additional_properties
 
@@ -49,8 +46,7 @@ module DatadogAPIClient::V2
         :'issue_id' => :'issue_id',
         :'issue_key' => :'issue_key',
         :'issue_url' => :'issue_url',
-        :'project_id' => :'project_id',
-        :'project_key' => :'project_key'
+        :'team_id' => :'team_id'
       }
     end
 
@@ -62,8 +58,7 @@ module DatadogAPIClient::V2
         :'issue_id' => :'String',
         :'issue_key' => :'String',
         :'issue_url' => :'String',
-        :'project_id' => :'String',
-        :'project_key' => :'String'
+        :'team_id' => :'String'
       }
     end
 
@@ -72,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IssueCaseJiraIssueResult` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IssueCaseLinearIssueResult` initialize method"
       end
 
       self.additional_properties = {}
@@ -101,12 +96,8 @@ module DatadogAPIClient::V2
         self.issue_url = attributes[:'issue_url']
       end
 
-      if attributes.key?(:'project_id')
-        self.project_id = attributes[:'project_id']
-      end
-
-      if attributes.key?(:'project_key')
-        self.project_key = attributes[:'project_key']
+      if attributes.key?(:'team_id')
+        self.team_id = attributes[:'team_id']
       end
     end
 
@@ -140,8 +131,7 @@ module DatadogAPIClient::V2
           issue_id == o.issue_id &&
           issue_key == o.issue_key &&
           issue_url == o.issue_url &&
-          project_id == o.project_id &&
-          project_key == o.project_key &&
+          team_id == o.team_id &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, issue_id, issue_key, issue_url, project_id, project_key, additional_properties].hash
+      [account_id, issue_id, issue_key, issue_url, team_id, additional_properties].hash
     end
   end
 end

@@ -17,27 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Contains the identifiers and URL for a successfully created Jira issue.
-  class IssueCaseJiraIssueResult
+  # Linear issue of the case.
+  class IssueCaseLinearIssue
     include BaseGenericModel
 
-    # Jira account identifier.
-    attr_accessor :account_id
+    # Error message set when the Linear issue creation fails.
+    attr_accessor :error_message
 
-    # Jira issue identifier.
-    attr_accessor :issue_id
+    # Contains the identifiers and URL for a successfully created Linear issue.
+    attr_accessor :result
 
-    # Jira issue key.
-    attr_accessor :issue_key
-
-    # Jira issue URL.
-    attr_accessor :issue_url
-
-    # Jira project identifier.
-    attr_accessor :project_id
-
-    # Jira project key.
-    attr_accessor :project_key
+    # Creation status of the Linear issue.
+    attr_accessor :status
 
     attr_accessor :additional_properties
 
@@ -45,12 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
-        :'issue_id' => :'issue_id',
-        :'issue_key' => :'issue_key',
-        :'issue_url' => :'issue_url',
-        :'project_id' => :'project_id',
-        :'project_key' => :'project_key'
+        :'error_message' => :'error_message',
+        :'result' => :'result',
+        :'status' => :'status'
       }
     end
 
@@ -58,12 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'account_id' => :'String',
-        :'issue_id' => :'String',
-        :'issue_key' => :'String',
-        :'issue_url' => :'String',
-        :'project_id' => :'String',
-        :'project_key' => :'String'
+        :'error_message' => :'String',
+        :'result' => :'IssueCaseLinearIssueResult',
+        :'status' => :'String'
       }
     end
 
@@ -72,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IssueCaseJiraIssueResult` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IssueCaseLinearIssue` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,28 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
       end
 
-      if attributes.key?(:'issue_id')
-        self.issue_id = attributes[:'issue_id']
+      if attributes.key?(:'result')
+        self.result = attributes[:'result']
       end
 
-      if attributes.key?(:'issue_key')
-        self.issue_key = attributes[:'issue_key']
-      end
-
-      if attributes.key?(:'issue_url')
-        self.issue_url = attributes[:'issue_url']
-      end
-
-      if attributes.key?(:'project_id')
-        self.project_id = attributes[:'project_id']
-      end
-
-      if attributes.key?(:'project_key')
-        self.project_key = attributes[:'project_key']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -136,12 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
-          issue_id == o.issue_id &&
-          issue_key == o.issue_key &&
-          issue_url == o.issue_url &&
-          project_id == o.project_id &&
-          project_key == o.project_key &&
+          error_message == o.error_message &&
+          result == o.result &&
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, issue_id, issue_key, issue_url, project_id, project_key, additional_properties].hash
+      [error_message, result, status, additional_properties].hash
     end
   end
 end

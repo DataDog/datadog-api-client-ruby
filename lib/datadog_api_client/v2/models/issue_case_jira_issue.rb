@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class IssueCaseJiraIssue
     include BaseGenericModel
 
+    # Error message set when the Jira issue creation fails.
+    attr_accessor :error_message
+
     # Contains the identifiers and URL for a successfully created Jira issue.
     attr_accessor :result
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'error_message' => :'error_message',
         :'result' => :'result',
         :'status' => :'status'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'error_message' => :'String',
         :'result' => :'IssueCaseJiraIssueResult',
         :'status' => :'String'
       }
@@ -64,6 +69,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
 
       if attributes.key?(:'result')
         self.result = attributes[:'result']
@@ -100,6 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          error_message == o.error_message &&
           result == o.result &&
           status == o.status &&
           additional_properties == o.additional_properties
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [result, status, additional_properties].hash
+      [error_message, result, status, additional_properties].hash
     end
   end
 end
