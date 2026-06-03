@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The RUM-based metric object.
+  # The rum-based metric object.
   class RumMetricResponse
     include BaseGenericModel
 
-    # The RUM-based metric properties.
+    # The rum-based metric properties.
     attr_accessor :data
 
     attr_accessor :additional_properties

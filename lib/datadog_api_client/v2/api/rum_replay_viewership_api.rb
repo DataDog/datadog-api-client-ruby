@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create RUM replay session watch.
+    # Create rum replay session watch.
     #
     # @see #create_rum_replay_session_watch_with_http_info
     def create_rum_replay_session_watch(session_id, body, opts = {})
@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create RUM replay session watch.
+    # Create rum replay session watch.
     #
     # Record a session watch.
     #
@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete RUM replay session watch.
+    # Delete rum replay session watch.
     #
     # @see #delete_rum_replay_session_watch_with_http_info
     def delete_rum_replay_session_watch(session_id, opts = {})
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete RUM replay session watch.
+    # Delete rum replay session watch.
     #
     # Delete session watch history.
     #
@@ -160,7 +160,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List RUM replay session watchers.
+    # List rum replay session watchers.
     #
     # @see #list_rum_replay_session_watchers_with_http_info
     def list_rum_replay_session_watchers(session_id, opts = {})
@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List RUM replay session watchers.
+    # List rum replay session watchers.
     #
     # List session watchers.
     #
@@ -229,7 +229,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List RUM replay viewership history sessions.
+    # List rum replay viewership history sessions.
     #
     # @see #list_rum_replay_viewership_history_sessions_with_http_info
     def list_rum_replay_viewership_history_sessions(opts = {})
@@ -237,7 +237,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List RUM replay viewership history sessions.
+    # List rum replay viewership history sessions.
     #
     # List watched sessions.
     #

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+  # The rum-based metric filter. Events matching this filter will be aggregated in this metric.
   class RumMetricFilter
     include BaseGenericModel
 

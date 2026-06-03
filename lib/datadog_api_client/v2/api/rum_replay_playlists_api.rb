@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Add RUM replay session to playlist.
+    # Add rum replay session to playlist.
     #
     # @see #add_rum_replay_session_to_playlist_with_http_info
     def add_rum_replay_session_to_playlist(ts, playlist_id, session_id, opts = {})
@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Add RUM replay session to playlist.
+    # Add rum replay session to playlist.
     #
     # Add a session to a playlist.
     #
@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Bulk remove RUM replay playlist sessions.
+    # Bulk remove rum replay playlist sessions.
     #
     # @see #bulk_remove_rum_replay_playlist_sessions_with_http_info
     def bulk_remove_rum_replay_playlist_sessions(playlist_id, body, opts = {})
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Bulk remove RUM replay playlist sessions.
+    # Bulk remove rum replay playlist sessions.
     #
     # Remove sessions from a playlist.
     #
@@ -173,7 +173,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create RUM replay playlist.
+    # Create rum replay playlist.
     #
     # @see #create_rum_replay_playlist_with_http_info
     def create_rum_replay_playlist(body, opts = {})
@@ -181,7 +181,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create RUM replay playlist.
+    # Create rum replay playlist.
     #
     # Create a playlist.
     #
@@ -240,7 +240,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete RUM replay playlist.
+    # Delete rum replay playlist.
     #
     # @see #delete_rum_replay_playlist_with_http_info
     def delete_rum_replay_playlist(playlist_id, opts = {})
@@ -248,7 +248,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete RUM replay playlist.
+    # Delete rum replay playlist.
     #
     # Delete a playlist.
     #
@@ -305,7 +305,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get RUM replay playlist.
+    # Get rum replay playlist.
     #
     # @see #get_rum_replay_playlist_with_http_info
     def get_rum_replay_playlist(playlist_id, opts = {})
@@ -313,7 +313,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get RUM replay playlist.
+    # Get rum replay playlist.
     #
     # Get a playlist.
     #
@@ -370,7 +370,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List RUM replay playlists.
+    # List rum replay playlists.
     #
     # @see #list_rum_replay_playlists_with_http_info
     def list_rum_replay_playlists(opts = {})
@@ -378,7 +378,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List RUM replay playlists.
+    # List rum replay playlists.
     #
     # List playlists.
     #
@@ -438,7 +438,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List RUM replay playlist sessions.
+    # List rum replay playlist sessions.
     #
     # @see #list_rum_replay_playlist_sessions_with_http_info
     def list_rum_replay_playlist_sessions(playlist_id, opts = {})
@@ -446,7 +446,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List RUM replay playlist sessions.
+    # List rum replay playlist sessions.
     #
     # List sessions in a playlist.
     #
@@ -507,7 +507,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Remove RUM replay session from playlist.
+    # Remove rum replay session from playlist.
     #
     # @see #remove_rum_replay_session_from_playlist_with_http_info
     def remove_rum_replay_session_from_playlist(playlist_id, session_id, opts = {})
@@ -515,7 +515,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Remove RUM replay session from playlist.
+    # Remove rum replay session from playlist.
     #
     # Remove a session from a playlist.
     #
@@ -577,7 +577,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update RUM replay playlist.
+    # Update rum replay playlist.
     #
     # @see #update_rum_replay_playlist_with_http_info
     def update_rum_replay_playlist(playlist_id, body, opts = {})
@@ -585,7 +585,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update RUM replay playlist.
+    # Update rum replay playlist.
     #
     # Update a playlist.
     #

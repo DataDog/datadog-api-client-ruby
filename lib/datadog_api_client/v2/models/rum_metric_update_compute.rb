@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The compute rule to compute the RUM-based metric.
+  # The compute rule to compute the rum-based metric.
   class RumMetricUpdateCompute
     include BaseGenericModel
 

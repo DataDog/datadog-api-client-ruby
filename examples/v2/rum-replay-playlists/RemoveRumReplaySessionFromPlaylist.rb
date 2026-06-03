@@ -1,4 +1,4 @@
-# Remove RUM replay session from playlist returns "No Content" response
+# Remove rum replay session from playlist returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayPlaylistsAPI.new

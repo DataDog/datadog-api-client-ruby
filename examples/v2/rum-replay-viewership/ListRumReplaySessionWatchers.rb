@@ -1,4 +1,4 @@
-# List RUM replay session watchers returns "OK" response
+# List rum replay session watchers returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayViewershipAPI.new

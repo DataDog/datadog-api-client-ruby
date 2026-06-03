@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The object describing the Datadog RUM-based metric to create.
+  # The object describing the Datadog rum-based metric to create.
   class RumMetricCreateAttributes
     include BaseGenericModel
 
-    # The compute rule to compute the RUM-based metric.
+    # The compute rule to compute the rum-based metric.
     attr_reader :compute
 
     # The type of RUM events to filter on.
     attr_reader :event_type
 
-    # The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+    # The rum-based metric filter. Events matching this filter will be aggregated in this metric.
     attr_accessor :filter
 
     # The rules for the group by.
