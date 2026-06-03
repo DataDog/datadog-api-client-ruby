@@ -31,8 +31,14 @@ module DatadogAPIClient::V2
     # If it is set to "false", the tags will be deleted when the logs are sent to the archive.
     attr_accessor :include_tags
 
+    # An array of attributes to use as lookup keys for the archive.
+    attr_accessor :lookup_attributes
+
     # The archive name.
     attr_reader :name
+
+    # An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+    attr_accessor :partitioning_attributes
 
     # The archive query/filter. Logs matching this query are included in the archive.
     attr_reader :query
@@ -55,7 +61,9 @@ module DatadogAPIClient::V2
         :'compression_method' => :'compression_method',
         :'destination' => :'destination',
         :'include_tags' => :'include_tags',
+        :'lookup_attributes' => :'lookup_attributes',
         :'name' => :'name',
+        :'partitioning_attributes' => :'partitioning_attributes',
         :'query' => :'query',
         :'rehydration_max_scan_size_in_gb' => :'rehydration_max_scan_size_in_gb',
         :'rehydration_tags' => :'rehydration_tags',
@@ -70,7 +78,9 @@ module DatadogAPIClient::V2
         :'compression_method' => :'LogsArchiveAttributesCompressionMethod',
         :'destination' => :'LogsArchiveDestination',
         :'include_tags' => :'Boolean',
+        :'lookup_attributes' => :'Array<String>',
         :'name' => :'String',
+        :'partitioning_attributes' => :'Array<String>',
         :'query' => :'String',
         :'rehydration_max_scan_size_in_gb' => :'Integer',
         :'rehydration_tags' => :'Array<String>',
@@ -117,8 +127,20 @@ module DatadogAPIClient::V2
         self.include_tags = attributes[:'include_tags']
       end
 
+      if attributes.key?(:'lookup_attributes')
+        if (value = attributes[:'lookup_attributes']).is_a?(Array)
+          self.lookup_attributes = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'partitioning_attributes')
+        if (value = attributes[:'partitioning_attributes']).is_a?(Array)
+          self.partitioning_attributes = value
+        end
       end
 
       if attributes.key?(:'query')
@@ -198,7 +220,9 @@ module DatadogAPIClient::V2
           compression_method == o.compression_method &&
           destination == o.destination &&
           include_tags == o.include_tags &&
+          lookup_attributes == o.lookup_attributes &&
           name == o.name &&
+          partitioning_attributes == o.partitioning_attributes &&
           query == o.query &&
           rehydration_max_scan_size_in_gb == o.rehydration_max_scan_size_in_gb &&
           rehydration_tags == o.rehydration_tags &&
@@ -210,7 +234,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compression_method, destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags, state, additional_properties].hash
+      [compression_method, destination, include_tags, lookup_attributes, name, partitioning_attributes, query, rehydration_max_scan_size_in_gb, rehydration_tags, state, additional_properties].hash
     end
   end
 end
