@@ -1,4 +1,4 @@
-# List rum replay playlists returns "OK" response
+# List RUM replay playlists returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayPlaylistsAPI.new

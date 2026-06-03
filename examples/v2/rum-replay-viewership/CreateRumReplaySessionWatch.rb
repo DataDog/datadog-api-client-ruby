@@ -1,4 +1,4 @@
-# Create rum replay session watch returns "Created" response
+# Create RUM replay session watch returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayViewershipAPI.new

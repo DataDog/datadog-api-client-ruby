@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The new rum-based metric properties.
+  # The new RUM-based metric properties.
   class RumMetricCreateData
     include BaseGenericModel
 
-    # The object describing the Datadog rum-based metric to create.
+    # The object describing the Datadog RUM-based metric to create.
     attr_reader :attributes
 
-    # The name of the rum-based metric.
+    # The name of the RUM-based metric.
     attr_reader :id
 
     # The type of the resource. The value should always be rum_metrics.

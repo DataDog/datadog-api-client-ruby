@@ -1,4 +1,4 @@
-# Add rum replay session to playlist returns "OK" response
+# Add RUM replay session to playlist returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RumReplayPlaylistsAPI.new

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create a rum-based metric.
+    # Create a RUM-based metric.
     #
     # @see #create_rum_metric_with_http_info
     def create_rum_metric(body, opts = {})
@@ -31,12 +31,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a rum-based metric.
+    # Create a RUM-based metric.
     #
     # Create a metric based on your organization's RUM data.
-    # Returns the rum-based metric object from the request body when the request is successful.
+    # Returns the RUM-based metric object from the request body when the request is successful.
     #
-    # @param body [RumMetricCreateRequest] The definition of the new rum-based metric.
+    # @param body [RumMetricCreateRequest] The definition of the new RUM-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumMetricResponse, Integer, Hash)>] RumMetricResponse data, response status code and response headers
     def create_rum_metric_with_http_info(body, opts = {})
@@ -91,7 +91,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a rum-based metric.
+    # Delete a RUM-based metric.
     #
     # @see #delete_rum_metric_with_http_info
     def delete_rum_metric(metric_id, opts = {})
@@ -99,11 +99,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a rum-based metric.
+    # Delete a RUM-based metric.
     #
-    # Delete a specific rum-based metric from your organization.
+    # Delete a specific RUM-based metric from your organization.
     #
-    # @param metric_id [String] The name of the rum-based metric.
+    # @param metric_id [String] The name of the RUM-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_rum_metric_with_http_info(metric_id, opts = {})
@@ -156,7 +156,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a rum-based metric.
+    # Get a RUM-based metric.
     #
     # @see #get_rum_metric_with_http_info
     def get_rum_metric(metric_id, opts = {})
@@ -164,11 +164,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a rum-based metric.
+    # Get a RUM-based metric.
     #
-    # Get a specific rum-based metric from your organization.
+    # Get a specific RUM-based metric from your organization.
     #
-    # @param metric_id [String] The name of the rum-based metric.
+    # @param metric_id [String] The name of the RUM-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumMetricResponse, Integer, Hash)>] RumMetricResponse data, response status code and response headers
     def get_rum_metric_with_http_info(metric_id, opts = {})
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all rum-based metrics.
+    # Get all RUM-based metrics.
     #
     # @see #list_rum_metrics_with_http_info
     def list_rum_metrics(opts = {})
@@ -229,9 +229,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get all rum-based metrics.
+    # Get all RUM-based metrics.
     #
-    # Get the list of configured rum-based metrics with their definitions.
+    # Get the list of configured RUM-based metrics with their definitions.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumMetricsResponse, Integer, Hash)>] RumMetricsResponse data, response status code and response headers
@@ -281,7 +281,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a rum-based metric.
+    # Update a RUM-based metric.
     #
     # @see #update_rum_metric_with_http_info
     def update_rum_metric(metric_id, body, opts = {})
@@ -289,13 +289,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a rum-based metric.
+    # Update a RUM-based metric.
     #
-    # Update a specific rum-based metric from your organization.
-    # Returns the rum-based metric object from the request body when the request is successful.
+    # Update a specific RUM-based metric from your organization.
+    # Returns the RUM-based metric object from the request body when the request is successful.
     #
-    # @param metric_id [String] The name of the rum-based metric.
-    # @param body [RumMetricUpdateRequest] New definition of the rum-based metric.
+    # @param metric_id [String] The name of the RUM-based metric.
+    # @param body [RumMetricUpdateRequest] New definition of the RUM-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumMetricResponse, Integer, Hash)>] RumMetricResponse data, response status code and response headers
     def update_rum_metric_with_http_info(metric_id, body, opts = {})

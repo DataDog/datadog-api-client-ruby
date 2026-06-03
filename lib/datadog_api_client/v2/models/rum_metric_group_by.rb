@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RumMetricGroupBy
     include BaseGenericModel
 
-    # The path to the value the rum-based metric will be aggregated over.
+    # The path to the value the RUM-based metric will be aggregated over.
     attr_reader :path
 
     # Eventual name of the tag that gets created. By default, `path` is used as the tag name.
