@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 02 Jun 2026 09:00:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/oauth2/.well-known/sites
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"prod","type":"env","attributes":{"sites":["app.datadoghq.com","app.datadoghq.eu","us5.datadoghq.com","us3.datadoghq.com","ap1.datadoghq.com"]}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

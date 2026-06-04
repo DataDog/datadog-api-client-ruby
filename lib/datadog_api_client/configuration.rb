@@ -536,6 +536,7 @@ module DatadogAPIClient
             "v2.validate_existing_monitor_user_template": false,
             "v2.validate_monitor_user_template": false,
             "v2.delete_scopes_restriction": false,
+            "v2.get_o_auth2_well_known_sites": false,
             "v2.get_scopes_restriction": false,
             "v2.register_o_auth_client": false,
             "v2.upsert_scopes_restriction": false,
