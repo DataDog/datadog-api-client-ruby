@@ -4177,6 +4177,9 @@ ScenariosModelMappings = {
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
     },
+    "v2.DisableCustomerOrg" => {
+            "body" => "CustomerOrgDisableRequest",
+    },
     "v2.ListOrgConnections" => {
             "sink_org_id" => "String",
             "source_org_id" => "String",

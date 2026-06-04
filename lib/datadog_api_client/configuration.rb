@@ -540,6 +540,7 @@ module DatadogAPIClient
             "v2.get_scopes_restriction": false,
             "v2.register_o_auth_client": false,
             "v2.upsert_scopes_restriction": false,
+            "v2.disable_customer_org": false,
             "v2.bulk_update_org_group_memberships": false,
             "v2.create_org_group": false,
             "v2.create_org_group_policy": false,
