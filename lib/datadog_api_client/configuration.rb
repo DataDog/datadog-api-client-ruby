@@ -492,6 +492,7 @@ module DatadogAPIClient
             "v2.delete_aws_account_ccm_config": false,
             "v2.get_aws_account_ccm_config": false,
             "v2.update_aws_account_ccm_config": false,
+            "v2.validate_awsccm_config": false,
             "v2.create_jira_issue_template": false,
             "v2.delete_jira_account": false,
             "v2.delete_jira_issue_template": false,

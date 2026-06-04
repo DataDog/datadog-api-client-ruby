@@ -1149,5 +1149,79 @@ module DatadogAPIClient::V2
       end
       return data, status_code, headers
     end
+
+    # Validate AWS CCM config.
+    #
+    # @see #validate_awsccm_config_with_http_info
+    def validate_awsccm_config(body, opts = {})
+      data, _status_code, _headers = validate_awsccm_config_with_http_info(body, opts)
+      data
+    end
+
+    # Validate AWS CCM config.
+    #
+    # Validate a Cloud Cost Management config for an AWS account using Cost and Usage Report
+    # (CUR) 2.0 against Datadog's ingest requirements without persisting it.
+    #
+    # @param body [AWSCcmConfigValidationRequest] Validate a Cloud Cost Management config for an AWS account integration config.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCcmConfigValidationResponse, Integer, Hash)>] AWSCcmConfigValidationResponse data, response status code and response headers
+    def validate_awsccm_config_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.validate_awsccm_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_awsccm_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_awsccm_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.validate_awsccm_config ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationAPI.validate_awsccm_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/validate_ccm_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCcmConfigValidationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :validate_awsccm_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#validate_awsccm_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
