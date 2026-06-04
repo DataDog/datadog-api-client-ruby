@@ -3708,6 +3708,8 @@ module DatadogAPIClient
           "v2.issue_case_insight" => "IssueCaseInsight",
           "v2.issue_case_jira_issue" => "IssueCaseJiraIssue",
           "v2.issue_case_jira_issue_result" => "IssueCaseJiraIssueResult",
+          "v2.issue_case_linear_issue" => "IssueCaseLinearIssue",
+          "v2.issue_case_linear_issue_result" => "IssueCaseLinearIssueResult",
           "v2.issue_case_reference" => "IssueCaseReference",
           "v2.issue_case_relationship" => "IssueCaseRelationship",
           "v2.issue_case_relationships" => "IssueCaseRelationships",
