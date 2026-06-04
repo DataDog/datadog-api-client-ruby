@@ -972,6 +972,13 @@ ScenariosModelMappings = {
             "filter_project_id" => "String",
             "filter_dataset_id" => "String",
             "filter_id" => "String",
+            "filter_name" => "String",
+            "filter_experiment" => "String",
+            "filter_metadata" => "String",
+            "filter_parent_experiment_id" => "String",
+            "filter_is_deleted" => "Boolean",
+            "include_user_data" => "Boolean",
+            "include_dataset_names" => "Boolean",
             "page_cursor" => "String",
             "page_limit" => "Integer",
     },
@@ -984,6 +991,9 @@ ScenariosModelMappings = {
     "v2.UpdateLLMObsExperiment" => {
             "experiment_id" => "String",
             "body" => "LLMObsExperimentUpdateRequest",
+    },
+    "v2.ListLLMObsExperimentEventsV1" => {
+            "experiment_id" => "String",
     },
     "v2.CreateLLMObsExperimentEvents" => {
             "experiment_id" => "String",
@@ -1112,6 +1122,9 @@ ScenariosModelMappings = {
     "v2.ListLLMObsDatasetVersions" => {
             "project_id" => "String",
             "dataset_id" => "String",
+    },
+    "v2.ListLLMObsExperimentEventsV2" => {
+            "experiment_id" => "String",
     },
     "v2.UploadLLMObsDatasetRecordsFile" => {
             "project_id" => "String",

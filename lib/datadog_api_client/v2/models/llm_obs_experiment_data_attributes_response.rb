@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class LLMObsExperimentDataAttributesResponse
     include BaseGenericModel
 
+    # Pre-computed aggregate metrics for this experiment run, including eval score distributions, token costs, and error rates.
+    attr_accessor :aggregate_data
+
+    # User data for the author of an experiment. Only present when `include[user_data]` is `true`.
+    attr_accessor :author
+
     # Configuration parameters for the experiment.
     attr_accessor :config
 
@@ -30,8 +36,24 @@ module DatadogAPIClient::V2
     # Identifier of the dataset used in this experiment.
     attr_reader :dataset_id
 
+    # Name of the dataset used in this experiment.
+    # Only present when `include[dataset_names]` is `true`.
+    attr_accessor :dataset_name
+
+    # Version of the dataset used in this experiment.
+    attr_accessor :dataset_version
+
+    # Timestamp when the experiment was soft-deleted, if applicable.
+    attr_accessor :deleted_at
+
     # Description of the experiment.
     attr_accessor :description
+
+    # Error message describing why the experiment failed, if applicable.
+    attr_accessor :error
+
+    # Logical name of the experiment, shared across all runs of the same pipeline.
+    attr_accessor :experiment
 
     # Arbitrary metadata associated with the experiment.
     attr_accessor :metadata
@@ -39,8 +61,17 @@ module DatadogAPIClient::V2
     # Name of the experiment.
     attr_reader :name
 
+    # Identifier of the parent (baseline) experiment this experiment was run against, if any.
+    attr_accessor :parent_experiment_id
+
     # Identifier of the project this experiment belongs to.
     attr_reader :project_id
+
+    # Expected number of runs for this experiment.
+    attr_reader :run_count
+
+    # Execution status of an LLM Observability experiment.
+    attr_accessor :status
 
     # Timestamp when the experiment was last updated.
     attr_reader :updated_at
@@ -51,13 +82,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'aggregate_data' => :'aggregate_data',
+        :'author' => :'author',
         :'config' => :'config',
         :'created_at' => :'created_at',
         :'dataset_id' => :'dataset_id',
+        :'dataset_name' => :'dataset_name',
+        :'dataset_version' => :'dataset_version',
+        :'deleted_at' => :'deleted_at',
         :'description' => :'description',
+        :'error' => :'error',
+        :'experiment' => :'experiment',
         :'metadata' => :'metadata',
         :'name' => :'name',
+        :'parent_experiment_id' => :'parent_experiment_id',
         :'project_id' => :'project_id',
+        :'run_count' => :'run_count',
+        :'status' => :'status',
         :'updated_at' => :'updated_at'
       }
     end
@@ -66,13 +107,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'aggregate_data' => :'Hash<String, Object>',
+        :'author' => :'LLMObsExperimentUser',
         :'config' => :'Hash<String, Object>',
         :'created_at' => :'Time',
         :'dataset_id' => :'String',
+        :'dataset_name' => :'String',
+        :'dataset_version' => :'Integer',
+        :'deleted_at' => :'Time',
         :'description' => :'String',
+        :'error' => :'String',
+        :'experiment' => :'String',
         :'metadata' => :'Hash<String, Object>',
         :'name' => :'String',
+        :'parent_experiment_id' => :'String',
         :'project_id' => :'String',
+        :'run_count' => :'Integer',
+        :'status' => :'LLMObsExperimentStatus',
         :'updated_at' => :'Time'
       }
     end
@@ -81,9 +132,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'aggregate_data',
         :'config',
+        :'dataset_name',
+        :'deleted_at',
         :'description',
+        :'error',
         :'metadata',
+        :'parent_experiment_id',
       ])
     end
 
@@ -105,6 +161,14 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'aggregate_data')
+        self.aggregate_data = attributes[:'aggregate_data']
+      end
+
+      if attributes.key?(:'author')
+        self.author = attributes[:'author']
+      end
+
       if attributes.key?(:'config')
         self.config = attributes[:'config']
       end
@@ -117,8 +181,28 @@ module DatadogAPIClient::V2
         self.dataset_id = attributes[:'dataset_id']
       end
 
+      if attributes.key?(:'dataset_name')
+        self.dataset_name = attributes[:'dataset_name']
+      end
+
+      if attributes.key?(:'dataset_version')
+        self.dataset_version = attributes[:'dataset_version']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
+      end
+
+      if attributes.key?(:'experiment')
+        self.experiment = attributes[:'experiment']
       end
 
       if attributes.key?(:'metadata')
@@ -129,8 +213,20 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'parent_experiment_id')
+        self.parent_experiment_id = attributes[:'parent_experiment_id']
+      end
+
       if attributes.key?(:'project_id')
         self.project_id = attributes[:'project_id']
+      end
+
+      if attributes.key?(:'run_count')
+        self.run_count = attributes[:'run_count']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.key?(:'updated_at')
@@ -146,6 +242,7 @@ module DatadogAPIClient::V2
       return false if @dataset_id.nil?
       return false if @name.nil?
       return false if @project_id.nil?
+      return false if !@run_count.nil? && @run_count > 2147483647
       return false if @updated_at.nil?
       true
     end
@@ -191,6 +288,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param run_count [Object] Object to be assigned
+    # @!visibility private
+    def run_count=(run_count)
+      if !run_count.nil? && run_count > 2147483647
+        fail ArgumentError, 'invalid value for "run_count", must be smaller than or equal to 2147483647.'
+      end
+      @run_count = run_count
+    end
+
+    # Custom attribute writer method with validation
     # @param updated_at [Object] Object to be assigned
     # @!visibility private
     def updated_at=(updated_at)
@@ -226,13 +333,23 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aggregate_data == o.aggregate_data &&
+          author == o.author &&
           config == o.config &&
           created_at == o.created_at &&
           dataset_id == o.dataset_id &&
+          dataset_name == o.dataset_name &&
+          dataset_version == o.dataset_version &&
+          deleted_at == o.deleted_at &&
           description == o.description &&
+          error == o.error &&
+          experiment == o.experiment &&
           metadata == o.metadata &&
           name == o.name &&
+          parent_experiment_id == o.parent_experiment_id &&
           project_id == o.project_id &&
+          run_count == o.run_count &&
+          status == o.status &&
           updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
@@ -241,7 +358,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, created_at, dataset_id, description, metadata, name, project_id, updated_at, additional_properties].hash
+      [aggregate_data, author, config, created_at, dataset_id, dataset_name, dataset_version, deleted_at, description, error, experiment, metadata, name, parent_experiment_id, project_id, run_count, status, updated_at, additional_properties].hash
     end
   end
 end
