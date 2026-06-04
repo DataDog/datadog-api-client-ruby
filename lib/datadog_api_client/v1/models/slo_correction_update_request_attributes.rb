@@ -37,6 +37,11 @@ module DatadogAPIClient::V1
     # are `FREQ`, `INTERVAL`, `COUNT`, `UNTIL` and `BYDAY`.
     attr_accessor :rrule
 
+    # Query that matches the SLOs this correction applies to.
+    # The query uses the [Events search syntax](https://docs.datadoghq.com/events/explorer/searching/)
+    # and can filter SLOs by SLO tags.
+    attr_accessor :slo_query
+
     # Starting time of the correction in epoch seconds.
     attr_accessor :start
 
@@ -54,6 +59,7 @@ module DatadogAPIClient::V1
         :'duration' => :'duration',
         :'_end' => :'end',
         :'rrule' => :'rrule',
+        :'slo_query' => :'slo_query',
         :'start' => :'start',
         :'timezone' => :'timezone'
       }
@@ -68,6 +74,7 @@ module DatadogAPIClient::V1
         :'duration' => :'Integer',
         :'_end' => :'Integer',
         :'rrule' => :'String',
+        :'slo_query' => :'String',
         :'start' => :'Integer',
         :'timezone' => :'String'
       }
@@ -111,6 +118,10 @@ module DatadogAPIClient::V1
         self.rrule = attributes[:'rrule']
       end
 
+      if attributes.key?(:'slo_query')
+        self.slo_query = attributes[:'slo_query']
+      end
+
       if attributes.key?(:'start')
         self.start = attributes[:'start']
       end
@@ -151,6 +162,7 @@ module DatadogAPIClient::V1
           duration == o.duration &&
           _end == o._end &&
           rrule == o.rrule &&
+          slo_query == o.slo_query &&
           start == o.start &&
           timezone == o.timezone &&
           additional_properties == o.additional_properties
@@ -160,7 +172,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, description, duration, _end, rrule, start, timezone, additional_properties].hash
+      [category, description, duration, _end, rrule, slo_query, start, timezone, additional_properties].hash
     end
   end
 end

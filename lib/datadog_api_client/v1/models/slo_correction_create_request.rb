@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # An object that defines a correction to be applied to an SLO.
+  # An object that defines a correction to be applied to one or more SLOs.
   class SLOCorrectionCreateRequest
     include BaseGenericModel
 

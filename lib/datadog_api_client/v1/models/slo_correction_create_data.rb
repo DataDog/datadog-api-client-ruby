@@ -22,6 +22,8 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # The attribute object associated with the SLO correction to be created.
+    #
+    # Exactly one of `slo_id` or `slo_query` must be provided.
     attr_accessor :attributes
 
     # SLO correction resource type.
