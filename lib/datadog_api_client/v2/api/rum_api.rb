@@ -222,6 +222,128 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete source maps.
+    #
+    # @see #delete_sourcemaps_with_http_info
+    def delete_sourcemaps(mapkind, dry_run, opts = {})
+      data, _status_code, _headers = delete_sourcemaps_with_http_info(mapkind, dry_run, opts)
+      data
+    end
+
+    # Delete source maps.
+    #
+    # Deletes source maps matching the specified filter criteria. Supports
+    # dry-run mode to preview which source maps would be deleted without
+    # performing the actual deletion.
+    #
+    # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+    # @param dry_run [Boolean] When set to `true`, returns the source maps that would be deleted without performing the actual deletion. When set to `false`, performs the deletion.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
+    # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+    # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
+    # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_bundle_name Filter by bundle name values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_arch Filter by architecture values (multiple values allowed). Supported for `flutter`, `elf`, and `ndk`.
+    # @option opts [Array<String>] :filter_symbol_source Filter by symbol source values (multiple values allowed). Supported for `elf`.
+    # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
+    # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
+    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+    # @option opts [String] :filter_debug_id Filter by debug ID (single value). Supported for `react`.
+    # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
+    # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
+    # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
+    # @return [Array<(SourcemapsResponse, Integer, Hash)>] SourcemapsResponse data, response status code and response headers
+    def delete_sourcemaps_with_http_info(mapkind, dry_run, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_sourcemaps".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_sourcemaps")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_sourcemaps"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RUMAPI.delete_sourcemaps ...'
+      end
+      # verify the required parameter 'mapkind' is set
+      if @api_client.config.client_side_validation && mapkind.nil?
+        fail ArgumentError, "Missing the required parameter 'mapkind' when calling RUMAPI.delete_sourcemaps"
+      end
+      # verify enum value
+      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
+      if @api_client.config.client_side_validation && !allowable_values.include?(mapkind)
+        fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'dry_run' is set
+      if @api_client.config.client_side_validation && dry_run.nil?
+        fail ArgumentError, "Missing the required parameter 'dry_run' when calling RUMAPI.delete_sourcemaps"
+      end
+      # resource path
+      local_var_path = '/api/v2/sourcemaps'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'mapkind'] = mapkind
+      query_params[:'dry_run'] = dry_run
+      query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
+      query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
+      query_params[:'filter[variant]'] = @api_client.build_collection_param(opts[:'filter_variant'], :multi) if !opts[:'filter_variant'].nil?
+      query_params[:'filter[id]'] = @api_client.build_collection_param(opts[:'filter_id'], :multi) if !opts[:'filter_id'].nil?
+      query_params[:'filter[build_id]'] = @api_client.build_collection_param(opts[:'filter_build_id'], :multi) if !opts[:'filter_build_id'].nil?
+      query_params[:'filter[uuid]'] = @api_client.build_collection_param(opts[:'filter_uuid'], :multi) if !opts[:'filter_uuid'].nil?
+      query_params[:'filter[platform]'] = @api_client.build_collection_param(opts[:'filter_platform'], :multi) if !opts[:'filter_platform'].nil?
+      query_params[:'filter[build_number]'] = @api_client.build_collection_param(opts[:'filter_build_number'], :multi) if !opts[:'filter_build_number'].nil?
+      query_params[:'filter[bundle_name]'] = @api_client.build_collection_param(opts[:'filter_bundle_name'], :multi) if !opts[:'filter_bundle_name'].nil?
+      query_params[:'filter[arch]'] = @api_client.build_collection_param(opts[:'filter_arch'], :multi) if !opts[:'filter_arch'].nil?
+      query_params[:'filter[symbol_source]'] = @api_client.build_collection_param(opts[:'filter_symbol_source'], :multi) if !opts[:'filter_symbol_source'].nil?
+      query_params[:'filter[origin]'] = @api_client.build_collection_param(opts[:'filter_origin'], :multi) if !opts[:'filter_origin'].nil?
+      query_params[:'filter[origin_version]'] = @api_client.build_collection_param(opts[:'filter_origin_version'], :multi) if !opts[:'filter_origin_version'].nil?
+      query_params[:'filter[filename]'] = opts[:'filter_filename'] if !opts[:'filter_filename'].nil?
+      query_params[:'filter[debug_id]'] = opts[:'filter_debug_id'] if !opts[:'filter_debug_id'].nil?
+      query_params[:'filter[gnu_build_id]'] = opts[:'filter_gnu_build_id'] if !opts[:'filter_gnu_build_id'].nil?
+      query_params[:'filter[go_build_id]'] = opts[:'filter_go_build_id'] if !opts[:'filter_go_build_id'].nil?
+      query_params[:'filter[file_hash]'] = opts[:'filter_file_hash'] if !opts[:'filter_file_hash'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SourcemapsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_sourcemaps,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RUMAPI#delete_sourcemaps\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a RUM application.
     #
     # @see #get_rum_application_with_http_info
@@ -347,6 +469,164 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get service repository information.
+    #
+    # @see #get_service_repository_info_with_http_info
+    def get_service_repository_info(body, opts = {})
+      data, _status_code, _headers = get_service_repository_info_with_http_info(body, opts)
+      data
+    end
+
+    # Get service repository information.
+    #
+    # Returns the repository URL and commit SHA associated with a given service and version.
+    #
+    # @param body [ServiceRepositoryInfoRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ServiceRepositoryInfoResponse, Integer, Hash)>] ServiceRepositoryInfoResponse data, response status code and response headers
+    def get_service_repository_info_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_service_repository_info".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_service_repository_info")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_service_repository_info"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RUMAPI.get_service_repository_info ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RUMAPI.get_service_repository_info"
+      end
+      # resource path
+      local_var_path = '/api/v2/sourcemaps/service_repository_info'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ServiceRepositoryInfoResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_service_repository_info,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RUMAPI#get_service_repository_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a JavaScript source map.
+    #
+    # @see #get_sourcemaps_with_http_info
+    def get_sourcemaps(filename, service, version, opts = {})
+      data, _status_code, _headers = get_sourcemaps_with_http_info(filename, service, version, opts)
+      data
+    end
+
+    # Get a JavaScript source map.
+    #
+    # Retrieves the content of a specific JavaScript source map file by its
+    # filename, service name, and version.
+    #
+    # @param filename [String] The path to the source map file.
+    # @param service [String] The service name associated with the source map.
+    # @param version [String] The version of the service associated with the source map.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SourcemapFileResponse, Integer, Hash)>] SourcemapFileResponse data, response status code and response headers
+    def get_sourcemaps_with_http_info(filename, service, version, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_sourcemaps".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_sourcemaps")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_sourcemaps"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RUMAPI.get_sourcemaps ...'
+      end
+      # verify the required parameter 'filename' is set
+      if @api_client.config.client_side_validation && filename.nil?
+        fail ArgumentError, "Missing the required parameter 'filename' when calling RUMAPI.get_sourcemaps"
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling RUMAPI.get_sourcemaps"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling RUMAPI.get_sourcemaps"
+      end
+      # resource path
+      local_var_path = '/api/v2/sourcemaps'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filename'] = filename
+      query_params[:'service'] = service
+      query_params[:'version'] = version
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SourcemapFileResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_sourcemaps,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RUMAPI#get_sourcemaps\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of RUM events.
     #
     # @see #list_rum_events_with_http_info
@@ -450,6 +730,241 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
+    end
+
+    # List source maps.
+    #
+    # @see #list_sourcemaps_with_http_info
+    def list_sourcemaps(opts = {})
+      data, _status_code, _headers = list_sourcemaps_with_http_info(opts)
+      data
+    end
+
+    # List source maps.
+    #
+    # Retrieves a paginated list of source maps matching the specified filter criteria.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [SourcemapMapKind] :mapkind The type of source map. Defaults to `js`.
+    # @option opts [Integer] :page_size The number of results to return per page. Must be at least 1.
+    # @option opts [Integer] :page_number The page number to retrieve, starting from 1.
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
+    # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+    # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
+    # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_bundle_name Filter by bundle name values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_arch Filter by architecture values (multiple values allowed). Supported for `flutter`, `elf`, and `ndk`.
+    # @option opts [Array<String>] :filter_symbol_source Filter by symbol source values (multiple values allowed). Supported for `elf`.
+    # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
+    # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
+    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+    # @option opts [String] :filter_debug_id Filter by debug ID (single value). Supported for `react`.
+    # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
+    # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
+    # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
+    # @return [Array<(ListSourcemapsResponse, Integer, Hash)>] ListSourcemapsResponse data, response status code and response headers
+    def list_sourcemaps_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_sourcemaps".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_sourcemaps")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_sourcemaps"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RUMAPI.list_sourcemaps ...'
+      end
+      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
+      if @api_client.config.client_side_validation && opts[:'mapkind'] && !allowable_values.include?(opts[:'mapkind'])
+        fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/sourcemaps/list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'mapkind'] = opts[:'mapkind'] if !opts[:'mapkind'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
+      query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
+      query_params[:'filter[variant]'] = @api_client.build_collection_param(opts[:'filter_variant'], :multi) if !opts[:'filter_variant'].nil?
+      query_params[:'filter[id]'] = @api_client.build_collection_param(opts[:'filter_id'], :multi) if !opts[:'filter_id'].nil?
+      query_params[:'filter[build_id]'] = @api_client.build_collection_param(opts[:'filter_build_id'], :multi) if !opts[:'filter_build_id'].nil?
+      query_params[:'filter[uuid]'] = @api_client.build_collection_param(opts[:'filter_uuid'], :multi) if !opts[:'filter_uuid'].nil?
+      query_params[:'filter[platform]'] = @api_client.build_collection_param(opts[:'filter_platform'], :multi) if !opts[:'filter_platform'].nil?
+      query_params[:'filter[build_number]'] = @api_client.build_collection_param(opts[:'filter_build_number'], :multi) if !opts[:'filter_build_number'].nil?
+      query_params[:'filter[bundle_name]'] = @api_client.build_collection_param(opts[:'filter_bundle_name'], :multi) if !opts[:'filter_bundle_name'].nil?
+      query_params[:'filter[arch]'] = @api_client.build_collection_param(opts[:'filter_arch'], :multi) if !opts[:'filter_arch'].nil?
+      query_params[:'filter[symbol_source]'] = @api_client.build_collection_param(opts[:'filter_symbol_source'], :multi) if !opts[:'filter_symbol_source'].nil?
+      query_params[:'filter[origin]'] = @api_client.build_collection_param(opts[:'filter_origin'], :multi) if !opts[:'filter_origin'].nil?
+      query_params[:'filter[origin_version]'] = @api_client.build_collection_param(opts[:'filter_origin_version'], :multi) if !opts[:'filter_origin_version'].nil?
+      query_params[:'filter[filename]'] = opts[:'filter_filename'] if !opts[:'filter_filename'].nil?
+      query_params[:'filter[debug_id]'] = opts[:'filter_debug_id'] if !opts[:'filter_debug_id'].nil?
+      query_params[:'filter[gnu_build_id]'] = opts[:'filter_gnu_build_id'] if !opts[:'filter_gnu_build_id'].nil?
+      query_params[:'filter[go_build_id]'] = opts[:'filter_go_build_id'] if !opts[:'filter_go_build_id'].nil?
+      query_params[:'filter[file_hash]'] = opts[:'filter_file_hash'] if !opts[:'filter_file_hash'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListSourcemapsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_sourcemaps,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RUMAPI#list_sourcemaps\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Restore source maps.
+    #
+    # @see #restore_sourcemaps_with_http_info
+    def restore_sourcemaps(mapkind, dry_run, opts = {})
+      data, _status_code, _headers = restore_sourcemaps_with_http_info(mapkind, dry_run, opts)
+      data
+    end
+
+    # Restore source maps.
+    #
+    # Restores previously deleted source maps matching the specified filter
+    # criteria. Supports dry-run mode to preview which source maps would be
+    # restored without performing the actual restoration.
+    #
+    # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+    # @param dry_run [Boolean] When set to `true`, returns the source maps that would be restored without performing the actual restoration. When set to `false`, performs the restoration.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
+    # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+    # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
+    # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_bundle_name Filter by bundle name values (multiple values allowed). Supported for `react`.
+    # @option opts [Array<String>] :filter_arch Filter by architecture values (multiple values allowed). Supported for `flutter`, `elf`, and `ndk`.
+    # @option opts [Array<String>] :filter_symbol_source Filter by symbol source values (multiple values allowed). Supported for `elf`.
+    # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
+    # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
+    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+    # @option opts [String] :filter_debug_id Filter by debug ID (single value). Supported for `react`.
+    # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
+    # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
+    # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
+    # @return [Array<(SourcemapsResponse, Integer, Hash)>] SourcemapsResponse data, response status code and response headers
+    def restore_sourcemaps_with_http_info(mapkind, dry_run, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.restore_sourcemaps".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.restore_sourcemaps")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.restore_sourcemaps"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RUMAPI.restore_sourcemaps ...'
+      end
+      # verify the required parameter 'mapkind' is set
+      if @api_client.config.client_side_validation && mapkind.nil?
+        fail ArgumentError, "Missing the required parameter 'mapkind' when calling RUMAPI.restore_sourcemaps"
+      end
+      # verify enum value
+      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
+      if @api_client.config.client_side_validation && !allowable_values.include?(mapkind)
+        fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'dry_run' is set
+      if @api_client.config.client_side_validation && dry_run.nil?
+        fail ArgumentError, "Missing the required parameter 'dry_run' when calling RUMAPI.restore_sourcemaps"
+      end
+      # resource path
+      local_var_path = '/api/v2/sourcemaps/restore'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'mapkind'] = mapkind
+      query_params[:'dry_run'] = dry_run
+      query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
+      query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
+      query_params[:'filter[variant]'] = @api_client.build_collection_param(opts[:'filter_variant'], :multi) if !opts[:'filter_variant'].nil?
+      query_params[:'filter[id]'] = @api_client.build_collection_param(opts[:'filter_id'], :multi) if !opts[:'filter_id'].nil?
+      query_params[:'filter[build_id]'] = @api_client.build_collection_param(opts[:'filter_build_id'], :multi) if !opts[:'filter_build_id'].nil?
+      query_params[:'filter[uuid]'] = @api_client.build_collection_param(opts[:'filter_uuid'], :multi) if !opts[:'filter_uuid'].nil?
+      query_params[:'filter[platform]'] = @api_client.build_collection_param(opts[:'filter_platform'], :multi) if !opts[:'filter_platform'].nil?
+      query_params[:'filter[build_number]'] = @api_client.build_collection_param(opts[:'filter_build_number'], :multi) if !opts[:'filter_build_number'].nil?
+      query_params[:'filter[bundle_name]'] = @api_client.build_collection_param(opts[:'filter_bundle_name'], :multi) if !opts[:'filter_bundle_name'].nil?
+      query_params[:'filter[arch]'] = @api_client.build_collection_param(opts[:'filter_arch'], :multi) if !opts[:'filter_arch'].nil?
+      query_params[:'filter[symbol_source]'] = @api_client.build_collection_param(opts[:'filter_symbol_source'], :multi) if !opts[:'filter_symbol_source'].nil?
+      query_params[:'filter[origin]'] = @api_client.build_collection_param(opts[:'filter_origin'], :multi) if !opts[:'filter_origin'].nil?
+      query_params[:'filter[origin_version]'] = @api_client.build_collection_param(opts[:'filter_origin_version'], :multi) if !opts[:'filter_origin_version'].nil?
+      query_params[:'filter[filename]'] = opts[:'filter_filename'] if !opts[:'filter_filename'].nil?
+      query_params[:'filter[debug_id]'] = opts[:'filter_debug_id'] if !opts[:'filter_debug_id'].nil?
+      query_params[:'filter[gnu_build_id]'] = opts[:'filter_gnu_build_id'] if !opts[:'filter_gnu_build_id'].nil?
+      query_params[:'filter[go_build_id]'] = opts[:'filter_go_build_id'] if !opts[:'filter_go_build_id'].nil?
+      query_params[:'filter[file_hash]'] = opts[:'filter_file_hash'] if !opts[:'filter_file_hash'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SourcemapsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :restore_sourcemaps,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RUMAPI#restore_sourcemaps\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # Search RUM events.
