@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V1
   # The attribute object associated with the SLO correction to be created.
+  # 
+  # Exactly one of `slo_id` or `slo_query` must be provided.
   class SLOCorrectionCreateRequestAttributes
     include BaseGenericModel
 
@@ -37,8 +39,13 @@ module DatadogAPIClient::V1
     # are `FREQ`, `INTERVAL`, `COUNT`, `UNTIL` and `BYDAY`.
     attr_accessor :rrule
 
-    # ID of the SLO that this correction applies to.
-    attr_reader :slo_id
+    # ID of the single SLO that this correction applies to.
+    attr_accessor :slo_id
+
+    # Query that matches the SLOs this correction applies to.
+    # The query uses the [Events search syntax](https://docs.datadoghq.com/events/explorer/searching/)
+    # and can filter SLOs by SLO tags.
+    attr_accessor :slo_query
 
     # Starting time of the correction in epoch seconds.
     attr_reader :start
@@ -58,6 +65,7 @@ module DatadogAPIClient::V1
         :'_end' => :'end',
         :'rrule' => :'rrule',
         :'slo_id' => :'slo_id',
+        :'slo_query' => :'slo_query',
         :'start' => :'start',
         :'timezone' => :'timezone'
       }
@@ -73,6 +81,7 @@ module DatadogAPIClient::V1
         :'_end' => :'Integer',
         :'rrule' => :'String',
         :'slo_id' => :'String',
+        :'slo_query' => :'String',
         :'start' => :'Integer',
         :'timezone' => :'String'
       }
@@ -120,6 +129,10 @@ module DatadogAPIClient::V1
         self.slo_id = attributes[:'slo_id']
       end
 
+      if attributes.key?(:'slo_query')
+        self.slo_query = attributes[:'slo_query']
+      end
+
       if attributes.key?(:'start')
         self.start = attributes[:'start']
       end
@@ -134,7 +147,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @category.nil?
-      return false if @slo_id.nil?
       return false if @start.nil?
       true
     end
@@ -147,16 +159,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "category", category cannot be nil.'
       end
       @category = category
-    end
-
-    # Custom attribute writer method with validation
-    # @param slo_id [Object] Object to be assigned
-    # @!visibility private
-    def slo_id=(slo_id)
-      if slo_id.nil?
-        fail ArgumentError, 'invalid value for "slo_id", slo_id cannot be nil.'
-      end
-      @slo_id = slo_id
     end
 
     # Custom attribute writer method with validation
@@ -201,6 +203,7 @@ module DatadogAPIClient::V1
           _end == o._end &&
           rrule == o.rrule &&
           slo_id == o.slo_id &&
+          slo_query == o.slo_query &&
           start == o.start &&
           timezone == o.timezone &&
           additional_properties == o.additional_properties
@@ -210,7 +213,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, description, duration, _end, rrule, slo_id, start, timezone, additional_properties].hash
+      [category, description, duration, _end, rrule, slo_id, slo_query, start, timezone, additional_properties].hash
     end
   end
 end

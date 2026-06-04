@@ -49,8 +49,11 @@ module DatadogAPIClient::V1
     # are `FREQ`, `INTERVAL`, `COUNT`, `UNTIL` and `BYDAY`.
     attr_accessor :rrule
 
-    # ID of the SLO that this correction applies to.
+    # ID of the single SLO that this correction applies to.
     attr_accessor :slo_id
+
+    # Query that matches the SLOs this correction applies to.
+    attr_accessor :slo_query
 
     # Starting time of the correction in epoch seconds.
     attr_accessor :start
@@ -74,6 +77,7 @@ module DatadogAPIClient::V1
         :'modifier' => :'modifier',
         :'rrule' => :'rrule',
         :'slo_id' => :'slo_id',
+        :'slo_query' => :'slo_query',
         :'start' => :'start',
         :'timezone' => :'timezone'
       }
@@ -93,6 +97,7 @@ module DatadogAPIClient::V1
         :'modifier' => :'SLOCorrectionResponseAttributesModifier',
         :'rrule' => :'String',
         :'slo_id' => :'String',
+        :'slo_query' => :'String',
         :'start' => :'Integer',
         :'timezone' => :'String'
       }
@@ -108,6 +113,8 @@ module DatadogAPIClient::V1
         :'modified_at',
         :'modifier',
         :'rrule',
+        :'slo_id',
+        :'slo_query',
       ])
     end
 
@@ -169,6 +176,10 @@ module DatadogAPIClient::V1
         self.slo_id = attributes[:'slo_id']
       end
 
+      if attributes.key?(:'slo_query')
+        self.slo_query = attributes[:'slo_query']
+      end
+
       if attributes.key?(:'start')
         self.start = attributes[:'start']
       end
@@ -214,6 +225,7 @@ module DatadogAPIClient::V1
           modifier == o.modifier &&
           rrule == o.rrule &&
           slo_id == o.slo_id &&
+          slo_query == o.slo_query &&
           start == o.start &&
           timezone == o.timezone &&
           additional_properties == o.additional_properties
@@ -223,7 +235,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, creator, description, duration, _end, modified_at, modifier, rrule, slo_id, start, timezone, additional_properties].hash
+      [category, created_at, creator, description, duration, _end, modified_at, modifier, rrule, slo_id, slo_query, start, timezone, additional_properties].hash
     end
   end
 end
