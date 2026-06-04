@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Identifier of the interaction this annotation belongs to.
     attr_reader :interaction_id
 
-    # The label values for this annotation.
+    # Label values for this annotation.
     attr_reader :label_values
 
     # Timestamp when the annotation was last modified.

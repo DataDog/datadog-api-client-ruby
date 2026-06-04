@@ -1050,6 +1050,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete annotations.
+    #
+    # @see #delete_llm_obs_annotations_with_http_info
+    def delete_llm_obs_annotations(queue_id, body, opts = {})
+      data, _status_code, _headers = delete_llm_obs_annotations_with_http_info(queue_id, body, opts)
+      data
+    end
+
+    # Delete annotations.
+    #
+    # Delete one or more annotations from an annotation queue.
+    #
+    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param body [LLMObsDeleteAnnotationsRequest] Delete annotations payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDeleteAnnotationsResponse, Integer, Hash)>] LLMObsDeleteAnnotationsResponse data, response status code and response headers
+    def delete_llm_obs_annotations_with_http_info(queue_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_llm_obs_annotations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_llm_obs_annotations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_llm_obs_annotations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.delete_llm_obs_annotations ...'
+      end
+      # verify the required parameter 'queue_id' is set
+      if @api_client.config.client_side_validation && queue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'queue_id' when calling LLMObservabilityAPI.delete_llm_obs_annotations"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.delete_llm_obs_annotations"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotations/delete'.sub('{queue_id}', CGI.escape(queue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDeleteAnnotationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_llm_obs_annotations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#delete_llm_obs_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a custom evaluator configuration.
     #
     # @see #delete_llm_obs_custom_eval_config_with_http_info
@@ -1669,7 +1747,8 @@ module DatadogAPIClient::V2
 
     # Get annotated interactions by content IDs.
     #
-    # Returns annotated interactions across all annotation queues for the given content IDs. Results include queue metadata (ID and name) for each interaction.
+    # Returns annotated interactions across all annotation queues for the given content IDs.
+    # Results include queue metadata (ID and name) for each interaction.
     #
     # @param content_ids [Array<String>] One or more content IDs to retrieve annotated interactions for. At least one is required.
     # @param opts [Hash] the optional parameters
@@ -4023,6 +4102,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#upload_llm_obs_dataset_records_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update annotations.
+    #
+    # @see #upsert_llm_obs_annotations_with_http_info
+    def upsert_llm_obs_annotations(queue_id, body, opts = {})
+      data, _status_code, _headers = upsert_llm_obs_annotations_with_http_info(queue_id, body, opts)
+      data
+    end
+
+    # Create or update annotations.
+    #
+    # Create or update annotations on interactions in a queue. Each annotation is matched
+    # by `interaction_id` and the requesting user's identity.
+    # Results and errors in the response are linked to request items by `interaction_id`.
+    # Errors for individual items are returned in the `errors` field without blocking the rest of the batch.
+    #
+    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param body [LLMObsAnnotationsRequest] Payload for creating or updating annotations.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsAnnotationsResponse, Integer, Hash)>] LLMObsAnnotationsResponse data, response status code and response headers
+    def upsert_llm_obs_annotations_with_http_info(queue_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_llm_obs_annotations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_llm_obs_annotations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_llm_obs_annotations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.upsert_llm_obs_annotations ...'
+      end
+      # verify the required parameter 'queue_id' is set
+      if @api_client.config.client_side_validation && queue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'queue_id' when calling LLMObservabilityAPI.upsert_llm_obs_annotations"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.upsert_llm_obs_annotations"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotations'.sub('{queue_id}', CGI.escape(queue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsAnnotationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :upsert_llm_obs_annotations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#upsert_llm_obs_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
