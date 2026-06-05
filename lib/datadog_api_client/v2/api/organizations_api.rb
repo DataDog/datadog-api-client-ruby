@@ -88,6 +88,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a SAML configuration.
+    #
+    # @see #get_saml_configuration_with_http_info
+    def get_saml_configuration(saml_config_uuid, opts = {})
+      data, _status_code, _headers = get_saml_configuration_with_http_info(saml_config_uuid, opts)
+      data
+    end
+
+    # Get a SAML configuration.
+    #
+    # Get a single SAML configuration for the current organization by its UUID.
+    #
+    # @param saml_config_uuid [String] The UUID of the SAML configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SAMLConfigurationResponse, Integer, Hash)>] SAMLConfigurationResponse data, response status code and response headers
+    def get_saml_configuration_with_http_info(saml_config_uuid, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.get_saml_configuration ...'
+      end
+      # verify the required parameter 'saml_config_uuid' is set
+      if @api_client.config.client_side_validation && saml_config_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'saml_config_uuid' when calling OrganizationsAPI.get_saml_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/saml_configurations/{saml_config_uuid}'.sub('{saml_config_uuid}', CGI.escape(saml_config_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SAMLConfigurationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_saml_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#get_saml_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Org Configs.
     #
     # @see #list_org_configs_with_http_info
@@ -210,6 +275,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List SAML configurations.
+    #
+    # @see #list_saml_configurations_with_http_info
+    def list_saml_configurations(opts = {})
+      data, _status_code, _headers = list_saml_configurations_with_http_info(opts)
+      data
+    end
+
+    # List SAML configurations.
+    #
+    # Get the list of SAML configurations for the current organization. An organization has at most one SAML configuration.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SAMLConfigurationsResponse, Integer, Hash)>] SAMLConfigurationsResponse data, response status code and response headers
+    def list_saml_configurations_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.list_saml_configurations ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/saml_configurations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SAMLConfigurationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_saml_configurations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#list_saml_configurations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a specific Org Config.
     #
     # @see #update_org_config_with_http_info
@@ -278,6 +403,158 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrganizationsAPI#update_org_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update organization SAML preferences.
+    #
+    # @see #update_org_saml_configurations_with_http_info
+    def update_org_saml_configurations(body, opts = {})
+      update_org_saml_configurations_with_http_info(body, opts)
+      nil
+    end
+
+    # Update organization SAML preferences.
+    #
+    # Update the SAML preferences for the current organization.
+    #
+    # Use this endpoint to set the just-in-time (JIT) provisioning domains and the default role
+    # assigned to just-in-time provisioned users.
+    #
+    # @param body [OrgSAMLPreferencesUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_org_saml_configurations_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_org_saml_configurations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_org_saml_configurations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_org_saml_configurations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.update_org_saml_configurations ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.update_org_saml_configurations"
+      end
+      # resource path
+      local_var_path = '/api/v2/org/saml_configurations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_org_saml_configurations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#update_org_saml_configurations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a SAML configuration.
+    #
+    # @see #update_saml_configuration_with_http_info
+    def update_saml_configuration(saml_config_uuid, body, opts = {})
+      data, _status_code, _headers = update_saml_configuration_with_http_info(saml_config_uuid, body, opts)
+      data
+    end
+
+    # Update a SAML configuration.
+    #
+    # Update a single SAML configuration for the current organization.
+    #
+    # Use this endpoint to enable or disable identity-provider-initiated login, set the
+    # just-in-time provisioning domains, and set the default role assigned to
+    # just-in-time provisioned users. A default role is required to enable just-in-time provisioning.
+    #
+    # @param saml_config_uuid [String] The UUID of the SAML configuration.
+    # @param body [SAMLConfigurationUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SAMLConfigurationResponse, Integer, Hash)>] SAMLConfigurationResponse data, response status code and response headers
+    def update_saml_configuration_with_http_info(saml_config_uuid, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.update_saml_configuration ...'
+      end
+      # verify the required parameter 'saml_config_uuid' is set
+      if @api_client.config.client_side_validation && saml_config_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'saml_config_uuid' when calling OrganizationsAPI.update_saml_configuration"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.update_saml_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/saml_configurations/{saml_config_uuid}'.sub('{saml_config_uuid}', CGI.escape(saml_config_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SAMLConfigurationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_saml_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#update_saml_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

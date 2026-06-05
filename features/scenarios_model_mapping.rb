@@ -4167,6 +4167,9 @@ ScenariosModelMappings = {
     "v2.ListOrgs" => {
             "filter_name" => "String",
     },
+    "v2.UpdateOrgSamlConfigurations" => {
+            "body" => "OrgSAMLPreferencesUpdateRequest",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },
@@ -4176,6 +4179,13 @@ ScenariosModelMappings = {
     },
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
+    },
+    "v2.GetSAMLConfiguration" => {
+            "saml_config_uuid" => "String",
+    },
+    "v2.UpdateSAMLConfiguration" => {
+            "saml_config_uuid" => "String",
+            "body" => "SAMLConfigurationUpdateRequest",
     },
     "v2.DisableCustomerOrg" => {
             "body" => "CustomerOrgDisableRequest",
