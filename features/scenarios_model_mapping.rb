@@ -1353,6 +1353,7 @@ ScenariosModelMappings = {
             "filter" => "String",
             "filter_created_at_start" => "String",
             "filter_created_at_end" => "String",
+            "filter_owned_by" => "String",
             "include" => "String",
     },
     "v2.DeleteApplicationKey" => {
