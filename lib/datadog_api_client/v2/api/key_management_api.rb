@@ -789,6 +789,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter application keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [String] :filter_owned_by Filter application keys by owner ID.
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
@@ -811,6 +812,7 @@ module DatadogAPIClient::V2
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'filter[created_at][start]'] = opts[:'filter_created_at_start'] if !opts[:'filter_created_at_start'].nil?
       query_params[:'filter[created_at][end]'] = opts[:'filter_created_at_end'] if !opts[:'filter_created_at_end'].nil?
+      query_params[:'filter[owned_by]'] = opts[:'filter_owned_by'] if !opts[:'filter_owned_by'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
