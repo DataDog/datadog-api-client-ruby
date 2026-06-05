@@ -3394,6 +3394,9 @@ ScenariosModelMappings = {
     "v2.CreateAWSEventBridgeSource" => {
             "body" => "AWSEventBridgeCreateRequest",
     },
+    "v2.ValidateAWSCCMConfig" => {
+            "body" => "AWSCcmConfigValidationRequest",
+    },
     "v2.CreateGCPSTSAccount" => {
             "body" => "GCPSTSServiceAccountCreateRequest",
     },
