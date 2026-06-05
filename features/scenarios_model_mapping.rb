@@ -944,6 +944,14 @@ ScenariosModelMappings = {
     "v2.GetLLMObsAnnotatedInteractions" => {
             "queue_id" => "String",
     },
+    "v2.UpsertLLMObsAnnotations" => {
+            "queue_id" => "String",
+            "body" => "LLMObsAnnotationsRequest",
+    },
+    "v2.DeleteLLMObsAnnotations" => {
+            "queue_id" => "String",
+            "body" => "LLMObsDeleteAnnotationsRequest",
+    },
     "v2.CreateLLMObsAnnotationQueueInteractions" => {
             "queue_id" => "String",
             "body" => "LLMObsAnnotationQueueInteractionsRequest",

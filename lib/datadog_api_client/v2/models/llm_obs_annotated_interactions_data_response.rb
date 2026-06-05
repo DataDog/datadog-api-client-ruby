@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes containing the list of annotated interactions.
     attr_reader :attributes
 
-    # The queue ID.
+    # The annotation queue ID.
     attr_reader :id
 
     # Resource type for annotated interactions.
