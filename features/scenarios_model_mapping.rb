@@ -3822,6 +3822,27 @@ ScenariosModelMappings = {
     "v2.CreateBulkTagsMetricsConfiguration" => {
             "body" => "MetricBulkTagConfigCreateRequest",
     },
+    "v2.ListTagIndexingRules" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "search" => "String",
+    },
+    "v2.CreateTagIndexingRule" => {
+            "body" => "TagIndexingRuleCreateRequest",
+    },
+    "v2.ReorderTagIndexingRules" => {
+            "body" => "TagIndexingRuleOrderRequest",
+    },
+    "v2.DeleteTagIndexingRule" => {
+            "id" => "String",
+    },
+    "v2.GetTagIndexingRule" => {
+            "id" => "String",
+    },
+    "v2.UpdateTagIndexingRule" => {
+            "id" => "String",
+            "body" => "TagIndexingRuleUpdateRequest",
+    },
     "v2.ListActiveMetricConfigurations" => {
             "metric_name" => "String",
             "window_seconds" => "Integer",
@@ -3847,6 +3868,19 @@ ScenariosModelMappings = {
             "filter_timespan_h" => "Integer",
     },
     "v2.GetMetricTagCardinalityDetails" => {
+            "metric_name" => "String",
+    },
+    "v2.DeleteTagIndexingRuleExemption" => {
+            "metric_name" => "String",
+    },
+    "v2.GetTagIndexingRuleExemption" => {
+            "metric_name" => "String",
+    },
+    "v2.CreateTagIndexingRuleExemption" => {
+            "metric_name" => "String",
+            "body" => "TagIndexingRuleExemptionCreateRequest",
+    },
+    "v2.ListTagIndexingRulesForMetric" => {
             "metric_name" => "String",
     },
     "v2.DeleteTagConfiguration" => {
