@@ -82,9 +82,6 @@
           self.additional_properties[k.to_sym] = v
         else
           h[k.to_sym] = v
-{%- if model.get("x-keep-typed-in-additional-properties") %}
-          self.additional_properties[k.to_sym] = v
-{%- endif %}
         end
 {%- else %}
           fail ArgumentError, "`#{k}` is not a valid attribute in `{{ module_name }}::{{ version|upper }}::{{ name }}`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
@@ -104,6 +101,11 @@
         {%- endif %}
       end
 {%- endfor %}
+{%- if model.get("x-keep-typed-in-additional-properties") %}
+{%- for attr, definition in model.get("properties", {}).items() %}
+      self.additional_properties[:'{{ attr|attribute_name }}'] = self.{{ attr|attribute_name }} if attributes.key?(:'{{ attr|attribute_name }}')
+{%- endfor %}
+{%- endif %}
     end
 
 {%- set ns = namespace(hasValidation=False) %}
