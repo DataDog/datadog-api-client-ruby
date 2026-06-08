@@ -4742,6 +4742,19 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "RumMetricUpdateRequest",
     },
+    "v2.DeleteRumRateLimitConfig" => {
+            "scope_type" => "RumRateLimitScopeType",
+            "scope_id" => "String",
+    },
+    "v2.GetRumRateLimitConfig" => {
+            "scope_type" => "RumRateLimitScopeType",
+            "scope_id" => "String",
+    },
+    "v2.UpdateRumRateLimitConfig" => {
+            "scope_type" => "RumRateLimitScopeType",
+            "scope_id" => "String",
+            "body" => "RumRateLimitConfigUpdateRequest",
+    },
     "v2.QueryAggregatedLongTasks" => {
             "body" => "AggregatedLongTasksRequest",
     },
