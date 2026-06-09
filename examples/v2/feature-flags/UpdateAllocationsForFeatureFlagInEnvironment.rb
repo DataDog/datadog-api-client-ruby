@@ -43,6 +43,7 @@ body = DatadogAPIClient::V2::OverwriteAllocationsRequest.new({
               DatadogAPIClient::V2::ConditionRequest.new({
                 attribute: "user_tier",
                 operator: DatadogAPIClient::V2::ConditionOperator::ONE_OF,
+                saved_filter_id: "550e8400-e29b-41d4-a716-446655440090",
                 value: [
                   "premium",
                   "enterprise",
