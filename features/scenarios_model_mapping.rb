@@ -2855,6 +2855,26 @@ ScenariosModelMappings = {
             "query" => "String",
             "order_direction" => "OrderDirection",
     },
+    "v2.ListCSMAgentlessHosts" => {
+            "page" => "Integer",
+            "size" => "Integer",
+            "query" => "String",
+    },
+    "v2.GetCSMAgentlessHostFacetInfo" => {
+            "facet" => "String",
+            "search" => "String",
+            "query" => "String",
+    },
+    "v2.ListCSMUnifiedHosts" => {
+            "page" => "Integer",
+            "size" => "Integer",
+            "query" => "String",
+    },
+    "v2.GetCSMUnifiedHostFacetInfo" => {
+            "facet" => "String",
+            "search" => "String",
+            "query" => "String",
+    },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListDeleteItemsRequest",
