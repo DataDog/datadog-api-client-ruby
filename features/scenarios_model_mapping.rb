@@ -4653,6 +4653,13 @@ ScenariosModelMappings = {
             "snapshot_id" => "String",
             "body" => "SnapshotUpdateRequest",
     },
+    "v2.CreateReportSchedule" => {
+            "body" => "ReportScheduleCreateRequest",
+    },
+    "v2.PatchReportSchedule" => {
+            "schedule_uuid" => "UUID",
+            "body" => "ReportSchedulePatchRequest",
+    },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
     },
