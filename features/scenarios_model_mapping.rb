@@ -857,17 +857,6 @@ ScenariosModelMappings = {
             "sort_attribute" => "String",
             "sort_descending" => "Boolean",
     },
-    "v2.ListFleetClusters" => {
-            "page_number" => "Integer",
-            "page_size" => "Integer",
-            "sort_attribute" => "String",
-            "sort_descending" => "Boolean",
-            "filter" => "String",
-            "tags" => "String",
-    },
-    "v2.ListFleetInstrumentedPods" => {
-            "cluster_name" => "String",
-    },
     "v2.ListFleetDeployments" => {
             "page_size" => "Integer",
             "page_offset" => "Integer",
