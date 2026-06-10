@@ -99,6 +99,7 @@ module DatadogAPIClient::V2
       return false if @detail.nil?
       return false if @finding_id.nil?
       return false if @status.nil?
+      return false if @status > 599
       return false if @title.nil?
       true
     end
@@ -129,6 +130,9 @@ module DatadogAPIClient::V2
     def status=(status)
       if status.nil?
         fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+      end
+      if status > 599
+        fail ArgumentError, 'invalid value for "status", must be smaller than or equal to 599.'
       end
       @status = status
     end

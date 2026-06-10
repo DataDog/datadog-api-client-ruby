@@ -4646,6 +4646,7 @@ module DatadogAPIClient
           "v2.notification_rule" => "NotificationRule",
           "v2.notification_rule_attributes" => "NotificationRuleAttributes",
           "v2.notification_rule_response" => "NotificationRuleResponse",
+          "v2.notification_rules_list_response" => "NotificationRulesListResponse",
           "v2.notification_rules_type" => "NotificationRulesType",
           "v2.notion_api_key" => "NotionAPIKey",
           "v2.notion_api_key_type" => "NotionAPIKeyType",

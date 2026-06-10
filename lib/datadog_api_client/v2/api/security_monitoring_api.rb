@@ -5447,7 +5447,7 @@ module DatadogAPIClient::V2
     # Returns the list of notification rules for security signals.
     #
     # @param opts [Hash] the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(NotificationRulesListResponse, Integer, Hash)>] NotificationRulesListResponse data, response status code and response headers
     def get_signal_notification_rules_with_http_info(opts = {})
 
       if @api_client.config.debugging
@@ -5471,7 +5471,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'NotificationRulesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -6126,7 +6126,7 @@ module DatadogAPIClient::V2
     # Returns the list of notification rules for security vulnerabilities.
     #
     # @param opts [Hash] the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(NotificationRulesListResponse, Integer, Hash)>] NotificationRulesListResponse data, response status code and response headers
     def get_vulnerability_notification_rules_with_http_info(opts = {})
 
       if @api_client.config.debugging
@@ -6150,7 +6150,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'NotificationRulesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
