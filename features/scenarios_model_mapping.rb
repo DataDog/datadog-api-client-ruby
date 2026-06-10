@@ -3170,6 +3170,19 @@ ScenariosModelMappings = {
     "v2.UnarchiveFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },
+    "v2.CreateForm" => {
+            "body" => "CreateFormRequest",
+    },
+    "v2.CreateAndPublishForm" => {
+            "body" => "CreateFormRequest",
+    },
+    "v2.DeleteForm" => {
+            "form_id" => "UUID",
+    },
+    "v2.GetForm" => {
+            "form_id" => "UUID",
+            "version" => "String",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
