@@ -2844,6 +2844,35 @@ ScenariosModelMappings = {
             "query" => "String",
             "order_direction" => "OrderDirection",
     },
+    "v2.ListOwnershipInferences" => {
+            "resource_id" => "String",
+    },
+    "v2.ListOwnershipHistory" => {
+            "resource_id" => "String",
+            "cursor" => "String",
+            "limit" => "Integer",
+    },
+    "v2.GetOwnershipInference" => {
+            "resource_id" => "String",
+            "owner_type" => "OwnershipOwnerType",
+            "if_none_match" => "String",
+    },
+    "v2.GetOwnershipEvidence" => {
+            "resource_id" => "String",
+            "owner_type" => "OwnershipOwnerType",
+            "if_none_match" => "String",
+    },
+    "v2.CreateOwnershipFeedback" => {
+            "resource_id" => "String",
+            "owner_type" => "OwnershipOwnerType",
+            "body" => "OwnershipFeedbackRequest",
+    },
+    "v2.ListOwnershipHistoryByOwnerType" => {
+            "resource_id" => "String",
+            "owner_type" => "OwnershipOwnerType",
+            "cursor" => "String",
+            "limit" => "Integer",
+    },
     "v2.ListCSMAgentlessHosts" => {
             "page" => "Integer",
             "size" => "Integer",
