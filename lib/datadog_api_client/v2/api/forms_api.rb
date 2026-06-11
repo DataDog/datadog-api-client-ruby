@@ -23,6 +23,84 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Clone a form.
+    #
+    # @see #clone_form_with_http_info
+    def clone_form(form_id, body, opts = {})
+      data, _status_code, _headers = clone_form_with_http_info(form_id, body, opts)
+      data
+    end
+
+    # Clone a form.
+    #
+    # Clone an existing form. The clone is created in draft mode using the source form's latest version.
+    #
+    # @param form_id [UUID] The ID of the form to clone.
+    # @param body [CloneFormRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FormResponse, Integer, Hash)>] FormResponse data, response status code and response headers
+    def clone_form_with_http_info(form_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.clone_form".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.clone_form")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.clone_form"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.clone_form ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.clone_form"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FormsAPI.clone_form"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}/clone'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FormResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :clone_form,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#clone_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create and publish a form.
     #
     # @see #create_and_publish_form_with_http_info
@@ -375,6 +453,319 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FormsAPI#list_forms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Publish a form version.
+    #
+    # @see #publish_form_with_http_info
+    def publish_form(form_id, body, opts = {})
+      data, _status_code, _headers = publish_form_with_http_info(form_id, body, opts)
+      data
+    end
+
+    # Publish a form version.
+    #
+    # Publish a specific version of a form, making it available for submissions.
+    #
+    # @param form_id [UUID] The ID of the form.
+    # @param body [PublishFormRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FormPublicationResponse, Integer, Hash)>] FormPublicationResponse data, response status code and response headers
+    def publish_form_with_http_info(form_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.publish_form".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.publish_form")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.publish_form"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.publish_form ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.publish_form"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FormsAPI.publish_form"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}/publish'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FormPublicationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :publish_form,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#publish_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a form.
+    #
+    # @see #update_form_with_http_info
+    def update_form(form_id, body, opts = {})
+      data, _status_code, _headers = update_form_with_http_info(form_id, body, opts)
+      data
+    end
+
+    # Update a form.
+    #
+    # Update a form's properties such as its name, description, or datastore configuration.
+    #
+    # @param form_id [UUID] The ID of the form.
+    # @param body [UpdateFormRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FormResponse, Integer, Hash)>] FormResponse data, response status code and response headers
+    def update_form_with_http_info(form_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_form".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_form")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_form"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.update_form ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.update_form"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FormsAPI.update_form"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FormResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_form,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#update_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upsert and publish a form version.
+    #
+    # @see #upsert_and_publish_form_version_with_http_info
+    def upsert_and_publish_form_version(form_id, body, opts = {})
+      data, _status_code, _headers = upsert_and_publish_form_version_with_http_info(form_id, body, opts)
+      data
+    end
+
+    # Upsert and publish a form version.
+    #
+    # Upsert the latest form version and publish it in a single atomic transaction.
+    #
+    # @param form_id [UUID] The ID of the form.
+    # @param body [UpsertAndPublishFormVersionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FormResponse, Integer, Hash)>] FormResponse data, response status code and response headers
+    def upsert_and_publish_form_version_with_http_info(form_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_and_publish_form_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_and_publish_form_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_and_publish_form_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.upsert_and_publish_form_version ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.upsert_and_publish_form_version"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FormsAPI.upsert_and_publish_form_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}/versions/upsert_and_publish'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FormResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :upsert_and_publish_form_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#upsert_and_publish_form_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update a form version.
+    #
+    # @see #upsert_form_version_with_http_info
+    def upsert_form_version(form_id, body, opts = {})
+      data, _status_code, _headers = upsert_form_version_with_http_info(form_id, body, opts)
+      data
+    end
+
+    # Create or update a form version.
+    #
+    # Create or update the latest draft version of a form. The `upsert_params` field controls
+    # optimistic concurrency behavior.
+    #
+    # @param form_id [UUID] The ID of the form.
+    # @param body [UpsertFormVersionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FormVersionResponse, Integer, Hash)>] FormVersionResponse data, response status code and response headers
+    def upsert_form_version_with_http_info(form_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_form_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_form_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_form_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.upsert_form_version ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.upsert_form_version"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FormsAPI.upsert_form_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}/versions'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FormVersionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :upsert_form_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#upsert_form_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
