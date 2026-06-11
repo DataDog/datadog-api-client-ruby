@@ -3642,6 +3642,9 @@ ScenariosModelMappings = {
     "v2.ListServiceNowUsers" => {
             "instance_id" => "UUID",
     },
+    "v2.ListSlackUserBindings" => {
+            "user_uuid" => "UUID",
+    },
     "v2.UpdateStatuspageAccount" => {
             "body" => "StatuspageAccountUpdateRequest",
     },
