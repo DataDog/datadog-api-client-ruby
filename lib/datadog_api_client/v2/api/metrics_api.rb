@@ -33,6 +33,8 @@ module DatadogAPIClient::V2
 
     # Configure tags for multiple metrics.
     #
+    # **Note**: This endpoint is deprecated. Use [Tag Indexing Rules](/api/latest/metrics/#create-a-tag-indexing-rule) (`POST /api/v2/metrics/tag-indexing-rules`) instead.
+    #
     # Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
     # Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
     # Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
@@ -41,10 +43,13 @@ module DatadogAPIClient::V2
     # the same exclusion state, metric tag configurations do not support mixed inclusion and exclusion for tags on the same metric.
     # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [MetricBulkTagConfigCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricBulkTagConfigResponse, Integer, Hash)>] MetricBulkTagConfigResponse data, response status code and response headers
     def create_bulk_tags_metrics_configuration_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateBulkTagsMetricsConfiguration` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.create_bulk_tags_metrics_configuration ...'
@@ -324,15 +329,20 @@ module DatadogAPIClient::V2
 
     # Delete tags for multiple metrics.
     #
+    # **Note**: This endpoint is deprecated. Use [Tag Indexing Rules](/api/latest/metrics/#create-a-tag-indexing-rule) (`POST /api/v2/metrics/tag-indexing-rules`) instead.
+    #
     # Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
     # Metrics are selected by passing a metric name prefix.
     # Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
     # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [MetricBulkTagConfigDeleteRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricBulkTagConfigResponse, Integer, Hash)>] MetricBulkTagConfigResponse data, response status code and response headers
     def delete_bulk_tags_metrics_configuration_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `DeleteBulkTagsMetricsConfiguration` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_bulk_tags_metrics_configuration ...'
