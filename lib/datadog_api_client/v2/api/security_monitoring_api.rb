@@ -8746,6 +8746,73 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Test a notification rule.
+    #
+    # @see #send_security_monitoring_notification_preview_with_http_info
+    def send_security_monitoring_notification_preview(body, opts = {})
+      data, _status_code, _headers = send_security_monitoring_notification_preview_with_http_info(body, opts)
+      data
+    end
+
+    # Test a notification rule.
+    #
+    # Send a notification preview to test that a notification rule's targets are properly configured.
+    #
+    # @param body [CreateNotificationRuleParameters] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(NotificationRulePreviewResponse, Integer, Hash)>] NotificationRulePreviewResponse data, response status code and response headers
+    def send_security_monitoring_notification_preview_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.send_security_monitoring_notification_preview ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.send_security_monitoring_notification_preview"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'NotificationRulePreviewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :send_security_monitoring_notification_preview,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#send_security_monitoring_notification_preview\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Test an existing rule.
     #
     # @see #test_existing_security_monitoring_rule_with_http_info

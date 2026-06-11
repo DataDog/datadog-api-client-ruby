@@ -2212,6 +2212,9 @@ ScenariosModelMappings = {
     "v2.ValidateSecurityMonitoringIntegrationConfig" => {
             "integration_config_id" => "String",
     },
+    "v2.SendSecurityMonitoringNotificationPreview" => {
+            "body" => "CreateNotificationRuleParameters",
+    },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
     },

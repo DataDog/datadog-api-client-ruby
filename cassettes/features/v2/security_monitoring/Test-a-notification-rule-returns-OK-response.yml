@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Wed, 10 Jun 2026 09:27:59 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"name":"Rule 1","selectors":{"query":"env:prod","rule_types":["log_detection"],"severities":["critical"],"trigger_source":"security_signals"},"targets":["@john.doe@email.com"]},"type":"notification_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"rka-loa-zwu","attributes":{"preview_results":[{"rule_type":"log_detection","notification_status":"DEFAULT"}]},"type":"notification_preview_response"}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

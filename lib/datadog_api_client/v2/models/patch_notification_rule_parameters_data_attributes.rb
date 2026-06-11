@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Name of the notification rule.
     attr_accessor :name
 
+    # Routing configuration for the notification rule.
+    attr_accessor :routing
+
     # Selectors are used to filter security issues for which notifications should be generated.
     # Users can specify rule severities, rule types, a query to filter security issues on tags and attributes, and the trigger source.
     # Only the trigger_source field is required.
@@ -55,6 +58,7 @@ module DatadogAPIClient::V2
       {
         :'enabled' => :'enabled',
         :'name' => :'name',
+        :'routing' => :'routing',
         :'selectors' => :'selectors',
         :'targets' => :'targets',
         :'time_aggregation' => :'time_aggregation',
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
       {
         :'enabled' => :'Boolean',
         :'name' => :'String',
+        :'routing' => :'NotificationRuleRouting',
         :'selectors' => :'Selectors',
         :'targets' => :'Array<String>',
         :'time_aggregation' => :'Integer',
@@ -99,6 +104,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'routing')
+        self.routing = attributes[:'routing']
       end
 
       if attributes.key?(:'selectors')
@@ -148,6 +157,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           enabled == o.enabled &&
           name == o.name &&
+          routing == o.routing &&
           selectors == o.selectors &&
           targets == o.targets &&
           time_aggregation == o.time_aggregation &&
@@ -159,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, name, selectors, targets, time_aggregation, version, additional_properties].hash
+      [enabled, name, routing, selectors, targets, time_aggregation, version, additional_properties].hash
     end
   end
 end
