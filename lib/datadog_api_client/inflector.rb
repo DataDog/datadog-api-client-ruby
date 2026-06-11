@@ -6527,6 +6527,7 @@ module DatadogAPIClient
           "v2.single_aggregated_dns_response_data_attributes_group_by_items" => "SingleAggregatedDnsResponseDataAttributesGroupByItems",
           "v2.single_aggregated_dns_response_data_attributes_metrics_items" => "SingleAggregatedDnsResponseDataAttributesMetricsItems",
           "v2.single_aggregated_dns_response_data_type" => "SingleAggregatedDnsResponseDataType",
+          "v2.single_entity_context_response" => "SingleEntityContextResponse",
           "v2.slack_integration_metadata" => "SlackIntegrationMetadata",
           "v2.slack_integration_metadata_channel_item" => "SlackIntegrationMetadataChannelItem",
           "v2.slack_trigger_wrapper" => "SlackTriggerWrapper",

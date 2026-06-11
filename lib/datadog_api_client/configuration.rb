@@ -360,6 +360,7 @@ module DatadogAPIClient
             "v2.get_security_monitoring_histsignals_by_job_id": false,
             "v2.get_security_monitoring_integration_config": false,
             "v2.get_signal_entities": false,
+            "v2.get_single_entity_context": false,
             "v2.get_static_analysis_default_rulesets": false,
             "v2.get_static_analysis_node_types": false,
             "v2.get_static_analysis_ruleset": false,
