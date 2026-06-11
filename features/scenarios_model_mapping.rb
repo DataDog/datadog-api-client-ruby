@@ -3192,6 +3192,26 @@ ScenariosModelMappings = {
             "form_id" => "UUID",
             "version" => "String",
     },
+    "v2.UpdateForm" => {
+            "form_id" => "UUID",
+            "body" => "UpdateFormRequest",
+    },
+    "v2.CloneForm" => {
+            "form_id" => "UUID",
+            "body" => "CloneFormRequest",
+    },
+    "v2.PublishForm" => {
+            "form_id" => "UUID",
+            "body" => "PublishFormRequest",
+    },
+    "v2.UpsertFormVersion" => {
+            "form_id" => "UUID",
+            "body" => "UpsertFormVersionRequest",
+    },
+    "v2.UpsertAndPublishFormVersion" => {
+            "form_id" => "UUID",
+            "body" => "UpsertAndPublishFormVersionRequest",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
