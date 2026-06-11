@@ -5494,6 +5494,86 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a single entity context.
+    #
+    # @see #get_single_entity_context_with_http_info
+    def get_single_entity_context(id, opts = {})
+      data, _status_code, _headers = get_single_entity_context_with_http_info(id, opts)
+      data
+    end
+
+    # Get a single entity context.
+    #
+    # Get a single entity from the Cloud SIEM entity context store by its identifier, returning the historical
+    # revisions of the entity in the requested time range. The endpoint can either return revisions across an
+    # interval (`from` / `to`) or the snapshot of the entity at a single point in time (`as_of`); the two modes
+    # are mutually exclusive.
+    #
+    # @param id [String] The unique identifier of the entity to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :from The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`). Defaults to `now-7d`. Ignored when `as_of` is set.
+    # @option opts [String] :to The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`). Defaults to `now`. Ignored when `as_of` is set.
+    # @option opts [String] :as_of A point in time at which to query the entity revisions, as an RFC3339 timestamp, a Unix timestamp (in seconds), or a relative time (for example, `now-1d`). When set, `from` and `to` are ignored. Cannot be combined with custom `from` / `to` values.
+    # @return [Array<(SingleEntityContextResponse, Integer, Hash)>] SingleEntityContextResponse data, response status code and response headers
+    def get_single_entity_context_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_single_entity_context".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_single_entity_context")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_single_entity_context"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_single_entity_context ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SecurityMonitoringAPI.get_single_entity_context"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/entity_context/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'from'] = opts[:'from'] if !opts[:'from'].nil?
+      query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
+      query_params[:'as_of'] = opts[:'as_of'] if !opts[:'as_of'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SingleEntityContextResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_single_entity_context,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_single_entity_context\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get default rulesets for a language.
     #
     # @see #get_static_analysis_default_rulesets_with_http_info

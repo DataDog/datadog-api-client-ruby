@@ -2306,6 +2306,12 @@ ScenariosModelMappings = {
             "limit" => "Integer",
             "page_token" => "String",
     },
+    "v2.GetSingleEntityContext" => {
+            "id" => "String",
+            "from" => "String",
+            "to" => "String",
+            "as_of" => "String",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
