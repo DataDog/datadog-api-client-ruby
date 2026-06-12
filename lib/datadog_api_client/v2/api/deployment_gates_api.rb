@@ -705,6 +705,10 @@ module DatadogAPIClient::V2
     # Returns an evaluation ID that can be used to poll for the result via the
     # `GET /api/v2/deployments/gates/evaluation/{id}` endpoint.
     #
+    # When the `configuration` attribute is provided, rules are evaluated inline from that configuration
+    # and no pre-configured gate is required. When `configuration` is omitted, rules are resolved from the
+    # gate pre-configured for the given service and environment through the Datadog UI, API, or Terraform.
+    #
     # @param body [DeploymentGatesEvaluationRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGatesEvaluationResponse, Integer, Hash)>] DeploymentGatesEvaluationResponse data, response status code and response headers
