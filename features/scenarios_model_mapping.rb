@@ -3497,6 +3497,18 @@ ScenariosModelMappings = {
             "domain_name" => "String",
             "space_display_name" => "String",
     },
+    "v2.DeleteGoogleChatOrganization" => {
+            "organization_binding_id" => "String",
+    },
+    "v2.GetGoogleChatOrganization" => {
+            "organization_binding_id" => "String",
+    },
+    "v2.DeleteGoogleChatDelegatedUser" => {
+            "organization_binding_id" => "String",
+    },
+    "v2.GetGoogleChatDelegatedUser" => {
+            "organization_binding_id" => "String",
+    },
     "v2.ListOrganizationHandles" => {
             "organization_binding_id" => "String",
     },
@@ -3516,6 +3528,26 @@ ScenariosModelMappings = {
             "organization_binding_id" => "String",
             "handle_id" => "String",
             "body" => "GoogleChatUpdateOrganizationHandleRequest",
+    },
+    "v2.ListGoogleChatTargetAudiences" => {
+            "organization_binding_id" => "String",
+    },
+    "v2.CreateGoogleChatTargetAudience" => {
+            "organization_binding_id" => "String",
+            "body" => "GoogleChatTargetAudienceCreateRequest",
+    },
+    "v2.DeleteGoogleChatTargetAudience" => {
+            "organization_binding_id" => "String",
+            "target_audience_id" => "String",
+    },
+    "v2.GetGoogleChatTargetAudience" => {
+            "organization_binding_id" => "String",
+            "target_audience_id" => "String",
+    },
+    "v2.UpdateGoogleChatTargetAudience" => {
+            "organization_binding_id" => "String",
+            "target_audience_id" => "String",
+            "body" => "GoogleChatTargetAudienceUpdateRequest",
     },
     "v2.DeleteJiraAccount" => {
             "account_id" => "UUID",

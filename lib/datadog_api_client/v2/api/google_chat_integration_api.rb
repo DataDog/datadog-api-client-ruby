@@ -23,6 +23,78 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create a target audience.
+    #
+    # @see #create_google_chat_target_audience_with_http_info
+    def create_google_chat_target_audience(organization_binding_id, body, opts = {})
+      data, _status_code, _headers = create_google_chat_target_audience_with_http_info(organization_binding_id, body, opts)
+      data
+    end
+
+    # Create a target audience.
+    #
+    # Create a target audience for a Google Chat organization binding in the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param body [GoogleChatTargetAudienceCreateRequest] Target audience payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatTargetAudienceResponse, Integer, Hash)>] GoogleChatTargetAudienceResponse data, response status code and response headers
+    def create_google_chat_target_audience_with_http_info(organization_binding_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.create_google_chat_target_audience ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.create_google_chat_target_audience"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling GoogleChatIntegrationAPI.create_google_chat_target_audience"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatTargetAudienceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_google_chat_target_audience,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#create_google_chat_target_audience\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create organization handle.
     #
     # @see #create_organization_handle_with_http_info
@@ -95,6 +167,206 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete the delegated user.
+    #
+    # @see #delete_google_chat_delegated_user_with_http_info
+    def delete_google_chat_delegated_user(organization_binding_id, opts = {})
+      delete_google_chat_delegated_user_with_http_info(organization_binding_id, opts)
+      nil
+    end
+
+    # Delete the delegated user.
+    #
+    # Delete the delegated user for a Google Chat organization binding from the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_google_chat_delegated_user_with_http_info(organization_binding_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.delete_google_chat_delegated_user ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.delete_google_chat_delegated_user"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_google_chat_delegated_user,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#delete_google_chat_delegated_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a Google Chat organization binding.
+    #
+    # @see #delete_google_chat_organization_with_http_info
+    def delete_google_chat_organization(organization_binding_id, opts = {})
+      delete_google_chat_organization_with_http_info(organization_binding_id, opts)
+      nil
+    end
+
+    # Delete a Google Chat organization binding.
+    #
+    # Delete a Google Chat organization binding from the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_google_chat_organization_with_http_info(organization_binding_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.delete_google_chat_organization ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.delete_google_chat_organization"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_google_chat_organization,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#delete_google_chat_organization\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a target audience.
+    #
+    # @see #delete_google_chat_target_audience_with_http_info
+    def delete_google_chat_target_audience(organization_binding_id, target_audience_id, opts = {})
+      delete_google_chat_target_audience_with_http_info(organization_binding_id, target_audience_id, opts)
+      nil
+    end
+
+    # Delete a target audience.
+    #
+    # Delete a target audience from a Google Chat organization binding in the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param target_audience_id [String] Your target audience ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_google_chat_target_audience_with_http_info(organization_binding_id, target_audience_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.delete_google_chat_target_audience ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.delete_google_chat_target_audience"
+      end
+      # verify the required parameter 'target_audience_id' is set
+      if @api_client.config.client_side_validation && target_audience_id.nil?
+        fail ArgumentError, "Missing the required parameter 'target_audience_id' when calling GoogleChatIntegrationAPI.delete_google_chat_target_audience"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/')).sub('{target_audience_id}', CGI.escape(target_audience_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_google_chat_target_audience,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#delete_google_chat_target_audience\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete organization handle.
     #
     # @see #delete_organization_handle_with_http_info
@@ -161,6 +433,206 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#delete_organization_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the delegated user.
+    #
+    # @see #get_google_chat_delegated_user_with_http_info
+    def get_google_chat_delegated_user(organization_binding_id, opts = {})
+      data, _status_code, _headers = get_google_chat_delegated_user_with_http_info(organization_binding_id, opts)
+      data
+    end
+
+    # Get the delegated user.
+    #
+    # Get the delegated user for a Google Chat organization binding in the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatDelegatedUserResponse, Integer, Hash)>] GoogleChatDelegatedUserResponse data, response status code and response headers
+    def get_google_chat_delegated_user_with_http_info(organization_binding_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.get_google_chat_delegated_user ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.get_google_chat_delegated_user"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatDelegatedUserResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_google_chat_delegated_user,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#get_google_chat_delegated_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a Google Chat organization binding.
+    #
+    # @see #get_google_chat_organization_with_http_info
+    def get_google_chat_organization(organization_binding_id, opts = {})
+      data, _status_code, _headers = get_google_chat_organization_with_http_info(organization_binding_id, opts)
+      data
+    end
+
+    # Get a Google Chat organization binding.
+    #
+    # Get a Google Chat organization binding from the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatOrganizationResponse, Integer, Hash)>] GoogleChatOrganizationResponse data, response status code and response headers
+    def get_google_chat_organization_with_http_info(organization_binding_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.get_google_chat_organization ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.get_google_chat_organization"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatOrganizationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_google_chat_organization,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#get_google_chat_organization\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a target audience.
+    #
+    # @see #get_google_chat_target_audience_with_http_info
+    def get_google_chat_target_audience(organization_binding_id, target_audience_id, opts = {})
+      data, _status_code, _headers = get_google_chat_target_audience_with_http_info(organization_binding_id, target_audience_id, opts)
+      data
+    end
+
+    # Get a target audience.
+    #
+    # Get a target audience for a Google Chat organization binding in the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param target_audience_id [String] Your target audience ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatTargetAudienceResponse, Integer, Hash)>] GoogleChatTargetAudienceResponse data, response status code and response headers
+    def get_google_chat_target_audience_with_http_info(organization_binding_id, target_audience_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.get_google_chat_target_audience ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.get_google_chat_target_audience"
+      end
+      # verify the required parameter 'target_audience_id' is set
+      if @api_client.config.client_side_validation && target_audience_id.nil?
+        fail ArgumentError, "Missing the required parameter 'target_audience_id' when calling GoogleChatIntegrationAPI.get_google_chat_target_audience"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/')).sub('{target_audience_id}', CGI.escape(target_audience_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatTargetAudienceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_google_chat_target_audience,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#get_google_chat_target_audience\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -305,6 +777,131 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all Google Chat organization bindings.
+    #
+    # @see #list_google_chat_organizations_with_http_info
+    def list_google_chat_organizations(opts = {})
+      data, _status_code, _headers = list_google_chat_organizations_with_http_info(opts)
+      data
+    end
+
+    # Get all Google Chat organization bindings.
+    #
+    # Get a list of all Google Chat organization bindings in the Datadog Google Chat integration.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatOrganizationsResponse, Integer, Hash)>] GoogleChatOrganizationsResponse data, response status code and response headers
+    def list_google_chat_organizations_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.list_google_chat_organizations ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatOrganizationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_google_chat_organizations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#list_google_chat_organizations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all target audiences.
+    #
+    # @see #list_google_chat_target_audiences_with_http_info
+    def list_google_chat_target_audiences(organization_binding_id, opts = {})
+      data, _status_code, _headers = list_google_chat_target_audiences_with_http_info(organization_binding_id, opts)
+      data
+    end
+
+    # Get all target audiences.
+    #
+    # Get a list of all target audiences for a Google Chat organization binding in the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatTargetAudiencesResponse, Integer, Hash)>] GoogleChatTargetAudiencesResponse data, response status code and response headers
+    def list_google_chat_target_audiences_with_http_info(organization_binding_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.list_google_chat_target_audiences ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.list_google_chat_target_audiences"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatTargetAudiencesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_google_chat_target_audiences,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#list_google_chat_target_audiences\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all organization handles.
     #
     # @see #list_organization_handles_with_http_info
@@ -366,6 +963,83 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#list_organization_handles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a target audience.
+    #
+    # @see #update_google_chat_target_audience_with_http_info
+    def update_google_chat_target_audience(organization_binding_id, target_audience_id, body, opts = {})
+      data, _status_code, _headers = update_google_chat_target_audience_with_http_info(organization_binding_id, target_audience_id, body, opts)
+      data
+    end
+
+    # Update a target audience.
+    #
+    # Update a target audience for a Google Chat organization binding in the Datadog Google Chat integration.
+    #
+    # @param organization_binding_id [String] Your organization binding ID.
+    # @param target_audience_id [String] Your target audience ID.
+    # @param body [GoogleChatTargetAudienceUpdateRequest] Target audience payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GoogleChatTargetAudienceResponse, Integer, Hash)>] GoogleChatTargetAudienceResponse data, response status code and response headers
+    def update_google_chat_target_audience_with_http_info(organization_binding_id, target_audience_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GoogleChatIntegrationAPI.update_google_chat_target_audience ...'
+      end
+      # verify the required parameter 'organization_binding_id' is set
+      if @api_client.config.client_side_validation && organization_binding_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_binding_id' when calling GoogleChatIntegrationAPI.update_google_chat_target_audience"
+      end
+      # verify the required parameter 'target_audience_id' is set
+      if @api_client.config.client_side_validation && target_audience_id.nil?
+        fail ArgumentError, "Missing the required parameter 'target_audience_id' when calling GoogleChatIntegrationAPI.update_google_chat_target_audience"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling GoogleChatIntegrationAPI.update_google_chat_target_audience"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}'.sub('{organization_binding_id}', CGI.escape(organization_binding_id.to_s).gsub('%2F', '/')).sub('{target_audience_id}', CGI.escape(target_audience_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GoogleChatTargetAudienceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_google_chat_target_audience,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GoogleChatIntegrationAPI#update_google_chat_target_audience\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
