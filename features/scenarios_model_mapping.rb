@@ -3215,6 +3215,34 @@ ScenariosModelMappings = {
             "form_id" => "UUID",
             "body" => "UpsertAndPublishFormVersionRequest",
     },
+    "v2.ListGlobalOrgs" => {
+            "user_handle" => "String",
+            "page_limit" => "Integer",
+            "page_cursor" => "String",
+    },
+    "v2.ListOrgs" => {
+            "filter_name" => "String",
+    },
+    "v2.UpdateOrgSamlConfigurations" => {
+            "body" => "OrgSAMLPreferencesUpdateRequest",
+    },
+    "v2.GetOrgConfig" => {
+            "org_config_name" => "String",
+    },
+    "v2.UpdateOrgConfig" => {
+            "org_config_name" => "String",
+            "body" => "OrgConfigWriteRequest",
+    },
+    "v2.UploadIdPMetadata" => {
+            "idp_file" => "File",
+    },
+    "v2.GetSAMLConfiguration" => {
+            "saml_config_uuid" => "String",
+    },
+    "v2.UpdateSAMLConfiguration" => {
+            "saml_config_uuid" => "String",
+            "body" => "SAMLConfigurationUpdateRequest",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
@@ -4334,29 +4362,6 @@ ScenariosModelMappings = {
     },
     "v2.ResolveOnCallPage" => {
             "page_id" => "UUID",
-    },
-    "v2.ListOrgs" => {
-            "filter_name" => "String",
-    },
-    "v2.UpdateOrgSamlConfigurations" => {
-            "body" => "OrgSAMLPreferencesUpdateRequest",
-    },
-    "v2.GetOrgConfig" => {
-            "org_config_name" => "String",
-    },
-    "v2.UpdateOrgConfig" => {
-            "org_config_name" => "String",
-            "body" => "OrgConfigWriteRequest",
-    },
-    "v2.UploadIdPMetadata" => {
-            "idp_file" => "File",
-    },
-    "v2.GetSAMLConfiguration" => {
-            "saml_config_uuid" => "String",
-    },
-    "v2.UpdateSAMLConfiguration" => {
-            "saml_config_uuid" => "String",
-            "body" => "SAMLConfigurationUpdateRequest",
     },
     "v2.DisableCustomerOrg" => {
             "body" => "CustomerOrgDisableRequest",
