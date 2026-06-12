@@ -3555,6 +3555,9 @@ ScenariosModelMappings = {
             "handle_id" => "String",
             "body" => "MicrosoftTeamsUpdateTenantBasedHandleRequest",
     },
+    "v2.DeleteMSTeamsUserBinding" => {
+            "tenant_id" => "String",
+    },
     "v2.ListWorkflowsWebhookHandles" => {
             "name" => "String",
     },
