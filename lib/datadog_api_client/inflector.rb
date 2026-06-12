@@ -4855,6 +4855,8 @@ module DatadogAPIClient
           "v2.observability_pipeline_generated_metric_metric_type" => "ObservabilityPipelineGeneratedMetricMetricType",
           "v2.observability_pipeline_generate_metrics_processor" => "ObservabilityPipelineGenerateMetricsProcessor",
           "v2.observability_pipeline_generate_metrics_processor_type" => "ObservabilityPipelineGenerateMetricsProcessorType",
+          "v2.observability_pipeline_generate_metrics_v2_processor" => "ObservabilityPipelineGenerateMetricsV2Processor",
+          "v2.observability_pipeline_generate_metrics_v2_processor_type" => "ObservabilityPipelineGenerateMetricsV2ProcessorType",
           "v2.observability_pipeline_google_chronicle_destination" => "ObservabilityPipelineGoogleChronicleDestination",
           "v2.observability_pipeline_google_chronicle_destination_encoding" => "ObservabilityPipelineGoogleChronicleDestinationEncoding",
           "v2.observability_pipeline_google_chronicle_destination_type" => "ObservabilityPipelineGoogleChronicleDestinationType",
