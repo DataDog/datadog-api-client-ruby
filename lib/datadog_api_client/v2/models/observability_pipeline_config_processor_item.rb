@@ -35,6 +35,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineDedupeProcessor',
           :'ObservabilityPipelineEnrichmentTableProcessor',
           :'ObservabilityPipelineGenerateMetricsProcessor',
+          :'ObservabilityPipelineGenerateMetricsV2Processor',
           :'ObservabilityPipelineOcsfMapperProcessor',
           :'ObservabilityPipelineParseGrokProcessor',
           :'ObservabilityPipelineParseJSONProcessor',
