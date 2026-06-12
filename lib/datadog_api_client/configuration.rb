@@ -417,6 +417,7 @@ module DatadogAPIClient
             "v2.list_csm_agentless_hosts": false,
             "v2.list_csm_unified_host_facets": false,
             "v2.list_csm_unified_hosts": false,
+            "v2.list_shared_dashboards_by_dashboard_id": false,
             "v2.create_dashboard_secure_embed": false,
             "v2.delete_dashboard_secure_embed": false,
             "v2.get_dashboard_secure_embed": false,

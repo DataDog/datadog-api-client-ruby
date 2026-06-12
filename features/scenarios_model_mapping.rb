@@ -2917,6 +2917,9 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.ListSharedDashboardsByDashboardId" => {
+            "dashboard_id" => "String",
+    },
     "v2.CreateDashboardSecureEmbed" => {
             "dashboard_id" => "String",
             "body" => "SecureEmbedCreateRequest",
