@@ -3220,6 +3220,9 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.UpdateLoginOrgConfigsMaxSessionDuration" => {
+            "body" => "MaxSessionDurationUpdateRequest",
+    },
     "v2.ListOrgs" => {
             "filter_name" => "String",
     },
