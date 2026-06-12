@@ -5180,26 +5180,6 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
-    "v2.ListIncidentServices" => {
-            "include" => "IncidentRelatedObject",
-            "page_size" => "Integer",
-            "page_offset" => "Integer",
-            "filter" => "String",
-    },
-    "v2.CreateIncidentService" => {
-            "body" => "IncidentServiceCreateRequest",
-    },
-    "v2.DeleteIncidentService" => {
-            "service_id" => "String",
-    },
-    "v2.GetIncidentService" => {
-            "service_id" => "String",
-            "include" => "IncidentRelatedObject",
-    },
-    "v2.UpdateIncidentService" => {
-            "service_id" => "String",
-            "body" => "IncidentServiceUpdateRequest",
-    },
     "v2.ListServiceDefinitions" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
