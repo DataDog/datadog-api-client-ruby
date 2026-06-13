@@ -2754,6 +2754,7 @@ ScenariosModelMappings = {
     "v2.ListCostTagKeySources" => {
             "filter_month" => "String",
             "filter_provider" => "String",
+            "filter_metric" => "String",
     },
     "v2.ListCostTags" => {
             "filter_metric" => "String",
