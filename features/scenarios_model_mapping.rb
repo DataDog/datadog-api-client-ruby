@@ -2947,6 +2947,12 @@ ScenariosModelMappings = {
     "v2.GetDashboardUsage" => {
             "dashboard_id" => "String",
     },
+    "v2.GetDataObservabilityMonitorRunStatus" => {
+            "run_id" => "String",
+    },
+    "v2.RunDataObservabilityMonitor" => {
+            "monitor_id" => "Integer",
+    },
     "v2.CreateDataset" => {
             "body" => "DatasetCreateRequest",
     },
@@ -4855,18 +4861,6 @@ ScenariosModelMappings = {
     },
     "v2.GetServiceRepositoryInfo" => {
             "body" => "ServiceRepositoryInfoRequest",
-    },
-    "v2.ListHardcodedRetentionFilters" => {
-            "app_id" => "String",
-    },
-    "v2.GetHardcodedRetentionFilter" => {
-            "app_id" => "String",
-            "rf_id" => "String",
-    },
-    "v2.UpdateHardcodedRetentionFilter" => {
-            "app_id" => "String",
-            "rf_id" => "String",
-            "body" => "RumHardcodedRetentionFilterUpdateRequest",
     },
     "v2.OrderRetentionFilters" => {
             "app_id" => "String",
