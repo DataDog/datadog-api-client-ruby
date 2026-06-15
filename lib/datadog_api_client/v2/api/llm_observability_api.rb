@@ -1506,6 +1506,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a patterns configuration.
+    #
+    # @see #delete_llm_obs_patterns_config_with_http_info
+    def delete_llm_obs_patterns_config(config_id, opts = {})
+      delete_llm_obs_patterns_config_with_http_info(config_id, opts)
+      nil
+    end
+
+    # Delete a patterns configuration.
+    #
+    # Delete a patterns configuration by its ID.
+    #
+    # @param config_id [String] The ID of the patterns configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_llm_obs_patterns_config_with_http_info(config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_llm_obs_patterns_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_llm_obs_patterns_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_llm_obs_patterns_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.delete_llm_obs_patterns_config ...'
+      end
+      # verify the required parameter 'config_id' is set
+      if @api_client.config.client_side_validation && config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'config_id' when calling LLMObservabilityAPI.delete_llm_obs_patterns_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-configs/{config_id}'.sub('{config_id}', CGI.escape(config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_llm_obs_patterns_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#delete_llm_obs_patterns_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete LLM Observability projects.
     #
     # @see #delete_llm_obs_projects_with_http_info
@@ -2041,6 +2112,145 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_dataset_draft_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a patterns configuration.
+    #
+    # @see #get_llm_obs_patterns_config_with_http_info
+    def get_llm_obs_patterns_config(opts = {})
+      data, _status_code, _headers = get_llm_obs_patterns_config_with_http_info(opts)
+      data
+    end
+
+    # Get a patterns configuration.
+    #
+    # Retrieve the patterns configuration for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPatternsConfigResponse, Integer, Hash)>] LLMObsPatternsConfigResponse data, response status code and response headers
+    def get_llm_obs_patterns_config_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_patterns_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_patterns_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_patterns_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_patterns_config ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-configs/latest'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_patterns_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_patterns_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get patterns run status.
+    #
+    # @see #get_llm_obs_patterns_run_status_with_http_info
+    def get_llm_obs_patterns_run_status(config_id, opts = {})
+      data, _status_code, _headers = get_llm_obs_patterns_run_status_with_http_info(config_id, opts)
+      data
+    end
+
+    # Get patterns run status.
+    #
+    # Retrieve the status and step-by-step progress of the current or most recent
+    # patterns run for a configuration.
+    #
+    # @param config_id [String] The ID of the patterns configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPatternsRunStatusResponse, Integer, Hash)>] LLMObsPatternsRunStatusResponse data, response status code and response headers
+    def get_llm_obs_patterns_run_status_with_http_info(config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_patterns_run_status".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_patterns_run_status")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_patterns_run_status"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_patterns_run_status ...'
+      end
+      # verify the required parameter 'config_id' is set
+      if @api_client.config.client_side_validation && config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'config_id' when calling LLMObservabilityAPI.get_llm_obs_patterns_run_status"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-runs/status'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'config_id'] = config_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsRunStatusResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_patterns_run_status,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_patterns_run_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2827,6 +3037,374 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List patterns clustered points.
+    #
+    # @see #list_llm_obs_patterns_clustered_points_with_http_info
+    def list_llm_obs_patterns_clustered_points(topic_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_patterns_clustered_points_with_http_info(topic_id, opts)
+      data
+    end
+
+    # List patterns clustered points.
+    #
+    # List the data points grouped into a topic. For a parent topic, points from all
+    # of its leaf topics are returned.
+    #
+    # @param topic_id [String] The ID of the topic to retrieve clustered points for.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Maximum number of clustered points to return per page.
+    # @option opts [String] :page_token Pagination token to retrieve the next page of clustered points.
+    # @return [Array<(LLMObsPatternsClusteredPointsResponse, Integer, Hash)>] LLMObsPatternsClusteredPointsResponse data, response status code and response headers
+    def list_llm_obs_patterns_clustered_points_with_http_info(topic_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_patterns_clustered_points".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_patterns_clustered_points")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_patterns_clustered_points"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_patterns_clustered_points ...'
+      end
+      # verify the required parameter 'topic_id' is set
+      if @api_client.config.client_side_validation && topic_id.nil?
+        fail ArgumentError, "Missing the required parameter 'topic_id' when calling LLMObservabilityAPI.list_llm_obs_patterns_clustered_points"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-clustered-points'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'topic_id'] = topic_id
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page_token'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsClusteredPointsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_patterns_clustered_points,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_patterns_clustered_points\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List patterns configurations.
+    #
+    # @see #list_llm_obs_patterns_configs_with_http_info
+    def list_llm_obs_patterns_configs(opts = {})
+      data, _status_code, _headers = list_llm_obs_patterns_configs_with_http_info(opts)
+      data
+    end
+
+    # List patterns configurations.
+    #
+    # List all patterns configurations for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPatternsConfigsResponse, Integer, Hash)>] LLMObsPatternsConfigsResponse data, response status code and response headers
+    def list_llm_obs_patterns_configs_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_patterns_configs".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_patterns_configs")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_patterns_configs"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_patterns_configs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-configs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsConfigsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_patterns_configs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_patterns_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List patterns runs.
+    #
+    # @see #list_llm_obs_patterns_runs_with_http_info
+    def list_llm_obs_patterns_runs(config_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_patterns_runs_with_http_info(config_id, opts)
+      data
+    end
+
+    # List patterns runs.
+    #
+    # List the completed patterns runs for a configuration.
+    #
+    # @param config_id [String] The ID of the patterns configuration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPatternsRunsResponse, Integer, Hash)>] LLMObsPatternsRunsResponse data, response status code and response headers
+    def list_llm_obs_patterns_runs_with_http_info(config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_patterns_runs".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_patterns_runs")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_patterns_runs"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_patterns_runs ...'
+      end
+      # verify the required parameter 'config_id' is set
+      if @api_client.config.client_side_validation && config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'config_id' when calling LLMObservabilityAPI.list_llm_obs_patterns_runs"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-runs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'config_id'] = config_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsRunsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_patterns_runs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_patterns_runs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List patterns topics.
+    #
+    # @see #list_llm_obs_patterns_topics_with_http_info
+    def list_llm_obs_patterns_topics(config_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_patterns_topics_with_http_info(config_id, opts)
+      data
+    end
+
+    # List patterns topics.
+    #
+    # List the topics discovered by a patterns run. When no run is specified,
+    # the most recent completed run is used.
+    #
+    # @param config_id [String] The ID of the patterns configuration.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :run_id The ID of a specific patterns run. Defaults to the most recent completed run.
+    # @return [Array<(LLMObsPatternsTopicsResponse, Integer, Hash)>] LLMObsPatternsTopicsResponse data, response status code and response headers
+    def list_llm_obs_patterns_topics_with_http_info(config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_patterns_topics".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_patterns_topics")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_patterns_topics"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_patterns_topics ...'
+      end
+      # verify the required parameter 'config_id' is set
+      if @api_client.config.client_side_validation && config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'config_id' when calling LLMObservabilityAPI.list_llm_obs_patterns_topics"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-topics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'config_id'] = config_id
+      query_params[:'run_id'] = opts[:'run_id'] if !opts[:'run_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsTopicsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_patterns_topics,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_patterns_topics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List patterns topics with clustered points.
+    #
+    # @see #list_llm_obs_patterns_topics_with_clustered_points_with_http_info
+    def list_llm_obs_patterns_topics_with_clustered_points(config_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_patterns_topics_with_clustered_points_with_http_info(config_id, opts)
+      data
+    end
+
+    # List patterns topics with clustered points.
+    #
+    # List the topics discovered by a patterns run, with the clustered points attached
+    # inline to each leaf topic. When no run is specified, the most recent completed
+    # run is used.
+    #
+    # @param config_id [String] The ID of the patterns configuration.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :run_id The ID of a specific patterns run. Defaults to the most recent completed run.
+    # @option opts [Boolean] :include_metrics When true, enrich each clustered point with span metrics such as status, duration, token counts, estimated cost, and evaluations.
+    # @return [Array<(LLMObsPatternsTopicsWithClusteredPointsResponse, Integer, Hash)>] LLMObsPatternsTopicsWithClusteredPointsResponse data, response status code and response headers
+    def list_llm_obs_patterns_topics_with_clustered_points_with_http_info(config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_patterns_topics_with_clustered_points".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_patterns_topics_with_clustered_points")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_patterns_topics_with_clustered_points"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_patterns_topics_with_clustered_points ...'
+      end
+      # verify the required parameter 'config_id' is set
+      if @api_client.config.client_side_validation && config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'config_id' when calling LLMObservabilityAPI.list_llm_obs_patterns_topics_with_clustered_points"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-topics/with-cluster-points'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'config_id'] = config_id
+      query_params[:'run_id'] = opts[:'run_id'] if !opts[:'run_id'].nil?
+      query_params[:'include_metrics'] = opts[:'include_metrics'] if !opts[:'include_metrics'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsTopicsWithClusteredPointsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_patterns_topics_with_clustered_points,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_patterns_topics_with_clustered_points\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List LLM Observability projects.
     #
     # @see #list_llm_obs_projects_with_http_info
@@ -3372,6 +3950,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#simple_search_llm_obs_experimentation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Trigger a patterns run.
+    #
+    # @see #trigger_llm_obs_patterns_with_http_info
+    def trigger_llm_obs_patterns(body, opts = {})
+      data, _status_code, _headers = trigger_llm_obs_patterns_with_http_info(body, opts)
+      data
+    end
+
+    # Trigger a patterns run.
+    #
+    # Start a patterns run for a given configuration. The run executes asynchronously.
+    #
+    # @param body [LLMObsPatternsTriggerRequest] Trigger patterns payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPatternsTriggerResponse, Integer, Hash)>] LLMObsPatternsTriggerResponse data, response status code and response headers
+    def trigger_llm_obs_patterns_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.trigger_llm_obs_patterns".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.trigger_llm_obs_patterns")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.trigger_llm_obs_patterns"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.trigger_llm_obs_patterns ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.trigger_llm_obs_patterns"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-runs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsTriggerResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :trigger_llm_obs_patterns,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#trigger_llm_obs_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4183,6 +4834,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#upsert_llm_obs_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update a patterns configuration.
+    #
+    # @see #upsert_llm_obs_patterns_config_with_http_info
+    def upsert_llm_obs_patterns_config(body, opts = {})
+      data, _status_code, _headers = upsert_llm_obs_patterns_config_with_http_info(body, opts)
+      data
+    end
+
+    # Create or update a patterns configuration.
+    #
+    # Create a new patterns configuration, or update an existing one when a configuration ID is provided.
+    #
+    # @param body [LLMObsPatternsConfigUpsertRequest] Patterns configuration payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPatternsConfigResponse, Integer, Hash)>] LLMObsPatternsConfigResponse data, response status code and response headers
+    def upsert_llm_obs_patterns_config_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_llm_obs_patterns_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_llm_obs_patterns_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_llm_obs_patterns_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.upsert_llm_obs_patterns_config ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.upsert_llm_obs_patterns_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/topic-discovery-configs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPatternsConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :upsert_llm_obs_patterns_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#upsert_llm_obs_patterns_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
