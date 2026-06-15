@@ -5641,6 +5641,36 @@ ScenariosModelMappings = {
             "variable_id" => "String",
             "body" => "GlobalVariableJsonPatchRequest",
     },
+    "v2.ListTagPolicies" => {
+            "include_disabled" => "Boolean",
+            "include_deleted" => "Boolean",
+            "include" => "TagPolicyInclude",
+            "filter_source" => "TagPolicySource",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
+    "v2.CreateTagPolicy" => {
+            "body" => "TagPolicyCreateRequest",
+    },
+    "v2.DeleteTagPolicy" => {
+            "policy_id" => "String",
+            "hard_delete" => "Boolean",
+    },
+    "v2.GetTagPolicy" => {
+            "policy_id" => "String",
+            "include" => "TagPolicyInclude",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
+    "v2.UpdateTagPolicy" => {
+            "policy_id" => "String",
+            "body" => "TagPolicyUpdateRequest",
+    },
+    "v2.GetTagPolicyScore" => {
+            "policy_id" => "String",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
     "v2.ListTeams" => {
             "page_number" => "Integer",
             "page_size" => "Integer",
