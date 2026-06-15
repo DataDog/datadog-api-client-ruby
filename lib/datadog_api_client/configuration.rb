@@ -424,6 +424,8 @@ module DatadogAPIClient
             "v2.update_dashboard_secure_embed": false,
             "v2.get_dashboard_usage": false,
             "v2.list_dashboards_usage": false,
+            "v2.get_data_observability_monitor_run_status": false,
+            "v2.run_data_observability_monitor": false,
             "v2.create_dataset": false,
             "v2.delete_dataset": false,
             "v2.get_all_datasets": false,
