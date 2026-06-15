@@ -2352,6 +2352,10 @@ ScenariosModelMappings = {
     "v2.ConvertExistingSecurityMonitoringRule" => {
             "rule_id" => "String",
     },
+    "v2.RestoreSecurityMonitoringRule" => {
+            "rule_id" => "String",
+            "version" => "Integer",
+    },
     "v2.TestExistingSecurityMonitoringRule" => {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleTestRequest",
@@ -2946,6 +2950,12 @@ ScenariosModelMappings = {
     },
     "v2.GetDashboardUsage" => {
             "dashboard_id" => "String",
+    },
+    "v2.GetDataObservabilityMonitorRunStatus" => {
+            "run_id" => "String",
+    },
+    "v2.RunDataObservabilityMonitor" => {
+            "monitor_id" => "Integer",
     },
     "v2.CreateDataset" => {
             "body" => "DatasetCreateRequest",
