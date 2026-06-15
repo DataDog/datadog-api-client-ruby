@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   # Name of the data source
-  class TopologyQueryDataSource
+  class TopologyQueryDataStreamsOrServiceMapDataSource
     include BaseEnumModel
 
     DATA_STREAMS = "data_streams".freeze
