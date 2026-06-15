@@ -8504,6 +8504,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Restore a rule to a historical version.
+    #
+    # @see #restore_security_monitoring_rule_with_http_info
+    def restore_security_monitoring_rule(rule_id, version, opts = {})
+      data, _status_code, _headers = restore_security_monitoring_rule_with_http_info(rule_id, version, opts)
+      data
+    end
+
+    # Restore a rule to a historical version.
+    #
+    # Restores a custom detection rule to a previously saved historical version.
+    # Only custom rules can be restored. Default and partner rules return 400.
+    # The restore creates a new version entry; it does not overwrite history.
+    #
+    # @param rule_id [String] The ID of the rule.
+    # @param version [Integer] The historical version number of the rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
+    def restore_security_monitoring_rule_with_http_info(rule_id, version, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.restore_security_monitoring_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.restore_security_monitoring_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.restore_security_monitoring_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.restore_security_monitoring_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.restore_security_monitoring_rule"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling SecurityMonitoringAPI.restore_security_monitoring_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}/restore/{version}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :restore_security_monitoring_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#restore_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Run a historical job.
     #
     # @see #run_historical_job_with_http_info

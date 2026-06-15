@@ -2352,6 +2352,10 @@ ScenariosModelMappings = {
     "v2.ConvertExistingSecurityMonitoringRule" => {
             "rule_id" => "String",
     },
+    "v2.RestoreSecurityMonitoringRule" => {
+            "rule_id" => "String",
+            "version" => "Integer",
+    },
     "v2.TestExistingSecurityMonitoringRule" => {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleTestRequest",
