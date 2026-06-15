@@ -31,6 +31,7 @@ module DatadogAPIClient::V1
           :'BarChartWidgetDefinition',
           :'ChangeWidgetDefinition',
           :'CheckStatusWidgetDefinition',
+          :'CloudcraftWidgetDefinition',
           :'CohortWidgetDefinition',
           :'DistributionWidgetDefinition',
           :'EventStreamWidgetDefinition',
