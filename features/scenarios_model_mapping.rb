@@ -2754,6 +2754,7 @@ ScenariosModelMappings = {
     "v2.ListCostTagKeySources" => {
             "filter_month" => "String",
             "filter_provider" => "String",
+            "filter_metric" => "String",
     },
     "v2.ListCostTags" => {
             "filter_metric" => "String",
@@ -3214,6 +3215,37 @@ ScenariosModelMappings = {
     "v2.UpsertAndPublishFormVersion" => {
             "form_id" => "UUID",
             "body" => "UpsertAndPublishFormVersionRequest",
+    },
+    "v2.ListGlobalOrgs" => {
+            "user_handle" => "String",
+            "page_limit" => "Integer",
+            "page_cursor" => "String",
+    },
+    "v2.UpdateLoginOrgConfigsMaxSessionDuration" => {
+            "body" => "MaxSessionDurationUpdateRequest",
+    },
+    "v2.ListOrgs" => {
+            "filter_name" => "String",
+    },
+    "v2.UpdateOrgSamlConfigurations" => {
+            "body" => "OrgSAMLPreferencesUpdateRequest",
+    },
+    "v2.GetOrgConfig" => {
+            "org_config_name" => "String",
+    },
+    "v2.UpdateOrgConfig" => {
+            "org_config_name" => "String",
+            "body" => "OrgConfigWriteRequest",
+    },
+    "v2.UploadIdPMetadata" => {
+            "idp_file" => "File",
+    },
+    "v2.GetSAMLConfiguration" => {
+            "saml_config_uuid" => "String",
+    },
+    "v2.UpdateSAMLConfiguration" => {
+            "saml_config_uuid" => "String",
+            "body" => "SAMLConfigurationUpdateRequest",
     },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
@@ -4335,29 +4367,6 @@ ScenariosModelMappings = {
     "v2.ResolveOnCallPage" => {
             "page_id" => "UUID",
     },
-    "v2.ListOrgs" => {
-            "filter_name" => "String",
-    },
-    "v2.UpdateOrgSamlConfigurations" => {
-            "body" => "OrgSAMLPreferencesUpdateRequest",
-    },
-    "v2.GetOrgConfig" => {
-            "org_config_name" => "String",
-    },
-    "v2.UpdateOrgConfig" => {
-            "org_config_name" => "String",
-            "body" => "OrgConfigWriteRequest",
-    },
-    "v2.UploadIdPMetadata" => {
-            "idp_file" => "File",
-    },
-    "v2.GetSAMLConfiguration" => {
-            "saml_config_uuid" => "String",
-    },
-    "v2.UpdateSAMLConfiguration" => {
-            "saml_config_uuid" => "String",
-            "body" => "SAMLConfigurationUpdateRequest",
-    },
     "v2.DisableCustomerOrg" => {
             "body" => "CustomerOrgDisableRequest",
     },
@@ -5179,26 +5188,6 @@ ScenariosModelMappings = {
             "service_account_id" => "String",
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
-    },
-    "v2.ListIncidentServices" => {
-            "include" => "IncidentRelatedObject",
-            "page_size" => "Integer",
-            "page_offset" => "Integer",
-            "filter" => "String",
-    },
-    "v2.CreateIncidentService" => {
-            "body" => "IncidentServiceCreateRequest",
-    },
-    "v2.DeleteIncidentService" => {
-            "service_id" => "String",
-    },
-    "v2.GetIncidentService" => {
-            "service_id" => "String",
-            "include" => "IncidentRelatedObject",
-    },
-    "v2.UpdateIncidentService" => {
-            "service_id" => "String",
-            "body" => "IncidentServiceUpdateRequest",
     },
     "v2.ListServiceDefinitions" => {
             "page_size" => "Integer",

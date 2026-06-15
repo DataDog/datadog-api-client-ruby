@@ -3021,6 +3021,7 @@ module DatadogAPIClient::V2
     # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @option opts [String] :filter_metric Filter results to tag keys that have data for a specific Cloud Cost Management metric (for example, `aws.cost.net.amortized`). When omitted, all tag keys for the requested period are returned.
     # @return [Array<(CostTagKeySourcesResponse, Integer, Hash)>] CostTagKeySourcesResponse data, response status code and response headers
     def list_cost_tag_key_sources_with_http_info(filter_month, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_key_sources".to_sym]
@@ -3044,6 +3045,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'filter[month]'] = filter_month
       query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+      query_params[:'filter[metric]'] = opts[:'filter_metric'] if !opts[:'filter_metric'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

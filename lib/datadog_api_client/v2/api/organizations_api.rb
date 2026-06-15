@@ -153,6 +153,103 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List global orgs.
+    #
+    # @see #list_global_orgs_with_http_info
+    def list_global_orgs(user_handle, opts = {})
+      data, _status_code, _headers = list_global_orgs_with_http_info(user_handle, opts)
+      data
+    end
+
+    # List global orgs.
+    #
+    # Returns organizations across regions for the authenticated user. The `user_handle` query parameter must match the authenticated user's handle.
+    #
+    # @param user_handle [String] The handle of the authenticated user.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit Maximum number of results returned.
+    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.next_cursor`.
+    # @return [Array<(GlobalOrgsResponse, Integer, Hash)>] GlobalOrgsResponse data, response status code and response headers
+    def list_global_orgs_with_http_info(user_handle, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.list_global_orgs ...'
+      end
+      # verify the required parameter 'user_handle' is set
+      if @api_client.config.client_side_validation && user_handle.nil?
+        fail ArgumentError, "Missing the required parameter 'user_handle' when calling OrganizationsAPI.list_global_orgs"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling OrganizationsAPI.list_global_orgs, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling OrganizationsAPI.list_global_orgs, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/global_orgs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'user_handle'] = user_handle
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GlobalOrgsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_global_orgs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#list_global_orgs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List global orgs.
+    #
+    # Provide a paginated version of {#list_global_orgs}, returning all items.
+    #
+    # To use it you need to use a block: list_global_orgs_with_pagination { |item| p item }
+    #
+    # @yield [GlobalOrgData] Paginated items
+    def list_global_orgs_with_pagination(user_handle, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_global_orgs(user_handle, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+        end
+    end
+
     # List Org Configs.
     #
     # @see #list_org_configs_with_http_info
@@ -331,6 +428,74 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrganizationsAPI#list_saml_configurations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the maximum session duration.
+    #
+    # @see #update_login_org_configs_max_session_duration_with_http_info
+    def update_login_org_configs_max_session_duration(body, opts = {})
+      update_login_org_configs_max_session_duration_with_http_info(body, opts)
+      nil
+    end
+
+    # Update the maximum session duration.
+    #
+    # Update the maximum session duration for the current organization.
+    # The duration is specified in seconds.
+    #
+    # @param body [MaxSessionDurationUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_login_org_configs_max_session_duration_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.update_login_org_configs_max_session_duration ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.update_login_org_configs_max_session_duration"
+      end
+      # resource path
+      local_var_path = '/api/v2/login/org_configs/max_session_duration'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_login_org_configs_max_session_duration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#update_login_org_configs_max_session_duration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
