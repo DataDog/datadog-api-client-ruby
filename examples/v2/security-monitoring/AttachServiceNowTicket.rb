@@ -1,6 +1,9 @@
 # Attach security findings to a ServiceNow ticket returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.unstable_operations["v2.attach_service_now_ticket".to_sym] = true
+end
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::AttachServiceNowTicketRequest.new({

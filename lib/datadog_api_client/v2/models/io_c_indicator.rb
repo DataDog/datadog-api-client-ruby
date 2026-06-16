@@ -84,6 +84,15 @@ module DatadogAPIClient::V2
     # Tags associated with the indicator.
     attr_accessor :tags
 
+    # Current triage state of the indicator.
+    attr_accessor :triage_state
+
+    # Timestamp when the indicator was last triaged.
+    attr_accessor :triaged_at
+
+    # UUID of the user who last triaged the indicator.
+    attr_accessor :triaged_by
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -110,7 +119,10 @@ module DatadogAPIClient::V2
         :'signal_matches' => :'signal_matches',
         :'signal_tier' => :'signal_tier',
         :'suspicious_sources' => :'suspicious_sources',
-        :'tags' => :'tags'
+        :'tags' => :'tags',
+        :'triage_state' => :'triage_state',
+        :'triaged_at' => :'triaged_at',
+        :'triaged_by' => :'triaged_by'
       }
     end
 
@@ -138,7 +150,10 @@ module DatadogAPIClient::V2
         :'signal_matches' => :'Integer',
         :'signal_tier' => :'Integer',
         :'suspicious_sources' => :'Array<IoCSource>',
-        :'tags' => :'Array<String>'
+        :'tags' => :'Array<String>',
+        :'triage_state' => :'IoCTriageState',
+        :'triaged_at' => :'Time',
+        :'triaged_by' => :'String'
       }
     end
 
@@ -263,6 +278,18 @@ module DatadogAPIClient::V2
           self.tags = value
         end
       end
+
+      if attributes.key?(:'triage_state')
+        self.triage_state = attributes[:'triage_state']
+      end
+
+      if attributes.key?(:'triaged_at')
+        self.triaged_at = attributes[:'triaged_at']
+      end
+
+      if attributes.key?(:'triaged_by')
+        self.triaged_by = attributes[:'triaged_by']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -312,6 +339,9 @@ module DatadogAPIClient::V2
           signal_tier == o.signal_tier &&
           suspicious_sources == o.suspicious_sources &&
           tags == o.tags &&
+          triage_state == o.triage_state &&
+          triaged_at == o.triaged_at &&
+          triaged_by == o.triaged_by &&
           additional_properties == o.additional_properties
     end
 
@@ -319,7 +349,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [as_geo, as_type, benign_sources, categories, first_seen, id, indicator, indicator_type, last_seen, log_matches, m_as_type, m_persistence, m_signal, m_sources, malicious_sources, max_trust_score, score, signal_matches, signal_tier, suspicious_sources, tags, additional_properties].hash
+      [as_geo, as_type, benign_sources, categories, first_seen, id, indicator, indicator_type, last_seen, log_matches, m_as_type, m_persistence, m_signal, m_sources, malicious_sources, max_trust_score, score, signal_matches, signal_tier, suspicious_sources, tags, triage_state, triaged_at, triaged_by, additional_properties].hash
     end
   end
 end

@@ -254,6 +254,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_service_now_ticket_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.attach_service_now_ticket".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.attach_service_now_ticket")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.attach_service_now_ticket"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_service_now_ticket ...'
@@ -1464,6 +1470,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create or update an indicator triage state.
+    #
+    # @see #create_io_c_triage_state_with_http_info
+    def create_io_c_triage_state(body, opts = {})
+      data, _status_code, _headers = create_io_c_triage_state_with_http_info(body, opts)
+      data
+    end
+
+    # Create or update an indicator triage state.
+    #
+    # Set the triage state of an indicator of compromise (IoC). This creates or
+    # updates the triage state for the indicator in your organization.
+    #
+    # @param body [IoCTriageWriteRequest] The triage state to set for the indicator.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IoCTriageWriteResponse, Integer, Hash)>] IoCTriageWriteResponse data, response status code and response headers
+    def create_io_c_triage_state_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_io_c_triage_state".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_io_c_triage_state")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_io_c_triage_state"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_io_c_triage_state ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_io_c_triage_state"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/siem/ioc-explorer/triage'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IoCTriageWriteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_io_c_triage_state,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_io_c_triage_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create Jira issues for security findings.
     #
     # @see #create_jira_issues_with_http_info
@@ -2048,6 +2128,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_service_now_tickets_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_service_now_tickets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_service_now_tickets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_service_now_tickets"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_service_now_tickets ...'
@@ -4085,6 +4171,10 @@ module DatadogAPIClient::V2
     #
     # @param indicator [String] The indicator value to look up (for example, an IP address or domain).
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :ocsf When true, return only OCSF field-based matches. When false, return regex/message-based matches.
+    # @option opts [Boolean] :include_triage_history Include full triage history for the indicator.
+    # @option opts [Integer] :triage_history_limit Maximum number of triage history events returned. Only applied when `include_triage_history` is true.
+    # @option opts [Integer] :triage_history_offset Pagination offset into the triage history. Only applied when `include_triage_history` is true.
     # @return [Array<(GetIoCIndicatorResponse, Integer, Hash)>] GetIoCIndicatorResponse data, response status code and response headers
     def get_indicator_of_compromise_with_http_info(indicator, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_indicator_of_compromise".to_sym]
@@ -4101,12 +4191,25 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && indicator.nil?
         fail ArgumentError, "Missing the required parameter 'indicator' when calling SecurityMonitoringAPI.get_indicator_of_compromise"
       end
+      if @api_client.config.client_side_validation && !opts[:'triage_history_limit'].nil? && opts[:'triage_history_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"triage_history_limit"]" when calling SecurityMonitoringAPI.get_indicator_of_compromise, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'triage_history_limit'].nil? && opts[:'triage_history_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"triage_history_limit"]" when calling SecurityMonitoringAPI.get_indicator_of_compromise, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'triage_history_offset'].nil? && opts[:'triage_history_offset'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"triage_history_offset"]" when calling SecurityMonitoringAPI.get_indicator_of_compromise, must be smaller than or equal to 2147483647.'
+      end
       # resource path
       local_var_path = '/api/v2/security/siem/ioc-explorer/indicator'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'indicator'] = indicator
+      query_params[:'ocsf'] = opts[:'ocsf'] if !opts[:'ocsf'].nil?
+      query_params[:'include_triage_history'] = opts[:'include_triage_history'] if !opts[:'include_triage_history'].nil?
+      query_params[:'triage_history_limit'] = opts[:'triage_history_limit'] if !opts[:'triage_history_limit'].nil?
+      query_params[:'triage_history_offset'] = opts[:'triage_history_offset'] if !opts[:'triage_history_offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -6610,6 +6713,9 @@ module DatadogAPIClient::V2
     # @option opts [String] :query Search/filter query (supports field:value syntax).
     # @option opts [String] :sort_column Sort column: score, first_seen_ts_epoch, last_seen_ts_epoch, indicator, indicator_type, signal_count, log_count, category, as_type.
     # @option opts [String] :sort_order Sort order: asc or desc.
+    # @option opts [Boolean] :ocsf When true, return only OCSF field-based matches. When false, return regex/message-based matches.
+    # @option opts [String] :worked_by Filter indicators whose triage state was updated by a specific user UUID.
+    # @option opts [IoCTriageState] :triage_state Filter by triage state.
     # @return [Array<(IoCExplorerListResponse, Integer, Hash)>] IoCExplorerListResponse data, response status code and response headers
     def list_indicators_of_compromise_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_indicators_of_compromise".to_sym]
@@ -6628,6 +6734,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 2147483647
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SecurityMonitoringAPI.list_indicators_of_compromise, must be smaller than or equal to 2147483647.'
       end
+      allowable_values = ['not_reviewed', 'reviewed']
+      if @api_client.config.client_side_validation && opts[:'triage_state'] && !allowable_values.include?(opts[:'triage_state'])
+        fail ArgumentError, "invalid value for \"triage_state\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/security/siem/ioc-explorer'
 
@@ -6638,6 +6748,9 @@ module DatadogAPIClient::V2
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'sort[column]'] = opts[:'sort_column'] if !opts[:'sort_column'].nil?
       query_params[:'sort[order]'] = opts[:'sort_order'] if !opts[:'sort_order'].nil?
+      query_params[:'ocsf'] = opts[:'ocsf'] if !opts[:'ocsf'].nil?
+      query_params[:'worked_by'] = opts[:'worked_by'] if !opts[:'worked_by'].nil?
+      query_params[:'triage_state'] = opts[:'triage_state'] if !opts[:'triage_state'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

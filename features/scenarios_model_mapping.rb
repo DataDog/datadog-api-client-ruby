@@ -2106,9 +2106,19 @@ ScenariosModelMappings = {
             "query" => "String",
             "sort_column" => "String",
             "sort_order" => "String",
+            "ocsf" => "Boolean",
+            "worked_by" => "String",
+            "triage_state" => "IoCTriageState",
     },
     "v2.GetIndicatorOfCompromise" => {
             "indicator" => "String",
+            "ocsf" => "Boolean",
+            "include_triage_history" => "Boolean",
+            "triage_history_limit" => "Integer",
+            "triage_history_offset" => "Integer",
+    },
+    "v2.CreateIoCTriageState" => {
+            "body" => "IoCTriageWriteRequest",
     },
     "v2.CreateSignalNotificationRule" => {
             "body" => "CreateNotificationRuleParameters",
