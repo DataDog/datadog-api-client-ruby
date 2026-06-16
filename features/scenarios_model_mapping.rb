@@ -4711,6 +4711,9 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "body" => "ApplicationSecurityPolicyUpdateRequest",
     },
+    "v2.GetAsmServiceByName" => {
+            "service_filter" => "String",
+    },
     "v2.ListCSMThreatsAgentRules" => {
             "policy_id" => "String",
     },
