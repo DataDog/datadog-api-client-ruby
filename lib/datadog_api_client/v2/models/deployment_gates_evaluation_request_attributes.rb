@@ -18,8 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Attributes for a deployment gate evaluation request.
+  # When `configuration` is provided, rules are evaluated inline from that configuration.
+  # When omitted, rules are resolved from the preconfigured gate for the given service and environment.
   class DeploymentGatesEvaluationRequestAttributes
     include BaseGenericModel
+
+    # Inline rule definitions for a deployment gate evaluation. When provided, rules are evaluated
+    # directly from this configuration instead of using the preconfigured gate rules.
+    # At least one rule is required.
+    attr_accessor :configuration
 
     # The environment of the deployment.
     attr_reader :env
@@ -42,6 +49,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'configuration' => :'configuration',
         :'env' => :'env',
         :'identifier' => :'identifier',
         :'primary_tag' => :'primary_tag',
@@ -54,6 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'configuration' => :'DeploymentGatesEvaluationConfiguration',
         :'env' => :'String',
         :'identifier' => :'String',
         :'primary_tag' => :'String',
@@ -79,6 +88,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'configuration')
+        self.configuration = attributes[:'configuration']
+      end
 
       if attributes.key?(:'env')
         self.env = attributes[:'env']
@@ -156,6 +169,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          configuration == o.configuration &&
           env == o.env &&
           identifier == o.identifier &&
           primary_tag == o.primary_tag &&
@@ -168,7 +182,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, identifier, primary_tag, service, version, additional_properties].hash
+      [configuration, env, identifier, primary_tag, service, version, additional_properties].hash
     end
   end
 end

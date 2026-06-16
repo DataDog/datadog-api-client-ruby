@@ -9,6 +9,20 @@ api_instance = DatadogAPIClient::V2::DeploymentGatesAPI.new
 body = DatadogAPIClient::V2::DeploymentGatesEvaluationRequest.new({
   data: DatadogAPIClient::V2::DeploymentGatesEvaluationRequestData.new({
     attributes: DatadogAPIClient::V2::DeploymentGatesEvaluationRequestAttributes.new({
+      configuration: DatadogAPIClient::V2::DeploymentGatesEvaluationConfiguration.new({
+        dry_run: false,
+        rules: [
+          DatadogAPIClient::V2::DeploymentGatesMonitorRule.new({
+            dry_run: false,
+            name: "error rate monitors",
+            options: DatadogAPIClient::V2::DeploymentGatesMonitorRuleOptions.new({
+              duration: 300,
+              query: "service:transaction-backend env:production",
+            }),
+            type: DatadogAPIClient::V2::DeploymentGatesMonitorRuleType::MONITOR,
+          }),
+        ],
+      }),
       env: "staging",
       identifier: "pre-deploy",
       primary_tag: "region:us-east-1",

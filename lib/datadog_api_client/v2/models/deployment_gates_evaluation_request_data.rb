@@ -22,6 +22,8 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Attributes for a deployment gate evaluation request.
+    # When `configuration` is provided, rules are evaluated inline from that configuration.
+    # When omitted, rules are resolved from the preconfigured gate for the given service and environment.
     attr_reader :attributes
 
     # JSON:API type for a deployment gate evaluation request.
