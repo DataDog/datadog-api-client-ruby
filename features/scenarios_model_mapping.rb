@@ -1041,6 +1041,35 @@ ScenariosModelMappings = {
     "v2.SearchLLMObsSpans" => {
             "body" => "LLMObsSearchSpansRequest",
     },
+    "v2.ListLLMObsPatternsClusteredPoints" => {
+            "topic_id" => "String",
+            "page_size" => "Integer",
+            "page_token" => "String",
+    },
+    "v2.UpsertLLMObsPatternsConfig" => {
+            "body" => "LLMObsPatternsConfigUpsertRequest",
+    },
+    "v2.DeleteLLMObsPatternsConfig" => {
+            "config_id" => "String",
+    },
+    "v2.ListLLMObsPatternsRuns" => {
+            "config_id" => "String",
+    },
+    "v2.TriggerLLMObsPatterns" => {
+            "body" => "LLMObsPatternsTriggerRequest",
+    },
+    "v2.GetLLMObsPatternsRunStatus" => {
+            "config_id" => "String",
+    },
+    "v2.ListLLMObsPatternsTopics" => {
+            "config_id" => "String",
+            "run_id" => "String",
+    },
+    "v2.ListLLMObsPatternsTopicsWithClusteredPoints" => {
+            "config_id" => "String",
+            "run_id" => "String",
+            "include_metrics" => "Boolean",
+    },
     "v2.ListLLMObsDatasets" => {
             "project_id" => "String",
             "filter_name" => "String",
@@ -5611,6 +5640,36 @@ ScenariosModelMappings = {
     "v2.PatchGlobalVariable" => {
             "variable_id" => "String",
             "body" => "GlobalVariableJsonPatchRequest",
+    },
+    "v2.ListTagPolicies" => {
+            "include_disabled" => "Boolean",
+            "include_deleted" => "Boolean",
+            "include" => "TagPolicyInclude",
+            "filter_source" => "TagPolicySource",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
+    "v2.CreateTagPolicy" => {
+            "body" => "TagPolicyCreateRequest",
+    },
+    "v2.DeleteTagPolicy" => {
+            "policy_id" => "String",
+            "hard_delete" => "Boolean",
+    },
+    "v2.GetTagPolicy" => {
+            "policy_id" => "String",
+            "include" => "TagPolicyInclude",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
+    "v2.UpdateTagPolicy" => {
+            "policy_id" => "String",
+            "body" => "TagPolicyUpdateRequest",
+    },
+    "v2.GetTagPolicyScore" => {
+            "policy_id" => "String",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
     },
     "v2.ListTeams" => {
             "page_number" => "Integer",

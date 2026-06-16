@@ -4427,6 +4427,68 @@
       "type": "safe"
     }
   },
+  "ListLLMObsPatternsClusteredPoints": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListLLMObsPatternsConfigs": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpsertLLMObsPatternsConfig": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetLLMObsPatternsConfig": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "DeleteLLMObsPatternsConfig": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListLLMObsPatternsRuns": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "TriggerLLMObsPatterns": {
+    "tag": "LLM Observability",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
+    }
+  },
+  "GetLLMObsPatternsRunStatus": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListLLMObsPatternsTopics": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListLLMObsPatternsTopicsWithClusteredPoints": {
+    "tag": "LLM Observability",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListLLMObsDatasets": {
     "tag": "LLM Observability",
     "undo": {
@@ -8589,6 +8651,49 @@
   },
   "PatchGlobalVariable": {
     "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListTagPolicies": {
+    "tag": "Tag Policies",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateTagPolicy": {
+    "tag": "Tag Policies",
+    "undo": {
+      "operationId": "DeleteTagPolicy",
+      "parameters": [
+        {
+          "name": "policy_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteTagPolicy": {
+    "tag": "Tag Policies",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTagPolicy": {
+    "tag": "Tag Policies",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateTagPolicy": {
+    "tag": "Tag Policies",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTagPolicyScore": {
+    "tag": "Tag Policies",
     "undo": {
       "type": "safe"
     }
