@@ -387,7 +387,6 @@ module DatadogAPIClient
             "v2.list_static_analysis_codegen_rulesets": false,
             "v2.list_vulnerabilities": false,
             "v2.list_vulnerable_assets": false,
-            "v2.mute_findings": false,
             "v2.restore_security_monitoring_rule": false,
             "v2.run_historical_job": false,
             "v2.search_security_monitoring_histsignals": false,
