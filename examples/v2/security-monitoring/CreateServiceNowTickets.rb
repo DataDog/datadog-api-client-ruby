@@ -1,9 +1,6 @@
 # Create ServiceNow tickets for security findings returns "Created" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_service_now_tickets".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::CreateServiceNowTicketRequestArray.new({
