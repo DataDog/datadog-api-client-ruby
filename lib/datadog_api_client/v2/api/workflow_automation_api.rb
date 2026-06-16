@@ -501,6 +501,103 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List workflows.
+    #
+    # @see #list_workflows_with_http_info
+    def list_workflows(opts = {})
+      data, _status_code, _headers = list_workflows_with_http_info(opts)
+      data
+    end
+
+    # List workflows.
+    #
+    # List all workflows in your organization. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit The maximum number of workflows to return per page.
+    # @option opts [Integer] :page The page number to return, starting from 0.
+    # @option opts [String] :sort The sort order for the returned workflows. Provide a comma-separated list of fields, each optionally prefixed with `-` for descending order. Supported fields are `name`, `createdAt`, `updatedAt`, `creatorName`, `ownerName`, and `lastExecutedAt`.
+    # @option opts [String] :filter_query A search query used to filter the returned workflows. The query performs a case-insensitive substring match against each workflow's name, creator name, and handle. If the query contains a colon (for example, `team:infra`), the query is treated as a `key:value` tag filter.
+    # @option opts [Array<String>] :filter_trigger_ids Filters the returned workflows by one or more trigger types, such as `monitor`, `schedule`, or `githubWebhook`. To specify the multiple types, repeat this parameter.
+    # @option opts [Boolean] :filter_include_unpublished Whether to include unpublished workflows in the response.
+    # @option opts [Boolean] :filter_include_specs Whether to include the full spec of each workflow in the response. When `false` (the default), each workflow's `spec` is returned as `null`.
+    # @return [Array<(ListWorkflowsResponse, Integer, Hash)>] ListWorkflowsResponse data, response status code and response headers
+    def list_workflows_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.list_workflows ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'filter[triggerIds]'] = @api_client.build_collection_param(opts[:'filter_trigger_ids'], :multi) if !opts[:'filter_trigger_ids'].nil?
+      query_params[:'filter[includeUnpublished]'] = opts[:'filter_include_unpublished'] if !opts[:'filter_include_unpublished'].nil?
+      query_params[:'filter[includeSpecs]'] = opts[:'filter_include_specs'] if !opts[:'filter_include_specs'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListWorkflowsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_workflows,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#list_workflows\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List workflows.
+    #
+    # Provide a paginated version of {#list_workflows}, returning all items.
+    #
+    # To use it you need to use a block: list_workflows_with_pagination { |item| p item }
+    #
+    # @yield [WorkflowListItem] Paginated items
+    def list_workflows_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "limit", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page", Integer, 0)
+        while true do
+            response = list_workflows(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page", Integer, @api_client.get_attribute_from_path(opts, "page", 0) + 1)
+        end
+    end
+
     # Update an existing Workflow.
     #
     # @see #update_workflow_with_http_info

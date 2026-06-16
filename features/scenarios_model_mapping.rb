@@ -5861,6 +5861,15 @@ ScenariosModelMappings = {
             "uuid" => "UUID",
             "body" => "CreateOrUpdateWidgetRequest",
     },
+    "v2.ListWorkflows" => {
+            "limit" => "Integer",
+            "page" => "Integer",
+            "sort" => "String",
+            "filter_query" => "String",
+            "filter_trigger_ids" => "Array<String>",
+            "filter_include_unpublished" => "Boolean",
+            "filter_include_specs" => "Boolean",
+    },
     "v2.CreateWorkflow" => {
             "body" => "CreateWorkflowRequest",
     },
