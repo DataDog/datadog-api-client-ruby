@@ -254,12 +254,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_service_now_ticket_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.attach_service_now_ticket".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.attach_service_now_ticket")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.attach_service_now_ticket"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_service_now_ticket ...'
@@ -2054,12 +2048,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_service_now_tickets_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_service_now_tickets".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_service_now_tickets")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_service_now_tickets"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_service_now_tickets ...'
