@@ -31,6 +31,9 @@ module DatadogAPIClient::V1
     # Array of URL patterns to block.
     attr_accessor :blocked_request_patterns
 
+    # Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+    attr_accessor :capture_network_payloads
+
     # For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
     attr_accessor :check_certificate_revocation
 
@@ -121,6 +124,7 @@ module DatadogAPIClient::V1
         :'accept_self_signed' => :'accept_self_signed',
         :'allow_insecure' => :'allow_insecure',
         :'blocked_request_patterns' => :'blockedRequestPatterns',
+        :'capture_network_payloads' => :'captureNetworkPayloads',
         :'check_certificate_revocation' => :'checkCertificateRevocation',
         :'ci' => :'ci',
         :'device_ids' => :'device_ids',
@@ -154,6 +158,7 @@ module DatadogAPIClient::V1
         :'accept_self_signed' => :'Boolean',
         :'allow_insecure' => :'Boolean',
         :'blocked_request_patterns' => :'Array<String>',
+        :'capture_network_payloads' => :'Boolean',
         :'check_certificate_revocation' => :'Boolean',
         :'ci' => :'SyntheticsTestCiOptions',
         :'device_ids' => :'Array<String>',
@@ -210,6 +215,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'blocked_request_patterns']).is_a?(Array)
           self.blocked_request_patterns = value
         end
+      end
+
+      if attributes.key?(:'capture_network_payloads')
+        self.capture_network_payloads = attributes[:'capture_network_payloads']
       end
 
       if attributes.key?(:'check_certificate_revocation')
@@ -375,6 +384,7 @@ module DatadogAPIClient::V1
           accept_self_signed == o.accept_self_signed &&
           allow_insecure == o.allow_insecure &&
           blocked_request_patterns == o.blocked_request_patterns &&
+          capture_network_payloads == o.capture_network_payloads &&
           check_certificate_revocation == o.check_certificate_revocation &&
           ci == o.ci &&
           device_ids == o.device_ids &&
@@ -405,7 +415,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, blocked_request_patterns, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
+      [accept_self_signed, allow_insecure, blocked_request_patterns, capture_network_payloads, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
     end
   end
 end
