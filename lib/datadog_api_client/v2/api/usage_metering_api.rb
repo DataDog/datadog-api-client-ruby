@@ -941,6 +941,37 @@ module DatadogAPIClient::V2
     #
     # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
     #
+    # Go example:
+    #
+    # ```go
+    # fields, _, err := api.GetUsageSummaryAvailableFields(ctx)
+    # attr := fields.Data.GetAttributes()
+    #
+    # // resp is the *UsageSummaryResponse returned by api.GetUsageSummary(ctx, ...)
+    # // Layer 1: UsageSummaryResponse
+    # for _, key := range attr.GetResponseFields() {
+    #     if val, ok := resp.AdditionalProperties[key]; ok {
+    #         fmt.Println(key, val.(json.Number))
+    #     }
+    # }
+    # // Layer 2: UsageSummaryDate (per month)
+    # for _, date := range resp.GetUsage() {
+    #     for _, key := range attr.GetDateFields() {
+    #         if val, ok := date.AdditionalProperties[key]; ok {
+    #             fmt.Println(key, val.(json.Number))
+    #         }
+    #     }
+    #     // Layer 3: UsageSummaryDateOrg (per org per month)
+    #     for _, org := range date.GetOrgs() {
+    #         for _, key := range attr.GetDateOrgFields() {
+    #             if val, ok := org.AdditionalProperties[key]; ok {
+    #                 fmt.Println(key, val.(json.Number))
+    #             }
+    #         }
+    #     }
+    # }
+    # ```
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSummaryAvailableFieldsResponse, Integer, Hash)>] UsageSummaryAvailableFieldsResponse data, response status code and response headers
     def get_usage_summary_available_fields_with_http_info(opts = {})
