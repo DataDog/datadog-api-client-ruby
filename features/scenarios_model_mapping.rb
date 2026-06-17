@@ -3293,6 +3293,11 @@ ScenariosModelMappings = {
             "saml_config_uuid" => "String",
             "body" => "SAMLConfigurationUpdateRequest",
     },
+    "v2.ListGovernanceInsights" => {
+            "with_values" => "Boolean",
+            "org_uuid" => "String",
+            "filter_product" => "Array<String>",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
