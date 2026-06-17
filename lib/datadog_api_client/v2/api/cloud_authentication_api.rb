@@ -35,10 +35,13 @@ module DatadogAPIClient::V2
     #
     # Create an AWS cloud authentication persona mapping. This endpoint associates an AWS IAM principal with a Datadog user.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSCloudAuthPersonaMappingCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSCloudAuthPersonaMappingResponse, Integer, Hash)>] AWSCloudAuthPersonaMappingResponse data, response status code and response headers
     def create_aws_cloud_auth_persona_mapping_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateAWSCloudAuthPersonaMapping` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_aws_cloud_auth_persona_mapping".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_aws_cloud_auth_persona_mapping")
@@ -108,10 +111,13 @@ module DatadogAPIClient::V2
     #
     # Delete an AWS cloud authentication persona mapping by ID. This removes the association between an AWS IAM principal and a Datadog user.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param persona_mapping_id [String] The ID of the persona mapping
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_aws_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      warn "[DEPRECATION] `DeleteAWSCloudAuthPersonaMapping` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_aws_cloud_auth_persona_mapping".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_aws_cloud_auth_persona_mapping")
@@ -179,10 +185,13 @@ module DatadogAPIClient::V2
     #
     # Get a specific AWS cloud authentication persona mapping by ID. This endpoint retrieves a single configured persona mapping that associates an AWS IAM principal with a Datadog user.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param persona_mapping_id [String] The ID of the persona mapping
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSCloudAuthPersonaMappingResponse, Integer, Hash)>] AWSCloudAuthPersonaMappingResponse data, response status code and response headers
     def get_aws_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      warn "[DEPRECATION] `GetAWSCloudAuthPersonaMapping` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_cloud_auth_persona_mapping".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_cloud_auth_persona_mapping")
@@ -250,9 +259,12 @@ module DatadogAPIClient::V2
     #
     # List all AWS cloud authentication persona mappings. This endpoint retrieves all configured persona mappings that associate AWS IAM principals with Datadog users.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSCloudAuthPersonaMappingsResponse, Integer, Hash)>] AWSCloudAuthPersonaMappingsResponse data, response status code and response headers
     def list_aws_cloud_auth_persona_mappings_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAWSCloudAuthPersonaMappings` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_aws_cloud_auth_persona_mappings".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_aws_cloud_auth_persona_mappings")
