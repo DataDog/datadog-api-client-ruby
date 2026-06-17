@@ -22,6 +22,7 @@ group :development, :test do
   gem 'webmock'
   gem 'zstandard'
   gem 'pry'
+  gem 'i18n', '~> 1.14.0'
 end
 
 group :docs do
