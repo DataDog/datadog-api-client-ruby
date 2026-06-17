@@ -468,6 +468,7 @@ module DatadogAPIClient
             "v2.upsert_and_publish_form_version": false,
             "v2.upsert_form_version": false,
             "v2.update_org_saml_configurations": false,
+            "v2.list_governance_insights": false,
             "v2.create_hamr_org_connection": false,
             "v2.get_hamr_org_connection": false,
             "v2.delete_entity_integration_config": false,
