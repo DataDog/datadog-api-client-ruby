@@ -5895,6 +5895,16 @@ ScenariosModelMappings = {
     "v2.GetUserMemberships" => {
             "user_uuid" => "String",
     },
+    "v2.GetVercelConfig" => {
+            "configuration_id" => "String",
+    },
+    "v2.UpdateVercelConfig" => {
+            "configuration_id" => "String",
+            "body" => "VercelConfigAttributes",
+    },
+    "v2.CreateVercelToken" => {
+            "body" => "VercelTokenCreateRequest",
+    },
     "v2.ListWebIntegrationAccounts" => {
             "integration_name" => "String",
     },
