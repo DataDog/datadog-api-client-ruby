@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Wed, 17 Jun 2026 12:36:53 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/rum/configs/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Forbidden"}]}
+
+        '
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+    status:
+      code: 403
+      message: Forbidden
+recorded_with: VCR 6.0.0

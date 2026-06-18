@@ -634,6 +634,8 @@ module DatadogAPIClient
             "v2.get_pruned_trace_by_id": false,
             "v2.get_trace_by_id": false,
             "v2.get_asm_service_by_name": false,
+            "v2.get_rum_sdk_config": false,
+            "v2.update_rum_sdk_config": false,
             "v2.create_report_schedule": false,
             "v2.patch_report_schedule": false,
             "v2.delete_sourcemaps": false,

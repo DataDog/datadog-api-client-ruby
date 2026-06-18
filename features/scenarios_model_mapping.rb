@@ -4834,6 +4834,13 @@ ScenariosModelMappings = {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
     },
+    "v2.GetRumSdkConfig" => {
+            "config_id" => "String",
+    },
+    "v2.UpdateRumSdkConfig" => {
+            "config_id" => "String",
+            "body" => "RumSdkConfigUpdateRequest",
+    },
     "v2.ListReplayHeatmapSnapshots" => {
             "filter_device_type" => "String",
             "filter_view_name" => "String",
