@@ -5550,6 +5550,18 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchDegradationRequest",
     },
+    "v2.SoftDeleteDegradationUpdate" => {
+            "degradation_id" => "UUID",
+            "page_id" => "UUID",
+            "update_id" => "UUID",
+    },
+    "v2.EditDegradationUpdate" => {
+            "degradation_id" => "UUID",
+            "include" => "String",
+            "page_id" => "UUID",
+            "update_id" => "UUID",
+            "body" => "PatchDegradationUpdateRequest",
+    },
     "v2.CreateMaintenance" => {
             "page_id" => "UUID",
             "notify_subscribers" => "Boolean",

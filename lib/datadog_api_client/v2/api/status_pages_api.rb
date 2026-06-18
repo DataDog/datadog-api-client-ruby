@@ -671,6 +671,90 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Edit degradation update.
+    #
+    # @see #edit_degradation_update_with_http_info
+    def edit_degradation_update(degradation_id, page_id, update_id, body, opts = {})
+      data, _status_code, _headers = edit_degradation_update_with_http_info(degradation_id, page_id, update_id, body, opts)
+      data
+    end
+
+    # Edit degradation update.
+    #
+    # Edits a specific degradation update.
+    #
+    # @param degradation_id [UUID] The ID of the degradation.
+    # @param page_id [UUID] The ID of the status page.
+    # @param update_id [UUID] The ID of the degradation update.
+    # @param body [PatchDegradationUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, degradation, status_page.
+    # @return [Array<(DegradationUpdate, Integer, Hash)>] DegradationUpdate data, response status code and response headers
+    def edit_degradation_update_with_http_info(degradation_id, page_id, update_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.edit_degradation_update ...'
+      end
+      # verify the required parameter 'degradation_id' is set
+      if @api_client.config.client_side_validation && degradation_id.nil?
+        fail ArgumentError, "Missing the required parameter 'degradation_id' when calling StatusPagesAPI.edit_degradation_update"
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.edit_degradation_update"
+      end
+      # verify the required parameter 'update_id' is set
+      if @api_client.config.client_side_validation && update_id.nil?
+        fail ArgumentError, "Missing the required parameter 'update_id' when calling StatusPagesAPI.edit_degradation_update"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.edit_degradation_update"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}'.sub('{degradation_id}', CGI.escape(degradation_id.to_s).gsub('%2F', '/')).sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{update_id}', CGI.escape(update_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DegradationUpdate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :edit_degradation_update,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#edit_degradation_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get component.
     #
     # @see #get_component_with_http_info
@@ -1294,6 +1378,81 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#publish_status_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Soft delete degradation update.
+    #
+    # @see #soft_delete_degradation_update_with_http_info
+    def soft_delete_degradation_update(degradation_id, page_id, update_id, opts = {})
+      soft_delete_degradation_update_with_http_info(degradation_id, page_id, update_id, opts)
+      nil
+    end
+
+    # Soft delete degradation update.
+    #
+    # Soft-deletes a degradation update.
+    #
+    # @param degradation_id [UUID] The ID of the degradation.
+    # @param page_id [UUID] The ID of the status page.
+    # @param update_id [UUID] The ID of the degradation update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def soft_delete_degradation_update_with_http_info(degradation_id, page_id, update_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.soft_delete_degradation_update ...'
+      end
+      # verify the required parameter 'degradation_id' is set
+      if @api_client.config.client_side_validation && degradation_id.nil?
+        fail ArgumentError, "Missing the required parameter 'degradation_id' when calling StatusPagesAPI.soft_delete_degradation_update"
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.soft_delete_degradation_update"
+      end
+      # verify the required parameter 'update_id' is set
+      if @api_client.config.client_side_validation && update_id.nil?
+        fail ArgumentError, "Missing the required parameter 'update_id' when calling StatusPagesAPI.soft_delete_degradation_update"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}'.sub('{degradation_id}', CGI.escape(degradation_id.to_s).gsub('%2F', '/')).sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{update_id}', CGI.escape(update_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :soft_delete_degradation_update,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#soft_delete_degradation_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

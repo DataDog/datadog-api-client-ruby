@@ -27,6 +27,12 @@ module DatadogAPIClient::V2
     # Timestamp of when the update was created.
     attr_accessor :created_at
 
+    # The date and time the resource was deleted.
+    attr_accessor :deleted_at
+
+    # UUID of the user who deleted the resource.
+    attr_accessor :deleted_by_user_uuid
+
     # Description of the update.
     attr_accessor :description
 
@@ -53,6 +59,8 @@ module DatadogAPIClient::V2
       {
         :'components_affected' => :'components_affected',
         :'created_at' => :'created_at',
+        :'deleted_at' => :'deleted_at',
+        :'deleted_by_user_uuid' => :'deleted_by_user_uuid',
         :'description' => :'description',
         :'id' => :'id',
         :'last_modified_by_user_uuid' => :'last_modified_by_user_uuid',
@@ -68,6 +76,8 @@ module DatadogAPIClient::V2
       {
         :'components_affected' => :'Array<DegradationDataAttributesUpdatesItemsComponentsAffectedItems>',
         :'created_at' => :'Time',
+        :'deleted_at' => :'String',
+        :'deleted_by_user_uuid' => :'String',
         :'description' => :'String',
         :'id' => :'UUID',
         :'last_modified_by_user_uuid' => :'String',
@@ -103,6 +113,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
+      if attributes.key?(:'deleted_by_user_uuid')
+        self.deleted_by_user_uuid = attributes[:'deleted_by_user_uuid']
       end
 
       if attributes.key?(:'description')
@@ -158,6 +176,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           components_affected == o.components_affected &&
           created_at == o.created_at &&
+          deleted_at == o.deleted_at &&
+          deleted_by_user_uuid == o.deleted_by_user_uuid &&
           description == o.description &&
           id == o.id &&
           last_modified_by_user_uuid == o.last_modified_by_user_uuid &&
@@ -171,7 +191,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components_affected, created_at, description, id, last_modified_by_user_uuid, modified_at, started_at, status, additional_properties].hash
+      [components_affected, created_at, deleted_at, deleted_by_user_uuid, description, id, last_modified_by_user_uuid, modified_at, started_at, status, additional_properties].hash
     end
   end
 end
