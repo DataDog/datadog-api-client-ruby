@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
 
     # Check that an AWS Lambda Function exists.
     #
-    # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+    # **This endpoint is deprecated.** Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
     # is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
     # endpoint can be polled intermittently instead of blocking.
     #
@@ -42,10 +42,13 @@ module DatadogAPIClient::V1
     # - Returns a status of 'checked and ok' if the Lambda exists.
     # - Returns a status of 'error' if the Lambda does not exist.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSAccountAndLambdaRequest] Check AWS Log Lambda Async request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_lambda_async_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CheckAWSLogsLambdaAsync` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.check_aws_logs_lambda_async ...'
@@ -107,7 +110,7 @@ module DatadogAPIClient::V1
 
     # Check permissions for log services.
     #
-    # Test if permissions are present to add log-forwarding triggers for the
+    # **This endpoint is deprecated.** Test if permissions are present to add log-forwarding triggers for the
     # given services and AWS account. Input is the same as for `EnableAWSLogServices`.
     # Done async, so can be repeatedly polled in a non-blocking fashion until
     # the async request completes.
@@ -118,10 +121,13 @@ module DatadogAPIClient::V1
     # - Returns a status of `checked and ok` if the Lambda exists.
     # - Returns a status of `error` if the Lambda does not exist.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSLogsServicesRequest] Check AWS Logs Async Services request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_services_async_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CheckAWSLogsServicesAsync` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.check_aws_logs_services_async ...'
@@ -183,12 +189,15 @@ module DatadogAPIClient::V1
 
     # Add AWS Log Lambda ARN.
     #
-    # Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
+    # **This endpoint is deprecated.** Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param body [AWSAccountAndLambdaRequest] AWS Log Lambda Async request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_aws_lambda_arn_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateAWSLambdaARN` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.create_aws_lambda_arn ...'
@@ -250,12 +259,15 @@ module DatadogAPIClient::V1
 
     # Delete an AWS Logs integration.
     #
-    # Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
+    # **This endpoint is deprecated.** Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param body [AWSAccountAndLambdaRequest] Delete AWS Lambda ARN request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_lambda_arn_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `DeleteAWSLambdaARN` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.delete_aws_lambda_arn ...'
