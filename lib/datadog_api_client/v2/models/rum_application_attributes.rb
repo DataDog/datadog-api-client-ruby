@@ -51,6 +51,9 @@ module DatadogAPIClient::V2
     # Product Scales configuration for the RUM application.
     attr_accessor :product_scales
 
+    # ID of the RUM SDK remote configuration for the application, if one exists.
+    attr_accessor :remote_config_id
+
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
     attr_reader :type
 
@@ -76,6 +79,7 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'org_id' => :'org_id',
         :'product_scales' => :'product_scales',
+        :'remote_config_id' => :'remote_config_id',
         :'type' => :'type',
         :'updated_at' => :'updated_at',
         :'updated_by_handle' => :'updated_by_handle'
@@ -96,6 +100,7 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'org_id' => :'Integer',
         :'product_scales' => :'RUMProductScales',
+        :'remote_config_id' => :'String',
         :'type' => :'String',
         :'updated_at' => :'Integer',
         :'updated_by_handle' => :'String'
@@ -158,6 +163,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'product_scales')
         self.product_scales = attributes[:'product_scales']
+      end
+
+      if attributes.key?(:'remote_config_id')
+        self.remote_config_id = attributes[:'remote_config_id']
       end
 
       if attributes.key?(:'type')
@@ -330,6 +339,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           org_id == o.org_id &&
           product_scales == o.product_scales &&
+          remote_config_id == o.remote_config_id &&
           type == o.type &&
           updated_at == o.updated_at &&
           updated_by_handle == o.updated_by_handle &&
@@ -340,7 +350,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key_id, application_id, client_token, created_at, created_by_handle, _hash, is_active, name, org_id, product_scales, type, updated_at, updated_by_handle, additional_properties].hash
+      [api_key_id, application_id, client_token, created_at, created_by_handle, _hash, is_active, name, org_id, product_scales, remote_config_id, type, updated_at, updated_by_handle, additional_properties].hash
     end
   end
 end
