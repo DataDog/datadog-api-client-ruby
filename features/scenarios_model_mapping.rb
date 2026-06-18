@@ -2048,6 +2048,66 @@ ScenariosModelMappings = {
     "v2.UpdateFindingsAssignee" => {
             "body" => "AssigneeRequest",
     },
+    "v2.ListSecurityFindingsAutomationDueDateRules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateSecurityFindingsAutomationDueDateRule" => {
+            "body" => "DueDateRuleCreateRequest",
+    },
+    "v2.ReorderSecurityFindingsAutomationDueDateRules" => {
+            "body" => "DueDateRuleReorderRequest",
+    },
+    "v2.DeleteSecurityFindingsAutomationDueDateRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetSecurityFindingsAutomationDueDateRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.UpdateSecurityFindingsAutomationDueDateRule" => {
+            "rule_id" => "UUID",
+            "body" => "DueDateRuleUpdateRequest",
+    },
+    "v2.ListSecurityFindingsAutomationMuteRules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateSecurityFindingsAutomationMuteRule" => {
+            "body" => "MuteRuleCreateRequest",
+    },
+    "v2.ReorderSecurityFindingsAutomationMuteRules" => {
+            "body" => "MuteRuleReorderRequest",
+    },
+    "v2.DeleteSecurityFindingsAutomationMuteRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetSecurityFindingsAutomationMuteRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.UpdateSecurityFindingsAutomationMuteRule" => {
+            "rule_id" => "UUID",
+            "body" => "MuteRuleUpdateRequest",
+    },
+    "v2.ListSecurityFindingsAutomationTicketCreationRules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateSecurityFindingsAutomationTicketCreationRule" => {
+            "body" => "TicketCreationRuleCreateRequest",
+    },
+    "v2.ReorderSecurityFindingsAutomationTicketCreationRules" => {
+            "body" => "TicketCreationRuleReorderRequest",
+    },
+    "v2.DeleteSecurityFindingsAutomationTicketCreationRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetSecurityFindingsAutomationTicketCreationRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.UpdateSecurityFindingsAutomationTicketCreationRule" => {
+            "rule_id" => "UUID",
+            "body" => "TicketCreationRuleUpdateRequest",
+    },
     "v2.DetachCase" => {
             "body" => "DetachCaseRequest",
     },
