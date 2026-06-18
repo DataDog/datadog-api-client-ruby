@@ -5943,6 +5943,24 @@ ScenariosModelMappings = {
             "uuid" => "UUID",
             "body" => "CreateOrUpdateWidgetRequest",
     },
+    "v2.CreateAwsWifIntakeMapping" => {
+            "body" => "AwsWifIntakeMappingCreateRequest",
+    },
+    "v2.DeleteAwsWifIntakeMapping" => {
+            "config_uuid" => "UUID",
+    },
+    "v2.GetAwsWifIntakeMapping" => {
+            "config_uuid" => "UUID",
+    },
+    "v2.CreateAwsWifPersonaMapping" => {
+            "body" => "AwsWifPersonaMappingCreateRequest",
+    },
+    "v2.DeleteAwsWifPersonaMapping" => {
+            "config_uuid" => "UUID",
+    },
+    "v2.GetAwsWifPersonaMapping" => {
+            "config_uuid" => "UUID",
+    },
     "v2.ListWorkflows" => {
             "limit" => "Integer",
             "page" => "Integer",
