@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The components affected.
-    attr_reader :components_affected
+    attr_accessor :components_affected
 
     # A description of the update.
     attr_reader :description
@@ -98,21 +98,10 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @components_affected.nil?
       return false if @description.nil?
       return false if @started_at.nil?
       return false if @status.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param components_affected [Object] Object to be assigned
-    # @!visibility private
-    def components_affected=(components_affected)
-      if components_affected.nil?
-        fail ArgumentError, 'invalid value for "components_affected", components_affected cannot be nil.'
-      end
-      @components_affected = components_affected
     end
 
     # Custom attribute writer method with validation

@@ -57,6 +57,12 @@ module DatadogAPIClient::V2
     # The url that the status page is accessible at.
     attr_accessor :page_url
 
+    # The Slack app icon URL for the status page.
+    attr_accessor :slack_app_icon
+
+    # Whether Slack subscriptions are enabled for the status page.
+    attr_accessor :slack_subscriptions_enabled
+
     # Whether users can subscribe to the status page.
     attr_accessor :subscriptions_enabled
 
@@ -84,6 +90,8 @@ module DatadogAPIClient::V2
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'page_url' => :'page_url',
+        :'slack_app_icon' => :'slack_app_icon',
+        :'slack_subscriptions_enabled' => :'slack_subscriptions_enabled',
         :'subscriptions_enabled' => :'subscriptions_enabled',
         :'type' => :'type',
         :'visualization_type' => :'visualization_type'
@@ -106,6 +114,8 @@ module DatadogAPIClient::V2
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'page_url' => :'String',
+        :'slack_app_icon' => :'String',
+        :'slack_subscriptions_enabled' => :'Boolean',
         :'subscriptions_enabled' => :'Boolean',
         :'type' => :'CreateStatusPageRequestDataAttributesType',
         :'visualization_type' => :'CreateStatusPageRequestDataAttributesVisualizationType'
@@ -180,6 +190,14 @@ module DatadogAPIClient::V2
         self.page_url = attributes[:'page_url']
       end
 
+      if attributes.key?(:'slack_app_icon')
+        self.slack_app_icon = attributes[:'slack_app_icon']
+      end
+
+      if attributes.key?(:'slack_subscriptions_enabled')
+        self.slack_subscriptions_enabled = attributes[:'slack_subscriptions_enabled']
+      end
+
       if attributes.key?(:'subscriptions_enabled')
         self.subscriptions_enabled = attributes[:'subscriptions_enabled']
       end
@@ -231,6 +249,8 @@ module DatadogAPIClient::V2
           modified_at == o.modified_at &&
           name == o.name &&
           page_url == o.page_url &&
+          slack_app_icon == o.slack_app_icon &&
+          slack_subscriptions_enabled == o.slack_subscriptions_enabled &&
           subscriptions_enabled == o.subscriptions_enabled &&
           type == o.type &&
           visualization_type == o.visualization_type &&
@@ -241,7 +261,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, components, created_at, custom_domain, custom_domain_enabled, domain_prefix, email_header_image, enabled, favicon, modified_at, name, page_url, subscriptions_enabled, type, visualization_type, additional_properties].hash
+      [company_logo, components, created_at, custom_domain, custom_domain_enabled, domain_prefix, email_header_image, enabled, favicon, modified_at, name, page_url, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_type, additional_properties].hash
     end
   end
 end

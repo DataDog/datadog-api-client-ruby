@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     attr_reader :completed_description
 
     # The components affected by the maintenance.
-    attr_reader :components_affected
+    attr_accessor :components_affected
 
     # The description shown while the maintenance is in progress.
     attr_reader :in_progress_description
@@ -127,7 +127,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @completed_date.nil?
       return false if @completed_description.nil?
-      return false if @components_affected.nil?
       return false if @in_progress_description.nil?
       return false if @scheduled_description.nil?
       return false if @start_date.nil?
@@ -153,16 +152,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "completed_description", completed_description cannot be nil.'
       end
       @completed_description = completed_description
-    end
-
-    # Custom attribute writer method with validation
-    # @param components_affected [Object] Object to be assigned
-    # @!visibility private
-    def components_affected=(components_affected)
-      if components_affected.nil?
-        fail ArgumentError, 'invalid value for "components_affected", components_affected cannot be nil.'
-      end
-      @components_affected = components_affected
     end
 
     # Custom attribute writer method with validation
