@@ -19,25 +19,38 @@ require 'time'
 module DatadogAPIClient::V2
   # Attributes for updating Test Optimization service settings.
   # All non-required fields are optional; only provided fields will be updated.
+  # Setting a field to `null` is a no-op. To reset a setting to inherit from the repository level, use the corresponding `<setting>_inherit` field.
   class TestOptimizationUpdateServiceSettingsRequestAttributes
     include BaseGenericModel
 
-    # Whether Auto Test Retries are enabled for this service.
+    # Whether Auto Test Retries are enabled for this service. Setting to `null` is a no-op; use `auto_test_retries_enabled_inherit` to reset to repository-level inheritance.
     attr_accessor :auto_test_retries_enabled
 
-    # Whether Code Coverage is enabled for this service.
+    # When `true`, resets the Auto Test Retries setting to inherit from the repository level.
+    attr_accessor :auto_test_retries_enabled_inherit
+
+    # Whether Code Coverage is enabled for this service. Setting to `null` is a no-op; use `code_coverage_enabled_inherit` to reset to repository-level inheritance.
     attr_accessor :code_coverage_enabled
 
-    # Whether Early Flake Detection is enabled for this service.
+    # When `true`, resets the Code Coverage setting to inherit from the repository level.
+    attr_accessor :code_coverage_enabled_inherit
+
+    # Whether Early Flake Detection is enabled for this service. Setting to `null` is a no-op; use `early_flake_detection_enabled_inherit` to reset to repository-level inheritance.
     attr_accessor :early_flake_detection_enabled
+
+    # When `true`, resets the Early Flake Detection setting to inherit from the repository level.
+    attr_accessor :early_flake_detection_enabled_inherit
 
     # The environment name. If omitted, defaults to `none`.
     attr_accessor :env
 
-    # Whether Failed Test Replay is enabled for this service.
+    # Whether Failed Test Replay is enabled for this service. Setting to `null` is a no-op; use `failed_test_replay_enabled_inherit` to reset to repository-level inheritance.
     attr_accessor :failed_test_replay_enabled
 
-    # Whether PR Comments are enabled for this service.
+    # When `true`, resets the Failed Test Replay setting to inherit from the repository level.
+    attr_accessor :failed_test_replay_enabled_inherit
+
+    # This field is ignored. PR Comments cannot be overridden at the service level.
     attr_accessor :pr_comments_enabled
 
     # The repository identifier.
@@ -46,8 +59,11 @@ module DatadogAPIClient::V2
     # The service name.
     attr_reader :service_name
 
-    # Whether Test Impact Analysis is enabled for this service.
+    # Whether Test Impact Analysis is enabled for this service. Setting to `null` is a no-op; use `test_impact_analysis_enabled_inherit` to reset to repository-level inheritance.
     attr_accessor :test_impact_analysis_enabled
+
+    # When `true`, resets the Test Impact Analysis setting to inherit from the repository level.
+    attr_accessor :test_impact_analysis_enabled_inherit
 
     attr_accessor :additional_properties
 
@@ -56,14 +72,19 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auto_test_retries_enabled' => :'auto_test_retries_enabled',
+        :'auto_test_retries_enabled_inherit' => :'auto_test_retries_enabled_inherit',
         :'code_coverage_enabled' => :'code_coverage_enabled',
+        :'code_coverage_enabled_inherit' => :'code_coverage_enabled_inherit',
         :'early_flake_detection_enabled' => :'early_flake_detection_enabled',
+        :'early_flake_detection_enabled_inherit' => :'early_flake_detection_enabled_inherit',
         :'env' => :'env',
         :'failed_test_replay_enabled' => :'failed_test_replay_enabled',
+        :'failed_test_replay_enabled_inherit' => :'failed_test_replay_enabled_inherit',
         :'pr_comments_enabled' => :'pr_comments_enabled',
         :'repository_id' => :'repository_id',
         :'service_name' => :'service_name',
-        :'test_impact_analysis_enabled' => :'test_impact_analysis_enabled'
+        :'test_impact_analysis_enabled' => :'test_impact_analysis_enabled',
+        :'test_impact_analysis_enabled_inherit' => :'test_impact_analysis_enabled_inherit'
       }
     end
 
@@ -72,14 +93,19 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auto_test_retries_enabled' => :'Boolean',
+        :'auto_test_retries_enabled_inherit' => :'Boolean',
         :'code_coverage_enabled' => :'Boolean',
+        :'code_coverage_enabled_inherit' => :'Boolean',
         :'early_flake_detection_enabled' => :'Boolean',
+        :'early_flake_detection_enabled_inherit' => :'Boolean',
         :'env' => :'String',
         :'failed_test_replay_enabled' => :'Boolean',
+        :'failed_test_replay_enabled_inherit' => :'Boolean',
         :'pr_comments_enabled' => :'Boolean',
         :'repository_id' => :'String',
         :'service_name' => :'String',
-        :'test_impact_analysis_enabled' => :'Boolean'
+        :'test_impact_analysis_enabled' => :'Boolean',
+        :'test_impact_analysis_enabled_inherit' => :'Boolean'
       }
     end
 
@@ -105,12 +131,24 @@ module DatadogAPIClient::V2
         self.auto_test_retries_enabled = attributes[:'auto_test_retries_enabled']
       end
 
+      if attributes.key?(:'auto_test_retries_enabled_inherit')
+        self.auto_test_retries_enabled_inherit = attributes[:'auto_test_retries_enabled_inherit']
+      end
+
       if attributes.key?(:'code_coverage_enabled')
         self.code_coverage_enabled = attributes[:'code_coverage_enabled']
       end
 
+      if attributes.key?(:'code_coverage_enabled_inherit')
+        self.code_coverage_enabled_inherit = attributes[:'code_coverage_enabled_inherit']
+      end
+
       if attributes.key?(:'early_flake_detection_enabled')
         self.early_flake_detection_enabled = attributes[:'early_flake_detection_enabled']
+      end
+
+      if attributes.key?(:'early_flake_detection_enabled_inherit')
+        self.early_flake_detection_enabled_inherit = attributes[:'early_flake_detection_enabled_inherit']
       end
 
       if attributes.key?(:'env')
@@ -119,6 +157,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'failed_test_replay_enabled')
         self.failed_test_replay_enabled = attributes[:'failed_test_replay_enabled']
+      end
+
+      if attributes.key?(:'failed_test_replay_enabled_inherit')
+        self.failed_test_replay_enabled_inherit = attributes[:'failed_test_replay_enabled_inherit']
       end
 
       if attributes.key?(:'pr_comments_enabled')
@@ -135,6 +177,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'test_impact_analysis_enabled')
         self.test_impact_analysis_enabled = attributes[:'test_impact_analysis_enabled']
+      end
+
+      if attributes.key?(:'test_impact_analysis_enabled_inherit')
+        self.test_impact_analysis_enabled_inherit = attributes[:'test_impact_analysis_enabled_inherit']
       end
     end
 
@@ -202,14 +248,19 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auto_test_retries_enabled == o.auto_test_retries_enabled &&
+          auto_test_retries_enabled_inherit == o.auto_test_retries_enabled_inherit &&
           code_coverage_enabled == o.code_coverage_enabled &&
+          code_coverage_enabled_inherit == o.code_coverage_enabled_inherit &&
           early_flake_detection_enabled == o.early_flake_detection_enabled &&
+          early_flake_detection_enabled_inherit == o.early_flake_detection_enabled_inherit &&
           env == o.env &&
           failed_test_replay_enabled == o.failed_test_replay_enabled &&
+          failed_test_replay_enabled_inherit == o.failed_test_replay_enabled_inherit &&
           pr_comments_enabled == o.pr_comments_enabled &&
           repository_id == o.repository_id &&
           service_name == o.service_name &&
           test_impact_analysis_enabled == o.test_impact_analysis_enabled &&
+          test_impact_analysis_enabled_inherit == o.test_impact_analysis_enabled_inherit &&
           additional_properties == o.additional_properties
     end
 
@@ -217,7 +268,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_test_retries_enabled, code_coverage_enabled, early_flake_detection_enabled, env, failed_test_replay_enabled, pr_comments_enabled, repository_id, service_name, test_impact_analysis_enabled, additional_properties].hash
+      [auto_test_retries_enabled, auto_test_retries_enabled_inherit, code_coverage_enabled, code_coverage_enabled_inherit, early_flake_detection_enabled, early_flake_detection_enabled_inherit, env, failed_test_replay_enabled, failed_test_replay_enabled_inherit, pr_comments_enabled, repository_id, service_name, test_impact_analysis_enabled, test_impact_analysis_enabled_inherit, additional_properties].hash
     end
   end
 end
