@@ -11,6 +11,7 @@ body = DatadogAPIClient::V2::BranchCoverageSummaryRequest.new({
     attributes: DatadogAPIClient::V2::BranchCoverageSummaryRequestAttributes.new({
       branch: "prod",
       repository_id: "github.com/datadog/shopist",
+      repository_url: "https://github.com/datadog/shopist",
     }),
     type: DatadogAPIClient::V2::BranchCoverageSummaryRequestType::CI_APP_COVERAGE_BRANCH_SUMMARY_REQUEST,
   }),
