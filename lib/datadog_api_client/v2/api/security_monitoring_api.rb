@@ -888,8 +888,9 @@ module DatadogAPIClient::V2
     #
     # Export multiple security monitoring resources to Terraform, packaged as a zip archive.
     # The `resource_type` path parameter specifies the type of resources to export
-    # and must be one of `suppressions` or `critical_assets`.
+    # and must be one of `suppressions`, `critical_assets`, `security_filters`, or `rules`.
     # A maximum of 1000 resources can be exported in a single request.
+    # For `rules`, partner rules cannot be exported and return a 400 error.
     #
     # @param resource_type [SecurityMonitoringTerraformResourceType] The type of security monitoring resource to export.
     # @param body [SecurityMonitoringTerraformBulkExportRequest] The resource IDs to export.
@@ -911,7 +912,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'resource_type' when calling SecurityMonitoringAPI.bulk_export_security_monitoring_terraform_resources"
       end
       # verify enum value
-      allowable_values = ['suppressions', 'critical_assets']
+      allowable_values = ['suppressions', 'critical_assets', 'security_filters', 'rules']
       if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
         fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
       end
@@ -1262,7 +1263,7 @@ module DatadogAPIClient::V2
     #
     # Convert a security monitoring resource that doesn't (yet) exist from JSON to Terraform.
     # The `resource_type` path parameter specifies the type of resource to convert
-    # and must be one of `suppressions` or `critical_assets`.
+    # and must be one of `suppressions`, `critical_assets`, `security_filters`, or `rules`.
     #
     # @param resource_type [SecurityMonitoringTerraformResourceType] The type of security monitoring resource to export.
     # @param body [SecurityMonitoringTerraformConvertRequest] The resource JSON to convert.
@@ -1284,7 +1285,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'resource_type' when calling SecurityMonitoringAPI.convert_security_monitoring_terraform_resource"
       end
       # verify enum value
-      allowable_values = ['suppressions', 'critical_assets']
+      allowable_values = ['suppressions', 'critical_assets', 'security_filters', 'rules']
       if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
         fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
       end
@@ -4088,7 +4089,8 @@ module DatadogAPIClient::V2
     #
     # Export a security monitoring resource to a Terraform configuration.
     # The `resource_type` path parameter specifies the type of resource to export
-    # and must be one of `suppressions` or `critical_assets`.
+    # and must be one of `suppressions`, `critical_assets`, `security_filters`, or `rules`.
+    # For `rules`, partner rules cannot be exported and return a 400 error.
     #
     # @param resource_type [SecurityMonitoringTerraformResourceType] The type of security monitoring resource to export.
     # @param resource_id [String] The ID of the security monitoring resource to export.
@@ -4110,7 +4112,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'resource_type' when calling SecurityMonitoringAPI.export_security_monitoring_terraform_resource"
       end
       # verify enum value
-      allowable_values = ['suppressions', 'critical_assets']
+      allowable_values = ['suppressions', 'critical_assets', 'security_filters', 'rules']
       if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
         fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
       end

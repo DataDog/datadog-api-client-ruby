@@ -23,5 +23,7 @@ module DatadogAPIClient::V2
 
     SUPPRESSIONS = "suppressions".freeze
     CRITICAL_ASSETS = "critical_assets".freeze
+    SECURITY_FILTERS = "security_filters".freeze
+    RULES = "rules".freeze
   end
 end
