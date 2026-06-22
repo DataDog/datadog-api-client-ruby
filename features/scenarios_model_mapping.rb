@@ -2699,6 +2699,9 @@ ScenariosModelMappings = {
     "v2.UpsertBudget" => {
             "body" => "BudgetWithEntries",
     },
+    "v2.UpsertCustomForecast" => {
+            "body" => "CustomForecastUpsertRequest",
+    },
     "v2.ValidateBudget" => {
             "body" => "BudgetValidationRequest",
     },
@@ -2706,6 +2709,9 @@ ScenariosModelMappings = {
             "budget_id" => "String",
     },
     "v2.GetBudget" => {
+            "budget_id" => "String",
+    },
+    "v2.DeleteCustomForecast" => {
             "budget_id" => "String",
     },
     "v2.GetCommitmentsCommitmentList" => {
