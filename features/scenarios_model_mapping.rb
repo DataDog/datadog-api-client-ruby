@@ -839,6 +839,25 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.ExecuteRemediation" => {
+            "body" => "RemediationExecuteRequest",
+    },
+    "v2.GetEcsRemediationInvestigation" => {
+            "id" => "String",
+    },
+    "v2.ListEcsRemediationInvestigations" => {
+            "cluster_arn" => "String",
+            "cluster_name" => "String",
+            "service_arn" => "String",
+            "task_arn" => "String",
+            "resource_arn" => "String",
+            "status" => "Array<String>",
+            "issue_type" => "String",
+            "since_ms" => "Integer",
+            "until_ms" => "Integer",
+            "page_size" => "Integer",
+            "page_token" => "String",
+    },
     "v2.ListFleetAgents" => {
             "page_number" => "Integer",
             "page_size" => "Integer",
