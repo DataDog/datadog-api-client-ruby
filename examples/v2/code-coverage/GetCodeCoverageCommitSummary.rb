@@ -11,6 +11,7 @@ body = DatadogAPIClient::V2::CommitCoverageSummaryRequest.new({
     attributes: DatadogAPIClient::V2::CommitCoverageSummaryRequestAttributes.new({
       commit_sha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
       repository_id: "github.com/datadog/shopist",
+      repository_url: "https://github.com/datadog/shopist",
     }),
     type: DatadogAPIClient::V2::CommitCoverageSummaryRequestType::CI_APP_COVERAGE_COMMIT_SUMMARY_REQUEST,
   }),

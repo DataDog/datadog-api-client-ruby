@@ -24,8 +24,11 @@ module DatadogAPIClient::V2
     # The branch name.
     attr_reader :branch
 
-    # The repository identifier.
+    # Deprecated: use `repository_url` instead. The repository URL.
     attr_reader :repository_id
+
+    # The repository URL. Accepts a full URL with or without a scheme (for example, `https://github.com/org/repo` or `github.com/org/repo`).
+    attr_reader :repository_url
 
     attr_accessor :additional_properties
 
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'branch' => :'branch',
-        :'repository_id' => :'repository_id'
+        :'repository_id' => :'repository_id',
+        :'repository_url' => :'repository_url'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'branch' => :'String',
-        :'repository_id' => :'String'
+        :'repository_id' => :'String',
+        :'repository_url' => :'String'
       }
     end
 
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'repository_id')
         self.repository_id = attributes[:'repository_id']
       end
+
+      if attributes.key?(:'repository_url')
+        self.repository_url = attributes[:'repository_url']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -80,8 +89,8 @@ module DatadogAPIClient::V2
     def valid?
       return false if @branch.nil?
       return false if @branch.to_s.length < 1
-      return false if @repository_id.nil?
-      return false if @repository_id.to_s.length < 1
+      return false if !@repository_id.nil? && @repository_id.to_s.length < 1
+      return false if !@repository_url.nil? && @repository_url.to_s.length < 1
       true
     end
 
@@ -102,13 +111,20 @@ module DatadogAPIClient::V2
     # @param repository_id [Object] Object to be assigned
     # @!visibility private
     def repository_id=(repository_id)
-      if repository_id.nil?
-        fail ArgumentError, 'invalid value for "repository_id", repository_id cannot be nil.'
-      end
-      if repository_id.to_s.length < 1
+      if !repository_id.nil? && repository_id.to_s.length < 1
         fail ArgumentError, 'invalid value for "repository_id", the character length must be great than or equal to 1.'
       end
       @repository_id = repository_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param repository_url [Object] Object to be assigned
+    # @!visibility private
+    def repository_url=(repository_url)
+      if !repository_url.nil? && repository_url.to_s.length < 1
+        fail ArgumentError, 'invalid value for "repository_url", the character length must be great than or equal to 1.'
+      end
+      @repository_url = repository_url
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -139,6 +155,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           branch == o.branch &&
           repository_id == o.repository_id &&
+          repository_url == o.repository_url &&
           additional_properties == o.additional_properties
     end
 
@@ -146,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [branch, repository_id, additional_properties].hash
+      [branch, repository_id, repository_url, additional_properties].hash
     end
   end
 end
