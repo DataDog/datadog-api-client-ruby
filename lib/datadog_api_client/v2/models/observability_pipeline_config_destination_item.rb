@@ -33,6 +33,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineAmazonS3GenericDestination',
           :'ObservabilityPipelineAmazonSecurityLakeDestination',
           :'AzureStorageDestination',
+          :'ObservabilityPipelineClickhouseDestination',
           :'ObservabilityPipelineCloudPremDestination',
           :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
           :'ObservabilityPipelineDatadogLogsDestination',
