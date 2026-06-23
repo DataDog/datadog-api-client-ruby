@@ -17,8 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Definition of a logs processor.
-  module LogsProcessor
+  # A sub-processor used inside an array-map processor.
+  # Allowed types: `attribute-remapper`, `string-builder-processor`,
+  # `arithmetic-processor`, `category-processor`.
+  module LogsArrayMapSubProcessor
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,28 +28,10 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'LogsGrokParser',
-          :'LogsDateRemapper',
-          :'LogsStatusRemapper',
-          :'LogsServiceRemapper',
-          :'LogsMessageRemapper',
-          :'LogsAttributeRemapper',
-          :'LogsURLParser',
-          :'LogsUserAgentParser',
-          :'LogsCategoryProcessor',
-          :'LogsArithmeticProcessor',
-          :'LogsStringBuilderProcessor',
-          :'LogsPipelineProcessor',
-          :'LogsGeoIPParser',
-          :'LogsLookupProcessor',
-          :'ReferenceTableLogsLookupProcessor',
-          :'LogsTraceRemapper',
-          :'LogsSpanRemapper',
-          :'LogsArrayProcessor',
-          :'LogsDecoderProcessor',
-          :'LogsSchemaProcessor',
-          :'LogsExcludeAttributeProcessor',
-          :'LogsArrayMapProcessor'
+          :'LogsArrayMapAttributeRemapper',
+          :'LogsArrayMapArithmeticSubProcessor',
+          :'LogsArrayMapStringBuilderSubProcessor',
+          :'LogsArrayMapCategorySubProcessor'
         ]
       end
       # Builds the object
