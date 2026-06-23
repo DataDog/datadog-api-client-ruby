@@ -6,7 +6,7 @@ api_instance = DatadogAPIClient::V2::CIVisibilityPipelinesAPI.new
 body = DatadogAPIClient::V2::CIAppCreatePipelineEventRequest.new({
   data: DatadogAPIClient::V2::CIAppCreatePipelineEventRequestData.new({
     attributes: DatadogAPIClient::V2::CIAppCreatePipelineEventRequestAttributes.new({
-      resource: DatadogAPIClient::V2::CIAppPipelineEventJob.new({
+      resource: DatadogAPIClient::V2::CIAppPipelineEventFinishedJob.new({
         level: DatadogAPIClient::V2::CIAppPipelineEventJobLevel::JOB,
         id: "cf9456de-8b9e-4c27-aa79-27b1e78c1a33",
         name: "Build image",
