@@ -300,6 +300,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Add a variant to a feature flag.
+    #
+    # @see #create_variant_for_feature_flag_with_http_info
+    def create_variant_for_feature_flag(feature_flag_id, body, opts = {})
+      data, _status_code, _headers = create_variant_for_feature_flag_with_http_info(feature_flag_id, body, opts)
+      data
+    end
+
+    # Add a variant to a feature flag.
+    #
+    # Adds a single new variant to an existing feature flag. This endpoint is
+    # additive-only: it never modifies existing variants. A request whose `key`
+    # already exists on the flag is rejected with `409 Conflict`; a `value`
+    # whose type does not match the flag's `value_type` is rejected with `400`.
+    # The server generates the variant UUID and returns it in the response body;
+    # callers (for example, the flag-migration tool) need this UUID to reference
+    # the new variant in subsequent allocation syncs.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param body [CreateVariant] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Variant, Integer, Hash)>] Variant data, response status code and response headers
+    def create_variant_for_feature_flag_with_http_info(feature_flag_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.create_variant_for_feature_flag ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.create_variant_for_feature_flag"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.create_variant_for_feature_flag"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/variants'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Variant'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_variant_for_feature_flag,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#create_variant_for_feature_flag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an environment.
     #
     # @see #delete_feature_flags_environment_with_http_info
@@ -361,6 +439,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#delete_feature_flags_environment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a variant.
+    #
+    # @see #delete_variant_from_feature_flag_with_http_info
+    def delete_variant_from_feature_flag(feature_flag_id, variant_id, opts = {})
+      delete_variant_from_feature_flag_with_http_info(feature_flag_id, variant_id, opts)
+      nil
+    end
+
+    # Delete a variant.
+    #
+    # Deletes a variant from a feature flag.
+    #
+    # When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a `FlagSuggestion` with `201 Created` instead of deleting the variant immediately. If a pending suggestion already exists for this flag's variant property, the endpoint returns `409 Conflict`.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param variant_id [UUID] The ID of the variant.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_variant_from_feature_flag_with_http_info(feature_flag_id, variant_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.delete_variant_from_feature_flag ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.delete_variant_from_feature_flag"
+      end
+      # verify the required parameter 'variant_id' is set
+      if @api_client.config.client_side_validation && variant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'variant_id' when calling FeatureFlagsAPI.delete_variant_from_feature_flag"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/')).sub('{variant_id}', CGI.escape(variant_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_variant_from_feature_flag,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#delete_variant_from_feature_flag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1338,6 +1488,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#update_feature_flags_environment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a variant.
+    #
+    # @see #update_variant_for_feature_flag_with_http_info
+    def update_variant_for_feature_flag(feature_flag_id, variant_id, body, opts = {})
+      data, _status_code, _headers = update_variant_for_feature_flag_with_http_info(feature_flag_id, variant_id, body, opts)
+      data
+    end
+
+    # Update a variant.
+    #
+    # Updates the name and value of an existing variant on a feature flag.
+    #
+    # When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a `FlagSuggestion` with `201 Created` instead of applying the change immediately. Use the returned suggestion `id` to approve or reject the change. If a pending suggestion already exists for this flag's variant property, the endpoint returns `409 Conflict`.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param variant_id [UUID] The ID of the variant.
+    # @param body [UpdateVariantRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Variant, Integer, Hash)>] Variant data, response status code and response headers
+    def update_variant_for_feature_flag_with_http_info(feature_flag_id, variant_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.update_variant_for_feature_flag ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.update_variant_for_feature_flag"
+      end
+      # verify the required parameter 'variant_id' is set
+      if @api_client.config.client_side_validation && variant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'variant_id' when calling FeatureFlagsAPI.update_variant_for_feature_flag"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.update_variant_for_feature_flag"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/')).sub('{variant_id}', CGI.escape(variant_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Variant'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_variant_for_feature_flag,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#update_variant_for_feature_flag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

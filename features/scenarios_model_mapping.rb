@@ -3289,6 +3289,19 @@ ScenariosModelMappings = {
     "v2.UnarchiveFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },
+    "v2.CreateVariantForFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+            "body" => "CreateVariant",
+    },
+    "v2.DeleteVariantFromFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+            "variant_id" => "UUID",
+    },
+    "v2.UpdateVariantForFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+            "variant_id" => "UUID",
+            "body" => "UpdateVariantRequest",
+    },
     "v2.CreateForm" => {
             "body" => "CreateFormRequest",
     },
