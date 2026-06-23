@@ -7572,6 +7572,7 @@ module DatadogAPIClient
           "v2.update_tenancy_config_data_attributes_regions_config" => "UpdateTenancyConfigDataAttributesRegionsConfig",
           "v2.update_tenancy_config_data_type" => "UpdateTenancyConfigDataType",
           "v2.update_tenancy_config_request" => "UpdateTenancyConfigRequest",
+          "v2.update_variant_request" => "UpdateVariantRequest",
           "v2.update_workflow_request" => "UpdateWorkflowRequest",
           "v2.update_workflow_response" => "UpdateWorkflowResponse",
           "v2.upsert_allocation_request" => "UpsertAllocationRequest",
