@@ -4454,6 +4454,8 @@ module DatadogAPIClient
           "v2.logs_archive_integration_azure" => "LogsArchiveIntegrationAzure",
           "v2.logs_archive_integration_gcs" => "LogsArchiveIntegrationGCS",
           "v2.logs_archive_integration_s3" => "LogsArchiveIntegrationS3",
+          "v2.logs_archive_integration_s3_access_key" => "LogsArchiveIntegrationS3AccessKey",
+          "v2.logs_archive_integration_s3_role" => "LogsArchiveIntegrationS3Role",
           "v2.logs_archive_order" => "LogsArchiveOrder",
           "v2.logs_archive_order_attributes" => "LogsArchiveOrderAttributes",
           "v2.logs_archive_order_definition" => "LogsArchiveOrderDefinition",
