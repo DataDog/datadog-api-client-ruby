@@ -42,6 +42,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSplunkTcpSource',
           :'ObservabilityPipelineSumoLogicSource',
           :'ObservabilityPipelineSyslogNgSource',
+          :'ObservabilityPipelineWebsocketSource',
           :'ObservabilityPipelineOpentelemetrySource'
         ]
       end
