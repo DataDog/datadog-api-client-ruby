@@ -1038,10 +1038,14 @@ module DatadogAPIClient::V2
 
     # Get budget.
     #
-    # Get a budget
+    # Get a budget by ID. Pass `actual=true` or `forecast=true` to include cost data in the response. Use `start` and `end` (millisecond epochs, both required) to set the cost window. When `forecast=true`, each entry also includes `ootb_forecast` (the ML forecast before overrides) and `custom_forecast` (`null` if no override is set, a number if one is).
     #
     # @param budget_id [String] Budget id.
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :actual When `true`, includes actual cost data in the response.
+    # @option opts [Boolean] :forecast When `true`, includes forecast cost data in the response, including `ootb_forecast` and `custom_forecast` per entry.
+    # @option opts [Integer] :start Start of the cost window in milliseconds since epoch. Must be used together with `end`.
+    # @option opts [Integer] :_end End of the cost window in milliseconds since epoch. Must be used together with `start`.
     # @return [Array<(BudgetWithEntries, Integer, Hash)>] BudgetWithEntries data, response status code and response headers
     def get_budget_with_http_info(budget_id, opts = {})
 
@@ -1057,6 +1061,10 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'actual'] = opts[:'actual'] if !opts[:'actual'].nil?
+      query_params[:'forecast'] = opts[:'forecast'] if !opts[:'forecast'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+      query_params[:'end'] = opts[:'_end'] if !opts[:'_end'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

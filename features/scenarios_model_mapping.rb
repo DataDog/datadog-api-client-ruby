@@ -2710,6 +2710,10 @@ ScenariosModelMappings = {
     },
     "v2.GetBudget" => {
             "budget_id" => "String",
+            "actual" => "Boolean",
+            "forecast" => "Boolean",
+            "start" => "Integer",
+            "_end" => "Integer",
     },
     "v2.DeleteCustomForecast" => {
             "budget_id" => "String",
