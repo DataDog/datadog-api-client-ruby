@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The budgeted amount for this entry.
     attr_accessor :amount
 
+    # Cost data for a single budget entry.
+    attr_accessor :costs
+
     # The month this budget entry applies to, in YYYYMM format.
     attr_accessor :month
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'amount' => :'amount',
+        :'costs' => :'costs',
         :'month' => :'month',
         :'tag_filters' => :'tag_filters'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'amount' => :'Float',
+        :'costs' => :'BudgetWithEntriesDataAttributesEntriesItemsCosts',
         :'month' => :'Integer',
         :'tag_filters' => :'Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>'
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'amount')
         self.amount = attributes[:'amount']
+      end
+
+      if attributes.key?(:'costs')
+        self.costs = attributes[:'costs']
       end
 
       if attributes.key?(:'month')
@@ -112,6 +121,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           amount == o.amount &&
+          costs == o.costs &&
           month == o.month &&
           tag_filters == o.tag_filters &&
           additional_properties == o.additional_properties
@@ -121,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [amount, month, tag_filters, additional_properties].hash
+      [amount, costs, month, tag_filters, additional_properties].hash
     end
   end
 end

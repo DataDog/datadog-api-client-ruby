@@ -21,6 +21,18 @@ module DatadogAPIClient::V2
   class BudgetAttributes
     include BaseGenericModel
 
+    # Aggregated cost data for the budget over the requested period.
+    attr_accessor :costs
+
+    # The end of the period used to compute cost data, in milliseconds since epoch.
+    attr_accessor :costs_period_end
+
+    # The start of the period used to compute cost data, in milliseconds since epoch.
+    attr_accessor :costs_period_start
+
+    # The unit used for all cost values in the response.
+    attr_accessor :costs_unit
+
     # The timestamp when the budget was created.
     attr_accessor :created_at
 
@@ -60,6 +72,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'costs' => :'costs',
+        :'costs_period_end' => :'costs_period_end',
+        :'costs_period_start' => :'costs_period_start',
+        :'costs_unit' => :'costs_unit',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'end_month' => :'end_month',
@@ -78,6 +94,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'costs' => :'BudgetAttributesCosts',
+        :'costs_period_end' => :'Integer',
+        :'costs_period_start' => :'Integer',
+        :'costs_unit' => :'BudgetAttributesCostsUnit',
         :'created_at' => :'Integer',
         :'created_by' => :'String',
         :'end_month' => :'Integer',
@@ -109,6 +129,22 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'costs')
+        self.costs = attributes[:'costs']
+      end
+
+      if attributes.key?(:'costs_period_end')
+        self.costs_period_end = attributes[:'costs_period_end']
+      end
+
+      if attributes.key?(:'costs_period_start')
+        self.costs_period_start = attributes[:'costs_period_start']
+      end
+
+      if attributes.key?(:'costs_unit')
+        self.costs_unit = attributes[:'costs_unit']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -183,6 +219,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          costs == o.costs &&
+          costs_period_end == o.costs_period_end &&
+          costs_period_start == o.costs_period_start &&
+          costs_unit == o.costs_unit &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           end_month == o.end_month &&
@@ -201,7 +241,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, end_month, entries, metrics_query, name, org_id, start_month, total_amount, updated_at, updated_by, additional_properties].hash
+      [costs, costs_period_end, costs_period_start, costs_unit, created_at, created_by, end_month, entries, metrics_query, name, org_id, start_month, total_amount, updated_at, updated_by, additional_properties].hash
     end
   end
 end

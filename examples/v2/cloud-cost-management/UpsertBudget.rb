@@ -6,11 +6,25 @@ api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
 body = DatadogAPIClient::V2::BudgetWithEntries.new({
   data: DatadogAPIClient::V2::BudgetWithEntriesData.new({
     attributes: DatadogAPIClient::V2::BudgetAttributes.new({
+      costs: DatadogAPIClient::V2::BudgetAttributesCosts.new({
+        actual: nil,
+        amount: nil,
+        forecast: nil,
+        ootb_forecast: nil,
+      }),
+      costs_unit: DatadogAPIClient::V2::BudgetAttributesCostsUnit.new({}),
       created_at: 1738258683590,
       created_by: "00000000-0a0a-0a0a-aaa0-00000000000a",
       end_month: 202502,
       entries: [
         DatadogAPIClient::V2::BudgetWithEntriesDataAttributesEntriesItems.new({
+          costs: DatadogAPIClient::V2::BudgetWithEntriesDataAttributesEntriesItemsCosts.new({
+            actual: nil,
+            amount: nil,
+            custom_forecast: nil,
+            forecast: nil,
+            ootb_forecast: nil,
+          }),
           tag_filters: [
             DatadogAPIClient::V2::BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.new({}),
           ],
