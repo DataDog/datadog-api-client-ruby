@@ -827,6 +827,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a budget's custom forecast.
+    #
+    # @see #delete_custom_forecast_with_http_info
+    def delete_custom_forecast(budget_id, opts = {})
+      delete_custom_forecast_with_http_info(budget_id, opts)
+      nil
+    end
+
+    # Delete a budget's custom forecast.
+    #
+    # Delete the custom forecast for a budget.
+    #
+    # @param budget_id [String] Budget id.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_custom_forecast_with_http_info(budget_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_custom_forecast".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_custom_forecast")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_custom_forecast"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_forecast ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling CloudCostManagementAPI.delete_custom_forecast"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/budget/{budget_id}/custom-forecast'.sub('{budget_id}', CGI.escape(budget_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_custom_forecast,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_custom_forecast\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete tag pipeline ruleset.
     #
     # @see #delete_tag_pipelines_ruleset_with_http_info
@@ -4566,6 +4637,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#upsert_cost_tag_description_by_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or replace a budget's custom forecast.
+    #
+    # @see #upsert_custom_forecast_with_http_info
+    def upsert_custom_forecast(body, opts = {})
+      data, _status_code, _headers = upsert_custom_forecast_with_http_info(body, opts)
+      data
+    end
+
+    # Create or replace a budget's custom forecast.
+    #
+    # Create or replace the custom forecast for an existing budget.
+    # Pass an empty `entries` list to delete the custom forecast for the budget.
+    #
+    # @param body [CustomForecastUpsertRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomForecastResponse, Integer, Hash)>] CustomForecastResponse data, response status code and response headers
+    def upsert_custom_forecast_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_custom_forecast".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_custom_forecast")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_custom_forecast"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_custom_forecast ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.upsert_custom_forecast"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/budget/custom-forecast'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomForecastResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :upsert_custom_forecast,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#upsert_custom_forecast\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
