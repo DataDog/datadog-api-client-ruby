@@ -17,18 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Condition request payload for targeting rules.
+  # Condition request payload for targeting rules. A condition is either an inline
+  # predicate with `operator`, `attribute`, and `value`, or a reference to a
+  # saved filter with `saved_filter_id`. The two shapes are mutually exclusive.
   class ConditionRequest
     include BaseGenericModel
 
-    # The user or request attribute to evaluate.
-    attr_reader :attribute
+    # The user or request attribute to evaluate. Required for inline conditions; omit when `saved_filter_id` is set.
+    attr_accessor :attribute
 
     # The operator used in a targeting condition.
-    attr_reader :operator
+    attr_accessor :operator
 
-    # Values used by the selected operator.
-    attr_reader :value
+    # The ID of a saved filter to reference as this condition. Mutually exclusive
+    # with `operator`, `attribute`, and `value`. When set, the saved filter's
+    # targeting rules are evaluated in place of an inline predicate.
+    attr_accessor :saved_filter_id
+
+    # Values used by the selected operator. Required for inline conditions; omit when `saved_filter_id` is set.
+    attr_accessor :value
 
     attr_accessor :additional_properties
 
@@ -38,6 +45,7 @@ module DatadogAPIClient::V2
       {
         :'attribute' => :'attribute',
         :'operator' => :'operator',
+        :'saved_filter_id' => :'saved_filter_id',
         :'value' => :'value'
       }
     end
@@ -48,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'attribute' => :'String',
         :'operator' => :'ConditionOperator',
+        :'saved_filter_id' => :'UUID',
         :'value' => :'Array<String>'
       }
     end
@@ -78,51 +87,15 @@ module DatadogAPIClient::V2
         self.operator = attributes[:'operator']
       end
 
+      if attributes.key?(:'saved_filter_id')
+        self.saved_filter_id = attributes[:'saved_filter_id']
+      end
+
       if attributes.key?(:'value')
         if (value = attributes[:'value']).is_a?(Array)
           self.value = value
         end
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attribute.nil?
-      return false if @operator.nil?
-      return false if @value.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attribute [Object] Object to be assigned
-    # @!visibility private
-    def attribute=(attribute)
-      if attribute.nil?
-        fail ArgumentError, 'invalid value for "attribute", attribute cannot be nil.'
-      end
-      @attribute = attribute
-    end
-
-    # Custom attribute writer method with validation
-    # @param operator [Object] Object to be assigned
-    # @!visibility private
-    def operator=(operator)
-      if operator.nil?
-        fail ArgumentError, 'invalid value for "operator", operator cannot be nil.'
-      end
-      @operator = operator
-    end
-
-    # Custom attribute writer method with validation
-    # @param value [Object] Object to be assigned
-    # @!visibility private
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
-      end
-      @value = value
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -153,6 +126,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attribute == o.attribute &&
           operator == o.operator &&
+          saved_filter_id == o.saved_filter_id &&
           value == o.value &&
           additional_properties == o.additional_properties
     end
@@ -161,7 +135,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attribute, operator, value, additional_properties].hash
+      [attribute, operator, saved_filter_id, value, additional_properties].hash
     end
   end
 end
