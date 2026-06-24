@@ -3376,6 +3376,13 @@ ScenariosModelMappings = {
             "saml_config_uuid" => "String",
             "body" => "SAMLConfigurationUpdateRequest",
     },
+    "v2.GetGovernanceControl" => {
+            "detection_type" => "String",
+    },
+    "v2.UpdateGovernanceControl" => {
+            "detection_type" => "String",
+            "body" => "GovernanceControlUpdateRequest",
+    },
     "v2.ListGovernanceInsights" => {
             "with_values" => "Boolean",
             "org_uuid" => "String",
