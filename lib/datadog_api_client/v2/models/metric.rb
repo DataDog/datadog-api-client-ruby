@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object for a single metric tag configuration.
+  # Object for a single metric.
   class Metric
     include BaseGenericModel
 
     # The metric name for this resource.
     attr_accessor :id
+
+    # Relationships for a metric.
+    attr_accessor :relationships
 
     # The metric resource type.
     attr_accessor :type
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'id' => :'id',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'id' => :'String',
+        :'relationships' => :'MetricRelationships',
         :'type' => :'MetricType'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -101,6 +110,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type, additional_properties].hash
+      [id, relationships, type, additional_properties].hash
     end
   end
 end

@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The metric name for this resource.
     attr_accessor :id
 
+    # Relationships for a metric.
+    attr_accessor :relationships
+
     # The metric tag configuration resource type.
     attr_accessor :type
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'MetricTagConfigurationAttributes',
         :'id' => :'String',
+        :'relationships' => :'MetricRelationships',
         :'type' => :'MetricTagConfigurationType'
       }
     end
@@ -76,6 +81,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -111,6 +120,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [attributes, id, relationships, type, additional_properties].hash
     end
   end
 end
