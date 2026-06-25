@@ -3980,6 +3980,35 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "OktaAccountUpdateRequest",
     },
+    "v2.ListAmsIntegrationAccounts" => {
+            "integration_name" => "String",
+            "interface_id" => "String",
+    },
+    "v2.CreateAmsIntegrationAccount" => {
+            "integration_name" => "String",
+            "interface_id" => "String",
+            "body" => "AmsIntegrationAccountCreateRequest",
+    },
+    "v2.GetAmsIntegrationAccountSchema" => {
+            "integration_name" => "String",
+            "interface_id" => "String",
+    },
+    "v2.DeleteAmsIntegrationAccount" => {
+            "integration_name" => "String",
+            "interface_id" => "String",
+            "account_id" => "String",
+    },
+    "v2.GetAmsIntegrationAccount" => {
+            "integration_name" => "String",
+            "interface_id" => "String",
+            "account_id" => "String",
+    },
+    "v2.UpdateAmsIntegrationAccount" => {
+            "integration_name" => "String",
+            "interface_id" => "String",
+            "account_id" => "String",
+            "body" => "AmsIntegrationAccountUpdateRequest",
+    },
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
     },
