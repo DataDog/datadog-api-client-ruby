@@ -99,6 +99,295 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a report schedule.
+    #
+    # @see #delete_report_schedule_with_http_info
+    def delete_report_schedule(schedule_uuid, opts = {})
+      data, _status_code, _headers = delete_report_schedule_with_http_info(schedule_uuid, opts)
+      data
+    end
+
+    # Delete a report schedule.
+    #
+    # Delete a report schedule by its unique identifier. The response returns the deleted schedule.
+    # Requires a reporting write permission appropriate to the targeted resource type and schedule ownership.
+    #
+    # @param schedule_uuid [UUID] The unique identifier of the report schedule to delete.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ReportScheduleResponse, Integer, Hash)>] ReportScheduleResponse data, response status code and response headers
+    def delete_report_schedule_with_http_info(schedule_uuid, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.delete_report_schedule ...'
+      end
+      # verify the required parameter 'schedule_uuid' is set
+      if @api_client.config.client_side_validation && schedule_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_uuid' when calling ReportSchedulesAPI.delete_report_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/schedule/{schedule_uuid}'.sub('{schedule_uuid}', CGI.escape(schedule_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_report_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#delete_report_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a report schedule.
+    #
+    # @see #get_report_schedule_with_http_info
+    def get_report_schedule(schedule_uuid, opts = {})
+      data, _status_code, _headers = get_report_schedule_with_http_info(schedule_uuid, opts)
+      data
+    end
+
+    # Get a report schedule.
+    #
+    # Get a report schedule by its unique identifier.
+    # Requires a reporting read permission appropriate to the targeted resource type.
+    #
+    # @param schedule_uuid [UUID] The unique identifier of the report schedule to fetch.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ReportScheduleResponse, Integer, Hash)>] ReportScheduleResponse data, response status code and response headers
+    def get_report_schedule_with_http_info(schedule_uuid, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.get_report_schedule ...'
+      end
+      # verify the required parameter 'schedule_uuid' is set
+      if @api_client.config.client_side_validation && schedule_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_uuid' when calling ReportSchedulesAPI.get_report_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/schedule/{schedule_uuid}'.sub('{schedule_uuid}', CGI.escape(schedule_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_report_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#get_report_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get report schedules for a resource.
+    #
+    # @see #get_report_schedules_for_resource_with_http_info
+    def get_report_schedules_for_resource(resource_type, resource_id, opts = {})
+      data, _status_code, _headers = get_report_schedules_for_resource_with_http_info(resource_type, resource_id, opts)
+      data
+    end
+
+    # Get report schedules for a resource.
+    #
+    # Get all report schedules that target a dashboard or integration dashboard resource.
+    # Requires a reporting read permission appropriate to the targeted resource type.
+    #
+    # @param resource_type [ReportScheduleResourceType] The type of resource to fetch report schedules for.
+    # @param resource_id [String] The identifier of the resource to fetch report schedules for.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ReportScheduleListResponse, Integer, Hash)>] ReportScheduleListResponse data, response status code and response headers
+    def get_report_schedules_for_resource_with_http_info(resource_type, resource_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.get_report_schedules_for_resource ...'
+      end
+      # verify the required parameter 'resource_type' is set
+      if @api_client.config.client_side_validation && resource_type.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_type' when calling ReportSchedulesAPI.get_report_schedules_for_resource"
+      end
+      # verify enum value
+      allowable_values = ['dashboard', 'integration_dashboard']
+      if @api_client.config.client_side_validation && !allowable_values.include?(resource_type)
+        fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'resource_id' is set
+      if @api_client.config.client_side_validation && resource_id.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_id' when calling ReportSchedulesAPI.get_report_schedules_for_resource"
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/schedule/{resource_type}/{resource_id}'.sub('{resource_type}', CGI.escape(resource_type.to_s).gsub('%2F', '/')).sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ReportScheduleListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_report_schedules_for_resource,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#get_report_schedules_for_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List report schedules.
+    #
+    # @see #list_report_schedules_with_http_info
+    def list_report_schedules(opts = {})
+      data, _status_code, _headers = list_report_schedules_with_http_info(opts)
+      data
+    end
+
+    # List report schedules.
+    #
+    # List dashboard and integration dashboard report schedules for the organization.
+    # The response is paginated and can be filtered by title, author UUID, or recipients.
+    # Requires the `generate_dashboard_reports` permission.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit The maximum number of schedules to return. The maximum value is 50.
+    # @option opts [Integer] :page_offset The offset from which to start returning schedules.
+    # @option opts [String] :filter_title Filter schedules by report title.
+    # @option opts [UUID] :filter_author_uuid Filter schedules by author UUID.
+    # @option opts [String] :filter_recipients Filter schedules by a comma-separated list of recipients.
+    # @return [Array<(ReportScheduleListResponse, Integer, Hash)>] ReportScheduleListResponse data, response status code and response headers
+    def list_report_schedules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.list_report_schedules ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 50
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ReportSchedulesAPI.list_report_schedules, must be smaller than or equal to 50.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ReportSchedulesAPI.list_report_schedules, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling ReportSchedulesAPI.list_report_schedules, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/schedule/list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'filter[title]'] = opts[:'filter_title'] if !opts[:'filter_title'].nil?
+      query_params[:'filter[author_uuid]'] = opts[:'filter_author_uuid'] if !opts[:'filter_author_uuid'].nil?
+      query_params[:'filter[recipients]'] = opts[:'filter_recipients'] if !opts[:'filter_recipients'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ReportScheduleListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_report_schedules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#list_report_schedules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a report schedule.
     #
     # @see #patch_report_schedule_with_http_info
@@ -176,6 +465,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReportSchedulesAPI#patch_report_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Toggle a report schedule.
+    #
+    # @see #toggle_report_schedule_with_http_info
+    def toggle_report_schedule(schedule_uuid, body, opts = {})
+      data, _status_code, _headers = toggle_report_schedule_with_http_info(schedule_uuid, body, opts)
+      data
+    end
+
+    # Toggle a report schedule.
+    #
+    # Activate or pause a report schedule by setting its status to `active` or `inactive`.
+    # Requires a reporting write permission appropriate to the targeted resource type and schedule ownership.
+    #
+    # @param schedule_uuid [UUID] The unique identifier of the report schedule to toggle.
+    # @param body [ReportScheduleToggleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ReportScheduleResponse, Integer, Hash)>] ReportScheduleResponse data, response status code and response headers
+    def toggle_report_schedule_with_http_info(schedule_uuid, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.toggle_report_schedule ...'
+      end
+      # verify the required parameter 'schedule_uuid' is set
+      if @api_client.config.client_side_validation && schedule_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_uuid' when calling ReportSchedulesAPI.toggle_report_schedule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ReportSchedulesAPI.toggle_report_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/schedule/{schedule_uuid}/toggle'.sub('{schedule_uuid}', CGI.escape(schedule_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :toggle_report_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#toggle_report_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
