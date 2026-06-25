@@ -28,7 +28,7 @@ body = DatadogAPIClient::V2::ReportScheduleCreateRequest.new({
           ],
         }),
       ],
-      timeframe: "calendar_month",
+      timeframe: "1w",
       timezone: "America/New_York",
       title: "Weekly Infrastructure Report",
     }),

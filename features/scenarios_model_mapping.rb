@@ -4890,9 +4890,30 @@ ScenariosModelMappings = {
     "v2.CreateReportSchedule" => {
             "body" => "ReportScheduleCreateRequest",
     },
+    "v2.ListReportSchedules" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "filter_title" => "String",
+            "filter_author_uuid" => "UUID",
+            "filter_recipients" => "String",
+    },
+    "v2.GetReportSchedulesForResource" => {
+            "resource_type" => "ReportScheduleResourceType",
+            "resource_id" => "String",
+    },
+    "v2.DeleteReportSchedule" => {
+            "schedule_uuid" => "UUID",
+    },
+    "v2.GetReportSchedule" => {
+            "schedule_uuid" => "UUID",
+    },
     "v2.PatchReportSchedule" => {
             "schedule_uuid" => "UUID",
             "body" => "ReportSchedulePatchRequest",
+    },
+    "v2.ToggleReportSchedule" => {
+            "schedule_uuid" => "UUID",
+            "body" => "ReportScheduleToggleRequest",
     },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
