@@ -195,6 +195,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TagIndexingRuleResponse, Integer, Hash)>] TagIndexingRuleResponse data, response status code and response headers
     def create_tag_indexing_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_tag_indexing_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_tag_indexing_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_tag_indexing_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.create_tag_indexing_rule ...'
@@ -264,6 +270,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TagIndexingRuleExemptionResponse, Integer, Hash)>] TagIndexingRuleExemptionResponse data, response status code and response headers
     def create_tag_indexing_rule_exemption_with_http_info(metric_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_tag_indexing_rule_exemption".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_tag_indexing_rule_exemption")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_tag_indexing_rule_exemption"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.create_tag_indexing_rule_exemption ...'
@@ -479,6 +491,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_tag_indexing_rule_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_tag_indexing_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_tag_indexing_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_tag_indexing_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_tag_indexing_rule ...'
@@ -546,6 +564,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_tag_indexing_rule_exemption_with_http_info(metric_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_tag_indexing_rule_exemption".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_tag_indexing_rule_exemption")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_tag_indexing_rule_exemption"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_tag_indexing_rule_exemption ...'
@@ -763,6 +787,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TagIndexingRuleResponse, Integer, Hash)>] TagIndexingRuleResponse data, response status code and response headers
     def get_tag_indexing_rule_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_tag_indexing_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_tag_indexing_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_tag_indexing_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.get_tag_indexing_rule ...'
@@ -831,6 +861,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TagIndexingRuleExemptionResponse, Integer, Hash)>] TagIndexingRuleExemptionResponse data, response status code and response headers
     def get_tag_indexing_rule_exemption_with_http_info(metric_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_tag_indexing_rule_exemption".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_tag_indexing_rule_exemption")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_tag_indexing_rule_exemption"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.get_tag_indexing_rule_exemption ...'
@@ -1222,6 +1258,12 @@ module DatadogAPIClient::V2
     # @option opts [String] :search Substring filter on rule name.
     # @return [Array<(TagIndexingRulesResponse, Integer, Hash)>] TagIndexingRulesResponse data, response status code and response headers
     def list_tag_indexing_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_tag_indexing_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_tag_indexing_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_tag_indexing_rules"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_indexing_rules ...'
@@ -1287,6 +1329,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TagIndexingRulesResponse, Integer, Hash)>] TagIndexingRulesResponse data, response status code and response headers
     def list_tag_indexing_rules_for_metric_with_http_info(metric_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_tag_indexing_rules_for_metric".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_tag_indexing_rules_for_metric")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_tag_indexing_rules_for_metric"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_indexing_rules_for_metric ...'
@@ -1644,6 +1692,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def reorder_tag_indexing_rules_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.reorder_tag_indexing_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.reorder_tag_indexing_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.reorder_tag_indexing_rules"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.reorder_tag_indexing_rules ...'
@@ -1874,6 +1928,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TagIndexingRuleResponse, Integer, Hash)>] TagIndexingRuleResponse data, response status code and response headers
     def update_tag_indexing_rule_with_http_info(id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_tag_indexing_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_tag_indexing_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_tag_indexing_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.update_tag_indexing_rule ...'
