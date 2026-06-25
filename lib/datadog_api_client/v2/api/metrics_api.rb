@@ -1092,7 +1092,8 @@ module DatadogAPIClient::V2
     # Query parameters use bracket notation (for example, `filter[tags]`, `filter[queried][window][seconds]`). Pass them as standard URL query strings, URL-encoding the brackets if your client does not handle them. For example: `GET /api/v2/metrics?filter[tags]=env:prod&window[seconds]=86400&page[size]=500`.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Boolean] :filter_configured Only return custom metrics that have been configured with Metrics Without Limits.
+    # @option opts [Boolean] :filter_configured Only return custom metrics that have been configured (`true`) or not configured (`false`) with Metrics Without Limits.
+    # @option opts [Boolean] :filter_is_configurable Only return metrics that are eligible (`true`) or ineligible (`false`) for configuration with Metrics Without Limits.
     # @option opts [String] :filter_tags_configured Only return metrics that have the given tag key(s) in their Metrics Without Limits configuration (included or excluded).
     # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Only return metrics of the given metric type.
     # @option opts [Boolean] :filter_include_percentiles Only return distribution metrics that have percentile aggregations enabled (true) or disabled (false).
@@ -1100,6 +1101,8 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :filter_queried_window_seconds This parameter has no effect unless `filter[queried]` is also set. Only return metrics that have been queried or not queried in the specified window. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds (180 days), and the minimum value is 1 second. For example: `filter[queried]=true&filter[queried][window][seconds]=604800`.
     # @option opts [String] :filter_tags Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards. For example: `filter[tags]=env IN (staging,test) AND service:web*`.
     # @option opts [Boolean] :filter_related_assets Only return metrics that are used in at least one dashboard, monitor, notebook, or SLO.
+    # @option opts [String] :include Include related resources in the response. Set to `metric_volumes` to include indexed and ingested volume counts for each metric.
+    # @option opts [String] :sort Sort results by metric volume. Prefix a key with `-` for descending order. Supported keys: `metric_volumes.indexed_volume`, `metric_volumes.ingested_volume`, `metric_volumes.indexed_volume_delta`, `metric_volumes.ingested_volume_delta`. Requires a paginated request (`page[size]` or `page[cursor]`).
     # @option opts [Integer] :window_seconds Only return metrics that have been actively reporting in the specified window. The default value is 3600 seconds (1 hour), the maximum value is 2,592,000 seconds (30 days), and the minimum value is 1 second.
     # @option opts [Integer] :page_size Maximum number of results per page. Send `page[size]` on the first request to opt in to pagination. On each subsequent request, send `page[cursor]` set to the value of `meta.pagination.next_cursor` from the previous response. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
     # @option opts [String] :page_cursor Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
@@ -1137,6 +1140,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter[configured]'] = opts[:'filter_configured'] if !opts[:'filter_configured'].nil?
+      query_params[:'filter[is_configurable]'] = opts[:'filter_is_configurable'] if !opts[:'filter_is_configurable'].nil?
       query_params[:'filter[tags_configured]'] = opts[:'filter_tags_configured'] if !opts[:'filter_tags_configured'].nil?
       query_params[:'filter[metric_type]'] = opts[:'filter_metric_type'] if !opts[:'filter_metric_type'].nil?
       query_params[:'filter[include_percentiles]'] = opts[:'filter_include_percentiles'] if !opts[:'filter_include_percentiles'].nil?
@@ -1144,6 +1148,8 @@ module DatadogAPIClient::V2
       query_params[:'filter[queried][window][seconds]'] = opts[:'filter_queried_window_seconds'] if !opts[:'filter_queried_window_seconds'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'filter[related_assets]'] = opts[:'filter_related_assets'] if !opts[:'filter_related_assets'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?

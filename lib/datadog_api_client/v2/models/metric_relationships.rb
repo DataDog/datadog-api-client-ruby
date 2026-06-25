@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes metrics and metric tag configurations.
-  class MetricsAndMetricTagConfigurationsResponse
+  # Relationships for a metric.
+  class MetricRelationships
     include BaseGenericModel
 
-    # Array of metrics and metric tag configurations.
-    attr_accessor :data
-
-    # Array of metric volume resources included when requested with `include=metric_volumes`.
-    attr_accessor :included
-
-    # Pagination links. Only present if pagination query parameters were provided.
-    attr_accessor :links
-
-    # Response metadata object.
-    attr_accessor :meta
+    # Relationship to a metric volume included in the response.
+    attr_accessor :metric_volumes
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'metric_volumes' => :'metric_volumes'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<MetricsAndMetricTagConfigurations>',
-        :'included' => :'Array<MetricIngestedIndexedVolume>',
-        :'links' => :'MetricsListResponseLinks',
-        :'meta' => :'MetricPaginationMeta'
+        :'metric_volumes' => :'MetricVolumesRelationship'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,24 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
-      end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
-      end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'metric_volumes')
+        self.metric_volumes = attributes[:'metric_volumes']
       end
     end
 
@@ -122,10 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          included == o.included &&
-          links == o.links &&
-          meta == o.meta &&
+          metric_volumes == o.metric_volumes &&
           additional_properties == o.additional_properties
     end
 
@@ -133,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, links, meta, additional_properties].hash
+      [metric_volumes, additional_properties].hash
     end
   end
 end

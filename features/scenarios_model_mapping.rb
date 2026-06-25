@@ -4099,6 +4099,7 @@ ScenariosModelMappings = {
     },
     "v2.ListTagConfigurations" => {
             "filter_configured" => "Boolean",
+            "filter_is_configurable" => "Boolean",
             "filter_tags_configured" => "String",
             "filter_metric_type" => "MetricTagConfigurationMetricTypeCategory",
             "filter_include_percentiles" => "Boolean",
@@ -4106,6 +4107,8 @@ ScenariosModelMappings = {
             "filter_queried_window_seconds" => "Integer",
             "filter_tags" => "String",
             "filter_related_assets" => "Boolean",
+            "include" => "String",
+            "sort" => "String",
             "window_seconds" => "Integer",
             "page_size" => "Integer",
             "page_cursor" => "String",
