@@ -34,6 +34,9 @@ module DatadogAPIClient::V2
     # Required when `format` is `arrow_stream`. The `codec` field must be set to `arrow_stream`.
     attr_accessor :batch_encoding
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Compression setting for outbound HTTP requests to ClickHouse.
     # Can be specified as a shorthand string (`"gzip"` or `"none"`) or as an object
     # with an `algorithm` field and an optional `level` (gzip only, 1–9).
@@ -84,6 +87,7 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'batch' => :'batch',
         :'batch_encoding' => :'batch_encoding',
+        :'buffer' => :'buffer',
         :'compression' => :'compression',
         :'database' => :'database',
         :'date_time_best_effort' => :'date_time_best_effort',
@@ -105,6 +109,7 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineClickhouseDestinationAuth',
         :'batch' => :'ObservabilityPipelineClickhouseDestinationBatch',
         :'batch_encoding' => :'ObservabilityPipelineClickhouseDestinationBatchEncoding',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'compression' => :'ObservabilityPipelineClickhouseDestinationCompression',
         :'database' => :'String',
         :'date_time_best_effort' => :'Boolean',
@@ -155,6 +160,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'batch_encoding')
         self.batch_encoding = attributes[:'batch_encoding']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'compression')
@@ -284,6 +293,7 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           batch == o.batch &&
           batch_encoding == o.batch_encoding &&
+          buffer == o.buffer &&
           compression == o.compression &&
           database == o.database &&
           date_time_best_effort == o.date_time_best_effort &&
@@ -302,7 +312,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, batch, batch_encoding, compression, database, date_time_best_effort, endpoint_url_key, format, id, inputs, skip_unknown_fields, table, tls, type, additional_properties].hash
+      [auth, batch, batch_encoding, buffer, compression, database, date_time_best_effort, endpoint_url_key, format, id, inputs, skip_unknown_fields, table, tls, type, additional_properties].hash
     end
   end
 end
