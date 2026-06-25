@@ -37,6 +37,8 @@ module DatadogAPIClient::V2
     # - `@git.branch`
     # - `@test.codeowners`
     # - `env`
+    # - `failure_rate`
+    # - `pipelines_failed`
     attr_accessor :query
 
     attr_accessor :additional_properties
