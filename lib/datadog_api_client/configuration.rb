@@ -385,6 +385,7 @@ module DatadogAPIClient
             "v2.get_static_analysis_node_types": false,
             "v2.get_static_analysis_ruleset": false,
             "v2.get_static_analysis_tree_sitter_wasm": false,
+            "v2.import_security_vulnerabilities": false,
             "v2.list_findings": false,
             "v2.list_historical_jobs": false,
             "v2.list_indicators_of_compromise": false,
