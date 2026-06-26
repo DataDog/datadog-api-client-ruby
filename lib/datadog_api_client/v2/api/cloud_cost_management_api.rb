@@ -3260,6 +3260,7 @@ module DatadogAPIClient::V2
     # @param filter_month [String] The month to scope the query to, in `YYYY-MM` format.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_provider Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+    # @option opts [Boolean] :filter_enabled_metrics_only When `true`, only return metrics for currently enabled accounts. When omitted or `false`, return all metrics present in tag metadata. Metrics not recognized by Cloud Cost Management are always excluded.
     # @return [Array<(CostMetricsResponse, Integer, Hash)>] CostMetricsResponse data, response status code and response headers
     def list_cost_tag_metadata_metrics_with_http_info(filter_month, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_tag_metadata_metrics".to_sym]
@@ -3283,6 +3284,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'filter[month]'] = filter_month
       query_params[:'filter[provider]'] = opts[:'filter_provider'] if !opts[:'filter_provider'].nil?
+      query_params[:'filter[enabled_metrics_only]'] = opts[:'filter_enabled_metrics_only'] if !opts[:'filter_enabled_metrics_only'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
