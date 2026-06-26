@@ -2238,6 +2238,9 @@ ScenariosModelMappings = {
             "filter_asset_operating_system_name" => "String",
             "filter_asset_operating_system_version" => "String",
     },
+    "v2.ImportSecurityVulnerabilities" => {
+            "body" => "CycloneDXBom",
+    },
     "v2.CreateVulnerabilityNotificationRule" => {
             "body" => "CreateNotificationRuleParameters",
     },
