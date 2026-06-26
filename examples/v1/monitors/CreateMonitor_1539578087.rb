@@ -14,6 +14,7 @@ body = DatadogAPIClient::V1::Monitor.new({
     }),
     notify_audit: false,
     include_tags: false,
+    on_missing_data: DatadogAPIClient::V1::OnMissingDataOption::DEFAULT,
     scheduling_options: DatadogAPIClient::V1::MonitorOptionsSchedulingOptions.new({
       evaluation_window: DatadogAPIClient::V1::MonitorOptionsSchedulingOptionsEvaluationWindow.new({
         day_starts: "04:00",
