@@ -23,6 +23,81 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Mitigate governance detections.
+    #
+    # @see #create_governance_mitigation_with_http_info
+    def create_governance_mitigation(body, opts = {})
+      create_governance_mitigation_with_http_info(body, opts)
+      nil
+    end
+
+    # Mitigate governance detections.
+    #
+    # Apply a mitigation to a set of governance detections of a given detection type. When the
+    # mitigation type is omitted, the control's configured mitigation is used. The request is
+    # accepted for asynchronous processing.
+    #
+    # @param body [GovernanceMitigationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_governance_mitigation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_governance_mitigation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_governance_mitigation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_governance_mitigation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GovernanceControlsAPI.create_governance_mitigation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling GovernanceControlsAPI.create_governance_mitigation"
+      end
+      # resource path
+      local_var_path = '/api/v2/governance/mitigate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_governance_mitigation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GovernanceControlsAPI#create_governance_mitigation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a governance control.
     #
     # @see #get_governance_control_with_http_info
@@ -75,7 +150,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GovernanceControlResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_governance_control,
@@ -91,6 +166,237 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GovernanceControlsAPI#get_governance_control\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a governance control detection.
+    #
+    # @see #get_governance_control_detection_with_http_info
+    def get_governance_control_detection(detection_type, detection_id, opts = {})
+      data, _status_code, _headers = get_governance_control_detection_with_http_info(detection_type, detection_id, opts)
+      data
+    end
+
+    # Get a governance control detection.
+    #
+    # Retrieve a single detection produced by the governance control with the given detection type.
+    #
+    # @param detection_type [String] The detection type that identifies the control; for example, `unused_api_keys`.
+    # @param detection_id [String] The unique identifier of the detection.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GovernanceControlDetectionResponse, Integer, Hash)>] GovernanceControlDetectionResponse data, response status code and response headers
+    def get_governance_control_detection_with_http_info(detection_type, detection_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_governance_control_detection".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_governance_control_detection")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_governance_control_detection"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GovernanceControlsAPI.get_governance_control_detection ...'
+      end
+      # verify the required parameter 'detection_type' is set
+      if @api_client.config.client_side_validation && detection_type.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_type' when calling GovernanceControlsAPI.get_governance_control_detection"
+      end
+      # verify the required parameter 'detection_id' is set
+      if @api_client.config.client_side_validation && detection_id.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_id' when calling GovernanceControlsAPI.get_governance_control_detection"
+      end
+      # resource path
+      local_var_path = '/api/v2/governance/control/{detection_type}/detections/{detection_id}'.sub('{detection_type}', CGI.escape(detection_type.to_s).gsub('%2F', '/')).sub('{detection_id}', CGI.escape(detection_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GovernanceControlDetectionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_governance_control_detection,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GovernanceControlsAPI#get_governance_control_detection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get governance control notification settings.
+    #
+    # @see #get_governance_control_notification_settings_with_http_info
+    def get_governance_control_notification_settings(detection_type, opts = {})
+      data, _status_code, _headers = get_governance_control_notification_settings_with_http_info(detection_type, opts)
+      data
+    end
+
+    # Get governance control notification settings.
+    #
+    # Retrieve the notification settings for the governance control with the given detection type,
+    # including, for each supported event type, whether notifications are enabled and which
+    # destinations receive them.
+    #
+    # @param detection_type [String] The detection type that identifies the control; for example, `unused_api_keys`.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ControlNotificationSettingsResponse, Integer, Hash)>] ControlNotificationSettingsResponse data, response status code and response headers
+    def get_governance_control_notification_settings_with_http_info(detection_type, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_governance_control_notification_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_governance_control_notification_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_governance_control_notification_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GovernanceControlsAPI.get_governance_control_notification_settings ...'
+      end
+      # verify the required parameter 'detection_type' is set
+      if @api_client.config.client_side_validation && detection_type.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_type' when calling GovernanceControlsAPI.get_governance_control_notification_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/governance/control/{detection_type}/notification_settings'.sub('{detection_type}', CGI.escape(detection_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ControlNotificationSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_governance_control_notification_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GovernanceControlsAPI#get_governance_control_notification_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List governance control detections.
+    #
+    # @see #list_governance_control_detections_with_http_info
+    def list_governance_control_detections(detection_type, opts = {})
+      data, _status_code, _headers = list_governance_control_detections_with_http_info(detection_type, opts)
+      data
+    end
+
+    # List governance control detections.
+    #
+    # Retrieve the detections produced by the governance control with the given detection type.
+    # Results can be filtered by state and free-text query, sorted, and paginated.
+    #
+    # @param detection_type [String] The detection type that identifies the control; for example, `unused_api_keys`.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_state Restrict the results to detections in the given state.
+    # @option opts [String] :filter_query Restrict the results to detections matching the given free-text query.
+    # @option opts [String] :sort The attribute to sort detections by. Prefix with `-` for descending order.
+    # @option opts [Integer] :page_number The zero-based index of the page to return; the first page is 0.
+    # @option opts [Integer] :page_size The number of detections to return per page.
+    # @return [Array<(GovernanceControlDetectionsResponse, Integer, Hash)>] GovernanceControlDetectionsResponse data, response status code and response headers
+    def list_governance_control_detections_with_http_info(detection_type, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_governance_control_detections".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_governance_control_detections")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_governance_control_detections"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GovernanceControlsAPI.list_governance_control_detections ...'
+      end
+      # verify the required parameter 'detection_type' is set
+      if @api_client.config.client_side_validation && detection_type.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_type' when calling GovernanceControlsAPI.list_governance_control_detections"
+      end
+      # resource path
+      local_var_path = '/api/v2/governance/control/{detection_type}/detections'.sub('{detection_type}', CGI.escape(detection_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[state]'] = opts[:'filter_state'] if !opts[:'filter_state'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GovernanceControlDetectionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_governance_control_detections,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GovernanceControlsAPI#list_governance_control_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -143,7 +449,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GovernanceControlsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_governance_controls,
@@ -223,7 +529,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GovernanceControlResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_governance_control,
@@ -239,6 +545,171 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GovernanceControlsAPI#update_governance_control\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a governance control detection.
+    #
+    # @see #update_governance_control_detection_with_http_info
+    def update_governance_control_detection(detection_type, detection_id, body, opts = {})
+      data, _status_code, _headers = update_governance_control_detection_with_http_info(detection_type, detection_id, body, opts)
+      data
+    end
+
+    # Update a governance control detection.
+    #
+    # Update a detection produced by the governance control with the given detection type. Only the
+    # attributes present in the request are modified, allowing a detection to be acknowledged as an
+    # exception, reopened, reassigned, or deferred for mitigation.
+    #
+    # @param detection_type [String] The detection type that identifies the control; for example, `unused_api_keys`.
+    # @param detection_id [String] The unique identifier of the detection.
+    # @param body [GovernanceControlDetectionUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GovernanceControlDetectionResponse, Integer, Hash)>] GovernanceControlDetectionResponse data, response status code and response headers
+    def update_governance_control_detection_with_http_info(detection_type, detection_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_governance_control_detection".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_governance_control_detection")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_governance_control_detection"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GovernanceControlsAPI.update_governance_control_detection ...'
+      end
+      # verify the required parameter 'detection_type' is set
+      if @api_client.config.client_side_validation && detection_type.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_type' when calling GovernanceControlsAPI.update_governance_control_detection"
+      end
+      # verify the required parameter 'detection_id' is set
+      if @api_client.config.client_side_validation && detection_id.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_id' when calling GovernanceControlsAPI.update_governance_control_detection"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling GovernanceControlsAPI.update_governance_control_detection"
+      end
+      # resource path
+      local_var_path = '/api/v2/governance/control/{detection_type}/detections/{detection_id}'.sub('{detection_type}', CGI.escape(detection_type.to_s).gsub('%2F', '/')).sub('{detection_id}', CGI.escape(detection_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GovernanceControlDetectionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_governance_control_detection,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GovernanceControlsAPI#update_governance_control_detection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update governance control notification settings.
+    #
+    # @see #update_governance_control_notification_settings_with_http_info
+    def update_governance_control_notification_settings(detection_type, body, opts = {})
+      data, _status_code, _headers = update_governance_control_notification_settings_with_http_info(detection_type, body, opts)
+      data
+    end
+
+    # Update governance control notification settings.
+    #
+    # Replace the notification settings for the governance control with the given detection type,
+    # setting, for each supported event type, whether notifications are enabled and which
+    # destinations receive them.
+    #
+    # @param detection_type [String] The detection type that identifies the control; for example, `unused_api_keys`.
+    # @param body [ControlNotificationSettingsUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ControlNotificationSettingsResponse, Integer, Hash)>] ControlNotificationSettingsResponse data, response status code and response headers
+    def update_governance_control_notification_settings_with_http_info(detection_type, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_governance_control_notification_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_governance_control_notification_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_governance_control_notification_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GovernanceControlsAPI.update_governance_control_notification_settings ...'
+      end
+      # verify the required parameter 'detection_type' is set
+      if @api_client.config.client_side_validation && detection_type.nil?
+        fail ArgumentError, "Missing the required parameter 'detection_type' when calling GovernanceControlsAPI.update_governance_control_notification_settings"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling GovernanceControlsAPI.update_governance_control_notification_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/governance/control/{detection_type}/notification_settings'.sub('{detection_type}', CGI.escape(detection_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ControlNotificationSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_governance_control_notification_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GovernanceControlsAPI#update_governance_control_notification_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

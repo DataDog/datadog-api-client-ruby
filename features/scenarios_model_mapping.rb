@@ -3376,12 +3376,42 @@ ScenariosModelMappings = {
             "saml_config_uuid" => "String",
             "body" => "SAMLConfigurationUpdateRequest",
     },
+    "v2.UpdateGovernanceNotificationSettings" => {
+            "body" => "GovernanceNotificationSettingsUpdateRequest",
+    },
     "v2.GetGovernanceControl" => {
             "detection_type" => "String",
     },
     "v2.UpdateGovernanceControl" => {
             "detection_type" => "String",
             "body" => "GovernanceControlUpdateRequest",
+    },
+    "v2.ListGovernanceControlDetections" => {
+            "detection_type" => "String",
+            "filter_state" => "String",
+            "filter_query" => "String",
+            "sort" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.GetGovernanceControlDetection" => {
+            "detection_type" => "String",
+            "detection_id" => "String",
+    },
+    "v2.UpdateGovernanceControlDetection" => {
+            "detection_type" => "String",
+            "detection_id" => "String",
+            "body" => "GovernanceControlDetectionUpdateRequest",
+    },
+    "v2.GetGovernanceControlNotificationSettings" => {
+            "detection_type" => "String",
+    },
+    "v2.UpdateGovernanceControlNotificationSettings" => {
+            "detection_type" => "String",
+            "body" => "ControlNotificationSettingsUpdateRequest",
+    },
+    "v2.CreateGovernanceMitigation" => {
+            "body" => "GovernanceMitigationRequest",
     },
     "v2.ListGovernanceInsights" => {
             "with_values" => "Boolean",
