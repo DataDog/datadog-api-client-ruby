@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Teams response metadata.
     attr_accessor :meta
 
+    # Indicates whether the response is from a test environment.
+    attr_accessor :test
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +45,8 @@ module DatadogAPIClient::V2
         :'data' => :'data',
         :'included' => :'included',
         :'links' => :'links',
-        :'meta' => :'meta'
+        :'meta' => :'meta',
+        :'test' => :'test'
       }
     end
 
@@ -53,7 +57,8 @@ module DatadogAPIClient::V2
         :'data' => :'Array<Team>',
         :'included' => :'Array<TeamIncluded>',
         :'links' => :'TeamsResponseLinks',
-        :'meta' => :'TeamsResponseMeta'
+        :'meta' => :'TeamsResponseMeta',
+        :'test' => :'Boolean'
       }
     end
 
@@ -94,6 +99,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
       end
+
+      if attributes.key?(:'test')
+        self.test = attributes[:'test']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -126,6 +135,7 @@ module DatadogAPIClient::V2
           included == o.included &&
           links == o.links &&
           meta == o.meta &&
+          test == o.test &&
           additional_properties == o.additional_properties
     end
 
@@ -133,7 +143,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, links, meta, additional_properties].hash
+      [data, included, links, meta, test, additional_properties].hash
     end
   end
 end
