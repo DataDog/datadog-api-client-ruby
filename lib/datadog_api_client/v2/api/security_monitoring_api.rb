@@ -7449,7 +7449,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort_column Sort column: score, first_seen_ts_epoch, last_seen_ts_epoch, indicator, indicator_type, signal_count, log_count, category, as_type.
     # @option opts [String] :sort_order Sort order: asc or desc.
     # @option opts [Boolean] :ocsf When true, return only OCSF field-based matches. When false, return regex/message-based matches.
-    # @option opts [String] :worked_by Filter indicators whose triage state was updated by a specific user UUID.
+    # @option opts [String] :worked_by Filter indicators whose triage state was updated by a specific user identified by their handle.
     # @option opts [IoCTriageState] :triage_state Filter by triage state.
     # @return [Array<(IoCExplorerListResponse, Integer, Hash)>] IoCExplorerListResponse data, response status code and response headers
     def list_indicators_of_compromise_with_http_info(opts = {})
