@@ -33,8 +33,12 @@ module DatadogAPIClient::V2
 
     # Get the rule-based view of compliance findings.
     #
+    # **This endpoint is deprecated.** Use the [Security Monitoring - Search Security Findings](https://docs.datadoghq.com/api/latest/security-monitoring/search-security-findings/) endpoint instead.
+    #
     # Get an aggregated view of compliance rules with their pass, fail, and muted finding counts.
     # Supports filtering by compliance framework, framework version, and additional query filters.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param to [Integer] Timestamp of the query end, in milliseconds since the Unix epoch.
     # @param opts [Hash] the optional parameters
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :query Additional event-platform filters applied to the underlying findings query. For example, `scored:true project_id:datadog-prod-us5`.
     # @return [Array<(RuleBasedViewResponse, Integer, Hash)>] RuleBasedViewResponse data, response status code and response headers
     def get_rule_based_view_with_http_info(to, opts = {})
+      warn "[DEPRECATION] `GetRuleBasedView` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_rule_based_view".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_rule_based_view")
