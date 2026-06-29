@@ -35,6 +35,9 @@ module DatadogAPIClient::V2
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
 
+    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    attr_accessor :tls
+
     # The destination type. The value should always be `cloud_prem`.
     attr_reader :type
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
         :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
+        :'tls' => :'tls',
         :'type' => :'type'
       }
     end
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
         :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
+        :'tls' => :'ObservabilityPipelineTls',
         :'type' => :'ObservabilityPipelineCloudPremDestinationType'
       }
     end
@@ -98,6 +103,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'inputs']).is_a?(Array)
           self.inputs = value
         end
+      end
+
+      if attributes.key?(:'tls')
+        self.tls = attributes[:'tls']
       end
 
       if attributes.key?(:'type')
@@ -175,6 +184,7 @@ module DatadogAPIClient::V2
           endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
+          tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -183,7 +193,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, endpoint_url_key, id, inputs, type, additional_properties].hash
+      [buffer, endpoint_url_key, id, inputs, tls, type, additional_properties].hash
     end
   end
 end
