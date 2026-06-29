@@ -18,409 +18,46 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Details of a CI job.
-  class CIAppPipelineEventJob
-    include BaseGenericModel
+  module CIAppPipelineEventJob
+    class << self
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
-    # A list of job IDs that this job depends on.
-    attr_accessor :dependencies
-
-    # Time when the job run finished. The time format must be RFC3339.
-    attr_reader :_end
-
-    # Contains information of the CI error.
-    attr_accessor :error
-
-    # If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
-    # Note that either `tag` or `branch` has to be provided, but not both.
-    attr_accessor :git
-
-    # The UUID for the job. It has to be unique within each pipeline execution.
-    attr_reader :id
-
-    # Used to distinguish between pipelines, stages, jobs, and steps.
-    attr_reader :level
-
-    # A list of user-defined metrics. The metrics must follow the `key:value` pattern and the value must be numeric.
-    attr_accessor :metrics
-
-    # The name for the job.
-    attr_reader :name
-
-    # Contains information of the host running the pipeline, stage, job, or step.
-    attr_accessor :node
-
-    # A map of key-value parameters or environment variables that were defined for the pipeline.
-    attr_accessor :parameters
-
-    # The parent pipeline name.
-    attr_reader :pipeline_name
-
-    # The parent pipeline UUID.
-    attr_reader :pipeline_unique_id
-
-    # The queue time in milliseconds, if applicable.
-    attr_reader :queue_time
-
-    # The parent stage UUID (if applicable).
-    attr_accessor :stage_id
-
-    # The parent stage name (if applicable).
-    attr_accessor :stage_name
-
-    # Time when the job run instance started (it should not include any queue time). The time format must be RFC3339.
-    attr_reader :start
-
-    # The final status of the job.
-    attr_reader :status
-
-    # A list of user-defined tags. The tags must follow the `key:value` pattern.
-    attr_accessor :tags
-
-    # The URL to look at the job in the CI provider UI.
-    attr_reader :url
-
-    attr_accessor :additional_properties
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'dependencies' => :'dependencies',
-        :'_end' => :'end',
-        :'error' => :'error',
-        :'git' => :'git',
-        :'id' => :'id',
-        :'level' => :'level',
-        :'metrics' => :'metrics',
-        :'name' => :'name',
-        :'node' => :'node',
-        :'parameters' => :'parameters',
-        :'pipeline_name' => :'pipeline_name',
-        :'pipeline_unique_id' => :'pipeline_unique_id',
-        :'queue_time' => :'queue_time',
-        :'stage_id' => :'stage_id',
-        :'stage_name' => :'stage_name',
-        :'start' => :'start',
-        :'status' => :'status',
-        :'tags' => :'tags',
-        :'url' => :'url'
-      }
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'dependencies' => :'Array<String>',
-        :'_end' => :'Time',
-        :'error' => :'CIAppCIError',
-        :'git' => :'CIAppGitInfo',
-        :'id' => :'String',
-        :'level' => :'CIAppPipelineEventJobLevel',
-        :'metrics' => :'Array<String>',
-        :'name' => :'String',
-        :'node' => :'CIAppHostInfo',
-        :'parameters' => :'Hash<String, String>',
-        :'pipeline_name' => :'String',
-        :'pipeline_unique_id' => :'String',
-        :'queue_time' => :'Integer',
-        :'stage_id' => :'String',
-        :'stage_name' => :'String',
-        :'start' => :'Time',
-        :'status' => :'CIAppPipelineEventJobStatus',
-        :'tags' => :'Array<String>',
-        :'url' => :'String'
-      }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'dependencies',
-        :'error',
-        :'git',
-        :'metrics',
-        :'node',
-        :'parameters',
-        :'queue_time',
-        :'stage_id',
-        :'stage_name',
-        :'tags',
-      ])
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppPipelineEventJob` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'CIAppPipelineEventFinishedJob',
+          :'CIAppPipelineEventInProgressJob'
+        ]
       end
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
+        end
 
-      self.additional_properties = {}
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
+        if openapi_one_of.include?(:AnyType)
+          data
         else
-          h[k.to_sym] = v
-        end
-      }
-
-      if attributes.key?(:'dependencies')
-        if (value = attributes[:'dependencies']).is_a?(Array)
-          self.dependencies = value
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
         end
       end
-
-      if attributes.key?(:'_end')
-        self._end = attributes[:'_end']
-      end
-
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
-      end
-
-      if attributes.key?(:'git')
-        self.git = attributes[:'git']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'level')
-        self.level = attributes[:'level']
-      end
-
-      if attributes.key?(:'metrics')
-        if (value = attributes[:'metrics']).is_a?(Array)
-          self.metrics = value
-        end
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'node')
-        self.node = attributes[:'node']
-      end
-
-      if attributes.key?(:'parameters')
-        self.parameters = attributes[:'parameters']
-      end
-
-      if attributes.key?(:'pipeline_name')
-        self.pipeline_name = attributes[:'pipeline_name']
-      end
-
-      if attributes.key?(:'pipeline_unique_id')
-        self.pipeline_unique_id = attributes[:'pipeline_unique_id']
-      end
-
-      if attributes.key?(:'queue_time')
-        self.queue_time = attributes[:'queue_time']
-      end
-
-      if attributes.key?(:'stage_id')
-        self.stage_id = attributes[:'stage_id']
-      end
-
-      if attributes.key?(:'stage_name')
-        self.stage_name = attributes[:'stage_name']
-      end
-
-      if attributes.key?(:'start')
-        self.start = attributes[:'start']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @_end.nil?
-      return false if @id.nil?
-      return false if @level.nil?
-      return false if @name.nil?
-      return false if @pipeline_name.nil?
-      return false if @pipeline_unique_id.nil?
-      return false if !@queue_time.nil? && @queue_time < 0
-      return false if @start.nil?
-      return false if @status.nil?
-      return false if @url.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param _end [Object] Object to be assigned
-    # @!visibility private
-    def _end=(_end)
-      if _end.nil?
-        fail ArgumentError, 'invalid value for "_end", _end cannot be nil.'
-      end
-      @_end = _end
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param level [Object] Object to be assigned
-    # @!visibility private
-    def level=(level)
-      if level.nil?
-        fail ArgumentError, 'invalid value for "level", level cannot be nil.'
-      end
-      @level = level
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param pipeline_name [Object] Object to be assigned
-    # @!visibility private
-    def pipeline_name=(pipeline_name)
-      if pipeline_name.nil?
-        fail ArgumentError, 'invalid value for "pipeline_name", pipeline_name cannot be nil.'
-      end
-      @pipeline_name = pipeline_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param pipeline_unique_id [Object] Object to be assigned
-    # @!visibility private
-    def pipeline_unique_id=(pipeline_unique_id)
-      if pipeline_unique_id.nil?
-        fail ArgumentError, 'invalid value for "pipeline_unique_id", pipeline_unique_id cannot be nil.'
-      end
-      @pipeline_unique_id = pipeline_unique_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param queue_time [Object] Object to be assigned
-    # @!visibility private
-    def queue_time=(queue_time)
-      if !queue_time.nil? && queue_time < 0
-        fail ArgumentError, 'invalid value for "queue_time", must be greater than or equal to 0.'
-      end
-      @queue_time = queue_time
-    end
-
-    # Custom attribute writer method with validation
-    # @param start [Object] Object to be assigned
-    # @!visibility private
-    def start=(start)
-      if start.nil?
-        fail ArgumentError, 'invalid value for "start", start cannot be nil.'
-      end
-      @start = start
-    end
-
-    # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
-    # @!visibility private
-    def status=(status)
-      if status.nil?
-        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
-      end
-      @status = status
-    end
-
-    # Custom attribute writer method with validation
-    # @param url [Object] Object to be assigned
-    # @!visibility private
-    def url=(url)
-      if url.nil?
-        fail ArgumentError, 'invalid value for "url", url cannot be nil.'
-      end
-      @url = url
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          dependencies == o.dependencies &&
-          _end == o._end &&
-          error == o.error &&
-          git == o.git &&
-          id == o.id &&
-          level == o.level &&
-          metrics == o.metrics &&
-          name == o.name &&
-          node == o.node &&
-          parameters == o.parameters &&
-          pipeline_name == o.pipeline_name &&
-          pipeline_unique_id == o.pipeline_unique_id &&
-          queue_time == o.queue_time &&
-          stage_id == o.stage_id &&
-          stage_name == o.stage_name &&
-          start == o.start &&
-          status == o.status &&
-          tags == o.tags &&
-          url == o.url &&
-          additional_properties == o.additional_properties
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [dependencies, _end, error, git, id, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, queue_time, stage_id, stage_name, start, status, tags, url, additional_properties].hash
     end
   end
 end
