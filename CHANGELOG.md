@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 2.56.0/2026-06-30
+
+### Added
+* Add the uk1 data center. [#3530](https://github.com/DataDog/datadog-api-client-ruby/pull/3530)
+* [obs-pipelines] Add TLS support to cloud_prem destination [#3525](https://github.com/DataDog/datadog-api-client-ruby/pull/3525)
+* Add OpenAPI spec for k9-integration-api security findings and vulnerabilities [#3522](https://github.com/DataDog/datadog-api-client-ruby/pull/3522)
+* Document metrics volume includes [#3520](https://github.com/DataDog/datadog-api-client-ruby/pull/3520)
+* Add buffer configuration to ClickHouse destination [#3519](https://github.com/DataDog/datadog-api-client-ruby/pull/3519)
+* Add public API endpoints for feature flag variant create, update, and delete [#3517](https://github.com/DataDog/datadog-api-client-ruby/pull/3517)
+* Add public v2 OpenAPI operations for governance controls [#3515](https://github.com/DataDog/datadog-api-client-ruby/pull/3515)
+* Add ObservabilityPipelineClickhouseDestination to OpenAPI spec [#3514](https://github.com/DataDog/datadog-api-client-ruby/pull/3514)
+* Add ObservabilityPipelineWebsocketSource to schema [#3512](https://github.com/DataDog/datadog-api-client-ruby/pull/3512)
+* Add security_filters and rules resource types to terraform export endpoints [#3510](https://github.com/DataDog/datadog-api-client-ruby/pull/3510)
+* Add OpenAPI for Cloud Cost Management custom forecast endpoints [#3509](https://github.com/DataDog/datadog-api-client-ruby/pull/3509)
+* Add Edit and Delete Notice Update and Slack icon support in API spec [#3504](https://github.com/DataDog/datadog-api-client-ruby/pull/3504)
+* Add OpenAPI spec for RUM Remote Config endpoints [#3499](https://github.com/DataDog/datadog-api-client-ruby/pull/3499)
+* Add OpenAPI spec for code-coverage PR summary and files endpoints [#3498](https://github.com/DataDog/datadog-api-client-ruby/pull/3498)
+* feat(test-optimization): update service settings API with override and inherit fields [#3497](https://github.com/DataDog/datadog-api-client-ruby/pull/3497)
+* Add public API for security findings automation rules [#3495](https://github.com/DataDog/datadog-api-client-ruby/pull/3495)
+* Add OpenAPI spec for governance insights [#3490](https://github.com/DataDog/datadog-api-client-ruby/pull/3490)
+* Add OpenAPI specs for reporting schedule endpoints [#3484](https://github.com/DataDog/datadog-api-client-ruby/pull/3484)
+* Add LogsArrayMapProcessor to OpenAPI v1 spec [#3458](https://github.com/DataDog/datadog-api-client-ruby/pull/3458)
+* Update GetBudget API spec with cost query parameters and custom forecast fields [#3457](https://github.com/DataDog/datadog-api-client-ruby/pull/3457)
+
+### Changed
+* Update worked_by param to accept handle instead of UUID [#3529](https://github.com/DataDog/datadog-api-client-ruby/pull/3529)
+* Add support for running CI jobs [#3516](https://github.com/DataDog/datadog-api-client-ruby/pull/3516)
+* Mark tag indexing rule endpoints as Preview in API spec [#3496](https://github.com/DataDog/datadog-api-client-ruby/pull/3496)
+
+### Deprecated
+* Remove Compliance Findings rule-based view endpoint from OpenAPI v2 [#3526](https://github.com/DataDog/datadog-api-client-ruby/pull/3526)
+
+### Fixed
+* Fix test by adding on_missing_data options to the req payload [#3524](https://github.com/DataDog/datadog-api-client-ruby/pull/3524)
+
 ## 2.55.0/2026-06-17
 
 ### Added

@@ -1,5 +1,5 @@
 # Define library version.
 
 module DatadogAPIClient
-  VERSION = '2.55.0'
+  VERSION = '2.56.0'
 end
