@@ -98,8 +98,8 @@ describe 'Deserialization', skip_before: true do
   describe 'build_from_hash typed fields in additional_properties' do
     it 'should mirror typed fields into additional_properties when x-keep-typed-in-additional-properties is set' do
       data = DatadogAPIClient::V1::UsageSummaryResponse.build_from_hash({
-        'agent_host_top99p_sum' => 42,
-        'apm_host_top99p_sum' => 99
+        agent_host_top99p_sum: 42,
+        apm_host_top99p_sum: 99
       })
 
       expect(data).to be_a DatadogAPIClient::V1::UsageSummaryResponse
@@ -110,7 +110,7 @@ describe 'Deserialization', skip_before: true do
 
     it 'should not include typed fields absent from the JSON in additional_properties' do
       data = DatadogAPIClient::V1::UsageSummaryResponse.build_from_hash({
-        'agent_host_top99p_sum' => 7
+        agent_host_top99p_sum: 7
       })
 
       expect(data.additional_properties[:'agent_host_top99p_sum']).to eq 7
