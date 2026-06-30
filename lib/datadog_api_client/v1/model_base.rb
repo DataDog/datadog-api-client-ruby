@@ -86,7 +86,7 @@ module DatadogAPIClient::V1
         self.class.openapi_types.each_key do |key|
           json_key = self.class.attribute_map[key]
           next unless json_key && attributes.key?(json_key)
-          self.additional_properties[json_key] = self.send(key)
+          self.additional_properties[json_key] = attributes[json_key]
         end
         attributes.each do |k, v|
           self.additional_properties[k.to_sym] = v unless self.class.attribute_map.key?(k.to_sym)
