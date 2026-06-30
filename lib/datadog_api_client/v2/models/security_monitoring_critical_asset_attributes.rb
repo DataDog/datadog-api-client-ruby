@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # A user.
     attr_accessor :creator
 
+    # A description of the critical asset.
+    attr_accessor :description
+
     # Whether the critical asset is enabled.
     attr_accessor :enabled
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
         :'creation_author_id' => :'creation_author_id',
         :'creation_date' => :'creation_date',
         :'creator' => :'creator',
+        :'description' => :'description',
         :'enabled' => :'enabled',
         :'query' => :'query',
         :'rule_query' => :'rule_query',
@@ -85,6 +89,7 @@ module DatadogAPIClient::V2
         :'creation_author_id' => :'Integer',
         :'creation_date' => :'Integer',
         :'creator' => :'SecurityMonitoringUser',
+        :'description' => :'String',
         :'enabled' => :'Boolean',
         :'query' => :'String',
         :'rule_query' => :'String',
@@ -125,6 +130,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'creator')
         self.creator = attributes[:'creator']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'enabled')
@@ -213,6 +222,7 @@ module DatadogAPIClient::V2
           creation_author_id == o.creation_author_id &&
           creation_date == o.creation_date &&
           creator == o.creator &&
+          description == o.description &&
           enabled == o.enabled &&
           query == o.query &&
           rule_query == o.rule_query &&
@@ -229,7 +239,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creation_author_id, creation_date, creator, enabled, query, rule_query, severity, tags, update_author_id, update_date, updater, version, additional_properties].hash
+      [creation_author_id, creation_date, creator, description, enabled, query, rule_query, severity, tags, update_author_id, update_date, updater, version, additional_properties].hash
     end
   end
 end

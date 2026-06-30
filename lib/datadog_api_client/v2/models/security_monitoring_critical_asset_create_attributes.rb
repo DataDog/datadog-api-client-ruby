@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringCriticalAssetCreateAttributes
     include BaseGenericModel
 
+    # A description of the critical asset.
+    attr_accessor :description
+
     # Whether the critical asset is enabled. Defaults to `true` if not specified.
     attr_accessor :enabled
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'enabled' => :'enabled',
         :'query' => :'query',
         :'rule_query' => :'rule_query',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'enabled' => :'Boolean',
         :'query' => :'String',
         :'rule_query' => :'String',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
@@ -169,6 +178,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           enabled == o.enabled &&
           query == o.query &&
           rule_query == o.rule_query &&
@@ -181,7 +191,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, query, rule_query, severity, tags, additional_properties].hash
+      [description, enabled, query, rule_query, severity, tags, additional_properties].hash
     end
   end
 end
