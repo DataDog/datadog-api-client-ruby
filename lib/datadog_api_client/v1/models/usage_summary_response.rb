@@ -3221,6 +3221,18 @@ module DatadogAPIClient::V1
       self.additional_properties[:'workflow_executions_usage_agg_sum'] = self.workflow_executions_usage_agg_sum if attributes.key?(:'workflow_executions_usage_agg_sum')
     end
 
+    # Builds the object from hash, also mirroring typed fields into additional_properties.
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    # @!visibility private
+    def build_from_hash(attributes)
+      super
+      self.class.attribute_map.each_pair do |attr, json_key|
+        self.additional_properties[json_key] = self.send(attr) if attributes.key?(json_key)
+      end
+      self
+    end
+
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
