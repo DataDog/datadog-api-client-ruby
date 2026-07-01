@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Targeting condition details.
+  # Targeting condition details. A condition is either an inline
+  # predicate with `operator`, `attribute`, and `value`, or a reference to a
+  # saved filter with `saved_filter_id`. The inline fields are omitted for saved-filter
+  # references.
   class Condition
     include BaseGenericModel
 
-    # The user or request attribute to evaluate.
-    attr_reader :attribute
+    # The user or request attribute to evaluate. Omitted for saved-filter references.
+    attr_accessor :attribute
 
     # The timestamp when the condition was created.
     attr_reader :created_at
@@ -31,13 +34,16 @@ module DatadogAPIClient::V2
     attr_reader :id
 
     # The operator used in a targeting condition.
-    attr_reader :operator
+    attr_accessor :operator
+
+    # The ID of the saved filter referenced by this condition, or null for inline conditions.
+    attr_accessor :saved_filter_id
 
     # The timestamp when the condition was last updated.
     attr_reader :updated_at
 
-    # Values used by the selected operator.
-    attr_reader :value
+    # Values used by the selected operator. Omitted for saved-filter references.
+    attr_accessor :value
 
     attr_accessor :additional_properties
 
@@ -49,6 +55,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'id' => :'id',
         :'operator' => :'operator',
+        :'saved_filter_id' => :'saved_filter_id',
         :'updated_at' => :'updated_at',
         :'value' => :'value'
       }
@@ -62,9 +69,18 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'id' => :'UUID',
         :'operator' => :'ConditionOperator',
+        :'saved_filter_id' => :'UUID',
         :'updated_at' => :'Time',
         :'value' => :'Array<String>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'saved_filter_id',
+      ])
     end
 
     # Initializes the object
@@ -101,6 +117,10 @@ module DatadogAPIClient::V2
         self.operator = attributes[:'operator']
       end
 
+      if attributes.key?(:'saved_filter_id')
+        self.saved_filter_id = attributes[:'saved_filter_id']
+      end
+
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
       end
@@ -116,23 +136,10 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attribute.nil?
       return false if @created_at.nil?
       return false if @id.nil?
-      return false if @operator.nil?
       return false if @updated_at.nil?
-      return false if @value.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attribute [Object] Object to be assigned
-    # @!visibility private
-    def attribute=(attribute)
-      if attribute.nil?
-        fail ArgumentError, 'invalid value for "attribute", attribute cannot be nil.'
-      end
-      @attribute = attribute
     end
 
     # Custom attribute writer method with validation
@@ -156,16 +163,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param operator [Object] Object to be assigned
-    # @!visibility private
-    def operator=(operator)
-      if operator.nil?
-        fail ArgumentError, 'invalid value for "operator", operator cannot be nil.'
-      end
-      @operator = operator
-    end
-
-    # Custom attribute writer method with validation
     # @param updated_at [Object] Object to be assigned
     # @!visibility private
     def updated_at=(updated_at)
@@ -173,16 +170,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "updated_at", updated_at cannot be nil.'
       end
       @updated_at = updated_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param value [Object] Object to be assigned
-    # @!visibility private
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
-      end
-      @value = value
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -215,6 +202,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           id == o.id &&
           operator == o.operator &&
+          saved_filter_id == o.saved_filter_id &&
           updated_at == o.updated_at &&
           value == o.value &&
           additional_properties == o.additional_properties
@@ -224,7 +212,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attribute, created_at, id, operator, updated_at, value, additional_properties].hash
+      [attribute, created_at, id, operator, saved_filter_id, updated_at, value, additional_properties].hash
     end
   end
 end
