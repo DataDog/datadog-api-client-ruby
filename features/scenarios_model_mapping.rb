@@ -3234,8 +3234,8 @@ ScenariosModelMappings = {
     "v2.ListFeatureFlags" => {
             "key" => "String",
             "is_archived" => "Boolean",
-            "limit" => "Integer",
-            "offset" => "Integer",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
     },
     "v2.CreateFeatureFlag" => {
             "body" => "CreateFeatureFlagRequest",
