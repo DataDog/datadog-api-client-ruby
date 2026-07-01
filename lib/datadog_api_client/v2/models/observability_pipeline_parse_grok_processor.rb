@@ -32,13 +32,16 @@ module DatadogAPIClient::V2
     # Indicates whether the processor is enabled.
     attr_reader :enabled
 
+    # The log field to parse with the Grok rules.
+    attr_accessor :field
+
     # A unique identifier for this processor.
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in order. The first successful match is applied.
+    # The list of Grok parsing rules selected by either source field or include query.
     attr_reader :rules
 
     # The processor type. The value should always be `parse_grok`.
@@ -53,6 +56,7 @@ module DatadogAPIClient::V2
         :'disable_library_rules' => :'disable_library_rules',
         :'display_name' => :'display_name',
         :'enabled' => :'enabled',
+        :'field' => :'field',
         :'id' => :'id',
         :'include' => :'include',
         :'rules' => :'rules',
@@ -67,9 +71,10 @@ module DatadogAPIClient::V2
         :'disable_library_rules' => :'Boolean',
         :'display_name' => :'String',
         :'enabled' => :'Boolean',
+        :'field' => :'String',
         :'id' => :'String',
         :'include' => :'String',
-        :'rules' => :'Array<ObservabilityPipelineParseGrokProcessorRule>',
+        :'rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleItem>',
         :'type' => :'ObservabilityPipelineParseGrokProcessorType'
       }
     end
@@ -102,6 +107,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
       if attributes.key?(:'id')
@@ -214,6 +223,7 @@ module DatadogAPIClient::V2
           disable_library_rules == o.disable_library_rules &&
           display_name == o.display_name &&
           enabled == o.enabled &&
+          field == o.field &&
           id == o.id &&
           include == o.include &&
           rules == o.rules &&
@@ -225,7 +235,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disable_library_rules, display_name, enabled, id, include, rules, type, additional_properties].hash
+      [disable_library_rules, display_name, enabled, field, id, include, rules, type, additional_properties].hash
     end
   end
 end
