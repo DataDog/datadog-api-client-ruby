@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The S3 encryption settings.
     attr_accessor :encryption
 
-    # The S3 Archive's integration destination.
+    # The S3 Archive's integration destination. You must provide one of the following: `access_key_id` alone, or both `account_id` and `role_name` together.
     attr_reader :integration
 
     # The archive path.
