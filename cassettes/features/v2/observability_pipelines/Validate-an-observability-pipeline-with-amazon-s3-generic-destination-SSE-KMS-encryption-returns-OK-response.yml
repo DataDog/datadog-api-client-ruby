@@ -1,0 +1,27 @@
+http_interactions:
+- recorded_at: Mon, 29 Jun 2026 12:00:00 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"config":{"destinations":[{"bucket":"my-bucket","compression":{"algorithm":"gzip","level":6},"encoding":{"type":"json"},"id":"generic-s3-destination","inputs":["my-processor-group"],"region":"us-east-1","server_side_encryption":"aws:kms","ssekms_key_id":"arn:aws:kms:us-east-1:123456789012:key/mrk-abc123","storage_class":"STANDARD","type":"amazon_s3_generic"}],"processor_groups":[{"enabled":true,"id":"my-processor-group","include":"service:my-service","inputs":["datadog-agent-source"],"processors":[{"enabled":true,"id":"filter-processor","include":"status:error","type":"filter"}]}],"sources":[{"id":"datadog-agent-source","type":"datadog_agent"}]},"name":"Pipeline
+        with S3 Generic SSE-KMS"},"type":"pipelines"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/validate
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
