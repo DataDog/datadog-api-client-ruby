@@ -21,7 +21,10 @@ module DatadogAPIClient::V2
   class UpdateFlakyTestsRequestTest
     include BaseGenericModel
 
-    # The ID of the flaky test. This is the same ID returned by the Search flaky tests endpoint and corresponds to the test_fingerprint_fqn field in test run events.
+    # The ID of the flaky test. This is the same ID returned by the Search flaky tests endpoint and is the
+    # value of the `@test.fingerprint_fqn` facet on test events. You can find it by searching on
+    # `@test.fingerprint_fqn` in the Test Optimization Explorer, or by filtering the Search flaky tests
+    # endpoint with the `fingerprint_fqn` key.
     attr_reader :id
 
     # The new state to set for the flaky test.
