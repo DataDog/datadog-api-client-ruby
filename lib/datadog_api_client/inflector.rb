@@ -266,6 +266,7 @@ module DatadogAPIClient
           "v1.list_stream_issue_persona" => "ListStreamIssuePersona",
           "v1.list_stream_issue_state" => "ListStreamIssueState",
           "v1.list_stream_query" => "ListStreamQuery",
+          "v1.list_stream_query_version" => "ListStreamQueryVersion",
           "v1.list_stream_response_format" => "ListStreamResponseFormat",
           "v1.list_stream_source" => "ListStreamSource",
           "v1.list_stream_widget_definition" => "ListStreamWidgetDefinition",
