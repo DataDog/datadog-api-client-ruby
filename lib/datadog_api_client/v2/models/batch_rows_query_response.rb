@@ -24,13 +24,17 @@ module DatadogAPIClient::V2
     # Data object for a batch rows query response.
     attr_accessor :data
 
+    # Full row resources matching the query, included alongside the relationship references in `data`.
+    attr_accessor :included
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'BatchRowsQueryResponseData'
+        :'data' => :'BatchRowsQueryResponseData',
+        :'included' => :'Array<TableRowResourceData>'
       }
     end
 
@@ -62,6 +67,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
       end
     end
 
@@ -92,6 +103,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [data, included, additional_properties].hash
     end
   end
 end

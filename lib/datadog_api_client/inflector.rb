@@ -4099,6 +4099,8 @@ module DatadogAPIClient
           "v2.list_relation_catalog_response_links" => "ListRelationCatalogResponseLinks",
           "v2.list_rows_response" => "ListRowsResponse",
           "v2.list_rows_response_links" => "ListRowsResponseLinks",
+          "v2.list_rows_response_meta" => "ListRowsResponseMeta",
+          "v2.list_rows_response_meta_page" => "ListRowsResponseMetaPage",
           "v2.list_rules_response" => "ListRulesResponse",
           "v2.list_rules_response_data_item" => "ListRulesResponseDataItem",
           "v2.list_rules_response_links" => "ListRulesResponseLinks",
