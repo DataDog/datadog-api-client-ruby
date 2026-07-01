@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Pagination links for the list rows response.
     attr_reader :links
 
+    # Contains pagination details, including the continuation token for fetching additional rows.
+    attr_accessor :meta
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
-        :'links' => :'links'
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<TableRowResourceData>',
-        :'links' => :'ListRowsResponseLinks'
+        :'links' => :'ListRowsResponseLinks',
+        :'meta' => :'ListRowsResponseMeta'
       }
     end
 
@@ -73,6 +78,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'links')
         self.links = attributes[:'links']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -133,6 +142,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           data == o.data &&
           links == o.links &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -140,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [data, links, meta, additional_properties].hash
     end
   end
 end
