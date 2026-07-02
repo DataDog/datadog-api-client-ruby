@@ -5385,6 +5385,9 @@ ScenariosModelMappings = {
             "to_ts" => "Integer",
             "disable_corrections" => "Boolean",
     },
+    "v2.CreateSnapshot" => {
+            "body" => "CreateSnapshotRequest",
+    },
     "v2.GetSPARecommendations" => {
             "bypass_cache" => "String",
             "service" => "String",
