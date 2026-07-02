@@ -4936,6 +4936,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_amazon_open_search_destination_auth_strategy" => "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
           "v2.observability_pipeline_amazon_open_search_destination_type" => "ObservabilityPipelineAmazonOpenSearchDestinationType",
           "v2.observability_pipeline_amazon_s3_destination" => "ObservabilityPipelineAmazonS3Destination",
+          "v2.observability_pipeline_amazon_s3_destination_server_side_encryption" => "ObservabilityPipelineAmazonS3DestinationServerSideEncryption",
           "v2.observability_pipeline_amazon_s3_destination_storage_class" => "ObservabilityPipelineAmazonS3DestinationStorageClass",
           "v2.observability_pipeline_amazon_s3_destination_type" => "ObservabilityPipelineAmazonS3DestinationType",
           "v2.observability_pipeline_amazon_s3_generic_batch_settings" => "ObservabilityPipelineAmazonS3GenericBatchSettings",
