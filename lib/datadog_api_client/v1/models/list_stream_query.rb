@@ -63,6 +63,10 @@ module DatadogAPIClient::V1
     # Filter by team handles. Usable only with `issue_stream`.
     attr_accessor :team_handles
 
+    # Version of the query for the logs transaction stream widget. When omitted, v1 query behavior is
+    # preserved. Set to `sequential_query` to use v2 behavior. **This feature is in Preview.**
+    attr_accessor :version
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -82,7 +86,8 @@ module DatadogAPIClient::V1
         :'states' => :'states',
         :'storage' => :'storage',
         :'suspected_causes' => :'suspected_causes',
-        :'team_handles' => :'team_handles'
+        :'team_handles' => :'team_handles',
+        :'version' => :'version'
       }
     end
 
@@ -103,7 +108,8 @@ module DatadogAPIClient::V1
         :'states' => :'Array<ListStreamIssueState>',
         :'storage' => :'String',
         :'suspected_causes' => :'Array<String>',
-        :'team_handles' => :'Array<String>'
+        :'team_handles' => :'Array<String>',
+        :'version' => :'ListStreamQueryVersion'
       }
     end
 
@@ -193,6 +199,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'team_handles']).is_a?(Array)
           self.team_handles = value
         end
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -291,6 +301,7 @@ module DatadogAPIClient::V1
           storage == o.storage &&
           suspected_causes == o.suspected_causes &&
           team_handles == o.team_handles &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -298,7 +309,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignee_uuids, clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, persona, query_string, sort, states, storage, suspected_causes, team_handles, additional_properties].hash
+      [assignee_uuids, clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, persona, query_string, sort, states, storage, suspected_causes, team_handles, version, additional_properties].hash
     end
   end
 end
