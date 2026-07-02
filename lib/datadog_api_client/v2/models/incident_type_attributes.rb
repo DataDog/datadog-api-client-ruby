@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class IncidentTypeAttributes
     include BaseGenericModel
 
+    # The incident-type-scoped behavior settings. All fields are optional on update. Any field omitted from a PATCH request keeps its current value. This object is read-only on the incident type resource itself and is only mutated through the update (PATCH) endpoint.
+    attr_accessor :configuration
+
     # Timestamp when the incident type was created.
     attr_accessor :created_at
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'configuration' => :'configuration',
         :'created_at' => :'createdAt',
         :'created_by' => :'createdBy',
         :'description' => :'description',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'configuration' => :'IncidentTypeConfiguration',
         :'created_at' => :'Time',
         :'created_by' => :'String',
         :'description' => :'String',
@@ -94,6 +99,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'configuration')
+        self.configuration = attributes[:'configuration']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -172,6 +181,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          configuration == o.configuration &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           description == o.description &&
@@ -187,7 +197,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, description, is_default, last_modified_by, modified_at, name, prefix, additional_properties].hash
+      [configuration, created_at, created_by, description, is_default, last_modified_by, modified_at, name, prefix, additional_properties].hash
     end
   end
 end
