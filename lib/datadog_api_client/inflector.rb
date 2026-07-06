@@ -3064,6 +3064,7 @@ module DatadogAPIClient
           "v2.entity_v3_api_datadog" => "EntityV3APIDatadog",
           "v2.entity_v3_api_kind" => "EntityV3APIKind",
           "v2.entity_v3_api_spec" => "EntityV3APISpec",
+          "v2.entity_v3_api_spec_interface" => "EntityV3APISpecInterface",
           "v2.entity_v3_api_spec_interface_definition" => "EntityV3APISpecInterfaceDefinition",
           "v2.entity_v3_api_spec_interface_file_ref" => "EntityV3APISpecInterfaceFileRef",
           "v2.entity_v3_api_version" => "EntityV3APIVersion",

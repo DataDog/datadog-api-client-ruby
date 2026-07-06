@@ -123,7 +123,7 @@ def child_models(schema, alternative_name=None, seen=None):
         )
 
     if (schema.get("type") == "object" or "properties" in schema or has_sub_models) and not (
-        "additionalProperties" in schema and "properties" not in schema
+        schema.get("additionalProperties") not in (None, False) and "properties" not in schema
     ):
         if not has_sub_models and name is None:
             # this is a basic map object so we don't need a type
