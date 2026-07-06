@@ -1328,6 +1328,9 @@ ScenariosModelMappings = {
             "user_id" => "String",
             "body" => "UserUpdateRequest",
     },
+    "v2.GetUserIdentityProviders" => {
+            "user_id" => "String",
+    },
     "v2.DeleteUserInvitations" => {
             "user_id" => "UUID",
     },
@@ -1336,6 +1339,10 @@ ScenariosModelMappings = {
     },
     "v2.ListUserPermissions" => {
             "user_id" => "String",
+    },
+    "v2.UpdateUserIdentityProviders" => {
+            "user_id" => "String",
+            "body" => "UpdateUserIdentityProvidersRequest",
     },
     "v2.ListAPIKeys" => {
             "page_size" => "Integer",
@@ -3394,6 +3401,19 @@ ScenariosModelMappings = {
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
+    "v2.UpdateIdentityProvider" => {
+            "idp_id" => "String",
+            "body" => "IdentityProviderUpdateRequest",
+    },
+    "v2.ListIdentityProviderUsers" => {
+            "idp_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "sort_dir" => "QuerySortOrder",
+            "filter" => "String",
+            "filter_status" => "String",
+    },
     "v2.DeleteEntityIntegrationConfig" => {
             "integration_id" => "String",
     },
@@ -4516,6 +4536,46 @@ ScenariosModelMappings = {
     },
     "v2.DisableCustomerOrg" => {
             "body" => "CustomerOrgDisableRequest",
+    },
+    "v2.ListOrgAuthorizedClients" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "filter" => "String",
+            "filter_oauth2_client_name" => "String",
+            "filter_disabled" => "String",
+            "include" => "String",
+    },
+    "v2.DeleteOrgAuthorizedClient" => {
+            "org_authorized_client_id" => "String",
+    },
+    "v2.GetOrgAuthorizedClient" => {
+            "org_authorized_client_id" => "String",
+            "include" => "String",
+            "filter_user_authorized_clients_disabled" => "String",
+            "filter_user_authorized_clients_user_disabled" => "String",
+    },
+    "v2.UpdateOrgAuthorizedClient" => {
+            "org_authorized_client_id" => "String",
+            "body" => "OrgAuthorizedClientUpdateRequest",
+    },
+    "v2.DeleteOrgAuthorizedClientAllUserAuthorizations" => {
+            "org_authorized_client_id" => "String",
+            "user_id" => "String",
+    },
+    "v2.ListOrgAuthorizedClientUserAuthorizations" => {
+            "org_authorized_client_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "OrgAuthorizedClientUserAuthorizationsSort",
+            "filter_disabled" => "String",
+            "filter_user_name" => "String",
+            "filter_user_email" => "String",
+            "filter_user_disabled" => "String",
+    },
+    "v2.DeleteOrgAuthorizedClientUserAuthorization" => {
+            "org_authorized_client_id" => "String",
+            "user_authorized_client_id" => "String",
     },
     "v2.ListOrgConnections" => {
             "sink_org_id" => "String",
@@ -5966,6 +6026,22 @@ ScenariosModelMappings = {
     },
     "v2.GetUserMemberships" => {
             "user_uuid" => "String",
+    },
+    "v2.ListUserAuthorizedClients" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter" => "String",
+            "filter_disabled" => "String",
+            "include" => "String",
+    },
+    "v2.DeleteUserAuthorizedClientsByClient" => {
+            "client_id" => "String",
+    },
+    "v2.DeleteUserAuthorizedClient" => {
+            "user_authorized_client_id" => "String",
+    },
+    "v2.GetUserAuthorizedClient" => {
+            "user_authorized_client_id" => "String",
     },
     "v2.ListWebIntegrationAccounts" => {
             "integration_name" => "String",
