@@ -26,5 +26,6 @@ module DatadogAPIClient::V2
     HOST = "Host".freeze
     HOSTIMAGE = "HostImage".freeze
     IMAGE = "Image".freeze
+    SERVERLESSFUNCTION = "ServerlessFunction".freeze
   end
 end
