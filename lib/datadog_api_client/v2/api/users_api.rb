@@ -490,6 +490,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get identity provider overrides for a user.
+    #
+    # @see #get_user_identity_providers_with_http_info
+    def get_user_identity_providers(user_id, opts = {})
+      data, _status_code, _headers = get_user_identity_providers_with_http_info(user_id, opts)
+      data
+    end
+
+    # Get identity provider overrides for a user.
+    #
+    # Get the identity provider overrides for a specific user in the organization.
+    # When a user has no overrides set, they use the organization's default identity providers.
+    #
+    # @param user_id [String] The ID of the user.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UserOverrideIdentityProvidersResponse, Integer, Hash)>] UserOverrideIdentityProvidersResponse data, response status code and response headers
+    def get_user_identity_providers_with_http_info(user_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.get_user_identity_providers ...'
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersAPI.get_user_identity_providers"
+      end
+      # resource path
+      local_var_path = '/api/v2/users/{user_id}/identity_providers'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UserOverrideIdentityProvidersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_user_identity_providers,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsersAPI#get_user_identity_providers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a user organization.
     #
     # @see #list_user_organizations_with_http_info
@@ -928,6 +994,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersAPI#update_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update identity provider overrides for a user.
+    #
+    # @see #update_user_identity_providers_with_http_info
+    def update_user_identity_providers(user_id, body, opts = {})
+      update_user_identity_providers_with_http_info(user_id, body, opts)
+      nil
+    end
+
+    # Update identity provider overrides for a user.
+    #
+    # Set the identity provider overrides for a specific user in the organization.
+    # Pass an empty list to remove all overrides, reverting the user to the organization's
+    # default identity providers.
+    #
+    # @param user_id [String] The ID of the user.
+    # @param body [UpdateUserIdentityProvidersRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_user_identity_providers_with_http_info(user_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.update_user_identity_providers ...'
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersAPI.update_user_identity_providers"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UsersAPI.update_user_identity_providers"
+      end
+      # resource path
+      local_var_path = '/api/v2/users/{user_id}/relationships/identity_providers'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_user_identity_providers,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsersAPI#update_user_identity_providers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
