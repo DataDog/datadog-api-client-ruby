@@ -2124,6 +2124,12 @@ ScenariosModelMappings = {
     "v2.CreateJiraIssues" => {
             "body" => "CreateJiraIssueRequestArray",
     },
+    "v2.AttachLinearIssue" => {
+            "body" => "AttachLinearIssueRequest",
+    },
+    "v2.CreateLinearIssues" => {
+            "body" => "CreateLinearIssueRequestArray",
+    },
     "v2.MuteSecurityFindings" => {
             "body" => "MuteFindingsRequest",
     },
