@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Environment name that was impacted by the incident.
     attr_accessor :env
 
-    # Unix timestamp when the incident finished.
+    # The time when the incident finished.
     attr_accessor :finished_at
 
     # Git info for DORA Metrics events.
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # Incident severity.
     attr_accessor :severity
 
-    # Unix timestamp when the incident started.
-    attr_reader :started_at
+    # The time when the incident started.
+    attr_accessor :started_at
 
     # Name of the team owning the services impacted.
     attr_accessor :team
@@ -76,12 +76,12 @@ module DatadogAPIClient::V2
       {
         :'custom_tags' => :'Array<String>',
         :'env' => :'String',
-        :'finished_at' => :'Integer',
+        :'finished_at' => :'Time',
         :'git' => :'DORAGitInfo',
         :'name' => :'String',
         :'services' => :'Array<String>',
         :'severity' => :'String',
-        :'started_at' => :'Integer',
+        :'started_at' => :'Time',
         :'team' => :'String',
         :'version' => :'String'
       }
@@ -156,24 +156,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @started_at.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param started_at [Object] Object to be assigned
-    # @!visibility private
-    def started_at=(started_at)
-      if started_at.nil?
-        fail ArgumentError, 'invalid value for "started_at", started_at cannot be nil.'
-      end
-      @started_at = started_at
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

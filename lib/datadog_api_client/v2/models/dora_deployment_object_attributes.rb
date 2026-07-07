@@ -27,8 +27,8 @@ module DatadogAPIClient::V2
     # Environment name to where the service was deployed.
     attr_accessor :env
 
-    # Unix timestamp when the deployment finished.
-    attr_reader :finished_at
+    # The time when the deployment finished.
+    attr_accessor :finished_at
 
     # Git info returned by DORA Metrics events.
     attr_accessor :git
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Service name.
     attr_reader :service
 
-    # Unix timestamp when the deployment started.
+    # The time when the deployment started.
     attr_reader :started_at
 
     # Name of the team owning the deployed service.
@@ -68,10 +68,10 @@ module DatadogAPIClient::V2
       {
         :'custom_tags' => :'Array<String>',
         :'env' => :'String',
-        :'finished_at' => :'Integer',
+        :'finished_at' => :'Time',
         :'git' => :'DORAGitInfoResponse',
         :'service' => :'String',
-        :'started_at' => :'Integer',
+        :'started_at' => :'Time',
         :'team' => :'String',
         :'version' => :'String'
       }
@@ -142,20 +142,9 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @finished_at.nil?
       return false if @service.nil?
       return false if @started_at.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param finished_at [Object] Object to be assigned
-    # @!visibility private
-    def finished_at=(finished_at)
-      if finished_at.nil?
-        fail ArgumentError, 'invalid value for "finished_at", finished_at cannot be nil.'
-      end
-      @finished_at = finished_at
     end
 
     # Custom attribute writer method with validation
