@@ -27,8 +27,9 @@ module DatadogAPIClient::V2
     # The type of external source that provides entities to Cloud SIEM.
     attr_reader :integration_type
 
-    # The secrets used to authenticate against the external entity source. The accepted keys depend on the source type (for example, `admin_email` for Google Workspace).
-    attr_reader :secrets
+    # The secrets used to authenticate against the external entity source. The accepted keys depend on the source type
+    # (for example, `admin_email` for Google Workspace). Not required for source types that do not use secrets (for example, `ENTRA_ID`).
+    attr_accessor :secrets
 
     attr_accessor :additional_properties
 
@@ -89,7 +90,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @domain.nil?
       return false if @integration_type.nil?
-      return false if @secrets.nil?
       true
     end
 
@@ -111,16 +111,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "integration_type", integration_type cannot be nil.'
       end
       @integration_type = integration_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param secrets [Object] Object to be assigned
-    # @!visibility private
-    def secrets=(secrets)
-      if secrets.nil?
-        fail ArgumentError, 'invalid value for "secrets", secrets cannot be nil.'
-      end
-      @secrets = secrets
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

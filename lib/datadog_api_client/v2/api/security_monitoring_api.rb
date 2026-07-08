@@ -96,6 +96,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Activate an entity context sync integration.
+    #
+    # @see #activate_integration_with_http_info
+    def activate_integration(integration_type, opts = {})
+      data, _status_code, _headers = activate_integration_with_http_info(integration_type, opts)
+      data
+    end
+
+    # Activate an entity context sync integration.
+    #
+    # Activate an entity context sync integration for a source type that does not require manually
+    # supplied credentials (for example, Entra ID). If an integration of this type already exists,
+    # it is returned (re-enabling it first if it was disabled) instead of creating a duplicate.
+    #
+    # @param integration_type [String] The integration type to activate (for example, `entra_id`).
+    # @param opts [Hash] the optional parameters
+    # @option opts [SecurityMonitoringIntegrationActivateRequest] :body Optional configuration overrides for the integration to activate.
+    # @return [Array<(SecurityMonitoringIntegrationConfigResponse, Integer, Hash)>] SecurityMonitoringIntegrationConfigResponse data, response status code and response headers
+    def activate_integration_with_http_info(integration_type, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.activate_integration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.activate_integration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.activate_integration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.activate_integration ...'
+      end
+      # verify the required parameter 'integration_type' is set
+      if @api_client.config.client_side_validation && integration_type.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_type' when calling SecurityMonitoringAPI.activate_integration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/{integration_type}/activate'.sub('{integration_type}', CGI.escape(integration_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringIntegrationConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :activate_integration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#activate_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Attach security findings to a case.
     #
     # @see #attach_case_with_http_info
@@ -2893,6 +2969,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Deactivate an entity context sync integration.
+    #
+    # @see #deactivate_integration_with_http_info
+    def deactivate_integration(integration_type, opts = {})
+      data, _status_code, _headers = deactivate_integration_with_http_info(integration_type, opts)
+      data
+    end
+
+    # Deactivate an entity context sync integration.
+    #
+    # Deactivate all active entity context sync integrations of the given source type (for example, Entra ID).
+    #
+    # @param integration_type [String] The integration type to deactivate (for example, `entra_id`).
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringIntegrationConfigResponse, Integer, Hash)>] SecurityMonitoringIntegrationConfigResponse data, response status code and response headers
+    def deactivate_integration_with_http_info(integration_type, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.deactivate_integration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.deactivate_integration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.deactivate_integration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.deactivate_integration ...'
+      end
+      # verify the required parameter 'integration_type' is set
+      if @api_client.config.client_side_validation && integration_type.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_type' when calling SecurityMonitoringAPI.deactivate_integration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/{integration_type}/deactivate'.sub('{integration_type}', CGI.escape(integration_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringIntegrationConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :deactivate_integration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#deactivate_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a custom framework.
     #
     # @see #delete_custom_framework_with_http_info
@@ -4576,6 +4723,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_entity_context\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Entra ID Azure App Registration prerequisites.
+    #
+    # @see #get_entra_id_azure_app_registrations_with_http_info
+    def get_entra_id_azure_app_registrations(opts = {})
+      data, _status_code, _headers = get_entra_id_azure_app_registrations_with_http_info(opts)
+      data
+    end
+
+    # Get Entra ID Azure App Registration prerequisites.
+    #
+    # Get the Azure App Registrations discovered for the organization and whether at least one of them has
+    # resource collection enabled, which is a prerequisite for activating the Entra ID entity context sync integration.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringEntraIdAzureAppRegistrationsResponse, Integer, Hash)>] SecurityMonitoringEntraIdAzureAppRegistrationsResponse data, response status code and response headers
+    def get_entra_id_azure_app_registrations_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_entra_id_azure_app_registrations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_entra_id_azure_app_registrations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_entra_id_azure_app_registrations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_entra_id_azure_app_registrations ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/entra_id/azure_app_registrations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringEntraIdAzureAppRegistrationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_entra_id_azure_app_registrations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_entra_id_azure_app_registrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
