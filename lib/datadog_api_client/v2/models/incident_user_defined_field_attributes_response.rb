@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class IncidentUserDefinedFieldAttributesResponse
     include BaseGenericModel
 
-    # The resource type this field is attached to. Always "incidents".
-    attr_reader :attached_to
-
     # The section in which the field appears: "what_happened" or "why_it_happened". When null, the field appears in the Attributes section.
     attr_accessor :category
 
@@ -54,17 +51,11 @@ module DatadogAPIClient::V2
     # A decimal string representing the field's display order in the UI.
     attr_accessor :ordinal
 
-    # Reserved for future use. Always null.
-    attr_accessor :prerequisite
-
     # When true, users must fill out this field on incidents.
     attr_reader :required
 
     # When true, this field is reserved for system use and cannot be deleted.
     attr_reader :reserved
-
-    # Reserved for internal use. Always 0.
-    attr_reader :table_id
 
     # For metric tag-type fields only, the metric tag key that powers the autocomplete options.
     attr_accessor :tag_key
@@ -81,7 +72,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attached_to' => :'attached_to',
         :'category' => :'category',
         :'collected' => :'collected',
         :'created' => :'created',
@@ -92,10 +82,8 @@ module DatadogAPIClient::V2
         :'modified' => :'modified',
         :'name' => :'name',
         :'ordinal' => :'ordinal',
-        :'prerequisite' => :'prerequisite',
         :'required' => :'required',
         :'reserved' => :'reserved',
-        :'table_id' => :'table_id',
         :'tag_key' => :'tag_key',
         :'type' => :'type',
         :'valid_values' => :'valid_values'
@@ -106,7 +94,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attached_to' => :'String',
         :'category' => :'IncidentUserDefinedFieldCategory',
         :'collected' => :'IncidentUserDefinedFieldCollected',
         :'created' => :'Time',
@@ -117,10 +104,8 @@ module DatadogAPIClient::V2
         :'modified' => :'Time',
         :'name' => :'String',
         :'ordinal' => :'String',
-        :'prerequisite' => :'String',
         :'required' => :'Boolean',
         :'reserved' => :'Boolean',
-        :'table_id' => :'Integer',
         :'tag_key' => :'String',
         :'type' => :'Integer',
         :'valid_values' => :'Array<IncidentUserDefinedFieldValidValue>'
@@ -138,7 +123,6 @@ module DatadogAPIClient::V2
         :'metadata',
         :'modified',
         :'ordinal',
-        :'prerequisite',
         :'tag_key',
         :'type',
         :'valid_values',
@@ -162,10 +146,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'attached_to')
-        self.attached_to = attributes[:'attached_to']
-      end
 
       if attributes.key?(:'category')
         self.category = attributes[:'category']
@@ -207,20 +187,12 @@ module DatadogAPIClient::V2
         self.ordinal = attributes[:'ordinal']
       end
 
-      if attributes.key?(:'prerequisite')
-        self.prerequisite = attributes[:'prerequisite']
-      end
-
       if attributes.key?(:'required')
         self.required = attributes[:'required']
       end
 
       if attributes.key?(:'reserved')
         self.reserved = attributes[:'reserved']
-      end
-
-      if attributes.key?(:'table_id')
-        self.table_id = attributes[:'table_id']
       end
 
       if attributes.key?(:'tag_key')
@@ -242,26 +214,14 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attached_to.nil?
       return false if @created.nil?
       return false if @display_name.nil?
       return false if @name.nil?
       return false if @required.nil?
       return false if @reserved.nil?
-      return false if @table_id.nil?
       return false if @type > 8
       return false if @type < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attached_to [Object] Object to be assigned
-    # @!visibility private
-    def attached_to=(attached_to)
-      if attached_to.nil?
-        fail ArgumentError, 'invalid value for "attached_to", attached_to cannot be nil.'
-      end
-      @attached_to = attached_to
     end
 
     # Custom attribute writer method with validation
@@ -315,16 +275,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param table_id [Object] Object to be assigned
-    # @!visibility private
-    def table_id=(table_id)
-      if table_id.nil?
-        fail ArgumentError, 'invalid value for "table_id", table_id cannot be nil.'
-      end
-      @table_id = table_id
-    end
-
-    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
@@ -363,7 +313,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attached_to == o.attached_to &&
           category == o.category &&
           collected == o.collected &&
           created == o.created &&
@@ -374,10 +323,8 @@ module DatadogAPIClient::V2
           modified == o.modified &&
           name == o.name &&
           ordinal == o.ordinal &&
-          prerequisite == o.prerequisite &&
           required == o.required &&
           reserved == o.reserved &&
-          table_id == o.table_id &&
           tag_key == o.tag_key &&
           type == o.type &&
           valid_values == o.valid_values &&
@@ -388,7 +335,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attached_to, category, collected, created, default_value, deleted, display_name, metadata, modified, name, ordinal, prerequisite, required, reserved, table_id, tag_key, type, valid_values, additional_properties].hash
+      [category, collected, created, default_value, deleted, display_name, metadata, modified, name, ordinal, required, reserved, tag_key, type, valid_values, additional_properties].hash
     end
   end
 end
