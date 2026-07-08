@@ -1,17 +1,16 @@
 http_interactions:
-- recorded_at: Mon, 06 Jul 2026 19:25:16 GMT
+- recorded_at: Tue, 07 Jul 2026 14:35:06 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/security/sboms?page%5Btoken%5D=unknown&page%5Bnumber%5D=1
+    uri: https://api.datadoghq.com/api/v2/security/sboms?page%5Btoken%5D=SERVICE%3Aunknown&page%5Bnumber%5D=1
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"status":"400","title":"Bad request: asset_type","detail":"asset_type
-        filter is required"}]}'
+      string: '{"errors":[{"status":"400","title":"Unexpected internal error"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json

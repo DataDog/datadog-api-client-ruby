@@ -5050,7 +5050,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'asset_type' when calling SecurityMonitoringAPI.get_sbom"
       end
       # verify enum value
-      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image', 'ServerlessFunction']
       if @api_client.config.client_side_validation && !allowable_values.include?(asset_type)
         fail ArgumentError, "invalid value for \"asset_type\", must be one of #{allowable_values}"
       end
@@ -7227,6 +7227,11 @@ module DatadogAPIClient::V2
     #
     # Get a list of assets SBOMs for an organization.
     #
+    # The `filter[asset_type]` parameter is required for initial requests (when no `page[token]` is provided).
+    # Subsequent pages encode the asset type in the pagination token, so `filter[asset_type]` is not required
+    # for paginated requests. Mixing infrastructure asset types (`Host`, `HostImage`, `Image`, `ServerlessFunction`)
+    # with code asset types (`Repository`, `Service`) in the same request is not supported and returns a 400 error.
+    #
     # ### Pagination
     #
     # Please review the [Pagination section](#pagination) for the "List Vulnerabilities" endpoint.
@@ -7242,7 +7247,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
     # @option opts [Integer] :page_number The page number to be retrieved. It should be equal to or greater than 1.
-    # @option opts [AssetType] :filter_asset_type The type of the assets for the SBOM request.
+    # @option opts [AssetType] :filter_asset_type The type of the assets for the SBOM request. Required for initial requests (when no `page[token]` is provided). Infrastructure types (`Host`, `HostImage`, `Image`, `ServerlessFunction`) and code types (`Repository`, `Service`) cannot be mixed in the same request.
     # @option opts [String] :filter_asset_name The name of the asset for the SBOM request.
     # @option opts [String] :filter_package_name The name of the component that is a dependency of an asset.
     # @option opts [String] :filter_package_version The version of the component that is a dependency of an asset.
@@ -7257,7 +7262,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
         fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_assets_sbo_ms, must be greater than or equal to 1.'
       end
-      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image', 'ServerlessFunction']
       if @api_client.config.client_side_validation && opts[:'filter_asset_type'] && !allowable_values.include?(opts[:'filter_asset_type'])
         fail ArgumentError, "invalid value for \"filter_asset_type\", must be one of #{allowable_values}"
       end
@@ -9219,7 +9224,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'filter_ecosystem'] && !allowable_values.include?(opts[:'filter_ecosystem'])
         fail ArgumentError, "invalid value for \"filter_ecosystem\", must be one of #{allowable_values}"
       end
-      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image', 'ServerlessFunction']
       if @api_client.config.client_side_validation && opts[:'filter_asset_type'] && !allowable_values.include?(opts[:'filter_asset_type'])
         fail ArgumentError, "invalid value for \"filter_asset_type\", must be one of #{allowable_values}"
       end
@@ -9364,7 +9369,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
         fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_vulnerable_assets, must be greater than or equal to 1.'
       end
-      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image', 'ServerlessFunction']
       if @api_client.config.client_side_validation && opts[:'filter_type'] && !allowable_values.include?(opts[:'filter_type'])
         fail ArgumentError, "invalid value for \"filter_type\", must be one of #{allowable_values}"
       end
