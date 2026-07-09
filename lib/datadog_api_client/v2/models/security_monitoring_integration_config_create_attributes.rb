@@ -30,8 +30,9 @@ module DatadogAPIClient::V2
     # The display name for the entity context sync configuration.
     attr_reader :name
 
-    # The secrets used to authenticate against the external entity source. The accepted keys depend on the source type (for example, `admin_email` for Google Workspace).
-    attr_reader :secrets
+    # The secrets used to authenticate against the external entity source. The accepted keys depend on the source type
+    # (for example, `admin_email` for Google Workspace). Not required for source types that do not use secrets (for example, `ENTRA_ID`).
+    attr_accessor :secrets
 
     # Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.
     attr_accessor :settings
@@ -108,7 +109,6 @@ module DatadogAPIClient::V2
       return false if @domain.nil?
       return false if @integration_type.nil?
       return false if @name.nil?
-      return false if @secrets.nil?
       true
     end
 
@@ -140,16 +140,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param secrets [Object] Object to be assigned
-    # @!visibility private
-    def secrets=(secrets)
-      if secrets.nil?
-        fail ArgumentError, 'invalid value for "secrets", secrets cannot be nil.'
-      end
-      @secrets = secrets
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
