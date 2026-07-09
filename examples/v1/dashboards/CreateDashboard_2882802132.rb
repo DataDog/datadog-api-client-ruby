@@ -20,7 +20,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         type: DatadogAPIClient::V1::HostMapWidgetDefinitionType::HOSTMAP,
         requests: DatadogAPIClient::V1::HostMapWidgetDefinitionRequests.new({
-          request_type: DatadogAPIClient::V1::HostMapWidgetInfrastructureRequestRequestType::INFRASTRUCTURE_HOSTMAP,
+          request_type: DatadogAPIClient::V1::HostMapWidgetDefinitionRequestType::INFRASTRUCTURE_HOSTMAP,
           node_type: DatadogAPIClient::V1::HostMapWidgetNodeType::HOST,
           filter: "env:prod",
           group_by: [

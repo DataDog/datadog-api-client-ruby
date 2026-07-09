@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Query definition for the host map widget. Supports two mutually exclusive formats distinguished by the presence of `request_type`: the legacy metric-based format (`fill`/`size`) and the infrastructure-backed format (`request_type`, `node_type`, `enrichments`).
+  # Query definition for the host map widget. Supports three mutually exclusive formats distinguished by `request_type`: the deprecated legacy metric-based format (`fill`/`size`, no `request_type`), the infrastructure-backed format (`request_type: infrastructure_hostmap`), and the DDSQL published-dataset format (`request_type: data_projection`).
   class HostMapWidgetDefinitionRequests
     include BaseGenericModel
 
@@ -29,18 +29,21 @@ module DatadogAPIClient::V1
     # List of conditional formatting rules applied to fill values.
     attr_accessor :conditional_formats
 
-    # Metric or event queries joined to the entity set. Each formula specifies a visual dimension.
+    # Metric or event queries joined to the entity set. Each formula specifies a visual dimension. Only used by the infrastructure-backed format.
     attr_accessor :enrichments
 
-    # Updated host map.
+    # Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (`request_type: infrastructure_hostmap`) or DDSQL (`request_type: data_projection`) format instead.
     attr_accessor :fill
 
-    # Filter string for the entity set in tag format (for example, `env:prod`).
+    # Filter string for the entity set in tag format (for example, `env:prod`). Only used by the infrastructure-backed format.
     attr_accessor :filter
 
     # Defines how entities are grouped into tiles. The ordering of entries implies
-    # the grouping hierarchy.
+    # the grouping hierarchy. Only used by the infrastructure-backed format.
     attr_accessor :group_by
+
+    # Maximum number of rows to return from the dataset query. Only used by the DDSQL format.
+    attr_accessor :limit
 
     # Whether to hide entities that have no group assignment.
     attr_accessor :no_group_hosts
@@ -51,10 +54,16 @@ module DatadogAPIClient::V1
     # Which type of infrastructure entity to visualize in the host map.
     attr_accessor :node_type
 
-    # Identifies this as an infrastructure-backed host map request.
+    # Projection for the DDSQL host map request. Maps dataset columns to map dimensions: `node` identifies the entity, repeated `group` entries define the grouping hierarchy (outermost first), and `fill`/`size` drive the tile color and size.
+    attr_accessor :projection
+
+    # Query that lists the rows of a published dataset (a DDSQL query) without aggregation.
+    attr_accessor :query
+
+    # Identifies which host map request format the sibling fields on `HostMapWidgetDefinitionRequests` describe: an infrastructure-backed request or a DDSQL published-dataset request.
     attr_accessor :request_type
 
-    # Updated host map.
+    # Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (`request_type: infrastructure_hostmap`) or DDSQL (`request_type: data_projection`) format instead.
     attr_accessor :size
 
     # Style configuration for the infrastructure host map.
@@ -72,9 +81,12 @@ module DatadogAPIClient::V1
         :'fill' => :'fill',
         :'filter' => :'filter',
         :'group_by' => :'group_by',
+        :'limit' => :'limit',
         :'no_group_hosts' => :'no_group_hosts',
         :'no_metric_hosts' => :'no_metric_hosts',
         :'node_type' => :'node_type',
+        :'projection' => :'projection',
+        :'query' => :'query',
         :'request_type' => :'request_type',
         :'size' => :'size',
         :'style' => :'style'
@@ -91,10 +103,13 @@ module DatadogAPIClient::V1
         :'fill' => :'HostMapRequest',
         :'filter' => :'String',
         :'group_by' => :'Array<HostMapWidgetGroupBy>',
+        :'limit' => :'Integer',
         :'no_group_hosts' => :'Boolean',
         :'no_metric_hosts' => :'Boolean',
         :'node_type' => :'HostMapWidgetNodeType',
-        :'request_type' => :'HostMapWidgetInfrastructureRequestRequestType',
+        :'projection' => :'HostMapWidgetProjection',
+        :'query' => :'DatasetListQuery',
+        :'request_type' => :'HostMapWidgetDefinitionRequestType',
         :'size' => :'HostMapRequest',
         :'style' => :'HostMapWidgetInfrastructureStyle'
       }
@@ -148,6 +163,10 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
       if attributes.key?(:'no_group_hosts')
         self.no_group_hosts = attributes[:'no_group_hosts']
       end
@@ -158,6 +177,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'node_type')
         self.node_type = attributes[:'node_type']
+      end
+
+      if attributes.key?(:'projection')
+        self.projection = attributes[:'projection']
+      end
+
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
 
       if attributes.key?(:'request_type')
@@ -205,9 +232,12 @@ module DatadogAPIClient::V1
           fill == o.fill &&
           filter == o.filter &&
           group_by == o.group_by &&
+          limit == o.limit &&
           no_group_hosts == o.no_group_hosts &&
           no_metric_hosts == o.no_metric_hosts &&
           node_type == o.node_type &&
+          projection == o.projection &&
+          query == o.query &&
           request_type == o.request_type &&
           size == o.size &&
           style == o.style &&
@@ -218,7 +248,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [child, conditional_formats, enrichments, fill, filter, group_by, no_group_hosts, no_metric_hosts, node_type, request_type, size, style, additional_properties].hash
+      [child, conditional_formats, enrichments, fill, filter, group_by, limit, no_group_hosts, no_metric_hosts, node_type, projection, query, request_type, size, style, additional_properties].hash
     end
   end
 end

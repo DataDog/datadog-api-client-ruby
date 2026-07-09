@@ -27,13 +27,13 @@ module DatadogAPIClient::V1
     # The description of the widget.
     attr_accessor :description
 
-    # List of tag prefixes to group by.
+    # Deprecated - Only used by the legacy metric-based format. Use `group_by` (infrastructure) or a `group` dimension (DDSQL) inside `requests` instead.
     attr_accessor :group
 
-    # Whether to show the hosts that don’t fit in a group.
+    # Deprecated - Only used by the legacy metric-based format. Use `no_group_hosts` inside `requests` instead.
     attr_accessor :no_group_hosts
 
-    # Whether to show the hosts with no metrics.
+    # Deprecated - Only used by the legacy metric-based format. Use `no_metric_hosts` inside `requests` instead.
     attr_accessor :no_metric_hosts
 
     # Which type of node to use in the map.
@@ -42,13 +42,13 @@ module DatadogAPIClient::V1
     # Notes on the title.
     attr_accessor :notes
 
-    # Query definition for the host map widget. Supports two mutually exclusive formats distinguished by the presence of `request_type`: the legacy metric-based format (`fill`/`size`) and the infrastructure-backed format (`request_type`, `node_type`, `enrichments`).
+    # Query definition for the host map widget. Supports three mutually exclusive formats distinguished by `request_type`: the deprecated legacy metric-based format (`fill`/`size`, no `request_type`), the infrastructure-backed format (`request_type: infrastructure_hostmap`), and the DDSQL published-dataset format (`request_type: data_projection`).
     attr_reader :requests
 
-    # List of tags used to filter the map.
+    # Deprecated - Only used by the legacy metric-based format. Use `filter` inside `requests` instead.
     attr_accessor :scope
 
-    # The style to apply to the widget.
+    # Deprecated - The style to apply to the legacy metric-based host map widget. Use `HostMapWidgetInfrastructureStyle` instead.
     attr_accessor :style
 
     # Title of the widget.

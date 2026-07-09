@@ -17,7 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The style to apply to the widget.
+  # Deprecated - The style to apply to the legacy metric-based host map widget. Use `HostMapWidgetInfrastructureStyle` instead.
+  #
+  # @deprecated This model is deprecated.
   class HostMapWidgetDefinitionStyle
     include BaseGenericModel
 
@@ -61,6 +63,7 @@ module DatadogAPIClient::V1
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `HostMapWidgetDefinitionStyle` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostMapWidgetDefinitionStyle` initialize method"
       end
