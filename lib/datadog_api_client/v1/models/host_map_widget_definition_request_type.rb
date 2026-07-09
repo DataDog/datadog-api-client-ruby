@@ -17,13 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Visual dimension for the host map widget. Used both by infrastructure-backed formulas and by DDSQL projection columns; `group` is only meaningful for DDSQL projection columns, where repeated entries define the grouping hierarchy.
-  class HostMapWidgetDimension
+  # Identifies which host map request format the sibling fields on `HostMapWidgetDefinitionRequests` describe: an infrastructure-backed request or a DDSQL published-dataset request.
+  class HostMapWidgetDefinitionRequestType
     include BaseEnumModel
 
-    NODE = "node".freeze
-    FILL = "fill".freeze
-    SIZE = "size".freeze
-    GROUP = "group".freeze
+    INFRASTRUCTURE_HOSTMAP = "infrastructure_hostmap".freeze
+    DATA_PROJECTION = "data_projection".freeze
   end
 end

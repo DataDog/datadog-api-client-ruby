@@ -17,22 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Formula for the infrastructure host map widget that specifies both the expression
-  # and the visual dimension it populates.
-  class HostMapWidgetFormula
+  # Sort configuration for a `DatasetListQuery`.
+  class DatasetListQuerySort
     include BaseGenericModel
 
-    # Expression alias.
-    attr_accessor :_alias
-
-    # Visual dimension for the host map widget. Used both by infrastructure-backed formulas and by DDSQL projection columns; `group` is only meaningful for DDSQL projection columns, where repeated entries define the grouping hierarchy.
-    attr_reader :dimension
-
-    # String expression built from queries, formulas, and functions.
-    attr_reader :formula
-
-    # Number format options for the widget.
-    attr_accessor :number_format
+    # List of fields to sort the rows by, applied in order.
+    attr_reader :fields
 
     attr_accessor :additional_properties
 
@@ -40,10 +30,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'_alias' => :'alias',
-        :'dimension' => :'dimension',
-        :'formula' => :'formula',
-        :'number_format' => :'number_format'
+        :'fields' => :'fields'
       }
     end
 
@@ -51,10 +38,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'_alias' => :'String',
-        :'dimension' => :'HostMapWidgetDimension',
-        :'formula' => :'String',
-        :'number_format' => :'WidgetNumberFormat'
+        :'fields' => :'Array<DatasetListQuerySortField>'
       }
     end
 
@@ -63,7 +47,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostMapWidgetFormula` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DatasetListQuerySort` initialize method"
       end
 
       self.additional_properties = {}
@@ -76,20 +60,10 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'_alias')
-        self._alias = attributes[:'_alias']
-      end
-
-      if attributes.key?(:'dimension')
-        self.dimension = attributes[:'dimension']
-      end
-
-      if attributes.key?(:'formula')
-        self.formula = attributes[:'formula']
-      end
-
-      if attributes.key?(:'number_format')
-        self.number_format = attributes[:'number_format']
+      if attributes.key?(:'fields')
+        if (value = attributes[:'fields']).is_a?(Array)
+          self.fields = value
+        end
       end
     end
 
@@ -97,29 +71,18 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @dimension.nil?
-      return false if @formula.nil?
+      return false if @fields.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param dimension [Object] Object to be assigned
+    # @param fields [Object] Object to be assigned
     # @!visibility private
-    def dimension=(dimension)
-      if dimension.nil?
-        fail ArgumentError, 'invalid value for "dimension", dimension cannot be nil.'
+    def fields=(fields)
+      if fields.nil?
+        fail ArgumentError, 'invalid value for "fields", fields cannot be nil.'
       end
-      @dimension = dimension
-    end
-
-    # Custom attribute writer method with validation
-    # @param formula [Object] Object to be assigned
-    # @!visibility private
-    def formula=(formula)
-      if formula.nil?
-        fail ArgumentError, 'invalid value for "formula", formula cannot be nil.'
-      end
-      @formula = formula
+      @fields = fields
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -148,10 +111,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _alias == o._alias &&
-          dimension == o.dimension &&
-          formula == o.formula &&
-          number_format == o.number_format &&
+          fields == o.fields &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, dimension, formula, number_format, additional_properties].hash
+      [fields, additional_properties].hash
     end
   end
 end
