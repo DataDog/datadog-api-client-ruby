@@ -30,9 +30,6 @@ module DatadogAPIClient::V2
     # An optional message shown to users when they declare an incident of this type.
     attr_accessor :create_message
 
-    # Whether the out-of-the-box postmortem template is disabled for incidents of this type.
-    attr_accessor :disable_out_of_the_box_postmortem_template
-
     # Whether responders can edit incident timestamps for incidents of this type.
     attr_accessor :editable_timestamps
 
@@ -57,7 +54,6 @@ module DatadogAPIClient::V2
         :'allow_incident_deletion' => :'allow_incident_deletion',
         :'allow_workflows' => :'allow_workflows',
         :'create_message' => :'create_message',
-        :'disable_out_of_the_box_postmortem_template' => :'disable_out_of_the_box_postmortem_template',
         :'editable_timestamps' => :'editable_timestamps',
         :'private_incidents' => :'private_incidents',
         :'private_incidents_by_default' => :'private_incidents_by_default',
@@ -73,7 +69,6 @@ module DatadogAPIClient::V2
         :'allow_incident_deletion' => :'Boolean',
         :'allow_workflows' => :'Boolean',
         :'create_message' => :'String',
-        :'disable_out_of_the_box_postmortem_template' => :'Boolean',
         :'editable_timestamps' => :'Boolean',
         :'private_incidents' => :'Boolean',
         :'private_incidents_by_default' => :'Boolean',
@@ -110,10 +105,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'create_message')
         self.create_message = attributes[:'create_message']
-      end
-
-      if attributes.key?(:'disable_out_of_the_box_postmortem_template')
-        self.disable_out_of_the_box_postmortem_template = attributes[:'disable_out_of_the_box_postmortem_template']
       end
 
       if attributes.key?(:'editable_timestamps')
@@ -166,7 +157,6 @@ module DatadogAPIClient::V2
           allow_incident_deletion == o.allow_incident_deletion &&
           allow_workflows == o.allow_workflows &&
           create_message == o.create_message &&
-          disable_out_of_the_box_postmortem_template == o.disable_out_of_the_box_postmortem_template &&
           editable_timestamps == o.editable_timestamps &&
           private_incidents == o.private_incidents &&
           private_incidents_by_default == o.private_incidents_by_default &&
@@ -179,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_incident_deletion, allow_workflows, create_message, disable_out_of_the_box_postmortem_template, editable_timestamps, private_incidents, private_incidents_by_default, slug_source, test_incidents, additional_properties].hash
+      [allow_incident_deletion, allow_workflows, create_message, editable_timestamps, private_incidents, private_incidents_by_default, slug_source, test_incidents, additional_properties].hash
     end
   end
 end
