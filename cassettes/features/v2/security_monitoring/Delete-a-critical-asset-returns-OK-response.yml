@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Mon, 12 Jan 2026 19:41:34 GMT
+- recorded_at: Fri, 10 Jul 2026 15:48:20 GMT
   request:
     body:
       encoding: UTF-8
@@ -14,8 +14,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"f340fbe7-ed28-466e-924e-7e23475dd405","type":"critical_assets","attributes":{"creation_author_id":2320499,"creation_date":1768246895425,"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account"},"enabled":true,"query":"security:monitoring","rule_query":"source:k9","severity":"medium","tags":["team:security"],"update_author_id":2320499,"update_date":1768246895425,"updater":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+      string: '{"data":{"id":"5bda0fad-ce07-4921-9227-d0131107724a","type":"critical_assets","attributes":{"creation_author_id":2320499,"creation_date":1783698501011,"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+        Account"},"editable":true,"enabled":true,"query":"security:monitoring","rule_query":"source:k9","severity":"medium","tags":["team:security"],"update_author_id":2320499,"update_date":1783698501011,"updater":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
         Account"},"version":1}}}'
     headers:
       Content-Type:
@@ -23,14 +23,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 12 Jan 2026 19:41:34 GMT
+- recorded_at: Fri, 10 Jul 2026 15:48:20 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets/f340fbe7-ed28-466e-924e-7e23475dd405
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets/5bda0fad-ce07-4921-9227-d0131107724a
   response:
     body:
       encoding: UTF-8
@@ -39,18 +39,18 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Mon, 12 Jan 2026 19:41:34 GMT
+- recorded_at: Fri, 10 Jul 2026 15:48:20 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets/f340fbe7-ed28-466e-924e-7e23475dd405
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets/5bda0fad-ce07-4921-9227-d0131107724a
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["not_found(Critical asset with ID f340fbe7-ed28-466e-924e-7e23475dd405
+      string: '{"errors":["not_found(Critical asset with ID 5bda0fad-ce07-4921-9227-d0131107724a
         not found)"]}'
     headers:
       Content-Type:
