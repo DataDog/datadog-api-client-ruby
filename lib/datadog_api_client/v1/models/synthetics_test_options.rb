@@ -67,6 +67,9 @@ module DatadogAPIClient::V1
     # Ignore server certificate error for browser tests.
     attr_accessor :ignore_server_certificate_error
 
+    # For SSL tests, whether or not the test should ignore certificate validation.
+    attr_accessor :ignore_certificate_validation
+
     # Timeout before declaring the initial step as failed (in seconds) for browser tests.
     attr_accessor :initial_navigation_timeout
 
@@ -136,6 +139,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'follow_redirects',
         :'http_version' => :'httpVersion',
         :'ignore_server_certificate_error' => :'ignoreServerCertificateError',
+        :'ignore_certificate_validation' => :'ignore_certificate_validation',
         :'initial_navigation_timeout' => :'initialNavigationTimeout',
         :'min_failure_duration' => :'min_failure_duration',
         :'min_location_failed' => :'min_location_failed',
@@ -170,6 +174,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'Boolean',
         :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
         :'ignore_server_certificate_error' => :'Boolean',
+        :'ignore_certificate_validation' => :'Boolean',
         :'initial_navigation_timeout' => :'Integer',
         :'min_failure_duration' => :'Integer',
         :'min_location_failed' => :'Integer',
@@ -265,6 +270,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'ignore_server_certificate_error')
         self.ignore_server_certificate_error = attributes[:'ignore_server_certificate_error']
+      end
+
+      if attributes.key?(:'ignore_certificate_validation')
+        self.ignore_certificate_validation = attributes[:'ignore_certificate_validation']
       end
 
       if attributes.key?(:'initial_navigation_timeout')
@@ -396,6 +405,7 @@ module DatadogAPIClient::V1
           follow_redirects == o.follow_redirects &&
           http_version == o.http_version &&
           ignore_server_certificate_error == o.ignore_server_certificate_error &&
+          ignore_certificate_validation == o.ignore_certificate_validation &&
           initial_navigation_timeout == o.initial_navigation_timeout &&
           min_failure_duration == o.min_failure_duration &&
           min_location_failed == o.min_location_failed &&
@@ -415,7 +425,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, blocked_request_patterns, capture_network_payloads, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
+      [accept_self_signed, allow_insecure, blocked_request_patterns, capture_network_payloads, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, ignore_certificate_validation, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
     end
   end
 end
