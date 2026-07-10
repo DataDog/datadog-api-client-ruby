@@ -3610,6 +3610,23 @@ ScenariosModelMappings = {
             "incident_id" => "String",
             "impact_id" => "String",
     },
+    "v2.DeleteIncidentPostmortem" => {
+            "incident_id" => "String",
+    },
+    "v2.GetIncidentPostmortem" => {
+            "incident_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateIncidentPostmortem" => {
+            "incident_id" => "String",
+            "include" => "String",
+            "body" => "IncidentPostmortemUpdateRequest",
+    },
+    "v2.CreateIncidentPostmortem" => {
+            "incident_id" => "String",
+            "include" => "String",
+            "body" => "IncidentPostmortemCreateRequest",
+    },
     "v2.ListIncidentIntegrations" => {
             "incident_id" => "String",
     },
