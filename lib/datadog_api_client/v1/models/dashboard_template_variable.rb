@@ -24,6 +24,12 @@ module DatadogAPIClient::V1
     # The list of values that the template variable drop-down is limited to.
     attr_accessor :available_values
 
+    # A query that dynamically computes the list of values available for this template variable.
+    attr_accessor :available_values_query
+
+    # A mapping from data source type to the variable value to use for that data source.
+    attr_accessor :data_source_mappings
+
     # (deprecated) The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`.
     attr_accessor :default
 
@@ -46,6 +52,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'available_values' => :'available_values',
+        :'available_values_query' => :'available_values_query',
+        :'data_source_mappings' => :'data_source_mappings',
         :'default' => :'default',
         :'defaults' => :'defaults',
         :'name' => :'name',
@@ -59,6 +67,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'available_values' => :'Array<String>',
+        :'available_values_query' => :'DashboardTemplateVariableAvailableValuesQuery',
+        :'data_source_mappings' => :'Hash<String, String>',
         :'default' => :'String',
         :'defaults' => :'Array<String>',
         :'name' => :'String',
@@ -100,6 +110,14 @@ module DatadogAPIClient::V1
         if (value = attributes[:'available_values']).is_a?(Array)
           self.available_values = value
         end
+      end
+
+      if attributes.key?(:'available_values_query')
+        self.available_values_query = attributes[:'available_values_query']
+      end
+
+      if attributes.key?(:'data_source_mappings')
+        self.data_source_mappings = attributes[:'data_source_mappings']
       end
 
       if attributes.key?(:'default')
@@ -170,6 +188,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           available_values == o.available_values &&
+          available_values_query == o.available_values_query &&
+          data_source_mappings == o.data_source_mappings &&
           default == o.default &&
           defaults == o.defaults &&
           name == o.name &&
@@ -182,7 +202,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [available_values, default, defaults, name, prefix, type, additional_properties].hash
+      [available_values, available_values_query, data_source_mappings, default, defaults, name, prefix, type, additional_properties].hash
     end
   end
 end
