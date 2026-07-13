@@ -307,6 +307,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List dataset report schedules.
+    #
+    # @see #list_dataset_report_schedules_with_http_info
+    def list_dataset_report_schedules(dataset_id, opts = {})
+      data, _status_code, _headers = list_dataset_report_schedules_with_http_info(dataset_id, opts)
+      data
+    end
+
+    # List dataset report schedules.
+    #
+    # Retrieve all report schedules for a given published dataset.
+    # Returns report schedules belonging to the authenticated user's organization that target the specified dataset.
+    # Requires the `generate_log_reports` or `manage_log_reports` permission.
+    #
+    # @param dataset_id [String] The identifier of the published dataset to retrieve report schedules for.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DatasetReportScheduleListResponse, Integer, Hash)>] DatasetReportScheduleListResponse data, response status code and response headers
+    def list_dataset_report_schedules_with_http_info(dataset_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.list_dataset_report_schedules ...'
+      end
+      # verify the required parameter 'dataset_id' is set
+      if @api_client.config.client_side_validation && dataset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'dataset_id' when calling ReportSchedulesAPI.list_dataset_report_schedules"
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/dataset/{dataset_id}/schedules'.sub('{dataset_id}', CGI.escape(dataset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DatasetReportScheduleListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_dataset_report_schedules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#list_dataset_report_schedules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List report schedules.
     #
     # @see #list_report_schedules_with_http_info
@@ -465,6 +532,75 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReportSchedulesAPI#patch_report_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Print a report.
+    #
+    # @see #print_report_with_http_info
+    def print_report(body, opts = {})
+      data, _status_code, _headers = print_report_with_http_info(body, opts)
+      data
+    end
+
+    # Print a report.
+    #
+    # Initiate a one-off, print-only report for a dashboard or integration dashboard.
+    # The report is rendered as a PDF and made available for download through the URL returned in the response.
+    # Requires a reporting permission appropriate to the targeted resource type.
+    #
+    # @param body [PrintReportRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PrintReportResponse, Integer, Hash)>] PrintReportResponse data, response status code and response headers
+    def print_report_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReportSchedulesAPI.print_report ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ReportSchedulesAPI.print_report"
+      end
+      # resource path
+      local_var_path = '/api/v2/reporting/print'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PrintReportResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :print_report,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReportSchedulesAPI#print_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

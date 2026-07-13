@@ -4973,6 +4973,12 @@ ScenariosModelMappings = {
             "snapshot_id" => "String",
             "body" => "SnapshotUpdateRequest",
     },
+    "v2.ListDatasetReportSchedules" => {
+            "dataset_id" => "String",
+    },
+    "v2.PrintReport" => {
+            "body" => "PrintReportRequest",
+    },
     "v2.CreateReportSchedule" => {
             "body" => "ReportScheduleCreateRequest",
     },
