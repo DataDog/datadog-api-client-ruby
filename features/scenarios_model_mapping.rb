@@ -3680,6 +3680,13 @@ ScenariosModelMappings = {
             "aws_account_config_id" => "String",
             "body" => "AWSCcmConfigRequest",
     },
+    "v2.GetAWSMetricNameFilterPreview" => {
+            "aws_account_config_id" => "String",
+    },
+    "v2.PreviewAWSMetricNameFilter" => {
+            "aws_account_config_id" => "String",
+            "body" => "AWSMetricNameFilterPreviewRequest",
+    },
     "v2.DeleteAWSEventBridgeSource" => {
             "body" => "AWSEventBridgeDeleteRequest",
     },

@@ -817,6 +817,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get AWS metric name filter preview.
+    #
+    # @see #get_aws_metric_name_filter_preview_with_http_info
+    def get_aws_metric_name_filter_preview(aws_account_config_id, opts = {})
+      data, _status_code, _headers = get_aws_metric_name_filter_preview_with_http_info(aws_account_config_id, opts)
+      data
+    end
+
+    # Get AWS metric name filter preview.
+    #
+    # Preview which collected CloudWatch metrics would be filtered by the account's saved metric name filters.
+    #
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSMetricNameFilterPreviewResponse, Integer, Hash)>] AWSMetricNameFilterPreviewResponse data, response status code and response headers
+    def get_aws_metric_name_filter_preview_with_http_info(aws_account_config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_metric_name_filter_preview".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_metric_name_filter_preview")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aws_metric_name_filter_preview"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.get_aws_metric_name_filter_preview ...'
+      end
+      # verify the required parameter 'aws_account_config_id' is set
+      if @api_client.config.client_side_validation && aws_account_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'aws_account_config_id' when calling AWSIntegrationAPI.get_aws_metric_name_filter_preview"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview'.sub('{aws_account_config_id}', CGI.escape(aws_account_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSMetricNameFilterPreviewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aws_metric_name_filter_preview,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#get_aws_metric_name_filter_preview\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all AWS integrations.
     #
     # @see #list_aws_accounts_with_http_info
@@ -995,6 +1066,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AWSIntegrationAPI#list_aws_namespaces\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Preview AWS metric name filter.
+    #
+    # @see #preview_aws_metric_name_filter_with_http_info
+    def preview_aws_metric_name_filter(aws_account_config_id, body, opts = {})
+      data, _status_code, _headers = preview_aws_metric_name_filter_with_http_info(aws_account_config_id, body, opts)
+      data
+    end
+
+    # Preview AWS metric name filter.
+    #
+    # Preview which collected CloudWatch metrics would be filtered by the supplied metric name filters.
+    # The filters are not persisted.
+    #
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
+    # @param body [AWSMetricNameFilterPreviewRequest] The metric name filters to preview.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSMetricNameFilterPreviewResponse, Integer, Hash)>] AWSMetricNameFilterPreviewResponse data, response status code and response headers
+    def preview_aws_metric_name_filter_with_http_info(aws_account_config_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.preview_aws_metric_name_filter".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.preview_aws_metric_name_filter")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.preview_aws_metric_name_filter"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.preview_aws_metric_name_filter ...'
+      end
+      # verify the required parameter 'aws_account_config_id' is set
+      if @api_client.config.client_side_validation && aws_account_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'aws_account_config_id' when calling AWSIntegrationAPI.preview_aws_metric_name_filter"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationAPI.preview_aws_metric_name_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview'.sub('{aws_account_config_id}', CGI.escape(aws_account_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSMetricNameFilterPreviewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :preview_aws_metric_name_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#preview_aws_metric_name_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
