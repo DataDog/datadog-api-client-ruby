@@ -16,7 +16,7 @@ group :development, :test do
   gem 'rspec-expectations'
   gem 'rubocop'
   gem 'rufo'
-  gem 'simplecov'
+  gem 'simplecov', '< 1.0.0'
   gem 'timecop'
   gem 'vcr'
   gem 'webmock'
