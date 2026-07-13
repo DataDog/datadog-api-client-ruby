@@ -1097,6 +1097,8 @@ module DatadogAPIClient
           "v1.widget" => "Widget",
           "v1.widget_aggregator" => "WidgetAggregator",
           "v1.widget_axis" => "WidgetAxis",
+          "v1.widget_calendar_aligned_span" => "WidgetCalendarAlignedSpan",
+          "v1.widget_calendar_aligned_span_type" => "WidgetCalendarAlignedSpanType",
           "v1.widget_change_type" => "WidgetChangeType",
           "v1.widget_color_preference" => "WidgetColorPreference",
           "v1.widget_comparator" => "WidgetComparator",
