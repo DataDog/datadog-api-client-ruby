@@ -33,6 +33,10 @@ module DatadogAPIClient::V2
     # Enable AWS metrics collection. Defaults to `true`.
     attr_accessor :enabled
 
+    # AWS CloudWatch metric name filters. Each filter applies to a single namespace.
+    # Exactly one of `include_only` or `exclude_only` must be set on each filter.
+    attr_accessor :metric_name_filters
+
     # AWS Metrics namespace filters. Defaults to `exclude_only`.
     attr_accessor :namespace_filters
 
@@ -49,6 +53,7 @@ module DatadogAPIClient::V2
         :'collect_cloudwatch_alarms' => :'collect_cloudwatch_alarms',
         :'collect_custom_metrics' => :'collect_custom_metrics',
         :'enabled' => :'enabled',
+        :'metric_name_filters' => :'metric_name_filters',
         :'namespace_filters' => :'namespace_filters',
         :'tag_filters' => :'tag_filters'
       }
@@ -62,6 +67,7 @@ module DatadogAPIClient::V2
         :'collect_cloudwatch_alarms' => :'Boolean',
         :'collect_custom_metrics' => :'Boolean',
         :'enabled' => :'Boolean',
+        :'metric_name_filters' => :'Array<AWSMetricNameFilters>',
         :'namespace_filters' => :'AWSNamespaceFilters',
         :'tag_filters' => :'Array<AWSNamespaceTagFilter>'
       }
@@ -99,6 +105,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'metric_name_filters')
+        if (value = attributes[:'metric_name_filters']).is_a?(Array)
+          self.metric_name_filters = value
+        end
       end
 
       if attributes.key?(:'namespace_filters')
@@ -142,6 +154,7 @@ module DatadogAPIClient::V2
           collect_cloudwatch_alarms == o.collect_cloudwatch_alarms &&
           collect_custom_metrics == o.collect_custom_metrics &&
           enabled == o.enabled &&
+          metric_name_filters == o.metric_name_filters &&
           namespace_filters == o.namespace_filters &&
           tag_filters == o.tag_filters &&
           additional_properties == o.additional_properties
@@ -151,7 +164,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, enabled, namespace_filters, tag_filters, additional_properties].hash
+      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, enabled, metric_name_filters, namespace_filters, tag_filters, additional_properties].hash
     end
   end
 end

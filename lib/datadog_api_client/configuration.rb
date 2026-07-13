@@ -557,6 +557,8 @@ module DatadogAPIClient
             "v2.create_aws_account_ccm_config": false,
             "v2.delete_aws_account_ccm_config": false,
             "v2.get_aws_account_ccm_config": false,
+            "v2.get_aws_metric_name_filter_preview": false,
+            "v2.preview_aws_metric_name_filter": false,
             "v2.update_aws_account_ccm_config": false,
             "v2.validate_awsccm_config": false,
             "v2.create_jira_issue_template": false,
