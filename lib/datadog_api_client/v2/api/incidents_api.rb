@@ -930,6 +930,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an incident user-defined role.
+    #
+    # @see #create_incident_user_defined_role_with_http_info
+    def create_incident_user_defined_role(body, opts = {})
+      data, _status_code, _headers = create_incident_user_defined_role_with_http_info(body, opts)
+      data
+    end
+
+    # Create an incident user-defined role.
+    #
+    # Create a new user-defined role for incidents.
+    #
+    # @param body [IncidentUserDefinedRoleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response.
+    # @return [Array<(IncidentUserDefinedRoleResponse, Integer, Hash)>] IncidentUserDefinedRoleResponse data, response status code and response headers
+    def create_incident_user_defined_role_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_user_defined_role".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_user_defined_role")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident_user_defined_role"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_incident_user_defined_role ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.create_incident_user_defined_role"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-roles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedRoleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_incident_user_defined_role,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#create_incident_user_defined_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete global incident handle.
     #
     # @see #delete_global_incident_handle_with_http_info
@@ -1721,6 +1796,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an incident user-defined role.
+    #
+    # @see #delete_incident_user_defined_role_with_http_info
+    def delete_incident_user_defined_role(role_id, opts = {})
+      delete_incident_user_defined_role_with_http_info(role_id, opts)
+      nil
+    end
+
+    # Delete an incident user-defined role.
+    #
+    # Delete an existing user-defined role for incidents.
+    #
+    # @param role_id [UUID] The UUID of the incident user-defined role.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_incident_user_defined_role_with_http_info(role_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_user_defined_role".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_user_defined_role")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident_user_defined_role"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_incident_user_defined_role ...'
+      end
+      # verify the required parameter 'role_id' is set
+      if @api_client.config.client_side_validation && role_id.nil?
+        fail ArgumentError, "Missing the required parameter 'role_id' when calling IncidentsAPI.delete_incident_user_defined_role"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-roles/{role_id}'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_incident_user_defined_role,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident_user_defined_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get global incident settings.
     #
     # @see #get_global_incident_settings_with_http_info
@@ -2369,6 +2515,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_user_defined_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an incident user-defined role.
+    #
+    # @see #get_incident_user_defined_role_with_http_info
+    def get_incident_user_defined_role(role_id, opts = {})
+      data, _status_code, _headers = get_incident_user_defined_role_with_http_info(role_id, opts)
+      data
+    end
+
+    # Get an incident user-defined role.
+    #
+    # Retrieve a single user-defined role for incidents.
+    #
+    # @param role_id [UUID] The UUID of the incident user-defined role.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response.
+    # @return [Array<(IncidentUserDefinedRoleResponse, Integer, Hash)>] IncidentUserDefinedRoleResponse data, response status code and response headers
+    def get_incident_user_defined_role_with_http_info(role_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_user_defined_role".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_user_defined_role")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_incident_user_defined_role"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.get_incident_user_defined_role ...'
+      end
+      # verify the required parameter 'role_id' is set
+      if @api_client.config.client_side_validation && role_id.nil?
+        fail ArgumentError, "Missing the required parameter 'role_id' when calling IncidentsAPI.get_incident_user_defined_role"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-roles/{role_id}'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedRoleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_incident_user_defined_role,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_user_defined_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3248,6 +3467,76 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_user_defined_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List incident user-defined roles.
+    #
+    # @see #list_incident_user_defined_roles_with_http_info
+    def list_incident_user_defined_roles(opts = {})
+      data, _status_code, _headers = list_incident_user_defined_roles_with_http_info(opts)
+      data
+    end
+
+    # List incident user-defined roles.
+    #
+    # List all user-defined roles for incidents.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [UUID] :filter_incident_type Filter roles by incident type UUID.
+    # @option opts [String] :include Comma-separated list of related resources to include in the response.
+    # @return [Array<(IncidentUserDefinedRolesResponse, Integer, Hash)>] IncidentUserDefinedRolesResponse data, response status code and response headers
+    def list_incident_user_defined_roles_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_user_defined_roles".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_user_defined_roles")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_incident_user_defined_roles"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_incident_user_defined_roles ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-roles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[incident-type]'] = opts[:'filter_incident_type'] if !opts[:'filter_incident_type'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedRolesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_incident_user_defined_roles,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_user_defined_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4229,6 +4518,86 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_user_defined_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an incident user-defined role.
+    #
+    # @see #update_incident_user_defined_role_with_http_info
+    def update_incident_user_defined_role(role_id, body, opts = {})
+      data, _status_code, _headers = update_incident_user_defined_role_with_http_info(role_id, body, opts)
+      data
+    end
+
+    # Update an incident user-defined role.
+    #
+    # Update an existing user-defined role for incidents.
+    #
+    # @param role_id [UUID] The UUID of the incident user-defined role.
+    # @param body [IncidentUserDefinedRolePatchRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response.
+    # @return [Array<(IncidentUserDefinedRoleResponse, Integer, Hash)>] IncidentUserDefinedRoleResponse data, response status code and response headers
+    def update_incident_user_defined_role_with_http_info(role_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_user_defined_role".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_user_defined_role")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident_user_defined_role"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_incident_user_defined_role ...'
+      end
+      # verify the required parameter 'role_id' is set
+      if @api_client.config.client_side_validation && role_id.nil?
+        fail ArgumentError, "Missing the required parameter 'role_id' when calling IncidentsAPI.update_incident_user_defined_role"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_incident_user_defined_role"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-roles/{role_id}'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedRoleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_incident_user_defined_role,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_user_defined_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

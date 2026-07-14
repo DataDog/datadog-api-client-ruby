@@ -3553,6 +3553,26 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "IncidentUserDefinedFieldUpdateRequest",
     },
+    "v2.ListIncidentUserDefinedRoles" => {
+            "filter_incident_type" => "UUID",
+            "include" => "String",
+    },
+    "v2.CreateIncidentUserDefinedRole" => {
+            "include" => "String",
+            "body" => "IncidentUserDefinedRoleRequest",
+    },
+    "v2.DeleteIncidentUserDefinedRole" => {
+            "role_id" => "UUID",
+    },
+    "v2.GetIncidentUserDefinedRole" => {
+            "role_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateIncidentUserDefinedRole" => {
+            "role_id" => "UUID",
+            "include" => "String",
+            "body" => "IncidentUserDefinedRolePatchRequest",
+    },
     "v2.ImportIncident" => {
             "include" => "Array<IncidentImportRelatedObject>",
             "body" => "IncidentImportRequest",
