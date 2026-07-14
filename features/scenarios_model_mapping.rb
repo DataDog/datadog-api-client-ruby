@@ -2741,6 +2741,9 @@ ScenariosModelMappings = {
     "v2.DeleteCustomForecast" => {
             "budget_id" => "String",
     },
+    "v2.GetCustomForecast" => {
+            "budget_id" => "String",
+    },
     "v2.GetCommitmentsCommitmentList" => {
             "provider" => "CommitmentsProvider",
             "product" => "String",

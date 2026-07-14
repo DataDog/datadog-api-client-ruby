@@ -432,6 +432,7 @@ module DatadogAPIClient
             "v2.get_commitments_utilization_timeseries": false,
             "v2.get_cost_anomaly": false,
             "v2.get_cost_tag_metadata_currency": false,
+            "v2.get_custom_forecast": false,
             "v2.list_cost_anomalies": false,
             "v2.list_cost_tag_key_sources": false,
             "v2.list_cost_tag_metadata": false,

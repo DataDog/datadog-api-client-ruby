@@ -27,13 +27,13 @@ module DatadogAPIClient::V2
     # The name of the metric this override applies to.
     attr_reader :metric_name
 
-    # How the per-metric override is applied. `tracked` enforces a custom limit; `excluded` skips the metric entirely.
-    attr_reader :mode
+    # How the override is applied. `limit_override` enforces a custom limit; `excluded` omits the metric or tag from cardinality tracking.
+    attr_reader :override_type
 
-    # A list of per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+    # A list of per-tag cardinality overrides that apply within this metric. Must be omitted when `override_type` is `excluded`.
     attr_reader :per_tag_limits
 
-    # The maximum number of distinct tag value combinations allowed for this metric. Required when `mode` is `tracked`. Must be omitted when `mode` is `excluded`.
+    # The maximum number of distinct tag value combinations allowed for this metric. Required when `override_type` is `limit_override`. Must be omitted when `override_type` is `excluded`.
     attr_reader :value_limit
 
     attr_accessor :additional_properties
@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
       {
         :'limit_exceeded_action' => :'limit_exceeded_action',
         :'metric_name' => :'metric_name',
-        :'mode' => :'mode',
+        :'override_type' => :'override_type',
         :'per_tag_limits' => :'per_tag_limits',
         :'value_limit' => :'value_limit'
       }
@@ -56,7 +56,7 @@ module DatadogAPIClient::V2
       {
         :'limit_exceeded_action' => :'ObservabilityPipelineTagCardinalityLimitProcessorAction',
         :'metric_name' => :'String',
-        :'mode' => :'ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode',
+        :'override_type' => :'ObservabilityPipelineTagCardinalityLimitProcessorOverrideType',
         :'per_tag_limits' => :'Array<ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit>',
         :'value_limit' => :'Integer'
       }
@@ -88,8 +88,8 @@ module DatadogAPIClient::V2
         self.metric_name = attributes[:'metric_name']
       end
 
-      if attributes.key?(:'mode')
-        self.mode = attributes[:'mode']
+      if attributes.key?(:'override_type')
+        self.override_type = attributes[:'override_type']
       end
 
       if attributes.key?(:'per_tag_limits')
@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @metric_name.nil?
-      return false if @mode.nil?
+      return false if @override_type.nil?
       return false if !@per_tag_limits.nil? && @per_tag_limits.length > 50
       return false if !@value_limit.nil? && @value_limit > 1000000
       return false if !@value_limit.nil? && @value_limit < 0
@@ -126,13 +126,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param mode [Object] Object to be assigned
+    # @param override_type [Object] Object to be assigned
     # @!visibility private
-    def mode=(mode)
-      if mode.nil?
-        fail ArgumentError, 'invalid value for "mode", mode cannot be nil.'
+    def override_type=(override_type)
+      if override_type.nil?
+        fail ArgumentError, 'invalid value for "override_type", override_type cannot be nil.'
       end
-      @mode = mode
+      @override_type = override_type
     end
 
     # Custom attribute writer method with validation
@@ -186,7 +186,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           limit_exceeded_action == o.limit_exceeded_action &&
           metric_name == o.metric_name &&
-          mode == o.mode &&
+          override_type == o.override_type &&
           per_tag_limits == o.per_tag_limits &&
           value_limit == o.value_limit &&
           additional_properties == o.additional_properties
@@ -196,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit_exceeded_action, metric_name, mode, per_tag_limits, value_limit, additional_properties].hash
+      [limit_exceeded_action, metric_name, override_type, per_tag_limits, value_limit, additional_properties].hash
     end
   end
 end
