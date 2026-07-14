@@ -41,6 +41,9 @@ module DatadogAPIClient::V2
     # A list of per-metric cardinality overrides that take precedence over the default `value_limit`.
     attr_reader :per_metric_limits
 
+    # Controls whether the processor uses exact or probabilistic tag tracking.
+    attr_reader :tracking_mode
+
     # The processor type. The value must be `tag_cardinality_limit`.
     attr_reader :type
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V2
         :'include' => :'include',
         :'limit_exceeded_action' => :'limit_exceeded_action',
         :'per_metric_limits' => :'per_metric_limits',
+        :'tracking_mode' => :'tracking_mode',
         :'type' => :'type',
         :'value_limit' => :'value_limit'
       }
@@ -74,6 +78,7 @@ module DatadogAPIClient::V2
         :'include' => :'String',
         :'limit_exceeded_action' => :'ObservabilityPipelineTagCardinalityLimitProcessorAction',
         :'per_metric_limits' => :'Array<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit>',
+        :'tracking_mode' => :'ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode',
         :'type' => :'ObservabilityPipelineTagCardinalityLimitProcessorType',
         :'value_limit' => :'Integer'
       }
@@ -123,6 +128,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'tracking_mode')
+        self.tracking_mode = attributes[:'tracking_mode']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -141,6 +150,7 @@ module DatadogAPIClient::V2
       return false if @include.nil?
       return false if @limit_exceeded_action.nil?
       return false if !@per_metric_limits.nil? && @per_metric_limits.length > 100
+      return false if @tracking_mode.nil?
       return false if @type.nil?
       return false if @value_limit.nil?
       return false if @value_limit > 1000000
@@ -196,6 +206,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "per_metric_limits", number of items must be less than or equal to 100.'
       end
       @per_metric_limits = per_metric_limits
+    end
+
+    # Custom attribute writer method with validation
+    # @param tracking_mode [Object] Object to be assigned
+    # @!visibility private
+    def tracking_mode=(tracking_mode)
+      if tracking_mode.nil?
+        fail ArgumentError, 'invalid value for "tracking_mode", tracking_mode cannot be nil.'
+      end
+      @tracking_mode = tracking_mode
     end
 
     # Custom attribute writer method with validation
@@ -256,6 +276,7 @@ module DatadogAPIClient::V2
           include == o.include &&
           limit_exceeded_action == o.limit_exceeded_action &&
           per_metric_limits == o.per_metric_limits &&
+          tracking_mode == o.tracking_mode &&
           type == o.type &&
           value_limit == o.value_limit &&
           additional_properties == o.additional_properties
@@ -265,7 +286,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, id, include, limit_exceeded_action, per_metric_limits, type, value_limit, additional_properties].hash
+      [display_name, enabled, id, include, limit_exceeded_action, per_metric_limits, tracking_mode, type, value_limit, additional_properties].hash
     end
   end
 end

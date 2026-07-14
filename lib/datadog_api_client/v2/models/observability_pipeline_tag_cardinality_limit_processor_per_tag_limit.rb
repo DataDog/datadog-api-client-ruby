@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit
     include BaseGenericModel
 
-    # How the per-tag override is applied. `limit_override` enforces a custom limit on the tag; `excluded` skips the tag from cardinality tracking.
-    attr_reader :mode
+    # How the override is applied. `limit_override` enforces a custom limit; `excluded` omits the metric or tag from cardinality tracking.
+    attr_reader :override_type
 
     # The tag key this override applies to.
     attr_reader :tag_key
 
-    # The maximum number of distinct values allowed for this tag. Required when `mode` is `limit_override`. Must be omitted when `mode` is `excluded`.
+    # The maximum number of distinct values allowed for this tag. Required when `override_type` is `limit_override`. Must be omitted when `override_type` is `excluded`.
     attr_reader :value_limit
 
     attr_accessor :additional_properties
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'mode' => :'mode',
+        :'override_type' => :'override_type',
         :'tag_key' => :'tag_key',
         :'value_limit' => :'value_limit'
       }
@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'mode' => :'ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode',
+        :'override_type' => :'ObservabilityPipelineTagCardinalityLimitProcessorOverrideType',
         :'tag_key' => :'String',
         :'value_limit' => :'Integer'
       }
@@ -70,8 +70,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'mode')
-        self.mode = attributes[:'mode']
+      if attributes.key?(:'override_type')
+        self.override_type = attributes[:'override_type']
       end
 
       if attributes.key?(:'tag_key')
@@ -87,7 +87,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @mode.nil?
+      return false if @override_type.nil?
       return false if @tag_key.nil?
       return false if !@value_limit.nil? && @value_limit > 1000000
       return false if !@value_limit.nil? && @value_limit < 0
@@ -95,13 +95,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param mode [Object] Object to be assigned
+    # @param override_type [Object] Object to be assigned
     # @!visibility private
-    def mode=(mode)
-      if mode.nil?
-        fail ArgumentError, 'invalid value for "mode", mode cannot be nil.'
+    def override_type=(override_type)
+      if override_type.nil?
+        fail ArgumentError, 'invalid value for "override_type", override_type cannot be nil.'
       end
-      @mode = mode
+      @override_type = override_type
     end
 
     # Custom attribute writer method with validation
@@ -153,7 +153,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          mode == o.mode &&
+          override_type == o.override_type &&
           tag_key == o.tag_key &&
           value_limit == o.value_limit &&
           additional_properties == o.additional_properties
@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [mode, tag_key, value_limit, additional_properties].hash
+      [override_type, tag_key, value_limit, additional_properties].hash
     end
   end
 end
