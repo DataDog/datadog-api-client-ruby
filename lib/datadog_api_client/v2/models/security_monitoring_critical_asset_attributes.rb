@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # A description of the critical asset.
     attr_accessor :description
 
+    # Whether the critical asset is editable.
+    attr_accessor :editable
+
     # Whether the critical asset is enabled.
     attr_accessor :enabled
 
@@ -70,6 +73,7 @@ module DatadogAPIClient::V2
         :'creation_date' => :'creation_date',
         :'creator' => :'creator',
         :'description' => :'description',
+        :'editable' => :'editable',
         :'enabled' => :'enabled',
         :'query' => :'query',
         :'rule_query' => :'rule_query',
@@ -90,6 +94,7 @@ module DatadogAPIClient::V2
         :'creation_date' => :'Integer',
         :'creator' => :'SecurityMonitoringUser',
         :'description' => :'String',
+        :'editable' => :'Boolean',
         :'enabled' => :'Boolean',
         :'query' => :'String',
         :'rule_query' => :'String',
@@ -134,6 +139,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'editable')
+        self.editable = attributes[:'editable']
       end
 
       if attributes.key?(:'enabled')
@@ -223,6 +232,7 @@ module DatadogAPIClient::V2
           creation_date == o.creation_date &&
           creator == o.creator &&
           description == o.description &&
+          editable == o.editable &&
           enabled == o.enabled &&
           query == o.query &&
           rule_query == o.rule_query &&
@@ -239,7 +249,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creation_author_id, creation_date, creator, description, enabled, query, rule_query, severity, tags, update_author_id, update_date, updater, version, additional_properties].hash
+      [creation_author_id, creation_date, creator, description, editable, enabled, query, rule_query, severity, tags, update_author_id, update_date, updater, version, additional_properties].hash
     end
   end
 end
