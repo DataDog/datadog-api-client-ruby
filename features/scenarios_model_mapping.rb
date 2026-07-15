@@ -4494,6 +4494,12 @@ ScenariosModelMappings = {
             "schedule_id" => "String",
             "filter_at_ts" => "String",
     },
+    "v2.GetScheduleOnCallResponders" => {
+            "include" => "String",
+            "schedule_id" => "String",
+            "filter_position" => "String",
+            "filter_at_ts" => "String",
+    },
     "v2.GetTeamOnCallUsers" => {
             "include" => "String",
             "team_id" => "String",
