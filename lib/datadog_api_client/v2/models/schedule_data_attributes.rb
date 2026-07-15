@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # A short name for the schedule.
     attr_accessor :name
 
+    # A list of tags associated with the schedule.
+    attr_accessor :tags
+
     # The time zone in which this schedule operates.
     attr_accessor :time_zone
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'name' => :'name',
+        :'tags' => :'tags',
         :'time_zone' => :'time_zone'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'name' => :'String',
+        :'tags' => :'Array<String>',
         :'time_zone' => :'String'
       }
     end
@@ -67,6 +72,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'time_zone')
@@ -101,6 +112,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          tags == o.tags &&
           time_zone == o.time_zone &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, time_zone, additional_properties].hash
+      [name, tags, time_zone, additional_properties].hash
     end
   end
 end

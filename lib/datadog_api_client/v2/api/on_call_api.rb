@@ -776,6 +776,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get on-call responders for a schedule.
+    #
+    # @see #get_schedule_on_call_responders_with_http_info
+    def get_schedule_on_call_responders(schedule_id, opts = {})
+      data, _status_code, _headers = get_schedule_on_call_responders_with_http_info(schedule_id, opts)
+      data
+    end
+
+    # Get on-call responders for a schedule.
+    #
+    # Retrieves the on-call responders for the specified schedule, grouped by position (previous, current, next), at a given time. Supports schedules with multiple concurrent on-call responders at a position, by returning a list of shifts per position.
+    #
+    # @param schedule_id [String] The ID of the schedule.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `schedule`, `responders`, `responders.shifts`, `responders.shifts.user`.
+    # @option opts [String] :filter_position Comma-separated list of positions to retrieve. Allowed values: `previous`, `current`, `next`. Defaults to `current` if omitted.
+    # @option opts [String] :filter_at_ts Retrieves the on-call responders at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
+    # @return [Array<(ScheduleOnCallResponders, Integer, Hash)>] ScheduleOnCallResponders data, response status code and response headers
+    def get_schedule_on_call_responders_with_http_info(schedule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.get_schedule_on_call_responders ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.get_schedule_on_call_responders"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/responders'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'filter[position]'] = opts[:'filter_position'] if !opts[:'filter_position'].nil?
+      query_params[:'filter[at_ts]'] = opts[:'filter_at_ts'] if !opts[:'filter_at_ts'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScheduleOnCallResponders'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_schedule_on_call_responders,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#get_schedule_on_call_responders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get scheduled on-call user.
     #
     # @see #get_schedule_on_call_user_with_http_info
@@ -786,7 +857,9 @@ module DatadogAPIClient::V2
 
     # Get scheduled on-call user.
     #
-    # Retrieves the user who is on-call for the specified schedule at a given time.
+    # Retrieves the user who is on-call for the specified schedule at a given time. This endpoint does not support schedules with multiple concurrent on-call responders at a position. Deprecated. Use `Get on-call responders for a schedule` instead.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param schedule_id [String] The ID of the schedule.
     # @param opts [Hash] the optional parameters
@@ -794,6 +867,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_at_ts Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
     # @return [Array<(Shift, Integer, Hash)>] Shift data, response status code and response headers
     def get_schedule_on_call_user_with_http_info(schedule_id, opts = {})
+      warn "[DEPRECATION] `GetScheduleOnCallUser` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OnCallAPI.get_schedule_on_call_user ...'
