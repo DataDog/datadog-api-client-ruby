@@ -1895,6 +1895,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get account filters.
+    #
+    # @see #get_cost_account_filters_with_http_info
+    def get_cost_account_filters(cloud_account_id, opts = {})
+      data, _status_code, _headers = get_cost_account_filters_with_http_info(cloud_account_id, opts)
+      data
+    end
+
+    # Get account filters.
+    #
+    # Get the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
+    #
+    # @param cloud_account_id [Integer] Cloud Account id.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AccountFiltersResponse, Integer, Hash)>] AccountFiltersResponse data, response status code and response headers
+    def get_cost_account_filters_with_http_info(cloud_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_account_filters ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.get_cost_account_filters"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/account_filters/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountFiltersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_account_filters,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_account_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cost anomaly.
     #
     # @see #get_cost_anomaly_with_http_info
@@ -4137,6 +4202,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#search_cost_recommendations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update account filters.
+    #
+    # @see #update_cost_account_filters_with_http_info
+    def update_cost_account_filters(cloud_account_id, body, opts = {})
+      data, _status_code, _headers = update_cost_account_filters_with_http_info(cloud_account_id, body, opts)
+      data
+    end
+
+    # Update account filters.
+    #
+    # Update the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
+    #
+    # @param cloud_account_id [Integer] Cloud Account id.
+    # @param body [AccountFiltersPatchRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AccountFiltersResponse, Integer, Hash)>] AccountFiltersResponse data, response status code and response headers
+    def update_cost_account_filters_with_http_info(cloud_account_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_account_filters ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.update_cost_account_filters"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_cost_account_filters"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/account_filters/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountFiltersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_cost_account_filters,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_account_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
