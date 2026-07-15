@@ -2661,6 +2661,13 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.GetCostAccountFilters" => {
+            "cloud_account_id" => "Integer",
+    },
+    "v2.UpdateCostAccountFilters" => {
+            "cloud_account_id" => "Integer",
+            "body" => "AccountFiltersPatchRequest",
+    },
     "v2.ListCostAnomalies" => {
             "start" => "Integer",
             "_end" => "Integer",
