@@ -4699,6 +4699,9 @@ ScenariosModelMappings = {
             "org_group_policy_override_id" => "UUID",
             "body" => "OrgGroupPolicyOverrideUpdateRequest",
     },
+    "v2.ListOrgGroupPolicySuggestions" => {
+            "filter_org_group_id" => "UUID",
+    },
     "v2.ListOrgGroups" => {
             "page_number" => "Integer",
             "page_size" => "Integer",

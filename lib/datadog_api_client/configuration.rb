@@ -642,6 +642,7 @@ module DatadogAPIClient
             "v2.list_org_group_policies": false,
             "v2.list_org_group_policy_configs": false,
             "v2.list_org_group_policy_overrides": false,
+            "v2.list_org_group_policy_suggestions": false,
             "v2.list_org_groups": false,
             "v2.update_org_group": false,
             "v2.update_org_group_membership": false,

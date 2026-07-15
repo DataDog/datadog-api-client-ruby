@@ -1153,6 +1153,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List org group policy suggestions.
+    #
+    # @see #list_org_group_policy_suggestions_with_http_info
+    def list_org_group_policy_suggestions(filter_org_group_id, opts = {})
+      data, _status_code, _headers = list_org_group_policy_suggestions_with_http_info(filter_org_group_id, opts)
+      data
+    end
+
+    # List org group policy suggestions.
+    #
+    # List suggested organization group policies. Requires a filter on org group ID.
+    #
+    # @param filter_org_group_id [UUID] Filter policies by org group ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OrgGroupPolicySuggestionListResponse, Integer, Hash)>] OrgGroupPolicySuggestionListResponse data, response status code and response headers
+    def list_org_group_policy_suggestions_with_http_info(filter_org_group_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_org_group_policy_suggestions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_org_group_policy_suggestions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_org_group_policy_suggestions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgGroupsAPI.list_org_group_policy_suggestions ...'
+      end
+      # verify the required parameter 'filter_org_group_id' is set
+      if @api_client.config.client_side_validation && filter_org_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_org_group_id' when calling OrgGroupsAPI.list_org_group_policy_suggestions"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_group_policy_suggestions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[org_group_id]'] = filter_org_group_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OrgGroupPolicySuggestionListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_org_group_policy_suggestions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgGroupsAPI#list_org_group_policy_suggestions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List org groups.
     #
     # @see #list_org_groups_with_http_info
