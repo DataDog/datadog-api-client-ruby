@@ -1115,7 +1115,7 @@ module DatadogAPIClient::V2
 
     # List degradations.
     #
-    # Lists all degradations for the organization. Optionally filter by status and page.
+    # Lists all degradations for the organization. Optionally filter by status, page, and source ID.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_page_id Optional page id filter.
@@ -1123,6 +1123,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit The number of degradations to return per page.
     # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
     # @option opts [String] :filter_status Optional degradation status filter. Supported values: investigating, identified, monitoring, resolved.
+    # @option opts [String] :filter_source_id Optional source ID filter. Returns only degradations whose source matches this ID (e.g. an incident ID).
     # @option opts [String] :sort Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, modified_at, -modified_at.
     # @return [Array<(DegradationArray, Integer, Hash)>] DegradationArray data, response status code and response headers
     def list_degradations_with_http_info(opts = {})
@@ -1140,6 +1141,7 @@ module DatadogAPIClient::V2
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'filter[source_id]'] = opts[:'filter_source_id'] if !opts[:'filter_source_id'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
