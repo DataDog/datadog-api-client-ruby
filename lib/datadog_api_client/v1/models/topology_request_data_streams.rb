@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Request that will return nodes and edges to be used by topology map.
-  class TopologyRequest
+  # Request that returns nodes and edges from the data streams data source.
+  class TopologyRequestDataStreams
     include BaseGenericModel
 
-    # Query to service-based topology data sources like the service map or data streams.
+    # Query to the data streams topology data source.
     attr_accessor :query
 
     # Widget request type.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'query' => :'TopologyQuery',
+        :'query' => :'TopologyQueryDataStreams',
         :'request_type' => :'TopologyRequestType'
       }
     end
@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TopologyRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TopologyRequestDataStreams` initialize method"
       end
 
       self.additional_properties = {}
