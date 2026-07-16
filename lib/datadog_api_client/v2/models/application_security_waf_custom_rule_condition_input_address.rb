@@ -23,6 +23,7 @@ module DatadogAPIClient::V2
 
     SERVER_DB_STATEMENT = "server.db.statement".freeze
     SERVER_IO_FS_FILE = "server.io.fs.file".freeze
+    SERVER_IO_FS_FILE_WRITE = "server.io.fs.file_write".freeze
     SERVER_IO_NET_URL = "server.io.net.url".freeze
     SERVER_SYS_SHELL_CMD = "server.sys.shell.cmd".freeze
     SERVER_REQUEST_METHOD = "server.request.method".freeze
@@ -36,6 +37,7 @@ module DatadogAPIClient::V2
     SERVER_REQUEST_TRAILERS = "server.request.trailers".freeze
     SERVER_REQUEST_BODY = "server.request.body".freeze
     SERVER_REQUEST_BODY_FILENAMES = "server.request.body.filenames".freeze
+    SERVER_REQUEST_BODY_FILES_CONTENT = "server.request.body.files_content".freeze
     SERVER_RESPONSE_STATUS = "server.response.status".freeze
     SERVER_RESPONSE_HEADERS_NO_COOKIES = "server.response.headers.no_cookies".freeze
     SERVER_RESPONSE_TRAILERS = "server.response.trailers".freeze
