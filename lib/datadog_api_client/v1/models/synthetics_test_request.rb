@@ -80,6 +80,9 @@ module DatadogAPIClient::V1
     # HTTP version to use for a Synthetic test.
     attr_accessor :http_version
 
+    # For SSL tests, whether the test should ignore certificate validation.
+    attr_accessor :ignore_certificate_validation
+
     # Whether the message is base64 encoded.
     attr_accessor :is_message_base64_encoded
 
@@ -161,6 +164,7 @@ module DatadogAPIClient::V1
         :'headers' => :'headers',
         :'host' => :'host',
         :'http_version' => :'httpVersion',
+        :'ignore_certificate_validation' => :'ignore_certificate_validation',
         :'is_message_base64_encoded' => :'isMessageBase64Encoded',
         :'mcp_protocol_version' => :'mcpProtocolVersion',
         :'message' => :'message',
@@ -205,6 +209,7 @@ module DatadogAPIClient::V1
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
+        :'ignore_certificate_validation' => :'Boolean',
         :'is_message_base64_encoded' => :'Boolean',
         :'mcp_protocol_version' => :'SyntheticsMCPProtocolVersion',
         :'message' => :'String',
@@ -322,6 +327,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'http_version')
         self.http_version = attributes[:'http_version']
+      end
+
+      if attributes.key?(:'ignore_certificate_validation')
+        self.ignore_certificate_validation = attributes[:'ignore_certificate_validation']
       end
 
       if attributes.key?(:'is_message_base64_encoded')
@@ -464,6 +473,7 @@ module DatadogAPIClient::V1
           headers == o.headers &&
           host == o.host &&
           http_version == o.http_version &&
+          ignore_certificate_validation == o.ignore_certificate_validation &&
           is_message_base64_encoded == o.is_message_base64_encoded &&
           mcp_protocol_version == o.mcp_protocol_version &&
           message == o.message &&
@@ -489,7 +499,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, disable_aia_intermediate_fetching, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, is_message_base64_encoded, mcp_protocol_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, tool_args, tool_name, url, additional_properties].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, disable_aia_intermediate_fetching, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, ignore_certificate_validation, is_message_base64_encoded, mcp_protocol_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, tool_args, tool_name, url, additional_properties].hash
     end
   end
 end

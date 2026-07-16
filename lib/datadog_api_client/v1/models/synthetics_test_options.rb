@@ -67,7 +67,7 @@ module DatadogAPIClient::V1
     # Ignore server certificate error for browser tests.
     attr_accessor :ignore_server_certificate_error
 
-    # For SSL tests, whether or not the test should ignore certificate validation.
+    # For SSL tests, whether the test should ignore certificate validation.
     attr_accessor :ignore_certificate_validation
 
     # Timeout before declaring the initial step as failed (in seconds) for browser tests.
