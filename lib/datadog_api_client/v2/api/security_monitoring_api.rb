@@ -8872,7 +8872,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_integration_configs ...'
       end
-      allowable_values = ['GOOGLE_WORKSPACE', 'OKTA', 'ENTRA_ID']
+      allowable_values = ['GOOGLE_WORKSPACE', 'OKTA', 'ENTRA_ID', 'CROWDSTRIKE', 'SENTINELONE']
       if @api_client.config.client_side_validation && opts[:'filter_integration_type'] && !allowable_values.include?(opts[:'filter_integration_type'])
         fail ArgumentError, "invalid value for \"filter_integration_type\", must be one of #{allowable_values}"
       end

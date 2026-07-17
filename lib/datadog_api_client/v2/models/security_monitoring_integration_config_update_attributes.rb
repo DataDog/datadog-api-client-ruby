@@ -17,140 +17,34 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Fields to update on the entity context sync configuration. All fields are optional.
-  class SecurityMonitoringIntegrationConfigUpdateAttributes
-    include BaseGenericModel
+  # Fields to update on the entity context sync configuration. All fields other than the integration type are optional.
+  module SecurityMonitoringIntegrationConfigUpdateAttributes
+    class << self
+      include BaseOneOfModel
 
-    # The new domain associated with the external entity source.
-    attr_accessor :domain
-
-    # Whether the entity context sync should be enabled.
-    attr_accessor :enabled
-
-    # The type of external source that provides entities to Cloud SIEM.
-    attr_accessor :integration_type
-
-    # The new display name for the entity context sync configuration.
-    attr_accessor :name
-
-    # The secrets used to authenticate against the external entity source. The accepted keys depend on the source type
-    # (for example, `admin_email` for Google Workspace). Not required for source types that do not use secrets (for example, `ENTRA_ID`).
-    attr_accessor :secrets
-
-    # Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.
-    attr_accessor :settings
-
-    attr_accessor :additional_properties
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'domain' => :'domain',
-        :'enabled' => :'enabled',
-        :'integration_type' => :'integration_type',
-        :'name' => :'name',
-        :'secrets' => :'secrets',
-        :'settings' => :'settings'
-      }
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'domain' => :'String',
-        :'enabled' => :'Boolean',
-        :'integration_type' => :'SecurityMonitoringIntegrationType',
-        :'name' => :'String',
-        :'secrets' => :'Hash<String, Object>',
-        :'settings' => :'Hash<String, Object>'
-      }
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringIntegrationConfigUpdateAttributes` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes',
+          :'SecurityMonitoringOktaIntegrationConfigUpdateAttributes',
+          :'SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes',
+          :'SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes',
+          :'SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes'
+        ]
       end
-
-      self.additional_properties = {}
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
-        end
-      }
-
-      if attributes.key?(:'domain')
-        self.domain = attributes[:'domain']
+      # Discriminator's property name (OpenAPI v3)
+      def openapi_discriminator_name
+        :'integration_type'
       end
-
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        discriminator_value = data[openapi_discriminator_name]
+        return nil unless discriminator_value
+      
       end
-
-      if attributes.key?(:'integration_type')
-        self.integration_type = attributes[:'integration_type']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'secrets')
-        self.secrets = attributes[:'secrets']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
-      end
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          domain == o.domain &&
-          enabled == o.enabled &&
-          integration_type == o.integration_type &&
-          name == o.name &&
-          secrets == o.secrets &&
-          settings == o.settings &&
-          additional_properties == o.additional_properties
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [domain, enabled, integration_type, name, secrets, settings, additional_properties].hash
     end
   end
 end
