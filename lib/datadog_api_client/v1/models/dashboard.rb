@@ -31,6 +31,9 @@ module DatadogAPIClient::V1
     # Creation date of the dashboard.
     attr_accessor :created_at
 
+    # The default timeframe applied when opening the dashboard. Set to `null` to clear the dashboard's default timeframe.
+    attr_accessor :default_timeframe
+
     # Description of the dashboard.
     attr_accessor :description
 
@@ -89,6 +92,7 @@ module DatadogAPIClient::V1
         :'author_handle' => :'author_handle',
         :'author_name' => :'author_name',
         :'created_at' => :'created_at',
+        :'default_timeframe' => :'default_timeframe',
         :'description' => :'description',
         :'id' => :'id',
         :'is_read_only' => :'is_read_only',
@@ -114,6 +118,7 @@ module DatadogAPIClient::V1
         :'author_handle' => :'String',
         :'author_name' => :'String',
         :'created_at' => :'Time',
+        :'default_timeframe' => :'DashboardDefaultTimeframeSetting',
         :'description' => :'String',
         :'id' => :'String',
         :'is_read_only' => :'Boolean',
@@ -174,6 +179,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'default_timeframe')
+        self.default_timeframe = attributes[:'default_timeframe']
       end
 
       if attributes.key?(:'description')
@@ -342,6 +351,7 @@ module DatadogAPIClient::V1
           author_handle == o.author_handle &&
           author_name == o.author_name &&
           created_at == o.created_at &&
+          default_timeframe == o.default_timeframe &&
           description == o.description &&
           id == o.id &&
           is_read_only == o.is_read_only &&
@@ -364,7 +374,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author_handle, author_name, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
+      [author_handle, author_name, created_at, default_timeframe, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
     end
   end
 end
