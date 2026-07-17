@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SecurityMonitoringIntegrationConfigUpdateData
     include BaseGenericModel
 
-    # Fields to update on the entity context sync configuration. All fields other than the integration type are optional.
+    # Fields to update on the entity context sync configuration. All fields are optional.
     attr_reader :attributes
 
     # The type of the resource. The value should always be `integration_config`.

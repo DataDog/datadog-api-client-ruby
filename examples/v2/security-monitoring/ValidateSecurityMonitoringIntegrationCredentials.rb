@@ -8,18 +8,10 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringIntegrationCredentialsValidateRequest.new({
   data: DatadogAPIClient::V2::SecurityMonitoringIntegrationCredentialsValidateData.new({
-    attributes: DatadogAPIClient::V2::SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes.new({
+    attributes: DatadogAPIClient::V2::SecurityMonitoringIntegrationCredentialsValidateAttributes.new({
       domain: "siem-test.com",
-      integration_type: DatadogAPIClient::V2::SecurityMonitoringIntegrationTypeGoogleWorkspace::GOOGLE_WORKSPACE,
-      secrets: DatadogAPIClient::V2::SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets.new({
-        admin_email: "admin@example.com",
-        service_account_json: DatadogAPIClient::V2::SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount.new({
-          client_email: "svc@my-project.iam.gserviceaccount.com",
-          private_key: '-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----',
-          project_id: "my-project",
-          type: "service_account",
-        }),
-      }),
+      integration_type: DatadogAPIClient::V2::SecurityMonitoringIntegrationType::GOOGLE_WORKSPACE,
+      secrets: DatadogAPIClient::V2::SecurityMonitoringIntegrationConfigSecrets.new({}),
     }),
     type: DatadogAPIClient::V2::SecurityMonitoringIntegrationConfigResourceType::INTEGRATION_CONFIG,
   }),
