@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class GcpScanOptionsInputUpdateDataAttributes
     include BaseGenericModel
 
+    # Indicates if scanning of Cloud Functions is enabled.
+    attr_accessor :cloud_function
+
     # Indicates whether host compliance scanning is enabled.
     attr_accessor :compliance_host
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cloud_function' => :'cloud_function',
         :'compliance_host' => :'compliance_host',
         :'vuln_containers_os' => :'vuln_containers_os',
         :'vuln_host_os' => :'vuln_host_os'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cloud_function' => :'Boolean',
         :'compliance_host' => :'Boolean',
         :'vuln_containers_os' => :'Boolean',
         :'vuln_host_os' => :'Boolean'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cloud_function')
+        self.cloud_function = attributes[:'cloud_function']
+      end
 
       if attributes.key?(:'compliance_host')
         self.compliance_host = attributes[:'compliance_host']
@@ -109,6 +118,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cloud_function == o.cloud_function &&
           compliance_host == o.compliance_host &&
           vuln_containers_os == o.vuln_containers_os &&
           vuln_host_os == o.vuln_host_os &&
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_host, vuln_containers_os, vuln_host_os, additional_properties].hash
+      [cloud_function, compliance_host, vuln_containers_os, vuln_host_os, additional_properties].hash
     end
   end
 end

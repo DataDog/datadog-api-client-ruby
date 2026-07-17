@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 23 Oct 2025 22:21:55 GMT
+- recorded_at: Fri, 17 Jul 2026 06:38:47 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"vuln_containers_os":true,"vuln_host_os":true},"id":"new-project","type":"gcp_scan_options"}}'
+      string: '{"data":{"attributes":{"cloud_function":true,"vuln_containers_os":true,"vuln_host_os":true},"id":"new-project","type":"gcp_scan_options"}}'
     headers:
       Accept:
       - application/json
@@ -14,14 +14,14 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"new-project","type":"gcp_scan_options","attributes":{"vuln_containers_os":true,"vuln_host_os":true}}}'
+      string: '{"data":{"id":"new-project","type":"gcp_scan_options","attributes":{"cloud_function":true,"compliance_host":false,"vuln_containers_os":true,"vuln_host_os":true}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 23 Oct 2025 22:21:55 GMT
+- recorded_at: Fri, 17 Jul 2026 06:38:47 GMT
   request:
     body: null
     headers:

@@ -6,6 +6,7 @@ api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new
 body = DatadogAPIClient::V2::AzureScanOptions.new({
   data: DatadogAPIClient::V2::AzureScanOptionsData.new({
     attributes: DatadogAPIClient::V2::AzureScanOptionsDataAttributes.new({
+      function: true,
       vuln_containers_os: true,
       vuln_host_os: true,
     }),
