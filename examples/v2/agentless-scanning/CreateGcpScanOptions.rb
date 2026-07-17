@@ -8,6 +8,7 @@ body = DatadogAPIClient::V2::GcpScanOptions.new({
     id: "new-project",
     type: DatadogAPIClient::V2::GcpScanOptionsDataType::GCP_SCAN_OPTIONS,
     attributes: DatadogAPIClient::V2::GcpScanOptionsDataAttributes.new({
+      cloud_function: true,
       vuln_host_os: true,
       vuln_containers_os: true,
     }),

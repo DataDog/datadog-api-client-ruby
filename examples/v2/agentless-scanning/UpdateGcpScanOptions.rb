@@ -8,6 +8,7 @@ body = DatadogAPIClient::V2::GcpScanOptionsInputUpdate.new({
     id: "api-spec-test",
     type: DatadogAPIClient::V2::GcpScanOptionsInputUpdateDataType::GCP_SCAN_OPTIONS,
     attributes: DatadogAPIClient::V2::GcpScanOptionsInputUpdateDataAttributes.new({
+      cloud_function: true,
       vuln_containers_os: false,
     }),
   }),
