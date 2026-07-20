@@ -492,6 +492,7 @@ module DatadogAPIClient
             "v2.update_form": false,
             "v2.upsert_and_publish_form_version": false,
             "v2.upsert_form_version": false,
+            "v2.update_login_org_configs_mcp_cross_app_access_issuer_url": false,
             "v2.update_org_saml_configurations": false,
             "v2.get_governance_control": false,
             "v2.list_governance_controls": false,
