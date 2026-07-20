@@ -3386,6 +3386,9 @@ ScenariosModelMappings = {
     "v2.UpdateLoginOrgConfigsMaxSessionDuration" => {
             "body" => "MaxSessionDurationUpdateRequest",
     },
+    "v2.UpdateLoginOrgConfigsMcpCrossAppAccessIssuerUrl" => {
+            "body" => "McpCrossAppAccessIssuerUrlUpdateRequest",
+    },
     "v2.ListOrgs" => {
             "filter_name" => "String",
     },
