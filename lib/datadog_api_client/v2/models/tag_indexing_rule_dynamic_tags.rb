@@ -17,9 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for including dynamically queried tags.
+  # Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
+  # 
+  # Before a tag key is dropped by this rule, two grace period conditions must be met:
+  # 
+  # 1. The metric must be submitted for at least as long as the selected window.
+  # 2. A tag key must have been submitted for at least 15 days.
+  # 
+  # Any metric or tag key that does not meet these conditions are excluded from this
+  # indexing rule. The `exclude_not_*` fields require `exclude_tags_mode` to be set to `true`.
   class TagIndexingRuleDynamicTags
     include BaseGenericModel
+
+    # Tags that have not been queried within this window are excluded from indexing. Maximum of `7776000` (90 days).
+    attr_reader :exclude_not_queried_window_seconds
+
+    # Tags not used in any dashboards,  monitors, notebooks, or SLOs are excluded from indexing.
+    attr_accessor :exclude_not_used_in_assets
 
     # Window in seconds for evaluating queried tags.
     attr_accessor :queried_tags_window_seconds
@@ -33,6 +47,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'exclude_not_queried_window_seconds' => :'exclude_not_queried_window_seconds',
+        :'exclude_not_used_in_assets' => :'exclude_not_used_in_assets',
         :'queried_tags_window_seconds' => :'queried_tags_window_seconds',
         :'related_asset_tags' => :'related_asset_tags'
       }
@@ -42,6 +58,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'exclude_not_queried_window_seconds' => :'Integer',
+        :'exclude_not_used_in_assets' => :'Boolean',
         :'queried_tags_window_seconds' => :'Integer',
         :'related_asset_tags' => :'Boolean'
       }
@@ -65,6 +83,14 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'exclude_not_queried_window_seconds')
+        self.exclude_not_queried_window_seconds = attributes[:'exclude_not_queried_window_seconds']
+      end
+
+      if attributes.key?(:'exclude_not_used_in_assets')
+        self.exclude_not_used_in_assets = attributes[:'exclude_not_used_in_assets']
+      end
+
       if attributes.key?(:'queried_tags_window_seconds')
         self.queried_tags_window_seconds = attributes[:'queried_tags_window_seconds']
       end
@@ -72,6 +98,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'related_asset_tags')
         self.related_asset_tags = attributes[:'related_asset_tags']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@exclude_not_queried_window_seconds.nil? && @exclude_not_queried_window_seconds > 7776000
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param exclude_not_queried_window_seconds [Object] Object to be assigned
+    # @!visibility private
+    def exclude_not_queried_window_seconds=(exclude_not_queried_window_seconds)
+      if !exclude_not_queried_window_seconds.nil? && exclude_not_queried_window_seconds > 7776000
+        fail ArgumentError, 'invalid value for "exclude_not_queried_window_seconds", must be smaller than or equal to 7776000.'
+      end
+      @exclude_not_queried_window_seconds = exclude_not_queried_window_seconds
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,6 +144,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          exclude_not_queried_window_seconds == o.exclude_not_queried_window_seconds &&
+          exclude_not_used_in_assets == o.exclude_not_used_in_assets &&
           queried_tags_window_seconds == o.queried_tags_window_seconds &&
           related_asset_tags == o.related_asset_tags &&
           additional_properties == o.additional_properties
@@ -109,7 +155,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [queried_tags_window_seconds, related_asset_tags, additional_properties].hash
+      [exclude_not_queried_window_seconds, exclude_not_used_in_assets, queried_tags_window_seconds, related_asset_tags, additional_properties].hash
     end
   end
 end
