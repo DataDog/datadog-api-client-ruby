@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The chart type the frontend should use to render the insight.
     attr_accessor :chart_type
 
-    # The window used for the previous value comparison, for example `week` or `month`.
+    # The window used for the previous value comparison; for example, `week` or `month`.
     attr_reader :comparison_shift
 
     # The default value to display when no data is available.
