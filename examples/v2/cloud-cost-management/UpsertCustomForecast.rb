@@ -1,9 +1,6 @@
 # Create or replace a budget's custom forecast returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.upsert_custom_forecast".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
 
 body = DatadogAPIClient::V2::CustomForecastUpsertRequest.new({
