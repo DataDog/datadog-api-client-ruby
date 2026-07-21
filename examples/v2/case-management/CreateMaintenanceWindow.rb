@@ -1,9 +1,6 @@
 # Create a maintenance window returns "Created" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_maintenance_window".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::CaseManagementAPI.new
 
 body = DatadogAPIClient::V2::MaintenanceWindowCreateRequest.new({

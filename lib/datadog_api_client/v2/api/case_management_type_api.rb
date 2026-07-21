@@ -232,12 +232,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseTypeResponse, Integer, Hash)>] CaseTypeResponse data, response status code and response headers
     def update_case_type_with_http_info(case_type_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_type".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_type")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_type"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementTypeAPI.update_case_type ...'

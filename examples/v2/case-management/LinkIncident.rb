@@ -1,9 +1,6 @@
 # Link incident to case returns "Created" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.link_incident".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::CaseManagementAPI.new
 
 body = DatadogAPIClient::V2::RelationshipToIncidentRequest.new({

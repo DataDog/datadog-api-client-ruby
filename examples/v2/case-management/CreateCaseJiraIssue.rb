@@ -1,9 +1,6 @@
 # Create Jira issue for case returns "Accepted" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_case_jira_issue".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::CaseManagementAPI.new
 
 body = DatadogAPIClient::V2::JiraIssueCreateRequest.new({

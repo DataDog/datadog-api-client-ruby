@@ -308,12 +308,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomAttributeConfigResponse, Integer, Hash)>] CustomAttributeConfigResponse data, response status code and response headers
     def update_custom_attribute_config_with_http_info(case_type_id, custom_attribute_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_custom_attribute_config".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_custom_attribute_config")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_custom_attribute_config"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAttributeAPI.update_custom_attribute_config ...'
