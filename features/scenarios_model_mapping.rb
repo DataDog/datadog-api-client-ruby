@@ -3109,6 +3109,12 @@ ScenariosModelMappings = {
             "dataset_id" => "String",
             "body" => "DatasetUpdateRequest",
     },
+    "v2.ExecuteDdsqlTabularQuery" => {
+            "body" => "DdsqlTabularQueryRequest",
+    },
+    "v2.FetchDdsqlTabularQuery" => {
+            "body" => "DdsqlTabularQueryFetchRequest",
+    },
     "v2.CreateDataDeletionRequest" => {
             "product" => "String",
             "body" => "CreateDataDeletionRequestBody",
