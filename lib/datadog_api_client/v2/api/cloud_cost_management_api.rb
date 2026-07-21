@@ -843,12 +843,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_custom_forecast_with_http_info(budget_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_custom_forecast".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_custom_forecast")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_custom_forecast"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_forecast ...'
@@ -2585,12 +2579,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomForecastResponse, Integer, Hash)>] CustomForecastResponse data, response status code and response headers
     def get_custom_forecast_with_http_info(budget_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_custom_forecast".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_custom_forecast")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_custom_forecast"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_custom_forecast ...'
@@ -4874,12 +4862,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomForecastResponse, Integer, Hash)>] CustomForecastResponse data, response status code and response headers
     def upsert_custom_forecast_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_custom_forecast".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_custom_forecast")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_custom_forecast"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_custom_forecast ...'
