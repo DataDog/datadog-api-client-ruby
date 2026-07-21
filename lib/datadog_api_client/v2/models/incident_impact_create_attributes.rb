@@ -62,7 +62,6 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'end_at',
-        :'fields',
       ])
     end
 
