@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     attr_reader :name
 
     # Policy configuration for a user-defined role.
-    attr_reader :policy
+    attr_accessor :policy
 
     attr_accessor :additional_properties
 
@@ -96,7 +96,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
-      return false if @policy.nil?
       true
     end
 
@@ -108,16 +107,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param policy [Object] Object to be assigned
-    # @!visibility private
-    def policy=(policy)
-      if policy.nil?
-        fail ArgumentError, 'invalid value for "policy", policy cannot be nil.'
-      end
-      @policy = policy
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
