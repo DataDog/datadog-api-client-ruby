@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Mon, 20 Jul 2026 09:20:20 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"title":"New title"},"type":"prompt-templates"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/llm-obs/v1/prompts/nonexistent-prompt
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"prompt template not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
