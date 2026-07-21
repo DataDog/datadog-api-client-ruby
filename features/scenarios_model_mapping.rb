@@ -1024,6 +1024,39 @@ ScenariosModelMappings = {
             "project_id" => "String",
             "body" => "LLMObsProjectUpdateRequest",
     },
+    "v2.ListLLMObsPrompts" => {
+            "filter_prompt_id" => "String",
+    },
+    "v2.CreateLLMObsPrompt" => {
+            "body" => "LLMObsCreatePromptRequest",
+    },
+    "v2.DeleteLLMObsPrompt" => {
+            "prompt_id" => "String",
+    },
+    "v2.GetLLMObsPrompt" => {
+            "prompt_id" => "String",
+            "label" => "String",
+    },
+    "v2.UpdateLLMObsPrompt" => {
+            "prompt_id" => "String",
+            "body" => "LLMObsUpdatePromptRequest",
+    },
+    "v2.ListLLMObsPromptVersions" => {
+            "prompt_id" => "String",
+    },
+    "v2.CreateLLMObsPromptVersion" => {
+            "prompt_id" => "String",
+            "body" => "LLMObsCreatePromptVersionRequest",
+    },
+    "v2.GetLLMObsPromptVersion" => {
+            "prompt_id" => "String",
+            "version" => "Integer",
+    },
+    "v2.UpdateLLMObsPromptVersion" => {
+            "prompt_id" => "String",
+            "version" => "Integer",
+            "body" => "LLMObsUpdatePromptVersionRequest",
+    },
     "v2.ListLLMObsSpans" => {
             "filter_from" => "String",
             "filter_to" => "String",

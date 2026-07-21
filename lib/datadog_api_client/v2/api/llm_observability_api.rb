@@ -901,6 +901,157 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an LLM Observability prompt.
+    #
+    # @see #create_llm_obs_prompt_with_http_info
+    def create_llm_obs_prompt(body, opts = {})
+      data, _status_code, _headers = create_llm_obs_prompt_with_http_info(body, opts)
+      data
+    end
+
+    # Create an LLM Observability prompt.
+    #
+    # Create a new prompt (and its first version) in the LLM Observability prompt registry.
+    #
+    # @param body [LLMObsCreatePromptRequest] Create prompt payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPromptResponse, Integer, Hash)>] LLMObsPromptResponse data, response status code and response headers
+    def create_llm_obs_prompt_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_llm_obs_prompt".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_llm_obs_prompt")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_llm_obs_prompt"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.create_llm_obs_prompt ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.create_llm_obs_prompt"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_llm_obs_prompt,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#create_llm_obs_prompt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new LLM Observability prompt version.
+    #
+    # @see #create_llm_obs_prompt_version_with_http_info
+    def create_llm_obs_prompt_version(prompt_id, body, opts = {})
+      data, _status_code, _headers = create_llm_obs_prompt_version_with_http_info(prompt_id, body, opts)
+      data
+    end
+
+    # Create a new LLM Observability prompt version.
+    #
+    # Create a new version of an existing LLM Observability prompt.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param body [LLMObsCreatePromptVersionRequest] Create prompt version payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPromptVersionResponse, Integer, Hash)>] LLMObsPromptVersionResponse data, response status code and response headers
+    def create_llm_obs_prompt_version_with_http_info(prompt_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_llm_obs_prompt_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_llm_obs_prompt_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_llm_obs_prompt_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.create_llm_obs_prompt_version ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.create_llm_obs_prompt_version"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.create_llm_obs_prompt_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}/versions'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptVersionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_llm_obs_prompt_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#create_llm_obs_prompt_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an LLM Observability annotation queue.
     #
     # @see #delete_llm_obs_annotation_queue_with_http_info
@@ -1650,6 +1801,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an LLM Observability prompt.
+    #
+    # @see #delete_llm_obs_prompt_with_http_info
+    def delete_llm_obs_prompt(prompt_id, opts = {})
+      data, _status_code, _headers = delete_llm_obs_prompt_with_http_info(prompt_id, opts)
+      data
+    end
+
+    # Delete an LLM Observability prompt.
+    #
+    # Soft-delete an LLM Observability prompt. The prompt's version rows are retained, but they are no longer accessible through the public prompt registry endpoints.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsDeletedPromptResponse, Integer, Hash)>] LLMObsDeletedPromptResponse data, response status code and response headers
+    def delete_llm_obs_prompt_with_http_info(prompt_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_llm_obs_prompt".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_llm_obs_prompt")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_llm_obs_prompt"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.delete_llm_obs_prompt ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.delete_llm_obs_prompt"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsDeletedPromptResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_llm_obs_prompt,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#delete_llm_obs_prompt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Export an LLM Observability dataset.
     #
     # @see #export_llm_obs_dataset_with_http_info
@@ -2251,6 +2473,158 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_patterns_run_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an LLM Observability prompt.
+    #
+    # @see #get_llm_obs_prompt_with_http_info
+    def get_llm_obs_prompt(prompt_id, opts = {})
+      data, _status_code, _headers = get_llm_obs_prompt_with_http_info(prompt_id, opts)
+      data
+    end
+
+    # Get an LLM Observability prompt.
+    #
+    # Get the latest version of an LLM Observability prompt by prompt ID.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :label **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned.
+    # @return [Array<(LLMObsPromptSDKResponse, Integer, Hash)>] LLMObsPromptSDKResponse data, response status code and response headers
+    def get_llm_obs_prompt_with_http_info(prompt_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_prompt".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_prompt")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_prompt"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_prompt ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.get_llm_obs_prompt"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptSDKResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_prompt,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_prompt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a specific LLM Observability prompt version.
+    #
+    # @see #get_llm_obs_prompt_version_with_http_info
+    def get_llm_obs_prompt_version(prompt_id, version, opts = {})
+      data, _status_code, _headers = get_llm_obs_prompt_version_with_http_info(prompt_id, version, opts)
+      data
+    end
+
+    # Get a specific LLM Observability prompt version.
+    #
+    # Get the full template of a single, specific version of an LLM Observability prompt.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param version [Integer] The version number of the LLM Observability prompt.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPromptVersionResponse, Integer, Hash)>] LLMObsPromptVersionResponse data, response status code and response headers
+    def get_llm_obs_prompt_version_with_http_info(prompt_id, version, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_prompt_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_prompt_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_prompt_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.get_llm_obs_prompt_version ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.get_llm_obs_prompt_version"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling LLMObservabilityAPI.get_llm_obs_prompt_version"
+      end
+      if @api_client.config.client_side_validation && version < 1
+        fail ArgumentError, 'invalid value for "version" when calling LLMObservabilityAPI.get_llm_obs_prompt_version, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptVersionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_prompt_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#get_llm_obs_prompt_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3479,6 +3853,145 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List LLM Observability prompts.
+    #
+    # @see #list_llm_obs_prompts_with_http_info
+    def list_llm_obs_prompts(opts = {})
+      data, _status_code, _headers = list_llm_obs_prompts_with_http_info(opts)
+      data
+    end
+
+    # List LLM Observability prompts.
+    #
+    # List all LLM Observability prompts in the prompt registry for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_prompt_id Optional filter for prompts by prompt ID.
+    # @return [Array<(LLMObsPromptsResponse, Integer, Hash)>] LLMObsPromptsResponse data, response status code and response headers
+    def list_llm_obs_prompts_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_prompts".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_prompts")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_prompts"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_prompts ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[prompt_id]'] = opts[:'filter_prompt_id'] if !opts[:'filter_prompt_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_prompts,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_prompts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List versions of an LLM Observability prompt.
+    #
+    # @see #list_llm_obs_prompt_versions_with_http_info
+    def list_llm_obs_prompt_versions(prompt_id, opts = {})
+      data, _status_code, _headers = list_llm_obs_prompt_versions_with_http_info(prompt_id, opts)
+      data
+    end
+
+    # List versions of an LLM Observability prompt.
+    #
+    # List all versions of an LLM Observability prompt, ordered newest to oldest. If the prompt does not exist, is not registered, or is archived, the response contains an empty list.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPromptVersionsResponse, Integer, Hash)>] LLMObsPromptVersionsResponse data, response status code and response headers
+    def list_llm_obs_prompt_versions_with_http_info(prompt_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_llm_obs_prompt_versions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_llm_obs_prompt_versions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_llm_obs_prompt_versions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.list_llm_obs_prompt_versions ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.list_llm_obs_prompt_versions"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}/versions'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptVersionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_llm_obs_prompt_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#list_llm_obs_prompt_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List LLM Observability spans.
     #
     # @see #list_llm_obs_spans_with_http_info
@@ -4658,6 +5171,170 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an LLM Observability prompt.
+    #
+    # @see #update_llm_obs_prompt_with_http_info
+    def update_llm_obs_prompt(prompt_id, body, opts = {})
+      data, _status_code, _headers = update_llm_obs_prompt_with_http_info(prompt_id, body, opts)
+      data
+    end
+
+    # Update an LLM Observability prompt.
+    #
+    # Update the title, the description, or both, for an LLM Observability prompt.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param body [LLMObsUpdatePromptRequest] Update prompt payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPromptResponse, Integer, Hash)>] LLMObsPromptResponse data, response status code and response headers
+    def update_llm_obs_prompt_with_http_info(prompt_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_llm_obs_prompt".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_llm_obs_prompt")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_llm_obs_prompt"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.update_llm_obs_prompt ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.update_llm_obs_prompt"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.update_llm_obs_prompt"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_llm_obs_prompt,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_prompt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a specific LLM Observability prompt version.
+    #
+    # @see #update_llm_obs_prompt_version_with_http_info
+    def update_llm_obs_prompt_version(prompt_id, version, body, opts = {})
+      data, _status_code, _headers = update_llm_obs_prompt_version_with_http_info(prompt_id, version, body, opts)
+      data
+    end
+
+    # Update a specific LLM Observability prompt version.
+    #
+    # Update the description, the feature-flag environments, or both, for a specific version of an LLM Observability prompt.
+    #
+    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param version [Integer] The version number of the LLM Observability prompt.
+    # @param body [LLMObsUpdatePromptVersionRequest] Update prompt version payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsPromptVersionResponse, Integer, Hash)>] LLMObsPromptVersionResponse data, response status code and response headers
+    def update_llm_obs_prompt_version_with_http_info(prompt_id, version, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_llm_obs_prompt_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_llm_obs_prompt_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_llm_obs_prompt_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LLMObservabilityAPI.update_llm_obs_prompt_version ...'
+      end
+      # verify the required parameter 'prompt_id' is set
+      if @api_client.config.client_side_validation && prompt_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prompt_id' when calling LLMObservabilityAPI.update_llm_obs_prompt_version"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling LLMObservabilityAPI.update_llm_obs_prompt_version"
+      end
+      if @api_client.config.client_side_validation && version < 1
+        fail ArgumentError, 'invalid value for "version" when calling LLMObservabilityAPI.update_llm_obs_prompt_version, must be greater than or equal to 1.'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LLMObservabilityAPI.update_llm_obs_prompt_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsPromptVersionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_llm_obs_prompt_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LLMObservabilityAPI#update_llm_obs_prompt_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
