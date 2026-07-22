@@ -40,12 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def add_case_insights_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.add_case_insights".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.add_case_insights")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.add_case_insights"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.add_case_insights ...'
@@ -117,12 +111,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseAggregateResponse, Integer, Hash)>] CaseAggregateResponse data, response status code and response headers
     def aggregate_cases_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.aggregate_cases".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.aggregate_cases")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.aggregate_cases"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.aggregate_cases ...'
@@ -334,12 +322,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def bulk_update_cases_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.bulk_update_cases".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.bulk_update_cases")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.bulk_update_cases"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.bulk_update_cases ...'
@@ -481,12 +463,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :limit Maximum facet values to return.
     # @return [Array<(CaseCountResponse, Integer, Hash)>] CaseCountResponse data, response status code and response headers
     def count_cases_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.count_cases".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.count_cases")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.count_cases"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.count_cases ...'
@@ -619,12 +595,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
     def create_case_automation_rule_with_http_info(project_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_automation_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_automation_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_automation_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_automation_rule ...'
@@ -697,12 +667,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def create_case_jira_issue_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_jira_issue".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_jira_issue")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_jira_issue"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_jira_issue ...'
@@ -774,12 +738,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseLinkResponse, Integer, Hash)>] CaseLinkResponse data, response status code and response headers
     def create_case_link_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_link".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_link")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_link"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_link ...'
@@ -848,12 +806,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def create_case_notebook_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_notebook".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_notebook")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_notebook"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_notebook ...'
@@ -926,12 +878,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def create_case_service_now_ticket_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_service_now_ticket".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_service_now_ticket")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_service_now_ticket"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_service_now_ticket ...'
@@ -1003,12 +949,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
     def create_case_view_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_view".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_view")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_view"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_view ...'
@@ -1076,12 +1016,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MaintenanceWindowResponse, Integer, Hash)>] MaintenanceWindowResponse data, response status code and response headers
     def create_maintenance_window_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_maintenance_window".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_maintenance_window")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_maintenance_window"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_maintenance_window ...'
@@ -1289,12 +1223,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_case_automation_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_case_automation_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_case_automation_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_automation_rule ...'
@@ -1504,12 +1432,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_link_with_http_info(link_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_case_link".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_case_link")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_case_link"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_link ...'
@@ -1575,12 +1497,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_view_with_http_info(view_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_case_view".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_case_view")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_case_view"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_view ...'
@@ -1646,12 +1562,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_maintenance_window_with_http_info(maintenance_window_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_maintenance_window".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_maintenance_window")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_maintenance_window"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_maintenance_window ...'
@@ -1853,12 +1763,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
     def disable_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.disable_case_automation_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.disable_case_automation_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.disable_case_automation_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.disable_case_automation_rule ...'
@@ -1929,12 +1833,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
     def enable_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.enable_case_automation_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.enable_case_automation_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.enable_case_automation_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.enable_case_automation_rule ...'
@@ -2004,12 +1902,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def favorite_case_project_with_http_info(project_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.favorite_case_project".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.favorite_case_project")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.favorite_case_project"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.favorite_case_project ...'
@@ -2141,12 +2033,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
     def get_case_automation_rule_with_http_info(project_id, rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_case_automation_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_case_automation_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_case_automation_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.get_case_automation_rule ...'
@@ -2216,12 +2102,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
     def get_case_view_with_http_info(view_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_case_view".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_case_view")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_case_view"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.get_case_view ...'
@@ -2478,12 +2358,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def link_incident_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.link_incident".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.link_incident")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.link_incident"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.link_incident ...'
@@ -2556,12 +2430,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def link_jira_issue_to_case_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.link_jira_issue_to_case".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.link_jira_issue_to_case")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.link_jira_issue_to_case"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.link_jira_issue_to_case ...'
@@ -2633,12 +2501,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AutomationRulesResponse, Integer, Hash)>] AutomationRulesResponse data, response status code and response headers
     def list_case_automation_rules_with_http_info(project_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_automation_rules".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_automation_rules")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_automation_rules"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_automation_rules ...'
@@ -2706,12 +2568,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :relationship Optional filter to only return links of a specific relationship type (for example, `BLOCKS` or `CAUSES`).
     # @return [Array<(CaseLinksResponse, Integer, Hash)>] CaseLinksResponse data, response status code and response headers
     def list_case_links_with_http_info(entity_type, entity_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_links".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_links")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_links"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_links ...'
@@ -2787,12 +2643,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :sort_ascending If `true`, returns timeline cells in chronological order (oldest first). Defaults to `false` (newest first).
     # @return [Array<(TimelineResponse, Integer, Hash)>] TimelineResponse data, response status code and response headers
     def list_case_timeline_with_http_info(case_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_timeline".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_timeline")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_timeline"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_timeline ...'
@@ -2861,12 +2711,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewsResponse, Integer, Hash)>] CaseViewsResponse data, response status code and response headers
     def list_case_views_with_http_info(project_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_views".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_views")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_views"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_views ...'
@@ -2933,12 +2777,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseWatchersResponse, Integer, Hash)>] CaseWatchersResponse data, response status code and response headers
     def list_case_watchers_with_http_info(case_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_watchers".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_watchers")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_watchers"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_watchers ...'
@@ -3003,12 +2841,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MaintenanceWindowsResponse, Integer, Hash)>] MaintenanceWindowsResponse data, response status code and response headers
     def list_maintenance_windows_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_maintenance_windows".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_maintenance_windows")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_maintenance_windows"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_maintenance_windows ...'
@@ -3069,12 +2901,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ProjectFavoritesResponse, Integer, Hash)>] ProjectFavoritesResponse data, response status code and response headers
     def list_user_case_project_favorites_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_user_case_project_favorites".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_user_case_project_favorites")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_user_case_project_favorites"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_user_case_project_favorites ...'
@@ -3137,12 +2963,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def move_case_to_project_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.move_case_to_project".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.move_case_to_project")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.move_case_to_project"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.move_case_to_project ...'
@@ -3215,12 +3035,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def remove_case_insights_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.remove_case_insights".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_case_insights")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.remove_case_insights"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.remove_case_insights ...'
@@ -3532,12 +3346,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def unfavorite_case_project_with_http_info(project_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.unfavorite_case_project".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unfavorite_case_project")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unfavorite_case_project"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unfavorite_case_project ...'
@@ -3603,12 +3411,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def unlink_jira_issue_with_http_info(case_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.unlink_jira_issue".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unlink_jira_issue")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unlink_jira_issue"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unlink_jira_issue ...'
@@ -3675,12 +3477,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def unwatch_case_with_http_info(case_id, user_uuid, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.unwatch_case".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unwatch_case")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unwatch_case"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unwatch_case ...'
@@ -3824,12 +3620,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AutomationRuleResponse, Integer, Hash)>] AutomationRuleResponse data, response status code and response headers
     def update_case_automation_rule_with_http_info(project_id, rule_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_automation_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_automation_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_automation_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_automation_rule ...'
@@ -3907,12 +3697,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_case_comment_with_http_info(case_id, cell_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_comment".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_comment")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_comment"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_comment ...'
@@ -4138,12 +3922,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_due_date_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_due_date".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_due_date")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_due_date"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_due_date ...'
@@ -4216,12 +3994,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_resolved_reason_with_http_info(case_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_resolved_reason".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_resolved_reason")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_resolved_reason"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_resolved_reason ...'
@@ -4366,12 +4138,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
     def update_case_view_with_http_info(view_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_case_view".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_case_view")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_case_view"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_view ...'
@@ -4444,12 +4210,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MaintenanceWindowResponse, Integer, Hash)>] MaintenanceWindowResponse data, response status code and response headers
     def update_maintenance_window_with_http_info(maintenance_window_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_maintenance_window".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_maintenance_window")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_maintenance_window"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_maintenance_window ...'
@@ -4815,12 +4575,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def watch_case_with_http_info(case_id, user_uuid, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.watch_case".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.watch_case")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.watch_case"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.watch_case ...'
