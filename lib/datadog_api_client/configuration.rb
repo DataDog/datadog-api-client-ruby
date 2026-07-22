@@ -626,6 +626,7 @@ module DatadogAPIClient
             "v2.update_connection": false,
             "v2.get_pruned_trace_by_id": false,
             "v2.get_trace_by_id": false,
+            "v2.get_pup_bump_test": false,
             "v2.get_asm_service_by_name": false,
             "v2.get_rum_sdk_config": false,
             "v2.update_rum_sdk_config": false,
