@@ -24,7 +24,13 @@ module DatadogAPIClient::V2
     # Attributes for creating or updating a postmortem template.
     attr_reader :attributes
 
-    # Postmortem template resource type
+    # The ID of the template. Required when updating.
+    attr_accessor :id
+
+    # Relationships for a postmortem template. `incident_type` is required when creating a template and is immutable afterwards.
+    attr_accessor :relationships
+
+    # Postmortem template resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -34,6 +40,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -43,6 +51,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'PostmortemTemplateAttributesRequest',
+        :'id' => :'String',
+        :'relationships' => :'PostmortemTemplateCreateRelationships',
         :'type' => :'PostmortemTemplateType'
       }
     end
@@ -67,6 +77,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -130,6 +148,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
+          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [attributes, id, relationships, type, additional_properties].hash
     end
   end
 end

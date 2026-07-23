@@ -24,10 +24,13 @@ module DatadogAPIClient::V2
     # Attributes of a postmortem template returned in a response.
     attr_reader :attributes
 
-    # The ID of the template
+    # The ID of the template.
     attr_reader :id
 
-    # Postmortem template resource type
+    # Relationships of a postmortem template returned in a response.
+    attr_accessor :relationships
+
+    # Postmortem template resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'PostmortemTemplateAttributesResponse',
         :'id' => :'String',
+        :'relationships' => :'PostmortemTemplateResponseRelationships',
         :'type' => :'PostmortemTemplateType'
       }
     end
@@ -76,6 +81,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -151,6 +160,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -159,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [attributes, id, relationships, type, additional_properties].hash
     end
   end
 end
