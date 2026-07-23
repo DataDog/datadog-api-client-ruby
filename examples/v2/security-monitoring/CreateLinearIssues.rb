@@ -1,9 +1,6 @@
 # Create Linear issues for security findings returns "Created" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_linear_issues".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::CreateLinearIssueRequestArray.new({
