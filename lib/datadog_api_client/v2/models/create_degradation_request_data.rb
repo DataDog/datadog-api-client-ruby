@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The supported attributes for creating a degradation.
     attr_reader :attributes
 
+    # The supported relationships for creating a degradation.
+    attr_accessor :relationships
+
     # Degradations resource type.
     attr_reader :type
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'CreateDegradationRequestDataAttributes',
+        :'relationships' => :'CreateDegradationRequestDataRelationships',
         :'type' => :'PatchDegradationRequestDataType'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -130,6 +139,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [attributes, relationships, type, additional_properties].hash
     end
   end
 end

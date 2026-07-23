@@ -5704,6 +5704,7 @@ ScenariosModelMappings = {
             "include" => "String",
             "filter_status" => "String",
             "sort" => "String",
+            "filter_source_id" => "String",
     },
     "v2.ListMaintenances" => {
             "filter_page_id" => "String",
@@ -5750,6 +5751,30 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchComponentRequest",
     },
+    "v2.ListDegradationTemplates" => {
+            "include" => "String",
+            "page_id" => "UUID",
+    },
+    "v2.CreateDegradationTemplate" => {
+            "page_id" => "UUID",
+            "include" => "String",
+            "body" => "CreateDegradationTemplateRequest",
+    },
+    "v2.DeleteDegradationTemplate" => {
+            "page_id" => "UUID",
+            "template_id" => "UUID",
+    },
+    "v2.GetDegradationTemplate" => {
+            "page_id" => "UUID",
+            "template_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateDegradationTemplate" => {
+            "template_id" => "UUID",
+            "include" => "String",
+            "page_id" => "UUID",
+            "body" => "PatchDegradationTemplateRequest",
+    },
     "v2.CreateDegradation" => {
             "page_id" => "UUID",
             "notify_subscribers" => "Boolean",
@@ -5788,6 +5813,30 @@ ScenariosModelMappings = {
             "page_id" => "UUID",
             "update_id" => "UUID",
             "body" => "PatchDegradationUpdateRequest",
+    },
+    "v2.ListMaintenanceTemplates" => {
+            "page_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.CreateMaintenanceTemplate" => {
+            "page_id" => "UUID",
+            "include" => "String",
+            "body" => "CreateMaintenanceTemplateRequest",
+    },
+    "v2.DeleteMaintenanceTemplate" => {
+            "page_id" => "UUID",
+            "template_id" => "UUID",
+    },
+    "v2.GetMaintenanceTemplate" => {
+            "page_id" => "UUID",
+            "template_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateMaintenanceTemplate" => {
+            "page_id" => "UUID",
+            "template_id" => "UUID",
+            "include" => "String",
+            "body" => "PatchMaintenanceTemplateRequest",
     },
     "v2.CreateMaintenance" => {
             "page_id" => "UUID",
