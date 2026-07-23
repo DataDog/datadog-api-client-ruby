@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SecurityMonitoringContentPackStateData
     include BaseGenericModel
 
-    # Attributes of a content pack state
+    # Attributes of a content pack state.
     attr_reader :attributes
 
     # The content pack identifier.

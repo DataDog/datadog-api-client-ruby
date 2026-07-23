@@ -27,5 +27,6 @@ module DatadogAPIClient::V2
     ACTIVE = "active".freeze
     WARNING = "warning".freeze
     BROKEN = "broken".freeze
+    NOT_CONFIGURED = "not_configured".freeze
   end
 end

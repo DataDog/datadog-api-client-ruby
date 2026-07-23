@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Array of content pack states.
     attr_reader :data
 
-    # Metadata for content pack states
+    # Metadata for content pack states.
     attr_reader :meta
 
     attr_accessor :additional_properties
