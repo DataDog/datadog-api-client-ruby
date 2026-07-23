@@ -3551,6 +3551,10 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchIncidentNotificationTemplateRequest",
     },
+    "v2.ListIncidentPostmortemTemplates" => {
+            "filter_incident_type" => "UUID",
+            "sort" => "String",
+    },
     "v2.CreateIncidentPostmortemTemplate" => {
             "body" => "PostmortemTemplateRequest",
     },
