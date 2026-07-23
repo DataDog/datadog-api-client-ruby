@@ -875,11 +875,12 @@ module DatadogAPIClient::V2
     # List environments.
     #
     # Returns a list of environments for the organization.
-    # Supports filtering by name and key.
+    # Supports filtering by name, key, and DD_ENV.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :name Filter environments by name (partial matching).
     # @option opts [String] :key Filter environments by key (partial matching).
+    # @option opts [String] :dd_env Filter environments by queries that contain the provided DD_ENV value.
     # @option opts [Integer] :limit Maximum number of results to return.
     # @option opts [Integer] :offset Number of results to skip.
     # @return [Array<(ListEnvironmentsResponse, Integer, Hash)>] ListEnvironmentsResponse data, response status code and response headers
@@ -904,6 +905,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
       query_params[:'key'] = opts[:'key'] if !opts[:'key'].nil?
+      query_params[:'dd_env'] = opts[:'dd_env'] if !opts[:'dd_env'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 

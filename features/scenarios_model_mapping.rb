@@ -3315,6 +3315,7 @@ ScenariosModelMappings = {
     "v2.ListFeatureFlagsEnvironments" => {
             "name" => "String",
             "key" => "String",
+            "dd_env" => "String",
             "limit" => "Integer",
             "offset" => "Integer",
     },
