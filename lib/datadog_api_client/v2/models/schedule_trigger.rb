@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ScheduleTrigger
     include BaseGenericModel
 
+    # Controls whether a scheduled workflow run may start while another instance is still running.
+    attr_accessor :overlap_behavior
+
     # Recurrence rule expression for scheduling.
     attr_reader :rrule_expression
 
@@ -30,6 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'overlap_behavior' => :'overlapBehavior',
         :'rrule_expression' => :'rruleExpression'
       }
     end
@@ -38,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'overlap_behavior' => :'ScheduleTriggerOverlapBehavior',
         :'rrule_expression' => :'String'
       }
     end
@@ -59,6 +64,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'overlap_behavior')
+        self.overlap_behavior = attributes[:'overlap_behavior']
+      end
 
       if attributes.key?(:'rrule_expression')
         self.rrule_expression = attributes[:'rrule_expression']
@@ -109,6 +118,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          overlap_behavior == o.overlap_behavior &&
           rrule_expression == o.rrule_expression &&
           additional_properties == o.additional_properties
     end
@@ -117,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rrule_expression, additional_properties].hash
+      [overlap_behavior, rrule_expression, additional_properties].hash
     end
   end
 end

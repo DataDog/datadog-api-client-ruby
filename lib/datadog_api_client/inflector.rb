@@ -6474,6 +6474,7 @@ module DatadogAPIClient
           "v2.schedule_target_position" => "ScheduleTargetPosition",
           "v2.schedule_target_type" => "ScheduleTargetType",
           "v2.schedule_trigger" => "ScheduleTrigger",
+          "v2.schedule_trigger_overlap_behavior" => "ScheduleTriggerOverlapBehavior",
           "v2.schedule_trigger_wrapper" => "ScheduleTriggerWrapper",
           "v2.schedule_update_request" => "ScheduleUpdateRequest",
           "v2.schedule_update_request_data" => "ScheduleUpdateRequestData",
