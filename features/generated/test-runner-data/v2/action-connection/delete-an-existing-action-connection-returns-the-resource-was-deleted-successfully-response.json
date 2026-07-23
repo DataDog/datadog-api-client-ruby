@@ -1,0 +1,32 @@
+{
+  "api": "ActionConnection",
+  "expected_status": 204,
+  "feature": "Action Connection",
+  "id": "v2/Action Connection/Delete an existing Action Connection returns \"The resource was deleted successfully.\" response",
+  "operation_id": "DeleteActionConnection",
+  "request": {
+    "body": null,
+    "content_type": null,
+    "method": "DELETE",
+    "pagination": false,
+    "parameters": [
+      {
+        "in": "path",
+        "name": "connection_id",
+        "schema": {
+          "format": null,
+          "ref": null,
+          "type": "string"
+        },
+        "source": {
+          "path": "action_connection.data.id",
+          "type": "fixture"
+        }
+      }
+    ],
+    "path": "/api/v2/actions/connections/{connection_id}"
+  },
+  "scenario": "Delete an existing Action Connection returns \"The resource was deleted successfully.\" response",
+  "schema_version": 1,
+  "version": "v2"
+}

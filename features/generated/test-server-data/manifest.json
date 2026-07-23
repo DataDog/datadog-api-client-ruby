@@ -1,0 +1,10 @@
+{
+  "features": [
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection.json",
+      "version": "v2"
+    }
+  ],
+  "schema_version": 1
+}

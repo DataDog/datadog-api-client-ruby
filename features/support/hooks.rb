@@ -42,22 +42,33 @@ Around do |scenario, block|
 end
 
 Around do |scenario, block|
-  VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')) do |cassette|
-    if !File.exist?(cassette.file) && ENV.fetch("RECORD", "false") == "false" && !scenario.match_tags?("@integration-only")
-      raise Exception.new "Cassette '#{cassette.file}' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`"
-    end
-    File.delete(cassette.file) if ENV["RECORD"] == "true" && File.exist?(cassette.file) && !scenario.match_tags?("@replay-only")
-
-    if use_real_time? then
-      freeze = Time.now.utc
-    else
-      File.open(cassette.file.gsub(/\.yml$/, '.frozen'), 'r') do |f|
-        freeze = Time.parse(f.readline.chomp)
+  if test_server_enabled?
+    freeze = start_test_server_session
+    begin
+      Timecop.freeze(freeze) do
+        block.call
       end
+    ensure
+      stop_test_server_session
     end
+  else
+    VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')) do |cassette|
+      if !File.exist?(cassette.file) && ENV.fetch("RECORD", "false") == "false" && !scenario.match_tags?("@integration-only")
+        raise Exception.new "Cassette '#{cassette.file}' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`"
+      end
+      File.delete(cassette.file) if ENV["RECORD"] == "true" && File.exist?(cassette.file) && !scenario.match_tags?("@replay-only")
 
-    Timecop.freeze(freeze) do
-      block.call
+      if use_real_time? then
+        freeze = Time.now.utc
+      else
+        File.open(cassette.file.gsub(/\.yml$/, '.frozen'), 'r') do |f|
+          freeze = Time.parse(f.readline.chomp)
+        end
+      end
+
+      Timecop.freeze(freeze) do
+        block.call
+      end
     end
   end
 end
