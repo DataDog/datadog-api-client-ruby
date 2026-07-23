@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for content pack states
+  # Metadata for content pack states.
   class SecurityMonitoringContentPackStateMeta
     include BaseGenericModel
 
-    # Whether the cloud SIEM index configuration is incorrect at the organization level
+    # Whether the Cloud SIEM index configuration is incorrect for the organization.
     attr_reader :cloud_siem_index_incorrect
+
+    # The number of months that standard logs are retained for organizations on the standalone_indexed` pricing model. This field is omitted for other pricing models.
+    attr_reader :retention_months
 
     # The Cloud SIEM pricing model (SKU) for the organization.
     attr_reader :sku
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cloud_siem_index_incorrect' => :'cloud_siem_index_incorrect',
+        :'retention_months' => :'retention_months',
         :'sku' => :'sku'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cloud_siem_index_incorrect' => :'Boolean',
+        :'retention_months' => :'Integer',
         :'sku' => :'SecurityMonitoringSKU'
       }
     end
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
         self.cloud_siem_index_incorrect = attributes[:'cloud_siem_index_incorrect']
       end
 
+      if attributes.key?(:'retention_months')
+        self.retention_months = attributes[:'retention_months']
+      end
+
       if attributes.key?(:'sku')
         self.sku = attributes[:'sku']
       end
@@ -79,6 +88,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @cloud_siem_index_incorrect.nil?
+      return false if !@retention_months.nil? && @retention_months > 60
       return false if @sku.nil?
       true
     end
@@ -91,6 +101,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "cloud_siem_index_incorrect", cloud_siem_index_incorrect cannot be nil.'
       end
       @cloud_siem_index_incorrect = cloud_siem_index_incorrect
+    end
+
+    # Custom attribute writer method with validation
+    # @param retention_months [Object] Object to be assigned
+    # @!visibility private
+    def retention_months=(retention_months)
+      if !retention_months.nil? && retention_months > 60
+        fail ArgumentError, 'invalid value for "retention_months", must be smaller than or equal to 60.'
+      end
+      @retention_months = retention_months
     end
 
     # Custom attribute writer method with validation
@@ -130,6 +150,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cloud_siem_index_incorrect == o.cloud_siem_index_incorrect &&
+          retention_months == o.retention_months &&
           sku == o.sku &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cloud_siem_index_incorrect, sku, additional_properties].hash
+      [cloud_siem_index_incorrect, retention_months, sku, additional_properties].hash
     end
   end
 end
