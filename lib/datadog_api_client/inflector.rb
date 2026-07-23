@@ -5122,6 +5122,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_clickhouse_destination_compression_object" => "ObservabilityPipelineClickhouseDestinationCompressionObject",
           "v2.observability_pipeline_clickhouse_destination_format" => "ObservabilityPipelineClickhouseDestinationFormat",
           "v2.observability_pipeline_clickhouse_destination_type" => "ObservabilityPipelineClickhouseDestinationType",
+          "v2.observability_pipeline_client_tls" => "ObservabilityPipelineClientTls",
           "v2.observability_pipeline_cloud_prem_destination" => "ObservabilityPipelineCloudPremDestination",
           "v2.observability_pipeline_cloud_prem_destination_type" => "ObservabilityPipelineCloudPremDestinationType",
           "v2.observability_pipeline_config" => "ObservabilityPipelineConfig",

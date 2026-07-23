@@ -64,7 +64,7 @@ module DatadogAPIClient::V2
         :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineClientTls',
         :'type' => :'ObservabilityPipelineCloudPremDestinationType'
       }
     end

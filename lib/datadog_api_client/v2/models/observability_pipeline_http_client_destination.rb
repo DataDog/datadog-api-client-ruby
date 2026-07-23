@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'password_key' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineClientTls',
         :'token_key' => :'String',
         :'type' => :'ObservabilityPipelineHttpClientDestinationType',
         :'uri_key' => :'String',

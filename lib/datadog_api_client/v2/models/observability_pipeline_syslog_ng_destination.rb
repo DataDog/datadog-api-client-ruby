@@ -69,7 +69,7 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'keepalive' => :'Integer',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineClientTls',
         :'type' => :'ObservabilityPipelineSyslogNgDestinationType'
       }
     end
