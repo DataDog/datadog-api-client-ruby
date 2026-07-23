@@ -111,7 +111,8 @@ module DatadogAPIClient::V2
 
     # Create and publish a form.
     #
-    # Creates a new form and immediately publishes its initial version. This also creates a new datastore for form responses and links it to the form.
+    # Creates a new form and immediately publishes its initial version. This also creates a new datastore for
+    # form responses and links it to the form.
     #
     # @param body [CreateFormRequest] 
     # @param opts [Hash] the optional parameters
@@ -184,7 +185,8 @@ module DatadogAPIClient::V2
 
     # Create a form.
     #
-    # Create a new form. The form is created in draft mode and must be published before it can be used. This also creates a new datastore for form responses and links it to the form.
+    # Create a new form. The form is created in draft mode and must be published before it can be used. This
+    # also creates a new datastore for form responses and links it to the form.
     #
     # @param body [CreateFormRequest] 
     # @param opts [Hash] the optional parameters
@@ -457,6 +459,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List form versions.
+    #
+    # @see #list_form_versions_with_http_info
+    def list_form_versions(form_id, opts = {})
+      data, _status_code, _headers = list_form_versions_with_http_info(form_id, opts)
+      data
+    end
+
+    # List form versions.
+    #
+    # List all versions of a form.
+    #
+    # @param form_id [UUID] The ID of the form.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListFormVersionsResponse, Integer, Hash)>] ListFormVersionsResponse data, response status code and response headers
+    def list_form_versions_with_http_info(form_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_form_versions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_form_versions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_form_versions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.list_form_versions ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.list_form_versions"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}/versions'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListFormVersionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_form_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#list_form_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Publish a form version.
     #
     # @see #publish_form_with_http_info
@@ -531,6 +604,83 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FormsAPI#publish_form\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Revert a form to a prior version.
+    #
+    # @see #revert_form_version_with_http_info
+    def revert_form_version(form_id, version, opts = {})
+      data, _status_code, _headers = revert_form_version_with_http_info(form_id, version, opts)
+      data
+    end
+
+    # Revert a form to a prior version.
+    #
+    # Revert a form to a prior version by creating a new draft version copied from it.
+    #
+    # @param form_id [UUID] The ID of the form.
+    # @param version [Integer] The version number to revert to.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FormVersionResponse, Integer, Hash)>] FormVersionResponse data, response status code and response headers
+    def revert_form_version_with_http_info(form_id, version, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.revert_form_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.revert_form_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.revert_form_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FormsAPI.revert_form_version ...'
+      end
+      # verify the required parameter 'form_id' is set
+      if @api_client.config.client_side_validation && form_id.nil?
+        fail ArgumentError, "Missing the required parameter 'form_id' when calling FormsAPI.revert_form_version"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling FormsAPI.revert_form_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/forms/{form_id}/versions/revert'.sub('{form_id}', CGI.escape(form_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'version'] = version
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FormVersionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :revert_form_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FormsAPI#revert_form_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
