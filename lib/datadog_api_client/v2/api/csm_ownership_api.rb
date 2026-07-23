@@ -285,6 +285,138 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get ownership settings for the org.
+    #
+    # @see #get_ownership_settings_with_http_info
+    def get_ownership_settings(opts = {})
+      data, _status_code, _headers = get_ownership_settings_with_http_info(opts)
+      data
+    end
+
+    # Get ownership settings for the org.
+    #
+    # Get ownership settings for the org. When settings are unset, the API returns the default opt-out configuration with `auto_tag` set to `true` and `confidence_level` set to `high`.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OwnershipSettingsResponse, Integer, Hash)>] OwnershipSettingsResponse data, response status code and response headers
+    def get_ownership_settings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_ownership_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_ownership_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_ownership_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMOwnershipAPI.get_ownership_settings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/csm/ownership/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OwnershipSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_ownership_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMOwnershipAPI#get_ownership_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Count untagged findings by ownership confidence.
+    #
+    # @see #get_ownership_untagged_findings_with_http_info
+    def get_ownership_untagged_findings(opts = {})
+      data, _status_code, _headers = get_ownership_untagged_findings_with_http_info(opts)
+      data
+    end
+
+    # Count untagged findings by ownership confidence.
+    #
+    # Count findings with no team tag, grouped by ownership confidence level.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OwnershipUntaggedFindingsResponse, Integer, Hash)>] OwnershipUntaggedFindingsResponse data, response status code and response headers
+    def get_ownership_untagged_findings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_ownership_untagged_findings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_ownership_untagged_findings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_ownership_untagged_findings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMOwnershipAPI.get_ownership_untagged_findings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/csm/ownership/settings/untagged'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OwnershipUntaggedFindingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_ownership_untagged_findings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMOwnershipAPI#get_ownership_untagged_findings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List ownership inference history for a resource.
     #
     # @see #list_ownership_history_with_http_info
@@ -524,6 +656,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CSMOwnershipAPI#list_ownership_inferences\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update ownership settings for the org.
+    #
+    # @see #post_ownership_settings_with_http_info
+    def post_ownership_settings(body, opts = {})
+      data, _status_code, _headers = post_ownership_settings_with_http_info(body, opts)
+      data
+    end
+
+    # Update ownership settings for the org.
+    #
+    # Update ownership settings for the org.
+    #
+    # @param body [OwnershipSettingsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OwnershipSettingsResponse, Integer, Hash)>] OwnershipSettingsResponse data, response status code and response headers
+    def post_ownership_settings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.post_ownership_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.post_ownership_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.post_ownership_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMOwnershipAPI.post_ownership_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CSMOwnershipAPI.post_ownership_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/csm/ownership/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OwnershipSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :post_ownership_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMOwnershipAPI#post_ownership_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
