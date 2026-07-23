@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
   # - Select value from matching element
   # - Compute array length
   # - Append a value to an array
+  # - Extract key-value pairs from an array
   class LogsArrayProcessor
     include BaseGenericModel
 
