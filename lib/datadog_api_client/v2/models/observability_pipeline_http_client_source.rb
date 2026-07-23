@@ -92,7 +92,7 @@ module DatadogAPIClient::V2
         :'password_key' => :'String',
         :'scrape_interval_secs' => :'Integer',
         :'scrape_timeout_secs' => :'Integer',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineClientTls',
         :'token_key' => :'String',
         :'type' => :'ObservabilityPipelineHttpClientSourceType',
         :'username_key' => :'String'

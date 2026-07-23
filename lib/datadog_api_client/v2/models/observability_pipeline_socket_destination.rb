@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'mode' => :'ObservabilityPipelineSocketDestinationMode',
-        :'tls' => :'ObservabilityPipelineTls',
+        :'tls' => :'ObservabilityPipelineClientTls',
         :'type' => :'ObservabilityPipelineSocketDestinationType'
       }
     end
