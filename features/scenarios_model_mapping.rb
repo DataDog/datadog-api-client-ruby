@@ -3030,6 +3030,9 @@ ScenariosModelMappings = {
             "query" => "String",
             "order_direction" => "OrderDirection",
     },
+    "v2.PostOwnershipSettings" => {
+            "body" => "OwnershipSettingsRequest",
+    },
     "v2.ListOwnershipInferences" => {
             "resource_id" => "String",
     },
