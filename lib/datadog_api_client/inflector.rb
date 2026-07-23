@@ -307,6 +307,8 @@ module DatadogAPIClient
           "v1.logs_array_processor_operation" => "LogsArrayProcessorOperation",
           "v1.logs_array_processor_operation_append" => "LogsArrayProcessorOperationAppend",
           "v1.logs_array_processor_operation_append_type" => "LogsArrayProcessorOperationAppendType",
+          "v1.logs_array_processor_operation_extract_key_value" => "LogsArrayProcessorOperationExtractKeyValue",
+          "v1.logs_array_processor_operation_extract_key_value_type" => "LogsArrayProcessorOperationExtractKeyValueType",
           "v1.logs_array_processor_operation_length" => "LogsArrayProcessorOperationLength",
           "v1.logs_array_processor_operation_length_type" => "LogsArrayProcessorOperationLengthType",
           "v1.logs_array_processor_operation_select" => "LogsArrayProcessorOperationSelect",

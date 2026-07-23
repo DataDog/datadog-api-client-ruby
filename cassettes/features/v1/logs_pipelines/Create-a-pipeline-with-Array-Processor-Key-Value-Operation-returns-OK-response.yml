@@ -1,0 +1,46 @@
+http_interactions:
+- recorded_at: Wed, 22 Jul 2026 18:27:14 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"filter":{"query":"source:python"},"name":"testPipelineArrayKeyValue","processors":[{"is_enabled":true,"name":"extract_kv","operation":{"key_to_extract":"name","source":"tags","type":"key-value","value_to_extract":"value"},"type":"array-processor"}],"tags":[]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/logs/config/pipelines
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"id":"KLmRE95XSCKQcsktzgs9eQ","type":"pipeline","name":"testPipelineArrayKeyValue","is_enabled":false,"is_read_only":false,"filter":{"query":"source:python"},"processors":[{"name":"extract_kv","is_enabled":true,"operation":{"source":"tags","key_to_extract":"name","value_to_extract":"value","override_on_conflict":false,"type":"key-value"},"type":"array-processor"}],"tags":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 22 Jul 2026 18:27:14 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/logs/config/pipelines/KLmRE95XSCKQcsktzgs9eQ
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

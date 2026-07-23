@@ -28,7 +28,8 @@ module DatadogAPIClient::V1
         [
           :'LogsArrayProcessorOperationAppend',
           :'LogsArrayProcessorOperationLength',
-          :'LogsArrayProcessorOperationSelect'
+          :'LogsArrayProcessorOperationSelect',
+          :'LogsArrayProcessorOperationExtractKeyValue'
         ]
       end
       # Builds the object
