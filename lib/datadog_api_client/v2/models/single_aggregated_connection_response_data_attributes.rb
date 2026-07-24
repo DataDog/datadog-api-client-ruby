@@ -51,16 +51,16 @@ module DatadogAPIClient::V2
     # The number of TCP zero-window probes sent. These probes are sent when the receiver advertises a zero receive window, indicating it cannot accept more data.
     attr_accessor :tcp_probe0_count
 
-    # The number of TCP packets received out of order. This indicates network-level packet reordering, which can degrade TCP performance by triggering spurious retransmissions and reducing throughput.
+    # The number of TCP packets received out of order. This indicates network-level packet reordering, which can degrade TCP performance by triggering spurious packet retries and reducing throughput.
     attr_accessor :tcp_rcv_ooo_pack
 
-    # The number of TCP fast recovery events. Fast recovery retransmits lost segments detected through duplicate ACKs or selective acknowledgment (SACK) without waiting for a retransmission timeout.
+    # The number of TCP fast recovery events. Fast recovery retransmits lost segments detected through duplicate ACKs or selective acknowledgment (SACK) before a timeout occurs.
     attr_accessor :tcp_recovery_count
 
     # The number of TCP connections that were refused by the server. Typically this indicates an attempt to connect to an IP/port that is not receiving connections, or a firewall/security misconfiguration.
     attr_accessor :tcp_refusals
 
-    # The number of times reordering of sent packets was detected. Reordering detection adjusts the duplicate ACK threshold, preventing spurious retransmissions caused by out-of-order delivery.
+    # The number of times reordering of sent packets was detected. Reordering detection adjusts the duplicate ACK threshold, preventing spurious packet retries caused by out-of-order delivery.
     attr_accessor :tcp_reord_seen
 
     # The number of TCP connections that were reset by the server.
@@ -69,7 +69,7 @@ module DatadogAPIClient::V2
     # TCP Retransmits represent detected failures that are retransmitted to ensure delivery. Measured in count of retransmits from the client.
     attr_accessor :tcp_retransmits
 
-    # The number of TCP retransmission timeouts (RTOs). An RTO occurs when an ACK is not received within the estimated round-trip time, forcing the sender to retransmit and halve its congestion window.
+    # The number of TCP retry timeouts (RTOs). An RTO occurs when an ACK is not received within the estimated round-trip time, forcing the sender to resend the segment and halve its congestion window.
     attr_accessor :tcp_rto_count
 
     # The number of TCP connections that timed out from the perspective of the operating system. This can indicate general connectivity and latency issues.
