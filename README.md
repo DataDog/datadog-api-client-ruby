@@ -203,3 +203,5 @@ support@datadoghq.com
 [api docs]: https://docs.datadoghq.com/api/
 [github pages]: https://datadoghq.dev/datadog-api-client-ruby/
 [development docs]: https://github.com/DataDog/datadog-api-client-ruby/blob/master/DEVELOPMENT.md
+
+Merge-all compatibility test `compatibility-test-30083575156-1`.
