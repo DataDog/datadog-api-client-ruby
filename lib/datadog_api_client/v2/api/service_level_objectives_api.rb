@@ -37,10 +37,13 @@ module DatadogAPIClient::V2
     #
     # Check the status of the job and download the CSV report using the returned `report_id`.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [SloReportCreateRequest] Create SLO report job request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOReportPostResponse, Integer, Hash)>] SLOReportPostResponse data, response status code and response headers
     def create_slo_report_job_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateSLOReportJob` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_slo_report_job".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_slo_report_job")
@@ -112,10 +115,13 @@ module DatadogAPIClient::V2
     #
     # Reports are not guaranteed to exist indefinitely. Datadog recommends that you download the report as soon as it is available.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param report_id [String] The ID of the report job.
     # @param opts [Hash] the optional parameters
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def get_slo_report_with_http_info(report_id, opts = {})
+      warn "[DEPRECATION] `GetSLOReport` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_slo_report".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_slo_report")
@@ -183,10 +189,13 @@ module DatadogAPIClient::V2
     #
     # Get the status of the SLO report job.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param report_id [String] The ID of the report job.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOReportStatusGetResponse, Integer, Hash)>] SLOReportStatusGetResponse data, response status code and response headers
     def get_slo_report_job_status_with_http_info(report_id, opts = {})
+      warn "[DEPRECATION] `GetSLOReportJobStatus` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_slo_report_job_status".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_slo_report_job_status")
