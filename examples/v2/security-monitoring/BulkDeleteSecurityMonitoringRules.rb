@@ -11,6 +11,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleBulkDeletePayload.new({
         "abc-000-7dd",
       ],
     }),
+    id: "bulk_delete",
     type: DatadogAPIClient::V2::SecurityMonitoringRuleBulkDeleteRequestDataType::BULK_DELETE_RULES,
   }),
 })
