@@ -1519,7 +1519,7 @@ module DatadogAPIClient::V2
     #
     # Delete a postmortem template.
     #
-    # @param template_id [String] The ID of the postmortem template
+    # @param template_id [String] The ID of the postmortem template.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_postmortem_template_with_http_info(template_id, opts = {})
@@ -2240,7 +2240,7 @@ module DatadogAPIClient::V2
     #
     # Retrieve details of a specific postmortem template.
     #
-    # @param template_id [String] The ID of the postmortem template
+    # @param template_id [String] The ID of the postmortem template.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PostmortemTemplateResponse, Integer, Hash)>] PostmortemTemplateResponse data, response status code and response headers
     def get_incident_postmortem_template_with_http_info(template_id, opts = {})
@@ -3101,6 +3101,8 @@ module DatadogAPIClient::V2
     # Retrieve a list of all postmortem templates for incidents.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [UUID] :filter_incident_type Filter postmortem templates by the associated incident type ID.
+    # @option opts [String] :sort The attribute to sort results by. Prefix with `-` for descending order.
     # @return [Array<(PostmortemTemplatesResponse, Integer, Hash)>] PostmortemTemplatesResponse data, response status code and response headers
     def list_incident_postmortem_templates_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_postmortem_templates".to_sym]
@@ -3118,6 +3120,8 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'filter[incident-type]'] = opts[:'filter_incident_type'] if !opts[:'filter_incident_type'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -4215,7 +4219,7 @@ module DatadogAPIClient::V2
     #
     # Update an existing postmortem template.
     #
-    # @param template_id [String] The ID of the postmortem template
+    # @param template_id [String] The ID of the postmortem template.
     # @param body [PostmortemTemplateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(PostmortemTemplateResponse, Integer, Hash)>] PostmortemTemplateResponse data, response status code and response headers

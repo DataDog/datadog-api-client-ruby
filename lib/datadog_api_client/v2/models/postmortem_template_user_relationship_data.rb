@@ -17,20 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for a postmortem template returned in a response.
-  class PostmortemTemplateDataResponse
+  # User relationship data.
+  class PostmortemTemplateUserRelationshipData
     include BaseGenericModel
 
-    # Attributes of a postmortem template returned in a response.
-    attr_reader :attributes
-
-    # The ID of the template.
+    # The user identifier.
     attr_reader :id
 
-    # Relationships of a postmortem template returned in a response.
-    attr_accessor :relationships
-
-    # Postmortem template resource type.
+    # The user resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -39,9 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'PostmortemTemplateAttributesResponse',
-        :'id' => :'String',
-        :'relationships' => :'PostmortemTemplateResponseRelationships',
-        :'type' => :'PostmortemTemplateType'
+        :'id' => :'UUID',
+        :'type' => :'String'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PostmortemTemplateDataResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PostmortemTemplateUserRelationshipData` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,16 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -96,20 +78,9 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
       return false if @id.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
-      end
-      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
@@ -158,9 +129,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -169,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [id, type, additional_properties].hash
     end
   end
 end

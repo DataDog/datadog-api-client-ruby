@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for a postmortem template returned in a response.
-  class PostmortemTemplateDataResponse
+  # Settings for a postmortem template stored in Confluence. Required when `location` is `confluence`.
+  class ConfluencePostmortemSettings
     include BaseGenericModel
 
-    # Attributes of a postmortem template returned in a response.
-    attr_reader :attributes
+    # The ID of the Confluence integration account.
+    attr_reader :account_id
 
-    # The ID of the template.
-    attr_reader :id
+    # The ID of the parent Confluence page under which postmortems are created.
+    attr_accessor :parent_id
 
-    # Relationships of a postmortem template returned in a response.
-    attr_accessor :relationships
-
-    # Postmortem template resource type.
-    attr_reader :type
+    # The ID of the Confluence space where postmortems are created.
+    attr_reader :space_id
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'account_id' => :'account_id',
+        :'parent_id' => :'parent_id',
+        :'space_id' => :'space_id'
       }
     end
 
@@ -50,11 +46,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'PostmortemTemplateAttributesResponse',
-        :'id' => :'String',
-        :'relationships' => :'PostmortemTemplateResponseRelationships',
-        :'type' => :'PostmortemTemplateType'
+        :'account_id' => :'String',
+        :'parent_id' => :'String',
+        :'space_id' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'parent_id',
+      ])
     end
 
     # Initializes the object
@@ -62,7 +65,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PostmortemTemplateDataResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ConfluencePostmortemSettings` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +78,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'parent_id')
+        self.parent_id = attributes[:'parent_id']
       end
 
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'space_id')
+        self.space_id = attributes[:'space_id']
       end
     end
 
@@ -96,40 +95,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @account_id.nil?
+      return false if @space_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param account_id [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def account_id=(account_id)
+      if account_id.nil?
+        fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
       end
-      @attributes = attributes
+      @account_id = account_id
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param space_id [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def space_id=(space_id)
+      if space_id.nil?
+        fail ArgumentError, 'invalid value for "space_id", space_id cannot be nil.'
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @space_id = space_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -158,10 +146,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          relationships == o.relationships &&
-          type == o.type &&
+          account_id == o.account_id &&
+          parent_id == o.parent_id &&
+          space_id == o.space_id &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +156,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [account_id, parent_id, space_id, additional_properties].hash
     end
   end
 end

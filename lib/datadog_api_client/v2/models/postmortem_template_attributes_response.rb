@@ -21,13 +21,28 @@ module DatadogAPIClient::V2
   class PostmortemTemplateAttributesResponse
     include BaseGenericModel
 
-    # When the template was created
+    # Settings for a postmortem template stored in Confluence. Required when `location` is `confluence`.
+    attr_accessor :confluence_postmortem_settings
+
+    # The templated content of the postmortem, supporting Markdown and incident template variables.
+    attr_reader :content
+
+    # When the template was created.
     attr_reader :created_at
 
-    # When the template was last modified
+    # Settings for a postmortem template stored in Google Docs. Required when `location` is `google_docs`.
+    attr_accessor :google_docs_postmortem_settings
+
+    # When set, marks this template as a default. The effective default for an incident type is the template with the most recent `is_default` timestamp.
+    attr_accessor :is_default
+
+    # The location where the postmortem is created and stored.
+    attr_reader :location
+
+    # When the template was last modified.
     attr_reader :modified_at
 
-    # The name of the template
+    # The name of the template.
     attr_reader :name
 
     attr_accessor :additional_properties
@@ -36,7 +51,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'confluence_postmortem_settings' => :'confluence_postmortem_settings',
+        :'content' => :'content',
         :'created_at' => :'createdAt',
+        :'google_docs_postmortem_settings' => :'google_docs_postmortem_settings',
+        :'is_default' => :'is_default',
+        :'location' => :'location',
         :'modified_at' => :'modifiedAt',
         :'name' => :'name'
       }
@@ -46,10 +66,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'confluence_postmortem_settings' => :'ConfluencePostmortemSettings',
+        :'content' => :'String',
         :'created_at' => :'Time',
+        :'google_docs_postmortem_settings' => :'GoogleDocsPostmortemSettings',
+        :'is_default' => :'Time',
+        :'location' => :'PostmortemTemplateLocation',
         :'modified_at' => :'Time',
         :'name' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'is_default',
+      ])
     end
 
     # Initializes the object
@@ -70,8 +103,28 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'confluence_postmortem_settings')
+        self.confluence_postmortem_settings = attributes[:'confluence_postmortem_settings']
+      end
+
+      if attributes.key?(:'content')
+        self.content = attributes[:'content']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'google_docs_postmortem_settings')
+        self.google_docs_postmortem_settings = attributes[:'google_docs_postmortem_settings']
+      end
+
+      if attributes.key?(:'is_default')
+        self.is_default = attributes[:'is_default']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
       end
 
       if attributes.key?(:'modified_at')
@@ -87,10 +140,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @content.nil?
       return false if @created_at.nil?
+      return false if @location.nil?
       return false if @modified_at.nil?
       return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param content [Object] Object to be assigned
+    # @!visibility private
+    def content=(content)
+      if content.nil?
+        fail ArgumentError, 'invalid value for "content", content cannot be nil.'
+      end
+      @content = content
     end
 
     # Custom attribute writer method with validation
@@ -101,6 +166,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
       end
       @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param location [Object] Object to be assigned
+    # @!visibility private
+    def location=(location)
+      if location.nil?
+        fail ArgumentError, 'invalid value for "location", location cannot be nil.'
+      end
+      @location = location
     end
 
     # Custom attribute writer method with validation
@@ -149,7 +224,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          confluence_postmortem_settings == o.confluence_postmortem_settings &&
+          content == o.content &&
           created_at == o.created_at &&
+          google_docs_postmortem_settings == o.google_docs_postmortem_settings &&
+          is_default == o.is_default &&
+          location == o.location &&
           modified_at == o.modified_at &&
           name == o.name &&
           additional_properties == o.additional_properties
@@ -159,7 +239,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, modified_at, name, additional_properties].hash
+      [confluence_postmortem_settings, content, created_at, google_docs_postmortem_settings, is_default, location, modified_at, name, additional_properties].hash
     end
   end
 end

@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for creating or updating a postmortem template.
-  class PostmortemTemplateDataRequest
+  # Relationships for a postmortem template. `incident_type` is required when creating a template and is immutable afterwards.
+  class PostmortemTemplateCreateRelationships
     include BaseGenericModel
 
-    # Attributes for creating or updating a postmortem template.
-    attr_reader :attributes
-
-    # The ID of the template. Required when updating.
-    attr_accessor :id
-
-    # Relationships for a postmortem template. `incident_type` is required when creating a template and is immutable afterwards.
-    attr_accessor :relationships
-
-    # Postmortem template resource type.
-    attr_reader :type
+    # Relationship to the incident type this template belongs to.
+    attr_accessor :incident_type
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'incident_type' => :'incident_type'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'PostmortemTemplateAttributesRequest',
-        :'id' => :'String',
-        :'relationships' => :'PostmortemTemplateCreateRelationships',
-        :'type' => :'PostmortemTemplateType'
+        :'incident_type' => :'PostmortemTemplateIncidentTypeRelationship'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PostmortemTemplateDataRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PostmortemTemplateCreateRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,50 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'incident_type')
+        self.incident_type = attributes[:'incident_type']
       end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
-      end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -147,10 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          relationships == o.relationships &&
-          type == o.type &&
+          incident_type == o.incident_type &&
           additional_properties == o.additional_properties
     end
 
@@ -158,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [incident_type, additional_properties].hash
     end
   end
 end

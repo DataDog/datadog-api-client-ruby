@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Postmortem template resource type.
-  class PostmortemTemplateType
+  # The location where the postmortem is created and stored.
+  class PostmortemTemplateLocation
     include BaseEnumModel
 
-    POSTMORTEM_TEMPLATES = "postmortem_templates".freeze
-    POSTMORTEM_TEMPLATE = "postmortem_template".freeze
+    DATADOG_NOTEBOOKS = "datadog_notebooks".freeze
+    CONFLUENCE = "confluence".freeze
+    GOOGLE_DOCS = "google_docs".freeze
   end
 end

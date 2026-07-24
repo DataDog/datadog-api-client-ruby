@@ -21,7 +21,22 @@ module DatadogAPIClient::V2
   class PostmortemTemplateAttributesRequest
     include BaseGenericModel
 
-    # The name of the template
+    # Settings for a postmortem template stored in Confluence. Required when `location` is `confluence`.
+    attr_accessor :confluence_postmortem_settings
+
+    # The templated content of the postmortem, supporting Markdown and incident template variables.
+    attr_accessor :content
+
+    # Settings for a postmortem template stored in Google Docs. Required when `location` is `google_docs`.
+    attr_accessor :google_docs_postmortem_settings
+
+    # When set, marks this template as a default. The effective default for an incident type is the template with the most recent `is_default` timestamp. Set to `null` to unset.
+    attr_accessor :is_default
+
+    # The location where the postmortem is created and stored.
+    attr_accessor :location
+
+    # The name of the template.
     attr_reader :name
 
     attr_accessor :additional_properties
@@ -30,6 +45,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'confluence_postmortem_settings' => :'confluence_postmortem_settings',
+        :'content' => :'content',
+        :'google_docs_postmortem_settings' => :'google_docs_postmortem_settings',
+        :'is_default' => :'is_default',
+        :'location' => :'location',
         :'name' => :'name'
       }
     end
@@ -38,8 +58,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'confluence_postmortem_settings' => :'ConfluencePostmortemSettings',
+        :'content' => :'String',
+        :'google_docs_postmortem_settings' => :'GoogleDocsPostmortemSettings',
+        :'is_default' => :'Time',
+        :'location' => :'PostmortemTemplateLocation',
         :'name' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'is_default',
+      ])
     end
 
     # Initializes the object
@@ -59,6 +92,26 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'confluence_postmortem_settings')
+        self.confluence_postmortem_settings = attributes[:'confluence_postmortem_settings']
+      end
+
+      if attributes.key?(:'content')
+        self.content = attributes[:'content']
+      end
+
+      if attributes.key?(:'google_docs_postmortem_settings')
+        self.google_docs_postmortem_settings = attributes[:'google_docs_postmortem_settings']
+      end
+
+      if attributes.key?(:'is_default')
+        self.is_default = attributes[:'is_default']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -109,6 +162,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          confluence_postmortem_settings == o.confluence_postmortem_settings &&
+          content == o.content &&
+          google_docs_postmortem_settings == o.google_docs_postmortem_settings &&
+          is_default == o.is_default &&
+          location == o.location &&
           name == o.name &&
           additional_properties == o.additional_properties
     end
@@ -117,7 +175,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, additional_properties].hash
+      [confluence_postmortem_settings, content, google_docs_postmortem_settings, is_default, location, name, additional_properties].hash
     end
   end
 end
