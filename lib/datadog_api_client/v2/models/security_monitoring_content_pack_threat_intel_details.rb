@@ -17,17 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Content pack state data.
-  class SecurityMonitoringContentPackStateData
+  # Details for a threat intelligence content pack.
+  class SecurityMonitoringContentPackThreatIntelDetails
     include BaseGenericModel
 
-    # Attributes of a content pack state.
-    attr_reader :attributes
+    # The activation status of a content pack.
+    attr_reader :cp_activation
 
-    # The content pack identifier.
-    attr_reader :id
+    # Timestamp bucket indicating when logs were last collected.
+    attr_reader :data_last_seen
 
-    # Type for content pack state object
+    # The installation status of the related integration.
+    attr_reader :integration_installed_status
+
+    # Type for threat intelligence content pack details.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -36,8 +39,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
+        :'cp_activation' => :'cp_activation',
+        :'data_last_seen' => :'data_last_seen',
+        :'integration_installed_status' => :'integration_installed_status',
         :'type' => :'type'
       }
     end
@@ -46,9 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'SecurityMonitoringContentPackStateAttributes',
-        :'id' => :'String',
-        :'type' => :'SecurityMonitoringContentPackStateType'
+        :'cp_activation' => :'SecurityMonitoringContentPackActivation',
+        :'data_last_seen' => :'SecurityMonitoringContentPackTimestampBucket',
+        :'integration_installed_status' => :'SecurityMonitoringContentPackIntegrationStatus',
+        :'type' => :'SecurityMonitoringContentPackThreatIntelDetailsType'
       }
     end
 
@@ -57,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringContentPackStateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringContentPackThreatIntelDetails` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,12 +75,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'cp_activation')
+        self.cp_activation = attributes[:'cp_activation']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'data_last_seen')
+        self.data_last_seen = attributes[:'data_last_seen']
+      end
+
+      if attributes.key?(:'integration_installed_status')
+        self.integration_installed_status = attributes[:'integration_installed_status']
       end
 
       if attributes.key?(:'type')
@@ -87,30 +96,41 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
+      return false if @cp_activation.nil?
+      return false if @data_last_seen.nil?
+      return false if @integration_installed_status.nil?
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param cp_activation [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def cp_activation=(cp_activation)
+      if cp_activation.nil?
+        fail ArgumentError, 'invalid value for "cp_activation", cp_activation cannot be nil.'
       end
-      @attributes = attributes
+      @cp_activation = cp_activation
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param data_last_seen [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def data_last_seen=(data_last_seen)
+      if data_last_seen.nil?
+        fail ArgumentError, 'invalid value for "data_last_seen", data_last_seen cannot be nil.'
       end
-      @id = id
+      @data_last_seen = data_last_seen
+    end
+
+    # Custom attribute writer method with validation
+    # @param integration_installed_status [Object] Object to be assigned
+    # @!visibility private
+    def integration_installed_status=(integration_installed_status)
+      if integration_installed_status.nil?
+        fail ArgumentError, 'invalid value for "integration_installed_status", integration_installed_status cannot be nil.'
+      end
+      @integration_installed_status = integration_installed_status
     end
 
     # Custom attribute writer method with validation
@@ -149,8 +169,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
+          cp_activation == o.cp_activation &&
+          data_last_seen == o.data_last_seen &&
+          integration_installed_status == o.integration_installed_status &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -159,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [cp_activation, data_last_seen, integration_installed_status, type, additional_properties].hash
     end
   end
 end

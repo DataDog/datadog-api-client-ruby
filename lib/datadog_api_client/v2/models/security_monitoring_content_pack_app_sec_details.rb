@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for content pack states.
-  class SecurityMonitoringContentPackStateMeta
+  # Details for an Application Security content pack.
+  class SecurityMonitoringContentPackAppSecDetails
     include BaseGenericModel
 
-    # Whether the Cloud SIEM index configuration is incorrect for the organization.
-    attr_reader :cloud_siem_index_incorrect
-
-    # The number of months that standard logs are retained for organizations on the standalone_indexed` pricing model. This field is omitted for other pricing models.
-    attr_reader :retention_months
-
-    # The Cloud SIEM pricing model (SKU) for the organization.
-    attr_reader :sku
+    # Type for Application Security content pack details.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'cloud_siem_index_incorrect' => :'cloud_siem_index_incorrect',
-        :'retention_months' => :'retention_months',
-        :'sku' => :'sku'
+        :'type' => :'type'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cloud_siem_index_incorrect' => :'Boolean',
-        :'retention_months' => :'Integer',
-        :'sku' => :'SecurityMonitoringSKU'
+        :'type' => :'SecurityMonitoringContentPackAppSecDetailsType'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringContentPackStateMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringContentPackAppSecDetails` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'cloud_siem_index_incorrect')
-        self.cloud_siem_index_incorrect = attributes[:'cloud_siem_index_incorrect']
-      end
-
-      if attributes.key?(:'retention_months')
-        self.retention_months = attributes[:'retention_months']
-      end
-
-      if attributes.key?(:'sku')
-        self.sku = attributes[:'sku']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -87,40 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @cloud_siem_index_incorrect.nil?
-      return false if !@retention_months.nil? && @retention_months > 60
-      return false if @sku.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param cloud_siem_index_incorrect [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def cloud_siem_index_incorrect=(cloud_siem_index_incorrect)
-      if cloud_siem_index_incorrect.nil?
-        fail ArgumentError, 'invalid value for "cloud_siem_index_incorrect", cloud_siem_index_incorrect cannot be nil.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @cloud_siem_index_incorrect = cloud_siem_index_incorrect
-    end
-
-    # Custom attribute writer method with validation
-    # @param retention_months [Object] Object to be assigned
-    # @!visibility private
-    def retention_months=(retention_months)
-      if !retention_months.nil? && retention_months > 60
-        fail ArgumentError, 'invalid value for "retention_months", must be smaller than or equal to 60.'
-      end
-      @retention_months = retention_months
-    end
-
-    # Custom attribute writer method with validation
-    # @param sku [Object] Object to be assigned
-    # @!visibility private
-    def sku=(sku)
-      if sku.nil?
-        fail ArgumentError, 'invalid value for "sku", sku cannot be nil.'
-      end
-      @sku = sku
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cloud_siem_index_incorrect == o.cloud_siem_index_incorrect &&
-          retention_months == o.retention_months &&
-          sku == o.sku &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cloud_siem_index_incorrect, retention_months, sku, additional_properties].hash
+      [type, additional_properties].hash
     end
   end
 end

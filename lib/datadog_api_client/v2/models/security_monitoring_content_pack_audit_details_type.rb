@@ -17,14 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Cloud SIEM pricing model (SKU) for the organization.
-  class SecurityMonitoringSKU
+  # Type for audit trail content pack details.
+  class SecurityMonitoringContentPackAuditDetailsType
     include BaseEnumModel
 
-    PER_GB_ANALYZED = "per_gb_analyzed".freeze
-    PER_EVENT_IN_SIEM_INDEX_2023 = "per_event_in_siem_index_2023".freeze
-    ADD_ON_2024 = "add_on_2024".freeze
-    STANDALONE_INDEXED = "standalone_indexed".freeze
-    UNKNOWN = "unknown".freeze
+    AUDIT = "audit".freeze
   end
 end

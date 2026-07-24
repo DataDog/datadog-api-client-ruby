@@ -17,31 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a content pack state
+  # Attributes of a content pack state.
   class SecurityMonitoringContentPackStateAttributes
     include BaseGenericModel
 
-    # Whether the cloud SIEM index configuration is incorrect (only applies to certain pricing models)
-    attr_reader :cloud_siem_index_incorrect
-
-    # The activation status of a content pack.
-    attr_reader :cp_activation
-
-    # Whether filters (Security Filters or Index Query depending on the pricing model) are
-    # present and correctly configured to route logs into Cloud SIEM.
-    attr_reader :filters_configured_for_logs
-
-    # The installation status of the related integration.
-    attr_accessor :integration_installed_status
-
-    # Timestamp bucket indicating when logs were last collected.
-    attr_reader :logs_last_collected
-
-    # Whether logs for this content pack have been seen in any Datadog index within the last 72 hours.
-    attr_reader :logs_seen_from_any_index
+    # Type-specific details for a content pack state. The set of fields present depends
+    # on the content pack's `type`. When Cloud SIEM is inactive for the requesting organization, `onboarding` is returned instead of the content pack's usual type, such as `logs` or `vulnerability`.`
+    attr_reader :details
 
     # The current operational status of a content pack.
-    attr_reader :state
+    attr_reader :status
 
     attr_accessor :additional_properties
 
@@ -49,13 +34,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'cloud_siem_index_incorrect' => :'cloud_siem_index_incorrect',
-        :'cp_activation' => :'cp_activation',
-        :'filters_configured_for_logs' => :'filters_configured_for_logs',
-        :'integration_installed_status' => :'integration_installed_status',
-        :'logs_last_collected' => :'logs_last_collected',
-        :'logs_seen_from_any_index' => :'logs_seen_from_any_index',
-        :'state' => :'state'
+        :'details' => :'details',
+        :'status' => :'status'
       }
     end
 
@@ -63,13 +43,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cloud_siem_index_incorrect' => :'Boolean',
-        :'cp_activation' => :'SecurityMonitoringContentPackActivation',
-        :'filters_configured_for_logs' => :'Boolean',
-        :'integration_installed_status' => :'SecurityMonitoringContentPackIntegrationStatus',
-        :'logs_last_collected' => :'SecurityMonitoringContentPackTimestampBucket',
-        :'logs_seen_from_any_index' => :'Boolean',
-        :'state' => :'SecurityMonitoringContentPackStatus'
+        :'details' => :'SecurityMonitoringContentPackStateDetails',
+        :'status' => :'SecurityMonitoringContentPackStatus'
       }
     end
 
@@ -91,32 +66,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'cloud_siem_index_incorrect')
-        self.cloud_siem_index_incorrect = attributes[:'cloud_siem_index_incorrect']
+      if attributes.key?(:'details')
+        self.details = attributes[:'details']
       end
 
-      if attributes.key?(:'cp_activation')
-        self.cp_activation = attributes[:'cp_activation']
-      end
-
-      if attributes.key?(:'filters_configured_for_logs')
-        self.filters_configured_for_logs = attributes[:'filters_configured_for_logs']
-      end
-
-      if attributes.key?(:'integration_installed_status')
-        self.integration_installed_status = attributes[:'integration_installed_status']
-      end
-
-      if attributes.key?(:'logs_last_collected')
-        self.logs_last_collected = attributes[:'logs_last_collected']
-      end
-
-      if attributes.key?(:'logs_seen_from_any_index')
-        self.logs_seen_from_any_index = attributes[:'logs_seen_from_any_index']
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -124,73 +79,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @cloud_siem_index_incorrect.nil?
-      return false if @cp_activation.nil?
-      return false if @filters_configured_for_logs.nil?
-      return false if @logs_last_collected.nil?
-      return false if @logs_seen_from_any_index.nil?
-      return false if @state.nil?
+      return false if @details.nil?
+      return false if @status.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param cloud_siem_index_incorrect [Object] Object to be assigned
+    # @param details [Object] Object to be assigned
     # @!visibility private
-    def cloud_siem_index_incorrect=(cloud_siem_index_incorrect)
-      if cloud_siem_index_incorrect.nil?
-        fail ArgumentError, 'invalid value for "cloud_siem_index_incorrect", cloud_siem_index_incorrect cannot be nil.'
+    def details=(details)
+      if details.nil?
+        fail ArgumentError, 'invalid value for "details", details cannot be nil.'
       end
-      @cloud_siem_index_incorrect = cloud_siem_index_incorrect
+      @details = details
     end
 
     # Custom attribute writer method with validation
-    # @param cp_activation [Object] Object to be assigned
+    # @param status [Object] Object to be assigned
     # @!visibility private
-    def cp_activation=(cp_activation)
-      if cp_activation.nil?
-        fail ArgumentError, 'invalid value for "cp_activation", cp_activation cannot be nil.'
+    def status=(status)
+      if status.nil?
+        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
       end
-      @cp_activation = cp_activation
-    end
-
-    # Custom attribute writer method with validation
-    # @param filters_configured_for_logs [Object] Object to be assigned
-    # @!visibility private
-    def filters_configured_for_logs=(filters_configured_for_logs)
-      if filters_configured_for_logs.nil?
-        fail ArgumentError, 'invalid value for "filters_configured_for_logs", filters_configured_for_logs cannot be nil.'
-      end
-      @filters_configured_for_logs = filters_configured_for_logs
-    end
-
-    # Custom attribute writer method with validation
-    # @param logs_last_collected [Object] Object to be assigned
-    # @!visibility private
-    def logs_last_collected=(logs_last_collected)
-      if logs_last_collected.nil?
-        fail ArgumentError, 'invalid value for "logs_last_collected", logs_last_collected cannot be nil.'
-      end
-      @logs_last_collected = logs_last_collected
-    end
-
-    # Custom attribute writer method with validation
-    # @param logs_seen_from_any_index [Object] Object to be assigned
-    # @!visibility private
-    def logs_seen_from_any_index=(logs_seen_from_any_index)
-      if logs_seen_from_any_index.nil?
-        fail ArgumentError, 'invalid value for "logs_seen_from_any_index", logs_seen_from_any_index cannot be nil.'
-      end
-      @logs_seen_from_any_index = logs_seen_from_any_index
-    end
-
-    # Custom attribute writer method with validation
-    # @param state [Object] Object to be assigned
-    # @!visibility private
-    def state=(state)
-      if state.nil?
-        fail ArgumentError, 'invalid value for "state", state cannot be nil.'
-      end
-      @state = state
+      @status = status
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -219,13 +130,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cloud_siem_index_incorrect == o.cloud_siem_index_incorrect &&
-          cp_activation == o.cp_activation &&
-          filters_configured_for_logs == o.filters_configured_for_logs &&
-          integration_installed_status == o.integration_installed_status &&
-          logs_last_collected == o.logs_last_collected &&
-          logs_seen_from_any_index == o.logs_seen_from_any_index &&
-          state == o.state &&
+          details == o.details &&
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -233,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cloud_siem_index_incorrect, cp_activation, filters_configured_for_logs, integration_installed_status, logs_last_collected, logs_seen_from_any_index, state, additional_properties].hash
+      [details, status, additional_properties].hash
     end
   end
 end

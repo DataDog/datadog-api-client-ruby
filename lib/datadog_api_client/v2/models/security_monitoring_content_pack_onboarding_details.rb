@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for content pack states.
-  class SecurityMonitoringContentPackStateMeta
+  # Content pack details returned when Cloud SIEM is inactive for the requesting organization.
+  class SecurityMonitoringContentPackOnboardingDetails
     include BaseGenericModel
 
-    # Whether the Cloud SIEM index configuration is incorrect for the organization.
-    attr_reader :cloud_siem_index_incorrect
+    # The installation status of the related integration.
+    attr_accessor :integration_installed_status
 
-    # The number of months that standard logs are retained for organizations on the standalone_indexed` pricing model. This field is omitted for other pricing models.
-    attr_reader :retention_months
+    # Whether logs for this content pack have been seen in any Datadog index in the last 72 hours.
+    attr_reader :logs_seen_from_any_index
 
-    # The Cloud SIEM pricing model (SKU) for the organization.
-    attr_reader :sku
+    # Type for onboarding content pack details.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'cloud_siem_index_incorrect' => :'cloud_siem_index_incorrect',
-        :'retention_months' => :'retention_months',
-        :'sku' => :'sku'
+        :'integration_installed_status' => :'integration_installed_status',
+        :'logs_seen_from_any_index' => :'logs_seen_from_any_index',
+        :'type' => :'type'
       }
     end
 
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cloud_siem_index_incorrect' => :'Boolean',
-        :'retention_months' => :'Integer',
-        :'sku' => :'SecurityMonitoringSKU'
+        :'integration_installed_status' => :'SecurityMonitoringContentPackIntegrationStatus',
+        :'logs_seen_from_any_index' => :'Boolean',
+        :'type' => :'SecurityMonitoringContentPackOnboardingDetailsType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringContentPackStateMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringContentPackOnboardingDetails` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'cloud_siem_index_incorrect')
-        self.cloud_siem_index_incorrect = attributes[:'cloud_siem_index_incorrect']
+      if attributes.key?(:'integration_installed_status')
+        self.integration_installed_status = attributes[:'integration_installed_status']
       end
 
-      if attributes.key?(:'retention_months')
-        self.retention_months = attributes[:'retention_months']
+      if attributes.key?(:'logs_seen_from_any_index')
+        self.logs_seen_from_any_index = attributes[:'logs_seen_from_any_index']
       end
 
-      if attributes.key?(:'sku')
-        self.sku = attributes[:'sku']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -87,40 +87,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @cloud_siem_index_incorrect.nil?
-      return false if !@retention_months.nil? && @retention_months > 60
-      return false if @sku.nil?
+      return false if @logs_seen_from_any_index.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param cloud_siem_index_incorrect [Object] Object to be assigned
+    # @param logs_seen_from_any_index [Object] Object to be assigned
     # @!visibility private
-    def cloud_siem_index_incorrect=(cloud_siem_index_incorrect)
-      if cloud_siem_index_incorrect.nil?
-        fail ArgumentError, 'invalid value for "cloud_siem_index_incorrect", cloud_siem_index_incorrect cannot be nil.'
+    def logs_seen_from_any_index=(logs_seen_from_any_index)
+      if logs_seen_from_any_index.nil?
+        fail ArgumentError, 'invalid value for "logs_seen_from_any_index", logs_seen_from_any_index cannot be nil.'
       end
-      @cloud_siem_index_incorrect = cloud_siem_index_incorrect
+      @logs_seen_from_any_index = logs_seen_from_any_index
     end
 
     # Custom attribute writer method with validation
-    # @param retention_months [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def retention_months=(retention_months)
-      if !retention_months.nil? && retention_months > 60
-        fail ArgumentError, 'invalid value for "retention_months", must be smaller than or equal to 60.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @retention_months = retention_months
-    end
-
-    # Custom attribute writer method with validation
-    # @param sku [Object] Object to be assigned
-    # @!visibility private
-    def sku=(sku)
-      if sku.nil?
-        fail ArgumentError, 'invalid value for "sku", sku cannot be nil.'
-      end
-      @sku = sku
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +138,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cloud_siem_index_incorrect == o.cloud_siem_index_incorrect &&
-          retention_months == o.retention_months &&
-          sku == o.sku &&
+          integration_installed_status == o.integration_installed_status &&
+          logs_seen_from_any_index == o.logs_seen_from_any_index &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cloud_siem_index_incorrect, retention_months, sku, additional_properties].hash
+      [integration_installed_status, logs_seen_from_any_index, type, additional_properties].hash
     end
   end
 end
