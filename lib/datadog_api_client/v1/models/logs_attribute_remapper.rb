@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     # Name of the processor.
     attr_accessor :name
 
-    # Override or not the target element if already set,
+    # Whether to override the target element if it's already set.
     attr_accessor :override_on_conflict
 
     # Remove or preserve the remapped source element.

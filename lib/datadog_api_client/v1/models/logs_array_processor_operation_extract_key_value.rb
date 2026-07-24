@@ -17,32 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The schema remapper maps source log fields to their correct fields.
-  class LogsSchemaRemapper
+  # Operation that extracts key-value pairs from a `source` array and stores the result in the `target` attribute.
+  class LogsArrayProcessorOperationExtractKeyValue
     include BaseGenericModel
 
-    # Name of the logs schema remapper.
-    attr_reader :name
+    # Key of the attribute in each array element that holds the name to use for the extracted attribute.
+    attr_reader :key_to_extract
 
     # Whether to override the target element if it's already set.
     attr_accessor :override_on_conflict
 
-    # Remove or preserve the remapped source element.
-    attr_accessor :preserve_source
+    # Attribute path of the array to extract key-value pairs from.
+    attr_reader :source
 
-    # Array of source attributes.
-    attr_reader :sources
+    # Attribute that receives the extracted key-value pairs. If not specified, the extracted attributes are added at the root level of the log.
+    attr_accessor :target
 
-    # Target field to map log source field to.
-    attr_reader :target
-
-    # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
-    # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
-    # If the `target_type` is `tag`, this parameter may not be specified.
-    attr_accessor :target_format
-
-    # Type of logs schema remapper.
+    # Operation type.
     attr_reader :type
+
+    # Key of the attribute in each array element that holds the value to use for the extracted attribute.
+    attr_reader :value_to_extract
 
     attr_accessor :additional_properties
 
@@ -50,13 +45,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
+        :'key_to_extract' => :'key_to_extract',
         :'override_on_conflict' => :'override_on_conflict',
-        :'preserve_source' => :'preserve_source',
-        :'sources' => :'sources',
+        :'source' => :'source',
         :'target' => :'target',
-        :'target_format' => :'target_format',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'value_to_extract' => :'value_to_extract'
       }
     end
 
@@ -64,13 +58,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
+        :'key_to_extract' => :'String',
         :'override_on_conflict' => :'Boolean',
-        :'preserve_source' => :'Boolean',
-        :'sources' => :'Array<String>',
+        :'source' => :'String',
         :'target' => :'String',
-        :'target_format' => :'TargetFormatType',
-        :'type' => :'LogsSchemaRemapperType'
+        :'type' => :'LogsArrayProcessorOperationExtractKeyValueType',
+        :'value_to_extract' => :'String'
       }
     end
 
@@ -79,7 +72,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsSchemaRemapper` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsArrayProcessorOperationExtractKeyValue` initialize method"
       end
 
       self.additional_properties = {}
@@ -92,34 +85,28 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'key_to_extract')
+        self.key_to_extract = attributes[:'key_to_extract']
       end
 
       if attributes.key?(:'override_on_conflict')
         self.override_on_conflict = attributes[:'override_on_conflict']
       end
 
-      if attributes.key?(:'preserve_source')
-        self.preserve_source = attributes[:'preserve_source']
-      end
-
-      if attributes.key?(:'sources')
-        if (value = attributes[:'sources']).is_a?(Array)
-          self.sources = value
-        end
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'target')
         self.target = attributes[:'target']
       end
 
-      if attributes.key?(:'target_format')
-        self.target_format = attributes[:'target_format']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'value_to_extract')
+        self.value_to_extract = attributes[:'value_to_extract']
       end
     end
 
@@ -127,41 +114,31 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
-      return false if @sources.nil?
-      return false if @target.nil?
+      return false if @key_to_extract.nil?
+      return false if @source.nil?
       return false if @type.nil?
+      return false if @value_to_extract.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param key_to_extract [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def key_to_extract=(key_to_extract)
+      if key_to_extract.nil?
+        fail ArgumentError, 'invalid value for "key_to_extract", key_to_extract cannot be nil.'
       end
-      @name = name
+      @key_to_extract = key_to_extract
     end
 
     # Custom attribute writer method with validation
-    # @param sources [Object] Object to be assigned
+    # @param source [Object] Object to be assigned
     # @!visibility private
-    def sources=(sources)
-      if sources.nil?
-        fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
+    def source=(source)
+      if source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
-      @sources = sources
-    end
-
-    # Custom attribute writer method with validation
-    # @param target [Object] Object to be assigned
-    # @!visibility private
-    def target=(target)
-      if target.nil?
-        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
-      end
-      @target = target
+      @source = source
     end
 
     # Custom attribute writer method with validation
@@ -172,6 +149,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param value_to_extract [Object] Object to be assigned
+    # @!visibility private
+    def value_to_extract=(value_to_extract)
+      if value_to_extract.nil?
+        fail ArgumentError, 'invalid value for "value_to_extract", value_to_extract cannot be nil.'
+      end
+      @value_to_extract = value_to_extract
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -200,13 +187,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
+          key_to_extract == o.key_to_extract &&
           override_on_conflict == o.override_on_conflict &&
-          preserve_source == o.preserve_source &&
-          sources == o.sources &&
+          source == o.source &&
           target == o.target &&
-          target_format == o.target_format &&
           type == o.type &&
+          value_to_extract == o.value_to_extract &&
           additional_properties == o.additional_properties
     end
 
@@ -214,7 +200,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, override_on_conflict, preserve_source, sources, target, target_format, type, additional_properties].hash
+      [key_to_extract, override_on_conflict, source, target, type, value_to_extract, additional_properties].hash
     end
   end
 end
