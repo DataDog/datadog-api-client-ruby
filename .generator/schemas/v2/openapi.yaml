@@ -1448,6 +1448,15 @@ components:
       required: false
       schema:
         $ref: "#/components/schemas/OrgGroupPolicySortOption"
+    PostmortemIncludeQueryParameter:
+      description: "Resources to include in the response. Supported values: `last_modified_by_user`, `postmortem_owner_user`, `postmortem_owner_responder`, `incident`."
+      explode: false
+      in: query
+      name: include
+      required: false
+      schema:
+        example: "postmortem_owner_user"
+        type: string
     ProductName:
       description: Name of the product to be deleted, either `logs` or `rum`.
       in: path
@@ -46653,6 +46662,130 @@ components:
         - id
         - type
       type: object
+    IncidentPostmortemAttributes:
+      description: The postmortem's attributes.
+      properties:
+        created:
+          description: Timestamp when the postmortem was created.
+          example: "2024-01-01T00:00:00+00:00"
+          format: date-time
+          type: string
+        document_id:
+          description: The identifier of the postmortem document within its host platform.
+          example: "123"
+          type: string
+        document_type:
+          description: >-
+            The type of document backing the postmortem (for example, `datadog_notebooks`, `confluence`, or `google_docs`). Can be empty if the document type is unknown.
+          example: datadog_notebooks
+          type: string
+        document_url:
+          description: The URL of the postmortem document.
+          example: "https://app.datadoghq.com/notebook/123"
+          type: string
+        modified:
+          description: Timestamp when the postmortem was last modified.
+          example: "2024-01-01T00:00:00+00:00"
+          format: date-time
+          type: string
+        status:
+          $ref: "#/components/schemas/PostmortemStatus"
+        title:
+          description: The title of the postmortem.
+          example: "Postmortem for IR-123"
+          type: string
+      required:
+        - title
+        - document_url
+        - document_id
+        - document_type
+        - status
+        - created
+        - modified
+      type: object
+    IncidentPostmortemCreateAttributes:
+      description: The postmortem's attributes for a creation request.
+      properties:
+        document_url:
+          description: The URL of the postmortem document (for example, a Datadog notebook, Confluence page, or Google Doc).
+          example: "https://app.datadoghq.com/notebook/123"
+          type: string
+        title:
+          description: The title of the postmortem.
+          example: "Postmortem for IR-123"
+          type: string
+      required:
+        - title
+        - document_url
+      type: object
+    IncidentPostmortemCreateData:
+      description: The postmortem resource for a creation request.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/IncidentPostmortemCreateAttributes"
+        type:
+          $ref: "#/components/schemas/IncidentPostmortemType"
+      required:
+        - type
+        - attributes
+      type: object
+    IncidentPostmortemCreateRequest:
+      description: Request to create a postmortem for an incident.
+      properties:
+        data:
+          $ref: "#/components/schemas/IncidentPostmortemCreateData"
+      required:
+        - data
+      type: object
+    IncidentPostmortemData:
+      description: The postmortem resource.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/IncidentPostmortemAttributes"
+        id:
+          description: The UUID of the postmortem.
+          example: "00000000-0000-abcd-1000-000000000000"
+          type: string
+        relationships:
+          $ref: "#/components/schemas/IncidentPostmortemRelationships"
+        type:
+          $ref: "#/components/schemas/IncidentPostmortemType"
+      required:
+        - id
+        - type
+        - attributes
+        - relationships
+      type: object
+    IncidentPostmortemIncluded:
+      description: An object related to a postmortem that is included in the response.
+      oneOf:
+        - $ref: "#/components/schemas/IncidentUserData"
+        - $ref: "#/components/schemas/IncidentResponseData"
+    IncidentPostmortemRelationships:
+      description: The postmortem's relationships.
+      properties:
+        incident:
+          $ref: "#/components/schemas/RelationshipToIncident"
+        last_modified_by_user:
+          $ref: "#/components/schemas/RelationshipToUser"
+        postmortem_owner_responder:
+          $ref: "#/components/schemas/RelationshipToIncidentResponder"
+        postmortem_owner_user:
+          $ref: "#/components/schemas/NullableRelationshipToUser"
+      type: object
+    IncidentPostmortemResponse:
+      description: Response with a single incident postmortem.
+      properties:
+        data:
+          $ref: "#/components/schemas/IncidentPostmortemData"
+        included:
+          description: Related objects included in the response.
+          items:
+            $ref: "#/components/schemas/IncidentPostmortemIncluded"
+          type: array
+      required:
+        - data
+      type: object
     IncidentPostmortemType:
       default: incident_postmortems
       description: Incident postmortem resource type.
@@ -46662,6 +46795,36 @@ components:
       type: string
       x-enum-varnames:
         - INCIDENT_POSTMORTEMS
+    IncidentPostmortemUpdateAttributes:
+      description: The postmortem's attributes for an update request.
+      properties:
+        status:
+          $ref: "#/components/schemas/PostmortemStatus"
+      type: object
+    IncidentPostmortemUpdateData:
+      description: The postmortem resource for an update request.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/IncidentPostmortemUpdateAttributes"
+        id:
+          description: The UUID of the postmortem.
+          example: "00000000-0000-abcd-1000-000000000000"
+          type: string
+        type:
+          $ref: "#/components/schemas/IncidentPostmortemType"
+      required:
+        - id
+        - type
+        - attributes
+      type: object
+    IncidentPostmortemUpdateRequest:
+      description: Request to update the postmortem attached to an incident.
+      properties:
+        data:
+          $ref: "#/components/schemas/IncidentPostmortemUpdateData"
+      required:
+        - data
+      type: object
     IncidentRelatedObject:
       description: Object related to an incident.
       enum:
@@ -65804,6 +65967,20 @@ components:
       required:
         - type
       type: object
+    NullableRelationshipToIncidentResponderData:
+      description: Relationship to impact object.
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the responder.
+          example: "00000000-0000-0000-2345-000000000000"
+          type: string
+        type:
+          $ref: "#/components/schemas/IncidentRespondersType"
+      required:
+        - id
+        - type
+      type: object
     NullableRelationshipToUser:
       description: Relationship to user.
       nullable: true
@@ -77275,6 +77452,18 @@ components:
       type: string
       x-enum-varnames:
         - MARKDOWN
+    PostmortemStatus:
+      description: The status of the postmortem.
+      enum:
+        - draft
+        - in_review
+        - completed
+      example: draft
+      type: string
+      x-enum-varnames:
+        - DRAFT
+        - IN_REVIEW
+        - COMPLETED
     PostmortemTemplateAttributesRequest:
       description: Attributes for creating or updating a postmortem template.
       properties:
@@ -80833,6 +81022,15 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/IncidentRelationshipData"
+      required:
+        - data
+      type: object
+    RelationshipToIncidentResponder:
+      description: A relationship reference for a single incident responder.
+      nullable: true
+      properties:
+        data:
+          $ref: "#/components/schemas/NullableRelationshipToIncidentResponderData"
       required:
         - data
       type: object
@@ -144515,6 +144713,259 @@ paths:
         operator: OR
         permissions:
           - incident_write
+  /api/v2/incidents/{incident_id}/postmortem:
+    delete:
+      description: Delete the postmortem attached to an incident.
+      operationId: DeleteIncidentPostmortem
+      parameters:
+        - $ref: "#/components/parameters/IncidentIDPathParameter"
+      responses:
+        "204":
+          description: OK
+        "400":
+          $ref: "#/components/responses/BadRequestResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "403":
+          $ref: "#/components/responses/ForbiddenResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      security:
+        - apiKeyAuth: []
+          appKeyAuth: []
+        - AuthZ:
+            - incident_write
+      summary: Delete postmortem for an incident
+      tags:
+        - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+          - incident_write
+      x-unstable: |-
+        **Note**: This endpoint is in preview and is subject to change.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    get:
+      description: Get the postmortem attached to an incident.
+      operationId: GetIncidentPostmortem
+      parameters:
+        - $ref: "#/components/parameters/IncidentIDPathParameter"
+        - $ref: "#/components/parameters/PostmortemIncludeQueryParameter"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    data:
+                      attributes:
+                        created: "2024-01-01T00:00:00+00:00"
+                        document_id: "123"
+                        document_type: datadog_notebooks
+                        document_url: "https://app.datadoghq.com/notebook/123"
+                        modified: "2024-01-01T00:00:00+00:00"
+                        status: draft
+                        title: "Postmortem for IR-123"
+                      id: 00000000-0000-abcd-1000-000000000000
+                      relationships:
+                        incident:
+                          data:
+                            id: 00000000-0000-0000-1234-000000000000
+                            type: incidents
+                        last_modified_by_user:
+                          data:
+                            id: 00000000-0000-0000-1234-000000000000
+                            type: users
+                      type: incident_postmortems
+              schema:
+                $ref: "#/components/schemas/IncidentPostmortemResponse"
+          description: OK
+        "400":
+          $ref: "#/components/responses/BadRequestResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "403":
+          $ref: "#/components/responses/ForbiddenResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      security:
+        - apiKeyAuth: []
+          appKeyAuth: []
+        - AuthZ:
+            - incident_read
+      summary: Get postmortem for an incident
+      tags:
+        - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+          - incident_read
+      x-unstable: |-
+        **Note**: This endpoint is in preview and is subject to change.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    patch:
+      description: Update the postmortem attached to an incident, for example to change its status.
+      operationId: UpdateIncidentPostmortem
+      parameters:
+        - $ref: "#/components/parameters/IncidentIDPathParameter"
+        - $ref: "#/components/parameters/PostmortemIncludeQueryParameter"
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  data:
+                    attributes:
+                      status: in_review
+                    id: 00000000-0000-abcd-1000-000000000000
+                    type: incident_postmortems
+            schema:
+              $ref: "#/components/schemas/IncidentPostmortemUpdateRequest"
+        description: Postmortem update payload.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    data:
+                      attributes:
+                        created: "2024-01-01T00:00:00+00:00"
+                        document_id: "123"
+                        document_type: datadog_notebooks
+                        document_url: "https://app.datadoghq.com/notebook/123"
+                        modified: "2024-01-01T00:00:00+00:00"
+                        status: in_review
+                        title: "Postmortem for IR-123"
+                      id: 00000000-0000-abcd-1000-000000000000
+                      relationships:
+                        incident:
+                          data:
+                            id: 00000000-0000-0000-1234-000000000000
+                            type: incidents
+                        last_modified_by_user:
+                          data:
+                            id: 00000000-0000-0000-1234-000000000000
+                            type: users
+                      type: incident_postmortems
+              schema:
+                $ref: "#/components/schemas/IncidentPostmortemResponse"
+          description: OK
+        "400":
+          $ref: "#/components/responses/BadRequestResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "403":
+          $ref: "#/components/responses/ForbiddenResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      security:
+        - apiKeyAuth: []
+          appKeyAuth: []
+        - AuthZ:
+            - incident_write
+      summary: Update postmortem for an incident
+      tags:
+        - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+          - incident_write
+      x-unstable: |-
+        **Note**: This endpoint is in preview and is subject to change.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    post:
+      description: |-
+        Create a postmortem for an incident by linking a title and document URL
+        (for example, a Datadog notebook, Confluence page, or Google Doc).
+
+        Only one postmortem is allowed per incident.
+      operationId: CreateIncidentPostmortem
+      parameters:
+        - $ref: "#/components/parameters/IncidentIDPathParameter"
+        - $ref: "#/components/parameters/PostmortemIncludeQueryParameter"
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  data:
+                    attributes:
+                      document_url: "https://app.datadoghq.com/notebook/123"
+                      title: "Postmortem for IR-123"
+                    type: incident_postmortems
+            schema:
+              $ref: "#/components/schemas/IncidentPostmortemCreateRequest"
+        description: Postmortem creation payload.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    data:
+                      attributes:
+                        created: "2024-01-01T00:00:00+00:00"
+                        document_id: "123"
+                        document_type: datadog_notebooks
+                        document_url: "https://app.datadoghq.com/notebook/123"
+                        modified: "2024-01-01T00:00:00+00:00"
+                        status: draft
+                        title: "Postmortem for IR-123"
+                      id: 00000000-0000-abcd-1000-000000000000
+                      relationships:
+                        incident:
+                          data:
+                            id: 00000000-0000-0000-1234-000000000000
+                            type: incidents
+                        last_modified_by_user:
+                          data:
+                            id: 00000000-0000-0000-1234-000000000000
+                            type: users
+                      type: incident_postmortems
+              schema:
+                $ref: "#/components/schemas/IncidentPostmortemResponse"
+          description: CREATED
+        "400":
+          $ref: "#/components/responses/BadRequestResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "403":
+          $ref: "#/components/responses/ForbiddenResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundResponse"
+        "409":
+          $ref: "#/components/responses/ConflictResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      security:
+        - apiKeyAuth: []
+          appKeyAuth: []
+        - AuthZ:
+            - incident_write
+      summary: Create postmortem for an incident
+      tags:
+        - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+          - incident_write
+      x-unstable: |-
+        **Note**: This endpoint is in preview and is subject to change.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
   /api/v2/incidents/{incident_id}/relationships/integrations:
     get:
       description: Get all integration metadata for an incident.
