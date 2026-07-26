@@ -19,7 +19,14 @@ module APIWorld
 
   def from_env(configuration)
     configuration.configure do |c|
-      if ENV.key? 'DD_TEST_SITE' then
+      if ENV.key? 'DD_TEST_SERVER_URL' then
+        uri = URI(ENV['DD_TEST_SERVER_URL'])
+        name = uri.host
+        name += ":#{uri.port}" unless [80, 443].include?(uri.port)
+        c.server_index = 1
+        c.server_variables[:name] = name
+        c.server_variables[:protocol] = uri.scheme
+      elsif ENV.key? 'DD_TEST_SITE' then
         c.server_index = 2
         c.server_variables[:site] = ENV['DD_TEST_SITE']
       end
@@ -34,7 +41,7 @@ module APIWorld
   end
 
   def api_client
-    @api_client ||= api::APIClient.new configuration
+    @api_client ||= add_test_server_session(api::APIClient.new(configuration))
   end
 
   def api_error
@@ -48,7 +55,7 @@ module APIWorld
   def unique
     now = Time.now.utc
     scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0, 100]
-    prefix = ENV["RECORD"] == "none" ? "Test-Ruby" : "Test"
+    prefix = ENV["RECORD"] == "none" && !test_server_enabled? ? "Test-Ruby" : "Test"
     @unique ||= "#{prefix}-#{scenario_name}-#{now.to_i}"
   end
 
@@ -153,6 +160,7 @@ module APIWorld
       undo_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
       undo_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
       undo_api_client = undo_api::APIClient.new undo_configuration
+      add_test_server_session(undo_api_client)
       api_instance = undo_api.const_get("V#{version}").const_get(api_name).new undo_api_client
     end
 
@@ -216,6 +224,7 @@ module APIWorld
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     given_api_client = given_api::APIClient.new given_configuration
+    add_test_server_session(given_api_client)
     given_api_instance = given_api.const_get("V#{api_version}").const_get(api_name).new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
@@ -274,8 +283,12 @@ module APIWorld
     result
   end
 
-  def model_builder(param, obj)
-    model = ScenariosModelMappings["v#{@api_version}.#{@operation_id}"][param]
+  def model_builder(param, obj, schema = nil)
+    model = if schema
+      test_runner_model(schema)
+    else
+      ScenariosModelMappings["v#{@api_version}.#{@operation_id}"][param]
+    end
     if model == 'File'
       return File.open(File.join(__dir__, "..", "v" + @api_version, obj))
     end
@@ -305,17 +318,23 @@ Given('operation {string} enabled') do |name|
 end
 
 Given(/^body with value (.*)$/) do |body|
+  next if test_runner_enabled?
+
   body_hash = JSON.parse(body.templated(fixtures), {:symbolize_names => true})
   opts[:body] = model_builder("body", body_hash)
 end
 
 Given(/^body from file "(.*)"$/) do |file|
+  next if test_runner_enabled?
+
   body = File.read(File.join(__dir__, "..", "v" + @api_version, file))
   body_hash = JSON.parse(body.templated(fixtures), {:symbolize_names => true})
   opts[:body] = model_builder("body", body_hash)
 end
 
 Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_name, fixture_path|
+  next if test_runner_enabled?
+
   param_value = model_builder(parameter_name.to_parameter, fixtures.lookup(fixture_path))
   param_key = parameter_name.to_parameter.to_sym
   opts[param_key] = param_value
@@ -326,6 +345,8 @@ Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_nam
 end
 
 Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
+  next if test_runner_enabled?
+
   param_value = model_builder(parameter_name.to_parameter, JSON.parse(value.templated fixtures))
   param_key = parameter_name.to_parameter.to_sym
   opts[param_key] = param_value
@@ -336,17 +357,22 @@ Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_na
 end
 
 Given(/^new "([^"]+)" request$/) do |name|
+  next if test_runner_enabled?
+
   @operation_id = name
   @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
 end
 
 When('the request is sent') do
+  prepare_test_runner_request if test_runner_enabled?
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
   undo_builder = build_undo_for(@api_version, @api_method.name.to_s.chomp('_with_http_info'))  # fail early on missing undo method
 
   begin
     @response = @api_method.call(*params, opts)
   rescue api_error => e
+    raise e if e.response_headers && e.response_headers['x-openapi-test-error']
+
     # If we have an exception, make a stub response object to use for assertions
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
@@ -364,6 +390,7 @@ When('the request is sent') do
 end
 
 When('the request with pagination is sent') do
+  prepare_test_runner_request if test_runner_enabled?
   method_name = @api_method.name.to_s.chomp('_with_http_info') + "_with_pagination"
   method = @api_instance.method(method_name.to_sym)
   params = method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
@@ -373,6 +400,8 @@ When('the request with pagination is sent') do
     method.call(*params, opts) { |item| result.append(item) }
     @response = [result, 200, nil]
   rescue api_error => e
+    raise e if e.response_headers && e.response_headers['x-openapi-test-error']
+
     # If we have an exception, make a stub response object to use for assertions
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code

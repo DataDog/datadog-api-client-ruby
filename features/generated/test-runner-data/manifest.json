@@ -1,0 +1,125 @@
+{
+  "scenarios": [
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/create-a-new-action-connection-returns-bad-request-response.json",
+      "scenario": "Create a new Action Connection returns \"Bad Request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/create-a-new-action-connection-returns-successfully-created-action-connection-response.json",
+      "scenario": "Create a new Action Connection returns \"Successfully created Action Connection\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/delete-an-existing-action-connection-returns-not-found-response.json",
+      "scenario": "Delete an existing Action Connection returns \"Not Found\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/delete-an-existing-action-connection-returns-the-resource-was-deleted-successfully-response.json",
+      "scenario": "Delete an existing Action Connection returns \"The resource was deleted successfully.\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/get-an-existing-action-connection-returns-bad-request-response.json",
+      "scenario": "Get an existing Action Connection returns \"Bad Request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/get-an-existing-action-connection-returns-not-found-response.json",
+      "scenario": "Get an existing Action Connection returns \"Not Found\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/get-an-existing-action-connection-returns-successfully-get-action-connection-response.json",
+      "scenario": "Get an existing Action Connection returns \"Successfully get Action Connection\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/get-an-existing-app-key-registration-returns-bad-request-response.json",
+      "scenario": "Get an existing App Key Registration returns \"Bad request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/get-an-existing-app-key-registration-returns-not-found-response.json",
+      "scenario": "Get an existing App Key Registration returns \"Not found\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/get-an-existing-app-key-registration-returns-ok-response.json",
+      "scenario": "Get an existing App Key Registration returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/list-app-key-registrations-returns-bad-request-response.json",
+      "scenario": "List App Key Registrations returns \"Bad request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/list-app-key-registrations-returns-ok-response.json",
+      "scenario": "List App Key Registrations returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/register-a-new-app-key-returns-bad-request-response.json",
+      "scenario": "Register a new App Key returns \"Bad request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/register-a-new-app-key-returns-created-response.json",
+      "scenario": "Register a new App Key returns \"Created\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/unregister-an-app-key-returns-bad-request-response.json",
+      "scenario": "Unregister an App Key returns \"Bad request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/unregister-an-app-key-returns-no-content-response.json",
+      "scenario": "Unregister an App Key returns \"No Content\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/unregister-an-app-key-returns-not-found-response.json",
+      "scenario": "Unregister an App Key returns \"Not found\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/update-an-existing-action-connection-returns-bad-request-response.json",
+      "scenario": "Update an existing Action Connection returns \"Bad Request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/update-an-existing-action-connection-returns-not-found-response.json",
+      "scenario": "Update an existing Action Connection returns \"Not Found\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Action Connection",
+      "file": "v2/action-connection/update-an-existing-action-connection-returns-successfully-updated-action-connection-response.json",
+      "scenario": "Update an existing Action Connection returns \"Successfully updated Action Connection\" response",
+      "version": "v2"
+    }
+  ],
+  "schema_version": 1
+}

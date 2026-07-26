@@ -28,7 +28,18 @@ This project contains BDD tests.
 __Never__ run the test suite against an organization with production data.
 
 Tests can be executed via [`cucumber`](https://cucumber.io/docs/guides/).
-You can optionally add `features/v<NUMBER>/<FILENAME>.feature:<LINE_NUMBER>` to filter individual tests.
+
+Generated SDKs include the language-neutral request plans and replay server
+under `features/generated`. Run them without an API spec checkout or generator
+tooling:
+
+```shell
+./run-bdd-tests.sh
+```
+
+The Ruby Cucumber runner still invokes the generated SDK method and validates
+its response. Request bodies and parameters come from the generated scenario
+plan, while recorded HTTP interactions are replayed by the shared server.
 
 By default integration tests use recorded API responses stored in cassettes. To record new API responses run the tests with `RECORD=true`. To run integration tests against API without recording cassettes, run the tests with `RECORD=none`.
 
