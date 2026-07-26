@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # The ETag for optimistic concurrency control.
     attr_accessor :etag
 
+    # Whether this version number has ever appeared in the form's publication history.
+    attr_accessor :has_ever_been_published
+
     # The ID of the form version.
     attr_accessor :id
 
@@ -64,6 +67,7 @@ module DatadogAPIClient::V2
         :'data_definition' => :'data_definition',
         :'definition_signature' => :'definition_signature',
         :'etag' => :'etag',
+        :'has_ever_been_published' => :'has_ever_been_published',
         :'id' => :'id',
         :'modified_at' => :'modified_at',
         :'state' => :'state',
@@ -82,6 +86,7 @@ module DatadogAPIClient::V2
         :'data_definition' => :'FormDataDefinition',
         :'definition_signature' => :'String',
         :'etag' => :'String',
+        :'has_ever_been_published' => :'Boolean',
         :'id' => :'String',
         :'modified_at' => :'Time',
         :'state' => :'FormVersionState',
@@ -132,6 +137,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'etag')
         self.etag = attributes[:'etag']
+      end
+
+      if attributes.key?(:'has_ever_been_published')
+        self.has_ever_been_published = attributes[:'has_ever_been_published']
       end
 
       if attributes.key?(:'id')
@@ -299,6 +308,7 @@ module DatadogAPIClient::V2
           data_definition == o.data_definition &&
           definition_signature == o.definition_signature &&
           etag == o.etag &&
+          has_ever_been_published == o.has_ever_been_published &&
           id == o.id &&
           modified_at == o.modified_at &&
           state == o.state &&
@@ -313,7 +323,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, data_definition, definition_signature, etag, id, modified_at, state, ui_definition, user_id, user_uuid, version, additional_properties].hash
+      [created_at, data_definition, definition_signature, etag, has_ever_been_published, id, modified_at, state, ui_definition, user_id, user_uuid, version, additional_properties].hash
     end
   end
 end
