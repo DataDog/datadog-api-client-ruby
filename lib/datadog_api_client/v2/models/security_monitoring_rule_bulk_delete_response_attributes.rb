@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for bulk deleting security monitoring rules.
-  class SecurityMonitoringRuleBulkDeleteResponse
+  # Attributes for the bulk delete response.
+  class SecurityMonitoringRuleBulkDeleteResponseAttributes
     include BaseGenericModel
 
-    # Data for the bulk delete response.
-    attr_accessor :data
+    # List of successfully deleted rule IDs.
+    attr_accessor :deleted_rules
+
+    # List of rule IDs that could not be deleted.
+    attr_accessor :failed_rules
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'deleted_rules' => :'deletedRules',
+        :'failed_rules' => :'failedRules'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'SecurityMonitoringRuleBulkDeleteResponseData'
+        :'deleted_rules' => :'Array<String>',
+        :'failed_rules' => :'Array<String>'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleBulkDeleteResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleBulkDeleteResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'deleted_rules')
+        if (value = attributes[:'deleted_rules']).is_a?(Array)
+          self.deleted_rules = value
+        end
+      end
+
+      if attributes.key?(:'failed_rules')
+        if (value = attributes[:'failed_rules']).is_a?(Array)
+          self.failed_rules = value
+        end
       end
     end
 
@@ -91,7 +104,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          deleted_rules == o.deleted_rules &&
+          failed_rules == o.failed_rules &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +113,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [deleted_rules, failed_rules, additional_properties].hash
     end
   end
 end

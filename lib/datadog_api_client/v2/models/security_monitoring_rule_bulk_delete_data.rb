@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Attributes for bulk deleting security monitoring rules.
     attr_reader :attributes
 
+    # Request ID. This value is echoed back as the response's resource ID.
+    attr_accessor :id
+
     # The resource type for a bulk delete request.
     attr_reader :type
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'SecurityMonitoringRuleBulkDeleteAttributes',
+        :'id' => :'String',
         :'type' => :'SecurityMonitoringRuleBulkDeleteRequestDataType'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
@@ -130,6 +139,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end
