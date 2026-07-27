@@ -240,6 +240,7 @@ module DatadogAPIClient
             "v2.get_llm_obs_prompt": false,
             "v2.get_llm_obs_prompt_version": false,
             "v2.list_llm_obs_annotation_queues": false,
+            "v2.list_llm_obs_custom_eval_configs": false,
             "v2.list_llm_obs_dataset_records": false,
             "v2.list_llm_obs_datasets": false,
             "v2.list_llm_obs_dataset_versions": false,

@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Criteria used to assess the pass/fail result of a custom evaluator.
     attr_accessor :assessment_criteria
 
+    # Query used to extract additional context for the evaluation.
+    attr_accessor :context_query
+
     # LLM inference parameters for a custom evaluator.
     attr_reader :inference_params
 
@@ -42,6 +45,12 @@ module DatadogAPIClient::V2
     # List of messages forming the LLM judge prompt template.
     attr_accessor :prompt_template
 
+    # Query used to extract the target value to evaluate.
+    attr_accessor :target_query
+
+    # User-provided function applied to post-process the JSON output of the LLM judge.
+    attr_accessor :user_specified_json_post_processing_function
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -49,12 +58,15 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'assessment_criteria' => :'assessment_criteria',
+        :'context_query' => :'context_query',
         :'inference_params' => :'inference_params',
         :'last_used_library_prompt_template_name' => :'last_used_library_prompt_template_name',
         :'modified_library_prompt_template' => :'modified_library_prompt_template',
         :'output_schema' => :'output_schema',
         :'parsing_type' => :'parsing_type',
-        :'prompt_template' => :'prompt_template'
+        :'prompt_template' => :'prompt_template',
+        :'target_query' => :'target_query',
+        :'user_specified_json_post_processing_function' => :'user_specified_json_post_processing_function'
       }
     end
 
@@ -63,12 +75,15 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'assessment_criteria' => :'LLMObsCustomEvalConfigAssessmentCriteria',
+        :'context_query' => :'String',
         :'inference_params' => :'LLMObsCustomEvalConfigInferenceParams',
         :'last_used_library_prompt_template_name' => :'String',
         :'modified_library_prompt_template' => :'Boolean',
         :'output_schema' => :'Hash<String, Object>',
         :'parsing_type' => :'LLMObsCustomEvalConfigParsingType',
-        :'prompt_template' => :'Array<LLMObsCustomEvalConfigPromptMessage>'
+        :'prompt_template' => :'Array<LLMObsCustomEvalConfigPromptMessage>',
+        :'target_query' => :'String',
+        :'user_specified_json_post_processing_function' => :'String'
       }
     end
 
@@ -76,9 +91,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'context_query',
         :'last_used_library_prompt_template_name',
         :'modified_library_prompt_template',
         :'output_schema',
+        :'target_query',
+        :'user_specified_json_post_processing_function',
       ])
     end
 
@@ -102,6 +120,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'assessment_criteria')
         self.assessment_criteria = attributes[:'assessment_criteria']
+      end
+
+      if attributes.key?(:'context_query')
+        self.context_query = attributes[:'context_query']
       end
 
       if attributes.key?(:'inference_params')
@@ -128,6 +150,14 @@ module DatadogAPIClient::V2
         if (value = attributes[:'prompt_template']).is_a?(Array)
           self.prompt_template = value
         end
+      end
+
+      if attributes.key?(:'target_query')
+        self.target_query = attributes[:'target_query']
+      end
+
+      if attributes.key?(:'user_specified_json_post_processing_function')
+        self.user_specified_json_post_processing_function = attributes[:'user_specified_json_post_processing_function']
       end
     end
 
@@ -176,12 +206,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           assessment_criteria == o.assessment_criteria &&
+          context_query == o.context_query &&
           inference_params == o.inference_params &&
           last_used_library_prompt_template_name == o.last_used_library_prompt_template_name &&
           modified_library_prompt_template == o.modified_library_prompt_template &&
           output_schema == o.output_schema &&
           parsing_type == o.parsing_type &&
           prompt_template == o.prompt_template &&
+          target_query == o.target_query &&
+          user_specified_json_post_processing_function == o.user_specified_json_post_processing_function &&
           additional_properties == o.additional_properties
     end
 
@@ -189,7 +222,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assessment_criteria, inference_params, last_used_library_prompt_template_name, modified_library_prompt_template, output_schema, parsing_type, prompt_template, additional_properties].hash
+      [assessment_criteria, context_query, inference_params, last_used_library_prompt_template_name, modified_library_prompt_template, output_schema, parsing_type, prompt_template, target_query, user_specified_json_post_processing_function, additional_properties].hash
     end
   end
 end

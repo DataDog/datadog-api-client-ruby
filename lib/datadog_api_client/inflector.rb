@@ -4315,6 +4315,7 @@ module DatadogAPIClient
           "v2.llm_obs_custom_eval_config_eval_scope" => "LLMObsCustomEvalConfigEvalScope",
           "v2.llm_obs_custom_eval_config_inference_params" => "LLMObsCustomEvalConfigInferenceParams",
           "v2.llm_obs_custom_eval_config_integration_provider" => "LLMObsCustomEvalConfigIntegrationProvider",
+          "v2.llm_obs_custom_eval_config_list_response" => "LLMObsCustomEvalConfigListResponse",
           "v2.llm_obs_custom_eval_config_llm_judge_config" => "LLMObsCustomEvalConfigLLMJudgeConfig",
           "v2.llm_obs_custom_eval_config_llm_provider" => "LLMObsCustomEvalConfigLLMProvider",
           "v2.llm_obs_custom_eval_config_parsing_type" => "LLMObsCustomEvalConfigParsingType",
