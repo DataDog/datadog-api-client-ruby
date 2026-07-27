@@ -21,6 +21,7 @@ body = DatadogAPIClient::V2::LLMObsCustomEvalConfigUpdateRequest.new({
           ],
           pass_when: true,
         }),
+        context_query: "@input.context",
         inference_params: DatadogAPIClient::V2::LLMObsCustomEvalConfigInferenceParams.new({
           frequency_penalty: 0.0,
           max_tokens: 1024,
@@ -59,9 +60,12 @@ body = DatadogAPIClient::V2::LLMObsCustomEvalConfigUpdateRequest.new({
             role: "user",
           }),
         ],
+        target_query: "@output.value",
+        user_specified_json_post_processing_function: nil,
       }),
       llm_provider: DatadogAPIClient::V2::LLMObsCustomEvalConfigLLMProvider.new({
         bedrock: DatadogAPIClient::V2::LLMObsCustomEvalConfigBedrockOptions.new({
+          inference_profile: "arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/abc123",
           region: "us-east-1",
         }),
         integration_account_id: "my-account-id",
@@ -76,6 +80,7 @@ body = DatadogAPIClient::V2::LLMObsCustomEvalConfigUpdateRequest.new({
         application_name: "my-llm-app",
         enabled: true,
         eval_scope: DatadogAPIClient::V2::LLMObsCustomEvalConfigEvalScope::SPAN,
+        experiment_project_ids: [],
         filter: "@service:my-service",
         root_spans_only: true,
         sampling_percentage: 50.0,

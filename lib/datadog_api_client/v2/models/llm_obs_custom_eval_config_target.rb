@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Scope at which to evaluate spans.
     attr_accessor :eval_scope
 
+    # Experiment project IDs this evaluator is scoped to.
+    attr_accessor :experiment_project_ids
+
     # Filter expression to select which spans to evaluate.
     attr_accessor :filter
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
         :'application_name' => :'application_name',
         :'enabled' => :'enabled',
         :'eval_scope' => :'eval_scope',
+        :'experiment_project_ids' => :'experiment_project_ids',
         :'filter' => :'filter',
         :'root_spans_only' => :'root_spans_only',
         :'sampling_percentage' => :'sampling_percentage'
@@ -61,6 +65,7 @@ module DatadogAPIClient::V2
         :'application_name' => :'String',
         :'enabled' => :'Boolean',
         :'eval_scope' => :'LLMObsCustomEvalConfigEvalScope',
+        :'experiment_project_ids' => :'Array<UUID>',
         :'filter' => :'String',
         :'root_spans_only' => :'Boolean',
         :'sampling_percentage' => :'Float'
@@ -105,6 +110,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'eval_scope')
         self.eval_scope = attributes[:'eval_scope']
+      end
+
+      if attributes.key?(:'experiment_project_ids')
+        if (value = attributes[:'experiment_project_ids']).is_a?(Array)
+          self.experiment_project_ids = value
+        end
       end
 
       if attributes.key?(:'filter')
@@ -178,6 +189,7 @@ module DatadogAPIClient::V2
           application_name == o.application_name &&
           enabled == o.enabled &&
           eval_scope == o.eval_scope &&
+          experiment_project_ids == o.experiment_project_ids &&
           filter == o.filter &&
           root_spans_only == o.root_spans_only &&
           sampling_percentage == o.sampling_percentage &&
@@ -188,7 +200,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_name, enabled, eval_scope, filter, root_spans_only, sampling_percentage, additional_properties].hash
+      [application_name, enabled, eval_scope, experiment_project_ids, filter, root_spans_only, sampling_percentage, additional_properties].hash
     end
   end
 end

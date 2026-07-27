@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Bedrock-specific options for LLM provider configuration.
-  class LLMObsCustomEvalConfigBedrockOptions
+  # Response containing a list of custom LLM Observability evaluator configurations.
+  class LLMObsCustomEvalConfigListResponse
     include BaseGenericModel
 
-    # Bedrock inference profile identifier, such as an application inference profile ARN.
-    attr_accessor :inference_profile
-
-    # AWS region for Bedrock.
-    attr_accessor :region
+    # List of custom evaluator configuration data objects.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'inference_profile' => :'inference_profile',
-        :'region' => :'region'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'inference_profile' => :'String',
-        :'region' => :'String'
+        :'data' => :'Array<LLMObsCustomEvalConfigData>'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsCustomEvalConfigBedrockOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsCustomEvalConfigListResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,29 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'inference_profile')
-        self.inference_profile = attributes[:'inference_profile']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
+    end
 
-      if attributes.key?(:'region')
-        self.region = attributes[:'region']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +111,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          inference_profile == o.inference_profile &&
-          region == o.region &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [inference_profile, region, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
