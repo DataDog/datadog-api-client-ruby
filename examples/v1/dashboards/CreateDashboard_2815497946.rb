@@ -1,4 +1,4 @@
-# Create a new dashboard with topology_map widget
+# Create a new dashboard with topology_map data_streams widget
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
@@ -14,21 +14,21 @@ body = DatadogAPIClient::V1::Dashboard.new({
         width: 47,
         height: 15,
       }),
-      definition: DatadogAPIClient::V1::TopologyMapWidgetDefinitionServiceMap.new({
+      definition: DatadogAPIClient::V1::TopologyMapWidgetDefinitionDataStreams.new({
         title: "",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         type: DatadogAPIClient::V1::TopologyMapWidgetDefinitionType::TOPOLOGY_MAP,
         requests: [
-          DatadogAPIClient::V1::TopologyRequestServiceMap.new({
+          DatadogAPIClient::V1::TopologyRequestDataStreams.new({
             request_type: DatadogAPIClient::V1::TopologyRequestType::TOPOLOGY,
-            query: DatadogAPIClient::V1::TopologyQueryServiceMap.new({
-              data_source: DatadogAPIClient::V1::TopologyQueryServiceMapDataSource::SERVICE_MAP,
+            query: DatadogAPIClient::V1::TopologyQueryDataStreams.new({
+              data_source: DatadogAPIClient::V1::TopologyQueryDataStreamsDataSource::DATA_STREAMS,
               service: "",
               filters: [
-                "env:none",
-                "environment:*",
+                "env:prod",
               ],
+              query_string: "service:myservice",
             }),
           }),
         ],
