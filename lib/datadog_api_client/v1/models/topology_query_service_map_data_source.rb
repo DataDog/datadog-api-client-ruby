@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Name of the data source
-  class TopologyQueryDataSource
+  # Name of the data source.
+  class TopologyQueryServiceMapDataSource
     include BaseEnumModel
 
-    DATA_STREAMS = "data_streams".freeze
     SERVICE_MAP = "service_map".freeze
   end
 end
