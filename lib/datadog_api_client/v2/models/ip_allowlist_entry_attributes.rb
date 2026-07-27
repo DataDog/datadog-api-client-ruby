@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Creation time of the entry.
     attr_accessor :created_at
 
+    # A label for the IP allowlist entry.
+    attr_accessor :label
+
     # Time of last entry modification.
     attr_accessor :modified_at
 
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
       {
         :'cidr_block' => :'cidr_block',
         :'created_at' => :'created_at',
+        :'label' => :'label',
         :'modified_at' => :'modified_at',
         :'note' => :'note'
       }
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'cidr_block' => :'String',
         :'created_at' => :'Time',
+        :'label' => :'String',
         :'modified_at' => :'Time',
         :'note' => :'String'
       }
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
       end
 
       if attributes.key?(:'modified_at')
@@ -120,6 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cidr_block == o.cidr_block &&
           created_at == o.created_at &&
+          label == o.label &&
           modified_at == o.modified_at &&
           note == o.note &&
           additional_properties == o.additional_properties
@@ -129,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cidr_block, created_at, modified_at, note, additional_properties].hash
+      [cidr_block, created_at, label, modified_at, note, additional_properties].hash
     end
   end
 end
