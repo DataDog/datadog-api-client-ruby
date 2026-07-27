@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class TopologyRequest
     include BaseGenericModel
 
-    # Query to service-based topology data sources like the service map or data streams.
+    # A topology data source query.
     attr_accessor :query
 
     # Widget request type.
