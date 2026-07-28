@@ -5242,6 +5242,12 @@ ScenariosModelMappings = {
             "rf_id" => "String",
             "body" => "RumRetentionFilterUpdateRequest",
     },
+    "v2.UpdateRumConfig" => {
+            "body" => "RumConfigUpdateRequest",
+    },
+    "v2.CreateRumConfig" => {
+            "body" => "RumConfigCreateRequest",
+    },
     "v2.CreateRumMetric" => {
             "body" => "RumMetricCreateRequest",
     },
