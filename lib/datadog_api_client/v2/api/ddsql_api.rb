@@ -41,12 +41,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DdsqlTabularQueryResponse, Integer, Hash)>] DdsqlTabularQueryResponse data, response status code and response headers
     def execute_ddsql_tabular_query_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.execute_ddsql_tabular_query".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.execute_ddsql_tabular_query")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.execute_ddsql_tabular_query"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DDSQLAPI.execute_ddsql_tabular_query ...'
@@ -117,12 +111,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DdsqlTabularQueryResponse, Integer, Hash)>] DdsqlTabularQueryResponse data, response status code and response headers
     def fetch_ddsql_tabular_query_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.fetch_ddsql_tabular_query".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.fetch_ddsql_tabular_query")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.fetch_ddsql_tabular_query"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DDSQLAPI.fetch_ddsql_tabular_query ...'
