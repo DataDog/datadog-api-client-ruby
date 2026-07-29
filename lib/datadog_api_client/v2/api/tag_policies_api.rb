@@ -56,7 +56,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling TagPoliciesAPI.create_tag_policy"
       end
       # resource path
-      local_var_path = '/api/v2/tag-policies'
+      local_var_path = '/api/v2/tag_policies'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -132,7 +132,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'policy_id' when calling TagPoliciesAPI.delete_tag_policy"
       end
       # resource path
-      local_var_path = '/api/v2/tag-policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/tag_policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/v2/tag-policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/tag_policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -292,7 +292,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'policy_id' when calling TagPoliciesAPI.get_tag_policy_score"
       end
       # resource path
-      local_var_path = '/api/v2/tag-policies/{policy_id}/score'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/tag_policies/{policy_id}/score'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -376,7 +376,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"filter_source\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/v2/tag-policies'
+      local_var_path = '/api/v2/tag_policies'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -460,7 +460,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling TagPoliciesAPI.update_tag_policy"
       end
       # resource path
-      local_var_path = '/api/v2/tag-policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/tag_policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
