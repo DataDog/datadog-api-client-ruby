@@ -11,6 +11,7 @@ body = DatadogAPIClient::V2::LLMObsPatternsConfigUpsertRequest.new({
     attributes: DatadogAPIClient::V2::LLMObsPatternsConfigUpsertRequestAttributes.new({
       account_id: "1000000001",
       config_id: "a7c8d9e0-1234-5678-9abc-def012345678",
+      curation_enabled: true,
       evp_query: "@ml_app:support-bot",
       hierarchy_depth: 2,
       integration_provider: "openai",

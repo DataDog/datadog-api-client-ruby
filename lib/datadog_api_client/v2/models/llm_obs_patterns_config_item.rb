@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Timestamp when the configuration was created.
     attr_reader :created_at
 
+    # Whether automatic dataset curation is enabled for this configuration.
+    attr_accessor :curation_enabled
+
     # Query that selects the spans the patterns run analyzes.
     attr_reader :evp_query
 
@@ -68,6 +71,7 @@ module DatadogAPIClient::V2
       {
         :'account_id' => :'account_id',
         :'created_at' => :'created_at',
+        :'curation_enabled' => :'curation_enabled',
         :'evp_query' => :'evp_query',
         :'hierarchy_depth' => :'hierarchy_depth',
         :'id' => :'id',
@@ -88,6 +92,7 @@ module DatadogAPIClient::V2
       {
         :'account_id' => :'String',
         :'created_at' => :'Time',
+        :'curation_enabled' => :'Boolean',
         :'evp_query' => :'String',
         :'hierarchy_depth' => :'Integer',
         :'id' => :'String',
@@ -137,6 +142,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'curation_enabled')
+        self.curation_enabled = attributes[:'curation_enabled']
       end
 
       if attributes.key?(:'evp_query')
@@ -326,6 +335,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           account_id == o.account_id &&
           created_at == o.created_at &&
+          curation_enabled == o.curation_enabled &&
           evp_query == o.evp_query &&
           hierarchy_depth == o.hierarchy_depth &&
           id == o.id &&
@@ -344,7 +354,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, created_at, evp_query, hierarchy_depth, id, integration_provider, model_name, name, num_records, sampling_ratio, scope, template, updated_at, additional_properties].hash
+      [account_id, created_at, curation_enabled, evp_query, hierarchy_depth, id, integration_provider, model_name, name, num_records, sampling_ratio, scope, template, updated_at, additional_properties].hash
     end
   end
 end
