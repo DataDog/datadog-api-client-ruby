@@ -4100,6 +4100,31 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "OktaAccountUpdateRequest",
     },
+    "v2.ListIntegrationAccounts" => {
+            "integration_id" => "IntegrationAccountIntegrationId",
+            "interface_id" => "IntegrationAccountInterfaceId",
+    },
+    "v2.CreateIntegrationAccount" => {
+            "integration_id" => "IntegrationAccountIntegrationId",
+            "interface_id" => "IntegrationAccountInterfaceId",
+            "body" => "IntegrationAccountRequest",
+    },
+    "v2.DeleteIntegrationAccount" => {
+            "integration_id" => "IntegrationAccountIntegrationId",
+            "interface_id" => "IntegrationAccountInterfaceId",
+            "account_id" => "String",
+    },
+    "v2.GetIntegrationAccount" => {
+            "integration_id" => "IntegrationAccountIntegrationId",
+            "interface_id" => "IntegrationAccountInterfaceId",
+            "account_id" => "String",
+    },
+    "v2.UpdateIntegrationAccount" => {
+            "integration_id" => "IntegrationAccountIntegrationId",
+            "interface_id" => "IntegrationAccountInterfaceId",
+            "account_id" => "String",
+            "body" => "IntegrationAccountUpdateRequest",
+    },
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
     },

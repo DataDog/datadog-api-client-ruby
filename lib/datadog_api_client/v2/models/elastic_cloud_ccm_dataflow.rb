@@ -17,32 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single column of a DDSQL tabular query result.
-  class DdsqlTabularQueryColumn
+  # An Elastic Cloud CCM dataflow toggle. The set of dataflow ids is fixed by the interface schema.
+  class ElasticCloudCcmDataflow
     include BaseGenericModel
 
-    # Name of the column as projected by the SQL statement.
-    attr_reader :name
+    # Whether the dataflow is enabled.
+    attr_accessor :enabled
 
-    # DDSQL data type of the column's values, for example `VARCHAR`, `BIGINT`,
-    # `DECIMAL`, `BOOLEAN`, `TIMESTAMP`, `JSON`, or an array variant such as
-    # `VARCHAR[]`. See the
-    # [DDSQL data-types reference](https://docs.datadoghq.com/ddsql_reference/#data-types)
-    # for the full, up-to-date list.
-    attr_reader :type
+    # Identifier of an Elastic Cloud CCM dataflow.
+    attr_reader :id
 
-    # Column values in row order, one entry per result row. The element type
-    # follows the column's `type`. The following serialization rules should be
-    # taken into account:
-    #
-    # - `BIGINT` values are encoded as JSON numbers in the signed 64-bit integer range.
-    # - `DECIMAL` values are encoded as JSON numbers with 64-bit double precision.
-    # - `TIMESTAMP` and `DATE` values are encoded as Unix-millisecond integers; a
-    #   `DATE` resolves to midnight UTC.
-    # - `JSON` values are returned as a JSON-encoded string.
-    #
-    # `null` is allowed for any column type where a value is missing.
-    attr_reader :values
+    # Read-only, server-computed collection status of a dataflow.
+    attr_accessor :status
 
     attr_accessor :additional_properties
 
@@ -50,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'type' => :'type',
-        :'values' => :'values'
+        :'enabled' => :'enabled',
+        :'id' => :'id',
+        :'status' => :'status'
       }
     end
 
@@ -60,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'type' => :'String',
-        :'values' => :'Array<Object>'
+        :'enabled' => :'Boolean',
+        :'id' => :'ElasticCloudCcmDataflowId',
+        :'status' => :'IntegrationAccountDataflowStatus'
       }
     end
 
@@ -71,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DdsqlTabularQueryColumn` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ElasticCloudCcmDataflow` initialize method"
       end
 
       self.additional_properties = {}
@@ -84,18 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'values')
-        if (value = attributes[:'values']).is_a?(Array)
-          self.values = value
-        end
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -103,40 +87,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
-      return false if @type.nil?
-      return false if @values.nil?
+      return false if @id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param values [Object] Object to be assigned
-    # @!visibility private
-    def values=(values)
-      if values.nil?
-        fail ArgumentError, 'invalid value for "values", values cannot be nil.'
-      end
-      @values = values
+      @id = id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -165,9 +127,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          type == o.type &&
-          values == o.values &&
+          enabled == o.enabled &&
+          id == o.id &&
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -175,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, type, values, additional_properties].hash
+      [enabled, id, status, additional_properties].hash
     end
   end
 end

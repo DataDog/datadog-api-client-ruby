@@ -17,32 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single column of a DDSQL tabular query result.
-  class DdsqlTabularQueryColumn
+  # Data envelope of an integration account, including server-assigned identity.
+  class IntegrationAccountData
     include BaseGenericModel
 
-    # Name of the column as projected by the SQL statement.
-    attr_reader :name
+    # Attributes of an integration account. The `integration` field is a strongly-typed, per-integration union.
+    attr_reader :attributes
 
-    # DDSQL data type of the column's values, for example `VARCHAR`, `BIGINT`,
-    # `DECIMAL`, `BOOLEAN`, `TIMESTAMP`, `JSON`, or an array variant such as
-    # `VARCHAR[]`. See the
-    # [DDSQL data-types reference](https://docs.datadoghq.com/ddsql_reference/#data-types)
-    # for the full, up-to-date list.
+    # Server-generated unique identifier of the integration account.
+    attr_reader :id
+
+    # JSON:API resource type for an integration account. Always `integration-account`.
     attr_reader :type
-
-    # Column values in row order, one entry per result row. The element type
-    # follows the column's `type`. The following serialization rules should be
-    # taken into account:
-    #
-    # - `BIGINT` values are encoded as JSON numbers in the signed 64-bit integer range.
-    # - `DECIMAL` values are encoded as JSON numbers with 64-bit double precision.
-    # - `TIMESTAMP` and `DATE` values are encoded as Unix-millisecond integers; a
-    #   `DATE` resolves to midnight UTC.
-    # - `JSON` values are returned as a JSON-encoded string.
-    #
-    # `null` is allowed for any column type where a value is missing.
-    attr_reader :values
 
     attr_accessor :additional_properties
 
@@ -50,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'type' => :'type',
-        :'values' => :'values'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -60,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'type' => :'String',
-        :'values' => :'Array<Object>'
+        :'attributes' => :'IntegrationAccountAttributes',
+        :'id' => :'String',
+        :'type' => :'IntegrationAccountType'
       }
     end
 
@@ -71,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DdsqlTabularQueryColumn` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationAccountData` initialize method"
       end
 
       self.additional_properties = {}
@@ -84,18 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'values')
-        if (value = attributes[:'values']).is_a?(Array)
-          self.values = value
-        end
       end
     end
 
@@ -103,20 +87,30 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
+      return false if @attributes.nil?
+      return false if @id.nil?
       return false if @type.nil?
-      return false if @values.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param attributes [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
-      @name = name
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
     end
 
     # Custom attribute writer method with validation
@@ -127,16 +121,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param values [Object] Object to be assigned
-    # @!visibility private
-    def values=(values)
-      if values.nil?
-        fail ArgumentError, 'invalid value for "values", values cannot be nil.'
-      end
-      @values = values
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -165,9 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
+          attributes == o.attributes &&
+          id == o.id &&
           type == o.type &&
-          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -175,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, type, values, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end
