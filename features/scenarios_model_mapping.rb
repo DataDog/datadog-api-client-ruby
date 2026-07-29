@@ -4239,6 +4239,15 @@ ScenariosModelMappings = {
     "v2.CreateBulkTagsMetricsConfiguration" => {
             "body" => "MetricBulkTagConfigCreateRequest",
     },
+    "v2.CreateHistoricalMetricsConfiguration" => {
+            "body" => "HistoricalMetricsConfigurationCreateRequest",
+    },
+    "v2.DeleteHistoricalMetricsConfiguration" => {
+            "metric_name" => "String",
+    },
+    "v2.GetHistoricalMetricsConfiguration" => {
+            "metric_name" => "String",
+    },
     "v2.ListTagIndexingRules" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",

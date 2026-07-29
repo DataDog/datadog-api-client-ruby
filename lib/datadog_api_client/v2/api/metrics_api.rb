@@ -101,6 +101,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Enable historical metrics ingestion.
+    #
+    # @see #create_historical_metrics_configuration_with_http_info
+    def create_historical_metrics_configuration(body, opts = {})
+      data, _status_code, _headers = create_historical_metrics_configuration_with_http_info(body, opts)
+      data
+    end
+
+    # Enable historical metrics ingestion.
+    #
+    # Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent:
+    # enabling an already-enabled metric returns 200 instead of 201. Not supported for
+    # distribution metrics, metrics with an existing tag configuration, or most standard
+    # (non-custom) metrics.
+    #
+    # @param body [HistoricalMetricsConfigurationCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(HistoricalMetricsConfigurationResponse, Integer, Hash)>] HistoricalMetricsConfigurationResponse data, response status code and response headers
+    def create_historical_metrics_configuration_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_historical_metrics_configuration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_historical_metrics_configuration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_historical_metrics_configuration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.create_historical_metrics_configuration ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.create_historical_metrics_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/historical-metrics-configurations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HistoricalMetricsConfigurationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_historical_metrics_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#create_historical_metrics_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a tag configuration.
     #
     # @see #create_tag_configuration_with_http_info
@@ -406,6 +482,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a historical metrics configuration.
+    #
+    # @see #delete_historical_metrics_configuration_with_http_info
+    def delete_historical_metrics_configuration(metric_name, opts = {})
+      delete_historical_metrics_configuration_with_http_info(metric_name, opts)
+      nil
+    end
+
+    # Delete a historical metrics configuration.
+    #
+    # Disable historical metrics ingestion for a metric. Idempotent: always returns 204,
+    # whether or not the configuration existed or the metric itself still exists, so that
+    # Terraform destroy succeeds for a metric removed out-of-band.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_historical_metrics_configuration_with_http_info(metric_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_historical_metrics_configuration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_historical_metrics_configuration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_historical_metrics_configuration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_historical_metrics_configuration ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.delete_historical_metrics_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/historical-metrics-configurations/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_historical_metrics_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#delete_historical_metrics_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a tag configuration.
     #
     # @see #delete_tag_configuration_with_http_info
@@ -702,6 +851,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsAPI#estimate_metrics_output_series\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a historical metrics configuration.
+    #
+    # @see #get_historical_metrics_configuration_with_http_info
+    def get_historical_metrics_configuration(metric_name, opts = {})
+      data, _status_code, _headers = get_historical_metrics_configuration_with_http_info(metric_name, opts)
+      data
+    end
+
+    # Get a historical metrics configuration.
+    #
+    # Get the historical metrics ingestion configuration for a metric. Existence of the
+    # resource means historical metrics ingestion is enabled; returns 404 when it is not
+    # enabled for the metric.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(HistoricalMetricsConfigurationResponse, Integer, Hash)>] HistoricalMetricsConfigurationResponse data, response status code and response headers
+    def get_historical_metrics_configuration_with_http_info(metric_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_historical_metrics_configuration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_historical_metrics_configuration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_historical_metrics_configuration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.get_historical_metrics_configuration ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.get_historical_metrics_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/historical-metrics-configurations/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HistoricalMetricsConfigurationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_historical_metrics_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#get_historical_metrics_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
