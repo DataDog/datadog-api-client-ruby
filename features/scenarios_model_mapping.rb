@@ -5507,6 +5507,11 @@ ScenariosModelMappings = {
     "v2.GetEntityRiskScore" => {
             "entity_id" => "String",
     },
+    "v2.IngestStixThreatIntel" => {
+            "ti_vendor" => "String",
+            "content_encoding" => "STIXContentEncoding",
+            "body" => "STIXBundleRequest",
+    },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
     },
