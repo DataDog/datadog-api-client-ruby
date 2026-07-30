@@ -45,6 +45,13 @@ module DatadogAPIClient::V2
     # AWS region of the S3 bucket.
     attr_reader :region
 
+    # Server-side encryption type for Amazon S3.
+    attr_accessor :server_side_encryption
+
+    # The AWS KMS key ID used for SSE-KMS encryption.
+    # Only applies when `server_side_encryption` is set to `aws:kms`.
+    attr_accessor :ssekms_key_id
+
     # S3 storage class.
     attr_reader :storage_class
 
@@ -67,6 +74,8 @@ module DatadogAPIClient::V2
         :'inputs' => :'inputs',
         :'key_prefix' => :'key_prefix',
         :'region' => :'region',
+        :'server_side_encryption' => :'server_side_encryption',
+        :'ssekms_key_id' => :'ssekms_key_id',
         :'storage_class' => :'storage_class',
         :'tls' => :'tls',
         :'type' => :'type'
@@ -84,6 +93,8 @@ module DatadogAPIClient::V2
         :'inputs' => :'Array<String>',
         :'key_prefix' => :'String',
         :'region' => :'String',
+        :'server_side_encryption' => :'ObservabilityPipelineAmazonS3DestinationServerSideEncryption',
+        :'ssekms_key_id' => :'String',
         :'storage_class' => :'ObservabilityPipelineAmazonS3DestinationStorageClass',
         :'tls' => :'ObservabilityPipelineTls',
         :'type' => :'ObservabilityPipelineAmazonS3DestinationType'
@@ -136,6 +147,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'region')
         self.region = attributes[:'region']
+      end
+
+      if attributes.key?(:'server_side_encryption')
+        self.server_side_encryption = attributes[:'server_side_encryption']
+      end
+
+      if attributes.key?(:'ssekms_key_id')
+        self.ssekms_key_id = attributes[:'ssekms_key_id']
       end
 
       if attributes.key?(:'storage_class')
@@ -257,6 +276,8 @@ module DatadogAPIClient::V2
           inputs == o.inputs &&
           key_prefix == o.key_prefix &&
           region == o.region &&
+          server_side_encryption == o.server_side_encryption &&
+          ssekms_key_id == o.ssekms_key_id &&
           storage_class == o.storage_class &&
           tls == o.tls &&
           type == o.type &&
@@ -267,7 +288,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, bucket, buffer, id, inputs, key_prefix, region, storage_class, tls, type, additional_properties].hash
+      [auth, bucket, buffer, id, inputs, key_prefix, region, server_side_encryption, ssekms_key_id, storage_class, tls, type, additional_properties].hash
     end
   end
 end
