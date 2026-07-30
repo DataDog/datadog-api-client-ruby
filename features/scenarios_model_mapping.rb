@@ -5283,6 +5283,49 @@ ScenariosModelMappings = {
             "scope_id" => "String",
             "body" => "RumRateLimitConfigUpdateRequest",
     },
+    "v2.CreateRUMOperation" => {
+            "body" => "RUMOperationCreateRequest",
+    },
+    "v2.GetRUMOperationByName" => {
+            "name" => "String",
+    },
+    "v2.ListRUMOperations" => {
+            "query" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "creator" => "String",
+            "team" => "String",
+            "feature_id" => "String",
+            "application_id" => "UUID",
+    },
+    "v2.ListRUMOperationStrongLinks" => {
+            "operation_id" => "String",
+            "feature_id" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateRUMOperationStrongLink" => {
+            "body" => "RUMOperationStrongLinkCreateRequest",
+    },
+    "v2.DeleteRUMOperationStrongLink" => {
+            "rum_operation_id" => "String",
+            "feature_id" => "String",
+    },
+    "v2.UpdateRUMOperationStrongLink" => {
+            "rum_operation_id" => "String",
+            "feature_id" => "String",
+            "body" => "RUMOperationStrongLinkUpdateRequest",
+    },
+    "v2.DeleteRUMOperation" => {
+            "rum_operation_id" => "String",
+    },
+    "v2.GetRUMOperation" => {
+            "rum_operation_id" => "String",
+    },
+    "v2.UpdateRUMOperation" => {
+            "rum_operation_id" => "String",
+            "body" => "RUMOperationUpdateRequest",
+    },
     "v2.QueryAggregatedLongTasks" => {
             "body" => "AggregatedLongTasksRequest",
     },
