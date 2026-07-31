@@ -4170,6 +4170,32 @@ ScenariosModelMappings = {
             "resource_id" => "String",
             "body" => "ConfluentResourceRequest",
     },
+    "v2.CreateElasticCloudCcmAccount" => {
+            "body" => "ElasticCloudCcmAccountRequest",
+    },
+    "v2.DeleteElasticCloudCcmAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetElasticCloudCcmAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateElasticCloudCcmAccount" => {
+            "account_id" => "String",
+            "body" => "ElasticCloudCcmAccountUpdateRequest",
+    },
+    "v2.CreateElasticCloudMonitoringAccount" => {
+            "body" => "ElasticCloudMonitoringAccountRequest",
+    },
+    "v2.DeleteElasticCloudMonitoringAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetElasticCloudMonitoringAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateElasticCloudMonitoringAccount" => {
+            "account_id" => "String",
+            "body" => "ElasticCloudMonitoringAccountUpdateRequest",
+    },
     "v2.CreateFastlyAccount" => {
             "body" => "FastlyAccountCreateRequest",
     },
@@ -4215,6 +4241,19 @@ ScenariosModelMappings = {
     "v2.UpdateOktaAccount" => {
             "account_id" => "String",
             "body" => "OktaAccountUpdateRequest",
+    },
+    "v2.CreateTwilioAccount" => {
+            "body" => "TwilioAccountRequest",
+    },
+    "v2.DeleteTwilioAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetTwilioAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateTwilioAccount" => {
+            "account_id" => "String",
+            "body" => "TwilioAccountUpdateRequest",
     },
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
