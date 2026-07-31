@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of automated action to perform when the rule triggers. `execute_workflow` runs a Datadog workflow; `assign_agent` assigns an AI agent to the case.
+  # The type of automated action to perform when the rule triggers. `EXECUTE_WORKFLOW` runs a Datadog workflow; `ASSIGN_AGENT` assigns an AI agent to the case.
   class AutomationRuleActionType
     include BaseEnumModel
 
-    EXECUTE_WORKFLOW = "execute_workflow".freeze
-    ASSIGN_AGENT = "assign_agent".freeze
+    EXECUTE_WORKFLOW = "EXECUTE_WORKFLOW".freeze
+    ASSIGN_AGENT = "ASSIGN_AGENT".freeze
   end
 end
