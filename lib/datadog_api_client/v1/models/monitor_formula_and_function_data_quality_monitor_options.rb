@@ -36,6 +36,11 @@ module DatadogAPIClient::V1
     # Override for the model type used in anomaly detection.
     attr_accessor :model_type_override
 
+    # Sensitivity of the anomaly detection model, expressed as a multiplier on the width
+    # of the predicted bounds. Higher values widen the bounds and produce fewer alerts;
+    # lower values tighten them and produce more alerts. Defaults to `3.0`.
+    attr_accessor :sensitivity
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,7 +51,8 @@ module DatadogAPIClient::V1
         :'custom_sql' => :'custom_sql',
         :'custom_where' => :'custom_where',
         :'group_by_columns' => :'group_by_columns',
-        :'model_type_override' => :'model_type_override'
+        :'model_type_override' => :'model_type_override',
+        :'sensitivity' => :'sensitivity'
       }
     end
 
@@ -58,7 +64,8 @@ module DatadogAPIClient::V1
         :'custom_sql' => :'String',
         :'custom_where' => :'String',
         :'group_by_columns' => :'Array<String>',
-        :'model_type_override' => :'MonitorFormulaAndFunctionDataQualityModelTypeOverride'
+        :'model_type_override' => :'MonitorFormulaAndFunctionDataQualityModelTypeOverride',
+        :'sensitivity' => :'Float'
       }
     end
 
@@ -101,6 +108,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'model_type_override')
         self.model_type_override = attributes[:'model_type_override']
       end
+
+      if attributes.key?(:'sensitivity')
+        self.sensitivity = attributes[:'sensitivity']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -134,6 +145,7 @@ module DatadogAPIClient::V1
           custom_where == o.custom_where &&
           group_by_columns == o.group_by_columns &&
           model_type_override == o.model_type_override &&
+          sensitivity == o.sensitivity &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +153,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [crontab_override, custom_sql, custom_where, group_by_columns, model_type_override, additional_properties].hash
+      [crontab_override, custom_sql, custom_where, group_by_columns, model_type_override, sensitivity, additional_properties].hash
     end
   end
 end
