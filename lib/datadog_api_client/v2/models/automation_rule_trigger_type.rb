@@ -21,11 +21,11 @@ module DatadogAPIClient::V2
   class AutomationRuleTriggerType
     include BaseEnumModel
 
-    CASE_CREATED = "case_created".freeze
-    STATUS_TRANSITIONED = "status_transitioned".freeze
-    ATTRIBUTE_VALUE_CHANGED = "attribute_value_changed".freeze
-    EVENT_CORRELATION_SIGNAL_CORRELATED = "event_correlation_signal_correlated".freeze
-    CASE_REVIEW_APPROVED = "case_review_approved".freeze
-    COMMENT_ADDED = "comment_added".freeze
+    CASE_CREATED = "CASE_CREATED".freeze
+    STATUS_TRANSITIONED = "STATUS_TRANSITIONED".freeze
+    ATTRIBUTE_VALUE_CHANGED = "ATTRIBUTE_VALUE_CHANGED".freeze
+    EVENT_CORRELATION_SIGNAL_CORRELATED = "EVENT_CORRELATION_SIGNAL_CORRELATED".freeze
+    CASE_REVIEW_APPROVED = "CASE_REVIEW_APPROVED".freeze
+    COMMENT_ADDED = "COMMENT_ADDED".freeze
   end
 end

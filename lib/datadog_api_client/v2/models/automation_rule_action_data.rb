@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class AutomationRuleActionData
     include BaseGenericModel
 
-    # The type of AI agent to assign. Required when the action type is `assign_agent`.
+    # The type of AI agent to assign. Required when the action type is `ASSIGN_AGENT`.
     attr_accessor :agent_type
 
-    # The identifier of the AI agent to assign to the case. Required when the action type is `assign_agent`.
+    # The identifier of the AI agent to assign to the case. Required when the action type is `ASSIGN_AGENT`.
     attr_accessor :assigned_agent_id
 
-    # The handle of the Datadog workflow to execute. Required when the action type is `execute_workflow`.
+    # The handle of the Datadog workflow to execute. Required when the action type is `EXECUTE_WORKFLOW`.
     attr_accessor :handle
 
     attr_accessor :additional_properties
