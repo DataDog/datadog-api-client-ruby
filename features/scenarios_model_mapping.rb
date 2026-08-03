@@ -636,6 +636,7 @@ ScenariosModelMappings = {
             "metrics_query" => "String",
             "limit" => "Integer",
             "offset" => "Integer",
+            "is_deleted" => "Boolean",
     },
     "v1.CreateSLO" => {
             "body" => "ServiceLevelObjectiveRequest",
