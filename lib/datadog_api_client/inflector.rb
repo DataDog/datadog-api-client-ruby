@@ -3347,6 +3347,7 @@ module DatadogAPIClient
           "v2.flaky_test_history_policy_id" => "FlakyTestHistoryPolicyId",
           "v2.flaky_test_history_policy_meta" => "FlakyTestHistoryPolicyMeta",
           "v2.flaky_test_history_policy_meta_config" => "FlakyTestHistoryPolicyMetaConfig",
+          "v2.flaky_test_impact_level" => "FlakyTestImpactLevel",
           "v2.flaky_test_pipeline_stats" => "FlakyTestPipelineStats",
           "v2.flaky_test_run_metadata" => "FlakyTestRunMetadata",
           "v2.flaky_tests_pagination" => "FlakyTestsPagination",

@@ -52,6 +52,12 @@ module DatadogAPIClient::V2
     # Includes state transitions like new -> quarantined -> fixed, along with the associated commit SHA when available.
     attr_accessor :history
 
+    # The impact level of the flaky test, derived from its impact score.
+    attr_accessor :impact_level
+
+    # A score from 0 to 1 indicating the impact of this flaky test, based on factors such as how often it fails and how many pipelines it affects.
+    attr_reader :impact_score
+
     # The branch name where the test exhibited flakiness for the last time.
     attr_accessor :last_flaked_branch
 
@@ -105,6 +111,8 @@ module DatadogAPIClient::V2
         :'flaky_category' => :'flaky_category',
         :'flaky_state' => :'flaky_state',
         :'history' => :'history',
+        :'impact_level' => :'impact_level',
+        :'impact_score' => :'impact_score',
         :'last_flaked_branch' => :'last_flaked_branch',
         :'last_flaked_sha' => :'last_flaked_sha',
         :'last_flaked_ts' => :'last_flaked_ts',
@@ -131,6 +139,8 @@ module DatadogAPIClient::V2
         :'flaky_category' => :'String',
         :'flaky_state' => :'FlakyTestAttributesFlakyState',
         :'history' => :'Array<FlakyTestHistory>',
+        :'impact_level' => :'FlakyTestImpactLevel',
+        :'impact_score' => :'Float',
         :'last_flaked_branch' => :'String',
         :'last_flaked_sha' => :'String',
         :'last_flaked_ts' => :'Integer',
@@ -149,6 +159,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'flaky_category',
+        :'impact_score',
         :'_module',
       ])
     end
@@ -213,6 +224,14 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'impact_level')
+        self.impact_level = attributes[:'impact_level']
+      end
+
+      if attributes.key?(:'impact_score')
+        self.impact_score = attributes[:'impact_score']
+      end
+
       if attributes.key?(:'last_flaked_branch')
         self.last_flaked_branch = attributes[:'last_flaked_branch']
       end
@@ -256,6 +275,28 @@ module DatadogAPIClient::V2
       end
     end
 
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@impact_score.nil? && @impact_score > 1
+      return false if !@impact_score.nil? && @impact_score < 0
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param impact_score [Object] Object to be assigned
+    # @!visibility private
+    def impact_score=(impact_score)
+      if !impact_score.nil? && impact_score > 1
+        fail ArgumentError, 'invalid value for "impact_score", must be smaller than or equal to 1.'
+      end
+      if !impact_score.nil? && impact_score < 0
+        fail ArgumentError, 'invalid value for "impact_score", must be greater than or equal to 0.'
+      end
+      @impact_score = impact_score
+    end
+
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -291,6 +332,8 @@ module DatadogAPIClient::V2
           flaky_category == o.flaky_category &&
           flaky_state == o.flaky_state &&
           history == o.history &&
+          impact_level == o.impact_level &&
+          impact_score == o.impact_score &&
           last_flaked_branch == o.last_flaked_branch &&
           last_flaked_sha == o.last_flaked_sha &&
           last_flaked_ts == o.last_flaked_ts &&
@@ -308,7 +351,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attempt_to_fix_id, codeowners, envs, first_flaked_branch, first_flaked_sha, first_flaked_ts, flaky_category, flaky_state, history, last_flaked_branch, last_flaked_sha, last_flaked_ts, _module, name, pipeline_stats, services, suite, test_run_metadata, test_stats, additional_properties].hash
+      [attempt_to_fix_id, codeowners, envs, first_flaked_branch, first_flaked_sha, first_flaked_ts, flaky_category, flaky_state, history, impact_level, impact_score, last_flaked_branch, last_flaked_sha, last_flaked_ts, _module, name, pipeline_stats, services, suite, test_run_metadata, test_stats, additional_properties].hash
     end
   end
 end
