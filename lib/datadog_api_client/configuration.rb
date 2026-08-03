@@ -189,19 +189,9 @@ module DatadogAPIClient
       @http_proxypass = nil
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-            "v2.cancel_fleet_deployment": false,
-            "v2.create_fleet_deployment_configure": false,
-            "v2.create_fleet_deployment_upgrade": false,
             "v2.create_fleet_schedule": false,
             "v2.delete_fleet_schedule": false,
-            "v2.get_fleet_agent_info": false,
-            "v2.get_fleet_deployment": false,
-            "v2.get_fleet_schedule": false,
-            "v2.list_fleet_agents": false,
             "v2.list_fleet_agent_tracers": false,
-            "v2.list_fleet_agent_versions": false,
-            "v2.list_fleet_deployments": false,
-            "v2.list_fleet_schedules": false,
             "v2.list_fleet_tracers": false,
             "v2.trigger_fleet_schedule": false,
             "v2.update_fleet_schedule": false,

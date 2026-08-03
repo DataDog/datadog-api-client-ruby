@@ -25,43 +25,39 @@ module DatadogAPIClient::V2
 
     # Cancel a deployment.
     #
-    # @see #cancel_fleet_deployment_with_http_info
-    def cancel_fleet_deployment(deployment_id, opts = {})
-      cancel_fleet_deployment_with_http_info(deployment_id, opts)
-      nil
+    # @see #cancel_fleet_deployment_v2_with_http_info
+    def cancel_fleet_deployment_v2(deployment_id, opts = {})
+      data, _status_code, _headers = cancel_fleet_deployment_v2_with_http_info(deployment_id, opts)
+      data
     end
 
     # Cancel a deployment.
     #
     # Cancel an active deployment and stop all pending operations.
     # When you cancel a deployment:
-    # - All pending operations on hosts that haven't started yet are stopped
-    # - Operations currently in progress on hosts may complete or be interrupted, depending on their current state
-    # - Configuration changes or package upgrades already applied to hosts are not rolled back
+    # - All pending operations on hosts that haven't started yet are stopped.
+    # - Operations currently in progress on hosts may complete or be interrupted, depending on their current status.
+    # - Configuration changes or package upgrades already applied to hosts are not rolled back.
     #
     # After cancellation, you can view the final state of the deployment using the GET endpoint to see which hosts
     # were successfully updated before the cancellation.
     #
+    # Only deployments with a `pending` or `running` status can be canceled. Returns a 400 if the deployment is not in a cancelable status. Returns a 404 if no deployment matches the specified ID or if you do not have access to it.
+    #
     # @param deployment_id [String] The unique identifier of the deployment to cancel.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def cancel_fleet_deployment_with_http_info(deployment_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_fleet_deployment".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_fleet_deployment")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_fleet_deployment"))
-      end
+    # @return [Array<(FleetDeploymentV2CancelResponse, Integer, Hash)>] FleetDeploymentV2CancelResponse data, response status code and response headers
+    def cancel_fleet_deployment_v2_with_http_info(deployment_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.cancel_fleet_deployment ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.cancel_fleet_deployment_v2 ...'
       end
       # verify the required parameter 'deployment_id' is set
       if @api_client.config.client_side_validation && deployment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling FleetAutomationAPI.cancel_fleet_deployment"
+        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling FleetAutomationAPI.cancel_fleet_deployment_v2"
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/deployments/{deployment_id}/cancel'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/fleet/deployments/{deployment_id}/cancel'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -69,7 +65,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -78,13 +74,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'FleetDeploymentV2CancelResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :cancel_fleet_deployment,
+        :operation => :cancel_fleet_deployment_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -96,16 +92,16 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#cancel_fleet_deployment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#cancel_fleet_deployment_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Create a configuration deployment.
     #
-    # @see #create_fleet_deployment_configure_with_http_info
-    def create_fleet_deployment_configure(body, opts = {})
-      data, _status_code, _headers = create_fleet_deployment_configure_with_http_info(body, opts)
+    # @see #create_fleet_deployment_configure_v2_with_http_info
+    def create_fleet_deployment_configure_v2(body, opts = {})
+      data, _status_code, _headers = create_fleet_deployment_configure_v2_with_http_info(body, opts)
       data
     end
 
@@ -116,33 +112,33 @@ module DatadogAPIClient::V2
     #
     # This endpoint supports two types of configuration operations:
     # - `merge-patch`: Merges the provided patch data with the existing configuration file,
-    #   creating the file if it doesn't exist
-    # - `delete`: Removes the specified configuration file from the target hosts
+    #   creating the file if it doesn't exist.
+    # - `delete`: Removes the specified configuration file from the target hosts.
+    #
+    # You can optionally use `target_packages` to apply the configuration change only to specific package versions.
     #
     # The deployment is created and started automatically. You can specify multiple configuration
-    # operations that will be executed in order on each target host. Use the filter query to target
+    # operations to execute in order on each target host. Use the filter query to target
     # specific hosts using the Datadog query syntax.
     #
-    # @param body [FleetDeploymentConfigureCreateRequest] Request payload containing the deployment details.
+    # Set `dry_run` to `true` to validate the configuration and resolve target hosts and packages without deploying anything. A dry run returns a 200 with the validation result instead of creating and starting a deployment.
+    #
+    # Returns a 400 if `filter_query` or `config_operations` is missing, a target package is missing a name or version or cannot be resolved, the configuration fails validation, or the filter query does not match any host eligible for the deployment.
+    #
+    # @param body [FleetDeploymentConfigureV2CreateRequest] Request payload containing the deployment details.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(FleetDeploymentResponse, Integer, Hash)>] FleetDeploymentResponse data, response status code and response headers
-    def create_fleet_deployment_configure_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_fleet_deployment_configure".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_fleet_deployment_configure")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_fleet_deployment_configure"))
-      end
+    # @return [Array<(FleetDeploymentConfigureV2DryRunResponse, Integer, Hash)>] FleetDeploymentConfigureV2DryRunResponse data, response status code and response headers
+    def create_fleet_deployment_configure_v2_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_deployment_configure ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_deployment_configure_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_deployment_configure"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_deployment_configure_v2"
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/deployments/configure'
+      local_var_path = '/api/v2/fleet/deployments/configure'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -161,13 +157,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetDeploymentResponse'
+      return_type = opts[:debug_return_type] || 'FleetDeploymentConfigureV2DryRunResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :create_fleet_deployment_configure,
+        :operation => :create_fleet_deployment_configure_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -179,16 +175,16 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_deployment_configure\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_deployment_configure_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Upgrade hosts.
     #
-    # @see #create_fleet_deployment_upgrade_with_http_info
-    def create_fleet_deployment_upgrade(body, opts = {})
-      data, _status_code, _headers = create_fleet_deployment_upgrade_with_http_info(body, opts)
+    # @see #create_fleet_deployment_upgrade_v2_with_http_info
+    def create_fleet_deployment_upgrade_v2(body, opts = {})
+      data, _status_code, _headers = create_fleet_deployment_upgrade_v2_with_http_info(body, opts)
       data
     end
 
@@ -200,31 +196,27 @@ module DatadogAPIClient::V2
     # This endpoint allows you to upgrade the Datadog Agent to a specific version
     # on hosts matching the specified filter query.
     #
-    # The deployment is created and started automatically. The system will:
-    # 1. Identify all hosts matching the filter query
-    # 2. Validate that the specified version is available
-    # 3. Begin rolling out the package upgrade to the target hosts
+    # The deployment is created and started automatically. The system:
+    # 1. Identifies all hosts matching the filter query.
+    # 2. Validates that the specified version is available.
+    # 3. Begins rolling out the package upgrade to the target hosts.
     #
-    # @param body [FleetDeploymentPackageUpgradeCreateRequest] Request payload containing the package upgrade details.
+    # Returns a 400 if `filter_query` or `target_packages` is missing, a target package is missing a name or version, or the filter query does not match any host eligible for the upgrade. Returns a 409 if a conflicting upgrade is already running on one or more target hosts.
+    #
+    # @param body [FleetDeploymentPackageUpgradeV2CreateRequest] Request payload containing the package upgrade details.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(FleetDeploymentResponse, Integer, Hash)>] FleetDeploymentResponse data, response status code and response headers
-    def create_fleet_deployment_upgrade_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_fleet_deployment_upgrade".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_fleet_deployment_upgrade")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_fleet_deployment_upgrade"))
-      end
+    # @return [Array<(FleetDeploymentV2CreateResponse, Integer, Hash)>] FleetDeploymentV2CreateResponse data, response status code and response headers
+    def create_fleet_deployment_upgrade_v2_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_deployment_upgrade ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_deployment_upgrade_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_deployment_upgrade"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_deployment_upgrade_v2"
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/deployments/upgrade'
+      local_var_path = '/api/v2/fleet/deployments/upgrade'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -243,13 +235,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetDeploymentResponse'
+      return_type = opts[:debug_return_type] || 'FleetDeploymentV2CreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :create_fleet_deployment_upgrade,
+        :operation => :create_fleet_deployment_upgrade_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -261,7 +253,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_deployment_upgrade\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_deployment_upgrade_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -429,44 +421,42 @@ module DatadogAPIClient::V2
 
     # Get detailed information about an agent.
     #
-    # @see #get_fleet_agent_info_with_http_info
-    def get_fleet_agent_info(agent_key, opts = {})
-      data, _status_code, _headers = get_fleet_agent_info_with_http_info(agent_key, opts)
+    # @see #get_fleet_agent_detail_v2_with_http_info
+    def get_fleet_agent_detail_v2(agent_key, opts = {})
+      data, _status_code, _headers = get_fleet_agent_detail_v2_with_http_info(agent_key, opts)
       data
     end
 
     # Get detailed information about an agent.
     #
     # Retrieve detailed information about a specific Datadog Agent.
-    # This endpoint returns comprehensive information about an agent including:
-    # - Agent details and metadata
-    # - Configured integrations organized by status (working, warning, error, missing)
-    # - Detected integrations
-    # - Configuration files and layers
     #
-    # @param agent_key [String] The unique identifier (agent key) for the Datadog Agent.
+    # By default, only `agent_infos` is returned. Use the `include` query parameter to
+    # request additional data: `integrations` and/or `configuration_files`.
+    #
+    # @param agent_key [String] The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character lowercase hexadecimal string.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(FleetAgentInfoResponse, Integer, Hash)>] FleetAgentInfoResponse data, response status code and response headers
-    def get_fleet_agent_info_with_http_info(agent_key, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_agent_info".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_agent_info")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_agent_info"))
-      end
+    # @option opts [String] :include Comma-separated list of additional fields to include in the response. Valid values are `integrations` and `configuration_files`. Omitting this parameter returns only `agent_infos`. Unrecognized values are silently ignored rather than causing an error.
+    # @return [Array<(FleetAgentDetailV2Response, Integer, Hash)>] FleetAgentDetailV2Response data, response status code and response headers
+    def get_fleet_agent_detail_v2_with_http_info(agent_key, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_agent_info ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_agent_detail_v2 ...'
       end
       # verify the required parameter 'agent_key' is set
       if @api_client.config.client_side_validation && agent_key.nil?
-        fail ArgumentError, "Missing the required parameter 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_info"
+        fail ArgumentError, "Missing the required parameter 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_detail_v2"
+      end
+      pattern = Regexp.new("^[0-9a-f]{32}$")
+      if @api_client.config.client_side_validation && agent_key !~ pattern
+        fail ArgumentError, "invalid value for 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_detail_v2, must conform to the pattern #{pattern}."
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/agents/{agent_key}'.sub('{agent_key}', CGI.escape(agent_key.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/fleet/agents/{agent_key}'.sub('{agent_key}', CGI.escape(agent_key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -480,13 +470,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetAgentInfoResponse'
+      return_type = opts[:debug_return_type] || 'FleetAgentDetailV2Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :get_fleet_agent_info,
+        :operation => :get_fleet_agent_detail_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -498,72 +488,43 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_agent_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_agent_detail_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get a configuration deployment by ID.
+    # Get a deployment by ID.
     #
-    # @see #get_fleet_deployment_with_http_info
-    def get_fleet_deployment(deployment_id, opts = {})
-      data, _status_code, _headers = get_fleet_deployment_with_http_info(deployment_id, opts)
+    # @see #get_fleet_deployment_v2_with_http_info
+    def get_fleet_deployment_v2(deployment_id, opts = {})
+      data, _status_code, _headers = get_fleet_deployment_v2_with_http_info(deployment_id, opts)
       data
     end
 
-    # Get a configuration deployment by ID.
+    # Get a deployment by ID.
     #
-    # Retrieve detailed information about a specific deployment using its unique identifier.
-    # This endpoint returns comprehensive information about a deployment, including:
-    # - Deployment metadata (ID, type, filter query)
-    # - Total number of target hosts
-    # - Current high-level status (pending, running, succeeded, failed)
-    # - Estimated completion time
-    # - Configuration operations that were or are being applied
-    # - Detailed host list: A paginated array of hosts included in this deployment with individual
-    #   host status, current package versions, and any errors
+    # Retrieve detailed information about a specific deployment, including its current status,
+    # configuration operations, and per-host execution status.
     #
-    # The host list provides visibility into the per-host execution status, allowing you to:
-    # - Monitor which hosts have completed successfully
-    # - Identify hosts that are still in progress
-    # - Investigate failures on specific hosts
-    # - View current package versions installed on each host (including initial, target, and current
-    #   versions for each package)
-    #
-    # Pagination: Use the `limit` and `page` query parameters to paginate through hosts. The response
-    # includes pagination metadata in the `meta.hosts` field with information about the current page,
-    # total pages, and total host count. The default page size is 50 hosts, with a maximum of 100.
+    # Returns a 404 if no deployment matches the given ID or if you do not have access to it.
     #
     # @param deployment_id [String] The unique identifier of the deployment to retrieve.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :limit Maximum number of hosts to return per page. Default is 50, maximum is 100.
-    # @option opts [Integer] :page Page index for pagination (zero-based). Use this to retrieve subsequent pages of hosts.
-    # @return [Array<(FleetDeploymentResponse, Integer, Hash)>] FleetDeploymentResponse data, response status code and response headers
-    def get_fleet_deployment_with_http_info(deployment_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_deployment".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_deployment")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_deployment"))
-      end
+    # @return [Array<(FleetDeploymentV2DetailResponse, Integer, Hash)>] FleetDeploymentV2DetailResponse data, response status code and response headers
+    def get_fleet_deployment_v2_with_http_info(deployment_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_deployment ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_deployment_v2 ...'
       end
       # verify the required parameter 'deployment_id' is set
       if @api_client.config.client_side_validation && deployment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling FleetAutomationAPI.get_fleet_deployment"
-      end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FleetAutomationAPI.get_fleet_deployment, must be smaller than or equal to 100.'
+        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling FleetAutomationAPI.get_fleet_deployment_v2"
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/deployments/{deployment_id}'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/fleet/deployments/{deployment_id}'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -577,13 +538,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetDeploymentResponse'
+      return_type = opts[:debug_return_type] || 'FleetDeploymentV2DetailResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :get_fleet_deployment,
+        :operation => :get_fleet_deployment_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -595,50 +556,37 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_deployment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_deployment_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Get a schedule by ID.
     #
-    # @see #get_fleet_schedule_with_http_info
-    def get_fleet_schedule(id, opts = {})
-      data, _status_code, _headers = get_fleet_schedule_with_http_info(id, opts)
+    # @see #get_fleet_schedule_v2_with_http_info
+    def get_fleet_schedule_v2(id, opts = {})
+      data, _status_code, _headers = get_fleet_schedule_v2_with_http_info(id, opts)
       data
     end
 
     # Get a schedule by ID.
     #
-    # Retrieve detailed information about a specific schedule using its unique identifier.
-    #
-    # This endpoint returns comprehensive information about a schedule, including:
-    # - Schedule metadata (ID, name, creation/update timestamps)
-    # - Filter query for selecting target hosts
-    # - Recurrence rule defining when deployments are triggered
-    # - Version strategy for package upgrades
-    # - Current status (active or inactive)
+    # Retrieve detailed information about a specific schedule by its unique identifier.
     #
     # @param id [String] The unique identifier of the schedule to retrieve.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(FleetScheduleResponse, Integer, Hash)>] FleetScheduleResponse data, response status code and response headers
-    def get_fleet_schedule_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_schedule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_schedule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_schedule"))
-      end
+    # @return [Array<(FleetScheduleV2Response, Integer, Hash)>] FleetScheduleV2Response data, response status code and response headers
+    def get_fleet_schedule_v2_with_http_info(id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_schedule ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_schedule_v2 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FleetAutomationAPI.get_fleet_schedule"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FleetAutomationAPI.get_fleet_schedule_v2"
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/schedules/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/fleet/schedules/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -655,13 +603,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetScheduleResponse'
+      return_type = opts[:debug_return_type] || 'FleetScheduleV2Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :get_fleet_schedule,
+        :operation => :get_fleet_schedule_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -673,64 +621,60 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_schedule_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # List all Datadog Agents.
     #
-    # @see #list_fleet_agents_with_http_info
-    def list_fleet_agents(opts = {})
-      data, _status_code, _headers = list_fleet_agents_with_http_info(opts)
+    # @see #list_fleet_agents_v2_with_http_info
+    def list_fleet_agents_v2(opts = {})
+      data, _status_code, _headers = list_fleet_agents_v2_with_http_info(opts)
       data
     end
 
     # List all Datadog Agents.
     #
-    # Retrieve a paginated list of all Datadog Agents.
-    # This endpoint returns a paginated list of all Datadog Agents with support for pagination, sorting, and filtering.
-    # Use the `page_number` and `page_size` query parameters to paginate through results.
+    # Retrieve a paginated list of Datadog Agents.
+    #
+    # Returns agents with support for pagination, sorting, and filtering.
+    # Use `page_number` and `page_size` to navigate pages, `filter` to narrow by field values,
+    # and `tags` to filter by agent tags.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_number Page number for pagination (starts at 0).
-    # @option opts [Integer] :page_size Number of results per page (must be greater than 0 and less than or equal to 100).
-    # @option opts [String] :sort_attribute Attribute to sort by.
-    # @option opts [Boolean] :sort_descending Sort order (true for descending, false for ascending).
-    # @option opts [String] :tags Comma-separated list of tags to filter agents.
-    # @option opts [String] :filter Filter string for narrowing down agent results.
-    # @return [Array<(FleetAgentsResponse, Integer, Hash)>] FleetAgentsResponse data, response status code and response headers
-    def list_fleet_agents_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_agents".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_agents")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_agents"))
-      end
+    # @option opts [Integer] :page_number Page number for pagination, starting at 0.
+    # @option opts [Integer] :page_size Number of agents to return per page. Maximum value is 100. Defaults to 10.
+    # @option opts [String] :filter Filter string to narrow down agent results.
+    # @option opts [String] :tags Comma-separated list of tag keys to select which tags are included in each agent's `tags` attribute. Does not filter which agents are returned.
+    # @option opts [String] :sort_attribute Agent attribute to sort results by. Must be a supported attribute name; unsupported values return a 400 error.
+    # @option opts [Boolean] :sort_descending Set to `true` to sort results in descending order. Defaults to ascending.
+    # @return [Array<(FleetAgentsV2Response, Integer, Hash)>] FleetAgentsV2Response data, response status code and response headers
+    def list_fleet_agents_v2_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agents ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agents_v2 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling FleetAutomationAPI.list_fleet_agents, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling FleetAutomationAPI.list_fleet_agents_v2, must be greater than or equal to 0.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents_v2, must be smaller than or equal to 100.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents_v2, must be greater than or equal to 1.'
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/agents'
+      local_var_path = '/api/v2/fleet/agents'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page_number'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
       query_params[:'sort_attribute'] = opts[:'sort_attribute'] if !opts[:'sort_attribute'].nil?
       query_params[:'sort_descending'] = opts[:'sort_descending'] if !opts[:'sort_descending'].nil?
-      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
-      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -744,13 +688,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetAgentsResponse'
+      return_type = opts[:debug_return_type] || 'FleetAgentsV2Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :list_fleet_agents,
+        :operation => :list_fleet_agents_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -762,7 +706,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_agents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_agents_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -858,37 +802,31 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List all available Agent versions.
+    # List available Datadog Agent versions.
     #
-    # @see #list_fleet_agent_versions_with_http_info
-    def list_fleet_agent_versions(opts = {})
-      data, _status_code, _headers = list_fleet_agent_versions_with_http_info(opts)
+    # @see #list_fleet_agent_versions_v2_with_http_info
+    def list_fleet_agent_versions_v2(opts = {})
+      data, _status_code, _headers = list_fleet_agent_versions_v2_with_http_info(opts)
       data
     end
 
-    # List all available Agent versions.
+    # List available Datadog Agent versions.
     #
-    # Retrieve a list of all available Datadog Agent versions.
+    # Retrieve the list of Datadog Agent versions available for deployment.
     #
-    # This endpoint returns the available Agent versions that can be deployed to your fleet.
-    # These versions are used when creating deployments or configuring schedules for
-    # automated Agent upgrades.
+    # Returns `200` with an empty `data` array if the Agent package exists in the catalog
+    # but has no available versions, and `404` only if the Agent package itself is absent
+    # from the catalog.
     #
     # @param opts [Hash] the optional parameters
-    # @return [Array<(FleetAgentVersionsResponse, Integer, Hash)>] FleetAgentVersionsResponse data, response status code and response headers
-    def list_fleet_agent_versions_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_agent_versions".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_agent_versions")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_agent_versions"))
-      end
+    # @return [Array<(FleetAgentVersionsV2Response, Integer, Hash)>] FleetAgentVersionsV2Response data, response status code and response headers
+    def list_fleet_agent_versions_v2_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agent_versions ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agent_versions_v2 ...'
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/agent_versions'
+      local_var_path = '/api/v2/fleet/agent_versions'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -905,13 +843,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetAgentVersionsResponse'
+      return_type = opts[:debug_return_type] || 'FleetAgentVersionsV2Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :list_fleet_agent_versions,
+        :operation => :list_fleet_agent_versions_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -923,49 +861,51 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_agent_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_agent_versions_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # List all deployments.
     #
-    # @see #list_fleet_deployments_with_http_info
-    def list_fleet_deployments(opts = {})
-      data, _status_code, _headers = list_fleet_deployments_with_http_info(opts)
+    # @see #list_fleet_deployments_v2_with_http_info
+    def list_fleet_deployments_v2(opts = {})
+      data, _status_code, _headers = list_fleet_deployments_v2_with_http_info(opts)
       data
     end
 
     # List all deployments.
     #
-    # Retrieve a list of all deployments for fleet automation.
-    # Use the `page_size` and `page_offset` parameters to paginate results.
+    # Retrieve a paginated list of all deployments for fleet automation.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Number of deployments to return per page. Maximum value is 100.
-    # @option opts [Integer] :page_offset Index of the first deployment to return. Use this with `page_size` to paginate through results.
-    # @return [Array<(FleetDeploymentsResponse, Integer, Hash)>] FleetDeploymentsResponse data, response status code and response headers
-    def list_fleet_deployments_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_deployments".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_deployments")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_deployments"))
-      end
+    # @option opts [Integer] :page_number Page number for pagination, starting at 0.
+    # @option opts [String] :sort Field to sort results by (for example, `start_date`). Must be a supported field name; unsupported values return a 400 error.
+    # @option opts [Boolean] :ascending Set to `true` to sort in ascending order. This setting has no effect unless `sort` is also set. Defaults to descending order.
+    # @option opts [String] :filter Query used to filter deployments. Uses the Datadog query syntax. Filtering on an unsupported field returns a 400 error. For example: - `status:failed` or `status:done_with_errors`: deployments that need investigation. - `status:running`: deployments currently in flight. - `update_type:update_package` or `update_type:update_config_operations`: deployments of a given type.
+    # @return [Array<(FleetDeploymentsV2Response, Integer, Hash)>] FleetDeploymentsV2Response data, response status code and response headers
+    def list_fleet_deployments_v2_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_deployments ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_deployments_v2 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_deployments, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_deployments_v2, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling FleetAutomationAPI.list_fleet_deployments_v2, must be greater than or equal to 0.'
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/deployments'
+      local_var_path = '/api/v2/fleet/deployments'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page_offset'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page_number'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'ascending'] = opts[:'ascending'] if !opts[:'ascending'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -979,13 +919,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetDeploymentsResponse'
+      return_type = opts[:debug_return_type] || 'FleetDeploymentsV2Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :list_fleet_deployments,
+        :operation => :list_fleet_deployments_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -997,42 +937,35 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_deployments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_deployments_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # List all schedules.
     #
-    # @see #list_fleet_schedules_with_http_info
-    def list_fleet_schedules(opts = {})
-      data, _status_code, _headers = list_fleet_schedules_with_http_info(opts)
+    # @see #list_fleet_schedules_v2_with_http_info
+    def list_fleet_schedules_v2(opts = {})
+      data, _status_code, _headers = list_fleet_schedules_v2_with_http_info(opts)
       data
     end
 
     # List all schedules.
     #
-    # Retrieve a list of all schedules for automated fleet deployments.
+    # Retrieve all upgrade schedules for the organization.
     #
-    # Schedules allow you to automate package upgrades by defining maintenance windows
-    # and recurrence rules. Each schedule automatically creates deployments based on its
-    # configuration.
+    # Schedules automate package upgrades by defining maintenance windows and recurrence rules.
+    # Each schedule automatically creates deployments based on its configuration.
     #
     # @param opts [Hash] the optional parameters
-    # @return [Array<(FleetSchedulesResponse, Integer, Hash)>] FleetSchedulesResponse data, response status code and response headers
-    def list_fleet_schedules_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_schedules".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_schedules")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_schedules"))
-      end
+    # @return [Array<(FleetSchedulesV2Response, Integer, Hash)>] FleetSchedulesV2Response data, response status code and response headers
+    def list_fleet_schedules_v2_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_schedules ...'
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_schedules_v2 ...'
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/schedules'
+      local_var_path = '/api/v2/fleet/schedules'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1049,13 +982,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FleetSchedulesResponse'
+      return_type = opts[:debug_return_type] || 'FleetSchedulesV2Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :list_fleet_schedules,
+        :operation => :list_fleet_schedules_v2,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1067,7 +1000,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_schedules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_schedules_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
