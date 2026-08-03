@@ -35,5 +35,8 @@ module DatadogAPIClient::V1
     RUM_STREAM = "rum_stream".freeze
     LLM_OBSERVABILITY_STREAM = "llm_observability_stream".freeze
     ISSUE_STREAM = "issue_stream".freeze
+    SECURITY_RUNTIME_STREAM = "security_runtime_stream".freeze
+    SECURITY_SIGNALS_STREAM = "security_signals_stream".freeze
+    INCIDENTS_STREAM = "incidents_stream".freeze
   end
 end
