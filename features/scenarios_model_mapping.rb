@@ -839,17 +839,6 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
-    "v2.ListFleetAgents" => {
-            "page_number" => "Integer",
-            "page_size" => "Integer",
-            "sort_attribute" => "String",
-            "sort_descending" => "Boolean",
-            "tags" => "String",
-            "filter" => "String",
-    },
-    "v2.GetFleetAgentInfo" => {
-            "agent_key" => "String",
-    },
     "v2.ListFleetAgentTracers" => {
             "agent_key" => "String",
             "page_number" => "Integer",
@@ -857,31 +846,10 @@ ScenariosModelMappings = {
             "sort_attribute" => "String",
             "sort_descending" => "Boolean",
     },
-    "v2.ListFleetDeployments" => {
-            "page_size" => "Integer",
-            "page_offset" => "Integer",
-    },
-    "v2.CreateFleetDeploymentConfigure" => {
-            "body" => "FleetDeploymentConfigureCreateRequest",
-    },
-    "v2.CreateFleetDeploymentUpgrade" => {
-            "body" => "FleetDeploymentPackageUpgradeCreateRequest",
-    },
-    "v2.GetFleetDeployment" => {
-            "deployment_id" => "String",
-            "limit" => "Integer",
-            "page" => "Integer",
-    },
-    "v2.CancelFleetDeployment" => {
-            "deployment_id" => "String",
-    },
     "v2.CreateFleetSchedule" => {
             "body" => "FleetScheduleCreateRequest",
     },
     "v2.DeleteFleetSchedule" => {
-            "id" => "String",
-    },
-    "v2.GetFleetSchedule" => {
             "id" => "String",
     },
     "v2.UpdateFleetSchedule" => {
@@ -897,6 +865,40 @@ ScenariosModelMappings = {
             "sort_attribute" => "String",
             "sort_descending" => "Boolean",
             "filter" => "String",
+    },
+    "v2.ListFleetAgentsV2" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "filter" => "String",
+            "tags" => "String",
+            "sort_attribute" => "String",
+            "sort_descending" => "Boolean",
+    },
+    "v2.GetFleetAgentDetailV2" => {
+            "agent_key" => "String",
+            "include" => "String",
+    },
+    "v2.ListFleetDeploymentsV2" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "ascending" => "Boolean",
+            "filter" => "String",
+    },
+    "v2.CreateFleetDeploymentConfigureV2" => {
+            "body" => "FleetDeploymentConfigureV2CreateRequest",
+    },
+    "v2.CreateFleetDeploymentUpgradeV2" => {
+            "body" => "FleetDeploymentPackageUpgradeV2CreateRequest",
+    },
+    "v2.GetFleetDeploymentV2" => {
+            "deployment_id" => "String",
+    },
+    "v2.CancelFleetDeploymentV2" => {
+            "deployment_id" => "String",
+    },
+    "v2.GetFleetScheduleV2" => {
+            "id" => "String",
     },
     "v2.DeleteLLMObsCustomEvalConfig" => {
             "eval_name" => "String",
