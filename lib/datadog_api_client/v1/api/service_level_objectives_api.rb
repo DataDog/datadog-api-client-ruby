@@ -543,6 +543,7 @@ module DatadogAPIClient::V1
     # @option opts [String] :metrics_query The query string to filter results based on SLO numerator and denominator.
     # @option opts [Integer] :limit The number of SLOs to return in the response.
     # @option opts [Integer] :offset The specific offset to use as the beginning of the returned response.
+    # @option opts [Boolean] :is_deleted Whether to return only deleted service level objective objects.
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def list_slos_with_http_info(opts = {})
 
@@ -560,6 +561,7 @@ module DatadogAPIClient::V1
       query_params[:'metrics_query'] = opts[:'metrics_query'] if !opts[:'metrics_query'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'is_deleted'] = opts[:'is_deleted'] if !opts[:'is_deleted'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
