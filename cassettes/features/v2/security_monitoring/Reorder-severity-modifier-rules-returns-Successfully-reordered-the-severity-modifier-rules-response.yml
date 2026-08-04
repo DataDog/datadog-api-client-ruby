@@ -1,0 +1,64 @@
+http_interactions:
+- recorded_at: Mon, 03 Aug 2026 09:17:30 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"action":{"severity":"low","type":"set"},"enabled":true,"name":"Test-Reorder_severity_modifier_rules_returns_Successfully_reordered_the_severity_modifier_rules_response-1785748650","rule":{"finding_types":["misconfiguration"],"query":"env:staging"}},"type":"severity_modifier_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security/findings/automation/severity_modifier_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"91bb2eb7-36d4-4b89-af25-1f5a30af5e51","type":"severity_modifier_rules","attributes":{"action":{"type":"set","severity":"low"},"created_at":1785748651040,"created_by":{"type":"user","id":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+        Account"},"enabled":true,"modified_at":1785748651040,"modified_by":{"type":"user","id":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+        Account"},"name":"Test-Reorder_severity_modifier_rules_returns_Successfully_reordered_the_severity_modifier_rules_response-1785748650","rule":{"finding_types":["misconfiguration"],"query":"env:staging"}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Mon, 03 Aug 2026 09:17:30 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"91bb2eb7-36d4-4b89-af25-1f5a30af5e51","type":"severity_modifier_rules"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security/findings/automation/severity_modifier_rules/reorder
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"type":"severity_modifier_rules","id":"91bb2eb7-36d4-4b89-af25-1f5a30af5e51"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Mon, 03 Aug 2026 09:17:30 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security/findings/automation/severity_modifier_rules/91bb2eb7-36d4-4b89-af25-1f5a30af5e51
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
