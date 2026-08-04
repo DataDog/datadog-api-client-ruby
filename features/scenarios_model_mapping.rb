@@ -2130,6 +2130,15 @@ ScenariosModelMappings = {
             "rule_id" => "UUID",
             "body" => "MuteRuleUpdateRequest",
     },
+    "v2.CreateSecurityFindingsAutomationSeverityModifierRule" => {
+            "body" => "SeverityModifierRuleCreateRequest",
+    },
+    "v2.DeleteSecurityFindingsAutomationSeverityModifierRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetSecurityFindingsAutomationSeverityModifierRule" => {
+            "rule_id" => "UUID",
+    },
     "v2.ListSecurityFindingsAutomationTicketCreationRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
