@@ -2130,6 +2130,26 @@ ScenariosModelMappings = {
             "rule_id" => "UUID",
             "body" => "MuteRuleUpdateRequest",
     },
+    "v2.ListSecurityFindingsAutomationSeverityModifierRules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateSecurityFindingsAutomationSeverityModifierRule" => {
+            "body" => "SeverityModifierRuleCreateRequest",
+    },
+    "v2.ReorderSecurityFindingsAutomationSeverityModifierRules" => {
+            "body" => "SeverityModifierRuleReorderRequest",
+    },
+    "v2.DeleteSecurityFindingsAutomationSeverityModifierRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetSecurityFindingsAutomationSeverityModifierRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.UpdateSecurityFindingsAutomationSeverityModifierRule" => {
+            "rule_id" => "UUID",
+            "body" => "SeverityModifierRuleUpdateRequest",
+    },
     "v2.ListSecurityFindingsAutomationTicketCreationRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
