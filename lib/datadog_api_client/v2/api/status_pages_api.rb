@@ -321,6 +321,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create degradation template.
+    #
+    # @see #create_degradation_template_with_http_info
+    def create_degradation_template(page_id, body, opts = {})
+      data, _status_code, _headers = create_degradation_template_with_http_info(page_id, body, opts)
+      data
+    end
+
+    # Create degradation template.
+    #
+    # Creates a new degradation template.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param body [CreateDegradationTemplateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(DegradationTemplate, Integer, Hash)>] DegradationTemplate data, response status code and response headers
+    def create_degradation_template_with_http_info(page_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.create_degradation_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.create_degradation_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.create_degradation_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradation_templates'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DegradationTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_degradation_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#create_degradation_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Schedule maintenance.
     #
     # @see #create_maintenance_with_http_info
@@ -393,6 +467,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#create_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create maintenance template.
+    #
+    # @see #create_maintenance_template_with_http_info
+    def create_maintenance_template(page_id, body, opts = {})
+      data, _status_code, _headers = create_maintenance_template_with_http_info(page_id, body, opts)
+      data
+    end
+
+    # Create maintenance template.
+    #
+    # Creates a new maintenance template.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param body [CreateMaintenanceTemplateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(MaintenanceTemplate, Integer, Hash)>] MaintenanceTemplate data, response status code and response headers
+    def create_maintenance_template_with_http_info(page_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.create_maintenance_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.create_maintenance_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.create_maintenance_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenance_templates'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_maintenance_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#create_maintenance_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -602,6 +750,146 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#delete_degradation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete degradation template.
+    #
+    # @see #delete_degradation_template_with_http_info
+    def delete_degradation_template(page_id, template_id, opts = {})
+      delete_degradation_template_with_http_info(page_id, template_id, opts)
+      nil
+    end
+
+    # Delete degradation template.
+    #
+    # Deletes a degradation template by its ID (soft delete).
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param template_id [UUID] The ID of the degradation or maintenance template.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_degradation_template_with_http_info(page_id, template_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.delete_degradation_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.delete_degradation_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling StatusPagesAPI.delete_degradation_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradation_templates/{template_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_degradation_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#delete_degradation_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete maintenance template.
+    #
+    # @see #delete_maintenance_template_with_http_info
+    def delete_maintenance_template(page_id, template_id, opts = {})
+      delete_maintenance_template_with_http_info(page_id, template_id, opts)
+      nil
+    end
+
+    # Delete maintenance template.
+    #
+    # Deletes a maintenance template by its ID (soft delete).
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param template_id [UUID] The ID of the degradation or maintenance template.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_maintenance_template_with_http_info(page_id, template_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.delete_maintenance_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.delete_maintenance_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling StatusPagesAPI.delete_maintenance_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_maintenance_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#delete_maintenance_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -899,6 +1187,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get degradation template.
+    #
+    # @see #get_degradation_template_with_http_info
+    def get_degradation_template(page_id, template_id, opts = {})
+      data, _status_code, _headers = get_degradation_template_with_http_info(page_id, template_id, opts)
+      data
+    end
+
+    # Get degradation template.
+    #
+    # Retrieves a specific degradation template by its ID.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param template_id [UUID] The ID of the degradation or maintenance template.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(DegradationTemplate, Integer, Hash)>] DegradationTemplate data, response status code and response headers
+    def get_degradation_template_with_http_info(page_id, template_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.get_degradation_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.get_degradation_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling StatusPagesAPI.get_degradation_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradation_templates/{template_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DegradationTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_degradation_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#get_degradation_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get maintenance.
     #
     # @see #get_maintenance_with_http_info
@@ -967,6 +1327,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#get_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get maintenance template.
+    #
+    # @see #get_maintenance_template_with_http_info
+    def get_maintenance_template(page_id, template_id, opts = {})
+      data, _status_code, _headers = get_maintenance_template_with_http_info(page_id, template_id, opts)
+      data
+    end
+
+    # Get maintenance template.
+    #
+    # Retrieves a specific maintenance template by its ID.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param template_id [UUID] The ID of the degradation or maintenance template.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(MaintenanceTemplate, Integer, Hash)>] MaintenanceTemplate data, response status code and response headers
+    def get_maintenance_template_with_http_info(page_id, template_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.get_maintenance_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.get_maintenance_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling StatusPagesAPI.get_maintenance_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_maintenance_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#get_maintenance_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1124,6 +1556,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
     # @option opts [String] :filter_status Optional degradation status filter. Supported values: investigating, identified, monitoring, resolved.
     # @option opts [String] :sort Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, modified_at, -modified_at.
+    # @option opts [String] :filter_source_id Optional source ID filter. Returns only degradations whose source matches this ID (for example, an incident ID).
     # @return [Array<(DegradationArray, Integer, Hash)>] DegradationArray data, response status code and response headers
     def list_degradations_with_http_info(opts = {})
 
@@ -1141,6 +1574,7 @@ module DatadogAPIClient::V2
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter[source_id]'] = opts[:'filter_source_id'] if !opts[:'filter_source_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1173,6 +1607,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#list_degradations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List degradation templates.
+    #
+    # @see #list_degradation_templates_with_http_info
+    def list_degradation_templates(page_id, opts = {})
+      data, _status_code, _headers = list_degradation_templates_with_http_info(page_id, opts)
+      data
+    end
+
+    # List degradation templates.
+    #
+    # Lists all degradation templates for a status page.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(DegradationTemplateArray, Integer, Hash)>] DegradationTemplateArray data, response status code and response headers
+    def list_degradation_templates_with_http_info(page_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.list_degradation_templates ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.list_degradation_templates"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradation_templates'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DegradationTemplateArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_degradation_templates,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#list_degradation_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1245,6 +1746,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#list_maintenances\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List maintenance templates.
+    #
+    # @see #list_maintenance_templates_with_http_info
+    def list_maintenance_templates(page_id, opts = {})
+      data, _status_code, _headers = list_maintenance_templates_with_http_info(page_id, opts)
+      data
+    end
+
+    # List maintenance templates.
+    #
+    # Lists all maintenance templates for a status page.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(MaintenanceTemplateArray, Integer, Hash)>] MaintenanceTemplateArray data, response status code and response headers
+    def list_maintenance_templates_with_http_info(page_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.list_maintenance_templates ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.list_maintenance_templates"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenance_templates'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceTemplateArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_maintenance_templates,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#list_maintenance_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1682,6 +2250,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update degradation template.
+    #
+    # @see #update_degradation_template_with_http_info
+    def update_degradation_template(template_id, page_id, body, opts = {})
+      data, _status_code, _headers = update_degradation_template_with_http_info(template_id, page_id, body, opts)
+      data
+    end
+
+    # Update degradation template.
+    #
+    # Updates an existing degradation template's attributes.
+    #
+    # @param template_id [UUID] The ID of the degradation or maintenance template.
+    # @param page_id [UUID] The ID of the status page.
+    # @param body [PatchDegradationTemplateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(DegradationTemplate, Integer, Hash)>] DegradationTemplate data, response status code and response headers
+    def update_degradation_template_with_http_info(template_id, page_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.update_degradation_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling StatusPagesAPI.update_degradation_template"
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.update_degradation_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.update_degradation_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/degradation_templates/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/')).sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DegradationTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_degradation_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#update_degradation_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update maintenance.
     #
     # @see #update_maintenance_with_http_info
@@ -1759,6 +2406,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#update_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update maintenance template.
+    #
+    # @see #update_maintenance_template_with_http_info
+    def update_maintenance_template(page_id, template_id, body, opts = {})
+      data, _status_code, _headers = update_maintenance_template_with_http_info(page_id, template_id, body, opts)
+      data
+    end
+
+    # Update maintenance template.
+    #
+    # Updates an existing maintenance template's attributes.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param template_id [UUID] The ID of the degradation or maintenance template.
+    # @param body [PatchMaintenanceTemplateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(MaintenanceTemplate, Integer, Hash)>] MaintenanceTemplate data, response status code and response headers
+    def update_maintenance_template_with_http_info(page_id, template_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.update_maintenance_template ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.update_maintenance_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling StatusPagesAPI.update_maintenance_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.update_maintenance_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_maintenance_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#update_maintenance_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

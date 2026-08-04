@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The status page the degradation belongs to.
     attr_accessor :status_page
 
+    # The template the degradation was created from.
+    attr_accessor :template
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'created_by_user' => :'created_by_user',
         :'last_modified_by_user' => :'last_modified_by_user',
-        :'status_page' => :'status_page'
+        :'status_page' => :'status_page',
+        :'template' => :'template'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'created_by_user' => :'DegradationDataRelationshipsCreatedByUser',
         :'last_modified_by_user' => :'DegradationDataRelationshipsLastModifiedByUser',
-        :'status_page' => :'DegradationDataRelationshipsStatusPage'
+        :'status_page' => :'DegradationDataRelationshipsStatusPage',
+        :'template' => :'DegradationDataRelationshipsTemplate'
       }
     end
 
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'status_page')
         self.status_page = attributes[:'status_page']
       end
+
+      if attributes.key?(:'template')
+        self.template = attributes[:'template']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -112,6 +121,7 @@ module DatadogAPIClient::V2
           created_by_user == o.created_by_user &&
           last_modified_by_user == o.last_modified_by_user &&
           status_page == o.status_page &&
+          template == o.template &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_by_user, last_modified_by_user, status_page, additional_properties].hash
+      [created_by_user, last_modified_by_user, status_page, template, additional_properties].hash
     end
   end
 end
