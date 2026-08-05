@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     # Duration of the maintenance window in minutes.
     attr_accessor :maintenance_window_duration
 
-    # Start time of the maintenance window in 24-hour clock format (HH:MM).
+    # Start time of the maintenance window in 24-hour clock format (HHMM).
     # Deployments are triggered at this time on the specified days.
     attr_accessor :start_maintenance_window
 

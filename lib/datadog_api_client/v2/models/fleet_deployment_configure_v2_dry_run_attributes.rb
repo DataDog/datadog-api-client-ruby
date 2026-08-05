@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Query used to filter and select target hosts for the deployment.
     attr_accessor :query
 
-    # Total number of hosts targeted by the dry run.
+    # Total number of hosts targeted by this deployment.
     attr_accessor :total_hosts
 
     attr_accessor :additional_properties

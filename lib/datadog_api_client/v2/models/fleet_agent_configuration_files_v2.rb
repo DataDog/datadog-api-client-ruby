@@ -27,9 +27,6 @@ module DatadogAPIClient::V2
     # Configuration information organized by layers.
     attr_accessor :application_monitoring_configuration
 
-    # The unique agent key identifier.
-    attr_accessor :datadog_agent_key
-
     # Configuration for OpenTelemetry collectors associated with the agent. Present only when the agent has associated OpenTelemetry collectors.
     attr_accessor :otel_collectors_configuration
 
@@ -39,9 +36,6 @@ module DatadogAPIClient::V2
     # Configuration information organized by layers.
     attr_accessor :system_probe_configuration
 
-    # The configuration version.
-    attr_accessor :version
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,11 +44,9 @@ module DatadogAPIClient::V2
       {
         :'agent_configuration' => :'agent_configuration',
         :'application_monitoring_configuration' => :'application_monitoring_configuration',
-        :'datadog_agent_key' => :'datadog_agent_key',
         :'otel_collectors_configuration' => :'otel_collectors_configuration',
         :'security_agent_configuration' => :'security_agent_configuration',
-        :'system_probe_configuration' => :'system_probe_configuration',
-        :'version' => :'version'
+        :'system_probe_configuration' => :'system_probe_configuration'
       }
     end
 
@@ -64,11 +56,9 @@ module DatadogAPIClient::V2
       {
         :'agent_configuration' => :'FleetConfigurationLayer',
         :'application_monitoring_configuration' => :'FleetConfigurationLayer',
-        :'datadog_agent_key' => :'String',
         :'otel_collectors_configuration' => :'Array<FleetOtelCollectorConfigurationV2>',
         :'security_agent_configuration' => :'FleetConfigurationLayer',
-        :'system_probe_configuration' => :'FleetConfigurationLayer',
-        :'version' => :'String'
+        :'system_probe_configuration' => :'FleetConfigurationLayer'
       }
     end
 
@@ -98,10 +88,6 @@ module DatadogAPIClient::V2
         self.application_monitoring_configuration = attributes[:'application_monitoring_configuration']
       end
 
-      if attributes.key?(:'datadog_agent_key')
-        self.datadog_agent_key = attributes[:'datadog_agent_key']
-      end
-
       if attributes.key?(:'otel_collectors_configuration')
         if (value = attributes[:'otel_collectors_configuration']).is_a?(Array)
           self.otel_collectors_configuration = value
@@ -114,10 +100,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'system_probe_configuration')
         self.system_probe_configuration = attributes[:'system_probe_configuration']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
       end
     end
 
@@ -149,11 +131,9 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           agent_configuration == o.agent_configuration &&
           application_monitoring_configuration == o.application_monitoring_configuration &&
-          datadog_agent_key == o.datadog_agent_key &&
           otel_collectors_configuration == o.otel_collectors_configuration &&
           security_agent_configuration == o.security_agent_configuration &&
           system_probe_configuration == o.system_probe_configuration &&
-          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_configuration, application_monitoring_configuration, datadog_agent_key, otel_collectors_configuration, security_agent_configuration, system_probe_configuration, version, additional_properties].hash
+      [agent_configuration, application_monitoring_configuration, otel_collectors_configuration, security_agent_configuration, system_probe_configuration, additional_properties].hash
     end
   end
 end

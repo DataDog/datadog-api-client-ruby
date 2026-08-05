@@ -102,9 +102,6 @@ module DatadogAPIClient::V2
     # OpenTelemetry collector distributions associated with the agent.
     attr_accessor :otel_collector_distributions
 
-    # OpenTelemetry collector version (if applicable).
-    attr_accessor :otel_collector_version
-
     # List of OpenTelemetry collector versions (if applicable).
     attr_accessor :otel_collector_versions
 
@@ -177,7 +174,6 @@ module DatadogAPIClient::V2
         :'os_version' => :'os_version',
         :'otel_collector_deployment_types' => :'otel_collector_deployment_types',
         :'otel_collector_distributions' => :'otel_collector_distributions',
-        :'otel_collector_version' => :'otel_collector_version',
         :'otel_collector_versions' => :'otel_collector_versions',
         :'otel_collectors' => :'otel_collectors',
         :'otel_resource_attributes' => :'otel_resource_attributes',
@@ -225,7 +221,6 @@ module DatadogAPIClient::V2
         :'os_version' => :'String',
         :'otel_collector_deployment_types' => :'Array<String>',
         :'otel_collector_distributions' => :'Array<String>',
-        :'otel_collector_version' => :'String',
         :'otel_collector_versions' => :'Array<String>',
         :'otel_collectors' => :'Array<Hash<String, Object>>',
         :'otel_resource_attributes' => :'Array<String>',
@@ -382,10 +377,6 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'otel_collector_version')
-        self.otel_collector_version = attributes[:'otel_collector_version']
-      end
-
       if attributes.key?(:'otel_collector_versions')
         if (value = attributes[:'otel_collector_versions']).is_a?(Array)
           self.otel_collector_versions = value
@@ -504,7 +495,6 @@ module DatadogAPIClient::V2
           os_version == o.os_version &&
           otel_collector_deployment_types == o.otel_collector_deployment_types &&
           otel_collector_distributions == o.otel_collector_distributions &&
-          otel_collector_version == o.otel_collector_version &&
           otel_collector_versions == o.otel_collector_versions &&
           otel_collectors == o.otel_collectors &&
           otel_resource_attributes == o.otel_resource_attributes &&
@@ -525,7 +515,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active_ha_agent, agent_version, api_key_name, api_key_uuid, cloud_provider, cluster_name, config_id, datadog_agent_key, datadog_data_center, ecs_fargate_cluster_name, ecs_fargate_task_arn, enabled_products, env, first_seen_at, ha_agent_hosts, ha_agent_state, hostname, hostname_aliases, install_method_installer_version, install_method_tool, ip_addresses, is_single_step_instrumentation_enabled, last_restart_at, os, os_version, otel_collector_deployment_types, otel_collector_distributions, otel_collector_version, otel_collector_versions, otel_collectors, otel_resource_attributes, pod_name, preferred_ha_active_agent, python_version, region, remote_agent_management, remote_config_status, services, support_agent_upgrade, tags, team, additional_properties].hash
+      [active_ha_agent, agent_version, api_key_name, api_key_uuid, cloud_provider, cluster_name, config_id, datadog_agent_key, datadog_data_center, ecs_fargate_cluster_name, ecs_fargate_task_arn, enabled_products, env, first_seen_at, ha_agent_hosts, ha_agent_state, hostname, hostname_aliases, install_method_installer_version, install_method_tool, ip_addresses, is_single_step_instrumentation_enabled, last_restart_at, os, os_version, otel_collector_deployment_types, otel_collector_distributions, otel_collector_versions, otel_collectors, otel_resource_attributes, pod_name, preferred_ha_active_agent, python_version, region, remote_agent_management, remote_config_status, services, support_agent_upgrade, tags, team, additional_properties].hash
     end
   end
 end

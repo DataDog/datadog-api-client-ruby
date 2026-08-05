@@ -30,9 +30,6 @@ module DatadogAPIClient::V2
     # Configuration from files.
     attr_accessor :file_configuration
 
-    # Parsed configuration output.
-    attr_accessor :parsed_configuration
-
     # Remote configuration settings.
     attr_accessor :remote_configuration
 
@@ -48,7 +45,6 @@ module DatadogAPIClient::V2
         :'compiled_configuration' => :'compiled_configuration',
         :'env_configuration' => :'env_configuration',
         :'file_configuration' => :'file_configuration',
-        :'parsed_configuration' => :'parsed_configuration',
         :'remote_configuration' => :'remote_configuration',
         :'runtime_configuration' => :'runtime_configuration'
       }
@@ -61,7 +57,6 @@ module DatadogAPIClient::V2
         :'compiled_configuration' => :'String',
         :'env_configuration' => :'String',
         :'file_configuration' => :'String',
-        :'parsed_configuration' => :'String',
         :'remote_configuration' => :'String',
         :'runtime_configuration' => :'String'
       }
@@ -95,10 +90,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'file_configuration')
         self.file_configuration = attributes[:'file_configuration']
-      end
-
-      if attributes.key?(:'parsed_configuration')
-        self.parsed_configuration = attributes[:'parsed_configuration']
       end
 
       if attributes.key?(:'remote_configuration')
@@ -139,7 +130,6 @@ module DatadogAPIClient::V2
           compiled_configuration == o.compiled_configuration &&
           env_configuration == o.env_configuration &&
           file_configuration == o.file_configuration &&
-          parsed_configuration == o.parsed_configuration &&
           remote_configuration == o.remote_configuration &&
           runtime_configuration == o.runtime_configuration &&
           additional_properties == o.additional_properties
@@ -149,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compiled_configuration, env_configuration, file_configuration, parsed_configuration, remote_configuration, runtime_configuration, additional_properties].hash
+      [compiled_configuration, env_configuration, file_configuration, remote_configuration, runtime_configuration, additional_properties].hash
     end
   end
 end
