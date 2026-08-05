@@ -17,18 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A governance control resource.
-  class GovernanceControlData
+  # The attributes of a governance mitigation request.
+  class GovernanceMitigationRequestAttributes
     include BaseGenericModel
 
-    # The attributes of a governance control.
-    attr_reader :attributes
+    # The identifiers of the detections to mitigate in this request.
+    attr_reader :detection_ids
 
-    # The detection type that uniquely identifies the control.
-    attr_reader :id
+    # The detection type whose detections should be mitigated.
+    attr_reader :detection_type
 
-    # JSON:API resource type for a governance control.
-    attr_reader :type
+    # A free-form map of parameter names to their configured values.
+    attr_accessor :mitigation_parameters
+
+    # The mitigation to apply to the selected detections. Defaults to the control's configured mitigation when omitted.
+    attr_accessor :mitigation_type
 
     attr_accessor :additional_properties
 
@@ -36,9 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'detection_ids' => :'detection_ids',
+        :'detection_type' => :'detection_type',
+        :'mitigation_parameters' => :'mitigation_parameters',
+        :'mitigation_type' => :'mitigation_type'
       }
     end
 
@@ -46,9 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'GovernanceControlAttributes',
-        :'id' => :'String',
-        :'type' => :'GovernanceControlResourceType'
+        :'detection_ids' => :'Array<String>',
+        :'detection_type' => :'String',
+        :'mitigation_parameters' => :'Hash<String, Object>',
+        :'mitigation_type' => :'String'
       }
     end
 
@@ -57,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceControlData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceMitigationRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +75,22 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'detection_ids')
+        if (value = attributes[:'detection_ids']).is_a?(Array)
+          self.detection_ids = value
+        end
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'detection_type')
+        self.detection_type = attributes[:'detection_type']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'mitigation_parameters')
+        self.mitigation_parameters = attributes[:'mitigation_parameters']
+      end
+
+      if attributes.key?(:'mitigation_type')
+        self.mitigation_type = attributes[:'mitigation_type']
       end
     end
 
@@ -87,40 +98,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @detection_ids.nil?
+      return false if @detection_type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param detection_ids [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def detection_ids=(detection_ids)
+      if detection_ids.nil?
+        fail ArgumentError, 'invalid value for "detection_ids", detection_ids cannot be nil.'
       end
-      @attributes = attributes
+      @detection_ids = detection_ids
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param detection_type [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def detection_type=(detection_type)
+      if detection_type.nil?
+        fail ArgumentError, 'invalid value for "detection_type", detection_type cannot be nil.'
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @detection_type = detection_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +149,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          detection_ids == o.detection_ids &&
+          detection_type == o.detection_type &&
+          mitigation_parameters == o.mitigation_parameters &&
+          mitigation_type == o.mitigation_type &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [detection_ids, detection_type, mitigation_parameters, mitigation_type, additional_properties].hash
     end
   end
 end

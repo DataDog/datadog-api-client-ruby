@@ -17,19 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The attributes of a governance insight.
+  # The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
+  # `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
+  # source the insight is computed from; the rest are `null`.
   class GovernanceInsightAttributes
     include BaseGenericModel
 
     # An audit log query used to compute an insight value.
-    attr_reader :audit_query
-
-    # The best practice associated with an insight. Populated with the first active best practice
-    # matched to the insight; `null` when no best practice is attached.
-    attr_reader :best_practice
-
-    # A relative link to the product surface where the insight can be acted upon.
-    attr_reader :deep_link
+    attr_accessor :audit_query
 
     # A human-readable description of what the insight measures.
     attr_reader :description
@@ -38,30 +33,19 @@ module DatadogAPIClient::V2
     attr_reader :display_name
 
     # An event query used to compute an insight value.
-    attr_reader :event_query
+    attr_accessor :event_query
 
     # A metric query used to compute an insight value.
-    attr_reader :metric_query
-
-    # The value of the insight over the previous comparison window. `null` when values were
-    # not requested or could not be computed.
-    attr_accessor :old_value
+    attr_accessor :metric_query
 
     # A percentage query that computes an insight value as a ratio of two metric queries.
-    attr_reader :percentage_query
+    attr_accessor :percentage_query
 
     # The product the insight belongs to.
     attr_reader :product
 
-    # Query execution context that allows the frontend to execute insight queries directly.
+    # Query execution context for running insight queries directly.
     attr_accessor :query_config
-
-    # The relative order in which the insight should be displayed.
-    attr_accessor :sort_order
-
-    # The state of the insight. A `critical` insight receives extra UI treatment to draw
-    # attention to it.
-    attr_reader :state
 
     # The sub-product the insight belongs to, if any.
     attr_reader :sub_product
@@ -73,10 +57,7 @@ module DatadogAPIClient::V2
     attr_reader :unit_name
 
     # A usage query used to compute an insight value.
-    attr_reader :usage_query
-
-    # The current value of the insight. `null` when values were not requested or could not be computed.
-    attr_accessor :value
+    attr_accessor :usage_query
 
     attr_accessor :additional_properties
 
@@ -85,23 +66,17 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'audit_query' => :'audit_query',
-        :'best_practice' => :'best_practice',
-        :'deep_link' => :'deep_link',
         :'description' => :'description',
         :'display_name' => :'display_name',
         :'event_query' => :'event_query',
         :'metric_query' => :'metric_query',
-        :'old_value' => :'old_value',
         :'percentage_query' => :'percentage_query',
         :'product' => :'product',
         :'query_config' => :'query_config',
-        :'sort_order' => :'sort_order',
-        :'state' => :'state',
         :'sub_product' => :'sub_product',
         :'time_range' => :'time_range',
         :'unit_name' => :'unit_name',
-        :'usage_query' => :'usage_query',
-        :'value' => :'value'
+        :'usage_query' => :'usage_query'
       }
     end
 
@@ -110,33 +85,18 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'audit_query' => :'GovernanceInsightAuditQuery',
-        :'best_practice' => :'GovernanceBestPracticeDefinition',
-        :'deep_link' => :'String',
         :'description' => :'String',
         :'display_name' => :'String',
         :'event_query' => :'GovernanceInsightEventQuery',
         :'metric_query' => :'GovernanceInsightMetricQuery',
-        :'old_value' => :'Float',
         :'percentage_query' => :'GovernanceInsightPercentageQuery',
         :'product' => :'String',
         :'query_config' => :'GovernanceInsightQueryConfig',
-        :'sort_order' => :'Integer',
-        :'state' => :'String',
         :'sub_product' => :'String',
         :'time_range' => :'String',
         :'unit_name' => :'String',
-        :'usage_query' => :'GovernanceInsightUsageQuery',
-        :'value' => :'Float'
+        :'usage_query' => :'GovernanceInsightUsageQuery'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'old_value',
-        :'value',
-      ])
     end
 
     # Initializes the object
@@ -161,14 +121,6 @@ module DatadogAPIClient::V2
         self.audit_query = attributes[:'audit_query']
       end
 
-      if attributes.key?(:'best_practice')
-        self.best_practice = attributes[:'best_practice']
-      end
-
-      if attributes.key?(:'deep_link')
-        self.deep_link = attributes[:'deep_link']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -185,10 +137,6 @@ module DatadogAPIClient::V2
         self.metric_query = attributes[:'metric_query']
       end
 
-      if attributes.key?(:'old_value')
-        self.old_value = attributes[:'old_value']
-      end
-
       if attributes.key?(:'percentage_query')
         self.percentage_query = attributes[:'percentage_query']
       end
@@ -199,14 +147,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'query_config')
         self.query_config = attributes[:'query_config']
-      end
-
-      if attributes.key?(:'sort_order')
-        self.sort_order = attributes[:'sort_order']
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
       end
 
       if attributes.key?(:'sub_product')
@@ -224,61 +164,19 @@ module DatadogAPIClient::V2
       if attributes.key?(:'usage_query')
         self.usage_query = attributes[:'usage_query']
       end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @audit_query.nil?
-      return false if @best_practice.nil?
-      return false if @deep_link.nil?
       return false if @description.nil?
       return false if @display_name.nil?
-      return false if @event_query.nil?
-      return false if @metric_query.nil?
-      return false if @percentage_query.nil?
       return false if @product.nil?
-      return false if @state.nil?
       return false if @sub_product.nil?
       return false if @time_range.nil?
       return false if @unit_name.nil?
-      return false if @usage_query.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param audit_query [Object] Object to be assigned
-    # @!visibility private
-    def audit_query=(audit_query)
-      if audit_query.nil?
-        fail ArgumentError, 'invalid value for "audit_query", audit_query cannot be nil.'
-      end
-      @audit_query = audit_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param best_practice [Object] Object to be assigned
-    # @!visibility private
-    def best_practice=(best_practice)
-      if best_practice.nil?
-        fail ArgumentError, 'invalid value for "best_practice", best_practice cannot be nil.'
-      end
-      @best_practice = best_practice
-    end
-
-    # Custom attribute writer method with validation
-    # @param deep_link [Object] Object to be assigned
-    # @!visibility private
-    def deep_link=(deep_link)
-      if deep_link.nil?
-        fail ArgumentError, 'invalid value for "deep_link", deep_link cannot be nil.'
-      end
-      @deep_link = deep_link
     end
 
     # Custom attribute writer method with validation
@@ -302,36 +200,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param event_query [Object] Object to be assigned
-    # @!visibility private
-    def event_query=(event_query)
-      if event_query.nil?
-        fail ArgumentError, 'invalid value for "event_query", event_query cannot be nil.'
-      end
-      @event_query = event_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param metric_query [Object] Object to be assigned
-    # @!visibility private
-    def metric_query=(metric_query)
-      if metric_query.nil?
-        fail ArgumentError, 'invalid value for "metric_query", metric_query cannot be nil.'
-      end
-      @metric_query = metric_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param percentage_query [Object] Object to be assigned
-    # @!visibility private
-    def percentage_query=(percentage_query)
-      if percentage_query.nil?
-        fail ArgumentError, 'invalid value for "percentage_query", percentage_query cannot be nil.'
-      end
-      @percentage_query = percentage_query
-    end
-
-    # Custom attribute writer method with validation
     # @param product [Object] Object to be assigned
     # @!visibility private
     def product=(product)
@@ -339,16 +207,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "product", product cannot be nil.'
       end
       @product = product
-    end
-
-    # Custom attribute writer method with validation
-    # @param state [Object] Object to be assigned
-    # @!visibility private
-    def state=(state)
-      if state.nil?
-        fail ArgumentError, 'invalid value for "state", state cannot be nil.'
-      end
-      @state = state
     end
 
     # Custom attribute writer method with validation
@@ -381,16 +239,6 @@ module DatadogAPIClient::V2
       @unit_name = unit_name
     end
 
-    # Custom attribute writer method with validation
-    # @param usage_query [Object] Object to be assigned
-    # @!visibility private
-    def usage_query=(usage_query)
-      if usage_query.nil?
-        fail ArgumentError, 'invalid value for "usage_query", usage_query cannot be nil.'
-      end
-      @usage_query = usage_query
-    end
-
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -418,23 +266,17 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           audit_query == o.audit_query &&
-          best_practice == o.best_practice &&
-          deep_link == o.deep_link &&
           description == o.description &&
           display_name == o.display_name &&
           event_query == o.event_query &&
           metric_query == o.metric_query &&
-          old_value == o.old_value &&
           percentage_query == o.percentage_query &&
           product == o.product &&
           query_config == o.query_config &&
-          sort_order == o.sort_order &&
-          state == o.state &&
           sub_product == o.sub_product &&
           time_range == o.time_range &&
           unit_name == o.unit_name &&
           usage_query == o.usage_query &&
-          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -442,7 +284,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [audit_query, best_practice, deep_link, description, display_name, event_query, metric_query, old_value, percentage_query, product, query_config, sort_order, state, sub_product, time_range, unit_name, usage_query, value, additional_properties].hash
+      [audit_query, description, display_name, event_query, metric_query, percentage_query, product, query_config, sub_product, time_range, unit_name, usage_query, additional_properties].hash
     end
   end
 end

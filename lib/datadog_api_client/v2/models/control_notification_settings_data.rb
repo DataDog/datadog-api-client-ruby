@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A governance control resource.
-  class GovernanceControlData
+  # A control notification settings resource.
+  class ControlNotificationSettingsData
     include BaseGenericModel
 
-    # The attributes of a governance control.
+    # The attributes of a governance control's notification settings.
     attr_reader :attributes
 
-    # The detection type that uniquely identifies the control.
+    # The detection type the notification settings apply to.
     attr_reader :id
 
-    # JSON:API resource type for a governance control.
+    # Control notification settings resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'GovernanceControlAttributes',
+        :'attributes' => :'ControlNotificationSettingsAttributes',
         :'id' => :'String',
-        :'type' => :'GovernanceControlResourceType'
+        :'type' => :'ControlNotificationSettingsResourceType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceControlData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ControlNotificationSettingsData` initialize method"
       end
 
       self.additional_properties = {}

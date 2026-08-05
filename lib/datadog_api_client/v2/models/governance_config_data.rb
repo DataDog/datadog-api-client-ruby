@@ -17,17 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A governance control resource.
-  class GovernanceControlData
+  # A Governance Console configuration resource.
+  class GovernanceConfigData
     include BaseGenericModel
 
-    # The attributes of a governance control.
+    # The attributes of a Governance Console configuration.
     attr_reader :attributes
 
-    # The detection type that uniquely identifies the control.
+    # The unique identifier of the organization the Governance Console configuration applies
+    # to. May be the nil UUID (`00000000-0000-0000-0000-000000000000`) when the configuration
+    # is not tied to a specific organization record.
     attr_reader :id
 
-    # JSON:API resource type for a governance control.
+    # Governance console config resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -46,9 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'GovernanceControlAttributes',
+        :'attributes' => :'GovernanceConfigAttributes',
         :'id' => :'String',
-        :'type' => :'GovernanceControlResourceType'
+        :'type' => :'GovernanceConsoleConfigResourceType'
       }
     end
 
@@ -57,7 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceControlData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceConfigData` initialize method"
       end
 
       self.additional_properties = {}
