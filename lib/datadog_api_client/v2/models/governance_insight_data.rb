@@ -21,7 +21,9 @@ module DatadogAPIClient::V2
   class GovernanceInsightData
     include BaseGenericModel
 
-    # The attributes of a governance insight.
+    # The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
+    # `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
+    # source the insight is computed from; the rest are `null`.
     attr_reader :attributes
 
     # The unique identifier of the insight.

@@ -21,29 +21,17 @@ module DatadogAPIClient::V2
   class GovernanceControlMitigationDefinition
     include BaseGenericModel
 
-    # The verb describing the mitigation action, such as `revoke` or `delete`.
-    attr_reader :action_verb
-
     # A human-readable description of the mitigation.
     attr_reader :description
 
     # The execution modes the mitigation supports, such as `manual` or `automatic`.
-    attr_accessor :execution_modes
-
-    # The feature flags that gate the mitigation.
-    attr_reader :feature_flags
+    attr_reader :execution_modes
 
     # The unique identifier of the mitigation.
     attr_reader :id
 
-    # A warning shown to the user before applying the mitigation manually.
-    attr_reader :manual_mitigation_warning
-
     # The permissions required to apply the mitigation.
     attr_reader :permissions
-
-    # Whether the mitigation requires AI to be enabled.
-    attr_reader :requires_ai
 
     # An array of parameter definitions.
     attr_reader :supported_parameters
@@ -57,14 +45,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'action_verb' => :'action_verb',
         :'description' => :'description',
         :'execution_modes' => :'execution_modes',
-        :'feature_flags' => :'feature_flags',
         :'id' => :'id',
-        :'manual_mitigation_warning' => :'manual_mitigation_warning',
         :'permissions' => :'permissions',
-        :'requires_ai' => :'requires_ai',
         :'supported_parameters' => :'supported_parameters',
         :'title' => :'title'
       }
@@ -74,14 +58,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'action_verb' => :'String',
         :'description' => :'String',
         :'execution_modes' => :'Array<String>',
-        :'feature_flags' => :'Array<String>',
         :'id' => :'String',
-        :'manual_mitigation_warning' => :'String',
         :'permissions' => :'Array<String>',
-        :'requires_ai' => :'Boolean',
         :'supported_parameters' => :'Array<GovernanceControlParameterDefinition>',
         :'title' => :'String'
       }
@@ -105,10 +85,6 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'action_verb')
-        self.action_verb = attributes[:'action_verb']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -119,28 +95,14 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'feature_flags')
-        if (value = attributes[:'feature_flags']).is_a?(Array)
-          self.feature_flags = value
-        end
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'manual_mitigation_warning')
-        self.manual_mitigation_warning = attributes[:'manual_mitigation_warning']
       end
 
       if attributes.key?(:'permissions')
         if (value = attributes[:'permissions']).is_a?(Array)
           self.permissions = value
         end
-      end
-
-      if attributes.key?(:'requires_ai')
-        self.requires_ai = attributes[:'requires_ai']
       end
 
       if attributes.key?(:'supported_parameters')
@@ -158,26 +120,13 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @action_verb.nil?
       return false if @description.nil?
-      return false if @feature_flags.nil?
+      return false if @execution_modes.nil?
       return false if @id.nil?
-      return false if @manual_mitigation_warning.nil?
       return false if @permissions.nil?
-      return false if @requires_ai.nil?
       return false if @supported_parameters.nil?
       return false if @title.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param action_verb [Object] Object to be assigned
-    # @!visibility private
-    def action_verb=(action_verb)
-      if action_verb.nil?
-        fail ArgumentError, 'invalid value for "action_verb", action_verb cannot be nil.'
-      end
-      @action_verb = action_verb
     end
 
     # Custom attribute writer method with validation
@@ -191,13 +140,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param feature_flags [Object] Object to be assigned
+    # @param execution_modes [Object] Object to be assigned
     # @!visibility private
-    def feature_flags=(feature_flags)
-      if feature_flags.nil?
-        fail ArgumentError, 'invalid value for "feature_flags", feature_flags cannot be nil.'
+    def execution_modes=(execution_modes)
+      if execution_modes.nil?
+        fail ArgumentError, 'invalid value for "execution_modes", execution_modes cannot be nil.'
       end
-      @feature_flags = feature_flags
+      @execution_modes = execution_modes
     end
 
     # Custom attribute writer method with validation
@@ -211,16 +160,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param manual_mitigation_warning [Object] Object to be assigned
-    # @!visibility private
-    def manual_mitigation_warning=(manual_mitigation_warning)
-      if manual_mitigation_warning.nil?
-        fail ArgumentError, 'invalid value for "manual_mitigation_warning", manual_mitigation_warning cannot be nil.'
-      end
-      @manual_mitigation_warning = manual_mitigation_warning
-    end
-
-    # Custom attribute writer method with validation
     # @param permissions [Object] Object to be assigned
     # @!visibility private
     def permissions=(permissions)
@@ -228,16 +167,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "permissions", permissions cannot be nil.'
       end
       @permissions = permissions
-    end
-
-    # Custom attribute writer method with validation
-    # @param requires_ai [Object] Object to be assigned
-    # @!visibility private
-    def requires_ai=(requires_ai)
-      if requires_ai.nil?
-        fail ArgumentError, 'invalid value for "requires_ai", requires_ai cannot be nil.'
-      end
-      @requires_ai = requires_ai
     end
 
     # Custom attribute writer method with validation
@@ -286,14 +215,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          action_verb == o.action_verb &&
           description == o.description &&
           execution_modes == o.execution_modes &&
-          feature_flags == o.feature_flags &&
           id == o.id &&
-          manual_mitigation_warning == o.manual_mitigation_warning &&
           permissions == o.permissions &&
-          requires_ai == o.requires_ai &&
           supported_parameters == o.supported_parameters &&
           title == o.title &&
           additional_properties == o.additional_properties
@@ -303,7 +228,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action_verb, description, execution_modes, feature_flags, id, manual_mitigation_warning, permissions, requires_ai, supported_parameters, title, additional_properties].hash
+      [description, execution_modes, id, permissions, supported_parameters, title, additional_properties].hash
     end
   end
 end

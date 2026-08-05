@@ -17,21 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Query execution context that allows the frontend to execute insight queries directly.
+  # Query execution context for running insight queries directly.
   class GovernanceInsightQueryConfig
     include BaseGenericModel
 
-    # The chart type the frontend should use to render the insight.
+    # The chart type used to render the insight.
     attr_accessor :chart_type
 
-    # The window used for the previous value comparison, for example `week` or `month`.
+    # The window used for the previous value comparison; for example, `week` or `month`.
     attr_reader :comparison_shift
 
     # The default value to display when no data is available.
     attr_accessor :default_value
 
-    # Whether an increase in the value is good, bad, or neutral. One of `neutral`,
-    # `increase_better`, or `decrease_better`.
+    # Whether an increase in the insight's value is good, bad, or neutral.
     attr_accessor :directionality
 
     # The number of days the insight value is computed over.
@@ -58,7 +57,7 @@ module DatadogAPIClient::V2
         :'chart_type' => :'String',
         :'comparison_shift' => :'String',
         :'default_value' => :'Integer',
-        :'directionality' => :'String',
+        :'directionality' => :'GovernanceInsightDirectionality',
         :'effective_time_window_days' => :'Integer'
       }
     end

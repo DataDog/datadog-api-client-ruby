@@ -33,18 +33,6 @@ module DatadogAPIClient::V2
     # The mitigation type to configure for the control.
     attr_accessor :mitigation_type
 
-    # A new human-readable name for the control.
-    attr_accessor :name
-
-    # The notification frequency to configure for the control.
-    attr_accessor :notification_frequency
-
-    # A free-form map of parameter names to their configured values.
-    attr_accessor :notification_parameters
-
-    # The notification type to configure for the control.
-    attr_accessor :notification_type
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -54,11 +42,7 @@ module DatadogAPIClient::V2
         :'detection_frequency' => :'detection_frequency',
         :'detection_parameters' => :'detection_parameters',
         :'mitigation_parameters' => :'mitigation_parameters',
-        :'mitigation_type' => :'mitigation_type',
-        :'name' => :'name',
-        :'notification_frequency' => :'notification_frequency',
-        :'notification_parameters' => :'notification_parameters',
-        :'notification_type' => :'notification_type'
+        :'mitigation_type' => :'mitigation_type'
       }
     end
 
@@ -69,11 +53,7 @@ module DatadogAPIClient::V2
         :'detection_frequency' => :'String',
         :'detection_parameters' => :'Hash<String, Object>',
         :'mitigation_parameters' => :'Hash<String, Object>',
-        :'mitigation_type' => :'String',
-        :'name' => :'String',
-        :'notification_frequency' => :'String',
-        :'notification_parameters' => :'Hash<String, Object>',
-        :'notification_type' => :'String'
+        :'mitigation_type' => :'String'
       }
     end
 
@@ -110,22 +90,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'mitigation_type')
         self.mitigation_type = attributes[:'mitigation_type']
       end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'notification_frequency')
-        self.notification_frequency = attributes[:'notification_frequency']
-      end
-
-      if attributes.key?(:'notification_parameters')
-        self.notification_parameters = attributes[:'notification_parameters']
-      end
-
-      if attributes.key?(:'notification_type')
-        self.notification_type = attributes[:'notification_type']
-      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -158,10 +122,6 @@ module DatadogAPIClient::V2
           detection_parameters == o.detection_parameters &&
           mitigation_parameters == o.mitigation_parameters &&
           mitigation_type == o.mitigation_type &&
-          name == o.name &&
-          notification_frequency == o.notification_frequency &&
-          notification_parameters == o.notification_parameters &&
-          notification_type == o.notification_type &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detection_frequency, detection_parameters, mitigation_parameters, mitigation_type, name, notification_frequency, notification_parameters, notification_type, additional_properties].hash
+      [detection_frequency, detection_parameters, mitigation_parameters, mitigation_type, additional_properties].hash
     end
   end
 end
