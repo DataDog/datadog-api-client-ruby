@@ -79,6 +79,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.to_s.length < 1
       return false if @value.nil?
       true
     end
@@ -89,6 +90,9 @@ module DatadogAPIClient::V2
     def name=(name)
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
       end
       @name = name
     end
