@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Set the workflow to published or unpublished. Workflows in an unpublished state will only be executable via manual runs. Automatic triggers such as Schedule will not execute the workflow until it is published.
     attr_accessor :published
 
-    # The spec defines what the workflow does.
+    # A complete Workflow Automation definition, including its triggers, steps, and connections.
     attr_accessor :spec
 
     # Tags of the workflow.

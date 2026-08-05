@@ -79,7 +79,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @branch_name.nil?
+      return false if @branch_name.to_s.length < 1
       return false if @next_step_name.nil?
+      return false if @next_step_name.to_s.length < 1
       true
     end
 
@@ -90,6 +92,9 @@ module DatadogAPIClient::V2
       if branch_name.nil?
         fail ArgumentError, 'invalid value for "branch_name", branch_name cannot be nil.'
       end
+      if branch_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "branch_name", the character length must be great than or equal to 1.'
+      end
       @branch_name = branch_name
     end
 
@@ -99,6 +104,9 @@ module DatadogAPIClient::V2
     def next_step_name=(next_step_name)
       if next_step_name.nil?
         fail ArgumentError, 'invalid value for "next_step_name", next_step_name cannot be nil.'
+      end
+      if next_step_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "next_step_name", the character length must be great than or equal to 1.'
       end
       @next_step_name = next_step_name
     end

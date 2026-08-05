@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Trigger a workflow from Self Service.
     attr_reader :self_service_trigger
 
-    # A list of steps that run first after a trigger fires.
+    # Names of existing workflow steps that run first after a trigger fires.
     attr_accessor :start_step_names
 
     attr_accessor :additional_properties
