@@ -3219,6 +3219,9 @@ ScenariosModelMappings = {
     "v2.DeleteDORADeployment" => {
             "deployment_id" => "String",
     },
+    "v2.PatchDORADeploymentByVersion" => {
+            "body" => "DORADeploymentPatchByVersionRequest",
+    },
     "v2.ListDORADeployments" => {
             "body" => "DORAListDeploymentsRequest",
     },
