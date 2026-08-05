@@ -17,15 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Scatterplot request containing formulas and functions.
+  # Scatterplot table request. Supports two modes:
+  # - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
+  # - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
   class ScatterplotTableRequest
     include BaseGenericModel
 
     # List of Scatterplot formulas that operate on queries.
     attr_accessor :formulas
 
+    # Maximum number of rows to return. Used when `request_type` is `"data_projection"`.
+    attr_accessor :limit
+
+    # The projection configuration for a scatterplot data projection request.
+    attr_accessor :projection
+
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
+
+    # The query for a scatterplot data projection request.
+    attr_accessor :query
+
+    # The type of the scatterplot table request.
+    attr_accessor :request_type
 
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
@@ -37,7 +51,11 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'formulas' => :'formulas',
+        :'limit' => :'limit',
+        :'projection' => :'projection',
         :'queries' => :'queries',
+        :'query' => :'query',
+        :'request_type' => :'request_type',
         :'response_format' => :'response_format'
       }
     end
@@ -47,7 +65,11 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'formulas' => :'Array<ScatterplotWidgetFormula>',
+        :'limit' => :'Integer',
+        :'projection' => :'ScatterplotDataProjectionProjection',
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'query' => :'ScatterplotDataProjectionQuery',
+        :'request_type' => :'ScatterplotTableRequestType',
         :'response_format' => :'FormulaAndFunctionResponseFormat'
       }
     end
@@ -76,10 +98,26 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'projection')
+        self.projection = attributes[:'projection']
+      end
+
       if attributes.key?(:'queries')
         if (value = attributes[:'queries']).is_a?(Array)
           self.queries = value
         end
+      end
+
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'request_type')
+        self.request_type = attributes[:'request_type']
       end
 
       if attributes.key?(:'response_format')
@@ -114,7 +152,11 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           formulas == o.formulas &&
+          limit == o.limit &&
+          projection == o.projection &&
           queries == o.queries &&
+          query == o.query &&
+          request_type == o.request_type &&
           response_format == o.response_format &&
           additional_properties == o.additional_properties
     end
@@ -123,7 +165,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formulas, queries, response_format, additional_properties].hash
+      [formulas, limit, projection, queries, query, request_type, response_format, additional_properties].hash
     end
   end
 end
