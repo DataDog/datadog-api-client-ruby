@@ -21,20 +21,11 @@ module DatadogAPIClient::V2
   class FleetIntegrationsByStatusV2
     include BaseGenericModel
 
-    # The Kubernetes cluster name, if the agent runs in a cluster.
-    attr_accessor :cluster_name
-
     # Configuration files for integrations.
     attr_accessor :configuration_files
 
-    # The unique agent key identifier.
-    attr_accessor :datadog_agent_key
-
     # Integrations with errors.
     attr_accessor :error_integrations
-
-    # The Kubernetes cluster key, if the agent runs in a cluster.
-    attr_accessor :k8s_cluster_key
 
     # Detected but not configured integrations.
     attr_accessor :missing_integrations
@@ -51,11 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'cluster_name' => :'cluster_name',
         :'configuration_files' => :'configuration_files',
-        :'datadog_agent_key' => :'datadog_agent_key',
         :'error_integrations' => :'error_integrations',
-        :'k8s_cluster_key' => :'k8s_cluster_key',
         :'missing_integrations' => :'missing_integrations',
         :'warning_integrations' => :'warning_integrations',
         :'working_integrations' => :'working_integrations'
@@ -66,11 +54,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cluster_name' => :'String',
         :'configuration_files' => :'Array<FleetConfigurationFileV2>',
-        :'datadog_agent_key' => :'String',
         :'error_integrations' => :'Array<FleetIntegrationDetailsV2>',
-        :'k8s_cluster_key' => :'String',
         :'missing_integrations' => :'Array<FleetDetectedIntegration>',
         :'warning_integrations' => :'Array<FleetIntegrationDetailsV2>',
         :'working_integrations' => :'Array<FleetIntegrationDetailsV2>'
@@ -95,28 +80,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'cluster_name')
-        self.cluster_name = attributes[:'cluster_name']
-      end
-
       if attributes.key?(:'configuration_files')
         if (value = attributes[:'configuration_files']).is_a?(Array)
           self.configuration_files = value
         end
       end
 
-      if attributes.key?(:'datadog_agent_key')
-        self.datadog_agent_key = attributes[:'datadog_agent_key']
-      end
-
       if attributes.key?(:'error_integrations')
         if (value = attributes[:'error_integrations']).is_a?(Array)
           self.error_integrations = value
         end
-      end
-
-      if attributes.key?(:'k8s_cluster_key')
-        self.k8s_cluster_key = attributes[:'k8s_cluster_key']
       end
 
       if attributes.key?(:'missing_integrations')
@@ -164,11 +137,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cluster_name == o.cluster_name &&
           configuration_files == o.configuration_files &&
-          datadog_agent_key == o.datadog_agent_key &&
           error_integrations == o.error_integrations &&
-          k8s_cluster_key == o.k8s_cluster_key &&
           missing_integrations == o.missing_integrations &&
           warning_integrations == o.warning_integrations &&
           working_integrations == o.working_integrations &&
@@ -179,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cluster_name, configuration_files, datadog_agent_key, error_integrations, k8s_cluster_key, missing_integrations, warning_integrations, working_integrations, additional_properties].hash
+      [configuration_files, error_integrations, missing_integrations, warning_integrations, working_integrations, additional_properties].hash
     end
   end
 end

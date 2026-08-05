@@ -33,9 +33,6 @@ module DatadogAPIClient::V2
     # Name of the configuration file.
     attr_accessor :filename
 
-    # Hash of the configuration file as applied by fleet management.
-    attr_accessor :fleet_hash
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -45,8 +42,7 @@ module DatadogAPIClient::V2
         :'agent_hash' => :'agent_hash',
         :'file_content' => :'file_content',
         :'file_path' => :'file_path',
-        :'filename' => :'filename',
-        :'fleet_hash' => :'fleet_hash'
+        :'filename' => :'filename'
       }
     end
 
@@ -57,8 +53,7 @@ module DatadogAPIClient::V2
         :'agent_hash' => :'String',
         :'file_content' => :'String',
         :'file_path' => :'String',
-        :'filename' => :'String',
-        :'fleet_hash' => :'String'
+        :'filename' => :'String'
       }
     end
 
@@ -95,10 +90,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'filename')
         self.filename = attributes[:'filename']
       end
-
-      if attributes.key?(:'fleet_hash')
-        self.fleet_hash = attributes[:'fleet_hash']
-      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -131,7 +122,6 @@ module DatadogAPIClient::V2
           file_content == o.file_content &&
           file_path == o.file_path &&
           filename == o.filename &&
-          fleet_hash == o.fleet_hash &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_hash, file_content, file_path, filename, fleet_hash, additional_properties].hash
+      [agent_hash, file_content, file_path, filename, additional_properties].hash
     end
   end
 end
