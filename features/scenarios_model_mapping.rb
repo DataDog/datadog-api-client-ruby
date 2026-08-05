@@ -4901,6 +4901,9 @@ ScenariosModelMappings = {
             "org_group_id" => "UUID",
             "body" => "OrgGroupUpdateRequest",
     },
+    "v2.ListPermissions" => {
+            "include_scopes" => "Boolean",
+    },
     "v2.ListRoles" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
