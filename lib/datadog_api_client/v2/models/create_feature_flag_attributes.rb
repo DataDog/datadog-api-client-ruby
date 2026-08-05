@@ -36,6 +36,14 @@ module DatadogAPIClient::V2
     # The name of the feature flag.
     attr_reader :name
 
+    # Query used to determine which change events on this feature flag trigger notifications to `rule_targets`. Uses Datadog's standard log search syntax (`AND`, `OR`, `NOT`, parentheses) to match against the `notification_type` facet.
+    #
+    # Supported `notification_type` values for a feature flag are: `flag_enabled_disabled`, `flag_archived`, `flag_approval_required`, `rollout_started`, `rollout_scheduled`, `rollout_step_started`, `rollout_paused_guardrail`, `rollout_paused_user`, `rollout_aborted_guardrail`, `rollout_aborted_user`, `targeting_rule_created`, `targeting_rule_updated`, `targeting_rule_updated_via_filter`, and `targeting_rule_deleted`.
+    attr_accessor :notification_rule_query
+
+    # Targets to notify about changes to this feature flag that match `notification_rule_query`.
+    attr_accessor :rule_targets
+
     # The type of values for the feature flag variants.
     attr_reader :value_type
 
@@ -53,6 +61,8 @@ module DatadogAPIClient::V2
         :'json_schema' => :'json_schema',
         :'key' => :'key',
         :'name' => :'name',
+        :'notification_rule_query' => :'notification_rule_query',
+        :'rule_targets' => :'rule_targets',
         :'value_type' => :'value_type',
         :'variants' => :'variants'
       }
@@ -67,6 +77,8 @@ module DatadogAPIClient::V2
         :'json_schema' => :'String',
         :'key' => :'String',
         :'name' => :'String',
+        :'notification_rule_query' => :'String',
+        :'rule_targets' => :'Array<NotificationRuleTarget>',
         :'value_type' => :'ValueType',
         :'variants' => :'Array<CreateVariant>'
       }
@@ -78,6 +90,7 @@ module DatadogAPIClient::V2
       Set.new([
         :'default_variant_key',
         :'json_schema',
+        :'notification_rule_query',
       ])
     end
 
@@ -117,6 +130,16 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'notification_rule_query')
+        self.notification_rule_query = attributes[:'notification_rule_query']
+      end
+
+      if attributes.key?(:'rule_targets')
+        if (value = attributes[:'rule_targets']).is_a?(Array)
+          self.rule_targets = value
+        end
       end
 
       if attributes.key?(:'value_type')
@@ -223,6 +246,8 @@ module DatadogAPIClient::V2
           json_schema == o.json_schema &&
           key == o.key &&
           name == o.name &&
+          notification_rule_query == o.notification_rule_query &&
+          rule_targets == o.rule_targets &&
           value_type == o.value_type &&
           variants == o.variants &&
           additional_properties == o.additional_properties
@@ -232,7 +257,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_variant_key, description, json_schema, key, name, value_type, variants, additional_properties].hash
+      [default_variant_key, description, json_schema, key, name, notification_rule_query, rule_targets, value_type, variants, additional_properties].hash
     end
   end
 end
