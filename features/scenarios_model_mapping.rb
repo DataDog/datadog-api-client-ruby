@@ -3461,10 +3461,36 @@ ScenariosModelMappings = {
             "detection_type" => "String",
             "body" => "GovernanceControlUpdateRequest",
     },
+    "v2.ListGovernanceControlDetections" => {
+            "detection_type" => "String",
+            "filter_state" => "String",
+            "filter_query" => "String",
+            "sort" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.GetGovernanceControlNotificationSettings" => {
+            "detection_type" => "String",
+    },
+    "v2.UpdateGovernanceControlNotificationSettings" => {
+            "detection_type" => "String",
+            "body" => "ControlNotificationSettingsUpdateRequest",
+    },
+    "v2.MitigateGovernanceDetections" => {
+            "body" => "GovernanceMitigationRequest",
+    },
+    "v2.GetGovernanceDetection" => {
+            "detection_id" => "String",
+    },
+    "v2.UpdateGovernanceDetection" => {
+            "detection_id" => "String",
+            "body" => "GovernanceControlDetectionUpdateRequest",
+    },
     "v2.ListGovernanceInsights" => {
-            "with_values" => "Boolean",
-            "org_uuid" => "String",
             "filter_product" => "Array<String>",
+    },
+    "v2.UpdateGovernanceNotificationSettings" => {
+            "body" => "GovernanceNotificationSettingsUpdateRequest",
     },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",

@@ -30,9 +30,6 @@ module DatadogAPIClient::V2
     # The human-readable name of the parameter.
     attr_reader :display_name
 
-    # Whether the parameter is hidden from the UI.
-    attr_reader :hidden
-
     # The machine-readable name of the parameter.
     attr_reader :name
 
@@ -54,7 +51,6 @@ module DatadogAPIClient::V2
         :'default_value' => :'default_value',
         :'description' => :'description',
         :'display_name' => :'display_name',
-        :'hidden' => :'hidden',
         :'name' => :'name',
         :'required' => :'required',
         :'supported_values' => :'supported_values',
@@ -69,7 +65,6 @@ module DatadogAPIClient::V2
         :'default_value' => :'Object',
         :'description' => :'String',
         :'display_name' => :'String',
-        :'hidden' => :'Boolean',
         :'name' => :'String',
         :'required' => :'Boolean',
         :'supported_values' => :'Array<GovernanceControlSupportedValue>',
@@ -107,10 +102,6 @@ module DatadogAPIClient::V2
         self.display_name = attributes[:'display_name']
       end
 
-      if attributes.key?(:'hidden')
-        self.hidden = attributes[:'hidden']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -137,7 +128,6 @@ module DatadogAPIClient::V2
       return false if @default_value.nil?
       return false if @description.nil?
       return false if @display_name.nil?
-      return false if @hidden.nil?
       return false if @name.nil?
       return false if @required.nil?
       return false if @supported_values.nil?
@@ -173,16 +163,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "display_name", display_name cannot be nil.'
       end
       @display_name = display_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param hidden [Object] Object to be assigned
-    # @!visibility private
-    def hidden=(hidden)
-      if hidden.nil?
-        fail ArgumentError, 'invalid value for "hidden", hidden cannot be nil.'
-      end
-      @hidden = hidden
     end
 
     # Custom attribute writer method with validation
@@ -254,7 +234,6 @@ module DatadogAPIClient::V2
           default_value == o.default_value &&
           description == o.description &&
           display_name == o.display_name &&
-          hidden == o.hidden &&
           name == o.name &&
           required == o.required &&
           supported_values == o.supported_values &&
@@ -266,7 +245,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_value, description, display_name, hidden, name, required, supported_values, type, additional_properties].hash
+      [default_value, description, display_name, name, required, supported_values, type, additional_properties].hash
     end
   end
 end

@@ -42,12 +42,6 @@ module DatadogAPIClient::V2
     # A free-form map of parameter names to their configured values.
     attr_reader :detection_parameters
 
-    # The detection type that uniquely identifies the control.
-    attr_reader :detection_type
-
-    # The feature flags that gate the control.
-    attr_reader :feature_flags
-
     # The insight slugs associated with the control.
     attr_reader :insights
 
@@ -69,26 +63,11 @@ module DatadogAPIClient::V2
     # Human-readable name of the control.
     attr_reader :name
 
-    # Guidance on the next steps to remediate detections for the control.
-    attr_reader :next_steps
-
-    # The configured notification frequency for the control. Empty when not configured.
-    attr_reader :notification_frequency
-
-    # A free-form map of parameter names to their configured values.
-    attr_reader :notification_parameters
-
-    # The configured notification type for the control. Empty when not configured.
-    attr_reader :notification_type
-
     # The priority of the control, such as `High`.
     attr_reader :priority
 
     # The product the control belongs to.
     attr_reader :product
-
-    # The release status of the control, such as `prod` or `beta`.
-    attr_reader :release_status
 
     # The type of resource the control evaluates.
     attr_reader :resource_type
@@ -99,17 +78,8 @@ module DatadogAPIClient::V2
     # An array of parameter definitions.
     attr_reader :supported_detection_parameters
 
-    # An array of parameter definitions.
-    attr_reader :supported_notification_parameters
-
-    # A short description of the remediation task for the control.
-    attr_reader :task
-
     # The control type, such as `Proactive` or `Detection`.
     attr_reader :type
-
-    # The usage concern the control addresses, such as `Security` or `Cost Optimization`.
-    attr_reader :usage_concern
 
     attr_accessor :additional_properties
 
@@ -124,8 +94,6 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'detection_frequency' => :'detection_frequency',
         :'detection_parameters' => :'detection_parameters',
-        :'detection_type' => :'detection_type',
-        :'feature_flags' => :'feature_flags',
         :'insights' => :'insights',
         :'last_detection_at' => :'last_detection_at',
         :'mitigated_detections_count' => :'mitigated_detections_count',
@@ -133,20 +101,12 @@ module DatadogAPIClient::V2
         :'mitigation_type' => :'mitigation_type',
         :'mitigations' => :'mitigations',
         :'name' => :'name',
-        :'next_steps' => :'next_steps',
-        :'notification_frequency' => :'notification_frequency',
-        :'notification_parameters' => :'notification_parameters',
-        :'notification_type' => :'notification_type',
         :'priority' => :'priority',
         :'product' => :'product',
-        :'release_status' => :'release_status',
         :'resource_type' => :'resource_type',
         :'resource_type_display_name' => :'resource_type_display_name',
         :'supported_detection_parameters' => :'supported_detection_parameters',
-        :'supported_notification_parameters' => :'supported_notification_parameters',
-        :'task' => :'task',
-        :'type' => :'type',
-        :'usage_concern' => :'usage_concern'
+        :'type' => :'type'
       }
     end
 
@@ -161,8 +121,6 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'detection_frequency' => :'String',
         :'detection_parameters' => :'Hash<String, Object>',
-        :'detection_type' => :'String',
-        :'feature_flags' => :'Array<String>',
         :'insights' => :'Array<String>',
         :'last_detection_at' => :'Time',
         :'mitigated_detections_count' => :'Integer',
@@ -170,20 +128,12 @@ module DatadogAPIClient::V2
         :'mitigation_type' => :'String',
         :'mitigations' => :'Array<GovernanceControlMitigationDefinition>',
         :'name' => :'String',
-        :'next_steps' => :'String',
-        :'notification_frequency' => :'String',
-        :'notification_parameters' => :'Hash<String, Object>',
-        :'notification_type' => :'String',
         :'priority' => :'String',
         :'product' => :'String',
-        :'release_status' => :'String',
         :'resource_type' => :'String',
         :'resource_type_display_name' => :'String',
         :'supported_detection_parameters' => :'Array<GovernanceControlParameterDefinition>',
-        :'supported_notification_parameters' => :'Array<GovernanceControlParameterDefinition>',
-        :'task' => :'String',
-        :'type' => :'String',
-        :'usage_concern' => :'String'
+        :'type' => :'String'
       }
     end
 
@@ -241,16 +191,6 @@ module DatadogAPIClient::V2
         self.detection_parameters = attributes[:'detection_parameters']
       end
 
-      if attributes.key?(:'detection_type')
-        self.detection_type = attributes[:'detection_type']
-      end
-
-      if attributes.key?(:'feature_flags')
-        if (value = attributes[:'feature_flags']).is_a?(Array)
-          self.feature_flags = value
-        end
-      end
-
       if attributes.key?(:'insights')
         if (value = attributes[:'insights']).is_a?(Array)
           self.insights = value
@@ -283,32 +223,12 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'next_steps')
-        self.next_steps = attributes[:'next_steps']
-      end
-
-      if attributes.key?(:'notification_frequency')
-        self.notification_frequency = attributes[:'notification_frequency']
-      end
-
-      if attributes.key?(:'notification_parameters')
-        self.notification_parameters = attributes[:'notification_parameters']
-      end
-
-      if attributes.key?(:'notification_type')
-        self.notification_type = attributes[:'notification_type']
-      end
-
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
       end
 
       if attributes.key?(:'product')
         self.product = attributes[:'product']
-      end
-
-      if attributes.key?(:'release_status')
-        self.release_status = attributes[:'release_status']
       end
 
       if attributes.key?(:'resource_type')
@@ -325,22 +245,8 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'supported_notification_parameters')
-        if (value = attributes[:'supported_notification_parameters']).is_a?(Array)
-          self.supported_notification_parameters = value
-        end
-      end
-
-      if attributes.key?(:'task')
-        self.task = attributes[:'task']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'usage_concern')
-        self.usage_concern = attributes[:'usage_concern']
       end
     end
 
@@ -355,28 +261,18 @@ module DatadogAPIClient::V2
       return false if @description.nil?
       return false if @detection_frequency.nil?
       return false if @detection_parameters.nil?
-      return false if @detection_type.nil?
-      return false if @feature_flags.nil?
       return false if @insights.nil?
       return false if @mitigated_detections_count.nil?
       return false if @mitigation_parameters.nil?
       return false if @mitigation_type.nil?
       return false if @mitigations.nil?
       return false if @name.nil?
-      return false if @next_steps.nil?
-      return false if @notification_frequency.nil?
-      return false if @notification_parameters.nil?
-      return false if @notification_type.nil?
       return false if @priority.nil?
       return false if @product.nil?
-      return false if @release_status.nil?
       return false if @resource_type.nil?
       return false if @resource_type_display_name.nil?
       return false if @supported_detection_parameters.nil?
-      return false if @supported_notification_parameters.nil?
-      return false if @task.nil?
       return false if @type.nil?
-      return false if @usage_concern.nil?
       true
     end
 
@@ -451,26 +347,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param detection_type [Object] Object to be assigned
-    # @!visibility private
-    def detection_type=(detection_type)
-      if detection_type.nil?
-        fail ArgumentError, 'invalid value for "detection_type", detection_type cannot be nil.'
-      end
-      @detection_type = detection_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param feature_flags [Object] Object to be assigned
-    # @!visibility private
-    def feature_flags=(feature_flags)
-      if feature_flags.nil?
-        fail ArgumentError, 'invalid value for "feature_flags", feature_flags cannot be nil.'
-      end
-      @feature_flags = feature_flags
-    end
-
-    # Custom attribute writer method with validation
     # @param insights [Object] Object to be assigned
     # @!visibility private
     def insights=(insights)
@@ -531,46 +407,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param next_steps [Object] Object to be assigned
-    # @!visibility private
-    def next_steps=(next_steps)
-      if next_steps.nil?
-        fail ArgumentError, 'invalid value for "next_steps", next_steps cannot be nil.'
-      end
-      @next_steps = next_steps
-    end
-
-    # Custom attribute writer method with validation
-    # @param notification_frequency [Object] Object to be assigned
-    # @!visibility private
-    def notification_frequency=(notification_frequency)
-      if notification_frequency.nil?
-        fail ArgumentError, 'invalid value for "notification_frequency", notification_frequency cannot be nil.'
-      end
-      @notification_frequency = notification_frequency
-    end
-
-    # Custom attribute writer method with validation
-    # @param notification_parameters [Object] Object to be assigned
-    # @!visibility private
-    def notification_parameters=(notification_parameters)
-      if notification_parameters.nil?
-        fail ArgumentError, 'invalid value for "notification_parameters", notification_parameters cannot be nil.'
-      end
-      @notification_parameters = notification_parameters
-    end
-
-    # Custom attribute writer method with validation
-    # @param notification_type [Object] Object to be assigned
-    # @!visibility private
-    def notification_type=(notification_type)
-      if notification_type.nil?
-        fail ArgumentError, 'invalid value for "notification_type", notification_type cannot be nil.'
-      end
-      @notification_type = notification_type
-    end
-
-    # Custom attribute writer method with validation
     # @param priority [Object] Object to be assigned
     # @!visibility private
     def priority=(priority)
@@ -588,16 +424,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "product", product cannot be nil.'
       end
       @product = product
-    end
-
-    # Custom attribute writer method with validation
-    # @param release_status [Object] Object to be assigned
-    # @!visibility private
-    def release_status=(release_status)
-      if release_status.nil?
-        fail ArgumentError, 'invalid value for "release_status", release_status cannot be nil.'
-      end
-      @release_status = release_status
     end
 
     # Custom attribute writer method with validation
@@ -631,26 +457,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param supported_notification_parameters [Object] Object to be assigned
-    # @!visibility private
-    def supported_notification_parameters=(supported_notification_parameters)
-      if supported_notification_parameters.nil?
-        fail ArgumentError, 'invalid value for "supported_notification_parameters", supported_notification_parameters cannot be nil.'
-      end
-      @supported_notification_parameters = supported_notification_parameters
-    end
-
-    # Custom attribute writer method with validation
-    # @param task [Object] Object to be assigned
-    # @!visibility private
-    def task=(task)
-      if task.nil?
-        fail ArgumentError, 'invalid value for "task", task cannot be nil.'
-      end
-      @task = task
-    end
-
-    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
@@ -658,16 +464,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param usage_concern [Object] Object to be assigned
-    # @!visibility private
-    def usage_concern=(usage_concern)
-      if usage_concern.nil?
-        fail ArgumentError, 'invalid value for "usage_concern", usage_concern cannot be nil.'
-      end
-      @usage_concern = usage_concern
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -703,8 +499,6 @@ module DatadogAPIClient::V2
           description == o.description &&
           detection_frequency == o.detection_frequency &&
           detection_parameters == o.detection_parameters &&
-          detection_type == o.detection_type &&
-          feature_flags == o.feature_flags &&
           insights == o.insights &&
           last_detection_at == o.last_detection_at &&
           mitigated_detections_count == o.mitigated_detections_count &&
@@ -712,20 +506,12 @@ module DatadogAPIClient::V2
           mitigation_type == o.mitigation_type &&
           mitigations == o.mitigations &&
           name == o.name &&
-          next_steps == o.next_steps &&
-          notification_frequency == o.notification_frequency &&
-          notification_parameters == o.notification_parameters &&
-          notification_type == o.notification_type &&
           priority == o.priority &&
           product == o.product &&
-          release_status == o.release_status &&
           resource_type == o.resource_type &&
           resource_type_display_name == o.resource_type_display_name &&
           supported_detection_parameters == o.supported_detection_parameters &&
-          supported_notification_parameters == o.supported_notification_parameters &&
-          task == o.task &&
           type == o.type &&
-          usage_concern == o.usage_concern &&
           additional_properties == o.additional_properties
     end
 
@@ -733,7 +519,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active_detections_count, category, created_at, created_by, description, detection_frequency, detection_parameters, detection_type, feature_flags, insights, last_detection_at, mitigated_detections_count, mitigation_parameters, mitigation_type, mitigations, name, next_steps, notification_frequency, notification_parameters, notification_type, priority, product, release_status, resource_type, resource_type_display_name, supported_detection_parameters, supported_notification_parameters, task, type, usage_concern, additional_properties].hash
+      [active_detections_count, category, created_at, created_by, description, detection_frequency, detection_parameters, insights, last_detection_at, mitigated_detections_count, mitigation_parameters, mitigation_type, mitigations, name, priority, product, resource_type, resource_type_display_name, supported_detection_parameters, type, additional_properties].hash
     end
   end
 end

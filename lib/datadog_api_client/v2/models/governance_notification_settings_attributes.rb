@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A governance control resource.
-  class GovernanceControlData
+  # The attributes of the organization-wide governance notification settings.
+  class GovernanceNotificationSettingsAttributes
     include BaseGenericModel
 
-    # The attributes of a governance control.
-    attr_reader :attributes
-
-    # The detection type that uniquely identifies the control.
-    attr_reader :id
-
-    # JSON:API resource type for a governance control.
-    attr_reader :type
+    # Whether notifications are sent to users when detections are assigned to them.
+    attr_reader :assignment_notifications_enabled
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'assignment_notifications_enabled' => :'assignment_notifications_enabled'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'GovernanceControlAttributes',
-        :'id' => :'String',
-        :'type' => :'GovernanceControlResourceType'
+        :'assignment_notifications_enabled' => :'Boolean'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceControlData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceNotificationSettingsAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'assignment_notifications_enabled')
+        self.assignment_notifications_enabled = attributes[:'assignment_notifications_enabled']
       end
     end
 
@@ -87,40 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @assignment_notifications_enabled.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param assignment_notifications_enabled [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def assignment_notifications_enabled=(assignment_notifications_enabled)
+      if assignment_notifications_enabled.nil?
+        fail ArgumentError, 'invalid value for "assignment_notifications_enabled", assignment_notifications_enabled cannot be nil.'
       end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @assignment_notifications_enabled = assignment_notifications_enabled
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          assignment_notifications_enabled == o.assignment_notifications_enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [assignment_notifications_enabled, additional_properties].hash
     end
   end
 end

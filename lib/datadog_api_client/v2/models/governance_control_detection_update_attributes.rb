@@ -17,18 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A governance control resource.
-  class GovernanceControlData
+  # The attributes of a governance control detection that can be updated. Only the attributes present in the request are modified.
+  class GovernanceControlDetectionUpdateAttributes
     include BaseGenericModel
 
-    # The attributes of a governance control.
-    attr_reader :attributes
+    # The handle of the team the detection is assigned to. Set to an empty string to clear the assignment.
+    attr_accessor :assigned_team
 
-    # The detection type that uniquely identifies the control.
-    attr_reader :id
+    # The UUID of the user the detection is assigned to. Set to an empty string to clear the assignment.
+    attr_accessor :assigned_to
 
-    # JSON:API resource type for a governance control.
-    attr_reader :type
+    # The timestamp after which the detection becomes eligible for mitigation. Used to defer mitigation to a later time.
+    attr_accessor :mitigate_after
+
+    # The new state to set for the detection. Set to `exception` to acknowledge the detection and exclude it from active counts, or `active` to reopen it.
+    attr_accessor :state
 
     attr_accessor :additional_properties
 
@@ -36,9 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'assigned_team' => :'assigned_team',
+        :'assigned_to' => :'assigned_to',
+        :'mitigate_after' => :'mitigate_after',
+        :'state' => :'state'
       }
     end
 
@@ -46,9 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'GovernanceControlAttributes',
-        :'id' => :'String',
-        :'type' => :'GovernanceControlResourceType'
+        :'assigned_team' => :'String',
+        :'assigned_to' => :'String',
+        :'mitigate_after' => :'Time',
+        :'state' => :'GovernanceControlDetectionUpdateState'
       }
     end
 
@@ -57,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceControlData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GovernanceControlDetectionUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,57 +75,21 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'assigned_team')
+        self.assigned_team = attributes[:'assigned_team']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'assigned_to')
+        self.assigned_to = attributes[:'assigned_to']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'mitigate_after')
+        self.mitigate_after = attributes[:'mitigate_after']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          assigned_team == o.assigned_team &&
+          assigned_to == o.assigned_to &&
+          mitigate_after == o.mitigate_after &&
+          state == o.state &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [assigned_team, assigned_to, mitigate_after, state, additional_properties].hash
     end
   end
 end
