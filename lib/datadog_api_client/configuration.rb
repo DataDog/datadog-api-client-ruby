@@ -1137,7 +1137,8 @@ module DatadogAPIClient
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
                   "teal.oncall.datadoghq.com",
-                  "beige.oncall.datadoghq.eu"
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
                 ]
               }
             }
@@ -1147,8 +1148,17 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               name: {
-                description: "Full site DNS name.",
-                default_value: "api.datadoghq.com",
+                description: "The full DNS name of the On-Call paging endpoint.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "lava.oncall.datadoghq.com",
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
+                ]
               },
               protocol: {
                 description: "The protocol for accessing the API.",
@@ -1161,12 +1171,25 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               site: {
-                description: "Any Datadog deployment.",
+                description: "The Datadog site where the On-Call paging endpoint is deployed.",
                 default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "datadoghq.eu"
+                ]
               },
               subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
+                description: "The On-Call paging subdomain.",
+                default_value: "navy.oncall",
+                enum_values: [
+                  "lava.oncall",
+                  "saffron.oncall",
+                  "navy.oncall",
+                  "coral.oncall",
+                  "teal.oncall",
+                  "beige.oncall",
+                  "scarlet.oncall"
+                ]
               }
             }
           }
@@ -1185,7 +1208,8 @@ module DatadogAPIClient
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
                   "teal.oncall.datadoghq.com",
-                  "beige.oncall.datadoghq.eu"
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
                 ]
               }
             }
@@ -1195,8 +1219,17 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               name: {
-                description: "Full site DNS name.",
-                default_value: "api.datadoghq.com",
+                description: "The full DNS name of the On-Call paging endpoint.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "lava.oncall.datadoghq.com",
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
+                ]
               },
               protocol: {
                 description: "The protocol for accessing the API.",
@@ -1209,12 +1242,25 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               site: {
-                description: "Any Datadog deployment.",
+                description: "The Datadog site where the On-Call paging endpoint is deployed.",
                 default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "datadoghq.eu"
+                ]
               },
               subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
+                description: "The On-Call paging subdomain.",
+                default_value: "navy.oncall",
+                enum_values: [
+                  "lava.oncall",
+                  "saffron.oncall",
+                  "navy.oncall",
+                  "coral.oncall",
+                  "teal.oncall",
+                  "beige.oncall",
+                  "scarlet.oncall"
+                ]
               }
             }
           }
@@ -1233,7 +1279,8 @@ module DatadogAPIClient
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
                   "teal.oncall.datadoghq.com",
-                  "beige.oncall.datadoghq.eu"
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
                 ]
               }
             }
@@ -1243,8 +1290,17 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               name: {
-                description: "Full site DNS name.",
-                default_value: "api.datadoghq.com",
+                description: "The full DNS name of the On-Call paging endpoint.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "lava.oncall.datadoghq.com",
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
+                ]
               },
               protocol: {
                 description: "The protocol for accessing the API.",
@@ -1257,12 +1313,25 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               site: {
-                description: "Any Datadog deployment.",
+                description: "The Datadog site where the On-Call paging endpoint is deployed.",
                 default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "datadoghq.eu"
+                ]
               },
               subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
+                description: "The On-Call paging subdomain.",
+                default_value: "navy.oncall",
+                enum_values: [
+                  "lava.oncall",
+                  "saffron.oncall",
+                  "navy.oncall",
+                  "coral.oncall",
+                  "teal.oncall",
+                  "beige.oncall",
+                  "scarlet.oncall"
+                ]
               }
             }
           }
@@ -1281,7 +1350,8 @@ module DatadogAPIClient
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
                   "teal.oncall.datadoghq.com",
-                  "beige.oncall.datadoghq.eu"
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
                 ]
               }
             }
@@ -1291,8 +1361,17 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               name: {
-                description: "Full site DNS name.",
-                default_value: "api.datadoghq.com",
+                description: "The full DNS name of the On-Call paging endpoint.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "lava.oncall.datadoghq.com",
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
+                ]
               },
               protocol: {
                 description: "The protocol for accessing the API.",
@@ -1305,12 +1384,25 @@ module DatadogAPIClient
             description: "No description provided",
             variables: {
               site: {
-                description: "Any Datadog deployment.",
+                description: "The Datadog site where the On-Call paging endpoint is deployed.",
                 default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "datadoghq.eu"
+                ]
               },
               subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
+                description: "The On-Call paging subdomain.",
+                default_value: "navy.oncall",
+                enum_values: [
+                  "lava.oncall",
+                  "saffron.oncall",
+                  "navy.oncall",
+                  "coral.oncall",
+                  "teal.oncall",
+                  "beige.oncall",
+                  "scarlet.oncall"
+                ]
               }
             }
           }
