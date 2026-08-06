@@ -462,6 +462,7 @@ module DatadogAPIClient::V2
     # Returns a list of all permissions, including name, description, and ID.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_scopes Set to `true` to return all permissions, including both permissions that can be assigned to user roles and permissions that can only be used as scopes for OAuth clients and scoped credentials. When `false` (default), only permissions that can be assigned to user roles are returned.
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_permissions_with_http_info(opts = {})
 
@@ -473,6 +474,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include_scopes'] = opts[:'include_scopes'] if !opts[:'include_scopes'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
