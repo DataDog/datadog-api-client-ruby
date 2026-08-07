@@ -2911,6 +2911,7 @@ module DatadogAPIClient
           "v2.degradation_data_relationships_template" => "DegradationDataRelationshipsTemplate",
           "v2.degradation_data_relationships_template_data" => "DegradationDataRelationshipsTemplateData",
           "v2.degradation_included" => "DegradationIncluded",
+          "v2.degradation_request_data_meta" => "DegradationRequestDataMeta",
           "v2.degradation_template" => "DegradationTemplate",
           "v2.degradation_template_array" => "DegradationTemplateArray",
           "v2.degradation_template_data" => "DegradationTemplateData",
