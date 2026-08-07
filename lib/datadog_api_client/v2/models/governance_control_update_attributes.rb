@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class GovernanceControlUpdateAttributes
     include BaseGenericModel
 
-    # How often detections should be evaluated for the control.
-    attr_accessor :detection_frequency
-
     # A free-form map of parameter names to their configured values.
     attr_accessor :detection_parameters
 
@@ -39,7 +36,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'detection_frequency' => :'detection_frequency',
         :'detection_parameters' => :'detection_parameters',
         :'mitigation_parameters' => :'mitigation_parameters',
         :'mitigation_type' => :'mitigation_type'
@@ -50,7 +46,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'detection_frequency' => :'String',
         :'detection_parameters' => :'Hash<String, Object>',
         :'mitigation_parameters' => :'Hash<String, Object>',
         :'mitigation_type' => :'String'
@@ -74,10 +69,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'detection_frequency')
-        self.detection_frequency = attributes[:'detection_frequency']
-      end
 
       if attributes.key?(:'detection_parameters')
         self.detection_parameters = attributes[:'detection_parameters']
@@ -118,7 +109,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          detection_frequency == o.detection_frequency &&
           detection_parameters == o.detection_parameters &&
           mitigation_parameters == o.mitigation_parameters &&
           mitigation_type == o.mitigation_type &&
@@ -129,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detection_frequency, detection_parameters, mitigation_parameters, mitigation_type, additional_properties].hash
+      [detection_parameters, mitigation_parameters, mitigation_type, additional_properties].hash
     end
   end
 end

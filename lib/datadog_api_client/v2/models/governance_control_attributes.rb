@@ -36,9 +36,6 @@ module DatadogAPIClient::V2
     # A human-readable description of what the control detects.
     attr_reader :description
 
-    # How often detections are evaluated for the control.
-    attr_reader :detection_frequency
-
     # A free-form map of parameter names to their configured values.
     attr_reader :detection_parameters
 
@@ -92,7 +89,6 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'description' => :'description',
-        :'detection_frequency' => :'detection_frequency',
         :'detection_parameters' => :'detection_parameters',
         :'insights' => :'insights',
         :'last_detection_at' => :'last_detection_at',
@@ -119,7 +115,6 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'created_by' => :'String',
         :'description' => :'String',
-        :'detection_frequency' => :'String',
         :'detection_parameters' => :'Hash<String, Object>',
         :'insights' => :'Array<String>',
         :'last_detection_at' => :'Time',
@@ -181,10 +176,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'detection_frequency')
-        self.detection_frequency = attributes[:'detection_frequency']
       end
 
       if attributes.key?(:'detection_parameters')
@@ -259,7 +250,6 @@ module DatadogAPIClient::V2
       return false if @created_at.nil?
       return false if @created_by.nil?
       return false if @description.nil?
-      return false if @detection_frequency.nil?
       return false if @detection_parameters.nil?
       return false if @insights.nil?
       return false if @mitigated_detections_count.nil?
@@ -324,16 +314,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "description", description cannot be nil.'
       end
       @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param detection_frequency [Object] Object to be assigned
-    # @!visibility private
-    def detection_frequency=(detection_frequency)
-      if detection_frequency.nil?
-        fail ArgumentError, 'invalid value for "detection_frequency", detection_frequency cannot be nil.'
-      end
-      @detection_frequency = detection_frequency
     end
 
     # Custom attribute writer method with validation
@@ -497,7 +477,6 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           created_by == o.created_by &&
           description == o.description &&
-          detection_frequency == o.detection_frequency &&
           detection_parameters == o.detection_parameters &&
           insights == o.insights &&
           last_detection_at == o.last_detection_at &&
@@ -519,7 +498,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active_detections_count, category, created_at, created_by, description, detection_frequency, detection_parameters, insights, last_detection_at, mitigated_detections_count, mitigation_parameters, mitigation_type, mitigations, name, priority, product, resource_type, resource_type_display_name, supported_detection_parameters, type, additional_properties].hash
+      [active_detections_count, category, created_at, created_by, description, detection_parameters, insights, last_detection_at, mitigated_detections_count, mitigation_parameters, mitigation_type, mitigations, name, priority, product, resource_type, resource_type_display_name, supported_detection_parameters, type, additional_properties].hash
     end
   end
 end
