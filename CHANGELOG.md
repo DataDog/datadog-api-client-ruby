@@ -1,5 +1,82 @@
 # CHANGELOG
 
+## 2.57.0/2026-08-06
+
+### Fixed
+* Fleet Automation v2 remove deprecated or redundant agent detail fields [#3643](https://github.com/DataDog/datadog-api-client-ruby/pull/3643)
+* Uppercase automation rule trigger and action type enum values [#3637](https://github.com/DataDog/datadog-api-client-ruby/pull/3637)
+* Fix broken JSON API shape for security monitoring rules bulk delete [#3612](https://github.com/DataDog/datadog-api-client-ruby/pull/3612)
+* Document CNM API authorization requirements [#3609](https://github.com/DataDog/datadog-api-client-ruby/pull/3609)
+* Fix incident user-defined role policy not required on create [#3596](https://github.com/DataDog/datadog-api-client-ruby/pull/3596)
+* Document 409 and 412 error codes for UpsertRows/DeleteRows [#3578](https://github.com/DataDog/datadog-api-client-ruby/pull/3578)
+* Add `template_variables` to Notebooks v1 API spec [#3547](https://github.com/DataDog/datadog-api-client-ruby/pull/3547)
+
+### Added
+* data quality monitor sensitivity definition [#3639](https://github.com/DataDog/datadog-api-client-ruby/pull/3639)
+* Add SSE-KMS encryption fields to ObservabilityPipelineAmazonS3Destination for datadog_archives [#3628](https://github.com/DataDog/datadog-api-client-ruby/pull/3628)
+* Adds documentation for historical metrics endpoints [#3626](https://github.com/DataDog/datadog-api-client-ruby/pull/3626)
+* Remove unit conversion notes from usage metering descriptions [#3621](https://github.com/DataDog/datadog-api-client-ruby/pull/3621)
+* Add impact_score and impact_level to Flaky Test Management API spec [#3617](https://github.com/DataDog/datadog-api-client-ruby/pull/3617)
+* Add list custom LLM Obs evaluator configs endpoint [#3615](https://github.com/DataDog/datadog-api-client-ruby/pull/3615)
+* Promote RUM Operations endpoints from private to public [#3608](https://github.com/DataDog/datadog-api-client-ruby/pull/3608)
+* Add TLS support and server_name SNI option to Observability Pipelines client components [#3607](https://github.com/DataDog/datadog-api-client-ruby/pull/3607)
+* Add workflow schedule overlap behavior [#3606](https://github.com/DataDog/datadog-api-client-ruby/pull/3606)
+* Add notice templates to the Status Pages API spec [#3605](https://github.com/DataDog/datadog-api-client-ruby/pull/3605)
+* Add `key-value` type in Logs Array processor [#3604](https://github.com/DataDog/datadog-api-client-ruby/pull/3604)
+* Expand incidents postmortem-templates spec to full CRUD contract [#3598](https://github.com/DataDog/datadog-api-client-ruby/pull/3598)
+* Remove unstable tags from Case Management APIs [#3597](https://github.com/DataDog/datadog-api-client-ruby/pull/3597)
+* Add CSM Ownership settings endpoints [#3594](https://github.com/DataDog/datadog-api-client-ruby/pull/3594)
+* Add DD_ENV filter to Feature Flags environments API [#3593](https://github.com/DataDog/datadog-api-client-ruby/pull/3593)
+* Add Exclude-mode tag usage fields to tag indexing rules [#3587](https://github.com/DataDog/datadog-api-client-ruby/pull/3587)
+* Add feature-flag type to restriction policies [#3586](https://github.com/DataDog/datadog-api-client-ruby/pull/3586)
+* Add public API spec for LLM Observability prompt registry CRUD endpoints [#3584](https://github.com/DataDog/datadog-api-client-ruby/pull/3584)
+* Add public DDSQL tabular query endpoints [#3583](https://github.com/DataDog/datadog-api-client-ruby/pull/3583)
+* Add function and cloud_function fields to Azure and GCP scan options [#3581](https://github.com/DataDog/datadog-api-client-ruby/pull/3581)
+* Add WAF custom rule file addresses [#3580](https://github.com/DataDog/datadog-api-client-ruby/pull/3580)
+* Make incident user-defined-roles API public but keep it unstable [#3577](https://github.com/DataDog/datadog-api-client-ruby/pull/3577)
+* Add OpenAPI spec for GET /api/v2/org_group_policy_suggestions [#3576](https://github.com/DataDog/datadog-api-client-ruby/pull/3576)
+* Add cloud-agnostic account filters endpoints to Cloud Cost Management [#3575](https://github.com/DataDog/datadog-api-client-ruby/pull/3575)
+* Add GET endpoint for custom forecast [#3570](https://github.com/DataDog/datadog-api-client-ruby/pull/3570)
+* Add OpenAPI specs for ListDatasetReportSchedules and PrintReport [#3568](https://github.com/DataDog/datadog-api-client-ruby/pull/3568)
+* Add editable field to critical assets attributes [#3567](https://github.com/DataDog/datadog-api-client-ruby/pull/3567)
+* Add GET /api/v2/on-call/schedules/schedule_id/responders spec [#3566](https://github.com/DataDog/datadog-api-client-ruby/pull/3566)
+* Add OpenAPI spec for hostmap widgwet DDSQL request shape, deprecate legacy metric shape [#3558](https://github.com/DataDog/datadog-api-client-ruby/pull/3558)
+* Document secmon-public-api Entra ID integration endpoints [#3556](https://github.com/DataDog/datadog-api-client-ruby/pull/3556)
+* Add AWS integration metric name filters and preview endpoints [#3552](https://github.com/DataDog/datadog-api-client-ruby/pull/3552)
+* Add public unstable spec for Security Findings Linear endpoints [#3546](https://github.com/DataDog/datadog-api-client-ruby/pull/3546)
+* Add workload activity rule type to notification rules [#3544](https://github.com/DataDog/datadog-api-client-ruby/pull/3544)
+* Add configuration attribute to incident type schema [#3543](https://github.com/DataDog/datadog-api-client-ruby/pull/3543)
+* Add OpenAPI spec for POST /api/v2/snapshot [#3542](https://github.com/DataDog/datadog-api-client-ruby/pull/3542)
+* Add SSE-KMS encryption fields to ObservabilityPipelineAmazonS3GenericDestination [#3541](https://github.com/DataDog/datadog-api-client-ruby/pull/3541)
+* Add included rows to batchrowsquery and pagination meta to listrows for reference tables responses [#3538](https://github.com/DataDog/datadog-api-client-ruby/pull/3538)
+* security-monitoring - add description field to critical assets API spec [#3537](https://github.com/DataDog/datadog-api-client-ruby/pull/3537)
+* Mark ServiceNow triage endpoints as stable [#3535](https://github.com/DataDog/datadog-api-client-ruby/pull/3535)
+* Add Obs Pipeline Grok processor updates to OpenAPI Spec [#3533](https://github.com/DataDog/datadog-api-client-ruby/pull/3533)
+* Add OpenAPI spec `version` attribute for Logs Transactions V2 Preview [#3532](https://github.com/DataDog/datadog-api-client-ruby/pull/3532)
+* Page related updates to synthetics  [#3531](https://github.com/DataDog/datadog-api-client-ruby/pull/3531)
+* Add public v2 OpenAPI operations for governance console [#3523](https://github.com/DataDog/datadog-api-client-ruby/pull/3523)
+* Add UK1 [#3518](https://github.com/DataDog/datadog-api-client-ruby/pull/3518)
+* Add OpenAPI spec for identity providers and Authorized client apis [#3479](https://github.com/DataDog/datadog-api-client-ruby/pull/3479)
+* Add DashboardDefaultTimeframe schema and default_timeframe to Dashboard [#3439](https://github.com/DataDog/datadog-api-client-ruby/pull/3439)
+* Add OpenAPI spec for api v2 rum config [#3437](https://github.com/DataDog/datadog-api-client-ruby/pull/3437)
+* Add OpenAPI specifications for incidents-rapid-api endpoints [#3413](https://github.com/DataDog/datadog-api-client-ruby/pull/3413)
+
+### Changed
+* Fleet Automation promote ready v2 endpoints to public [#3632](https://github.com/DataDog/datadog-api-client-ruby/pull/3632)
+* Migrate tag-policies routes to snake_case [#3616](https://github.com/DataDog/datadog-api-client-ruby/pull/3616)
+* Deprecate report-related endpoints from SLO documentation [#3613](https://github.com/DataDog/datadog-api-client-ruby/pull/3613)
+* Update documentation according to new content pack states endpoint response shape [#3595](https://github.com/DataDog/datadog-api-client-ruby/pull/3595)
+* Mark Linear security findings endpoints as stable [#3589](https://github.com/DataDog/datadog-api-client-ruby/pull/3589)
+* Mark custom forecast endpoints as generally available [#3588](https://github.com/DataDog/datadog-api-client-ruby/pull/3588)
+* Change TopologyMapWidgetDefinition to oneOf with TopologyMapServiceMapDefinitionServiceMap [#3559](https://github.com/DataDog/datadog-api-client-ruby/pull/3559)
+* Update ListAssetsSBOMs spec - require asset_type on first page, add ServerlessFunction asset type [#3549](https://github.com/DataDog/datadog-api-client-ruby/pull/3549)
+* Fix DORA deployment and incident read responses to use date-time timestamps [#3548](https://github.com/DataDog/datadog-api-client-ruby/pull/3548)
+* Allow using access key to specify AWS s3 integration in create / update logs archives [#3486](https://github.com/DataDog/datadog-api-client-ruby/pull/3486)
+* Add saved filters endpoints to the Feature Flags API [#3467](https://github.com/DataDog/datadog-api-client-ruby/pull/3467)
+
+### Removed
+* Remove prerequisite, table_id, and attached_to fields from incident user-defined field API [#3554](https://github.com/DataDog/datadog-api-client-ruby/pull/3554)
+
 ## 2.56.0/2026-06-30
 
 ### Added
