@@ -6218,32 +6218,32 @@ ScenariosModelMappings = {
             "variable_id" => "String",
             "body" => "GlobalVariableJsonPatchRequest",
     },
-    "v2.ListTagPolicies" => {
+    "v2.ListTagRules" => {
             "include_disabled" => "Boolean",
             "include_deleted" => "Boolean",
-            "include" => "TagPolicyInclude",
-            "filter_source" => "TagPolicySource",
+            "include" => "TagRuleInclude",
+            "filter_source" => "TagRuleSource",
             "ts_start" => "Integer",
             "ts_end" => "Integer",
     },
-    "v2.CreateTagPolicy" => {
-            "body" => "TagPolicyCreateRequest",
+    "v2.CreateTagRule" => {
+            "body" => "TagRuleCreateRequest",
     },
-    "v2.DeleteTagPolicy" => {
+    "v2.DeleteTagRule" => {
             "policy_id" => "String",
             "hard_delete" => "Boolean",
     },
-    "v2.GetTagPolicy" => {
+    "v2.GetTagRule" => {
             "policy_id" => "String",
-            "include" => "TagPolicyInclude",
+            "include" => "TagRuleInclude",
             "ts_start" => "Integer",
             "ts_end" => "Integer",
     },
-    "v2.UpdateTagPolicy" => {
+    "v2.UpdateTagRule" => {
             "policy_id" => "String",
-            "body" => "TagPolicyUpdateRequest",
+            "body" => "TagRuleUpdateRequest",
     },
-    "v2.GetTagPolicyScore" => {
+    "v2.GetTagRuleScore" => {
             "policy_id" => "String",
             "ts_start" => "Integer",
             "ts_end" => "Integer",
