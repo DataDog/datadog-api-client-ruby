@@ -36,8 +36,8 @@ module DatadogAPIClient::V2
     # Whether the parameter must be provided.
     attr_reader :required
 
-    # The supported values for an enumerated parameter.
-    attr_reader :supported_values
+    # The supported values for an enumerated parameter. `null` when the parameter is not an enumerated type.
+    attr_accessor :supported_values
 
     # The type of the parameter, such as `integer`, `string`, `boolean`, `enum`, or `pattern_list`.
     attr_reader :type
@@ -70,6 +70,14 @@ module DatadogAPIClient::V2
         :'supported_values' => :'Array<GovernanceControlSupportedValue>',
         :'type' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'supported_values',
+      ])
     end
 
     # Initializes the object
@@ -130,7 +138,6 @@ module DatadogAPIClient::V2
       return false if @display_name.nil?
       return false if @name.nil?
       return false if @required.nil?
-      return false if @supported_values.nil?
       return false if @type.nil?
       true
     end
@@ -183,16 +190,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "required", required cannot be nil.'
       end
       @required = required
-    end
-
-    # Custom attribute writer method with validation
-    # @param supported_values [Object] Object to be assigned
-    # @!visibility private
-    def supported_values=(supported_values)
-      if supported_values.nil?
-        fail ArgumentError, 'invalid value for "supported_values", supported_values cannot be nil.'
-      end
-      @supported_values = supported_values
     end
 
     # Custom attribute writer method with validation
