@@ -1975,6 +1975,9 @@ ScenariosModelMappings = {
             "decision_id" => "String",
             "body" => "ChangeRequestDecisionUpdateRequest",
     },
+    "v2.UpdateCIAppGitHubAccount" => {
+            "body" => "CIAppGitHubAccountUpdateRequest",
+    },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
     },
