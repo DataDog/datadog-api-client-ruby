@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The data object for creating a degradation.
-  class CreateDegradationRequestData
+  # The supported metadata for a degradation request.
+  class DegradationRequestDataMeta
     include BaseGenericModel
 
-    # The supported attributes for creating a degradation.
-    attr_reader :attributes
-
-    # The supported metadata for a degradation request.
-    attr_accessor :meta
-
-    # The supported relationships for creating a degradation.
-    attr_accessor :relationships
-
-    # Degradations resource type.
-    attr_reader :type
+    # A unique key used to ensure idempotent requests.
+    attr_accessor :idempotency_key
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'meta' => :'meta',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'idempotency_key' => :'idempotency_key'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'CreateDegradationRequestDataAttributes',
-        :'meta' => :'DegradationRequestDataMeta',
-        :'relationships' => :'CreateDegradationRequestDataRelationships',
-        :'type' => :'PatchDegradationRequestDataType'
+        :'idempotency_key' => :'UUID'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateDegradationRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DegradationRequestDataMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,50 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'idempotency_key')
+        self.idempotency_key = attributes[:'idempotency_key']
       end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
-      end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -147,10 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          meta == o.meta &&
-          relationships == o.relationships &&
-          type == o.type &&
+          idempotency_key == o.idempotency_key &&
           additional_properties == o.additional_properties
     end
 
@@ -158,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, meta, relationships, type, additional_properties].hash
+      [idempotency_key, additional_properties].hash
     end
   end
 end

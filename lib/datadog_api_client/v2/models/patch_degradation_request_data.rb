@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The ID of the degradation.
     attr_reader :id
 
+    # The supported metadata for a degradation request.
+    attr_accessor :meta
+
     # The supported relationships for updating a degradation.
     attr_accessor :relationships
 
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'meta' => :'meta',
         :'relationships' => :'relationships',
         :'type' => :'type'
       }
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'PatchDegradationRequestDataAttributes',
         :'id' => :'UUID',
+        :'meta' => :'DegradationRequestDataMeta',
         :'relationships' => :'PatchDegradationRequestDataRelationships',
         :'type' => :'PatchDegradationRequestDataType'
       }
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
 
       if attributes.key?(:'relationships')
@@ -160,6 +169,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          meta == o.meta &&
           relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -169,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [attributes, id, meta, relationships, type, additional_properties].hash
     end
   end
 end
