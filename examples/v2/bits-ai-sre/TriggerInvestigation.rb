@@ -1,10 +1,10 @@
-# Trigger a Bits AI investigation returns "OK" response
+# Trigger a Bits AI SRE investigation returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.trigger_investigation".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::BitsAIAPI.new
+api_instance = DatadogAPIClient::V2::BitsAISREAPI.new
 
 body = DatadogAPIClient::V2::TriggerInvestigationRequest.new({
   data: DatadogAPIClient::V2::TriggerInvestigationRequestData.new({
