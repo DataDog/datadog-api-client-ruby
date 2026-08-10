@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class PatchMaintenanceRequestDataAttributes
     include BaseGenericModel
 
+    # The description shown when the maintenance is canceled.
+    attr_accessor :canceled_description
+
     # Timestamp of when the maintenance was completed.
     attr_accessor :completed_date
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'canceled_description' => :'canceled_description',
         :'completed_date' => :'completed_date',
         :'completed_description' => :'completed_description',
         :'components_affected' => :'components_affected',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'canceled_description' => :'String',
         :'completed_date' => :'Time',
         :'completed_description' => :'String',
         :'components_affected' => :'Array<PatchMaintenanceRequestDataAttributesComponentsAffectedItems>',
@@ -94,6 +99,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'canceled_description')
+        self.canceled_description = attributes[:'canceled_description']
+      end
 
       if attributes.key?(:'completed_date')
         self.completed_date = attributes[:'completed_date']
@@ -156,6 +165,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          canceled_description == o.canceled_description &&
           completed_date == o.completed_date &&
           completed_description == o.completed_description &&
           components_affected == o.components_affected &&
@@ -171,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [completed_date, completed_description, components_affected, in_progress_description, scheduled_description, start_date, status, title, additional_properties].hash
+      [canceled_description, completed_date, completed_description, components_affected, in_progress_description, scheduled_description, start_date, status, title, additional_properties].hash
     end
   end
 end

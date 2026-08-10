@@ -6055,6 +6055,12 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchMaintenanceRequest",
     },
+    "v2.PatchMaintenanceUpdate" => {
+            "page_id" => "UUID",
+            "maintenance_id" => "UUID",
+            "update_id" => "UUID",
+            "body" => "PatchMaintenanceUpdateRequest",
+    },
     "v2.PublishStatusPage" => {
             "page_id" => "UUID",
     },
