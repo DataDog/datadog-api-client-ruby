@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The spec defines what the workflow does.
+  # A complete Workflow Automation definition, including its triggers, steps, and connections.
   class Spec
     include BaseGenericModel
 

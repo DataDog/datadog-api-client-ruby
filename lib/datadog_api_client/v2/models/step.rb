@@ -30,7 +30,8 @@ module DatadogAPIClient::V2
     # The unique identifier of a connection defined in the spec.
     attr_accessor :connection_label
 
-    # The definition of `StepDisplay` object.
+    # The position of a step on the workflow canvas. Omit `display` from every step to use
+    # automatic layout, or provide it for every step to preserve a manual layout.
     attr_accessor :display
 
     # The `Step` `errorHandlers`.
@@ -39,7 +40,7 @@ module DatadogAPIClient::V2
     # Name of the step.
     attr_reader :name
 
-    # A list of subsequent actions to run.
+    # A list of subsequent actions to run. This list is empty for a terminal step.
     attr_accessor :outbound_edges
 
     # A list of inputs for an action.
@@ -148,7 +149,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @action_id.nil?
+      return false if @action_id.to_s.length < 1
       return false if @name.nil?
+      return false if @name.to_s.length < 1
       true
     end
 
@@ -159,6 +162,9 @@ module DatadogAPIClient::V2
       if action_id.nil?
         fail ArgumentError, 'invalid value for "action_id", action_id cannot be nil.'
       end
+      if action_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "action_id", the character length must be great than or equal to 1.'
+      end
       @action_id = action_id
     end
 
@@ -168,6 +174,9 @@ module DatadogAPIClient::V2
     def name=(name)
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
       end
       @name = name
     end

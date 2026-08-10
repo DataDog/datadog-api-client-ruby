@@ -27,8 +27,6 @@ module DatadogAPIClient::V2
     # The `RetryStrategyLinear` `maxRetries`.
     attr_reader :max_retries
 
-    attr_accessor :additional_properties
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -43,7 +41,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'interval' => :'String',
-        :'max_retries' => :'Float'
+        :'max_retries' => :'Integer'
       }
     end
 
@@ -55,14 +53,12 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RetryStrategyLinear` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RetryStrategyLinear`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'interval')
@@ -79,7 +75,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @interval.nil?
+      pattern = Regexp.new(/^[1-9][0-9]*s$/)
+      return false if @interval !~ pattern
       return false if @max_retries.nil?
+      return false if @max_retries > 2147483647
+      return false if @max_retries < 0
       true
     end
 
@@ -89,6 +89,10 @@ module DatadogAPIClient::V2
     def interval=(interval)
       if interval.nil?
         fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
+      end
+      pattern = Regexp.new(/^[1-9][0-9]*s$/)
+      if interval !~ pattern
+        fail ArgumentError, "invalid value for \"interval\", must conform to the pattern #{pattern}."
       end
       @interval = interval
     end
@@ -100,27 +104,13 @@ module DatadogAPIClient::V2
       if max_retries.nil?
         fail ArgumentError, 'invalid value for "max_retries", max_retries cannot be nil.'
       end
+      if max_retries > 2147483647
+        fail ArgumentError, 'invalid value for "max_retries", must be smaller than or equal to 2147483647.'
+      end
+      if max_retries < 0
+        fail ArgumentError, 'invalid value for "max_retries", must be greater than or equal to 0.'
+      end
       @max_retries = max_retries
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
     end
 
     # Checks equality by comparing each attribute.
@@ -130,15 +120,14 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           interval == o.interval &&
-          max_retries == o.max_retries &&
-          additional_properties == o.additional_properties
+          max_retries == o.max_retries
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [interval, max_retries, additional_properties].hash
+      [interval, max_retries].hash
     end
   end
 end

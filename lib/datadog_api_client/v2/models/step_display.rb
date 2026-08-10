@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `StepDisplay` object.
+  # The position of a step on the workflow canvas. Omit `display` from every step to use
+  # automatic layout, or provide it for every step to preserve a manual layout.
   class StepDisplay
     include BaseGenericModel
 
