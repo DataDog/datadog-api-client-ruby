@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request object for creating a degradation.
-  class CreateDegradationRequest
+  # The supported metadata for a degradation request.
+  class DegradationRequestMeta
     include BaseGenericModel
 
-    # The data object for creating a degradation.
-    attr_accessor :data
-
-    # The supported metadata for a degradation request.
-    attr_accessor :meta
+    # A unique key used to ensure idempotent requests.
+    attr_accessor :idempotency_key
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'idempotency_key' => :'idempotency_key'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'CreateDegradationRequestData',
-        :'meta' => :'DegradationRequestMeta'
+        :'idempotency_key' => :'UUID'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateDegradationRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DegradationRequestMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'idempotency_key')
+        self.idempotency_key = attributes[:'idempotency_key']
       end
     end
 
@@ -100,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          idempotency_key == o.idempotency_key &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [idempotency_key, additional_properties].hash
     end
   end
 end

@@ -24,13 +24,17 @@ module DatadogAPIClient::V2
     # The data object for updating a degradation.
     attr_accessor :data
 
+    # The supported metadata for a degradation request.
+    attr_accessor :meta
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'meta' => :'meta'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'PatchDegradationRequestData'
+        :'data' => :'PatchDegradationRequestData',
+        :'meta' => :'DegradationRequestMeta'
       }
     end
 
@@ -62,6 +67,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -92,6 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [data, meta, additional_properties].hash
     end
   end
 end
