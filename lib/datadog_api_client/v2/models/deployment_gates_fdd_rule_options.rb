@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class DeploymentGatesFDDRuleOptions
     include BaseGenericModel
 
+    # APM resource names to include in analysis. Mutually exclusive with `excluded_resources`.
+    attr_accessor :allowed_resources
+
     # Evaluation window in seconds. Maximum 7200 (2 hours).
     attr_reader :duration
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'allowed_resources' => :'allowed_resources',
         :'duration' => :'duration',
         :'excluded_resources' => :'excluded_resources'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'allowed_resources' => :'Array<String>',
         :'duration' => :'Integer',
         :'excluded_resources' => :'Array<String>'
       }
@@ -64,6 +69,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'allowed_resources')
+        if (value = attributes[:'allowed_resources']).is_a?(Array)
+          self.allowed_resources = value
+        end
+      end
 
       if attributes.key?(:'duration')
         self.duration = attributes[:'duration']
@@ -120,6 +131,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allowed_resources == o.allowed_resources &&
           duration == o.duration &&
           excluded_resources == o.excluded_resources &&
           additional_properties == o.additional_properties
@@ -129,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [duration, excluded_resources, additional_properties].hash
+      [allowed_resources, duration, excluded_resources, additional_properties].hash
     end
   end
 end
