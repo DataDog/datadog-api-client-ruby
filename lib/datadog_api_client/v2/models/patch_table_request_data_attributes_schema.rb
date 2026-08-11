@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class PatchTableRequestDataAttributesSchema
     include BaseGenericModel
 
-    # The schema fields.
+    # The schema fields. Maximum of 200 columns.
     attr_reader :fields
 
     # List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows. Primary keys cannot be changed after table creation.
@@ -83,6 +83,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @fields.nil?
+      return false if @fields.length > 200
+      return false if @fields.length < 1
       return false if @primary_keys.nil?
       true
     end
@@ -93,6 +95,12 @@ module DatadogAPIClient::V2
     def fields=(fields)
       if fields.nil?
         fail ArgumentError, 'invalid value for "fields", fields cannot be nil.'
+      end
+      if fields.length > 200
+        fail ArgumentError, 'invalid value for "fields", number of items must be less than or equal to 200.'
+      end
+      if fields.length < 1
+        fail ArgumentError, 'invalid value for "fields", number of items must be greater than or equal to 1.'
       end
       @fields = fields
     end

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateUploadRequestDataAttributes
     include BaseGenericModel
 
-    # The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file.
+    # The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file. Maximum of 200 columns.
     attr_reader :headers
 
     # Number of parts to split the file into for multipart upload.
@@ -99,6 +99,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @headers.nil?
+      return false if @headers.length > 200
       return false if @part_count.nil?
       return false if @part_count > 20
       return false if @part_size.nil?
@@ -112,6 +113,9 @@ module DatadogAPIClient::V2
     def headers=(headers)
       if headers.nil?
         fail ArgumentError, 'invalid value for "headers", headers cannot be nil.'
+      end
+      if headers.length > 200
+        fail ArgumentError, 'invalid value for "headers", number of items must be less than or equal to 200.'
       end
       @headers = headers
     end
