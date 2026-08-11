@@ -3415,9 +3415,16 @@ ScenariosModelMappings = {
             "form_id" => "UUID",
             "body" => "PublishFormRequest",
     },
+    "v2.ListFormVersions" => {
+            "form_id" => "UUID",
+    },
     "v2.UpsertFormVersion" => {
             "form_id" => "UUID",
             "body" => "UpsertFormVersionRequest",
+    },
+    "v2.RevertFormVersion" => {
+            "form_id" => "UUID",
+            "version" => "Integer",
     },
     "v2.UpsertAndPublishFormVersion" => {
             "form_id" => "UUID",
