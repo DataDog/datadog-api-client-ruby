@@ -4198,6 +4198,26 @@ ScenariosModelMappings = {
             "resource_id" => "String",
             "body" => "ConfluentResourceRequest",
     },
+    "v2.ListElasticCloudIntegrationAccounts" => {
+            "interface_id" => "ElasticCloudInterfaceId",
+    },
+    "v2.CreateElasticCloudIntegrationAccount" => {
+            "interface_id" => "ElasticCloudInterfaceId",
+            "body" => "ElasticCloudIntegrationAccountRequest",
+    },
+    "v2.DeleteElasticCloudIntegrationAccount" => {
+            "interface_id" => "ElasticCloudInterfaceId",
+            "account_id" => "String",
+    },
+    "v2.GetElasticCloudIntegrationAccount" => {
+            "interface_id" => "ElasticCloudInterfaceId",
+            "account_id" => "String",
+    },
+    "v2.UpdateElasticCloudIntegrationAccount" => {
+            "interface_id" => "ElasticCloudInterfaceId",
+            "account_id" => "String",
+            "body" => "ElasticCloudIntegrationAccountUpdateRequest",
+    },
     "v2.CreateFastlyAccount" => {
             "body" => "FastlyAccountCreateRequest",
     },
@@ -4243,6 +4263,26 @@ ScenariosModelMappings = {
     "v2.UpdateOktaAccount" => {
             "account_id" => "String",
             "body" => "OktaAccountUpdateRequest",
+    },
+    "v2.ListTwilioIntegrationAccounts" => {
+            "interface_id" => "TwilioInterfaceType",
+    },
+    "v2.CreateTwilioIntegrationAccount" => {
+            "interface_id" => "TwilioInterfaceType",
+            "body" => "TwilioIntegrationAccountRequest",
+    },
+    "v2.DeleteTwilioIntegrationAccount" => {
+            "interface_id" => "TwilioInterfaceType",
+            "account_id" => "String",
+    },
+    "v2.GetTwilioIntegrationAccount" => {
+            "interface_id" => "TwilioInterfaceType",
+            "account_id" => "String",
+    },
+    "v2.UpdateTwilioIntegrationAccount" => {
+            "interface_id" => "TwilioInterfaceType",
+            "account_id" => "String",
+            "body" => "TwilioIntegrationAccountUpdateRequest",
     },
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
