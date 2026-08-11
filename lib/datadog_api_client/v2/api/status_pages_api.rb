@@ -2581,7 +2581,7 @@ module DatadogAPIClient::V2
 
     # Update status page.
     #
-    # Updates an existing status page's attributes. **Note**: Publishing and unpublishing via the `enabled` property will be deprecated on this endpoint. Use the dedicated [publish](#publish-status-page) and [unpublish](#unpublish-status-page) status page endpoints instead.
+    # Updates an existing status page's attributes. To publish and unpublish status pages, use the dedicated [publish](#publish-status-page) and [unpublish](#unpublish-status-page) status page endpoints.
     #
     # @param page_id [UUID] The ID of the status page.
     # @param body [PatchStatusPageRequest] 
