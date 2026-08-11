@@ -44,6 +44,9 @@ module DatadogAPIClient::V2
     # Status of the source span. Included only when metrics are requested.
     attr_accessor :status
 
+    # Unix timestamp of the source span in milliseconds. Included only when metrics are requested.
+    attr_accessor :timestamp
+
     # Total number of tokens of the source span. Included only when metrics are requested.
     attr_accessor :total_tokens
 
@@ -60,6 +63,7 @@ module DatadogAPIClient::V2
         :'output_tokens' => :'output_tokens',
         :'span_id' => :'span_id',
         :'status' => :'status',
+        :'timestamp' => :'timestamp',
         :'total_tokens' => :'total_tokens'
       }
     end
@@ -75,6 +79,7 @@ module DatadogAPIClient::V2
         :'output_tokens' => :'Float',
         :'span_id' => :'String',
         :'status' => :'String',
+        :'timestamp' => :'Integer',
         :'total_tokens' => :'Float'
       }
     end
@@ -123,6 +128,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'timestamp')
+        self.timestamp = attributes[:'timestamp']
       end
 
       if attributes.key?(:'total_tokens')
@@ -181,6 +190,7 @@ module DatadogAPIClient::V2
           output_tokens == o.output_tokens &&
           span_id == o.span_id &&
           status == o.status &&
+          timestamp == o.timestamp &&
           total_tokens == o.total_tokens &&
           additional_properties == o.additional_properties
     end
@@ -189,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [duration, estimated_total_cost, evaluation, input_tokens, output_tokens, span_id, status, total_tokens, additional_properties].hash
+      [duration, estimated_total_cost, evaluation, input_tokens, output_tokens, span_id, status, timestamp, total_tokens, additional_properties].hash
     end
   end
 end
