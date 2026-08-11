@@ -30,9 +30,6 @@ module DatadogAPIClient::V2
     # The base64-encoded image data displayed in email notifications sent to status page subscribers.
     attr_accessor :email_header_image
 
-    # Whether the status page is enabled.
-    attr_accessor :enabled
-
     # The base64-encoded image data displayed in the browser tab.
     attr_accessor :favicon
 
@@ -63,7 +60,6 @@ module DatadogAPIClient::V2
         :'company_logo' => :'company_logo',
         :'domain_prefix' => :'domain_prefix',
         :'email_header_image' => :'email_header_image',
-        :'enabled' => :'enabled',
         :'favicon' => :'favicon',
         :'name' => :'name',
         :'slack_app_icon' => :'slack_app_icon',
@@ -81,7 +77,6 @@ module DatadogAPIClient::V2
         :'company_logo' => :'String',
         :'domain_prefix' => :'String',
         :'email_header_image' => :'String',
-        :'enabled' => :'Boolean',
         :'favicon' => :'String',
         :'name' => :'String',
         :'slack_app_icon' => :'String',
@@ -120,10 +115,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'email_header_image')
         self.email_header_image = attributes[:'email_header_image']
-      end
-
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
       end
 
       if attributes.key?(:'favicon')
@@ -184,7 +175,6 @@ module DatadogAPIClient::V2
           company_logo == o.company_logo &&
           domain_prefix == o.domain_prefix &&
           email_header_image == o.email_header_image &&
-          enabled == o.enabled &&
           favicon == o.favicon &&
           name == o.name &&
           slack_app_icon == o.slack_app_icon &&
@@ -199,7 +189,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, domain_prefix, email_header_image, enabled, favicon, name, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_type, additional_properties].hash
+      [company_logo, domain_prefix, email_header_image, favicon, name, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_type, additional_properties].hash
     end
   end
 end
