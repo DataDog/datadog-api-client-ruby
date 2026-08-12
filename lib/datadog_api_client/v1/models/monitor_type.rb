@@ -43,5 +43,6 @@ module DatadogAPIClient::V1
     DATA_QUALITY_ALERT = "data-quality alert".freeze
     NETWORK_PATH_ALERT = "network-path alert".freeze
     DATA_JOBS_ALERT = "data-jobs alert".freeze
+    LLM_OBSERVABILITY_ALERT = "llm-observability alert".freeze
   end
 end
