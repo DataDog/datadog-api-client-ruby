@@ -437,6 +437,7 @@ module DatadogAPIClient
             "v2.trigger_deployment_gates_evaluation": false,
             "v2.update_deployment_gate": false,
             "v2.update_deployment_rule": false,
+            "v2.patch_dora_deployment_by_version": false,
             "v2.clone_form": false,
             "v2.create_and_publish_form": false,
             "v2.create_form": false,

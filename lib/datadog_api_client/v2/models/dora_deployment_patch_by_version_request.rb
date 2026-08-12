@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for patching a DORA deployment event.
-  class DORADeploymentPatchRequestAttributes
+  # Request to patch a DORA deployment event identified by service, environment, and version.
+  class DORADeploymentPatchByVersionRequest
     include BaseGenericModel
 
-    # Indicates whether the deployment resulted in a change failure.
-    attr_accessor :change_failure
-
-    # Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time. Specify either `id` or `version` to identify the remediation deployment, but not both.
-    attr_accessor :remediation
+    # The JSON:API data for patching a deployment identified by service, environment, and version.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'change_failure' => :'change_failure',
-        :'remediation' => :'remediation'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'change_failure' => :'Boolean',
-        :'remediation' => :'DORADeploymentPatchRemediation'
+        :'data' => :'DORADeploymentPatchByVersionRequestData'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchByVersionRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'change_failure')
-        self.change_failure = attributes[:'change_failure']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
+    end
 
-      if attributes.key?(:'remediation')
-        self.remediation = attributes[:'remediation']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          change_failure == o.change_failure &&
-          remediation == o.remediation &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [change_failure, remediation, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
