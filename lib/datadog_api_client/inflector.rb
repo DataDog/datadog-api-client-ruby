@@ -1215,6 +1215,8 @@ module DatadogAPIClient
           "v2.active_billing_dimensions_type" => "ActiveBillingDimensionsType",
           "v2.add_member_team_request" => "AddMemberTeamRequest",
           "v2.advisory" => "Advisory",
+          "v2.agent_trigger" => "AgentTrigger",
+          "v2.agent_trigger_wrapper" => "AgentTriggerWrapper",
           "v2.aggregated_high_frozen_frame_rate" => "AggregatedHighFrozenFrameRate",
           "v2.aggregated_high_script_eval" => "AggregatedHighScriptEval",
           "v2.aggregated_long_tasks_by_invoker_type" => "AggregatedLongTasksByInvokerType",
