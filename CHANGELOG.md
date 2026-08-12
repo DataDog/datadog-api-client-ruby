@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 2.58.0/2026-08-12
+
+### Changed
+* 200 col lim explicit in api docs [#3667](https://github.com/DataDog/datadog-api-client-ruby/pull/3667)
+* Add GET/PATCH /api/v2/ci/github/accounts to CI Visibility spec [#3656](https://github.com/DataDog/datadog-api-client-ruby/pull/3656)
+* Mark supported_values as nullable and remove unused detection_frequency in Governance Console API [#3653](https://github.com/DataDog/datadog-api-client-ruby/pull/3653)
+
+### Added
+* Add llm-observability alert monitor type [#3666](https://github.com/DataDog/datadog-api-client-ruby/pull/3666)
+* Add allowed_resources to Deployment Gates FDD rule options [#3665](https://github.com/DataDog/datadog-api-client-ruby/pull/3665)
+* Document meta.idempotency_key in CreateDegradation and UpdateDegradation [#3659](https://github.com/DataDog/datadog-api-client-ruby/pull/3659)
+*  Add spec for maintenance update edit endpoint [#3650](https://github.com/DataDog/datadog-api-client-ruby/pull/3650)
+* Document PATCH /api/v2/dora/deployments [#3646](https://github.com/DataDog/datadog-api-client-ruby/pull/3646)
+
+### Removed
+* Update Status Pages UpdateStatusPage documentation to reflect enabled attribute deprecation [#3663](https://github.com/DataDog/datadog-api-client-ruby/pull/3663)
+* Make RUM rate limit config API private pending rename [#3657](https://github.com/DataDog/datadog-api-client-ruby/pull/3657)
+
+### Fixed
+* Remove redundant otel fields from Fleet Automation v2 agent detail endpoint [#3655](https://github.com/DataDog/datadog-api-client-ruby/pull/3655)
+
 ## 2.57.0/2026-08-06
 
 ### Fixed
