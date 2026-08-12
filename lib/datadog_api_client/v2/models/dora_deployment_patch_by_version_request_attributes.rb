@@ -17,15 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for patching a DORA deployment event.
-  class DORADeploymentPatchRequestAttributes
+  # Attributes for patching a DORA deployment event identified by service, environment, and version.
+  class DORADeploymentPatchByVersionRequestAttributes
     include BaseGenericModel
 
     # Indicates whether the deployment resulted in a change failure.
-    attr_accessor :change_failure
+    attr_reader :change_failure
+
+    # The environment the deployment was performed in.
+    attr_reader :env
 
     # Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time. Specify either `id` or `version` to identify the remediation deployment, but not both.
     attr_accessor :remediation
+
+    # The name of the service that was deployed.
+    attr_reader :service
+
+    # The version deployed. This can be seen in the Service Catalog or in the APM Deployment Tracking.
+    attr_reader :version
 
     attr_accessor :additional_properties
 
@@ -34,7 +43,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'change_failure' => :'change_failure',
-        :'remediation' => :'remediation'
+        :'env' => :'env',
+        :'remediation' => :'remediation',
+        :'service' => :'service',
+        :'version' => :'version'
       }
     end
 
@@ -43,7 +55,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'change_failure' => :'Boolean',
-        :'remediation' => :'DORADeploymentPatchRemediation'
+        :'env' => :'String',
+        :'remediation' => :'DORADeploymentPatchByVersionRemediation',
+        :'service' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -52,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchByVersionRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -69,9 +84,72 @@ module DatadogAPIClient::V2
         self.change_failure = attributes[:'change_failure']
       end
 
+      if attributes.key?(:'env')
+        self.env = attributes[:'env']
+      end
+
       if attributes.key?(:'remediation')
         self.remediation = attributes[:'remediation']
       end
+
+      if attributes.key?(:'service')
+        self.service = attributes[:'service']
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @change_failure.nil?
+      return false if @env.nil?
+      return false if @service.nil?
+      return false if @version.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param change_failure [Object] Object to be assigned
+    # @!visibility private
+    def change_failure=(change_failure)
+      if change_failure.nil?
+        fail ArgumentError, 'invalid value for "change_failure", change_failure cannot be nil.'
+      end
+      @change_failure = change_failure
+    end
+
+    # Custom attribute writer method with validation
+    # @param env [Object] Object to be assigned
+    # @!visibility private
+    def env=(env)
+      if env.nil?
+        fail ArgumentError, 'invalid value for "env", env cannot be nil.'
+      end
+      @env = env
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    # @!visibility private
+    def service=(service)
+      if service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
+    end
+
+    # Custom attribute writer method with validation
+    # @param version [Object] Object to be assigned
+    # @!visibility private
+    def version=(version)
+      if version.nil?
+        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
+      end
+      @version = version
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -101,7 +179,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           change_failure == o.change_failure &&
+          env == o.env &&
           remediation == o.remediation &&
+          service == o.service &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [change_failure, remediation, additional_properties].hash
+      [change_failure, env, remediation, service, version, additional_properties].hash
     end
   end
 end

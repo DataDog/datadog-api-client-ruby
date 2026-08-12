@@ -703,5 +703,78 @@ module DatadogAPIClient::V2
       end
       return data, status_code, headers
     end
+
+    # Patch a deployment event by version.
+    #
+    # @see #patch_dora_deployment_by_version_with_http_info
+    def patch_dora_deployment_by_version(body, opts = {})
+      patch_dora_deployment_by_version_with_http_info(body, opts)
+      nil
+    end
+
+    # Patch a deployment event by version.
+    #
+    # Update a deployment's change failure status, identifying the deployment by its service, environment, and version instead of its ID. Use this to mark a deployment as a change failure or back to stable. You can optionally include remediation details to enable failed deployment recovery time calculation. If multiple deployments match the given service, environment, and version, the most recently finished one is updated.
+    #
+    # @param body [DORADeploymentPatchByVersionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def patch_dora_deployment_by_version_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.patch_dora_deployment_by_version".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.patch_dora_deployment_by_version")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.patch_dora_deployment_by_version"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.patch_dora_deployment_by_version ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DORAMetricsAPI.patch_dora_deployment_by_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/deployments'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :patch_dora_deployment_by_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#patch_dora_deployment_by_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

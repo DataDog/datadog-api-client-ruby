@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for patching a DORA deployment event.
-  class DORADeploymentPatchRequestAttributes
+  # The JSON:API data for patching a deployment identified by service, environment, and version.
+  class DORADeploymentPatchByVersionRequestData
     include BaseGenericModel
 
-    # Indicates whether the deployment resulted in a change failure.
-    attr_accessor :change_failure
+    # Attributes for patching a DORA deployment event identified by service, environment, and version.
+    attr_reader :attributes
 
-    # Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time. Specify either `id` or `version` to identify the remediation deployment, but not both.
-    attr_accessor :remediation
+    # JSON:API type for DORA deployment patch request.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'change_failure' => :'change_failure',
-        :'remediation' => :'remediation'
+        :'attributes' => :'attributes',
+        :'type' => :'type'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'change_failure' => :'Boolean',
-        :'remediation' => :'DORADeploymentPatchRemediation'
+        :'attributes' => :'DORADeploymentPatchByVersionRequestAttributes',
+        :'type' => :'DORADeploymentPatchRequestDataType'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchByVersionRequestData` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'change_failure')
-        self.change_failure = attributes[:'change_failure']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'remediation')
-        self.remediation = attributes[:'remediation']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          change_failure == o.change_failure &&
-          remediation == o.remediation &&
+          attributes == o.attributes &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [change_failure, remediation, additional_properties].hash
+      [attributes, type, additional_properties].hash
     end
   end
 end

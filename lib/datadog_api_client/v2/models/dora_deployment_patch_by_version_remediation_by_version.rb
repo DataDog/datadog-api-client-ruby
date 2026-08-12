@@ -17,26 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time. Specify either `id` or `version` to identify the remediation deployment, but not both.
-  class DORADeploymentPatchRemediation
+  # Remediation details identified by the version of the remediation deployment, matched against the same service and environment as the failed deployment.
+  class DORADeploymentPatchByVersionRemediationByVersion
     include BaseGenericModel
 
-    # The ID of the remediation deployment. Use this or `version` to identify the remediation deployment, but not both.
-    attr_accessor :id
-
     # The type of remediation action taken. Required when the failed deployment must be linked to a remediation deployment.
-    attr_accessor :type
+    attr_reader :type
 
-    # The version of the remediation deployment, matched against the same service and environment as the failed deployment. Use this or `id` to identify the remediation deployment, but not both.
-    attr_accessor :version
-
-    attr_accessor :additional_properties
+    # The version of the remediation deployment.
+    attr_reader :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
         :'type' => :'type',
         :'version' => :'version'
       }
@@ -46,7 +40,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
         :'type' => :'DORADeploymentPatchRemediationType',
         :'version' => :'String'
       }
@@ -57,22 +50,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchRemediation` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentPatchByVersionRemediationByVersion` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::DORADeploymentPatchByVersionRemediationByVersion`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
@@ -83,24 +70,33 @@ module DatadogAPIClient::V2
       end
     end
 
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
     # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
+    def valid?
+      return false if @type.nil?
+      return false if @version.nil?
+      true
+    end
 
-        hash[param] = _to_hash(value)
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param version [Object] Object to be assigned
+    # @!visibility private
+    def version=(version)
+      if version.nil?
+        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
       end
-      hash
+      @version = version
     end
 
     # Checks equality by comparing each attribute.
@@ -109,17 +105,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           type == o.type &&
-          version == o.version &&
-          additional_properties == o.additional_properties
+          version == o.version
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type, version, additional_properties].hash
+      [type, version].hash
     end
   end
 end
