@@ -17,20 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Widget definition.
-  class ScatterPlotWidgetDefinitionRequests
+  # The projection configuration for a scatterplot data projection request.
+  class ScatterplotDataProjectionProjection
     include BaseGenericModel
 
-    # Scatterplot table request. Supports two modes:
-    # - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
-    # - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
-    attr_accessor :table
+    # Dimension mappings for the scatterplot axes.
+    attr_reader :dimensions
 
-    # Updated scatter plot.
-    attr_accessor :x
-
-    # Updated scatter plot.
-    attr_accessor :y
+    # The type of the scatterplot data projection.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -38,9 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'table' => :'table',
-        :'x' => :'x',
-        :'y' => :'y'
+        :'dimensions' => :'dimensions',
+        :'type' => :'type'
       }
     end
 
@@ -48,9 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'table' => :'ScatterplotTableRequest',
-        :'x' => :'ScatterPlotRequest',
-        :'y' => :'ScatterPlotRequest'
+        :'dimensions' => :'Array<ScatterplotDataProjectionDimension>',
+        :'type' => :'ScatterplotDataProjectionProjectionType'
       }
     end
 
@@ -59,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterplotDataProjectionProjection` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,17 +65,44 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'table')
-        self.table = attributes[:'table']
+      if attributes.key?(:'dimensions')
+        if (value = attributes[:'dimensions']).is_a?(Array)
+          self.dimensions = value
+        end
       end
 
-      if attributes.key?(:'x')
-        self.x = attributes[:'x']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
 
-      if attributes.key?(:'y')
-        self.y = attributes[:'y']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @dimensions.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param dimensions [Object] Object to be assigned
+    # @!visibility private
+    def dimensions=(dimensions)
+      if dimensions.nil?
+        fail ArgumentError, 'invalid value for "dimensions", dimensions cannot be nil.'
       end
+      @dimensions = dimensions
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,9 +131,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          table == o.table &&
-          x == o.x &&
-          y == o.y &&
+          dimensions == o.dimensions &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +140,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [table, x, y, additional_properties].hash
+      [dimensions, type, additional_properties].hash
     end
   end
 end
