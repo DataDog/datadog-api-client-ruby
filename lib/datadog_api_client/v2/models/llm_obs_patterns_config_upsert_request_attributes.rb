@@ -27,6 +27,11 @@ module DatadogAPIClient::V2
     # The ID of an existing configuration to update. If omitted, a new configuration is created.
     attr_accessor :config_id
 
+    # When true, Datadog automatically provisions a managed project and dataset
+    # (`{pattern-name}-pattern-curated`) to receive suggested interactions after
+    # each run. Defaults to true for new patterns.
+    attr_accessor :curation_enabled
+
     # Query that selects the spans the patterns run analyzes.
     attr_reader :evp_query
 
@@ -62,6 +67,7 @@ module DatadogAPIClient::V2
       {
         :'account_id' => :'account_id',
         :'config_id' => :'config_id',
+        :'curation_enabled' => :'curation_enabled',
         :'evp_query' => :'evp_query',
         :'hierarchy_depth' => :'hierarchy_depth',
         :'integration_provider' => :'integration_provider',
@@ -80,6 +86,7 @@ module DatadogAPIClient::V2
       {
         :'account_id' => :'String',
         :'config_id' => :'String',
+        :'curation_enabled' => :'Boolean',
         :'evp_query' => :'String',
         :'hierarchy_depth' => :'Integer',
         :'integration_provider' => :'String',
@@ -116,6 +123,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'config_id')
         self.config_id = attributes[:'config_id']
+      end
+
+      if attributes.key?(:'curation_enabled')
+        self.curation_enabled = attributes[:'curation_enabled']
       end
 
       if attributes.key?(:'evp_query')
@@ -253,6 +264,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           account_id == o.account_id &&
           config_id == o.config_id &&
+          curation_enabled == o.curation_enabled &&
           evp_query == o.evp_query &&
           hierarchy_depth == o.hierarchy_depth &&
           integration_provider == o.integration_provider &&
@@ -269,7 +281,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, config_id, evp_query, hierarchy_depth, integration_provider, model_name, name, num_records, sampling_ratio, scope, template, additional_properties].hash
+      [account_id, config_id, curation_enabled, evp_query, hierarchy_depth, integration_provider, model_name, name, num_records, sampling_ratio, scope, template, additional_properties].hash
     end
   end
 end
