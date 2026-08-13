@@ -1282,6 +1282,10 @@ module DatadogAPIClient::V2
     #
     # Returns the tag configuration for the given metric name.
     #
+    # A metric may exist and submit data without having a tag configuration. If no tag configuration exists
+    # for the metric, this endpoint returns `404 Not Found`. This response does not indicate that the metric
+    # itself is missing.
+    #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
