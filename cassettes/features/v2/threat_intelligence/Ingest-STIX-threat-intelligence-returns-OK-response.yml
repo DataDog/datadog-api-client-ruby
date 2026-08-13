@@ -1,0 +1,27 @@
+http_interactions:
+- recorded_at: Fri, 24 Jul 2026 13:40:34 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"id":"bundle--44444444-4444-4444-8444-444444444444","objects":[{"created":"2026-07-22T12:00:00Z","id":"indicator--55555555-5555-4555-8555-555555555555","modified":"2026-07-22T12:00:00Z","pattern":"[ipv4-addr:value
+        = ''198.51.100.42'']","pattern_type":"stix","spec_version":"2.1","type":"indicator","valid_from":"2026-07-22T12:00:00Z"}],"spec_version":"2.1","type":"bundle"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Ti_Vendor:
+      - Acme-Inc
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security/threat-intel/stix
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"acme_inc","type":"threat-intel-stix-ingest","attributes":{"added":1,"invalid":0,"unsupported":0}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

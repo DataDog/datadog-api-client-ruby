@@ -688,6 +688,7 @@ module DatadogAPIClient
             "v2.create_scorecard_outcomes_batch": false,
             "v2.get_entity_risk_score": false,
             "v2.list_entity_risk_scores": false,
+            "v2.ingest_stix_threat_intel": false,
             "v2.create_slo_report_job": false,
             "v2.get_slo_report": false,
             "v2.get_slo_report_job_status": false,
