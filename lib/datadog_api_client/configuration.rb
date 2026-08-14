@@ -212,7 +212,6 @@ module DatadogAPIClient
             "v2.delete_llm_obs_annotation_queue_interactions": false,
             "v2.delete_llm_obs_annotations": false,
             "v2.delete_llm_obs_custom_eval_config": false,
-            "v2.delete_llm_obs_data": false,
             "v2.delete_llm_obs_dataset_records": false,
             "v2.delete_llm_obs_datasets": false,
             "v2.delete_llm_obs_experiments": false,
