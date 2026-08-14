@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
     attr_reader :name
 
     # Identifier of the project this queue belongs to.
-    attr_reader :project_id
+    attr_accessor :project_id
 
     attr_accessor :additional_properties
 
@@ -97,7 +97,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
-      return false if @project_id.nil?
       true
     end
 
@@ -109,16 +108,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param project_id [Object] Object to be assigned
-    # @!visibility private
-    def project_id=(project_id)
-      if project_id.nil?
-        fail ArgumentError, 'invalid value for "project_id", project_id cannot be nil.'
-      end
-      @project_id = project_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
