@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Test runs are tagged with @test.test_management.attempt_to_fix_passed and @test.test_management.is_attempt_to_fix when the attempt to fix workflow is triggered.
     attr_accessor :attempt_to_fix_id
 
+    # Whether every non-skipped run of the test failed over the last 7 days.
+    attr_accessor :broken_test
+
     # The name of the test's code owners as inferred from the repository configuration.
     attr_accessor :codeowners
 
@@ -103,6 +106,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attempt_to_fix_id' => :'attempt_to_fix_id',
+        :'broken_test' => :'broken_test',
         :'codeowners' => :'codeowners',
         :'envs' => :'envs',
         :'first_flaked_branch' => :'first_flaked_branch',
@@ -131,6 +135,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attempt_to_fix_id' => :'String',
+        :'broken_test' => :'Boolean',
         :'codeowners' => :'Array<String>',
         :'envs' => :'Array<String>',
         :'first_flaked_branch' => :'String',
@@ -184,6 +189,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attempt_to_fix_id')
         self.attempt_to_fix_id = attributes[:'attempt_to_fix_id']
+      end
+
+      if attributes.key?(:'broken_test')
+        self.broken_test = attributes[:'broken_test']
       end
 
       if attributes.key?(:'codeowners')
@@ -324,6 +333,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attempt_to_fix_id == o.attempt_to_fix_id &&
+          broken_test == o.broken_test &&
           codeowners == o.codeowners &&
           envs == o.envs &&
           first_flaked_branch == o.first_flaked_branch &&
@@ -351,7 +361,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attempt_to_fix_id, codeowners, envs, first_flaked_branch, first_flaked_sha, first_flaked_ts, flaky_category, flaky_state, history, impact_level, impact_score, last_flaked_branch, last_flaked_sha, last_flaked_ts, _module, name, pipeline_stats, services, suite, test_run_metadata, test_stats, additional_properties].hash
+      [attempt_to_fix_id, broken_test, codeowners, envs, first_flaked_branch, first_flaked_sha, first_flaked_ts, flaky_category, flaky_state, history, impact_level, impact_score, last_flaked_branch, last_flaked_sha, last_flaked_ts, _module, name, pipeline_stats, services, suite, test_run_metadata, test_stats, additional_properties].hash
     end
   end
 end
