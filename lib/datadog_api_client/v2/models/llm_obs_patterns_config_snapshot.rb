@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Integration account ID used for a bring-your-own-model run.
     attr_accessor :account_id
 
+    # Whether automatic dataset curation was enabled for the run.
+    attr_accessor :curation_enabled
+
     # Query that selected the spans for the run.
     attr_accessor :evp_query
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'account_id' => :'account_id',
+        :'curation_enabled' => :'curation_enabled',
         :'evp_query' => :'evp_query',
         :'hierarchy_depth' => :'hierarchy_depth',
         :'integration_provider' => :'integration_provider',
@@ -63,6 +67,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'account_id' => :'String',
+        :'curation_enabled' => :'Boolean',
         :'evp_query' => :'String',
         :'hierarchy_depth' => :'Integer',
         :'integration_provider' => :'String',
@@ -92,6 +97,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'account_id')
         self.account_id = attributes[:'account_id']
+      end
+
+      if attributes.key?(:'curation_enabled')
+        self.curation_enabled = attributes[:'curation_enabled']
       end
 
       if attributes.key?(:'evp_query')
@@ -175,6 +184,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           account_id == o.account_id &&
+          curation_enabled == o.curation_enabled &&
           evp_query == o.evp_query &&
           hierarchy_depth == o.hierarchy_depth &&
           integration_provider == o.integration_provider &&
@@ -188,7 +198,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, evp_query, hierarchy_depth, integration_provider, model_name, num_records, sampling_ratio, additional_properties].hash
+      [account_id, curation_enabled, evp_query, hierarchy_depth, integration_provider, model_name, num_records, sampling_ratio, additional_properties].hash
     end
   end
 end

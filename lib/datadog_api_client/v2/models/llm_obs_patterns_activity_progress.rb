@@ -24,11 +24,20 @@ module DatadogAPIClient::V2
     # Name of the step.
     attr_reader :name
 
+    # Number of completed work items.
+    attr_accessor :nb_completed
+
     # Timestamp when the step started. Null if the step has not started.
     attr_accessor :started_at
 
     # Status of the step.
     attr_reader :status
+
+    # Label of the current sub-step.
+    attr_accessor :sub_step
+
+    # Total number of work items.
+    attr_accessor :target
 
     attr_accessor :additional_properties
 
@@ -37,8 +46,11 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'name' => :'name',
+        :'nb_completed' => :'nb_completed',
         :'started_at' => :'started_at',
-        :'status' => :'status'
+        :'status' => :'status',
+        :'sub_step' => :'sub_step',
+        :'target' => :'target'
       }
     end
 
@@ -47,8 +59,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'name' => :'String',
+        :'nb_completed' => :'Integer',
         :'started_at' => :'Time',
-        :'status' => :'String'
+        :'status' => :'String',
+        :'sub_step' => :'String',
+        :'target' => :'Integer'
       }
     end
 
@@ -82,12 +97,24 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'nb_completed')
+        self.nb_completed = attributes[:'nb_completed']
+      end
+
       if attributes.key?(:'started_at')
         self.started_at = attributes[:'started_at']
       end
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'sub_step')
+        self.sub_step = attributes[:'sub_step']
+      end
+
+      if attributes.key?(:'target')
+        self.target = attributes[:'target']
       end
     end
 
@@ -147,8 +174,11 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          nb_completed == o.nb_completed &&
           started_at == o.started_at &&
           status == o.status &&
+          sub_step == o.sub_step &&
+          target == o.target &&
           additional_properties == o.additional_properties
     end
 
@@ -156,7 +186,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, started_at, status, additional_properties].hash
+      [name, nb_completed, started_at, status, sub_step, target, additional_properties].hash
     end
   end
 end
