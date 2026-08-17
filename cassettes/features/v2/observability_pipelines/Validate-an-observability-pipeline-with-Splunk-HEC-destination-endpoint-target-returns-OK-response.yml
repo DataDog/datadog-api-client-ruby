@@ -1,0 +1,27 @@
+http_interactions:
+- recorded_at: Mon, 03 Aug 2026 12:48:21 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"config":{"destinations":[{"endpoint_target":"raw","id":"splunk-hec-destination","inputs":["my-processor-group"],"token_key":"SPLUNK_HEC_TOKEN","type":"splunk_hec"}],"processor_groups":[{"enabled":true,"id":"my-processor-group","include":"service:my-service","inputs":["datadog-agent-source"],"processors":[{"enabled":true,"id":"filter-processor","include":"status:error","type":"filter"}]}],"sources":[{"id":"datadog-agent-source","type":"datadog_agent"}]},"name":"Pipeline
+        with Splunk HEC endpoint_target"},"type":"pipelines"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/validate
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
