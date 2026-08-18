@@ -5377,6 +5377,26 @@ ScenariosModelMappings = {
             "app_id" => "String",
             "body" => "RumRetentionFilterCreateRequest",
     },
+    "v2.ListExclusionFilters" => {
+            "app_id" => "String",
+    },
+    "v2.CreateExclusionFilter" => {
+            "app_id" => "String",
+            "body" => "RumExclusionFilterCreateRequest",
+    },
+    "v2.DeleteExclusionFilter" => {
+            "app_id" => "String",
+            "ef_id" => "String",
+    },
+    "v2.GetExclusionFilter" => {
+            "app_id" => "String",
+            "ef_id" => "String",
+    },
+    "v2.UpdateExclusionFilter" => {
+            "app_id" => "String",
+            "ef_id" => "String",
+            "body" => "RumExclusionFilterUpdateRequest",
+    },
     "v2.ListPermanentRetentionFilters" => {
             "app_id" => "String",
     },
