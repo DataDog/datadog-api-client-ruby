@@ -3103,6 +3103,18 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.ValidateDashboardWidgets" => {
+            "body" => "DashboardWidgetValidationRequest",
+    },
+    "v2.ListDashboardsUsage" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "filter_edited_before" => "String",
+            "filter_viewed_before" => "String",
+    },
+    "v2.GetDashboardUsage" => {
+            "dashboard_id" => "String",
+    },
     "v2.ListSharedDashboardsByDashboardId" => {
             "dashboard_id" => "String",
     },
@@ -3122,15 +3134,6 @@ ScenariosModelMappings = {
             "dashboard_id" => "String",
             "token" => "String",
             "body" => "SecureEmbedUpdateRequest",
-    },
-    "v2.ListDashboardsUsage" => {
-            "page_limit" => "Integer",
-            "page_offset" => "Integer",
-            "filter_edited_before" => "String",
-            "filter_viewed_before" => "String",
-    },
-    "v2.GetDashboardUsage" => {
-            "dashboard_id" => "String",
     },
     "v2.GetDataObservabilityMonitorRunStatus" => {
             "run_id" => "String",
