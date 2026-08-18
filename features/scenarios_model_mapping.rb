@@ -911,6 +911,9 @@ ScenariosModelMappings = {
             "eval_name" => "String",
             "body" => "LLMObsCustomEvalConfigUpdateRequest",
     },
+    "v2.DeleteLLMObsData" => {
+            "body" => "LLMObsDataDeletionRequest",
+    },
     "v2.GetLLMObsAnnotatedInteractionsByTraceIDs" => {
             "content_ids" => "Array<String>",
             "offset" => "Integer",
