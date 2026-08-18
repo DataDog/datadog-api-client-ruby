@@ -10,6 +10,7 @@ body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new({
     reset_utc_offset: "+02:00",
   }),
   daily_limit_warning_threshold_percentage: 70,
+  description: "Contains logs matching the criteria defined by the filter.",
   disable_daily_limit: false,
   exclusion_filters: [
     DatadogAPIClient::V1::LogsExclusion.new({
