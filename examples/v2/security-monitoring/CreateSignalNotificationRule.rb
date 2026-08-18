@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::CreateNotificationRuleParameters.new({
   data: DatadogAPIClient::V2::CreateNotificationRuleParametersData.new({
     attributes: DatadogAPIClient::V2::CreateNotificationRuleParametersDataAttributes.new({
       enabled: true,
-      name: "Rule 1",
+      name: "Rule 9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
       selectors: DatadogAPIClient::V2::Selectors.new({
         query: "(source:production_service OR env:prod)",
         rule_types: [
