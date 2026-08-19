@@ -5441,6 +5441,19 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "RumMetricUpdateRequest",
     },
+    "v2.DeleteRumQuotaConfig" => {
+            "scope_type" => "RumRetentionQuotaScopeType",
+            "scope_id" => "String",
+    },
+    "v2.GetRumQuotaConfig" => {
+            "scope_type" => "RumRetentionQuotaScopeType",
+            "scope_id" => "String",
+    },
+    "v2.UpsertRumQuotaConfig" => {
+            "scope_type" => "RumRetentionQuotaScopeType",
+            "scope_id" => "String",
+            "body" => "RumRetentionQuotaConfigUpdateRequest",
+    },
     "v2.CreateRUMOperation" => {
             "body" => "RUMOperationCreateRequest",
     },
