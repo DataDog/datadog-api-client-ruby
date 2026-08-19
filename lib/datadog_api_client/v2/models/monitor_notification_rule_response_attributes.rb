@@ -21,6 +21,10 @@ module DatadogAPIClient::V2
   class MonitorNotificationRuleResponseAttributes
     include BaseGenericModel
 
+    # Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    attr_accessor :bundle_config
+
     # Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
     attr_accessor :conditional_recipients
 
@@ -45,6 +49,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'bundle_config' => :'bundle_config',
         :'conditional_recipients' => :'conditional_recipients',
         :'created' => :'created',
         :'filter' => :'filter',
@@ -58,6 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'bundle_config' => :'MonitorNotificationRuleBundleConfig',
         :'conditional_recipients' => :'MonitorNotificationRuleConditionalRecipients',
         :'created' => :'Time',
         :'filter' => :'MonitorNotificationRuleFilter',
@@ -84,6 +90,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'bundle_config')
+        self.bundle_config = attributes[:'bundle_config']
+      end
 
       if attributes.key?(:'conditional_recipients')
         self.conditional_recipients = attributes[:'conditional_recipients']
@@ -175,6 +185,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bundle_config == o.bundle_config &&
           conditional_recipients == o.conditional_recipients &&
           created == o.created &&
           filter == o.filter &&
@@ -188,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [conditional_recipients, created, filter, modified, name, recipients, additional_properties].hash
+      [bundle_config, conditional_recipients, created, filter, modified, name, recipients, additional_properties].hash
     end
   end
 end
