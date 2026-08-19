@@ -3519,6 +3519,36 @@ ScenariosModelMappings = {
     "v2.UpdateGovernanceNotificationSettings" => {
             "body" => "GovernanceNotificationSettingsUpdateRequest",
     },
+    "v2.ListTagRules" => {
+            "include_disabled" => "Boolean",
+            "include_deleted" => "Boolean",
+            "include" => "TagRuleInclude",
+            "filter_source" => "TagRuleSource",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
+    "v2.CreateTagRule" => {
+            "body" => "TagRuleCreateRequest",
+    },
+    "v2.DeleteTagRule" => {
+            "rule_id" => "String",
+            "hard_delete" => "Boolean",
+    },
+    "v2.GetTagRule" => {
+            "rule_id" => "String",
+            "include" => "TagRuleInclude",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
+    "v2.UpdateTagRule" => {
+            "rule_id" => "String",
+            "body" => "TagRuleUpdateRequest",
+    },
+    "v2.GetTagRuleScore" => {
+            "rule_id" => "String",
+            "ts_start" => "Integer",
+            "ts_end" => "Integer",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
@@ -6237,36 +6267,6 @@ ScenariosModelMappings = {
     "v2.PatchGlobalVariable" => {
             "variable_id" => "String",
             "body" => "GlobalVariableJsonPatchRequest",
-    },
-    "v2.ListTagPolicies" => {
-            "include_disabled" => "Boolean",
-            "include_deleted" => "Boolean",
-            "include" => "TagPolicyInclude",
-            "filter_source" => "TagPolicySource",
-            "ts_start" => "Integer",
-            "ts_end" => "Integer",
-    },
-    "v2.CreateTagPolicy" => {
-            "body" => "TagPolicyCreateRequest",
-    },
-    "v2.DeleteTagPolicy" => {
-            "policy_id" => "String",
-            "hard_delete" => "Boolean",
-    },
-    "v2.GetTagPolicy" => {
-            "policy_id" => "String",
-            "include" => "TagPolicyInclude",
-            "ts_start" => "Integer",
-            "ts_end" => "Integer",
-    },
-    "v2.UpdateTagPolicy" => {
-            "policy_id" => "String",
-            "body" => "TagPolicyUpdateRequest",
-    },
-    "v2.GetTagPolicyScore" => {
-            "policy_id" => "String",
-            "ts_start" => "Integer",
-            "ts_end" => "Integer",
     },
     "v2.ListTeams" => {
             "page_number" => "Integer",
