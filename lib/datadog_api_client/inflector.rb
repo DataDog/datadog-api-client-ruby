@@ -5203,6 +5203,7 @@ module DatadogAPIClient
           "v2.monitor_downtime_match_response_attributes" => "MonitorDowntimeMatchResponseAttributes",
           "v2.monitor_downtime_match_response_data" => "MonitorDowntimeMatchResponseData",
           "v2.monitor_notification_rule_attributes" => "MonitorNotificationRuleAttributes",
+          "v2.monitor_notification_rule_bundle_config" => "MonitorNotificationRuleBundleConfig",
           "v2.monitor_notification_rule_condition" => "MonitorNotificationRuleCondition",
           "v2.monitor_notification_rule_conditional_recipients" => "MonitorNotificationRuleConditionalRecipients",
           "v2.monitor_notification_rule_create_request" => "MonitorNotificationRuleCreateRequest",
