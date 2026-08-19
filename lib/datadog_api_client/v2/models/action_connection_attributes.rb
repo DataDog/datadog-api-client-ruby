@@ -27,6 +27,10 @@ module DatadogAPIClient::V2
     # Name of the connection
     attr_reader :name
 
+    # Tags associated with the connection. Each tag must follow the `key:value` format.
+    # The `default` tag key is reserved.
+    attr_accessor :tags
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +38,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'integration' => :'integration',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'tags' => :'tags'
       }
     end
 
@@ -43,7 +48,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'integration' => :'ActionConnectionIntegration',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -71,6 +77,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -131,6 +143,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           integration == o.integration &&
           name == o.name &&
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [integration, name, additional_properties].hash
+      [integration, name, tags, additional_properties].hash
     end
   end
 end
