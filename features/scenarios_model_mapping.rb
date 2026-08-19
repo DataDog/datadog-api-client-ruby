@@ -1262,6 +1262,29 @@ ScenariosModelMappings = {
             "connection_id" => "String",
             "body" => "UpdateActionConnectionRequest",
     },
+    "v2.ListExecutionPolicies" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_name" => "String",
+            "filter_ids" => "Array<String>",
+            "filter_integration" => "Array<ExecutionPolicyIntegration>",
+            "filter_effects" => "Array<ExecutionPolicyEffect>",
+            "filter_creator_ids" => "Array<String>",
+            "sort" => "Array<String>",
+    },
+    "v2.CreateExecutionPolicy" => {
+            "body" => "ExecutionPolicyCreateRequest",
+    },
+    "v2.DeleteExecutionPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetExecutionPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.UpdateExecutionPolicy" => {
+            "policy_id" => "String",
+            "body" => "ExecutionPolicyUpdateRequest",
+    },
     "v2.CreateAwsScanOptions" => {
             "body" => "AwsScanOptionsCreateRequest",
     },
