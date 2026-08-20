@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AnnotationMarkdownTextAnnotation` object.
+  # Markdown content displayed in an annotation.
   class AnnotationMarkdownTextAnnotation
     include BaseGenericModel
 
-    # The `markdownTextAnnotation` `text`.
-    attr_accessor :text
+    # The annotation's Markdown content.
+    attr_reader :text
 
     attr_accessor :additional_properties
 
@@ -63,6 +63,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'text')
         self.text = attributes[:'text']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@text.nil? && @text.to_s.length > 3000
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param text [Object] Object to be assigned
+    # @!visibility private
+    def text=(text)
+      if !text.nil? && text.to_s.length > 3000
+        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 3000.'
+      end
+      @text = text
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

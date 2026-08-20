@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A list of annotations used in the workflow. These are like sticky notes for your workflow!
+  # A text annotation displayed on the workflow canvas.
   class Annotation
     include BaseGenericModel
 
-    # The definition of `AnnotationDisplay` object.
+    # The annotation's position and size on the workflow canvas.
     attr_reader :display
 
-    # The `Annotation` `id`.
+    # The unique identifier of this annotation within the workflow.
     attr_reader :id
 
-    # The definition of `AnnotationMarkdownTextAnnotation` object.
+    # Markdown content displayed in an annotation.
     attr_reader :markdown_text_annotation
 
     attr_accessor :additional_properties
@@ -89,6 +89,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @display.nil?
       return false if @id.nil?
+      return false if @id.to_s.length < 1
       return false if @markdown_text_annotation.nil?
       true
     end
@@ -109,6 +110,9 @@ module DatadogAPIClient::V2
     def id=(id)
       if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      if id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "id", the character length must be great than or equal to 1.'
       end
       @id = id
     end
