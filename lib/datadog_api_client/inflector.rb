@@ -4528,6 +4528,7 @@ module DatadogAPIClient
           "v2.llm_obs_annotated_interactions_type" => "LLMObsAnnotatedInteractionsType",
           "v2.llm_obs_annotation_assessment" => "LLMObsAnnotationAssessment",
           "v2.llm_obs_annotation_error" => "LLMObsAnnotationError",
+          "v2.llm_obs_annotation_error_code" => "LLMObsAnnotationErrorCode",
           "v2.llm_obs_annotation_item" => "LLMObsAnnotationItem",
           "v2.llm_obs_annotation_item_response" => "LLMObsAnnotationItemResponse",
           "v2.llm_obs_annotation_label_value" => "LLMObsAnnotationLabelValue",

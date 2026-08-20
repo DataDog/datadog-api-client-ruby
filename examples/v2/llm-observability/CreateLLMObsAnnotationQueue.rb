@@ -34,6 +34,11 @@ body = DatadogAPIClient::V2::LLMObsAnnotationQueueRequest.new({
       description: "Queue for annotating customer support traces",
       name: "My annotation queue",
       project_id: "00000000-0000-0000-0000-000000000002",
+      restrict_to_assignees: false,
+      restrict_to_reviewers: true,
+      reviewer_emails: [
+        "reviewer@example.com",
+      ],
     }),
     type: DatadogAPIClient::V2::LLMObsAnnotationQueueType::QUEUES,
   }),
