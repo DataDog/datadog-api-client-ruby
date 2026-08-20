@@ -1,4 +1,4 @@
-# List LLM Observability experiment events (v2) returns "OK" response
+# List Agent Observability experiment events (v2) returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

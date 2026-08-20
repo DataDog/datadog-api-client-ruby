@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for batch-updating records in an LLM Observability dataset.
+  # Data object for batch-updating records in an Agent Observability dataset.
   class LLMObsDatasetBatchUpdateDataRequest
     include BaseGenericModel
 
-    # Attributes for batch-updating records in an LLM Observability dataset.
+    # Attributes for batch-updating records in an Agent Observability dataset.
     attr_reader :attributes
 
     # Unique identifier of the dataset.
     attr_reader :id
 
-    # Resource type of an LLM Observability dataset.
+    # Resource type of an Agent Observability dataset.
     attr_reader :type
 
     attr_accessor :additional_properties

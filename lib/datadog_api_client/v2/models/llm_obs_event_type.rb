@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type for LLM Observability experiment events.
+  # Resource type for Agent Observability experiment events.
   class LLMObsEventType
     include BaseEnumModel
 

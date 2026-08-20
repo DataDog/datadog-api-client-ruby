@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object of an LLM Observability patterns topics-with-clustered-points response.
+  # Data object of an Agent Observability patterns topics-with-clustered-points response.
   class LLMObsPatternsTopicsWithClusteredPointsResponseData
     include BaseGenericModel
 
-    # Attributes of an LLM Observability patterns topics-with-clustered-points response.
+    # Attributes of an Agent Observability patterns topics-with-clustered-points response.
     attr_reader :attributes
 
     # Identifier of the run the topics belong to.
     attr_reader :id
 
-    # Resource type of an LLM Observability patterns topics-with-clustered-points response.
+    # Resource type of an Agent Observability patterns topics-with-clustered-points response.
     attr_reader :type
 
     attr_accessor :additional_properties

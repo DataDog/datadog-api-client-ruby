@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Assessment result for an LLM Observability experiment metric.
+  # Assessment result for an Agent Observability experiment metric.
   class LLMObsMetricAssessment
     include BaseEnumModel
 

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to create an LLM Observability prompt.
+  # Request to create an Agent Observability prompt.
   class LLMObsCreatePromptRequest
     include BaseGenericModel
 
-    # Data object for creating an LLM Observability prompt.
+    # Data object for creating an Agent Observability prompt.
     attr_reader :data
 
     attr_accessor :additional_properties

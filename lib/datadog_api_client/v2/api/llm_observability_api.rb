@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Aggregate LLM Observability experimentation.
+    # Aggregate Agent Observability experimentation.
     #
     # @see #aggregate_llm_obs_experimentation_with_http_info
     def aggregate_llm_obs_experimentation(body, opts = {})
@@ -31,9 +31,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Aggregate LLM Observability experimentation.
+    # Aggregate Agent Observability experimentation.
     #
-    # Execute an analytics aggregation over LLM Observability experimentation data.
+    # Execute an analytics aggregation over Agent Observability experimentation data.
     # Use this endpoint to compute metrics (for example average eval scores) grouped by fields such as `span_id` or `experiment_id`.
     #
     # At least one `compute` definition and one `index` must be provided.
@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Batch update LLM Observability dataset records.
+    # Batch update Agent Observability dataset records.
     #
     # @see #batch_update_llm_obs_dataset_with_http_info
     def batch_update_llm_obs_dataset(project_id, dataset_id, body, opts = {})
@@ -107,12 +107,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Batch update LLM Observability dataset records.
+    # Batch update Agent Observability dataset records.
     #
     # Insert, update, and delete records in a single dataset operation. By default, a new dataset version is created when the batch is applied.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param body [LLMObsDatasetBatchUpdateRequest] Batch update payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetRecordsMutationResponse, Integer, Hash)>] LLMObsDatasetRecordsMutationResponse data, response status code and response headers
@@ -182,7 +182,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Clone an LLM Observability dataset.
+    # Clone an Agent Observability dataset.
     #
     # @see #clone_llm_obs_dataset_with_http_info
     def clone_llm_obs_dataset(project_id, dataset_id, body, opts = {})
@@ -190,12 +190,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Clone an LLM Observability dataset.
+    # Clone an Agent Observability dataset.
     #
     # Clone a dataset, copying its current records into a new dataset within the same project.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the source LLM Observability dataset to clone.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the source Agent Observability dataset to clone.
     # @param body [LLMObsDatasetCloneRequest] Clone dataset payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetResponse, Integer, Hash)>] LLMObsDatasetResponse data, response status code and response headers
@@ -265,7 +265,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create an LLM Observability annotation queue.
+    # Create an Agent Observability annotation queue.
     #
     # @see #create_llm_obs_annotation_queue_with_http_info
     def create_llm_obs_annotation_queue(body, opts = {})
@@ -273,7 +273,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create an LLM Observability annotation queue.
+    # Create an Agent Observability annotation queue.
     #
     # Create an annotation queue. The `name` and `project_id` fields are required.
     # An optional `annotation_schema` can be provided to define the labels for the queue.
@@ -362,7 +362,7 @@ module DatadogAPIClient::V2
     #
     # Items of different types can be mixed in a single request.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param body [LLMObsAnnotationQueueInteractionsRequest] Add interactions payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsAnnotationQueueInteractionsResponse, Integer, Hash)>] LLMObsAnnotationQueueInteractionsResponse data, response status code and response headers
@@ -428,7 +428,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create an LLM Observability dataset.
+    # Create an Agent Observability dataset.
     #
     # @see #create_llm_obs_dataset_with_http_info
     def create_llm_obs_dataset(project_id, body, opts = {})
@@ -436,11 +436,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create an LLM Observability dataset.
+    # Create an Agent Observability dataset.
     #
-    # Create a new LLM Observability dataset within the specified project.
+    # Create a new Agent Observability dataset within the specified project.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
+    # @param project_id [String] The ID of the Agent Observability project.
     # @param body [LLMObsDatasetRequest] Create dataset payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetResponse, Integer, Hash)>] LLMObsDatasetResponse data, response status code and response headers
@@ -506,7 +506,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Append records to an LLM Observability dataset.
+    # Append records to an Agent Observability dataset.
     #
     # @see #create_llm_obs_dataset_records_with_http_info
     def create_llm_obs_dataset_records(project_id, dataset_id, body, opts = {})
@@ -514,12 +514,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Append records to an LLM Observability dataset.
+    # Append records to an Agent Observability dataset.
     #
-    # Append one or more records to an LLM Observability dataset.
+    # Append one or more records to an Agent Observability dataset.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param body [LLMObsDatasetRecordsRequest] Append records payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetRecordsMutationResponse, Integer, Hash)>] LLMObsDatasetRecordsMutationResponse data, response status code and response headers
@@ -589,7 +589,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create an LLM Observability experiment.
+    # Create an Agent Observability experiment.
     #
     # @see #create_llm_obs_experiment_with_http_info
     def create_llm_obs_experiment(body, opts = {})
@@ -597,9 +597,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create an LLM Observability experiment.
+    # Create an Agent Observability experiment.
     #
-    # Create a new LLM Observability experiment.
+    # Create a new Agent Observability experiment.
     #
     # @param body [LLMObsExperimentRequest] Create experiment payload.
     # @param opts [Hash] the optional parameters
@@ -662,7 +662,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Push events for an LLM Observability experiment.
+    # Push events for an Agent Observability experiment.
     #
     # @see #create_llm_obs_experiment_events_with_http_info
     def create_llm_obs_experiment_events(experiment_id, body, opts = {})
@@ -670,11 +670,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Push events for an LLM Observability experiment.
+    # Push events for an Agent Observability experiment.
     #
-    # Push spans and metrics for an LLM Observability experiment.
+    # Push spans and metrics for an Agent Observability experiment.
     #
-    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param experiment_id [String] The ID of the Agent Observability experiment.
     # @param body [LLMObsExperimentEventsRequest] Experiment events payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -828,7 +828,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create an LLM Observability project.
+    # Create an Agent Observability project.
     #
     # @see #create_llm_obs_project_with_http_info
     def create_llm_obs_project(body, opts = {})
@@ -836,9 +836,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create an LLM Observability project.
+    # Create an Agent Observability project.
     #
-    # Create a new LLM Observability project. Returns the existing project if a name conflict occurs.
+    # Create a new Agent Observability project. Returns the existing project if a name conflict occurs.
     #
     # @param body [LLMObsProjectRequest] Create project payload.
     # @param opts [Hash] the optional parameters
@@ -901,7 +901,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create an LLM Observability prompt.
+    # Create an Agent Observability prompt.
     #
     # @see #create_llm_obs_prompt_with_http_info
     def create_llm_obs_prompt(body, opts = {})
@@ -909,9 +909,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create an LLM Observability prompt.
+    # Create an Agent Observability prompt.
     #
-    # Create a new prompt (and its first version) in the LLM Observability prompt registry.
+    # Create a new prompt (and its first version) in the Agent Observability prompt registry.
     #
     # @param body [LLMObsCreatePromptRequest] Create prompt payload.
     # @param opts [Hash] the optional parameters
@@ -974,7 +974,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a new LLM Observability prompt version.
+    # Create a new Agent Observability prompt version.
     #
     # @see #create_llm_obs_prompt_version_with_http_info
     def create_llm_obs_prompt_version(prompt_id, body, opts = {})
@@ -982,11 +982,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a new LLM Observability prompt version.
+    # Create a new Agent Observability prompt version.
     #
-    # Create a new version of an existing LLM Observability prompt.
+    # Create a new version of an existing Agent Observability prompt.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param body [LLMObsCreatePromptVersionRequest] Create prompt version payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsPromptVersionResponse, Integer, Hash)>] LLMObsPromptVersionResponse data, response status code and response headers
@@ -1052,7 +1052,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an LLM Observability annotation queue.
+    # Delete an Agent Observability annotation queue.
     #
     # @see #delete_llm_obs_annotation_queue_with_http_info
     def delete_llm_obs_annotation_queue(queue_id, opts = {})
@@ -1060,11 +1060,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete an LLM Observability annotation queue.
+    # Delete an Agent Observability annotation queue.
     #
     # Delete an annotation queue by its ID.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_llm_obs_annotation_queue_with_http_info(queue_id, opts = {})
@@ -1135,7 +1135,7 @@ module DatadogAPIClient::V2
     #
     # Delete one or more interactions from an annotation queue.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param body [LLMObsDeleteAnnotationQueueInteractionsRequest] Delete interactions payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -1213,7 +1213,7 @@ module DatadogAPIClient::V2
     #
     # Delete one or more annotations from an annotation queue.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param body [LLMObsDeleteAnnotationsRequest] Delete annotations payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDeleteAnnotationsResponse, Integer, Hash)>] LLMObsDeleteAnnotationsResponse data, response status code and response headers
@@ -1289,9 +1289,9 @@ module DatadogAPIClient::V2
 
     # Delete a custom evaluator configuration.
     #
-    # Delete a custom LLM Observability evaluator configuration by its name.
+    # Delete a custom Agent Observability evaluator configuration by its name.
     #
-    # @param eval_name [String] The name of the custom LLM Observability evaluator configuration.
+    # @param eval_name [String] The name of the custom Agent Observability evaluator configuration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_llm_obs_custom_eval_config_with_http_info(eval_name, opts = {})
@@ -1350,7 +1350,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete LLM Observability dataset records.
+    # Delete Agent Observability dataset records.
     #
     # @see #delete_llm_obs_dataset_records_with_http_info
     def delete_llm_obs_dataset_records(project_id, dataset_id, body, opts = {})
@@ -1358,12 +1358,12 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete LLM Observability dataset records.
+    # Delete Agent Observability dataset records.
     #
-    # Delete one or more records from an LLM Observability dataset.
+    # Delete one or more records from an Agent Observability dataset.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param body [LLMObsDeleteDatasetRecordsRequest] Delete records payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -1433,7 +1433,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete LLM Observability datasets.
+    # Delete Agent Observability datasets.
     #
     # @see #delete_llm_obs_datasets_with_http_info
     def delete_llm_obs_datasets(project_id, body, opts = {})
@@ -1441,11 +1441,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete LLM Observability datasets.
+    # Delete Agent Observability datasets.
     #
-    # Delete one or more LLM Observability datasets within the specified project.
+    # Delete one or more Agent Observability datasets within the specified project.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
+    # @param project_id [String] The ID of the Agent Observability project.
     # @param body [LLMObsDeleteDatasetsRequest] Delete datasets payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -1511,7 +1511,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete LLM Observability experiments.
+    # Delete Agent Observability experiments.
     #
     # @see #delete_llm_obs_experiments_with_http_info
     def delete_llm_obs_experiments(body, opts = {})
@@ -1519,9 +1519,9 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete LLM Observability experiments.
+    # Delete Agent Observability experiments.
     #
-    # Delete one or more LLM Observability experiments.
+    # Delete one or more Agent Observability experiments.
     #
     # @param body [LLMObsDeleteExperimentsRequest] Delete experiments payload.
     # @param opts [Hash] the optional parameters
@@ -1655,7 +1655,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete LLM Observability projects.
+    # Delete Agent Observability projects.
     #
     # @see #delete_llm_obs_projects_with_http_info
     def delete_llm_obs_projects(body, opts = {})
@@ -1663,9 +1663,9 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete LLM Observability projects.
+    # Delete Agent Observability projects.
     #
-    # Delete one or more LLM Observability projects.
+    # Delete one or more Agent Observability projects.
     #
     # @param body [LLMObsDeleteProjectsRequest] Delete projects payload.
     # @param opts [Hash] the optional parameters
@@ -1728,7 +1728,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an LLM Observability prompt.
+    # Delete an Agent Observability prompt.
     #
     # @see #delete_llm_obs_prompt_with_http_info
     def delete_llm_obs_prompt(prompt_id, opts = {})
@@ -1736,11 +1736,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Delete an LLM Observability prompt.
+    # Delete an Agent Observability prompt.
     #
-    # Soft-delete an LLM Observability prompt. The prompt's version rows are retained, but they are no longer accessible through the public prompt registry endpoints.
+    # Soft-delete an Agent Observability prompt. The prompt's version rows are retained, but they are no longer accessible through the public prompt registry endpoints.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDeletedPromptResponse, Integer, Hash)>] LLMObsDeletedPromptResponse data, response status code and response headers
     def delete_llm_obs_prompt_with_http_info(prompt_id, opts = {})
@@ -1799,7 +1799,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Export an LLM Observability dataset.
+    # Export an Agent Observability dataset.
     #
     # @see #export_llm_obs_dataset_with_http_info
     def export_llm_obs_dataset(project_id, dataset_id, opts = {})
@@ -1807,12 +1807,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Export an LLM Observability dataset.
+    # Export an Agent Observability dataset.
     #
     # Download the contents of a dataset as a CSV file. The download is streamed and includes one row per dataset record.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @option opts [LLMObsDatasetExportFormat] :format Export format for the dataset contents. Only `csv` is currently supported.
     # @option opts [Integer] :version Version of the dataset to export. If omitted, the current version is used. Must be between 0 and the current version of the dataset, inclusive.
@@ -1898,7 +1898,7 @@ module DatadogAPIClient::V2
     #
     # Retrieve all interactions (traces and sessions) and their annotations for a given annotation queue.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsAnnotatedInteractionsResponse, Integer, Hash)>] LLMObsAnnotatedInteractionsResponse data, response status code and response headers
     def get_llm_obs_annotated_interactions_with_http_info(queue_id, opts = {})
@@ -2059,7 +2059,7 @@ module DatadogAPIClient::V2
     #
     # Retrieve the label schema for a given annotation queue.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsAnnotationQueueLabelSchemaResponse, Integer, Hash)>] LLMObsAnnotationQueueLabelSchemaResponse data, response status code and response headers
     def get_llm_obs_annotation_queue_label_schema_with_http_info(queue_id, opts = {})
@@ -2128,9 +2128,9 @@ module DatadogAPIClient::V2
 
     # Get a custom evaluator configuration.
     #
-    # Retrieve a custom LLM Observability evaluator configuration by its name.
+    # Retrieve a custom Agent Observability evaluator configuration by its name.
     #
-    # @param eval_name [String] The name of the custom LLM Observability evaluator configuration.
+    # @param eval_name [String] The name of the custom Agent Observability evaluator configuration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsCustomEvalConfigResponse, Integer, Hash)>] LLMObsCustomEvalConfigResponse data, response status code and response headers
     def get_llm_obs_custom_eval_config_with_http_info(eval_name, opts = {})
@@ -2189,7 +2189,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get LLM Observability dataset draft state.
+    # Get Agent Observability dataset draft state.
     #
     # @see #get_llm_obs_dataset_draft_state_with_http_info
     def get_llm_obs_dataset_draft_state(project_id, dataset_id, opts = {})
@@ -2197,12 +2197,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get LLM Observability dataset draft state.
+    # Get Agent Observability dataset draft state.
     #
     # Retrieve the draft state of a dataset, including whether it is currently locked for editing and which user holds the lock.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetDraftStateResponse, Integer, Hash)>] LLMObsDatasetDraftStateResponse data, response status code and response headers
     def get_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts = {})
@@ -2404,7 +2404,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get an LLM Observability prompt.
+    # Get an Agent Observability prompt.
     #
     # @see #get_llm_obs_prompt_with_http_info
     def get_llm_obs_prompt(prompt_id, opts = {})
@@ -2412,11 +2412,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get an LLM Observability prompt.
+    # Get an Agent Observability prompt.
     #
-    # Get the latest version of an LLM Observability prompt by prompt ID.
+    # Get the latest version of an Agent Observability prompt by prompt ID.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :label **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned.
     # @return [Array<(LLMObsPromptSDKResponse, Integer, Hash)>] LLMObsPromptSDKResponse data, response status code and response headers
@@ -2477,7 +2477,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a specific LLM Observability prompt version.
+    # Get a specific Agent Observability prompt version.
     #
     # @see #get_llm_obs_prompt_version_with_http_info
     def get_llm_obs_prompt_version(prompt_id, version, opts = {})
@@ -2485,12 +2485,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a specific LLM Observability prompt version.
+    # Get a specific Agent Observability prompt version.
     #
-    # Get the full template of a single, specific version of an LLM Observability prompt.
+    # Get the full template of a single, specific version of an Agent Observability prompt.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
-    # @param version [Integer] The version number of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
+    # @param version [Integer] The version number of the Agent Observability prompt.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsPromptVersionResponse, Integer, Hash)>] LLMObsPromptVersionResponse data, response status code and response headers
     def get_llm_obs_prompt_version_with_http_info(prompt_id, version, opts = {})
@@ -2556,7 +2556,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability annotation queues.
+    # List Agent Observability annotation queues.
     #
     # @see #list_llm_obs_annotation_queues_with_http_info
     def list_llm_obs_annotation_queues(opts = {})
@@ -2564,7 +2564,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability annotation queues.
+    # List Agent Observability annotation queues.
     #
     # List annotation queues. Optionally filter by project ID or queue IDs. These parameters are mutually exclusive.
     # If neither is provided, all queues in the organization are returned.
@@ -2638,7 +2638,7 @@ module DatadogAPIClient::V2
 
     # List custom evaluator configurations.
     #
-    # List all custom LLM Observability evaluator configurations for the organization.
+    # List all custom Agent Observability evaluator configurations for the organization.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsCustomEvalConfigListResponse, Integer, Hash)>] LLMObsCustomEvalConfigListResponse data, response status code and response headers
@@ -2694,7 +2694,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability dataset records.
+    # List Agent Observability dataset records.
     #
     # @see #list_llm_obs_dataset_records_with_http_info
     def list_llm_obs_dataset_records(project_id, dataset_id, opts = {})
@@ -2702,12 +2702,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability dataset records.
+    # List Agent Observability dataset records.
     #
-    # List all records in an LLM Observability dataset, sorted by creation date, newest first.
+    # List all records in an Agent Observability dataset, sorted by creation date, newest first.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :filter_version Retrieve records from a specific dataset version. Defaults to the current version.
     # @option opts [String] :page_cursor Use the Pagination cursor to retrieve the next page of results.
@@ -2776,7 +2776,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability datasets.
+    # List Agent Observability datasets.
     #
     # @see #list_llm_obs_datasets_with_http_info
     def list_llm_obs_datasets(project_id, opts = {})
@@ -2784,11 +2784,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability datasets.
+    # List Agent Observability datasets.
     #
-    # List all LLM Observability datasets for a project, sorted by creation date, newest first.
+    # List all Agent Observability datasets for a project, sorted by creation date, newest first.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
+    # @param project_id [String] The ID of the Agent Observability project.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_name Filter datasets by name.
     # @option opts [String] :filter_id Filter datasets by dataset ID.
@@ -2855,7 +2855,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability dataset versions.
+    # List Agent Observability dataset versions.
     #
     # @see #list_llm_obs_dataset_versions_with_http_info
     def list_llm_obs_dataset_versions(project_id, dataset_id, opts = {})
@@ -2863,12 +2863,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability dataset versions.
+    # List Agent Observability dataset versions.
     #
     # List the active versions of a dataset. A version is created each time a dataset is referenced by an experiment run.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetVersionsResponse, Integer, Hash)>] LLMObsDatasetVersionsResponse data, response status code and response headers
     def list_llm_obs_dataset_versions_with_http_info(project_id, dataset_id, opts = {})
@@ -2931,7 +2931,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List events for an LLM Observability experiment.
+    # List events for an Agent Observability experiment.
     #
     # @see #list_llm_obs_experiment_events_with_http_info
     def list_llm_obs_experiment_events(experiment_id, opts = {})
@@ -2939,11 +2939,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List events for an LLM Observability experiment.
+    # List events for an Agent Observability experiment.
     #
     # Retrieve spans and experiment-level summary metrics for a given experiment with cursor-based pagination.
     #
-    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param experiment_id [String] The ID of the Agent Observability experiment.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_limit Maximum number of spans to return per page. Defaults to 5000.
     # @option opts [String] :page_cursor Opaque cursor from a previous response to fetch the next page of results.
@@ -3006,7 +3006,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability experiment spans (v1).
+    # List Agent Observability experiment spans (v1).
     #
     # @see #list_llm_obs_experiment_events_v1_with_http_info
     def list_llm_obs_experiment_events_v1(experiment_id, opts = {})
@@ -3014,13 +3014,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability experiment spans (v1).
+    # List Agent Observability experiment spans (v1).
     #
     # Retrieve spans with their evaluation metrics for a given experiment. Returns spans only, with no summary metrics and no pagination. Deprecated in favor of `ListLLMObsExperimentEventsV3`.
     #
     # @deprecated This API is deprecated.
     #
-    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param experiment_id [String] The ID of the Agent Observability experiment.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsExperimentSpansResponse, Integer, Hash)>] LLMObsExperimentSpansResponse data, response status code and response headers
     def list_llm_obs_experiment_events_v1_with_http_info(experiment_id, opts = {})
@@ -3080,7 +3080,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability experiment events (v2).
+    # List Agent Observability experiment events (v2).
     #
     # @see #list_llm_obs_experiment_events_v2_with_http_info
     def list_llm_obs_experiment_events_v2(experiment_id, opts = {})
@@ -3088,13 +3088,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability experiment events (v2).
+    # List Agent Observability experiment events (v2).
     #
     # Retrieve spans and experiment-level summary metrics for a given experiment. Returns the full events payload without pagination. Deprecated: use `ListLLMObsExperimentEventsV3` instead.
     #
     # @deprecated This API is deprecated.
     #
-    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param experiment_id [String] The ID of the Agent Observability experiment.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsExperimentEventsV2Response, Integer, Hash)>] LLMObsExperimentEventsV2Response data, response status code and response headers
     def list_llm_obs_experiment_events_v2_with_http_info(experiment_id, opts = {})
@@ -3154,7 +3154,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability experiments.
+    # List Agent Observability experiments.
     #
     # @see #list_llm_obs_experiments_with_http_info
     def list_llm_obs_experiments(opts = {})
@@ -3162,9 +3162,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability experiments.
+    # List Agent Observability experiments.
     #
-    # List all LLM Observability experiments sorted by creation date, newest first.
+    # List all Agent Observability experiments sorted by creation date, newest first.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_project_id Filter experiments by project ID. Required if `filter[dataset_id]` is not provided.
@@ -3772,7 +3772,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability projects.
+    # List Agent Observability projects.
     #
     # @see #list_llm_obs_projects_with_http_info
     def list_llm_obs_projects(opts = {})
@@ -3780,9 +3780,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability projects.
+    # List Agent Observability projects.
     #
-    # List all LLM Observability projects sorted by creation date, newest first.
+    # List all Agent Observability projects sorted by creation date, newest first.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_id Filter projects by project ID.
@@ -3846,7 +3846,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability prompts.
+    # List Agent Observability prompts.
     #
     # @see #list_llm_obs_prompts_with_http_info
     def list_llm_obs_prompts(opts = {})
@@ -3854,9 +3854,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability prompts.
+    # List Agent Observability prompts.
     #
-    # List all LLM Observability prompts in the prompt registry for the organization.
+    # List all Agent Observability prompts in the prompt registry for the organization.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_prompt_id Optional filter for prompts by prompt ID.
@@ -3914,7 +3914,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List versions of an LLM Observability prompt.
+    # List versions of an Agent Observability prompt.
     #
     # @see #list_llm_obs_prompt_versions_with_http_info
     def list_llm_obs_prompt_versions(prompt_id, opts = {})
@@ -3922,11 +3922,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List versions of an LLM Observability prompt.
+    # List versions of an Agent Observability prompt.
     #
-    # List all versions of an LLM Observability prompt, ordered newest to oldest. If the prompt does not exist, is not registered, or is archived, the response contains an empty list.
+    # List all versions of an Agent Observability prompt, ordered newest to oldest. If the prompt does not exist, is not registered, or is archived, the response contains an empty list.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsPromptVersionsResponse, Integer, Hash)>] LLMObsPromptVersionsResponse data, response status code and response headers
     def list_llm_obs_prompt_versions_with_http_info(prompt_id, opts = {})
@@ -3985,7 +3985,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List LLM Observability spans.
+    # List Agent Observability spans.
     #
     # @see #list_llm_obs_spans_with_http_info
     def list_llm_obs_spans(opts = {})
@@ -3993,14 +3993,14 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List LLM Observability spans.
+    # List Agent Observability spans.
     #
-    # List LLM Observability spans matching the specified filters.
+    # List Agent Observability spans matching the specified filters.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_from Start of the time range. Accepts ISO 8601 or relative format (e.g., `now-15m`). Defaults to `now-15m`.
     # @option opts [String] :filter_to End of the time range. Accepts ISO 8601 or relative format. Defaults to `now`.
-    # @option opts [String] :filter_query Search query using LLM Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`filter[span_id]`, `filter[trace_id]`, etc.) are ignored.
+    # @option opts [String] :filter_query Search query using Agent Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`filter[span_id]`, `filter[trace_id]`, etc.) are ignored.
     # @option opts [String] :filter_span_id Filter by exact span ID.
     # @option opts [String] :filter_trace_id Filter by exact trace ID.
     # @option opts [String] :filter_span_kind Filter by span kind (e.g., llm, agent, tool, task, workflow).
@@ -4075,7 +4075,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Lock LLM Observability dataset draft state.
+    # Lock Agent Observability dataset draft state.
     #
     # @see #lock_llm_obs_dataset_draft_state_with_http_info
     def lock_llm_obs_dataset_draft_state(project_id, dataset_id, opts = {})
@@ -4083,12 +4083,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Lock LLM Observability dataset draft state.
+    # Lock Agent Observability dataset draft state.
     #
     # Acquire the draft lock on a dataset for the calling user. The lock prevents other users from concurrently editing the dataset draft.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetDraftStateResponse, Integer, Hash)>] LLMObsDatasetDraftStateResponse data, response status code and response headers
     def lock_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts = {})
@@ -4151,7 +4151,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Restore an LLM Observability dataset version.
+    # Restore an Agent Observability dataset version.
     #
     # @see #restore_llm_obs_dataset_version_with_http_info
     def restore_llm_obs_dataset_version(project_id, dataset_id, body, opts = {})
@@ -4159,12 +4159,12 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Restore an LLM Observability dataset version.
+    # Restore an Agent Observability dataset version.
     #
     # Restore a dataset to a previous version. The dataset's current version is bumped, and its records are replaced with the records from the specified prior version.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param body [LLMObsDatasetRestoreVersionRequest] Restore dataset version payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -4234,7 +4234,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search LLM Observability experimentation entities.
+    # Search Agent Observability experimentation.
     #
     # @see #search_llm_obs_experimentation_with_http_info
     def search_llm_obs_experimentation(body, opts = {})
@@ -4242,9 +4242,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Search LLM Observability experimentation entities.
+    # Search Agent Observability experimentation.
     #
-    # Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
+    # Search across Agent Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
     #
     # The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
     #
@@ -4311,7 +4311,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search LLM Observability spans.
+    # Search Agent Observability spans.
     #
     # @see #search_llm_obs_spans_with_http_info
     def search_llm_obs_spans(body, opts = {})
@@ -4319,9 +4319,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Search LLM Observability spans.
+    # Search Agent Observability spans.
     #
-    # Search LLM Observability spans using structured filters in the request body.
+    # Search Agent Observability spans using structured filters in the request body.
     #
     # @param body [LLMObsSearchSpansRequest] Search spans payload.
     # @param opts [Hash] the optional parameters
@@ -4394,7 +4394,7 @@ module DatadogAPIClient::V2
 
     # Simple search experimentation entities.
     #
-    # Search across LLM Observability experimentation entities using offset-based (page-number) pagination.
+    # Search across Agent Observability experimentation entities using offset-based (page-number) pagination.
     # Use this endpoint when you need total page count or want to navigate to a specific page number.
     #
     # The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
@@ -4533,7 +4533,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Unlock LLM Observability dataset draft state.
+    # Unlock Agent Observability dataset draft state.
     #
     # @see #unlock_llm_obs_dataset_draft_state_with_http_info
     def unlock_llm_obs_dataset_draft_state(project_id, dataset_id, opts = {})
@@ -4541,12 +4541,12 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Unlock LLM Observability dataset draft state.
+    # Unlock Agent Observability dataset draft state.
     #
     # Release the draft lock on a dataset held by the calling user, allowing other users to edit the dataset draft.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def unlock_llm_obs_dataset_draft_state_with_http_info(project_id, dataset_id, opts = {})
@@ -4609,7 +4609,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an LLM Observability annotation queue.
+    # Update an Agent Observability annotation queue.
     #
     # @see #update_llm_obs_annotation_queue_with_http_info
     def update_llm_obs_annotation_queue(queue_id, body, opts = {})
@@ -4617,11 +4617,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update an LLM Observability annotation queue.
+    # Update an Agent Observability annotation queue.
     #
     # Partially update an annotation queue. The `name`, `description`, and `annotation_schema` fields can be updated.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param body [LLMObsAnnotationQueueUpdateRequest] Update annotation queue payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsAnnotationQueueResponse, Integer, Hash)>] LLMObsAnnotationQueueResponse data, response status code and response headers
@@ -4702,7 +4702,7 @@ module DatadogAPIClient::V2
     # Label names must be unique within the queue and match the pattern `^[a-zA-Z0-9_-]+$`.
     # Each label must have a valid type: score, categorical, boolean, or text.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param body [LLMObsAnnotationQueueLabelSchemaUpdateRequest] Update label schema payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsAnnotationQueueLabelSchemaResponse, Integer, Hash)>] LLMObsAnnotationQueueLabelSchemaResponse data, response status code and response headers
@@ -4778,9 +4778,9 @@ module DatadogAPIClient::V2
 
     # Create or update a custom evaluator configuration.
     #
-    # Create or update a custom LLM Observability evaluator configuration by its name.
+    # Create or update a custom Agent Observability evaluator configuration by its name.
     #
-    # @param eval_name [String] The name of the custom LLM Observability evaluator configuration.
+    # @param eval_name [String] The name of the custom Agent Observability evaluator configuration.
     # @param body [LLMObsCustomEvalConfigUpdateRequest] Custom evaluator configuration payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -4846,7 +4846,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an LLM Observability dataset.
+    # Update an Agent Observability dataset.
     #
     # @see #update_llm_obs_dataset_with_http_info
     def update_llm_obs_dataset(project_id, dataset_id, body, opts = {})
@@ -4854,12 +4854,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update an LLM Observability dataset.
+    # Update an Agent Observability dataset.
     #
-    # Partially update an existing LLM Observability dataset within the specified project.
+    # Partially update an existing Agent Observability dataset within the specified project.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param body [LLMObsDatasetUpdateRequest] Update dataset payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetResponse, Integer, Hash)>] LLMObsDatasetResponse data, response status code and response headers
@@ -4929,7 +4929,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update LLM Observability dataset records.
+    # Update Agent Observability dataset records.
     #
     # @see #update_llm_obs_dataset_records_with_http_info
     def update_llm_obs_dataset_records(project_id, dataset_id, body, opts = {})
@@ -4937,12 +4937,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update LLM Observability dataset records.
+    # Update Agent Observability dataset records.
     #
-    # Update one or more existing records in an LLM Observability dataset.
+    # Update one or more existing records in an Agent Observability dataset.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param body [LLMObsDatasetRecordsUpdateRequest] Update records payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsDatasetRecordsMutationResponse, Integer, Hash)>] LLMObsDatasetRecordsMutationResponse data, response status code and response headers
@@ -5012,7 +5012,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an LLM Observability experiment.
+    # Update an Agent Observability experiment.
     #
     # @see #update_llm_obs_experiment_with_http_info
     def update_llm_obs_experiment(experiment_id, body, opts = {})
@@ -5020,11 +5020,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update an LLM Observability experiment.
+    # Update an Agent Observability experiment.
     #
-    # Partially update an existing LLM Observability experiment.
+    # Partially update an existing Agent Observability experiment.
     #
-    # @param experiment_id [String] The ID of the LLM Observability experiment.
+    # @param experiment_id [String] The ID of the Agent Observability experiment.
     # @param body [LLMObsExperimentUpdateRequest] Update experiment payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsExperimentResponse, Integer, Hash)>] LLMObsExperimentResponse data, response status code and response headers
@@ -5090,7 +5090,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an LLM Observability project.
+    # Update an Agent Observability project.
     #
     # @see #update_llm_obs_project_with_http_info
     def update_llm_obs_project(project_id, body, opts = {})
@@ -5098,11 +5098,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update an LLM Observability project.
+    # Update an Agent Observability project.
     #
-    # Partially update an existing LLM Observability project.
+    # Partially update an existing Agent Observability project.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
+    # @param project_id [String] The ID of the Agent Observability project.
     # @param body [LLMObsProjectUpdateRequest] Update project payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsProjectResponse, Integer, Hash)>] LLMObsProjectResponse data, response status code and response headers
@@ -5168,7 +5168,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an LLM Observability prompt.
+    # Update an Agent Observability prompt.
     #
     # @see #update_llm_obs_prompt_with_http_info
     def update_llm_obs_prompt(prompt_id, body, opts = {})
@@ -5176,11 +5176,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update an LLM Observability prompt.
+    # Update an Agent Observability prompt.
     #
-    # Update the title, the description, or both, for an LLM Observability prompt.
+    # Update the title, the description, or both, for an Agent Observability prompt.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param body [LLMObsUpdatePromptRequest] Update prompt payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsPromptResponse, Integer, Hash)>] LLMObsPromptResponse data, response status code and response headers
@@ -5246,7 +5246,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a specific LLM Observability prompt version.
+    # Update an Agent Observability prompt version.
     #
     # @see #update_llm_obs_prompt_version_with_http_info
     def update_llm_obs_prompt_version(prompt_id, version, body, opts = {})
@@ -5254,12 +5254,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a specific LLM Observability prompt version.
+    # Update an Agent Observability prompt version.
     #
-    # Update the description, the feature-flag environments, or both, for a specific version of an LLM Observability prompt.
+    # Update the description, the feature-flag environments, or both, for a specific version of an Agent Observability prompt.
     #
-    # @param prompt_id [String] The customer-provided identifier of the LLM Observability prompt.
-    # @param version [Integer] The version number of the LLM Observability prompt.
+    # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
+    # @param version [Integer] The version number of the Agent Observability prompt.
     # @param body [LLMObsUpdatePromptVersionRequest] Update prompt version payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsPromptVersionResponse, Integer, Hash)>] LLMObsPromptVersionResponse data, response status code and response headers
@@ -5332,7 +5332,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Upload records to an LLM Observability dataset.
+    # Upload records to an Agent Observability dataset.
     #
     # @see #upload_llm_obs_dataset_records_file_with_http_info
     def upload_llm_obs_dataset_records_file(project_id, dataset_id, opts = {})
@@ -5340,7 +5340,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Upload records to an LLM Observability dataset.
+    # Upload records to an Agent Observability dataset.
     #
     # Upload records to a dataset from a file. The request is a `multipart/form-data` upload containing a single `file` part.
     # Currently only CSV is supported. The CSV must include an `input` column. Optional columns are `id`, `expected_output`, `metadata`, and `tags`.
@@ -5350,8 +5350,8 @@ module DatadogAPIClient::V2
     #   - `completed`: terminal event with a JSON body containing `records_created`.
     #   - `error`: terminal event with a JSON body containing an error `message`.
     #
-    # @param project_id [String] The ID of the LLM Observability project.
-    # @param dataset_id [String] The ID of the LLM Observability dataset.
+    # @param project_id [String] The ID of the Agent Observability project.
+    # @param dataset_id [String] The ID of the Agent Observability dataset.
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :deduplicate Whether to skip records whose `input` already exists in the dataset. Defaults to `false`.
     # @option opts [Boolean] :overwrite Whether to overwrite existing records that share the same user-provided `id`. Defaults to `true`.
@@ -5442,7 +5442,7 @@ module DatadogAPIClient::V2
     # Results and errors in the response are linked to request items by `interaction_id`.
     # Errors for individual items are returned in the `errors` field without blocking the rest of the batch.
     #
-    # @param queue_id [String] The ID of the LLM Observability annotation queue.
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
     # @param body [LLMObsAnnotationsRequest] Payload for creating or updating annotations.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsAnnotationsResponse, Integer, Hash)>] LLMObsAnnotationsResponse data, response status code and response headers

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type for an LLM Observability spans search request.
+  # Resource type for an Agent Observability spans search request.
   class LLMObsSearchSpansRequestType
     include BaseEnumModel
 

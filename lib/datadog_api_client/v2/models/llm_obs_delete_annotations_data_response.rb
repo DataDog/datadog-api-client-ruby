@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The annotation queue ID.
     attr_reader :id
 
-    # Resource type for LLM Observability annotations.
+    # Resource type for Agent Observability annotations.
     attr_reader :type
 
     attr_accessor :additional_properties

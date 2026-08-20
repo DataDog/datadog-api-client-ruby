@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability span.
+  # Attributes of an Agent Observability span.
   class LLMObsSpanAttributes
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Evaluation metrics keyed by evaluator name.
     attr_accessor :evaluation
 
-    # Input or output content of an LLM Observability span.
+    # Input or output content of an Agent Observability span.
     attr_accessor :input
 
     # Detected intent of the span.
@@ -51,7 +51,7 @@ module DatadogAPIClient::V2
     # Name of the span.
     attr_reader :name
 
-    # Input or output content of an LLM Observability span.
+    # Input or output content of an Agent Observability span.
     attr_accessor :output
 
     # Identifier of the parent span, if any.

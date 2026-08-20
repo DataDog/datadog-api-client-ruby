@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of the custom LLM Observability evaluator configuration resource.
+  # Type of the custom Agent Observability evaluator configuration resource.
   class LLMObsCustomEvalConfigType
     include BaseEnumModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability patterns run status.
+  # Attributes of an Agent Observability patterns run status.
   class LLMObsPatternsRunStatusResponseAttributes
     include BaseGenericModel
 

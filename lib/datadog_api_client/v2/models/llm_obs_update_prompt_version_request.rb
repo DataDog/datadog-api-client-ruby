@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to update an LLM Observability prompt version's metadata or feature-flag environments.
+  # Request to update an Agent Observability prompt version's metadata or feature-flag environments.
   class LLMObsUpdatePromptVersionRequest
     include BaseGenericModel
 
-    # Data object for updating an LLM Observability prompt version.
+    # Data object for updating an Agent Observability prompt version.
     attr_reader :data
 
     attr_accessor :additional_properties

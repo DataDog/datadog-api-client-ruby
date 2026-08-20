@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to update an LLM Observability prompt's metadata.
+  # Request to update an Agent Observability prompt's metadata.
   class LLMObsUpdatePromptRequest
     include BaseGenericModel
 
-    # Data object for updating an LLM Observability prompt.
+    # Data object for updating an Agent Observability prompt.
     attr_reader :data
 
     attr_accessor :additional_properties

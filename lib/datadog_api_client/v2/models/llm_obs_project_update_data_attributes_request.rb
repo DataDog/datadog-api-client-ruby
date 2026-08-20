@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating an LLM Observability project.
+  # Attributes for updating an Agent Observability project.
   class LLMObsProjectUpdateDataAttributesRequest
     include BaseGenericModel
 

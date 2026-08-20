@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability experiment.
+  # Attributes of an Agent Observability experiment.
   class LLMObsExperimentDataAttributesResponse
     include BaseGenericModel
 
@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
     # Expected number of runs for this experiment.
     attr_reader :run_count
 
-    # Execution status of an LLM Observability experiment.
+    # Execution status of an Agent Observability experiment.
     attr_accessor :status
 
     # Timestamp when the experiment was last updated.

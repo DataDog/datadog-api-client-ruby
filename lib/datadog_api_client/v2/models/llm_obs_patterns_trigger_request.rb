@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to trigger an LLM Observability patterns run.
+  # Request to trigger an Agent Observability patterns run.
   class LLMObsPatternsTriggerRequest
     include BaseGenericModel
 
-    # Data object for triggering an LLM Observability patterns run.
+    # Data object for triggering an Agent Observability patterns run.
     attr_reader :data
 
     attr_accessor :additional_properties

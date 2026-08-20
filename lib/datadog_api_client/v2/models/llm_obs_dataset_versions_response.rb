@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing the active versions of an LLM Observability dataset.
+  # Response containing the active versions of an Agent Observability dataset.
   class LLMObsDatasetVersionsResponse
     include BaseGenericModel
 

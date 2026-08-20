@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing the clustered points of an LLM Observability topic.
+  # Response containing the clustered points of an Agent Observability topic.
   class LLMObsPatternsClusteredPointsResponse
     include BaseGenericModel
 
-    # Data object of an LLM Observability patterns clustered points response.
+    # Data object of an Agent Observability patterns clustered points response.
     attr_reader :data
 
     attr_accessor :additional_properties

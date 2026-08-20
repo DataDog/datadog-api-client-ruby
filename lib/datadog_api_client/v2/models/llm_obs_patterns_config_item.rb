@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single LLM Observability patterns configuration in a list response.
+  # A single Agent Observability patterns configuration in a list response.
   class LLMObsPatternsConfigItem
     include BaseGenericModel
 

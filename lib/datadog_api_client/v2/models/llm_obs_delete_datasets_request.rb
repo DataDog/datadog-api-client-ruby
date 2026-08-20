@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to delete one or more LLM Observability datasets.
+  # Request to delete one or more Agent Observability datasets.
   class LLMObsDeleteDatasetsRequest
     include BaseGenericModel
 
-    # Data object for deleting LLM Observability datasets.
+    # Data object for deleting Agent Observability datasets.
     attr_reader :data
 
     attr_accessor :additional_properties

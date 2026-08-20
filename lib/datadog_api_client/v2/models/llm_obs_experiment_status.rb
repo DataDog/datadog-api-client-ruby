@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Execution status of an LLM Observability experiment.
+  # Execution status of an Agent Observability experiment.
   class LLMObsExperimentStatus
     include BaseEnumModel
 

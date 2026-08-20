@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a specific version of an LLM Observability prompt.
+  # Attributes of a specific version of an Agent Observability prompt.
   class LLMObsPromptVersionDataAttributes
     include BaseGenericModel
 

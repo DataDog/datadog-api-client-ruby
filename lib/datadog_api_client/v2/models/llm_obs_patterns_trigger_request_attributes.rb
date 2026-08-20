@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for triggering an LLM Observability patterns run.
+  # Attributes for triggering an Agent Observability patterns run.
   class LLMObsPatternsTriggerRequestAttributes
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of an LLM Observability annotation queue.
+  # Resource type of an Agent Observability annotation queue.
   class LLMObsAnnotationQueueType
     include BaseEnumModel
 

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to batch-insert, update, and delete records in an LLM Observability dataset.
+  # Request to batch-insert, update, and delete records in an Agent Observability dataset.
   class LLMObsDatasetBatchUpdateRequest
     include BaseGenericModel
 
-    # Data object for batch-updating records in an LLM Observability dataset.
+    # Data object for batch-updating records in an Agent Observability dataset.
     attr_reader :data
 
     attr_accessor :additional_properties

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object of an LLM Observability patterns run status response.
+  # Data object of an Agent Observability patterns run status response.
   class LLMObsPatternsRunStatusResponseData
     include BaseGenericModel
 
-    # Attributes of an LLM Observability patterns run status.
+    # Attributes of an Agent Observability patterns run status.
     attr_reader :attributes
 
     # The ID of the patterns run.
     attr_reader :id
 
-    # Resource type of an LLM Observability patterns run status.
+    # Resource type of an Agent Observability patterns run status.
     attr_reader :type
 
     attr_accessor :additional_properties

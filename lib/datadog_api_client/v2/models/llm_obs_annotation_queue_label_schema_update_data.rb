@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes for updating an annotation queue label schema.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability annotation queue.
+    # Resource type of an Agent Observability annotation queue.
     attr_reader :type
 
     attr_accessor :additional_properties

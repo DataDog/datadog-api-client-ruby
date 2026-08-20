@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to append records to an LLM Observability dataset.
+  # Request to append records to an Agent Observability dataset.
   class LLMObsDatasetRecordsRequest
     include BaseGenericModel
 
-    # Data object for appending records to an LLM Observability dataset.
+    # Data object for appending records to an Agent Observability dataset.
     attr_reader :data
 
     attr_accessor :additional_properties

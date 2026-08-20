@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A topic discovered by an LLM Observability patterns run.
+  # A topic discovered by an Agent Observability patterns run.
   class LLMObsPatternsTopic
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to delete interactions from an LLM Observability annotation queue.
+  # Request to delete interactions from an Agent Observability annotation queue.
   class LLMObsDeleteAnnotationQueueInteractionsRequest
     include BaseGenericModel
 

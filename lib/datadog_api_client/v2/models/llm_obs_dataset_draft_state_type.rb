@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of an LLM Observability dataset draft state.
+  # Resource type of an Agent Observability dataset draft state.
   class LLMObsDatasetDraftStateType
     include BaseEnumModel
 

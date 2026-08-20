@@ -1,4 +1,4 @@
-# Restore an LLM Observability dataset version returns "OK" response
+# Restore an Agent Observability dataset version returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating or updating a custom LLM Observability evaluator configuration.
+  # Attributes for creating or updating a custom Agent Observability evaluator configuration.
   class LLMObsCustomEvalConfigUpdateAttributes
     include BaseGenericModel
 
