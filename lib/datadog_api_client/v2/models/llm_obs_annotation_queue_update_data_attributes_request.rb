@@ -30,6 +30,15 @@ module DatadogAPIClient::V2
     # Updated name of the annotation queue.
     attr_accessor :name
 
+    # Whether annotation access is restricted to assigned users.
+    attr_accessor :restrict_to_assignees
+
+    # Whether annotation access is restricted to queue reviewers.
+    attr_accessor :restrict_to_reviewers
+
+    # Updated email addresses of reviewers who can access the annotation queue.
+    attr_accessor :reviewer_emails
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +47,10 @@ module DatadogAPIClient::V2
       {
         :'annotation_schema' => :'annotation_schema',
         :'description' => :'description',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'restrict_to_assignees' => :'restrict_to_assignees',
+        :'restrict_to_reviewers' => :'restrict_to_reviewers',
+        :'reviewer_emails' => :'reviewer_emails'
       }
     end
 
@@ -48,7 +60,10 @@ module DatadogAPIClient::V2
       {
         :'annotation_schema' => :'LLMObsAnnotationSchema',
         :'description' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'restrict_to_assignees' => :'Boolean',
+        :'restrict_to_reviewers' => :'Boolean',
+        :'reviewer_emails' => :'Array<String>'
       }
     end
 
@@ -81,6 +96,20 @@ module DatadogAPIClient::V2
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'restrict_to_assignees')
+        self.restrict_to_assignees = attributes[:'restrict_to_assignees']
+      end
+
+      if attributes.key?(:'restrict_to_reviewers')
+        self.restrict_to_reviewers = attributes[:'restrict_to_reviewers']
+      end
+
+      if attributes.key?(:'reviewer_emails')
+        if (value = attributes[:'reviewer_emails']).is_a?(Array)
+          self.reviewer_emails = value
+        end
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -112,6 +141,9 @@ module DatadogAPIClient::V2
           annotation_schema == o.annotation_schema &&
           description == o.description &&
           name == o.name &&
+          restrict_to_assignees == o.restrict_to_assignees &&
+          restrict_to_reviewers == o.restrict_to_reviewers &&
+          reviewer_emails == o.reviewer_emails &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotation_schema, description, name, additional_properties].hash
+      [annotation_schema, description, name, restrict_to_assignees, restrict_to_reviewers, reviewer_emails, additional_properties].hash
     end
   end
 end

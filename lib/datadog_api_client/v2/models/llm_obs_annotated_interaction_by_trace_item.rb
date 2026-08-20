@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # List of annotations for this interaction.
     attr_reader :annotations
 
+    # Whether the current caller can annotate this interaction.
+    attr_reader :can_annotate
+
     # Upstream entity identifier (trace ID, session ID, or deterministic display_block ID).
     attr_reader :content_id
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'annotations' => :'annotations',
+        :'can_annotate' => :'can_annotate',
         :'content_id' => :'content_id',
         :'created_at' => :'created_at',
         :'display_block' => :'display_block',
@@ -72,6 +76,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'annotations' => :'Array<LLMObsAnnotationItem>',
+        :'can_annotate' => :'Boolean',
         :'content_id' => :'String',
         :'created_at' => :'Time',
         :'display_block' => :'Array<LLMObsContentBlock>',
@@ -105,6 +110,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'annotations']).is_a?(Array)
           self.annotations = value
         end
+      end
+
+      if attributes.key?(:'can_annotate')
+        self.can_annotate = attributes[:'can_annotate']
       end
 
       if attributes.key?(:'content_id')
@@ -147,6 +156,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @annotations.nil?
+      return false if @can_annotate.nil?
       return false if @content_id.nil?
       return false if @created_at.nil?
       return false if !@display_block.nil? && @display_block.length < 1
@@ -166,6 +176,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "annotations", annotations cannot be nil.'
       end
       @annotations = annotations
+    end
+
+    # Custom attribute writer method with validation
+    # @param can_annotate [Object] Object to be assigned
+    # @!visibility private
+    def can_annotate=(can_annotate)
+      if can_annotate.nil?
+        fail ArgumentError, 'invalid value for "can_annotate", can_annotate cannot be nil.'
+      end
+      @can_annotate = can_annotate
     end
 
     # Custom attribute writer method with validation
@@ -275,6 +295,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           annotations == o.annotations &&
+          can_annotate == o.can_annotate &&
           content_id == o.content_id &&
           created_at == o.created_at &&
           display_block == o.display_block &&
@@ -290,7 +311,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotations, content_id, created_at, display_block, id, modified_at, queue_id, queue_name, type, additional_properties].hash
+      [annotations, can_annotate, content_id, created_at, display_block, id, modified_at, queue_id, queue_name, type, additional_properties].hash
     end
   end
 end
