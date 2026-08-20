@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for deleting LLM Observability projects.
+  # Data object for deleting Agent Observability projects.
   class LLMObsDeleteProjectsDataRequest
     include BaseGenericModel
 
-    # Attributes for deleting LLM Observability projects.
+    # Attributes for deleting Agent Observability projects.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability project.
+    # Resource type of an Agent Observability project.
     attr_reader :type
 
     attr_accessor :additional_properties

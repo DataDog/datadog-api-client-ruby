@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Input or output content of an LLM Observability span.
+  # Input or output content of an Agent Observability span.
   class LLMObsSpanIO
     include BaseGenericModel
 

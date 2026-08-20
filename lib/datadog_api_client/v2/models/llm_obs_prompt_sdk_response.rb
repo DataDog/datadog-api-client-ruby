@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a flattened LLM Observability prompt version for SDK consumption.
+  # Response containing a flattened Agent Observability prompt version for SDK consumption.
   class LLMObsPromptSDKResponse
     include BaseGenericModel
 
-    # Data object for a flattened LLM Observability prompt version returned for SDK consumption.
+    # Data object for a flattened Agent Observability prompt version returned for SDK consumption.
     attr_reader :data
 
     attr_accessor :additional_properties

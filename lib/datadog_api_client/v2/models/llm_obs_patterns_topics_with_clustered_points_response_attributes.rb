@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability patterns topics-with-clustered-points response.
+  # Attributes of an Agent Observability patterns topics-with-clustered-points response.
   class LLMObsPatternsTopicsWithClusteredPointsResponseAttributes
     include BaseGenericModel
 

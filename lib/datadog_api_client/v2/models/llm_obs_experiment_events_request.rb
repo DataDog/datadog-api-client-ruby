@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to push spans and metrics for an LLM Observability experiment.
+  # Request to push spans and metrics for an Agent Observability experiment.
   class LLMObsExperimentEventsRequest
     include BaseGenericModel
 

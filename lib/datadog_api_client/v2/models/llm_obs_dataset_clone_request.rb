@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to clone an LLM Observability dataset.
+  # Request to clone an Agent Observability dataset.
   class LLMObsDatasetCloneRequest
     include BaseGenericModel
 
-    # Data object for cloning an LLM Observability dataset.
+    # Data object for cloning an Agent Observability dataset.
     attr_reader :data
 
     attr_accessor :additional_properties

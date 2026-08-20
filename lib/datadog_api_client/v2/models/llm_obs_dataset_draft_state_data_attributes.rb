@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability dataset draft state.
+  # Attributes of an Agent Observability dataset draft state.
   class LLMObsDatasetDraftStateDataAttributes
     include BaseGenericModel
 

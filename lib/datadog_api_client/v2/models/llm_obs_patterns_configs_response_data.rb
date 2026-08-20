@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object of a list of LLM Observability patterns configurations.
+  # Data object of a list of Agent Observability patterns configurations.
   class LLMObsPatternsConfigsResponseData
     include BaseGenericModel
 
-    # Attributes of a list of LLM Observability patterns configurations.
+    # Attributes of a list of Agent Observability patterns configurations.
     attr_reader :attributes
 
     # Identifier of the list response.
     attr_reader :id
 
-    # Resource type of a list of LLM Observability patterns configurations.
+    # Resource type of a list of Agent Observability patterns configurations.
     attr_reader :type
 
     attr_accessor :additional_properties

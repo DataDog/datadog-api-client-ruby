@@ -1,4 +1,4 @@
-# Unlock LLM Observability dataset draft state returns "OK" response
+# Unlock Agent Observability dataset draft state returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

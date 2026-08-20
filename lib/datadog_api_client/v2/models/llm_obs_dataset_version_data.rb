@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for an LLM Observability dataset version.
+  # Data object for an Agent Observability dataset version.
   class LLMObsDatasetVersionData
     include BaseGenericModel
 
-    # Attributes of an LLM Observability dataset version.
+    # Attributes of an Agent Observability dataset version.
     attr_reader :attributes
 
     # Unique identifier of the dataset version.
     attr_reader :id
 
-    # Resource type of an LLM Observability dataset version.
+    # Resource type of an Agent Observability dataset version.
     attr_reader :type
 
     attr_accessor :additional_properties

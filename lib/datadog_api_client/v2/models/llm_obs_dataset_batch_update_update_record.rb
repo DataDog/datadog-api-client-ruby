@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A record update payload as part of a batch update on an LLM Observability dataset.
+  # A record update payload as part of a batch update on an Agent Observability dataset.
   class LLMObsDatasetBatchUpdateUpdateRecord
     include BaseGenericModel
 

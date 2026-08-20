@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of a list of LLM Observability patterns configurations.
+  # Resource type of a list of Agent Observability patterns configurations.
   class LLMObsPatternsConfigsListType
     include BaseEnumModel
 

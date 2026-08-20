@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to restore an LLM Observability dataset to a previous version.
+  # Request to restore an Agent Observability dataset to a previous version.
   class LLMObsDatasetRestoreVersionRequest
     include BaseGenericModel
 
-    # Data object for restoring an LLM Observability dataset to a previous version.
+    # Data object for restoring an Agent Observability dataset to a previous version.
     attr_reader :data
 
     attr_accessor :additional_properties

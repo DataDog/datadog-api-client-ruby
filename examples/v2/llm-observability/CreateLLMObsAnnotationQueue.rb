@@ -1,4 +1,4 @@
-# Create an LLM Observability annotation queue returns "Created" response
+# Create an Agent Observability annotation queue returns "Created" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

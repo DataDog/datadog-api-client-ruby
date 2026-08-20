@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of LLM Observability prompts.
+  # Response containing a list of Agent Observability prompts.
   class LLMObsPromptsResponse
     include BaseGenericModel
 
-    # List of LLM Observability prompts.
+    # List of Agent Observability prompts.
     attr_reader :data
 
     attr_accessor :additional_properties

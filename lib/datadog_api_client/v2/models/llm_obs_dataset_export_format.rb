@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Supported export format for an LLM Observability dataset.
+  # Supported export format for an Agent Observability dataset.
   class LLMObsDatasetExportFormat
     include BaseEnumModel
 

@@ -1,4 +1,4 @@
-# Create an LLM Observability experiment returns "OK" response
+# Create an Agent Observability experiment returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

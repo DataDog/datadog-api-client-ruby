@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes for creating or updating annotations.
     attr_reader :attributes
 
-    # Resource type for LLM Observability annotations.
+    # Resource type for Agent Observability annotations.
     attr_reader :type
 
     attr_accessor :additional_properties

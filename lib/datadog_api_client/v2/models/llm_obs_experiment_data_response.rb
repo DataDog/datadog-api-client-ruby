@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for an LLM Observability experiment.
+  # Data object for an Agent Observability experiment.
   class LLMObsExperimentDataResponse
     include BaseGenericModel
 
-    # Attributes of an LLM Observability experiment.
+    # Attributes of an Agent Observability experiment.
     attr_reader :attributes
 
     # Unique identifier of the experiment.
     attr_reader :id
 
-    # Resource type of an LLM Observability experiment.
+    # Resource type of an Agent Observability experiment.
     attr_reader :type
 
     attr_accessor :additional_properties

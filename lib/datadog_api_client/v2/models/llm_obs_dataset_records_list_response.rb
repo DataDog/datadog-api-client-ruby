@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a paginated list of LLM Observability dataset records.
+  # Response containing a paginated list of Agent Observability dataset records.
   class LLMObsDatasetRecordsListResponse
     include BaseGenericModel
 

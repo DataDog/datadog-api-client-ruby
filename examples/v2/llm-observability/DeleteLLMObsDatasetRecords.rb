@@ -1,4 +1,4 @@
-# Delete LLM Observability dataset records returns "No Content" response
+# Delete Agent Observability dataset records returns "No Content" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

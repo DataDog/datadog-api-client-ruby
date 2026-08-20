@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of an LLM Observability patterns clustered points response.
+  # Resource type of an Agent Observability patterns clustered points response.
   class LLMObsPatternsClusteredPointsType
     include BaseEnumModel
 

@@ -592,22 +592,22 @@ module DatadogAPIClient::V1
     # Shows the sum of all live logs bytes ingested over all hours in the current month for all organizations (data available as of December 1, 2020).
     attr_accessor :live_ingested_bytes_agg_sum
 
-    # Shows the sum of all LLM Observability 15-day retention spans over all hours in the current month for all organizations.
+    # Shows the sum of all Agent Observability 15-day retention spans over all hours in the current month for all organizations.
     attr_accessor :llm_observability_15day_retention_spans_agg_sum
 
-    # Shows the sum of all LLM Observability 30-day retention spans over all hours in the current month for all organizations.
+    # Shows the sum of all Agent Observability 30-day retention spans over all hours in the current month for all organizations.
     attr_accessor :llm_observability_30day_retention_spans_agg_sum
 
-    # Shows the sum of all LLM Observability 60-day retention spans over all hours in the current month for all organizations.
+    # Shows the sum of all Agent Observability 60-day retention spans over all hours in the current month for all organizations.
     attr_accessor :llm_observability_60day_retention_spans_agg_sum
 
-    # Shows the sum of all LLM Observability 90-day retention spans over all hours in the current month for all organizations.
+    # Shows the sum of all Agent Observability 90-day retention spans over all hours in the current month for all organizations.
     attr_accessor :llm_observability_90day_retention_spans_agg_sum
 
-    # Sum of all LLM observability sessions for all hours in the current month for all organizations.
+    # Sum of all Agent observability sessions for all hours in the current month for all organizations.
     attr_accessor :llm_observability_agg_sum
 
-    # Minimum spend for LLM observability sessions for all hours in the current month for all organizations.
+    # Minimum spend for Agent observability sessions for all hours in the current month for all organizations.
     attr_accessor :llm_observability_min_spend_agg_sum
 
     # Shows the sum of all Logs Archive Search scanned data over all hours in the current month for all organizations.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of metric recorded for an LLM Observability experiment.
+  # Type of metric recorded for an Agent Observability experiment.
   class LLMObsMetricScoreType
     include BaseEnumModel
 

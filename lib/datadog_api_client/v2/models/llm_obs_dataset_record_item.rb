@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single record to append to an LLM Observability dataset.
+  # A single record to append to an Agent Observability dataset.
   class LLMObsDatasetRecordItem
     include BaseGenericModel
 

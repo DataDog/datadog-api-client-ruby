@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for updating an LLM Observability prompt version.
+  # Data object for updating an Agent Observability prompt version.
   class LLMObsUpdatePromptVersionData
     include BaseGenericModel
 
-    # Attributes for updating an LLM Observability prompt version. At least one of `description`, `labels`, or `env_ids` must be provided; all three attributes are optional individually.
+    # Attributes for updating an Agent Observability prompt version. At least one of `description`, `labels`, or `env_ids` must be provided; all three attributes are optional individually.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability prompt version.
+    # Resource type of an Agent Observability prompt version.
     attr_reader :type
 
     attr_accessor :additional_properties

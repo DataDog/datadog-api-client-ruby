@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A label attached to an LLM Observability prompt version.
+  # A label attached to an Agent Observability prompt version.
   class LLMObsPromptVersionLabel
     include BaseEnumModel
 

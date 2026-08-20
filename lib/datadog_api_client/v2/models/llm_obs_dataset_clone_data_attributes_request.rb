@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for cloning an LLM Observability dataset.
+  # Attributes for cloning an Agent Observability dataset.
   class LLMObsDatasetCloneDataAttributesRequest
     include BaseGenericModel
 

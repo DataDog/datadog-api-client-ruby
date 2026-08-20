@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating an LLM Observability annotation queue. All fields are optional.
+  # Attributes for updating an Agent Observability annotation queue. All fields are optional.
   class LLMObsAnnotationQueueUpdateDataAttributesRequest
     include BaseGenericModel
 

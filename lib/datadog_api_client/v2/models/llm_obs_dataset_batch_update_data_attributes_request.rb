@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for batch-updating records in an LLM Observability dataset.
+  # Attributes for batch-updating records in an Agent Observability dataset.
   class LLMObsDatasetBatchUpdateDataAttributesRequest
     include BaseGenericModel
 

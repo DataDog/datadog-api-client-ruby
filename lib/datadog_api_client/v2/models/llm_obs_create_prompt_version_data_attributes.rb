@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating a new version of an LLM Observability prompt. `template` is required; all other attributes are optional.
+  # Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional.
   class LLMObsCreatePromptVersionDataAttributes
     include BaseGenericModel
 

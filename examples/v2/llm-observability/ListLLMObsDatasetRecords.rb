@@ -1,4 +1,4 @@
-# List LLM Observability dataset records returns "OK" response
+# List Agent Observability dataset records returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

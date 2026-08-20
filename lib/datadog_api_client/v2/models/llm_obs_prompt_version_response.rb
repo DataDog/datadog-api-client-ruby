@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a specific version of an LLM Observability prompt.
+  # Response containing a specific version of an Agent Observability prompt.
   class LLMObsPromptVersionResponse
     include BaseGenericModel
 
-    # Data object for a specific version of an LLM Observability prompt.
+    # Data object for a specific version of an Agent Observability prompt.
     attr_reader :data
 
     attr_accessor :additional_properties

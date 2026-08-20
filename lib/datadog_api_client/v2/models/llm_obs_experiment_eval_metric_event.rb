@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LLMObsExperimentEvalMetricEvent
     include BaseGenericModel
 
-    # Assessment result for an LLM Observability experiment metric.
+    # Assessment result for an Agent Observability experiment metric.
     attr_accessor :assessment
 
     # Boolean value. Present when `metric_type` is `boolean`.
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
     # Source of the metric. Either `custom` (user-submitted) or `summary` (experiment-level aggregate).
     attr_accessor :metric_source
 
-    # Type of metric recorded for an LLM Observability experiment.
+    # Type of metric recorded for an Agent Observability experiment.
     attr_accessor :metric_type
 
     # Human-readable reasoning for the metric value.

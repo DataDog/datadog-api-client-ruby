@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for updating an LLM Observability project.
+  # Data object for updating an Agent Observability project.
   class LLMObsProjectUpdateDataRequest
     include BaseGenericModel
 
-    # Attributes for updating an LLM Observability project.
+    # Attributes for updating an Agent Observability project.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability project.
+    # Resource type of an Agent Observability project.
     attr_reader :type
 
     attr_accessor :additional_properties
