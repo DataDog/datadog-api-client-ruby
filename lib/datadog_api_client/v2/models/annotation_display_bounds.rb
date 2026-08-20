@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AnnotationDisplayBounds` object.
+  # Canvas coordinates and dimensions for an annotation on the workflow canvas.
   class AnnotationDisplayBounds
     include BaseGenericModel
 
-    # The `bounds` `height`.
+    # The annotation's height on the canvas.
     attr_accessor :height
 
-    # The `bounds` `width`.
+    # The annotation's width on the canvas.
     attr_accessor :width
 
-    # The `bounds` `x`.
+    # The annotation's horizontal canvas coordinate.
     attr_accessor :x
 
-    # The `bounds` `y`.
+    # The annotation's vertical canvas coordinate.
     attr_accessor :y
 
     attr_accessor :additional_properties
