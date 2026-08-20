@@ -2114,6 +2114,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a severity modifier rule.
+    #
+    # @see #create_security_findings_automation_severity_modifier_rule_with_http_info
+    def create_security_findings_automation_severity_modifier_rule(body, opts = {})
+      data, _status_code, _headers = create_security_findings_automation_severity_modifier_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a severity modifier rule.
+    #
+    # Create a new severity modifier rule for the current organization.
+    #
+    # @param body [SeverityModifierRuleCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SeverityModifierRuleResponse, Integer, Hash)>] SeverityModifierRuleResponse data, response status code and response headers
+    def create_security_findings_automation_severity_modifier_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_findings_automation_severity_modifier_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_findings_automation_severity_modifier_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_findings_automation_severity_modifier_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_findings_automation_severity_modifier_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_findings_automation_severity_modifier_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/severity_modifier_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SeverityModifierRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_security_findings_automation_severity_modifier_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_findings_automation_severity_modifier_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a ticket creation rule.
     #
     # @see #create_security_findings_automation_ticket_creation_rule_with_http_info
@@ -3448,6 +3521,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_findings_automation_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a severity modifier rule.
+    #
+    # @see #delete_security_findings_automation_severity_modifier_rule_with_http_info
+    def delete_security_findings_automation_severity_modifier_rule(rule_id, opts = {})
+      delete_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, opts)
+      nil
+    end
+
+    # Delete a severity modifier rule.
+    #
+    # Delete an existing severity modifier rule by ID.
+    #
+    # @param rule_id [UUID] The ID of the severity modifier rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_security_findings_automation_severity_modifier_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_security_findings_automation_severity_modifier_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_security_findings_automation_severity_modifier_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_findings_automation_severity_modifier_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.delete_security_findings_automation_severity_modifier_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_security_findings_automation_severity_modifier_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_findings_automation_severity_modifier_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5580,6 +5724,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_findings_automation_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a severity modifier rule.
+    #
+    # @see #get_security_findings_automation_severity_modifier_rule_with_http_info
+    def get_security_findings_automation_severity_modifier_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get a severity modifier rule.
+    #
+    # Get the details of a severity modifier rule by ID.
+    #
+    # @param rule_id [UUID] The ID of the severity modifier rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SeverityModifierRuleResponse, Integer, Hash)>] SeverityModifierRuleResponse data, response status code and response headers
+    def get_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_findings_automation_severity_modifier_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_findings_automation_severity_modifier_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_findings_automation_severity_modifier_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_findings_automation_severity_modifier_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.get_security_findings_automation_severity_modifier_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SeverityModifierRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_security_findings_automation_severity_modifier_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_findings_automation_severity_modifier_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -8533,6 +8748,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all severity modifier rules.
+    #
+    # @see #list_security_findings_automation_severity_modifier_rules_with_http_info
+    def list_security_findings_automation_severity_modifier_rules(opts = {})
+      data, _status_code, _headers = list_security_findings_automation_severity_modifier_rules_with_http_info(opts)
+      data
+    end
+
+    # Get all severity modifier rules.
+    #
+    # Get all severity modifier rules for the current organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of rules per page. Maximum is 1000.
+    # @option opts [Integer] :page_number The page number to return.
+    # @return [Array<(SeverityModifierRulesResponse, Integer, Hash)>] SeverityModifierRulesResponse data, response status code and response headers
+    def list_security_findings_automation_severity_modifier_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_findings_automation_severity_modifier_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_findings_automation_severity_modifier_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_findings_automation_severity_modifier_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_findings_automation_severity_modifier_rules ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_findings_automation_severity_modifier_rules, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_findings_automation_severity_modifier_rules, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_security_findings_automation_severity_modifier_rules, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/severity_modifier_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SeverityModifierRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_security_findings_automation_severity_modifier_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_findings_automation_severity_modifier_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all ticket creation rules.
     #
     # @see #list_security_findings_automation_ticket_creation_rules_with_http_info
@@ -9993,6 +10287,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Reorder severity modifier rules.
+    #
+    # @see #reorder_security_findings_automation_severity_modifier_rules_with_http_info
+    def reorder_security_findings_automation_severity_modifier_rules(body, opts = {})
+      data, _status_code, _headers = reorder_security_findings_automation_severity_modifier_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Reorder severity modifier rules.
+    #
+    # Reorder the list of severity modifier rules for the current organization.
+    #
+    # @param body [SeverityModifierRuleReorderRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SeverityModifierRuleReorderResponse, Integer, Hash)>] SeverityModifierRuleReorderResponse data, response status code and response headers
+    def reorder_security_findings_automation_severity_modifier_rules_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.reorder_security_findings_automation_severity_modifier_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.reorder_security_findings_automation_severity_modifier_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.reorder_security_findings_automation_severity_modifier_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.reorder_security_findings_automation_severity_modifier_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.reorder_security_findings_automation_severity_modifier_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/severity_modifier_rules/reorder'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SeverityModifierRuleReorderResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :reorder_security_findings_automation_severity_modifier_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#reorder_security_findings_automation_severity_modifier_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Reorder ticket creation rules.
     #
     # @see #reorder_security_findings_automation_ticket_creation_rules_with_http_info
@@ -11115,6 +11482,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_findings_automation_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a severity modifier rule.
+    #
+    # @see #update_security_findings_automation_severity_modifier_rule_with_http_info
+    def update_security_findings_automation_severity_modifier_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = update_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, body, opts)
+      data
+    end
+
+    # Update a severity modifier rule.
+    #
+    # Update an existing severity modifier rule by ID.
+    #
+    # @param rule_id [UUID] The ID of the severity modifier rule.
+    # @param body [SeverityModifierRuleUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SeverityModifierRuleResponse, Integer, Hash)>] SeverityModifierRuleResponse data, response status code and response headers
+    def update_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_findings_automation_severity_modifier_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_findings_automation_severity_modifier_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_findings_automation_severity_modifier_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_findings_automation_severity_modifier_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.update_security_findings_automation_severity_modifier_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_findings_automation_severity_modifier_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SeverityModifierRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_security_findings_automation_severity_modifier_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_findings_automation_severity_modifier_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
