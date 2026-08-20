@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The analytics query definition containing a base query, compute rule, and optional grouping.
     attr_reader :query
 
-    # Optional request ID for multi-step query continuation.
+    # Unique identifier of the query.
     attr_accessor :request_id
 
     # End time in epoch milliseconds.

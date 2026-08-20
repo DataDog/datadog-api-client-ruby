@@ -30,7 +30,8 @@ module DatadogAPIClient::V2
     # Group-by rules for segmenting results.
     attr_accessor :group_by
 
-    # Restrict the query to specific indexes. Max 1 entry.
+    # Deprecated. Index selection is a rollout detail and will be removed.
+    # Do not set this field.
     attr_reader :indexes
 
     # A query definition discriminated by the `data_source` field.
