@@ -5052,11 +5052,41 @@ ScenariosModelMappings = {
     "v2.SubmitProductAnalyticsEvent" => {
             "body" => "ProductAnalyticsServerSideEventItem",
     },
+    "v2.QueryProductAnalyticsList" => {
+            "body" => "ProductAnalyticsAnalyticsListRequest",
+    },
     "v2.QueryProductAnalyticsScalar" => {
             "body" => "ProductAnalyticsAnalyticsRequest",
     },
     "v2.QueryProductAnalyticsTimeseries" => {
             "body" => "ProductAnalyticsAnalyticsRequest",
+    },
+    "v2.QueryProductAnalyticsJourneyFunnel" => {
+            "body" => "ProductAnalyticsJourneyFunnelRequest",
+    },
+    "v2.QueryProductAnalyticsJourneyList" => {
+            "body" => "ProductAnalyticsJourneyListRequest",
+    },
+    "v2.QueryProductAnalyticsJourneyScalar" => {
+            "body" => "ProductAnalyticsJourneyScalarRequest",
+    },
+    "v2.QueryProductAnalyticsJourneyTimeseries" => {
+            "body" => "ProductAnalyticsFormulaJourneyRequest",
+    },
+    "v2.QueryProductAnalyticsRetentionGrid" => {
+            "body" => "ProductAnalyticsRetentionGridRequest",
+    },
+    "v2.QueryProductAnalyticsRetentionList" => {
+            "body" => "ProductAnalyticsRetentionListRequest",
+    },
+    "v2.QueryProductAnalyticsRetentionScalar" => {
+            "body" => "ProductAnalyticsFormulaRetentionRequest",
+    },
+    "v2.QueryProductAnalyticsRetentionTimeseries" => {
+            "body" => "ProductAnalyticsFormulaRetentionRequest",
+    },
+    "v2.QueryProductAnalyticsSankey" => {
+            "body" => "ProductAnalyticsSankeyRequest",
     },
     "v2.GetAccountFacetInfo" => {
             "body" => "FacetInfoRequest",

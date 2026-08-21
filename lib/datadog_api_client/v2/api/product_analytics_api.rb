@@ -23,6 +23,748 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Compute journey funnel analysis.
+    #
+    # @see #query_product_analytics_journey_funnel_with_http_info
+    def query_product_analytics_journey_funnel(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_journey_funnel_with_http_info(body, opts)
+      data
+    end
+
+    # Compute journey funnel analysis.
+    #
+    # Compute a funnel over an ordered sequence of Product Analytics events.
+    # Returns the per-step conversion counts, conversion rates, and elapsed times,
+    # optionally segmented by group-by facets.
+    #
+    # @param body [ProductAnalyticsJourneyFunnelRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsJourneyFunnelResponse, Integer, Hash)>] ProductAnalyticsJourneyFunnelResponse data, response status code and response headers
+    def query_product_analytics_journey_funnel_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_journey_funnel".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_journey_funnel")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_journey_funnel"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_journey_funnel ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_journey_funnel"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/journey/funnel'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyFunnelResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_journey_funnel,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_journey_funnel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List journey entities.
+    #
+    # @see #query_product_analytics_journey_list_with_http_info
+    def query_product_analytics_journey_list(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_journey_list_with_http_info(body, opts)
+      data
+    end
+
+    # List journey entities.
+    #
+    # Return the individual sessions that reached, or dropped off at, a given step of the journey.
+    # Each row contains the identity join key, the event timestamp, and the columns requested
+    # in `entity_columns`.
+    #
+    # @param body [ProductAnalyticsJourneyListRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsJourneyListResponse, Integer, Hash)>] ProductAnalyticsJourneyListResponse data, response status code and response headers
+    def query_product_analytics_journey_list_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_journey_list".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_journey_list")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_journey_list"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_journey_list ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_journey_list"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/journey/list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_journey_list,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_journey_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute journey scalar analytics.
+    #
+    # @see #query_product_analytics_journey_scalar_with_http_info
+    def query_product_analytics_journey_scalar(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_journey_scalar_with_http_info(body, opts)
+      data
+    end
+
+    # Compute journey scalar analytics.
+    #
+    # Compute scalar results for a journey query, such as the conversion count,
+    # the conversion rate, or the time to convert, optionally segmented by group-by facets.
+    #
+    # @param body [ProductAnalyticsJourneyScalarRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsJourneyScalarResponse, Integer, Hash)>] ProductAnalyticsJourneyScalarResponse data, response status code and response headers
+    def query_product_analytics_journey_scalar_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_journey_scalar".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_journey_scalar")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_journey_scalar"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_journey_scalar ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_journey_scalar"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/journey/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_journey_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_journey_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute journey timeseries analytics.
+    #
+    # @see #query_product_analytics_journey_timeseries_with_http_info
+    def query_product_analytics_journey_timeseries(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_journey_timeseries_with_http_info(body, opts)
+      data
+    end
+
+    # Compute journey timeseries analytics.
+    #
+    # Compute timeseries results for a journey query.
+    # Returns one series per group-by combination, bucketed by the requested interval.
+    #
+    # @param body [ProductAnalyticsFormulaJourneyRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsJourneyTimeseriesResponse, Integer, Hash)>] ProductAnalyticsJourneyTimeseriesResponse data, response status code and response headers
+    def query_product_analytics_journey_timeseries_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_journey_timeseries".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_journey_timeseries")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_journey_timeseries"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_journey_timeseries ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_journey_timeseries"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/journey/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyTimeseriesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_journey_timeseries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_journey_timeseries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List analytics events.
+    #
+    # @see #query_product_analytics_list_with_http_info
+    def query_product_analytics_list(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_list_with_http_info(body, opts)
+      data
+    end
+
+    # List analytics events.
+    #
+    # List the individual event records matching an analytics query.
+    # Use `columns` to choose the attributes returned on each row, `sort` to order the rows,
+    # and `limit` to cap how many are returned.
+    #
+    # @param body [ProductAnalyticsAnalyticsListRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsAnalyticsListResponse, Integer, Hash)>] ProductAnalyticsAnalyticsListResponse data, response status code and response headers
+    def query_product_analytics_list_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_list".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_list")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_list"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_list ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_list"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/analytics/list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsAnalyticsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_list,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute a retention grid.
+    #
+    # @see #query_product_analytics_retention_grid_with_http_info
+    def query_product_analytics_retention_grid(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_retention_grid_with_http_info(body, opts)
+      data
+    end
+
+    # Compute a retention grid.
+    #
+    # Compute a retention grid, showing how much of each cohort came back over each subsequent period.
+    # Rows are cohorts, columns are return periods, and each cell holds the count and rate of entities that returned.
+    #
+    # @param body [ProductAnalyticsRetentionGridRequest] The retention grid query.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsRetentionGridResponse, Integer, Hash)>] ProductAnalyticsRetentionGridResponse data, response status code and response headers
+    def query_product_analytics_retention_grid_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_retention_grid".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_retention_grid")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_retention_grid"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_retention_grid ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_retention_grid"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/retention/grid'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsRetentionGridResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_retention_grid,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_retention_grid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List the entities behind a retention cell.
+    #
+    # @see #query_product_analytics_retention_list_with_http_info
+    def query_product_analytics_retention_list(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_retention_list_with_http_info(body, opts)
+      data
+    end
+
+    # List the entities behind a retention cell.
+    #
+    # List the individual users or accounts counted in one cell of the retention grid.
+    # Set `computation_scope` to the cohort and return period you want to examine.
+    #
+    # @param body [ProductAnalyticsRetentionListRequest] The retention list query.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsRetentionListResponse, Integer, Hash)>] ProductAnalyticsRetentionListResponse data, response status code and response headers
+    def query_product_analytics_retention_list_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_retention_list".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_retention_list")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_retention_list"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_retention_list ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_retention_list"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/retention/list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsRetentionListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_retention_list,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_retention_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute retention scalar values.
+    #
+    # @see #query_product_analytics_retention_scalar_with_http_info
+    def query_product_analytics_retention_scalar(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_retention_scalar_with_http_info(body, opts)
+      data
+    end
+
+    # Compute retention scalar values.
+    #
+    # Compute retention as a single value per group, suitable for a query value or top list widget.
+    #
+    # @param body [ProductAnalyticsFormulaRetentionRequest] The retention scalar query.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsScalarResponse, Integer, Hash)>] ProductAnalyticsScalarResponse data, response status code and response headers
+    def query_product_analytics_retention_scalar_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_retention_scalar".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_retention_scalar")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_retention_scalar"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_retention_scalar ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_retention_scalar"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/retention/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_retention_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_retention_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute retention timeseries.
+    #
+    # @see #query_product_analytics_retention_timeseries_with_http_info
+    def query_product_analytics_retention_timeseries(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_retention_timeseries_with_http_info(body, opts)
+      data
+    end
+
+    # Compute retention timeseries.
+    #
+    # Compute retention as a series of values over time, using the same query definition as the
+    # retention grid.
+    #
+    # @param body [ProductAnalyticsFormulaRetentionRequest] The retention timeseries query.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsTimeseriesResponse, Integer, Hash)>] ProductAnalyticsTimeseriesResponse data, response status code and response headers
+    def query_product_analytics_retention_timeseries_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_retention_timeseries".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_retention_timeseries")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_retention_timeseries"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_retention_timeseries ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_retention_timeseries"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/retention/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsTimeseriesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_retention_timeseries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_retention_timeseries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute a Sankey diagram.
+    #
+    # @see #query_product_analytics_sankey_with_http_info
+    def query_product_analytics_sankey(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_sankey_with_http_info(body, opts)
+      data
+    end
+
+    # Compute a Sankey diagram.
+    #
+    # Compute a Sankey diagram of how sessions flow between the values of two facets,
+    # showing where users continue and where they drop off at each step.
+    #
+    # @param body [ProductAnalyticsSankeyRequest] The Sankey diagram query.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsSankeyResponse, Integer, Hash)>] ProductAnalyticsSankeyResponse data, response status code and response headers
+    def query_product_analytics_sankey_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_sankey".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_sankey")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_sankey"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_sankey ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_sankey"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/sankey'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsSankeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_sankey,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_sankey\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Compute scalar analytics.
     #
     # @see #query_product_analytics_scalar_with_http_info

@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+  # Attributes of a timeseries analytics response, containing series data, timestamps, and
+  # interval definitions.
   class ProductAnalyticsTimeseriesResponseAttributes
     include BaseGenericModel
 

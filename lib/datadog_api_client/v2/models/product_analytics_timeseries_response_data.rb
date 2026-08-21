@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class ProductAnalyticsTimeseriesResponseData
     include BaseGenericModel
 
-    # Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+    # Attributes of a timeseries analytics response, containing series data, timestamps, and
+    # interval definitions.
     attr_accessor :attributes
 
     # Unique identifier for this response data object.

@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # The aggregation function (count, cardinality, avg, sum, min, max, etc.).
     attr_reader :aggregation
 
-    # Time bucket size in milliseconds. Required for timeseries queries.
+    # Time bucket size in milliseconds. Required for timeseries queries; ignored by the
+    # scalar endpoint, which returns a single value.
     attr_accessor :interval
 
     # The metric to aggregate on. Required for non-count aggregations.
