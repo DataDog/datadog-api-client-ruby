@@ -783,9 +783,10 @@ module DatadogAPIClient::V2
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_groups Comma-separated list of tag keys that the metric is configured to query with. For example: `filter[groups]=app,host`.
+    # @option opts [Boolean] :filter_exclude_tags_mode When `true`, `filter[groups]` is treated as an exclude list instead of an include list. Defaults to `false`.
     # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
     # @option opts [Integer] :filter_num_aggregations Deprecated. Number of aggregations has no impact on volume.
-    # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
+    # @option opts [Boolean] :filter_pct Deprecated. This query parameter has no effect on the estimate.
     # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
     # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers
     def estimate_metrics_output_series_with_http_info(metric_name, opts = {})
@@ -815,6 +816,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter[groups]'] = opts[:'filter_groups'] if !opts[:'filter_groups'].nil?
+      query_params[:'filter[exclude_tags_mode]'] = opts[:'filter_exclude_tags_mode'] if !opts[:'filter_exclude_tags_mode'].nil?
       query_params[:'filter[hours_ago]'] = opts[:'filter_hours_ago'] if !opts[:'filter_hours_ago'].nil?
       query_params[:'filter[num_aggregations]'] = opts[:'filter_num_aggregations'] if !opts[:'filter_num_aggregations'].nil?
       query_params[:'filter[pct]'] = opts[:'filter_pct'] if !opts[:'filter_pct'].nil?

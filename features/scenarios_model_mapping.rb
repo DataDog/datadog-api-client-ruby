@@ -4479,6 +4479,7 @@ ScenariosModelMappings = {
     "v2.EstimateMetricsOutputSeries" => {
             "metric_name" => "String",
             "filter_groups" => "String",
+            "filter_exclude_tags_mode" => "Boolean",
             "filter_hours_ago" => "Integer",
             "filter_num_aggregations" => "Integer",
             "filter_pct" => "Boolean",
