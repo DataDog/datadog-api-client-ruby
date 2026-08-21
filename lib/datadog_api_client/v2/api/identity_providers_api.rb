@@ -98,7 +98,7 @@ module DatadogAPIClient::V2
     #
     # @param idp_id [String] The ID of the identity provider.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :sort User attribute to order results by. Options include `email` and `name`.
     # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: `asc`, `desc`.

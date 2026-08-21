@@ -312,7 +312,7 @@ module DatadogAPIClient::V2
     # Get a list of all OAuth2 clients authorized for the current organization.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :sort Field to sort results by. Options include `oauth2_client.name`.
     # @option opts [String] :filter Filter results by client name, app title, or app description.
@@ -409,7 +409,7 @@ module DatadogAPIClient::V2
     #
     # @param org_authorized_client_id [String] The ID of the org authorized client.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [OrgAuthorizedClientUserAuthorizationsSort] :sort Field to sort results by. Options: `user.name`, `user.email`, `oauth2_client.name`.
     # @option opts [String] :filter_disabled Filter results by the user authorization disabled status.

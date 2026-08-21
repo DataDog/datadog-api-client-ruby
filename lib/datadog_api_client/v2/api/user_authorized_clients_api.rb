@@ -231,7 +231,7 @@ module DatadogAPIClient::V2
     # Get a list of all OAuth2 clients authorized by the current user.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :filter Filter results by client name, app title, or app description.
     # @option opts [String] :filter_disabled Filter results by the user-level disabled status.
