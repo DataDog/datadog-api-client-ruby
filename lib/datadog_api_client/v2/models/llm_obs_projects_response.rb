@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of LLM Observability projects.
+  # Response containing a list of Agent Observability projects.
   class LLMObsProjectsResponse
     include BaseGenericModel
 

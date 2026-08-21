@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating an LLM Observability experiment.
+  # Attributes for updating an Agent Observability experiment.
   class LLMObsExperimentUpdateDataAttributesRequest
     include BaseGenericModel
 
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Updated name of the experiment.
     attr_accessor :name
 
-    # Execution status of an LLM Observability experiment.
+    # Execution status of an Agent Observability experiment.
     attr_accessor :status
 
     attr_accessor :additional_properties

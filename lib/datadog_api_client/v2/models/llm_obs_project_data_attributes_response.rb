@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability project.
+  # Attributes of an Agent Observability project.
   class LLMObsProjectDataAttributesResponse
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability prompt registry entry.
+  # Attributes of an Agent Observability prompt registry entry.
   class LLMObsPromptDataAttributes
     include BaseGenericModel
 

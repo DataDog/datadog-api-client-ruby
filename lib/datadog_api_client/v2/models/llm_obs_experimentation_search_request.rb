@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to search across LLM Observability experimentation entities using cursor-based pagination.
+  # Request to search across Agent Observability experimentation entities using cursor-based pagination.
   class LLMObsExperimentationSearchRequest
     include BaseGenericModel
 

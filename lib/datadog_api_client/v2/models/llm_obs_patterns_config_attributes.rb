@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an LLM Observability patterns configuration.
+  # Attributes of an Agent Observability patterns configuration.
   class LLMObsPatternsConfigAttributes
     include BaseGenericModel
 

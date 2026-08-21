@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of an LLM Observability prompt version.
+  # Resource type of an Agent Observability prompt version.
   class LLMObsPromptVersionType
     include BaseEnumModel
 

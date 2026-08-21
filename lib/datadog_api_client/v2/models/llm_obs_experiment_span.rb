@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A span associated with an LLM Observability experiment.
+  # A span associated with an Agent Observability experiment.
   class LLMObsExperimentSpan
     include BaseGenericModel
 

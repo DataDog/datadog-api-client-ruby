@@ -402,7 +402,7 @@ module DatadogAPIClient::V2
     # Returns all restriction queries, including their names and IDs.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(RestrictionQueryListResponse, Integer, Hash)>] RestrictionQueryListResponse data, response status code and response headers
     def list_restriction_queries_with_http_info(opts = {})
@@ -473,7 +473,7 @@ module DatadogAPIClient::V2
     #
     # @param restriction_query_id [String] The ID of the restriction query.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(RestrictionQueryRolesResponse, Integer, Hash)>] RestrictionQueryRolesResponse data, response status code and response headers
     def list_restriction_query_roles_with_http_info(restriction_query_id, opts = {})

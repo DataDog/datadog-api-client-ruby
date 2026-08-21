@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A record to insert as part of a batch update on an LLM Observability dataset.
+  # A record to insert as part of a batch update on an Agent Observability dataset.
   class LLMObsDatasetBatchUpdateInsertRecord
     include BaseGenericModel
 

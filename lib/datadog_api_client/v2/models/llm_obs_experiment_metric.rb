@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A metric associated with an LLM Observability experiment span.
+  # A metric associated with an Agent Observability experiment span.
   class LLMObsExperimentMetric
     include BaseGenericModel
 
-    # Assessment result for an LLM Observability experiment metric.
+    # Assessment result for an Agent Observability experiment metric.
     attr_accessor :assessment
 
     # Boolean value. Used when `metric_type` is `boolean`.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # Arbitrary metadata associated with the metric.
     attr_accessor :metadata
 
-    # Type of metric recorded for an LLM Observability experiment.
+    # Type of metric recorded for an Agent Observability experiment.
     attr_reader :metric_type
 
     # Human-readable reasoning for the metric value.

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for creating or updating an LLM Observability patterns configuration.
+  # Data object for creating or updating an Agent Observability patterns configuration.
   class LLMObsPatternsConfigUpsertRequestData
     include BaseGenericModel
 
-    # Attributes for creating or updating an LLM Observability patterns configuration.
+    # Attributes for creating or updating an Agent Observability patterns configuration.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability patterns configuration.
+    # Resource type of an Agent Observability patterns configuration.
     attr_reader :type
 
     attr_accessor :additional_properties

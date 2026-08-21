@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for an LLM Observability dataset draft state.
+  # Data object for an Agent Observability dataset draft state.
   class LLMObsDatasetDraftStateData
     include BaseGenericModel
 
-    # Attributes of an LLM Observability dataset draft state.
+    # Attributes of an Agent Observability dataset draft state.
     attr_reader :attributes
 
     # Unique identifier of the dataset draft state. Matches the dataset ID.
     attr_reader :id
 
-    # Resource type of an LLM Observability dataset draft state.
+    # Resource type of an Agent Observability dataset draft state.
     attr_reader :type
 
     attr_accessor :additional_properties

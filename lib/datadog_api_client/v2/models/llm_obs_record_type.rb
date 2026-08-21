@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of LLM Observability dataset records.
+  # Resource type of Agent Observability dataset records.
   class LLMObsRecordType
     include BaseEnumModel
 

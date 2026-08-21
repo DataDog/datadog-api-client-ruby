@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request body for searching LLM Observability spans.
+  # Request body for searching Agent Observability spans.
   class LLMObsSearchSpansRequest
     include BaseGenericModel
 
-    # Data object for an LLM Observability spans search request.
+    # Data object for an Agent Observability spans search request.
     attr_reader :data
 
     attr_accessor :additional_properties

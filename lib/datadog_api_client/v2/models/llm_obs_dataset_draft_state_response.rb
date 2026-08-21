@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing the draft state of an LLM Observability dataset.
+  # Response containing the draft state of an Agent Observability dataset.
   class LLMObsDatasetDraftStateResponse
     include BaseGenericModel
 
-    # Data object for an LLM Observability dataset draft state.
+    # Data object for an Agent Observability dataset draft state.
     attr_reader :data
 
     attr_accessor :additional_properties

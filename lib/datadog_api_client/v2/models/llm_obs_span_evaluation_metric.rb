@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An evaluation metric associated with an LLM Observability span.
+  # An evaluation metric associated with an Agent Observability span.
   class LLMObsSpanEvaluationMetric
     include BaseGenericModel
 

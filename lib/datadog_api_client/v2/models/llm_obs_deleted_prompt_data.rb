@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object confirming that an LLM Observability prompt was deleted.
+  # Data object confirming that an Agent Observability prompt was deleted.
   class LLMObsDeletedPromptData
     include BaseGenericModel
 
-    # Attributes confirming that an LLM Observability prompt was deleted.
+    # Attributes confirming that an Agent Observability prompt was deleted.
     attr_reader :attributes
 
     # Unique identifier of the deleted prompt.
     attr_reader :id
 
-    # Resource type of an LLM Observability prompt.
+    # Resource type of an Agent Observability prompt.
     attr_reader :type
 
     attr_accessor :additional_properties

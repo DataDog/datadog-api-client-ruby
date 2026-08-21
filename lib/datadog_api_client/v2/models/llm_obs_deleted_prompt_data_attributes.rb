@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes confirming that an LLM Observability prompt was deleted.
+  # Attributes confirming that an Agent Observability prompt was deleted.
   class LLMObsDeletedPromptDataAttributes
     include BaseGenericModel
 

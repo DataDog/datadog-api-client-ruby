@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating an LLM Observability annotation queue.
+  # Attributes for creating an Agent Observability annotation queue.
   class LLMObsAnnotationQueueDataAttributesRequest
     include BaseGenericModel
 

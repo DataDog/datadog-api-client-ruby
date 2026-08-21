@@ -279,10 +279,10 @@ module DatadogAPIClient::V1
     # The Serverless APM usage by tag(s).
     attr_accessor :lambda_traced_invocations_usage
 
-    # The percentage of LLM Observability usage by tag(s).
+    # The percentage of Agent Observability usage by tag(s).
     attr_accessor :llm_observability_percentage
 
-    # The LLM Observability usage by tag(s).
+    # The Agent Observability usage by tag(s).
     attr_accessor :llm_observability_usage
 
     # The percentage of LLM Spans usage by tag(s).

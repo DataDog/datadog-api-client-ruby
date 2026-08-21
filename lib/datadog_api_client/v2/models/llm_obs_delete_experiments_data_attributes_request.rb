@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for deleting LLM Observability experiments.
+  # Attributes for deleting Agent Observability experiments.
   class LLMObsDeleteExperimentsDataAttributesRequest
     include BaseGenericModel
 

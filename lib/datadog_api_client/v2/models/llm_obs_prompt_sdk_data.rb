@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for a flattened LLM Observability prompt version returned for SDK consumption.
+  # Data object for a flattened Agent Observability prompt version returned for SDK consumption.
   class LLMObsPromptSDKData
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Unique identifier of the prompt.
     attr_reader :id
 
-    # Resource type of an LLM Observability prompt.
+    # Resource type of an Agent Observability prompt.
     attr_reader :type
 
     attr_accessor :additional_properties

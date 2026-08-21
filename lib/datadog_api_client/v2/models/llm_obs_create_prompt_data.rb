@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for creating an LLM Observability prompt.
+  # Data object for creating an Agent Observability prompt.
   class LLMObsCreatePromptData
     include BaseGenericModel
 
-    # Attributes for creating an LLM Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
+    # Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability prompt.
+    # Resource type of an Agent Observability prompt.
     attr_reader :type
 
     attr_accessor :additional_properties

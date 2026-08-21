@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for an LLM Observability experiment run.
+  # Data object for an Agent Observability experiment run.
   class LLMObsExperimentRunDataResponse
     include BaseGenericModel
 

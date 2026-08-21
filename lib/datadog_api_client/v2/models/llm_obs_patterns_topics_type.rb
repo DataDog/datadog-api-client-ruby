@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resource type of an LLM Observability patterns topics response.
+  # Resource type of an Agent Observability patterns topics response.
   class LLMObsPatternsTopicsType
     include BaseEnumModel
 

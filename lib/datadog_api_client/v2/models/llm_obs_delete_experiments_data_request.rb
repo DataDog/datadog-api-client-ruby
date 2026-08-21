@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for deleting LLM Observability experiments.
+  # Data object for deleting Agent Observability experiments.
   class LLMObsDeleteExperimentsDataRequest
     include BaseGenericModel
 
-    # Attributes for deleting LLM Observability experiments.
+    # Attributes for deleting Agent Observability experiments.
     attr_reader :attributes
 
-    # Resource type of an LLM Observability experiment.
+    # Resource type of an Agent Observability experiment.
     attr_reader :type
 
     attr_accessor :additional_properties

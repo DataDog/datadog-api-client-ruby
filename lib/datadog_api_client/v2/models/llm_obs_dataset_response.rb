@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single LLM Observability dataset.
+  # Response containing a single Agent Observability dataset.
   class LLMObsDatasetResponse
     include BaseGenericModel
 
-    # Data object for an LLM Observability dataset.
+    # Data object for an Agent Observability dataset.
     attr_reader :data
 
     attr_accessor :additional_properties

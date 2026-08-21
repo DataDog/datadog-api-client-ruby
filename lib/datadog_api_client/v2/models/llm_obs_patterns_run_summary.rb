@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Summary of an LLM Observability patterns run.
+  # Summary of an Agent Observability patterns run.
   class LLMObsPatternsRunSummary
     include BaseGenericModel
 

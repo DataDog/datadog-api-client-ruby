@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to run an analytics aggregation over LLM Observability experimentation data.
+  # Request to run an analytics aggregation over Agent Observability experimentation data.
   class LLMObsExperimentationAnalyticsRequest
     include BaseGenericModel
 

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single LLM Observability span.
+  # A single Agent Observability span.
   class LLMObsSpanData
     include BaseGenericModel
 
-    # Attributes of an LLM Observability span.
+    # Attributes of an Agent Observability span.
     attr_reader :attributes
 
     # Unique identifier of the span.
     attr_reader :id
 
-    # Resource type for an LLM Observability span.
+    # Resource type for an Agent Observability span.
     attr_reader :type
 
     attr_accessor :additional_properties

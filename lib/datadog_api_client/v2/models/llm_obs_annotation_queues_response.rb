@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of LLM Observability annotation queues.
+  # Response containing a list of Agent Observability annotation queues.
   class LLMObsAnnotationQueuesResponse
     include BaseGenericModel
 
