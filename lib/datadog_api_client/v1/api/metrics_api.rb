@@ -239,7 +239,9 @@ module DatadogAPIClient::V1
 
     # Query timeseries points.
     #
-    # Query timeseries points.
+    # Query timeseries points. Datadog recommends using the v2
+    # `/api/v2/query/timeseries` endpoint over this endpoint for
+    # querying timeseries data.
     #
     # @param from [Integer] Start of the queried time period, seconds since the Unix epoch.
     # @param to [Integer] End of the queried time period, seconds since the Unix epoch.
