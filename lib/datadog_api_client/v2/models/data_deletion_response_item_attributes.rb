@@ -27,6 +27,15 @@ module DatadogAPIClient::V2
     # User who created the deletion request.
     attr_reader :created_by
 
+    # A message for the customer regarding the deletion request, if any.
+    attr_accessor :customer_message
+
+    # Total number of elements to be deleted as displayed to the user.
+    attr_reader :displayed_total
+
+    # The category of the error for the deletion request, if any.
+    attr_accessor :error_category
+
     # Start of requested time window, milliseconds since Unix epoch.
     attr_reader :from_time
 
@@ -68,6 +77,9 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
+        :'customer_message' => :'customer_message',
+        :'displayed_total' => :'displayed_total',
+        :'error_category' => :'error_category',
         :'from_time' => :'from_time',
         :'indexes' => :'indexes',
         :'is_created' => :'is_created',
@@ -88,6 +100,9 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'String',
         :'created_by' => :'String',
+        :'customer_message' => :'String',
+        :'displayed_total' => :'Integer',
+        :'error_category' => :'String',
         :'from_time' => :'Integer',
         :'indexes' => :'Array<String>',
         :'is_created' => :'Boolean',
@@ -126,6 +141,18 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'customer_message')
+        self.customer_message = attributes[:'customer_message']
+      end
+
+      if attributes.key?(:'displayed_total')
+        self.displayed_total = attributes[:'displayed_total']
+      end
+
+      if attributes.key?(:'error_category')
+        self.error_category = attributes[:'error_category']
       end
 
       if attributes.key?(:'from_time')
@@ -181,6 +208,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @created_at.nil?
       return false if @created_by.nil?
+      return false if @displayed_total.nil?
       return false if @from_time.nil?
       return false if @is_created.nil?
       return false if @org_id.nil?
@@ -212,6 +240,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "created_by", created_by cannot be nil.'
       end
       @created_by = created_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param displayed_total [Object] Object to be assigned
+    # @!visibility private
+    def displayed_total=(displayed_total)
+      if displayed_total.nil?
+        fail ArgumentError, 'invalid value for "displayed_total", displayed_total cannot be nil.'
+      end
+      @displayed_total = displayed_total
     end
 
     # Custom attribute writer method with validation
@@ -342,6 +380,9 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           created_at == o.created_at &&
           created_by == o.created_by &&
+          customer_message == o.customer_message &&
+          displayed_total == o.displayed_total &&
+          error_category == o.error_category &&
           from_time == o.from_time &&
           indexes == o.indexes &&
           is_created == o.is_created &&
@@ -360,7 +401,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
+      [created_at, created_by, customer_message, displayed_total, error_category, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
     end
   end
 end

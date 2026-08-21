@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 15 Jan 2025 14:27:45 GMT
+- recorded_at: Fri, 21 Aug 2026 11:47:30 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"from":1672527600000,"indexes":["test-index","test-index-2"],"query":{},"to":1704063600000},"type":"create_deletion_req"}}'
+      string: '{"data":{"attributes":{"displayed_total":100,"from":1672527600000,"indexes":["test-index","test-index-2"],"query":{},"to":1704063600000},"type":"create_deletion_req"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"status":"412","code":"INVALID_BODY","title":"INVALID_BODY","detail":"INVALID_BODY"}]}'
+      string: '{"errors":[{"status":"412","code":"INVALID_BODY","title":"INVALID_BODY","detail":"query
+        is required and cannot be empty"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
