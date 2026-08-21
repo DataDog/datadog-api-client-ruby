@@ -3918,6 +3918,32 @@ ScenariosModelMappings = {
             "id" => "UUID",
             "body" => "IncidentTimestampOverridePatchRequest",
     },
+    "v2.CreateElasticCloudIntegrationAccount" => {
+            "body" => "ElasticCloudIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteElasticCloudIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetElasticCloudIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateElasticCloudIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "ElasticCloudIntegrationAccountUpdateRequest",
+    },
+    "v2.CreateTwilioIntegrationAccount" => {
+            "body" => "TwilioIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteTwilioIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetTwilioIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateTwilioIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "TwilioIntegrationAccountUpdateRequest",
+    },
     "v2.ListAWSAccounts" => {
             "aws_account_id" => "String",
     },
