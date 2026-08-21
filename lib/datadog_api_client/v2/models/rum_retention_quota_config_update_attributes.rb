@@ -21,14 +21,11 @@ module DatadogAPIClient::V2
   class RumRetentionQuotaConfigUpdateAttributes
     include BaseGenericModel
 
-    # The configuration used when `mode` is `adaptive`.
-    attr_accessor :adaptive
-
     # The configuration used when `mode` is `custom`.
     attr_accessor :custom
 
-    # The retention quota mode. `custom` enforces a fixed session limit, while
-    # `adaptive` dynamically adjusts retention.
+    # The retention quota mode. `custom` enforces a fixed session limit.
+    # `custom` is the only supported mode.
     attr_reader :mode
 
     attr_accessor :additional_properties
@@ -37,7 +34,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'adaptive' => :'adaptive',
         :'custom' => :'custom',
         :'mode' => :'mode'
       }
@@ -47,7 +43,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'adaptive' => :'RumRetentionQuotaAdaptiveConfig',
         :'custom' => :'RumRetentionQuotaCustomConfig',
         :'mode' => :'RumRetentionQuotaMode'
       }
@@ -70,10 +65,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'adaptive')
-        self.adaptive = attributes[:'adaptive']
-      end
 
       if attributes.key?(:'custom')
         self.custom = attributes[:'custom']
@@ -128,7 +119,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          adaptive == o.adaptive &&
           custom == o.custom &&
           mode == o.mode &&
           additional_properties == o.additional_properties
@@ -138,7 +128,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [adaptive, custom, mode, additional_properties].hash
+      [custom, mode, additional_properties].hash
     end
   end
 end

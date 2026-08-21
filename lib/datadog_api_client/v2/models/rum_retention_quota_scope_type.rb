@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of scope the retention quota configuration applies to.
+  # `application` is the only supported scope type.
   class RumRetentionQuotaScopeType
     include BaseEnumModel
 
