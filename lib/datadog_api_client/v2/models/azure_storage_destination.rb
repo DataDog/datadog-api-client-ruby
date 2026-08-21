@@ -29,6 +29,10 @@ module DatadogAPIClient::V2
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
+    # Compression configuration for archived logs. When omitted, logs are compressed with gzip
+    # for backward compatibility.
+    attr_accessor :compression
+
     # Name of the environment variable or secret that holds the Azure Storage connection string.
     attr_accessor :connection_string_key
 
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'blob_prefix' => :'blob_prefix',
         :'buffer' => :'buffer',
+        :'compression' => :'compression',
         :'connection_string_key' => :'connection_string_key',
         :'container_name' => :'container_name',
         :'id' => :'id',
@@ -66,6 +71,7 @@ module DatadogAPIClient::V2
       {
         :'blob_prefix' => :'String',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
+        :'compression' => :'ObservabilityPipelineAzureStorageDestinationCompression',
         :'connection_string_key' => :'String',
         :'container_name' => :'String',
         :'id' => :'String',
@@ -98,6 +104,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'buffer')
         self.buffer = attributes[:'buffer']
+      end
+
+      if attributes.key?(:'compression')
+        self.compression = attributes[:'compression']
       end
 
       if attributes.key?(:'connection_string_key')
@@ -202,6 +212,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           blob_prefix == o.blob_prefix &&
           buffer == o.buffer &&
+          compression == o.compression &&
           connection_string_key == o.connection_string_key &&
           container_name == o.container_name &&
           id == o.id &&
@@ -214,7 +225,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [blob_prefix, buffer, connection_string_key, container_name, id, inputs, type, additional_properties].hash
+      [blob_prefix, buffer, compression, connection_string_key, container_name, id, inputs, type, additional_properties].hash
     end
   end
 end
