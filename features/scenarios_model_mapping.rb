@@ -5474,6 +5474,30 @@ ScenariosModelMappings = {
             "scope_id" => "String",
             "body" => "RumRetentionQuotaConfigUpdateRequest",
     },
+    "v2.ListTeamsOwnershipMappings" => {
+            "filter_view_name" => "Array<String>",
+            "filter_team_handle" => "Array<String>",
+            "filter_application_id" => "Array<UUID>",
+            "filter_service" => "Array<String>",
+    },
+    "v2.CreateTeamsOwnershipMapping" => {
+            "body" => "TeamsOwnershipMappingCreateRequest",
+    },
+    "v2.CreateTeamsOwnershipMappingsBatch" => {
+            "body" => "TeamsOwnershipMappingBatchRequest",
+    },
+    "v2.DeleteTeamsOwnershipMapping" => {
+            "id" => "String",
+    },
+    "v2.GetTeamsOwnershipMapping" => {
+            "id" => "String",
+    },
+    "v2.ListTeamsOwnershipRules" => {
+            "filter_view_name" => "Array<String>",
+            "filter_team_handle" => "Array<String>",
+            "filter_application_id" => "Array<UUID>",
+            "filter_service" => "Array<String>",
+    },
     "v2.CreateRUMOperation" => {
             "body" => "RUMOperationCreateRequest",
     },
