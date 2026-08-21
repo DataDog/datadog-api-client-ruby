@@ -36,6 +36,10 @@ module DatadogAPIClient::V2
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
+    # Compression configuration for archived logs. When omitted, logs are compressed with gzip
+    # for backward compatibility.
+    attr_accessor :compression
+
     # Unique identifier for the destination component.
     attr_reader :id
 
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'bucket' => :'bucket',
         :'buffer' => :'buffer',
+        :'compression' => :'compression',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'key_prefix' => :'key_prefix',
@@ -81,6 +86,7 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineGcpAuth',
         :'bucket' => :'String',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
+        :'compression' => :'ObservabilityPipelineGoogleCloudStorageDestinationCompression',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'key_prefix' => :'String',
@@ -122,6 +128,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'buffer')
         self.buffer = attributes[:'buffer']
+      end
+
+      if attributes.key?(:'compression')
+        self.compression = attributes[:'compression']
       end
 
       if attributes.key?(:'id')
@@ -245,6 +255,7 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           bucket == o.bucket &&
           buffer == o.buffer &&
+          compression == o.compression &&
           id == o.id &&
           inputs == o.inputs &&
           key_prefix == o.key_prefix &&
@@ -258,7 +269,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [acl, auth, bucket, buffer, id, inputs, key_prefix, metadata, storage_class, type, additional_properties].hash
+      [acl, auth, bucket, buffer, compression, id, inputs, key_prefix, metadata, storage_class, type, additional_properties].hash
     end
   end
 end
