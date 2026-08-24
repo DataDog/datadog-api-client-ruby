@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AnnotationDisplay` object.
+  # The annotation's position and size on the workflow canvas.
   class AnnotationDisplay
     include BaseGenericModel
 
-    # The definition of `AnnotationDisplayBounds` object.
+    # Canvas coordinates and dimensions for an annotation on the workflow canvas.
     attr_accessor :bounds
 
     attr_accessor :additional_properties
