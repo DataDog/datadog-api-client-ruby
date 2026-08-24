@@ -17,12 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The retention quota mode. `custom` enforces a fixed session limit, while
-  # `adaptive` dynamically adjusts retention.
+  # The retention quota mode. `custom` enforces a fixed session limit.
+  # `custom` is the only supported mode.
   class RumRetentionQuotaMode
     include BaseEnumModel
 
     CUSTOM = "custom".freeze
-    ADAPTIVE = "adaptive".freeze
   end
 end
