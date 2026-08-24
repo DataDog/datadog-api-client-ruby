@@ -1,14 +1,11 @@
 # Create or update a RUM retention quota config returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::RUMRetentionQuotaAPI.new
+api_instance = DatadogAPIClient::V2::RUMRetentionQuotasAPI.new
 
 body = DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateRequest.new({
   data: DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateData.new({
     attributes: DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateAttributes.new({
-      adaptive: DatadogAPIClient::V2::RumRetentionQuotaAdaptiveConfig.new({
-        max_retention_rate: 0.5,
-      }),
       custom: DatadogAPIClient::V2::RumRetentionQuotaCustomConfig.new({
         daily_reset_time: "08:00",
         daily_reset_timezone: "+09:00",
@@ -18,8 +15,8 @@ body = DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateRequest.new({
       }),
       mode: DatadogAPIClient::V2::RumRetentionQuotaMode::CUSTOM,
     }),
-    id: "ced16651-97b6-4e67-8590-8caec3af0695",
+    id: "cd73a516-a481-4af5-8352-9b577465c77b",
     type: DatadogAPIClient::V2::RumRetentionQuotaConfigType::RUM_QUOTA_CONFIG,
   }),
 })
-p api_instance.upsert_rum_quota_config(RumRetentionQuotaScopeType::APPLICATION, "ced16651-97b6-4e67-8590-8caec3af0695", body)
+p api_instance.upsert_rum_quota_config(RumRetentionQuotaScopeType::APPLICATION, "cd73a516-a481-4af5-8352-9b577465c77b", body)
