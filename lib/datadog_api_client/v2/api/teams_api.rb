@@ -1144,7 +1144,7 @@ module DatadogAPIClient::V2
     #
     # @param team_id [String] None
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [GetTeamMembershipsSort] :sort Specifies the order of returned team memberships
     # @option opts [String] :filter_keyword Search query, can be user email or name
@@ -1579,7 +1579,7 @@ module DatadogAPIClient::V2
     #
     # @param super_team_id [String] None
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [Array<TeamsField>] :fields_team List of fields that need to be fetched.
     # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
@@ -1678,7 +1678,7 @@ module DatadogAPIClient::V2
     # Returns all team connections.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [Array<String>] :filter_sources Filter team connections by external source systems.
     # @option opts [Array<String>] :filter_team_ids Filter team connections by Datadog team IDs.
@@ -1773,7 +1773,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [String] :filter_parent_team Filter by parent team ID
     # @option opts [String] :filter_sub_team Filter by sub team ID
     # @return [Array<(TeamHierarchyLinksResponse, Integer, Hash)>] TeamHierarchyLinksResponse data, response status code and response headers
@@ -1864,7 +1864,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [ListTeamsSort] :sort Specifies the order of the returned teams
     # @option opts [Array<ListTeamsInclude>] :include Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
     # @option opts [String] :filter_keyword Search query. Can be team name, team handle, or email of team member
