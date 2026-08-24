@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class Spec
     include BaseGenericModel
 
-    # A list of annotations used in the workflow. These are like sticky notes for your workflow!
-    attr_accessor :annotations
+    # Up to 100 text annotations displayed on the workflow canvas.
+    attr_reader :annotations
 
     # A list of connections or connection groups used in the workflow.
     attr_accessor :connection_envs
@@ -125,6 +125,24 @@ module DatadogAPIClient::V2
           self.triggers = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@annotations.nil? && @annotations.length > 100
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param annotations [Object] Object to be assigned
+    # @!visibility private
+    def annotations=(annotations)
+      if !annotations.nil? && annotations.length > 100
+        fail ArgumentError, 'invalid value for "annotations", number of items must be less than or equal to 100.'
+      end
+      @annotations = annotations
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
