@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The source code location where a dependency is declared, including block, name, namespace, and version positions within the file.
-  class ScaRequestDataAttributesDependenciesItemsLocationsItems
+  # The time when the SCA scan started.
+  class ScaRequestDataAttributesScanStartTimestamp
     include BaseGenericModel
 
-    # A range within a file defined by a start and end position, along with the file name.
-    attr_accessor :block
+    # Non-negative fractions of a second at nanosecond resolution.
+    attr_reader :nanos
 
-    # A nullable range within a file defined by a start and end position, along with the file name.
-    attr_accessor :name
-
-    # A nullable range within a file defined by a start and end position, along with the file name.
-    attr_accessor :namespace
-
-    # A nullable range within a file defined by a start and end position, along with the file name.
-    attr_accessor :version
+    # Seconds of UTC time since Unix epoch.
+    attr_accessor :seconds
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'block' => :'block',
-        :'name' => :'name',
-        :'namespace' => :'namespace',
-        :'version' => :'version'
+        :'nanos' => :'nanos',
+        :'seconds' => :'seconds'
       }
     end
 
@@ -50,21 +42,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'block' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition',
-        :'name' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition',
-        :'namespace' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition',
-        :'version' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition'
+        :'nanos' => :'Integer',
+        :'seconds' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'name',
-        :'namespace',
-        :'version',
-      ])
     end
 
     # Initializes the object
@@ -72,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScaRequestDataAttributesScanStartTimestamp` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,21 +65,31 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'block')
-        self.block = attributes[:'block']
+      if attributes.key?(:'nanos')
+        self.nanos = attributes[:'nanos']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'seconds')
+        self.seconds = attributes[:'seconds']
       end
+    end
 
-      if attributes.key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@nanos.nil? && @nanos > 2147483647
+      true
+    end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+    # Custom attribute writer method with validation
+    # @param nanos [Object] Object to be assigned
+    # @!visibility private
+    def nanos=(nanos)
+      if !nanos.nil? && nanos > 2147483647
+        fail ArgumentError, 'invalid value for "nanos", must be smaller than or equal to 2147483647.'
       end
+      @nanos = nanos
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -128,10 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          block == o.block &&
-          name == o.name &&
-          namespace == o.namespace &&
-          version == o.version &&
+          nanos == o.nanos &&
+          seconds == o.seconds &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [block, name, namespace, version, additional_properties].hash
+      [nanos, seconds, additional_properties].hash
     end
   end
 end
