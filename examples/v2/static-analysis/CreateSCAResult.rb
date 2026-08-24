@@ -13,21 +13,23 @@ body = DatadogAPIClient::V2::ScaRequest.new({
       dependencies: [
         DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItems.new({
           exclusions: [],
+          group: nil,
+          is_direct: nil,
           locations: [
             DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItems.new({
               block: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.new({
                 _end: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
                 start: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
               }),
-              name: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.new({
+              name: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.new({
                 _end: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
                 start: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
               }),
-              namespace: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.new({
+              namespace: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.new({
                 _end: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
                 start: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
               }),
-              version: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.new({
+              version: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.new({
                 _end: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
                 start: DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.new({}),
               }),
@@ -36,6 +38,8 @@ body = DatadogAPIClient::V2::ScaRequest.new({
           reachable_symbol_properties: [
             DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems.new({}),
           ],
+          target_frameworks: [],
+          version: nil,
         }),
       ],
       files: [
@@ -47,6 +51,7 @@ body = DatadogAPIClient::V2::ScaRequest.new({
         }),
       ],
       repository: DatadogAPIClient::V2::ScaRequestDataAttributesRepository.new({}),
+      scan_start_timestamp: DatadogAPIClient::V2::ScaRequestDataAttributesScanStartTimestamp.new({}),
       vulnerabilities: [
         DatadogAPIClient::V2::ScaRequestDataAttributesVulnerabilitiesItems.new({
           affects: [
