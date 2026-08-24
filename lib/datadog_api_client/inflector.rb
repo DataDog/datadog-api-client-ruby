@@ -6928,6 +6928,7 @@ module DatadogAPIClient
           "v2.scanned_asset_metadata_asset" => "ScannedAssetMetadataAsset",
           "v2.scanned_asset_metadata_attributes" => "ScannedAssetMetadataAttributes",
           "v2.scanned_asset_metadata_last_success" => "ScannedAssetMetadataLastSuccess",
+          "v2.scanned_asset_metadata_type" => "ScannedAssetMetadataType",
           "v2.scanned_assets_metadata" => "ScannedAssetsMetadata",
           "v2.scan_result_response" => "ScanResultResponse",
           "v2.sca_request" => "ScaRequest",

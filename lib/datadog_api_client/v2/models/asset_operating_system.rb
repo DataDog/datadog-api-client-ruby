@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Operating system name.
     attr_reader :name
 
+    # Operating system version.
+    attr_accessor :version
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'description' => :'description',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'version' => :'version'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'description' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -120,6 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           description == o.description &&
           name == o.name &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, name, additional_properties].hash
+      [description, name, version, additional_properties].hash
     end
   end
 end

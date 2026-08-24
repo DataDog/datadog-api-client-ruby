@@ -17,16 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The version of the CycloneDX specification a BOM conforms to.
-  class SpecVersion
+  # The JSON:API type.
+  class ScannedAssetMetadataType
     include BaseEnumModel
 
-    ONE_ZERO = "1.0".freeze
-    ONE_ONE = "1.1".freeze
-    ONE_TWO = "1.2".freeze
-    ONE_THREE = "1.3".freeze
-    ONE_FOUR = "1.4".freeze
-    ONE_FIVE = "1.5".freeze
-    ONE_SIX = "1.6".freeze
+    SCANNED_ASSETS_METADATA = "scanned-assets-metadata".freeze
   end
 end
