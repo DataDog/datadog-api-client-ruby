@@ -17,14 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The telemetry source that a tag policy applies to.
-  class TagPolicySource
+  # JSON:API resource type for a tag rule compliance score.
+  class TagRuleScoreResourceType
     include BaseEnumModel
 
-    LOGS = "logs".freeze
-    SPANS = "spans".freeze
-    METRICS = "metrics".freeze
-    RUM = "rum".freeze
-    FEED = "feed".freeze
+    TAG_RULE_SCORE = "tag_rule_score".freeze
   end
 end

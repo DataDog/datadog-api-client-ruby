@@ -17,14 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Identifier of the related compliance score resource.
-  class TagPolicyScoreRelationshipData
+  # A compliance score resource for a tag rule.
+  class TagRuleScoreData
     include BaseGenericModel
 
-    # The unique identifier of the related compliance score resource.
+    # Attributes of a tag rule compliance score.
+    attr_reader :attributes
+
+    # The unique identifier of the compliance score resource.
     attr_reader :id
 
-    # JSON:API resource type for a tag policy compliance score.
+    # JSON:API resource type for a tag rule compliance score.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'attributes' => :'attributes',
         :'id' => :'id',
         :'type' => :'type'
       }
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'attributes' => :'TagRuleScoreAttributes',
         :'id' => :'String',
-        :'type' => :'TagPolicyScoreResourceType'
+        :'type' => :'TagRuleScoreResourceType'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyScoreRelationshipData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleScoreData` initialize method"
       end
 
       self.additional_properties = {}
@@ -64,6 +69,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -78,9 +87,20 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @attributes.nil?
       return false if @id.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
@@ -129,6 +149,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attributes == o.attributes &&
           id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -138,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Related resources for a tag policy. Only present when the corresponding `include` query parameter is supplied.
-  class TagPolicyRelationships
+  # A page of tag rules.
+  class TagRulesListResponse
     include BaseGenericModel
 
-    # A relationship to the compliance score resource for this policy.
-    attr_accessor :score
+    # An array of tag rule data objects.
+    attr_reader :data
+
+    # Related resources fetched alongside the primary tag rules. Populated when an `include` query parameter is supplied.
+    attr_accessor :included
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'score' => :'score'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'score' => :'TagPolicyScoreRelationship'
+        :'data' => :'Array<TagRuleData>',
+        :'included' => :'Array<TagRuleScoreData>'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRulesListResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +65,35 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'score')
-        self.score = attributes[:'score']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +122,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          score == o.score &&
+          data == o.data &&
+          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [score, additional_properties].hash
+      [data, included, additional_properties].hash
     end
   end
 end

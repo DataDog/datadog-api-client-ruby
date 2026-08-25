@@ -17,31 +17,31 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Mutable attributes of a tag policy. Each field is optional; omitting a field leaves its
-  # current value unchanged. The `source` of a policy cannot be changed.
-  class TagPolicyUpdateAttributes
+  # Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its
+  # current value unchanged. The `source` of a rule cannot be changed.
+  class TagRuleUpdateAttributes
     include BaseGenericModel
 
-    # Whether the policy is currently enforced.
+    # Whether the rule is currently enforced.
     attr_accessor :enabled
 
-    # When `true`, the policy matches tag values that do NOT match any of the supplied patterns.
+    # Human-readable name for the tag rule.
+    attr_accessor :name
+
+    # When `true`, the rule matches tag values that do NOT match any of the supplied patterns.
     attr_accessor :negated
-
-    # Human-readable name for the tag policy.
-    attr_accessor :policy_name
-
-    # How the policy is enforced. `blocking` rejects telemetry that violates the policy.
-    # `surfacing` only highlights non-compliant telemetry without blocking it.
-    attr_accessor :policy_type
 
     # When `true`, telemetry without this tag is treated as a violation.
     attr_accessor :required
 
-    # The scope the policy applies within.
+    # How the rule is enforced. `blocking` rejects telemetry that violates the rule.
+    # `surfacing` only highlights non-compliant telemetry without blocking it.
+    attr_accessor :rule_type
+
+    # The scope the rule applies within.
     attr_accessor :scope
 
-    # The tag key that the policy governs.
+    # The tag key that the rule governs.
     attr_accessor :tag_key
 
     # One or more patterns that valid values for the tag key must match.
@@ -54,10 +54,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enabled' => :'enabled',
+        :'name' => :'name',
         :'negated' => :'negated',
-        :'policy_name' => :'policy_name',
-        :'policy_type' => :'policy_type',
         :'required' => :'required',
+        :'rule_type' => :'rule_type',
         :'scope' => :'scope',
         :'tag_key' => :'tag_key',
         :'tag_value_patterns' => :'tag_value_patterns'
@@ -69,10 +69,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
+        :'name' => :'String',
         :'negated' => :'Boolean',
-        :'policy_name' => :'String',
-        :'policy_type' => :'TagPolicyType',
         :'required' => :'Boolean',
+        :'rule_type' => :'TagRuleType',
         :'scope' => :'String',
         :'tag_key' => :'String',
         :'tag_value_patterns' => :'Array<String>'
@@ -84,7 +84,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -101,20 +101,20 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.key?(:'negated')
         self.negated = attributes[:'negated']
       end
 
-      if attributes.key?(:'policy_name')
-        self.policy_name = attributes[:'policy_name']
-      end
-
-      if attributes.key?(:'policy_type')
-        self.policy_type = attributes[:'policy_type']
-      end
-
       if attributes.key?(:'required')
         self.required = attributes[:'required']
+      end
+
+      if attributes.key?(:'rule_type')
+        self.rule_type = attributes[:'rule_type']
       end
 
       if attributes.key?(:'scope')
@@ -159,10 +159,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enabled == o.enabled &&
+          name == o.name &&
           negated == o.negated &&
-          policy_name == o.policy_name &&
-          policy_type == o.policy_type &&
           required == o.required &&
+          rule_type == o.rule_type &&
           scope == o.scope &&
           tag_key == o.tag_key &&
           tag_value_patterns == o.tag_value_patterns &&
@@ -173,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, negated, policy_name, policy_type, required, scope, tag_key, tag_value_patterns, additional_properties].hash
+      [enabled, name, negated, required, rule_type, scope, tag_key, tag_value_patterns, additional_properties].hash
     end
   end
 end

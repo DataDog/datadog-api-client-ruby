@@ -17,34 +17,34 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes that can be supplied when creating a tag policy.
-  class TagPolicyCreateAttributes
+  # Attributes that can be supplied when creating a tag rule.
+  class TagRuleCreateAttributes
     include BaseGenericModel
 
-    # Whether the policy is currently enforced. Defaults to `true` for newly created policies.
+    # Whether the rule is currently enforced. Defaults to `true` for newly created rules.
     attr_accessor :enabled
 
-    # When `true`, the policy matches tag values that do NOT match any of the supplied patterns. Defaults to `false`.
+    # Human-readable name for the tag rule.
+    attr_reader :name
+
+    # When `true`, the rule matches tag values that do NOT match any of the supplied patterns. Defaults to `false`.
     attr_accessor :negated
-
-    # Human-readable name for the tag policy.
-    attr_reader :policy_name
-
-    # The policy type allowed when creating a tag policy. Only `surfacing` is accepted at
-    # creation time.
-    attr_reader :policy_type
 
     # When `true`, telemetry without this tag is treated as a violation. Defaults to `false`.
     attr_accessor :required
 
-    # The scope the policy applies within. Typically an environment, team, or
-    # organization-level identifier used to limit where the policy is enforced.
+    # The rule type allowed when creating a tag rule. Only `surfacing` is accepted at
+    # creation time.
+    attr_reader :rule_type
+
+    # The scope the rule applies within. Typically an environment, team, or
+    # organization-level identifier used to limit where the rule is enforced.
     attr_reader :scope
 
-    # The telemetry source that a tag policy applies to.
+    # The telemetry source that a tag rule applies to.
     attr_reader :source
 
-    # The tag key that the policy governs (for example, `service`).
+    # The tag key that the rule governs (for example, `service`).
     attr_reader :tag_key
 
     # One or more patterns that valid values for the tag key must match. At least one
@@ -58,10 +58,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enabled' => :'enabled',
+        :'name' => :'name',
         :'negated' => :'negated',
-        :'policy_name' => :'policy_name',
-        :'policy_type' => :'policy_type',
         :'required' => :'required',
+        :'rule_type' => :'rule_type',
         :'scope' => :'scope',
         :'source' => :'source',
         :'tag_key' => :'tag_key',
@@ -74,12 +74,12 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
+        :'name' => :'String',
         :'negated' => :'Boolean',
-        :'policy_name' => :'String',
-        :'policy_type' => :'TagPolicyCreateType',
         :'required' => :'Boolean',
+        :'rule_type' => :'TagRuleCreateType',
         :'scope' => :'String',
-        :'source' => :'TagPolicySource',
+        :'source' => :'TagRuleSource',
         :'tag_key' => :'String',
         :'tag_value_patterns' => :'Array<String>'
       }
@@ -90,7 +90,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -107,20 +107,20 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.key?(:'negated')
         self.negated = attributes[:'negated']
       end
 
-      if attributes.key?(:'policy_name')
-        self.policy_name = attributes[:'policy_name']
-      end
-
-      if attributes.key?(:'policy_type')
-        self.policy_type = attributes[:'policy_type']
-      end
-
       if attributes.key?(:'required')
         self.required = attributes[:'required']
+      end
+
+      if attributes.key?(:'rule_type')
+        self.rule_type = attributes[:'rule_type']
       end
 
       if attributes.key?(:'scope')
@@ -146,8 +146,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @policy_name.nil?
-      return false if @policy_type.nil?
+      return false if @name.nil?
+      return false if @rule_type.nil?
       return false if @scope.nil?
       return false if @source.nil?
       return false if @tag_key.nil?
@@ -157,23 +157,23 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param policy_name [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def policy_name=(policy_name)
-      if policy_name.nil?
-        fail ArgumentError, 'invalid value for "policy_name", policy_name cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @policy_name = policy_name
+      @name = name
     end
 
     # Custom attribute writer method with validation
-    # @param policy_type [Object] Object to be assigned
+    # @param rule_type [Object] Object to be assigned
     # @!visibility private
-    def policy_type=(policy_type)
-      if policy_type.nil?
-        fail ArgumentError, 'invalid value for "policy_type", policy_type cannot be nil.'
+    def rule_type=(rule_type)
+      if rule_type.nil?
+        fail ArgumentError, 'invalid value for "rule_type", rule_type cannot be nil.'
       end
-      @policy_type = policy_type
+      @rule_type = rule_type
     end
 
     # Custom attribute writer method with validation
@@ -246,10 +246,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enabled == o.enabled &&
+          name == o.name &&
           negated == o.negated &&
-          policy_name == o.policy_name &&
-          policy_type == o.policy_type &&
           required == o.required &&
+          rule_type == o.rule_type &&
           scope == o.scope &&
           source == o.source &&
           tag_key == o.tag_key &&
@@ -261,7 +261,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, negated, policy_name, policy_type, required, scope, source, tag_key, tag_value_patterns, additional_properties].hash
+      [enabled, name, negated, required, rule_type, scope, source, tag_key, tag_value_patterns, additional_properties].hash
     end
   end
 end

@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for a tag policy.
-  class TagPolicyResourceType
+  # The rule type allowed when creating a tag rule. Only `surfacing` is accepted at
+  # creation time.
+  class TagRuleCreateType
     include BaseEnumModel
 
-    TAG_POLICY = "tag_policy".freeze
+    SURFACING = "surfacing".freeze
   end
 end

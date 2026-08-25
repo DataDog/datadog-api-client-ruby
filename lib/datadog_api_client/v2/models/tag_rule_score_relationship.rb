@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single tag policy.
-  class TagPolicyResponse
+  # A relationship to the compliance score resource for this rule.
+  class TagRuleScoreRelationship
     include BaseGenericModel
 
-    # A tag policy resource.
+    # Identifier of the related compliance score resource.
     attr_reader :data
-
-    # Related resources fetched alongside the primary tag policies. Populated when an `include` query parameter is supplied.
-    attr_accessor :included
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TagPolicyData',
-        :'included' => :'Array<TagPolicyScoreData>'
+        :'data' => :'TagRuleScoreRelationshipData'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleScoreRelationship` initialize method"
       end
 
       self.additional_properties = {}
@@ -67,12 +62,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
       end
     end
 
@@ -121,7 +110,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
-          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
