@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Payload for creating a new tag policy.
-  class TagPolicyCreateRequest
+  # A tag rule compliance score.
+  class TagRuleScoreResponse
     include BaseGenericModel
 
-    # Data object for creating a tag policy.
+    # A compliance score resource for a tag rule.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TagPolicyCreateData'
+        :'data' => :'TagRuleScoreData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleScoreResponse` initialize method"
       end
 
       self.additional_properties = {}

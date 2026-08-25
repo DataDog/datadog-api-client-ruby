@@ -17,10 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A related resource to include alongside a tag policy in the response. Currently the only supported value is `score`.
-  class TagPolicyInclude
+  # The telemetry source that a tag rule applies to.
+  class TagRuleSource
     include BaseEnumModel
 
-    SCORE = "score".freeze
+    LOGS = "logs".freeze
+    SPANS = "spans".freeze
+    METRICS = "metrics".freeze
+    RUM = "rum".freeze
+    FEED = "feed".freeze
   end
 end

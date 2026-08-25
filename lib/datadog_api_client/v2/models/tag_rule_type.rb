@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The policy type allowed when creating a tag policy. Only `surfacing` is accepted at
-  # creation time.
-  class TagPolicyCreateType
+  # How the rule is enforced. `blocking` rejects telemetry that violates the rule.
+  # `surfacing` only highlights non-compliant telemetry without blocking it.
+  class TagRuleType
     include BaseEnumModel
 
+    BLOCKING = "blocking".freeze
     SURFACING = "surfacing".freeze
   end
 end

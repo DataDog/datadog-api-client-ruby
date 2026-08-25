@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Payload for updating an existing tag policy. Only the supplied fields are modified.
-  class TagPolicyUpdateRequest
+  # Payload for updating an existing tag rule. Only the supplied fields are modified.
+  class TagRuleUpdateRequest
     include BaseGenericModel
 
-    # Data object for updating a tag policy.
+    # Data object for updating a tag rule.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TagPolicyUpdateData'
+        :'data' => :'TagRuleUpdateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleUpdateRequest` initialize method"
       end
 
       self.additional_properties = {}

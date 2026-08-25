@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # How the policy is enforced. `blocking` rejects telemetry that violates the policy.
-  # `surfacing` only highlights non-compliant telemetry without blocking it.
-  class TagPolicyType
+  # A related resource to include alongside a tag rule in the response. Currently the only supported value is `score`.
+  class TagRuleInclude
     include BaseEnumModel
 
-    BLOCKING = "blocking".freeze
-    SURFACING = "surfacing".freeze
+    SCORE = "score".freeze
   end
 end

@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for a tag policy compliance score.
-  class TagPolicyScoreResourceType
+  # JSON:API resource type for a tag rule.
+  class TagRuleResourceType
     include BaseEnumModel
 
-    TAG_POLICY_SCORE = "tag_policy_score".freeze
+    TAG_RULE = "tag_rule".freeze
   end
 end

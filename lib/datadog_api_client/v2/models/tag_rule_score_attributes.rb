@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A compliance score resource for a tag policy.
-  class TagPolicyScoreData
+  # Attributes of a tag rule compliance score.
+  class TagRuleScoreAttributes
     include BaseGenericModel
 
-    # Attributes of a tag policy compliance score.
-    attr_reader :attributes
+    # The compliance score for the rule over the requested time window, as a percentage
+    # between 0 and 100. `null` indicates that no relevant telemetry was found.
+    attr_accessor :score
 
-    # The unique identifier of the compliance score resource.
-    attr_reader :id
+    # End of the time window the score was computed over, as a Unix timestamp in milliseconds.
+    attr_reader :ts_end
 
-    # JSON:API resource type for a tag policy compliance score.
-    attr_reader :type
+    # Start of the time window the score was computed over, as a Unix timestamp in milliseconds.
+    attr_reader :ts_start
+
+    # The version of the tag rule that the score was computed against.
+    attr_reader :version
 
     attr_accessor :additional_properties
 
@@ -36,9 +40,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'score' => :'score',
+        :'ts_end' => :'ts_end',
+        :'ts_start' => :'ts_start',
+        :'version' => :'version'
       }
     end
 
@@ -46,10 +51,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'TagPolicyScoreAttributes',
-        :'id' => :'String',
-        :'type' => :'TagPolicyScoreResourceType'
+        :'score' => :'Float',
+        :'ts_end' => :'Integer',
+        :'ts_start' => :'Integer',
+        :'version' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'score',
+      ])
     end
 
     # Initializes the object
@@ -57,7 +71,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagPolicyScoreData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagRuleScoreAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +84,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'score')
+        self.score = attributes[:'score']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'ts_end')
+        self.ts_end = attributes[:'ts_end']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'ts_start')
+        self.ts_start = attributes[:'ts_start']
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -87,40 +105,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @ts_end.nil?
+      return false if @ts_start.nil?
+      return false if @version.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param ts_end [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def ts_end=(ts_end)
+      if ts_end.nil?
+        fail ArgumentError, 'invalid value for "ts_end", ts_end cannot be nil.'
       end
-      @attributes = attributes
+      @ts_end = ts_end
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param ts_start [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def ts_start=(ts_start)
+      if ts_start.nil?
+        fail ArgumentError, 'invalid value for "ts_start", ts_start cannot be nil.'
       end
-      @id = id
+      @ts_start = ts_start
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param version [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def version=(version)
+      if version.nil?
+        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
       end
-      @type = type
+      @version = version
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +167,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          score == o.score &&
+          ts_end == o.ts_end &&
+          ts_start == o.ts_start &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +178,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [score, ts_end, ts_start, version, additional_properties].hash
     end
   end
 end
