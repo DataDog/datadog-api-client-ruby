@@ -97,6 +97,13 @@ module DatadogAPIClient
     # Keep track of the unstable operations, and if they have been enabled
     attr_accessor :unstable_operations
 
+    # Set this to true to mark requests as originating from infrastructure-as-code (IaC) tooling.
+    # When enabled, the `X-Datadog-Managed-By: iac` header is sent with every request.
+    # Default to false.
+    #
+    # @return [true, false]
+    attr_accessor :is_iac
+
     ### TLS/SSL setting
     # Set this to false to skip verifying SSL certificate when calling API from https server.
     # Default to true.
@@ -180,6 +187,7 @@ module DatadogAPIClient
       @cert_file = nil
       @key_file = nil
       @debugging = false
+      @is_iac = false
       @inject_format = false
       @force_ending_format = false
       @compress = true
