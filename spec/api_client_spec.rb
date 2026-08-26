@@ -73,6 +73,23 @@ describe DatadogAPIClient::APIClient do
     end
   end
 
+  describe 'is_iac header in #build_request' do
+    let(:config) { DatadogAPIClient::Configuration.new }
+
+    it 'is not sent by default' do
+      api_client = DatadogAPIClient::APIClient.new(config)
+      request = api_client.build_request(Net::HTTP::Get, '/test')
+      expect(request.options[:headers]).not_to have_key('X-Datadog-Managed-By')
+    end
+
+    it 'is sent when is_iac is enabled on the configuration' do
+      config.is_iac = true
+      api_client = DatadogAPIClient::APIClient.new(config)
+      request = api_client.build_request(Net::HTTP::Get, '/test')
+      expect(request.options[:headers]['X-Datadog-Managed-By']).to eq('iac')
+    end
+  end
+
   describe '#deserialize' do
     it "handles Array<Integer>" do
       api_client = DatadogAPIClient::APIClient.new
