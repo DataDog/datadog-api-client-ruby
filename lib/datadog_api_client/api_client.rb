@@ -43,6 +43,7 @@ module DatadogAPIClient
         'User-Agent' => @user_agent
       }
       @default_headers['Accept-Encoding'] = 'gzip' if @config.compress
+      @default_headers['X-Datadog-Managed-By'] = 'iac' if @config.is_iac
     end
 
     def self.default
