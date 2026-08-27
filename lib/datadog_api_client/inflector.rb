@@ -5721,6 +5721,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_split_array_processor_type" => "ObservabilityPipelineSplitArrayProcessorType",
           "v2.observability_pipeline_splunk_hec_destination" => "ObservabilityPipelineSplunkHecDestination",
           "v2.observability_pipeline_splunk_hec_destination_encoding" => "ObservabilityPipelineSplunkHecDestinationEncoding",
+          "v2.observability_pipeline_splunk_hec_destination_endpoint_target" => "ObservabilityPipelineSplunkHecDestinationEndpointTarget",
           "v2.observability_pipeline_splunk_hec_destination_token_strategy" => "ObservabilityPipelineSplunkHecDestinationTokenStrategy",
           "v2.observability_pipeline_splunk_hec_destination_type" => "ObservabilityPipelineSplunkHecDestinationType",
           "v2.observability_pipeline_splunk_hec_metrics_destination" => "ObservabilityPipelineSplunkHecMetricsDestination",
