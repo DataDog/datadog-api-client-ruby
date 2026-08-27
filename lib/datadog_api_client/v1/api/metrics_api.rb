@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
     #
     # **Note**: This endpoint is deprecated. Use `/api/v2/metrics` instead.
     #
-    # Search for metrics from the last 24 hours in Datadog.
+    # Search for metrics from the last 24 hours in Datadog. This integration test verifies review gating for public operations.
     #
     # @deprecated This API is deprecated.
     #
