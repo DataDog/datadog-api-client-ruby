@@ -25,6 +25,7 @@ module DatadogAPIClient::V2
 
     # If `true`, Splunk tries to extract timestamps from incoming log events.
     # If `false`, Splunk assigns the time the event was received.
+    # Only applies when `endpoint_target` is `event`; cannot be `true` when `endpoint_target` is `raw`.
     attr_accessor :auto_extract_timestamp
 
     # Configuration for buffer settings on destination components.
@@ -32,6 +33,9 @@ module DatadogAPIClient::V2
 
     # Encoding format for log events.
     attr_accessor :encoding
+
+    # The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint.
+    attr_accessor :endpoint_target
 
     # Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
     attr_accessor :endpoint_url_key
@@ -69,6 +73,7 @@ module DatadogAPIClient::V2
         :'auto_extract_timestamp' => :'auto_extract_timestamp',
         :'buffer' => :'buffer',
         :'encoding' => :'encoding',
+        :'endpoint_target' => :'endpoint_target',
         :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'index' => :'index',
@@ -88,6 +93,7 @@ module DatadogAPIClient::V2
         :'auto_extract_timestamp' => :'Boolean',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineSplunkHecDestinationEncoding',
+        :'endpoint_target' => :'ObservabilityPipelineSplunkHecDestinationEndpointTarget',
         :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'index' => :'String',
@@ -128,6 +134,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'encoding')
         self.encoding = attributes[:'encoding']
+      end
+
+      if attributes.key?(:'endpoint_target')
+        self.endpoint_target = attributes[:'endpoint_target']
       end
 
       if attributes.key?(:'endpoint_url_key')
@@ -240,6 +250,7 @@ module DatadogAPIClient::V2
           auto_extract_timestamp == o.auto_extract_timestamp &&
           buffer == o.buffer &&
           encoding == o.encoding &&
+          endpoint_target == o.endpoint_target &&
           endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           index == o.index &&
@@ -256,7 +267,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_extract_timestamp, buffer, encoding, endpoint_url_key, id, index, indexed_fields, inputs, sourcetype, token_key, token_strategy, type, additional_properties].hash
+      [auto_extract_timestamp, buffer, encoding, endpoint_target, endpoint_url_key, id, index, indexed_fields, inputs, sourcetype, token_key, token_strategy, type, additional_properties].hash
     end
   end
 end
