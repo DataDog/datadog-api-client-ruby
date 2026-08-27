@@ -24,15 +24,27 @@ module DatadogAPIClient::V2
     # Seconds the monitor needs to stay in OK status for the rule to pass.
     attr_accessor :duration
 
+    # Whether the rule should fail if a matching monitor group is in a NO DATA state.
+    attr_accessor :fail_on_no_data
+
+    # Whether the rule should fail if no monitor groups are found for the query.
+    attr_accessor :fail_on_no_groups_found
+
     # Monitors that match this query are evaluated.
     attr_reader :query
+
+    # Seconds to wait after a deployment starts before evaluating the monitor's status.
+    attr_reader :warmup
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'duration' => :'duration',
-        :'query' => :'query'
+        :'fail_on_no_data' => :'fail_on_no_data',
+        :'fail_on_no_groups_found' => :'fail_on_no_groups_found',
+        :'query' => :'query',
+        :'warmup' => :'warmup'
       }
     end
 
@@ -41,7 +53,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'duration' => :'Integer',
-        :'query' => :'String'
+        :'fail_on_no_data' => :'Boolean',
+        :'fail_on_no_groups_found' => :'Boolean',
+        :'query' => :'String',
+        :'warmup' => :'Integer'
       }
     end
 
@@ -65,8 +80,20 @@ module DatadogAPIClient::V2
         self.duration = attributes[:'duration']
       end
 
+      if attributes.key?(:'fail_on_no_data')
+        self.fail_on_no_data = attributes[:'fail_on_no_data']
+      end
+
+      if attributes.key?(:'fail_on_no_groups_found')
+        self.fail_on_no_groups_found = attributes[:'fail_on_no_groups_found']
+      end
+
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'warmup')
+        self.warmup = attributes[:'warmup']
       end
     end
 
@@ -75,6 +102,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @query.nil?
+      return false if !@warmup.nil? && @warmup < 0
       true
     end
 
@@ -88,6 +116,16 @@ module DatadogAPIClient::V2
       @query = query
     end
 
+    # Custom attribute writer method with validation
+    # @param warmup [Object] Object to be assigned
+    # @!visibility private
+    def warmup=(warmup)
+      if !warmup.nil? && warmup < 0
+        fail ArgumentError, 'invalid value for "warmup", must be greater than or equal to 0.'
+      end
+      @warmup = warmup
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -95,14 +133,17 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           duration == o.duration &&
-          query == o.query
+          fail_on_no_data == o.fail_on_no_data &&
+          fail_on_no_groups_found == o.fail_on_no_groups_found &&
+          query == o.query &&
+          warmup == o.warmup
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [duration, query].hash
+      [duration, fail_on_no_data, fail_on_no_groups_found, query, warmup].hash
     end
   end
 end
