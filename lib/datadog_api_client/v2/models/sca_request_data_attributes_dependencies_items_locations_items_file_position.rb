@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The name or path of the file containing this location.
     attr_accessor :file_name
 
+    # The semantic role associated with this file location.
+    attr_accessor :role
+
     # A specific position (line and column) within a source file.
     attr_accessor :start
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'_end' => :'end',
         :'file_name' => :'file_name',
+        :'role' => :'role',
         :'start' => :'start'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'_end' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition',
         :'file_name' => :'String',
+        :'role' => :'String',
         :'start' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition'
       }
     end
@@ -76,6 +81,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'file_name')
         self.file_name = attributes[:'file_name']
+      end
+
+      if attributes.key?(:'role')
+        self.role = attributes[:'role']
       end
 
       if attributes.key?(:'start')
@@ -111,6 +120,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           _end == o._end &&
           file_name == o.file_name &&
+          role == o.role &&
           start == o.start &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_end, file_name, start, additional_properties].hash
+      [_end, file_name, role, start, additional_properties].hash
     end
   end
 end

@@ -42,6 +42,9 @@ module DatadogAPIClient::V2
     # The name of the dependency package.
     attr_accessor :name
 
+    # Indicates whether dependency details are intentionally opaque.
+    attr_accessor :opaque
+
     # The package manager responsible for this dependency (e.g., maven, pip, npm).
     attr_accessor :package_manager
 
@@ -51,8 +54,20 @@ module DatadogAPIClient::V2
     # Properties describing symbols from this dependency that are reachable in the application code.
     attr_accessor :reachable_symbol_properties
 
+    # Indicates whether this dependency requires transitive dependency enrichment.
+    attr_accessor :requires_transitive_enrichment
+
+    # The target framework identifiers associated with this dependency.
+    attr_accessor :target_frameworks
+
     # The version of the dependency.
     attr_accessor :version
+
+    # Indicates whether the version value represents a version constraint.
+    attr_accessor :version_constraint
+
+    # The version range associated with this dependency when a manifest declares a range.
+    attr_accessor :version_range
 
     attr_accessor :additional_properties
 
@@ -67,10 +82,15 @@ module DatadogAPIClient::V2
         :'language' => :'language',
         :'locations' => :'locations',
         :'name' => :'name',
+        :'opaque' => :'opaque',
         :'package_manager' => :'package_manager',
         :'purl' => :'purl',
         :'reachable_symbol_properties' => :'reachable_symbol_properties',
-        :'version' => :'version'
+        :'requires_transitive_enrichment' => :'requires_transitive_enrichment',
+        :'target_frameworks' => :'target_frameworks',
+        :'version' => :'version',
+        :'version_constraint' => :'version_constraint',
+        :'version_range' => :'version_range'
       }
     end
 
@@ -85,11 +105,27 @@ module DatadogAPIClient::V2
         :'language' => :'String',
         :'locations' => :'Array<ScaRequestDataAttributesDependenciesItemsLocationsItems>',
         :'name' => :'String',
+        :'opaque' => :'Boolean',
         :'package_manager' => :'String',
         :'purl' => :'String',
         :'reachable_symbol_properties' => :'Array<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>',
-        :'version' => :'String'
+        :'requires_transitive_enrichment' => :'Boolean',
+        :'target_frameworks' => :'Array<String>',
+        :'version' => :'String',
+        :'version_constraint' => :'Boolean',
+        :'version_range' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'group',
+        :'is_direct',
+        :'locations',
+        :'version',
+      ])
     end
 
     # Initializes the object
@@ -142,6 +178,10 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'opaque')
+        self.opaque = attributes[:'opaque']
+      end
+
       if attributes.key?(:'package_manager')
         self.package_manager = attributes[:'package_manager']
       end
@@ -156,8 +196,26 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'requires_transitive_enrichment')
+        self.requires_transitive_enrichment = attributes[:'requires_transitive_enrichment']
+      end
+
+      if attributes.key?(:'target_frameworks')
+        if (value = attributes[:'target_frameworks']).is_a?(Array)
+          self.target_frameworks = value
+        end
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
+      end
+
+      if attributes.key?(:'version_constraint')
+        self.version_constraint = attributes[:'version_constraint']
+      end
+
+      if attributes.key?(:'version_range')
+        self.version_range = attributes[:'version_range']
       end
     end
 
@@ -194,10 +252,15 @@ module DatadogAPIClient::V2
           language == o.language &&
           locations == o.locations &&
           name == o.name &&
+          opaque == o.opaque &&
           package_manager == o.package_manager &&
           purl == o.purl &&
           reachable_symbol_properties == o.reachable_symbol_properties &&
+          requires_transitive_enrichment == o.requires_transitive_enrichment &&
+          target_frameworks == o.target_frameworks &&
           version == o.version &&
+          version_constraint == o.version_constraint &&
+          version_range == o.version_range &&
           additional_properties == o.additional_properties
     end
 
@@ -205,7 +268,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [exclusions, group, is_dev, is_direct, language, locations, name, package_manager, purl, reachable_symbol_properties, version, additional_properties].hash
+      [exclusions, group, is_dev, is_direct, language, locations, name, opaque, package_manager, purl, reachable_symbol_properties, requires_transitive_enrichment, target_frameworks, version, version_constraint, version_range, additional_properties].hash
     end
   end
 end
