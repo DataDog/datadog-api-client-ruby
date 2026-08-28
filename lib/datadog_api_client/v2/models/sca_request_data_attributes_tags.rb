@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The source code location where a dependency is declared, including block, name, namespace, and version positions within the file.
-  class ScaRequestDataAttributesDependenciesItemsLocationsItems
+  # A map of tags providing additional metadata for the SCA scan.
+  class ScaRequestDataAttributesTags
     include BaseGenericModel
 
-    # A range within a file defined by a start and end position, along with the file name.
-    attr_accessor :block
-
-    # A nullable range within a file defined by a start and end position, along with the file name.
-    attr_accessor :name
-
-    # A nullable range within a file defined by a start and end position, along with the file name.
-    attr_accessor :namespace
-
-    # A nullable range within a file defined by a start and end position, along with the file name.
-    attr_accessor :version
+    # Tool metadata included in SCA tags.
+    attr_accessor :tool
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'block' => :'block',
-        :'name' => :'name',
-        :'namespace' => :'namespace',
-        :'version' => :'version'
+        :'tool' => :'tool'
       }
     end
 
@@ -50,21 +38,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'block' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition',
-        :'name' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition',
-        :'namespace' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition',
-        :'version' => :'ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition'
+        :'tool' => :'ScaRequestDataAttributesTagsTool'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'name',
-        :'namespace',
-        :'version',
-      ])
     end
 
     # Initializes the object
@@ -72,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScaRequestDataAttributesDependenciesItemsLocationsItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScaRequestDataAttributesTags` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,20 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'block')
-        self.block = attributes[:'block']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'tool')
+        self.tool = attributes[:'tool']
       end
     end
 
@@ -128,10 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          block == o.block &&
-          name == o.name &&
-          namespace == o.namespace &&
-          version == o.version &&
+          tool == o.tool &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [block, name, namespace, version, additional_properties].hash
+      [tool, additional_properties].hash
     end
   end
 end

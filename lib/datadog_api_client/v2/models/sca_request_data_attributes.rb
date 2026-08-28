@@ -39,10 +39,13 @@ module DatadogAPIClient::V2
     # Information about the source code repository being analyzed.
     attr_accessor :repository
 
+    # The time when the SCA scan started.
+    attr_accessor :scan_start_timestamp
+
     # The name of the service or application being analyzed.
     attr_accessor :service
 
-    # A map of key-value tags providing additional metadata for the SCA scan.
+    # A map of tags providing additional metadata for the SCA scan.
     attr_accessor :tags
 
     # The list of vulnerabilities identified in the dependency graph.
@@ -60,6 +63,7 @@ module DatadogAPIClient::V2
         :'files' => :'files',
         :'relations' => :'relations',
         :'repository' => :'repository',
+        :'scan_start_timestamp' => :'scan_start_timestamp',
         :'service' => :'service',
         :'tags' => :'tags',
         :'vulnerabilities' => :'vulnerabilities'
@@ -76,10 +80,19 @@ module DatadogAPIClient::V2
         :'files' => :'Array<ScaRequestDataAttributesFilesItems>',
         :'relations' => :'Array<ScaRequestDataAttributesRelationsItems>',
         :'repository' => :'ScaRequestDataAttributesRepository',
+        :'scan_start_timestamp' => :'ScaRequestDataAttributesScanStartTimestamp',
         :'service' => :'String',
-        :'tags' => :'Hash<String, String>',
+        :'tags' => :'ScaRequestDataAttributesTags',
         :'vulnerabilities' => :'Array<ScaRequestDataAttributesVulnerabilitiesItems>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'scan_start_timestamp',
+      ])
     end
 
     # Initializes the object
@@ -130,6 +143,10 @@ module DatadogAPIClient::V2
         self.repository = attributes[:'repository']
       end
 
+      if attributes.key?(:'scan_start_timestamp')
+        self.scan_start_timestamp = attributes[:'scan_start_timestamp']
+      end
+
       if attributes.key?(:'service')
         self.service = attributes[:'service']
       end
@@ -177,6 +194,7 @@ module DatadogAPIClient::V2
           files == o.files &&
           relations == o.relations &&
           repository == o.repository &&
+          scan_start_timestamp == o.scan_start_timestamp &&
           service == o.service &&
           tags == o.tags &&
           vulnerabilities == o.vulnerabilities &&
@@ -187,7 +205,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commit, dependencies, env, files, relations, repository, service, tags, vulnerabilities, additional_properties].hash
+      [commit, dependencies, env, files, relations, repository, scan_start_timestamp, service, tags, vulnerabilities, additional_properties].hash
     end
   end
 end
