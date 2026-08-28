@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # ID of the annotation that failed, if applicable.
     attr_accessor :annotation_id
 
+    # Stable error code. `permission_denied` indicates the item was rejected by queue access rules.
+    attr_accessor :code
+
     # Error message.
     attr_reader :error
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'annotation_id' => :'annotation_id',
+        :'code' => :'code',
         :'error' => :'error',
         :'interaction_id' => :'interaction_id'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'annotation_id' => :'String',
+        :'code' => :'LLMObsAnnotationErrorCode',
         :'error' => :'String',
         :'interaction_id' => :'String'
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'annotation_id')
         self.annotation_id = attributes[:'annotation_id']
+      end
+
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
       if attributes.key?(:'error')
@@ -139,6 +148,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           annotation_id == o.annotation_id &&
+          code == o.code &&
           error == o.error &&
           interaction_id == o.interaction_id &&
           additional_properties == o.additional_properties
@@ -148,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotation_id, error, interaction_id, additional_properties].hash
+      [annotation_id, code, error, interaction_id, additional_properties].hash
     end
   end
 end

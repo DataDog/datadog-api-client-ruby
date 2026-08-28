@@ -33,6 +33,11 @@ body = DatadogAPIClient::V2::LLMObsAnnotationQueueUpdateRequest.new({
       }),
       description: "Updated description",
       name: "Updated queue name",
+      restrict_to_assignees: false,
+      restrict_to_reviewers: true,
+      reviewer_emails: [
+        "reviewer@example.com",
+      ],
     }),
     type: DatadogAPIClient::V2::LLMObsAnnotationQueueType::QUEUES,
   }),

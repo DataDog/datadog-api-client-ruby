@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Schema defining the labels for an annotation queue.
     attr_accessor :annotation_schema
 
+    # Whether the current caller can manage access for the annotation queue.
+    attr_reader :can_manage_access
+
     # Timestamp when the queue was created.
     attr_reader :created_at
 
@@ -48,6 +51,16 @@ module DatadogAPIClient::V2
     # Identifier of the project this queue belongs to.
     attr_reader :project_id
 
+    # Whether annotation access is restricted to assigned users.
+    attr_reader :restrict_to_assignees
+
+    # Whether annotation access is restricted to queue reviewers.
+    attr_reader :restrict_to_reviewers
+
+    # Email addresses of reviewers for the annotation queue. Returned only
+    # when the caller can manage queue access.
+    attr_accessor :reviewer_emails
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -55,6 +68,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'annotation_schema' => :'annotation_schema',
+        :'can_manage_access' => :'can_manage_access',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'description' => :'description',
@@ -62,7 +76,10 @@ module DatadogAPIClient::V2
         :'modified_by' => :'modified_by',
         :'name' => :'name',
         :'owned_by' => :'owned_by',
-        :'project_id' => :'project_id'
+        :'project_id' => :'project_id',
+        :'restrict_to_assignees' => :'restrict_to_assignees',
+        :'restrict_to_reviewers' => :'restrict_to_reviewers',
+        :'reviewer_emails' => :'reviewer_emails'
       }
     end
 
@@ -71,6 +88,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'annotation_schema' => :'LLMObsAnnotationSchema',
+        :'can_manage_access' => :'Boolean',
         :'created_at' => :'Time',
         :'created_by' => :'String',
         :'description' => :'String',
@@ -78,7 +96,10 @@ module DatadogAPIClient::V2
         :'modified_by' => :'String',
         :'name' => :'String',
         :'owned_by' => :'String',
-        :'project_id' => :'String'
+        :'project_id' => :'String',
+        :'restrict_to_assignees' => :'Boolean',
+        :'restrict_to_reviewers' => :'Boolean',
+        :'reviewer_emails' => :'Array<String>'
       }
     end
 
@@ -102,6 +123,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'annotation_schema')
         self.annotation_schema = attributes[:'annotation_schema']
+      end
+
+      if attributes.key?(:'can_manage_access')
+        self.can_manage_access = attributes[:'can_manage_access']
       end
 
       if attributes.key?(:'created_at')
@@ -135,12 +160,27 @@ module DatadogAPIClient::V2
       if attributes.key?(:'project_id')
         self.project_id = attributes[:'project_id']
       end
+
+      if attributes.key?(:'restrict_to_assignees')
+        self.restrict_to_assignees = attributes[:'restrict_to_assignees']
+      end
+
+      if attributes.key?(:'restrict_to_reviewers')
+        self.restrict_to_reviewers = attributes[:'restrict_to_reviewers']
+      end
+
+      if attributes.key?(:'reviewer_emails')
+        if (value = attributes[:'reviewer_emails']).is_a?(Array)
+          self.reviewer_emails = value
+        end
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @can_manage_access.nil?
       return false if @created_at.nil?
       return false if @created_by.nil?
       return false if @description.nil?
@@ -149,7 +189,19 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @owned_by.nil?
       return false if @project_id.nil?
+      return false if @restrict_to_assignees.nil?
+      return false if @restrict_to_reviewers.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param can_manage_access [Object] Object to be assigned
+    # @!visibility private
+    def can_manage_access=(can_manage_access)
+      if can_manage_access.nil?
+        fail ArgumentError, 'invalid value for "can_manage_access", can_manage_access cannot be nil.'
+      end
+      @can_manage_access = can_manage_access
     end
 
     # Custom attribute writer method with validation
@@ -232,6 +284,26 @@ module DatadogAPIClient::V2
       @project_id = project_id
     end
 
+    # Custom attribute writer method with validation
+    # @param restrict_to_assignees [Object] Object to be assigned
+    # @!visibility private
+    def restrict_to_assignees=(restrict_to_assignees)
+      if restrict_to_assignees.nil?
+        fail ArgumentError, 'invalid value for "restrict_to_assignees", restrict_to_assignees cannot be nil.'
+      end
+      @restrict_to_assignees = restrict_to_assignees
+    end
+
+    # Custom attribute writer method with validation
+    # @param restrict_to_reviewers [Object] Object to be assigned
+    # @!visibility private
+    def restrict_to_reviewers=(restrict_to_reviewers)
+      if restrict_to_reviewers.nil?
+        fail ArgumentError, 'invalid value for "restrict_to_reviewers", restrict_to_reviewers cannot be nil.'
+      end
+      @restrict_to_reviewers = restrict_to_reviewers
+    end
+
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -259,6 +331,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           annotation_schema == o.annotation_schema &&
+          can_manage_access == o.can_manage_access &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           description == o.description &&
@@ -267,6 +340,9 @@ module DatadogAPIClient::V2
           name == o.name &&
           owned_by == o.owned_by &&
           project_id == o.project_id &&
+          restrict_to_assignees == o.restrict_to_assignees &&
+          restrict_to_reviewers == o.restrict_to_reviewers &&
+          reviewer_emails == o.reviewer_emails &&
           additional_properties == o.additional_properties
     end
 
@@ -274,7 +350,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotation_schema, created_at, created_by, description, modified_at, modified_by, name, owned_by, project_id, additional_properties].hash
+      [annotation_schema, can_manage_access, created_at, created_by, description, modified_at, modified_by, name, owned_by, project_id, restrict_to_assignees, restrict_to_reviewers, reviewer_emails, additional_properties].hash
     end
   end
 end
