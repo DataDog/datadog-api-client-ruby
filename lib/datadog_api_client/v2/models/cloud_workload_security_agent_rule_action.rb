@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleAction
     include BaseGenericModel
 
+    # Whether the action is disabled.
+    attr_accessor :disabled
+
     # SECL expression used to target the container to apply the action on
     attr_accessor :filter
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'disabled' => :'disabled',
         :'filter' => :'filter',
         :'_hash' => :'hash',
         :'kill' => :'kill',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'disabled' => :'Boolean',
         :'filter' => :'String',
         :'_hash' => :'CloudWorkloadSecurityAgentRuleActionHash',
         :'kill' => :'CloudWorkloadSecurityAgentRuleKill',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'disabled')
+        self.disabled = attributes[:'disabled']
+      end
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
@@ -127,6 +136,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          disabled == o.disabled &&
           filter == o.filter &&
           _hash == o._hash &&
           kill == o.kill &&
@@ -139,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, _hash, kill, metadata, set, additional_properties].hash
+      [disabled, filter, _hash, kill, metadata, set, additional_properties].hash
     end
   end
 end
