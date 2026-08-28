@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The returned paging point to use to get the next results.
     attr_accessor :cursor
 
-    # The maximum number of logs in the response.
+    # The maximum number of events in the response.
     attr_reader :limit
 
     attr_accessor :additional_properties

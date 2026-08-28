@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Event ID.
     attr_accessor :id
 
+    # The integration ID of the event.
+    attr_accessor :integration_id
+
     # The event name.
     attr_accessor :name
 
@@ -33,6 +36,9 @@ module DatadogAPIClient::V2
     # Event type.
     attr_accessor :type
 
+    # A unique identifier for the event. You can use this identifier to query or reference the event.
+    attr_accessor :uid
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -40,9 +46,11 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'id' => :'id',
+        :'integration_id' => :'integration_id',
         :'name' => :'name',
         :'source_id' => :'source_id',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'uid' => :'uid'
       }
     end
 
@@ -51,9 +59,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'id' => :'String',
+        :'integration_id' => :'String',
         :'name' => :'String',
         :'source_id' => :'Integer',
-        :'type' => :'String'
+        :'type' => :'String',
+        :'uid' => :'String'
       }
     end
 
@@ -79,6 +89,10 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'integration_id')
+        self.integration_id = attributes[:'integration_id']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -89,6 +103,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'uid')
+        self.uid = attributes[:'uid']
       end
     end
 
@@ -119,9 +137,11 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          integration_id == o.integration_id &&
           name == o.name &&
           source_id == o.source_id &&
           type == o.type &&
+          uid == o.uid &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, name, source_id, type, additional_properties].hash
+      [id, integration_id, name, source_id, type, uid, additional_properties].hash
     end
   end
 end

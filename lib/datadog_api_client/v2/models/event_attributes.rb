@@ -53,7 +53,8 @@ module DatadogAPIClient::V2
     # ID of the monitor that triggered the event. When an event isn't related to a monitor, this field is empty.
     attr_accessor :monitor_id
 
-    # The priority of the event's monitor. For example, `normal` or `low`.
+    # The priority of the event alert. Legacy events use `normal` or `low`.
+    # Alert events use `1` (highest priority) through `5` (lowest priority).
     attr_accessor :priority
 
     # Related event ID.
@@ -70,9 +71,9 @@ module DatadogAPIClient::V2
     # Identifier for the source of the event, such as a monitor alert, an externally-submitted event, or an integration.
     attr_accessor :sourcecategory
 
-    # If an alert event is enabled, its status is one of the following:
-    # `failure`, `error`, `warning`, `info`, `success`, `user_update`,
-    # `recommendation`, or `snapshot`.
+    # The event status. Legacy events can use `failure`, `error`, `warning`,
+    # `info`, `success`, `user_update`, `recommendation`, or `snapshot`.
+    # Alert events can use `error`, `warn`, or `ok`.
     attr_accessor :status
 
     # A list of tags to apply to the event.
