@@ -42,6 +42,7 @@ module DatadogAPIClient::V2
     SERVER_RESPONSE_HEADERS_NO_COOKIES = "server.response.headers.no_cookies".freeze
     SERVER_RESPONSE_TRAILERS = "server.response.trailers".freeze
     SERVER_RESPONSE_BODY = "server.response.body".freeze
+    SERVER_RESPONSE_BODY_RAW = "server.response.body.raw".freeze
     GRPC_SERVER_REQUEST_METADATA = "grpc.server.request.metadata".freeze
     GRPC_SERVER_REQUEST_MESSAGE = "grpc.server.request.message".freeze
     GRPC_SERVER_METHOD = "grpc.server.method".freeze
