@@ -1036,6 +1036,7 @@ ScenariosModelMappings = {
     "v2.GetLLMObsPrompt" => {
             "prompt_id" => "String",
             "label" => "String",
+            "environment" => "String",
     },
     "v2.UpdateLLMObsPrompt" => {
             "prompt_id" => "String",

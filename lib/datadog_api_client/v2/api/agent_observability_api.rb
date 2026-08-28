@@ -2414,11 +2414,12 @@ module DatadogAPIClient::V2
 
     # Get an Agent Observability prompt.
     #
-    # Get the latest version of an Agent Observability prompt by prompt ID.
+    # Get an Agent Observability prompt by prompt ID. When `environment` is omitted, this returns the latest version or uses the deprecated `label` behavior and requires `llm_observability_read`. When `environment` is supplied, it must be a nonempty `DD_ENV` value, cannot be combined with `label`, and additionally requires `feature_flag_config_read` and `feature_flag_environment_config_read`. An empty environment or combining it with `label` returns 400, and missing either additional permission returns 403. A missing prompt or deployment returns 404 without falling back to the latest version. An environment resolution failure returns 500.
     #
     # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :label **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned.
+    # @option opts [String] :label **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned. This parameter cannot be used with `environment`.
+    # @option opts [String] :environment Optional `DD_ENV` value used to resolve the prompt version deployed to the matching Feature Flags environment. This value is not a Feature Flags environment UUID. Using this parameter additionally requires the `feature_flag_config_read` and `feature_flag_environment_config_read` permissions. This parameter cannot be used with `label`.
     # @return [Array<(LLMObsPromptSDKResponse, Integer, Hash)>] LLMObsPromptSDKResponse data, response status code and response headers
     def get_llm_obs_prompt_with_http_info(prompt_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_prompt".to_sym]
@@ -2435,12 +2436,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && prompt_id.nil?
         fail ArgumentError, "Missing the required parameter 'prompt_id' when calling AgentObservabilityAPI.get_llm_obs_prompt"
       end
+      if @api_client.config.client_side_validation && !opts[:'environment'].nil? && opts[:'environment'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"environment"]" when calling AgentObservabilityAPI.get_llm_obs_prompt, the character length must be great than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/llm-obs/v1/prompts/{prompt_id}'.sub('{prompt_id}', CGI.escape(prompt_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'environment'] = opts[:'environment'] if !opts[:'environment'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
