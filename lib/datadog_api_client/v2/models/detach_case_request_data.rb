@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class DetachCaseRequestData
     include BaseGenericModel
 
+    # Unique identifier of the case.
+    attr_accessor :id
+
     # Relationships detaching security findings from their case.
     attr_accessor :relationships
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'id' => :'id',
         :'relationships' => :'relationships',
         :'type' => :'type'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'id' => :'String',
         :'relationships' => :'DetachCaseRequestDataRelationships',
         :'type' => :'CaseDataType'
       }
@@ -64,6 +69,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'relationships')
         self.relationships = attributes[:'relationships']
@@ -118,6 +127,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -127,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [relationships, type, additional_properties].hash
+      [id, relationships, type, additional_properties].hash
     end
   end
 end
