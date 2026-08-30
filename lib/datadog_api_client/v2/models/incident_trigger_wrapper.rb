@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Schema for an Incident-based trigger.
+  # Schema for an incident-based trigger.
   class IncidentTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+    # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
     attr_reader :incident_trigger
 
     # Names of existing workflow steps that run first after a trigger fires.

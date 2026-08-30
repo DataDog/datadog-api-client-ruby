@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
-  class IncidentTrigger
+  # The maximum number of times to execute a workflow for an incident.
+  class ExecutionLimit
     include BaseGenericModel
 
-    # Defines a rate limit for a trigger.
-    attr_accessor :rate_limit
-
-    # Version of the incident manual trigger.
-    attr_accessor :version
+    # The maximum number of workflow executions.
+    attr_reader :count
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit',
-        :'version' => :'version'
+        :'count' => :'count'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit',
-        :'version' => :'String'
+        :'count' => :'Integer'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTrigger` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ExecutionLimit` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,35 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'rate_limit')
-        self.rate_limit = attributes[:'rate_limit']
+      if attributes.key?(:'count')
+        self.count = attributes[:'count']
       end
+    end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @count.nil?
+      return false if @count > 9999
+      return false if @count < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param count [Object] Object to be assigned
+    # @!visibility private
+    def count=(count)
+      if count.nil?
+        fail ArgumentError, 'invalid value for "count", count cannot be nil.'
       end
+      if count > 9999
+        fail ArgumentError, 'invalid value for "count", must be smaller than or equal to 9999.'
+      end
+      if count < 1
+        fail ArgumentError, 'invalid value for "count", must be greater than or equal to 1.'
+      end
+      @count = count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +117,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rate_limit == o.rate_limit &&
-          version == o.version &&
+          count == o.count &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, version, additional_properties].hash
+      [count, additional_properties].hash
     end
   end
 end

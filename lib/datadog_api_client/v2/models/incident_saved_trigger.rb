@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
-  class IncidentTrigger
+  # Trigger a workflow when an incident is declared or updated.
+  class IncidentSavedTrigger
     include BaseGenericModel
 
-    # Defines a rate limit for a trigger.
-    attr_accessor :rate_limit
+    # The maximum number of times to execute a workflow for an incident.
+    attr_accessor :execution_limit
 
-    # Version of the incident manual trigger.
-    attr_accessor :version
+    # The type of incident that triggers the workflow.
+    attr_accessor :incident_type
+
+    # Whether to execute the workflow serially for an incident.
+    attr_accessor :serial_execution
+
+    # Conditions that determine which incidents trigger the workflow.
+    attr_accessor :tag_condition
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit',
-        :'version' => :'version'
+        :'execution_limit' => :'executionLimit',
+        :'incident_type' => :'incidentType',
+        :'serial_execution' => :'serialExecution',
+        :'tag_condition' => :'tagCondition'
       }
     end
 
@@ -42,8 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit',
-        :'version' => :'String'
+        :'execution_limit' => :'ExecutionLimit',
+        :'incident_type' => :'String',
+        :'serial_execution' => :'SerialExecution',
+        :'tag_condition' => :'IncidentCondition'
       }
     end
 
@@ -52,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTrigger` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentSavedTrigger` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'rate_limit')
-        self.rate_limit = attributes[:'rate_limit']
+      if attributes.key?(:'execution_limit')
+        self.execution_limit = attributes[:'execution_limit']
       end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'incident_type')
+        self.incident_type = attributes[:'incident_type']
+      end
+
+      if attributes.key?(:'serial_execution')
+        self.serial_execution = attributes[:'serial_execution']
+      end
+
+      if attributes.key?(:'tag_condition')
+        self.tag_condition = attributes[:'tag_condition']
       end
     end
 
@@ -100,8 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rate_limit == o.rate_limit &&
-          version == o.version &&
+          execution_limit == o.execution_limit &&
+          incident_type == o.incident_type &&
+          serial_execution == o.serial_execution &&
+          tag_condition == o.tag_condition &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, version, additional_properties].hash
+      [execution_limit, incident_type, serial_execution, tag_condition, additional_properties].hash
     end
   end
 end

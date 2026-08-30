@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'slack_trigger' => :'Object',
+        :'slack_trigger' => :'SlackTrigger',
         :'start_step_names' => :'Array<String>'
       }
     end

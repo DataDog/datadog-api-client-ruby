@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
-  class IncidentTrigger
+  # Configuration for a Slack emoji reaction trigger.
+  class SlackReactionConfig
     include BaseGenericModel
 
-    # Defines a rate limit for a trigger.
-    attr_accessor :rate_limit
+    # The Slack emoji reaction name.
+    attr_reader :reaction_emoji
 
-    # Version of the incident manual trigger.
-    attr_accessor :version
+    # The Slack workspace ID.
+    attr_reader :team_id
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit',
-        :'version' => :'version'
+        :'reaction_emoji' => :'reactionEmoji',
+        :'team_id' => :'teamId'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit',
-        :'version' => :'String'
+        :'reaction_emoji' => :'String',
+        :'team_id' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTrigger` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SlackReactionConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +65,50 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'rate_limit')
-        self.rate_limit = attributes[:'rate_limit']
+      if attributes.key?(:'reaction_emoji')
+        self.reaction_emoji = attributes[:'reaction_emoji']
       end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'team_id')
+        self.team_id = attributes[:'team_id']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @reaction_emoji.nil?
+      return false if @reaction_emoji.to_s.length < 1
+      return false if @team_id.nil?
+      return false if @team_id.to_s.length < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param reaction_emoji [Object] Object to be assigned
+    # @!visibility private
+    def reaction_emoji=(reaction_emoji)
+      if reaction_emoji.nil?
+        fail ArgumentError, 'invalid value for "reaction_emoji", reaction_emoji cannot be nil.'
+      end
+      if reaction_emoji.to_s.length < 1
+        fail ArgumentError, 'invalid value for "reaction_emoji", the character length must be great than or equal to 1.'
+      end
+      @reaction_emoji = reaction_emoji
+    end
+
+    # Custom attribute writer method with validation
+    # @param team_id [Object] Object to be assigned
+    # @!visibility private
+    def team_id=(team_id)
+      if team_id.nil?
+        fail ArgumentError, 'invalid value for "team_id", team_id cannot be nil.'
+      end
+      if team_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "team_id", the character length must be great than or equal to 1.'
+      end
+      @team_id = team_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +137,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rate_limit == o.rate_limit &&
-          version == o.version &&
+          reaction_emoji == o.reaction_emoji &&
+          team_id == o.team_id &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +146,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, version, additional_properties].hash
+      [reaction_emoji, team_id, additional_properties].hash
     end
   end
 end

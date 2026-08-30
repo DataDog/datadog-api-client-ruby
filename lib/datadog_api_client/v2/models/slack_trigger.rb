@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
-  class IncidentTrigger
+  # Trigger a workflow from Slack. The workflow must be published.
+  class SlackTrigger
     include BaseGenericModel
 
-    # Defines a rate limit for a trigger.
-    attr_accessor :rate_limit
-
-    # Version of the incident manual trigger.
-    attr_accessor :version
+    # Slack emoji reactions that trigger the workflow.
+    attr_accessor :reaction_triggers
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit',
-        :'version' => :'version'
+        :'reaction_triggers' => :'reactionTriggers'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit',
-        :'version' => :'String'
+        :'reaction_triggers' => :'Array<SlackReactionConfig>'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTrigger` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SlackTrigger` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +60,10 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'rate_limit')
-        self.rate_limit = attributes[:'rate_limit']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'reaction_triggers')
+        if (value = attributes[:'reaction_triggers']).is_a?(Array)
+          self.reaction_triggers = value
+        end
       end
     end
 
@@ -100,8 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rate_limit == o.rate_limit &&
-          version == o.version &&
+          reaction_triggers == o.reaction_triggers &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, version, additional_properties].hash
+      [reaction_triggers, additional_properties].hash
     end
   end
 end
