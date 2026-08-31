@@ -3064,6 +3064,26 @@ ScenariosModelMappings = {
             "view" => "String",
             "include_connected_accounts" => "Boolean",
     },
+    "v2.ListQuotas" => {
+            "quota_namespace" => "String",
+            "include_descendants" => "Boolean",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateQuotas" => {
+            "quota_namespace" => "String",
+            "include_descendants" => "Boolean",
+            "body" => "UsageQuotasCreateRequest",
+    },
+    "v2.DeleteQuota" => {
+            "quota_namespace" => "String",
+            "id" => "String",
+    },
+    "v2.UpdateQuota" => {
+            "quota_namespace" => "String",
+            "id" => "String",
+            "body" => "UsageQuotaUpdateRequest",
+    },
     "v2.ListAllCSMAgents" => {
             "page" => "Integer",
             "size" => "Integer",

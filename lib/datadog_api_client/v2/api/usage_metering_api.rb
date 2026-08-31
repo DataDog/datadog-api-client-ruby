@@ -23,6 +23,162 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create or update usage quotas.
+    #
+    # @see #create_quotas_with_http_info
+    def create_quotas(quota_namespace, body, opts = {})
+      data, _status_code, _headers = create_quotas_with_http_info(quota_namespace, body, opts)
+      data
+    end
+
+    # Create or update usage quotas.
+    #
+    # Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated; otherwise, a new quota is created. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+    #
+    # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
+    # @param body [UsageQuotasCreateRequest] The usage quotas to create or update.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_descendants Whether to write every item in the request to the caller's organization and all of its descendant organizations, instead of only the caller's organization. Only descendants in the same datacenter are supported. For a user-handle scope, the quota is applied only to the caller's organization and to descendant organizations where that user handle exists; the item fails only if the handle exists in none of them.
+    # @return [Array<(UsageQuotasBulkResponse, Integer, Hash)>] UsageQuotasBulkResponse data, response status code and response headers
+    def create_quotas_with_http_info(quota_namespace, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_quotas".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_quotas")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_quotas"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.create_quotas ...'
+      end
+      # verify the required parameter 'quota_namespace' is set
+      if @api_client.config.client_side_validation && quota_namespace.nil?
+        fail ArgumentError, "Missing the required parameter 'quota_namespace' when calling UsageMeteringAPI.create_quotas"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UsageMeteringAPI.create_quotas"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/quotas/{quota_namespace}'.sub('{quota_namespace}', CGI.escape(quota_namespace.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageQuotasBulkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_quotas,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#create_quotas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a usage quota.
+    #
+    # @see #delete_quota_with_http_info
+    def delete_quota(quota_namespace, id, opts = {})
+      delete_quota_with_http_info(quota_namespace, id, opts)
+      nil
+    end
+
+    # Delete a usage quota.
+    #
+    # Deletes a usage quota by its opaque identifier. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+    #
+    # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
+    # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_quota_with_http_info(quota_namespace, id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_quota".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_quota")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_quota"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.delete_quota ...'
+      end
+      # verify the required parameter 'quota_namespace' is set
+      if @api_client.config.client_side_validation && quota_namespace.nil?
+        fail ArgumentError, "Missing the required parameter 'quota_namespace' when calling UsageMeteringAPI.delete_quota"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UsageMeteringAPI.delete_quota"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/quotas/{quota_namespace}/{id}'.sub('{quota_namespace}', CGI.escape(quota_namespace.to_s).gsub('%2F', '/')).sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_quota,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#delete_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get active billing dimensions for cost attribution.
     #
     # @see #get_active_billing_dimensions_with_http_info
@@ -1016,6 +1172,193 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_summary_available_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List usage quotas.
+    #
+    # @see #list_quotas_with_http_info
+    def list_quotas(quota_namespace, opts = {})
+      data, _status_code, _headers = list_quotas_with_http_info(quota_namespace, opts)
+      data
+    end
+
+    # List usage quotas.
+    #
+    # Lists usage quotas for the caller's organization in a quota namespace. You can optionally include descendant organizations in the same datacenter as the caller. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+    #
+    # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_descendants Whether to include quotas configured on descendant organizations in the caller's organization hierarchy. Only descendants in the same datacenter are supported.
+    # @option opts [String] :page_cursor An opaque cursor from a previous response's `meta.page.next_cursor` used to retrieve the next page.
+    # @option opts [Integer] :page_limit The number of usage quotas to return per page.
+    # @return [Array<(UsageQuotasListResponse, Integer, Hash)>] UsageQuotasListResponse data, response status code and response headers
+    def list_quotas_with_http_info(quota_namespace, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_quotas".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_quotas")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_quotas"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.list_quotas ...'
+      end
+      # verify the required parameter 'quota_namespace' is set
+      if @api_client.config.client_side_validation && quota_namespace.nil?
+        fail ArgumentError, "Missing the required parameter 'quota_namespace' when calling UsageMeteringAPI.list_quotas"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.list_quotas, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.list_quotas, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/quotas/{quota_namespace}'.sub('{quota_namespace}', CGI.escape(quota_namespace.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageQuotasListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_quotas,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#list_quotas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List usage quotas.
+    #
+    # Provide a paginated version of {#list_quotas}, returning all items.
+    #
+    # To use it you need to use a block: list_quotas_with_pagination { |item| p item }
+    #
+    # @yield [UsageQuotaResponseData] Paginated items
+    def list_quotas_with_pagination(quota_namespace, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_quotas(quota_namespace, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+        end
+    end
+
+    # Update a usage quota.
+    #
+    # @see #update_quota_with_http_info
+    def update_quota(quota_namespace, id, body, opts = {})
+      data, _status_code, _headers = update_quota_with_http_info(quota_namespace, id, body, opts)
+      data
+    end
+
+    # Update a usage quota.
+    #
+    # Updates the supplied fields on a usage quota and leaves omitted fields unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+    #
+    # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
+    # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+    # @param body [UsageQuotaUpdateRequest] The usage quota fields to update. Omitting an attribute leaves its current value unchanged.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UsageQuotaResponse, Integer, Hash)>] UsageQuotaResponse data, response status code and response headers
+    def update_quota_with_http_info(quota_namespace, id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_quota".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_quota")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_quota"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.update_quota ...'
+      end
+      # verify the required parameter 'quota_namespace' is set
+      if @api_client.config.client_side_validation && quota_namespace.nil?
+        fail ArgumentError, "Missing the required parameter 'quota_namespace' when calling UsageMeteringAPI.update_quota"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UsageMeteringAPI.update_quota"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UsageMeteringAPI.update_quota"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/quotas/{quota_namespace}/{id}'.sub('{quota_namespace}', CGI.escape(quota_namespace.to_s).gsub('%2F', '/')).sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageQuotaResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_quota,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#update_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
