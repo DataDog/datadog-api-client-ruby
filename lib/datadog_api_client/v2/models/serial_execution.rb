@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
-  class IncidentTrigger
+  # Whether to execute the workflow serially for an incident.
+  class SerialExecution
     include BaseGenericModel
 
-    # Defines a rate limit for a trigger.
-    attr_accessor :rate_limit
-
-    # Version of the incident manual trigger.
-    attr_accessor :version
+    # Whether serial execution is enabled.
+    attr_reader :enabled
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit',
-        :'version' => :'version'
+        :'enabled' => :'enabled'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit',
-        :'version' => :'String'
+        :'enabled' => :'Boolean'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTrigger` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SerialExecution` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'rate_limit')
-        self.rate_limit = attributes[:'rate_limit']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
+    end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @enabled.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param enabled [Object] Object to be assigned
+    # @!visibility private
+    def enabled=(enabled)
+      if enabled.nil?
+        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
       end
+      @enabled = enabled
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rate_limit == o.rate_limit &&
-          version == o.version &&
+          enabled == o.enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, version, additional_properties].hash
+      [enabled, additional_properties].hash
     end
   end
 end

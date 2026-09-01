@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
-  class IncidentTrigger
+  # An incident tag and its accepted values.
+  class IncidentTagValue
     include BaseGenericModel
 
-    # Defines a rate limit for a trigger.
-    attr_accessor :rate_limit
+    # The incident tag to match.
+    attr_reader :tag
 
-    # Version of the incident manual trigger.
-    attr_accessor :version
+    # The accepted values for the incident tag.
+    attr_reader :values
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit',
-        :'version' => :'version'
+        :'tag' => :'tag',
+        :'values' => :'values'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit',
-        :'version' => :'String'
+        :'tag' => :'String',
+        :'values' => :'Array<String>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTrigger` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTagValue` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +65,44 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'rate_limit')
-        self.rate_limit = attributes[:'rate_limit']
+      if attributes.key?(:'tag')
+        self.tag = attributes[:'tag']
       end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
+        end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @tag.nil?
+      return false if @values.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param tag [Object] Object to be assigned
+    # @!visibility private
+    def tag=(tag)
+      if tag.nil?
+        fail ArgumentError, 'invalid value for "tag", tag cannot be nil.'
+      end
+      @tag = tag
+    end
+
+    # Custom attribute writer method with validation
+    # @param values [Object] Object to be assigned
+    # @!visibility private
+    def values=(values)
+      if values.nil?
+        fail ArgumentError, 'invalid value for "values", values cannot be nil.'
+      end
+      @values = values
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rate_limit == o.rate_limit &&
-          version == o.version &&
+          tag == o.tag &&
+          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, version, additional_properties].hash
+      [tag, values, additional_properties].hash
     end
   end
 end
