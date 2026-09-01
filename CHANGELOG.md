@@ -1,5 +1,52 @@
 # CHANGELOG
 
+## 2.59.0/2026-09-01
+
+### Added
+* Add opentelemetry metrics destination to observability pipelines public api spec [#3737](https://github.com/DataDog/datadog-api-client-ruby/pull/3737)
+* Add incident and Slack reaction triggers to Workflow Automation [#3736](https://github.com/DataDog/datadog-api-client-ruby/pull/3736)
+* Publish unstable STIX ingestion API [#3735](https://github.com/DataDog/datadog-api-client-ruby/pull/3735)
+* [AGV-1596] Add is_iac support to send X-Datadog-Managed-By header [#3726](https://github.com/DataDog/datadog-api-client-ruby/pull/3726)
+* Add warmup, fail_on_no_groups_found, and fail_on_no_data to Deployment Gates monitor rule options [#3725](https://github.com/DataDog/datadog-api-client-ruby/pull/3725)
+* Add server.response.body.raw WAF address [#3713](https://github.com/DataDog/datadog-api-client-ruby/pull/3713)
+* Fix estimate endpoint query params to match live schema [#3708](https://github.com/DataDog/datadog-api-client-ruby/pull/3708)
+* Add zstd/compression to archive destinations [#3706](https://github.com/DataDog/datadog-api-client-ruby/pull/3706)
+* Sync LLM Obs annotation access docs [#3701](https://github.com/DataDog/datadog-api-client-ruby/pull/3701)
+* RUM - Make exclusion filter operations public [#3699](https://github.com/DataDog/datadog-api-client-ruby/pull/3699)
+* Add OpenAPI docs for usage quotas admin [#3698](https://github.com/DataDog/datadog-api-client-ruby/pull/3698)
+* API spec for severity modifiers automation pipelines [#3689](https://github.com/DataDog/datadog-api-client-ruby/pull/3689)
+* Add bundle_config to Monitor Notification Rule [#3688](https://github.com/DataDog/datadog-api-client-ruby/pull/3688)
+* Document RUM retention quota config API [#3687](https://github.com/DataDog/datadog-api-client-ruby/pull/3687)
+* Add Integration Accounts v2 API for Twilio and Elastic Cloud [#3683](https://github.com/DataDog/datadog-api-client-ruby/pull/3683)
+* Add endpoint_target field to Splunk HEC destination [#3682](https://github.com/DataDog/datadog-api-client-ruby/pull/3682)
+* Add public Execution Policies endpoints [#3679](https://github.com/DataDog/datadog-api-client-ruby/pull/3679)
+* Add OpenAPI spec for RUM Teams Ownership public API [#3674](https://github.com/DataDog/datadog-api-client-ruby/pull/3674)
+* Add tags to Action Connection API spec [#3673](https://github.com/DataDog/datadog-api-client-ruby/pull/3673)
+* Add Work Management note to Case Management API tag description [#3671](https://github.com/DataDog/datadog-api-client-ruby/pull/3671)
+* Add OAuth support for v2 Logs queries [#3670](https://github.com/DataDog/datadog-api-client-ruby/pull/3670)
+* Declare OAuth support for Events Search [#3668](https://github.com/DataDog/datadog-api-client-ruby/pull/3668)
+* Add is_deleted query parameter to ListSLOs [#3640](https://github.com/DataDog/datadog-api-client-ruby/pull/3640)
+
+### Changed
+* Promote usage quotas admin endpoints to public unstable [#3731](https://github.com/DataDog/datadog-api-client-ruby/pull/3731)
+* AI Gateway - Fully type private beta control plane API [#3721](https://github.com/DataDog/datadog-api-client-ruby/pull/3721)
+* Fix SCA OpenAPI drift [#3718](https://github.com/DataDog/datadog-api-client-ruby/pull/3718)
+* Mark Data Deletion API as GA and update documentation [#3704](https://github.com/DataDog/datadog-api-client-ruby/pull/3704)
+* Update CODEOWNERS to IDP pack [#3686](https://github.com/DataDog/datadog-api-client-ruby/pull/3686)
+* Remove status_pages_settings_write as an accepted permission from Status Pages publishing APIs [#3681](https://github.com/DataDog/datadog-api-client-ruby/pull/3681)
+* Rename Tag Policies to Tag Rules and move to /api/v2/governance/tag_rules [#3654](https://github.com/DataDog/datadog-api-client-ruby/pull/3654)
+
+### Fixed
+* Fix CreateTeamConnections example missing required type fields [#3720](https://github.com/DataDog/datadog-api-client-ruby/pull/3720)
+* Fix ARM API security spec drift [#3711](https://github.com/DataDog/datadog-api-client-ruby/pull/3711)
+
+### Removed
+* Rename spec to RUM Retention Quotas and remove unsupported mode [#3707](https://github.com/DataDog/datadog-api-client-ruby/pull/3707)
+* Make LLM Observability data deletion endpoint private [#3678](https://github.com/DataDog/datadog-api-client-ruby/pull/3678)
+
+### Deprecated
+* Mark unused AWS logs v1 endpoints as deprecated [#3505](https://github.com/DataDog/datadog-api-client-ruby/pull/3505)
+
 ## 2.58.0/2026-08-12
 
 ### Changed
