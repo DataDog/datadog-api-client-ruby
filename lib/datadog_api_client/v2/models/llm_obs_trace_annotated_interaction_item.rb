@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'annotations' => :'Array<LLMObsAnnotationItem>',
+        :'annotations' => :'Array<LLMObsAnnotationItemResponse>',
         :'can_annotate' => :'Boolean',
         :'content_id' => :'String',
         :'created_at' => :'Time',

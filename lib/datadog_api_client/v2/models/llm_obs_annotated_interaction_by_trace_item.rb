@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Whether the current caller can annotate this interaction.
     attr_reader :can_annotate
 
-    # Upstream entity identifier (trace ID, session ID, or deterministic display_block ID).
+    # Upstream entity identifier (trace ID, session ID, or deterministic display_block or frontend ID).
     attr_reader :content_id
 
     # Timestamp when the interaction was added to the queue.
@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # List of content blocks that make up a `display_block` interaction.
     # Must contain at least one block.
     attr_reader :display_block
+
+    # Web content that makes up a `frontend` interaction.
+    attr_accessor :frontend
 
     # Unique identifier of the interaction.
     attr_reader :id
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
         :'content_id' => :'content_id',
         :'created_at' => :'created_at',
         :'display_block' => :'display_block',
+        :'frontend' => :'frontend',
         :'id' => :'id',
         :'modified_at' => :'modified_at',
         :'queue_id' => :'queue_id',
@@ -75,11 +79,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'annotations' => :'Array<LLMObsAnnotationItem>',
+        :'annotations' => :'Array<LLMObsAnnotationItemResponse>',
         :'can_annotate' => :'Boolean',
         :'content_id' => :'String',
         :'created_at' => :'Time',
         :'display_block' => :'Array<LLMObsContentBlock>',
+        :'frontend' => :'LLMObsFrontendContent',
         :'id' => :'String',
         :'modified_at' => :'Time',
         :'queue_id' => :'String',
@@ -128,6 +133,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'display_block']).is_a?(Array)
           self.display_block = value
         end
+      end
+
+      if attributes.key?(:'frontend')
+        self.frontend = attributes[:'frontend']
       end
 
       if attributes.key?(:'id')
@@ -299,6 +308,7 @@ module DatadogAPIClient::V2
           content_id == o.content_id &&
           created_at == o.created_at &&
           display_block == o.display_block &&
+          frontend == o.frontend &&
           id == o.id &&
           modified_at == o.modified_at &&
           queue_id == o.queue_id &&
@@ -311,7 +321,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotations, can_annotate, content_id, created_at, display_block, id, modified_at, queue_id, queue_name, type, additional_properties].hash
+      [annotations, can_annotate, content_id, created_at, display_block, frontend, id, modified_at, queue_id, queue_name, type, additional_properties].hash
     end
   end
 end
