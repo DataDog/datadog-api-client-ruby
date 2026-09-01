@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'Issue',
-          :'Case',
+          :'IssueCase',
           :'IssueUser',
           :'IssueTeam'
         ]
