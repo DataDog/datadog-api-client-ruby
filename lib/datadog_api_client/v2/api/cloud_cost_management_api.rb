@@ -3032,11 +3032,16 @@ module DatadogAPIClient::V2
 
     # List Cloud Cost Management OCI configs.
     #
+    # **Note**: This endpoint is deprecated. View OCI accounts in Cloud Cost Settings in the Datadog web application instead.
+    #
     # List the OCI configs.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(OCIConfigsResponse, Integer, Hash)>] OCIConfigsResponse data, response status code and response headers
     def list_cost_oci_configs_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListCostOCIConfigs` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_oci_configs ...'
