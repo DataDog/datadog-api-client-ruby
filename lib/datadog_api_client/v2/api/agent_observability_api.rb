@@ -360,6 +360,9 @@ module DatadogAPIClient::V2
     # - `display_block`: omit `content_id` and provide the rendered content
     #   in `display_block`. The server generates `content_id` as a
     #   deterministic hash of the block list.
+    # - `frontend`: omit `content_id` and provide the web content in
+    #   `frontend`. The server returns a deterministic `content_id` for the
+    #   content.
     #
     # Items of different types can be mixed in a single request.
     #
@@ -1883,6 +1886,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AgentObservabilityAPI#export_llm_obs_dataset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an annotated queue interaction.
+    #
+    # @see #get_llm_obs_annotated_interaction_with_http_info
+    def get_llm_obs_annotated_interaction(queue_id, interaction_id, opts = {})
+      data, _status_code, _headers = get_llm_obs_annotated_interaction_with_http_info(queue_id, interaction_id, opts)
+      data
+    end
+
+    # Get an annotated queue interaction.
+    #
+    # Retrieve a single interaction (trace, session, display block, or frontend content) and its annotations for a given annotation queue.
+    #
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
+    # @param interaction_id [String] The ID of the interaction within the annotation queue.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LLMObsAnnotatedInteractionResponse, Integer, Hash)>] LLMObsAnnotatedInteractionResponse data, response status code and response headers
+    def get_llm_obs_annotated_interaction_with_http_info(queue_id, interaction_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_annotated_interaction".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_annotated_interaction")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_annotated_interaction"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentObservabilityAPI.get_llm_obs_annotated_interaction ...'
+      end
+      # verify the required parameter 'queue_id' is set
+      if @api_client.config.client_side_validation && queue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'queue_id' when calling AgentObservabilityAPI.get_llm_obs_annotated_interaction"
+      end
+      # verify the required parameter 'interaction_id' is set
+      if @api_client.config.client_side_validation && interaction_id.nil?
+        fail ArgumentError, "Missing the required parameter 'interaction_id' when calling AgentObservabilityAPI.get_llm_obs_annotated_interaction"
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions/{interaction_id}'.sub('{queue_id}', CGI.escape(queue_id.to_s).gsub('%2F', '/')).sub('{interaction_id}', CGI.escape(interaction_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsAnnotatedInteractionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_annotated_interaction,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentObservabilityAPI#get_llm_obs_annotated_interaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

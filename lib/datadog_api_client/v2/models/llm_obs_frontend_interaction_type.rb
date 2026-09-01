@@ -17,14 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of an annotated interaction.
-  class LLMObsAnyInteractionType
+  # Type discriminator for a `frontend` interaction.
+  class LLMObsFrontendInteractionType
     include BaseEnumModel
 
-    TRACE = "trace".freeze
-    EXPERIMENT_TRACE = "experiment_trace".freeze
-    SESSION = "session".freeze
-    DISPLAY_BLOCK = "display_block".freeze
     FRONTEND = "frontend".freeze
   end
 end

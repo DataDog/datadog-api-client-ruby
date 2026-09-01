@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'LLMObsTraceAnnotatedInteractionItem',
-          :'LLMObsDisplayBlockAnnotatedInteractionItem'
+          :'LLMObsDisplayBlockAnnotatedInteractionItem',
+          :'LLMObsFrontendAnnotatedInteractionItem'
         ]
       end
       # Builds the object

@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A display_block interaction with its associated annotations.
-  class LLMObsDisplayBlockAnnotatedInteractionItem
+  # A frontend interaction with its associated annotations.
+  class LLMObsFrontendAnnotatedInteractionItem
     include BaseGenericModel
 
     # List of annotations for this interaction.
@@ -27,17 +27,16 @@ module DatadogAPIClient::V2
     # Whether the current caller can annotate this interaction.
     attr_reader :can_annotate
 
-    # Server-generated deterministic identifier derived from the block list.
+    # Server-generated deterministic identifier derived from the content.
     attr_reader :content_id
 
-    # List of content blocks that make up a `display_block` interaction.
-    # Must contain at least one block.
-    attr_reader :display_block
+    # Web content that makes up a `frontend` interaction.
+    attr_reader :frontend
 
     # Unique identifier of the interaction.
     attr_reader :id
 
-    # Type discriminator for a `display_block` interaction.
+    # Type discriminator for a `frontend` interaction.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -49,7 +48,7 @@ module DatadogAPIClient::V2
         :'annotations' => :'annotations',
         :'can_annotate' => :'can_annotate',
         :'content_id' => :'content_id',
-        :'display_block' => :'display_block',
+        :'frontend' => :'frontend',
         :'id' => :'id',
         :'type' => :'type'
       }
@@ -62,9 +61,9 @@ module DatadogAPIClient::V2
         :'annotations' => :'Array<LLMObsAnnotationItemResponse>',
         :'can_annotate' => :'Boolean',
         :'content_id' => :'String',
-        :'display_block' => :'Array<LLMObsContentBlock>',
+        :'frontend' => :'LLMObsFrontendContent',
         :'id' => :'String',
-        :'type' => :'LLMObsDisplayBlockInteractionType'
+        :'type' => :'LLMObsFrontendInteractionType'
       }
     end
 
@@ -73,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsDisplayBlockAnnotatedInteractionItem` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsFrontendAnnotatedInteractionItem` initialize method"
       end
 
       self.additional_properties = {}
@@ -100,10 +99,8 @@ module DatadogAPIClient::V2
         self.content_id = attributes[:'content_id']
       end
 
-      if attributes.key?(:'display_block')
-        if (value = attributes[:'display_block']).is_a?(Array)
-          self.display_block = value
-        end
+      if attributes.key?(:'frontend')
+        self.frontend = attributes[:'frontend']
       end
 
       if attributes.key?(:'id')
@@ -122,8 +119,7 @@ module DatadogAPIClient::V2
       return false if @annotations.nil?
       return false if @can_annotate.nil?
       return false if @content_id.nil?
-      return false if @display_block.nil?
-      return false if @display_block.length < 1
+      return false if @frontend.nil?
       return false if @id.nil?
       return false if @type.nil?
       true
@@ -160,16 +156,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param display_block [Object] Object to be assigned
+    # @param frontend [Object] Object to be assigned
     # @!visibility private
-    def display_block=(display_block)
-      if display_block.nil?
-        fail ArgumentError, 'invalid value for "display_block", display_block cannot be nil.'
+    def frontend=(frontend)
+      if frontend.nil?
+        fail ArgumentError, 'invalid value for "frontend", frontend cannot be nil.'
       end
-      if display_block.length < 1
-        fail ArgumentError, 'invalid value for "display_block", number of items must be greater than or equal to 1.'
-      end
-      @display_block = display_block
+      @frontend = frontend
     end
 
     # Custom attribute writer method with validation
@@ -221,7 +214,7 @@ module DatadogAPIClient::V2
           annotations == o.annotations &&
           can_annotate == o.can_annotate &&
           content_id == o.content_id &&
-          display_block == o.display_block &&
+          frontend == o.frontend &&
           id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -231,7 +224,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotations, can_annotate, content_id, display_block, id, type, additional_properties].hash
+      [annotations, can_annotate, content_id, frontend, id, type, additional_properties].hash
     end
   end
 end

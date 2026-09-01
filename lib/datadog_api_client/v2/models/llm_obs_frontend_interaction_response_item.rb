@@ -17,27 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A display_block interaction with its associated annotations.
-  class LLMObsDisplayBlockAnnotatedInteractionItem
+  # A frontend interaction result.
+  class LLMObsFrontendInteractionResponseItem
     include BaseGenericModel
 
-    # List of annotations for this interaction.
-    attr_reader :annotations
+    # Whether this interaction already existed in the queue.
+    attr_reader :already_existed
 
-    # Whether the current caller can annotate this interaction.
-    attr_reader :can_annotate
-
-    # Server-generated deterministic identifier derived from the block list.
+    # Server-generated deterministic identifier derived from the content.
     attr_reader :content_id
 
-    # List of content blocks that make up a `display_block` interaction.
-    # Must contain at least one block.
-    attr_reader :display_block
+    # Web content that makes up a `frontend` interaction.
+    attr_reader :frontend
 
     # Unique identifier of the interaction.
     attr_reader :id
 
-    # Type discriminator for a `display_block` interaction.
+    # Type discriminator for a `frontend` interaction.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -46,10 +42,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'annotations' => :'annotations',
-        :'can_annotate' => :'can_annotate',
+        :'already_existed' => :'already_existed',
         :'content_id' => :'content_id',
-        :'display_block' => :'display_block',
+        :'frontend' => :'frontend',
         :'id' => :'id',
         :'type' => :'type'
       }
@@ -59,12 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'annotations' => :'Array<LLMObsAnnotationItemResponse>',
-        :'can_annotate' => :'Boolean',
+        :'already_existed' => :'Boolean',
         :'content_id' => :'String',
-        :'display_block' => :'Array<LLMObsContentBlock>',
+        :'frontend' => :'LLMObsFrontendContent',
         :'id' => :'String',
-        :'type' => :'LLMObsDisplayBlockInteractionType'
+        :'type' => :'LLMObsFrontendInteractionType'
       }
     end
 
@@ -73,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsDisplayBlockAnnotatedInteractionItem` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsFrontendInteractionResponseItem` initialize method"
       end
 
       self.additional_properties = {}
@@ -86,24 +80,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'annotations')
-        if (value = attributes[:'annotations']).is_a?(Array)
-          self.annotations = value
-        end
-      end
-
-      if attributes.key?(:'can_annotate')
-        self.can_annotate = attributes[:'can_annotate']
+      if attributes.key?(:'already_existed')
+        self.already_existed = attributes[:'already_existed']
       end
 
       if attributes.key?(:'content_id')
         self.content_id = attributes[:'content_id']
       end
 
-      if attributes.key?(:'display_block')
-        if (value = attributes[:'display_block']).is_a?(Array)
-          self.display_block = value
-        end
+      if attributes.key?(:'frontend')
+        self.frontend = attributes[:'frontend']
       end
 
       if attributes.key?(:'id')
@@ -119,34 +105,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @annotations.nil?
-      return false if @can_annotate.nil?
+      return false if @already_existed.nil?
       return false if @content_id.nil?
-      return false if @display_block.nil?
-      return false if @display_block.length < 1
+      return false if @frontend.nil?
       return false if @id.nil?
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param annotations [Object] Object to be assigned
+    # @param already_existed [Object] Object to be assigned
     # @!visibility private
-    def annotations=(annotations)
-      if annotations.nil?
-        fail ArgumentError, 'invalid value for "annotations", annotations cannot be nil.'
+    def already_existed=(already_existed)
+      if already_existed.nil?
+        fail ArgumentError, 'invalid value for "already_existed", already_existed cannot be nil.'
       end
-      @annotations = annotations
-    end
-
-    # Custom attribute writer method with validation
-    # @param can_annotate [Object] Object to be assigned
-    # @!visibility private
-    def can_annotate=(can_annotate)
-      if can_annotate.nil?
-        fail ArgumentError, 'invalid value for "can_annotate", can_annotate cannot be nil.'
-      end
-      @can_annotate = can_annotate
+      @already_existed = already_existed
     end
 
     # Custom attribute writer method with validation
@@ -160,16 +134,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param display_block [Object] Object to be assigned
+    # @param frontend [Object] Object to be assigned
     # @!visibility private
-    def display_block=(display_block)
-      if display_block.nil?
-        fail ArgumentError, 'invalid value for "display_block", display_block cannot be nil.'
+    def frontend=(frontend)
+      if frontend.nil?
+        fail ArgumentError, 'invalid value for "frontend", frontend cannot be nil.'
       end
-      if display_block.length < 1
-        fail ArgumentError, 'invalid value for "display_block", number of items must be greater than or equal to 1.'
-      end
-      @display_block = display_block
+      @frontend = frontend
     end
 
     # Custom attribute writer method with validation
@@ -218,10 +189,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          annotations == o.annotations &&
-          can_annotate == o.can_annotate &&
+          already_existed == o.already_existed &&
           content_id == o.content_id &&
-          display_block == o.display_block &&
+          frontend == o.frontend &&
           id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -231,7 +201,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [annotations, can_annotate, content_id, display_block, id, type, additional_properties].hash
+      [already_existed, content_id, frontend, id, type, additional_properties].hash
     end
   end
 end

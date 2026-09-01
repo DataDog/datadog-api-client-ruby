@@ -933,6 +933,10 @@ ScenariosModelMappings = {
     "v2.GetLLMObsAnnotatedInteractions" => {
             "queue_id" => "String",
     },
+    "v2.GetLLMObsAnnotatedInteraction" => {
+            "queue_id" => "String",
+            "interaction_id" => "String",
+    },
     "v2.UpsertLLMObsAnnotations" => {
             "queue_id" => "String",
             "body" => "LLMObsAnnotationsRequest",
