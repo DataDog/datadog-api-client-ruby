@@ -25,7 +25,10 @@ module DatadogAPIClient::V2
     attr_accessor :default_variant_key
 
     # The description of the feature flag.
-    attr_reader :description
+    attr_accessor :description
+
+    # The distribution channel for the feature flag.
+    attr_accessor :distribution_channel
 
     # JSON schema for validation when value_type is JSON.
     attr_accessor :json_schema
@@ -35,6 +38,15 @@ module DatadogAPIClient::V2
 
     # The name of the feature flag.
     attr_reader :name
+
+    # Indicates whether this feature flag requires approval for changes.
+    attr_accessor :require_approval
+
+    # The staleness status for the feature flag at creation.
+    attr_accessor :staleness_status
+
+    # Tags associated with the feature flag.
+    attr_accessor :tags
 
     # The type of values for the feature flag variants.
     attr_reader :value_type
@@ -50,9 +62,13 @@ module DatadogAPIClient::V2
       {
         :'default_variant_key' => :'default_variant_key',
         :'description' => :'description',
+        :'distribution_channel' => :'distribution_channel',
         :'json_schema' => :'json_schema',
         :'key' => :'key',
         :'name' => :'name',
+        :'require_approval' => :'require_approval',
+        :'staleness_status' => :'staleness_status',
+        :'tags' => :'tags',
         :'value_type' => :'value_type',
         :'variants' => :'variants'
       }
@@ -64,9 +80,13 @@ module DatadogAPIClient::V2
       {
         :'default_variant_key' => :'String',
         :'description' => :'String',
+        :'distribution_channel' => :'FeatureFlagDistributionChannel',
         :'json_schema' => :'String',
         :'key' => :'String',
         :'name' => :'String',
+        :'require_approval' => :'Boolean',
+        :'staleness_status' => :'CreateFeatureFlagStalenessStatus',
+        :'tags' => :'Array<String>',
         :'value_type' => :'ValueType',
         :'variants' => :'Array<CreateVariant>'
       }
@@ -107,6 +127,10 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'distribution_channel')
+        self.distribution_channel = attributes[:'distribution_channel']
+      end
+
       if attributes.key?(:'json_schema')
         self.json_schema = attributes[:'json_schema']
       end
@@ -117,6 +141,20 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'require_approval')
+        self.require_approval = attributes[:'require_approval']
+      end
+
+      if attributes.key?(:'staleness_status')
+        self.staleness_status = attributes[:'staleness_status']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'value_type')
@@ -134,22 +172,11 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @description.nil?
       return false if @key.nil?
       return false if @name.nil?
       return false if @value_type.nil?
       return false if @variants.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param description [Object] Object to be assigned
-    # @!visibility private
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
-      end
-      @description = description
     end
 
     # Custom attribute writer method with validation
@@ -220,9 +247,13 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           default_variant_key == o.default_variant_key &&
           description == o.description &&
+          distribution_channel == o.distribution_channel &&
           json_schema == o.json_schema &&
           key == o.key &&
           name == o.name &&
+          require_approval == o.require_approval &&
+          staleness_status == o.staleness_status &&
+          tags == o.tags &&
           value_type == o.value_type &&
           variants == o.variants &&
           additional_properties == o.additional_properties
@@ -232,7 +263,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_variant_key, description, json_schema, key, name, value_type, variants, additional_properties].hash
+      [default_variant_key, description, distribution_channel, json_schema, key, name, require_approval, staleness_status, tags, value_type, variants, additional_properties].hash
     end
   end
 end

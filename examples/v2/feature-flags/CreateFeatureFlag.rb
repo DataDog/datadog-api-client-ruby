@@ -8,9 +8,14 @@ body = DatadogAPIClient::V2::CreateFeatureFlagRequest.new({
     type: DatadogAPIClient::V2::CreateFeatureFlagDataType::FEATURE_FLAGS,
     attributes: DatadogAPIClient::V2::CreateFeatureFlagAttributes.new({
       default_variant_key: "variant-Example-Feature-Flag-1",
-      description: "Test feature flag for BDD scenarios",
+      distribution_channel: DatadogAPIClient::V2::FeatureFlagDistributionChannel::SERVER,
       key: "test-feature-flag-Example-Feature-Flag",
       name: "Test Feature Flag Example-Feature-Flag",
+      require_approval: false,
+      staleness_status: DatadogAPIClient::V2::CreateFeatureFlagStalenessStatus::PERMANENT,
+      tags: [
+        "env:api-client-test",
+      ],
       value_type: DatadogAPIClient::V2::ValueType::BOOLEAN,
       variants: [
         DatadogAPIClient::V2::CreateVariant.new({
