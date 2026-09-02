@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The version of the Agent
     attr_accessor :agent_constraint
 
+    # The version constraint of the Datadog Agent the rule applies to
+    attr_accessor :agent_version
+
     # The blocking policies that the rule belongs to
     attr_accessor :blocking
 
@@ -54,11 +57,17 @@ module DatadogAPIClient::V2
     # Whether the Agent rule is enabled
     attr_accessor :enabled
 
+    # The rate limiting duration of the Agent rule, in nanoseconds
+    attr_accessor :every
+
     # The SECL expression of the Agent rule
     attr_accessor :expression
 
     # The platforms the Agent rule is supported on
     attr_accessor :filters
+
+    # The group of rules the Agent rule belongs to
+    attr_accessor :group_id
 
     # The monitoring policies that the rule belongs to
     attr_accessor :monitoring
@@ -95,6 +104,7 @@ module DatadogAPIClient::V2
       {
         :'actions' => :'actions',
         :'agent_constraint' => :'agentConstraint',
+        :'agent_version' => :'agent_version',
         :'blocking' => :'blocking',
         :'category' => :'category',
         :'creation_author_uu_id' => :'creationAuthorUuId',
@@ -104,8 +114,10 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'disabled' => :'disabled',
         :'enabled' => :'enabled',
+        :'every' => :'every',
         :'expression' => :'expression',
         :'filters' => :'filters',
+        :'group_id' => :'group_id',
         :'monitoring' => :'monitoring',
         :'name' => :'name',
         :'product_tags' => :'product_tags',
@@ -124,6 +136,7 @@ module DatadogAPIClient::V2
       {
         :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
         :'agent_constraint' => :'String',
+        :'agent_version' => :'String',
         :'blocking' => :'Array<String>',
         :'category' => :'String',
         :'creation_author_uu_id' => :'String',
@@ -133,8 +146,10 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'disabled' => :'Array<String>',
         :'enabled' => :'Boolean',
+        :'every' => :'Integer',
         :'expression' => :'String',
         :'filters' => :'Array<String>',
+        :'group_id' => :'String',
         :'monitoring' => :'Array<String>',
         :'name' => :'String',
         :'product_tags' => :'Array<String>',
@@ -183,6 +198,10 @@ module DatadogAPIClient::V2
         self.agent_constraint = attributes[:'agent_constraint']
       end
 
+      if attributes.key?(:'agent_version')
+        self.agent_version = attributes[:'agent_version']
+      end
+
       if attributes.key?(:'blocking')
         if (value = attributes[:'blocking']).is_a?(Array)
           self.blocking = value
@@ -223,6 +242,10 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
+      if attributes.key?(:'every')
+        self.every = attributes[:'every']
+      end
+
       if attributes.key?(:'expression')
         self.expression = attributes[:'expression']
       end
@@ -231,6 +254,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
         end
+      end
+
+      if attributes.key?(:'group_id')
+        self.group_id = attributes[:'group_id']
       end
 
       if attributes.key?(:'monitoring')
@@ -302,6 +329,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           actions == o.actions &&
           agent_constraint == o.agent_constraint &&
+          agent_version == o.agent_version &&
           blocking == o.blocking &&
           category == o.category &&
           creation_author_uu_id == o.creation_author_uu_id &&
@@ -311,8 +339,10 @@ module DatadogAPIClient::V2
           description == o.description &&
           disabled == o.disabled &&
           enabled == o.enabled &&
+          every == o.every &&
           expression == o.expression &&
           filters == o.filters &&
+          group_id == o.group_id &&
           monitoring == o.monitoring &&
           name == o.name &&
           product_tags == o.product_tags &&
@@ -329,7 +359,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, agent_constraint, blocking, category, creation_author_uu_id, creation_date, creator, default_rule, description, disabled, enabled, expression, filters, monitoring, name, product_tags, silent, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
+      [actions, agent_constraint, agent_version, blocking, category, creation_author_uu_id, creation_date, creator, default_rule, description, disabled, enabled, every, expression, filters, group_id, monitoring, name, product_tags, silent, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
     end
   end
 end
