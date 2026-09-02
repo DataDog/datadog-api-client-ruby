@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating an org group policy.
+  # Attributes for updating an org group policy. `policy_name`, `content`, and `enforcement_tier` may be omitted individually to leave them unchanged.
   class OrgGroupPolicyUpdateAttributes
     include BaseGenericModel
 
-    # The policy content as key-value pairs.
+    # The policy content as key-value pairs. For `org_config` policies, an arbitrary key-value map (for example, `{"value": "UTC"}`). For `role` policies, a `permissions` key containing an array of permission UUIDs (for example, `{"permissions": ["<uuid>", ...]}`).
     attr_accessor :content
 
-    # The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
+    # The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. `role` policies only support `GROUP_MANAGED` and `DELEGATE` — `OVERRIDE_ALLOWED` is rejected for this policy type. Transitioning a `role` policy to `DELEGATE` (disabling it) is one-way — the policy cannot be transitioned back to `GROUP_MANAGED` afterward.
     attr_accessor :enforcement_tier
+
+    # The name of the policy. This becomes the name of the resource created across orgs in the group (for example, for `role` policies, the name of the created role). Omit to leave unchanged.
+    attr_accessor :policy_name
 
     attr_accessor :additional_properties
 
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'content' => :'content',
-        :'enforcement_tier' => :'enforcement_tier'
+        :'enforcement_tier' => :'enforcement_tier',
+        :'policy_name' => :'policy_name'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'content' => :'Hash<String, Object>',
-        :'enforcement_tier' => :'OrgGroupPolicyEnforcementTier'
+        :'enforcement_tier' => :'OrgGroupPolicyEnforcementTier',
+        :'policy_name' => :'String'
       }
     end
 
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'enforcement_tier')
         self.enforcement_tier = attributes[:'enforcement_tier']
+      end
+
+      if attributes.key?(:'policy_name')
+        self.policy_name = attributes[:'policy_name']
       end
     end
 
@@ -102,6 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           content == o.content &&
           enforcement_tier == o.enforcement_tier &&
+          policy_name == o.policy_name &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [content, enforcement_tier, additional_properties].hash
+      [content, enforcement_tier, policy_name, additional_properties].hash
     end
   end
 end

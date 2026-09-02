@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the policy. `org_config` indicates a policy backed by an organization configuration setting. `role` indicates a policy backed by a Datadog custom role.
-  class OrgGroupPolicyPolicyType
+  # The type of the policy to filter by. `org_config` indicates a policy backed by an organization configuration setting. `role` indicates a policy backed by a Datadog custom role.
+  class OrgGroupPolicyFilterPolicyTypeValue
     include BaseEnumModel
 
     ORG_CONFIG = "org_config".freeze
