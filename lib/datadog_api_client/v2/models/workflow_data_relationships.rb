@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The definition of `WorkflowUserRelationship` object.
     attr_accessor :owner
 
+    # The definition of `WorkflowUserRelationship` object.
+    attr_accessor :run_as
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'creator' => :'creator',
-        :'owner' => :'owner'
+        :'owner' => :'owner',
+        :'run_as' => :'runAs'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'creator' => :'WorkflowUserRelationship',
-        :'owner' => :'WorkflowUserRelationship'
+        :'owner' => :'WorkflowUserRelationship',
+        :'run_as' => :'WorkflowUserRelationship'
       }
     end
 
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'owner')
         self.owner = attributes[:'owner']
+      end
+
+      if attributes.key?(:'run_as')
+        self.run_as = attributes[:'run_as']
       end
     end
 
@@ -102,6 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           creator == o.creator &&
           owner == o.owner &&
+          run_as == o.run_as &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creator, owner, additional_properties].hash
+      [creator, owner, run_as, additional_properties].hash
     end
   end
 end

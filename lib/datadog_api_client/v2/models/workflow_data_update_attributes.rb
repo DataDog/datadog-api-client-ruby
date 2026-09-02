@@ -33,6 +33,12 @@ module DatadogAPIClient::V2
     # Set the workflow to published or unpublished. Workflows in an unpublished state will only be executable via manual runs. Automatic triggers such as Schedule will not execute the workflow until it is published.
     attr_accessor :published
 
+    # Identity used to run the workflow.
+    attr_accessor :run_as
+
+    # The effective type of identity used to run the workflow.
+    attr_accessor :run_as_user_mode
+
     # A complete Workflow Automation definition, including its triggers, steps, and connections.
     attr_accessor :spec
 
@@ -55,6 +61,8 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'name' => :'name',
         :'published' => :'published',
+        :'run_as' => :'runAs',
+        :'run_as_user_mode' => :'runAsUserMode',
         :'spec' => :'spec',
         :'tags' => :'tags',
         :'updated_at' => :'updatedAt',
@@ -70,6 +78,8 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'name' => :'String',
         :'published' => :'Boolean',
+        :'run_as' => :'WorkflowRunAs',
+        :'run_as_user_mode' => :'WorkflowRunAsUserMode',
         :'spec' => :'Spec',
         :'tags' => :'Array<String>',
         :'updated_at' => :'Time',
@@ -109,6 +119,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'published')
         self.published = attributes[:'published']
+      end
+
+      if attributes.key?(:'run_as')
+        self.run_as = attributes[:'run_as']
+      end
+
+      if attributes.key?(:'run_as_user_mode')
+        self.run_as_user_mode = attributes[:'run_as_user_mode']
       end
 
       if attributes.key?(:'spec')
@@ -160,6 +178,8 @@ module DatadogAPIClient::V2
           description == o.description &&
           name == o.name &&
           published == o.published &&
+          run_as == o.run_as &&
+          run_as_user_mode == o.run_as_user_mode &&
           spec == o.spec &&
           tags == o.tags &&
           updated_at == o.updated_at &&
@@ -171,7 +191,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, description, name, published, spec, tags, updated_at, webhook_secret, additional_properties].hash
+      [created_at, description, name, published, run_as, run_as_user_mode, spec, tags, updated_at, webhook_secret, additional_properties].hash
     end
   end
 end
