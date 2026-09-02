@@ -15,6 +15,7 @@ body = DatadogAPIClient::V2::OverwriteAllocationsRequest.new({
           id: "550e8400-e29b-41d4-a716-446655440010",
           rollout_options: DatadogAPIClient::V2::RolloutOptionsRequest.new({
             autostart: false,
+            scheduled_start: "absolute:2025-06-13T12:00:00Z",
             selection_interval_ms: 3600000,
             strategy: DatadogAPIClient::V2::RolloutStrategy::UNIFORM_INTERVALS,
           }),

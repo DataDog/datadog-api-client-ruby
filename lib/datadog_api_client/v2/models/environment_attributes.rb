@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # The name of the environment.
     attr_reader :name
 
+    # Indicates whether full evaluation data is observed for this environment.
+    attr_accessor :observe_full_evaluation_data
+
     # List of queries to define the environment scope.
     attr_reader :queries
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
         :'is_production' => :'is_production',
         :'key' => :'key',
         :'name' => :'name',
+        :'observe_full_evaluation_data' => :'observe_full_evaluation_data',
         :'queries' => :'queries',
         :'require_feature_flag_approval' => :'require_feature_flag_approval',
         :'updated_at' => :'updated_at'
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
         :'is_production' => :'Boolean',
         :'key' => :'String',
         :'name' => :'String',
+        :'observe_full_evaluation_data' => :'Boolean',
         :'queries' => :'Array<String>',
         :'require_feature_flag_approval' => :'Boolean',
         :'updated_at' => :'Time'
@@ -121,6 +126,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'observe_full_evaluation_data')
+        self.observe_full_evaluation_data = attributes[:'observe_full_evaluation_data']
       end
 
       if attributes.key?(:'queries')
@@ -198,6 +207,7 @@ module DatadogAPIClient::V2
           is_production == o.is_production &&
           key == o.key &&
           name == o.name &&
+          observe_full_evaluation_data == o.observe_full_evaluation_data &&
           queries == o.queries &&
           require_feature_flag_approval == o.require_feature_flag_approval &&
           updated_at == o.updated_at &&
@@ -208,7 +218,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, description, is_production, key, name, queries, require_feature_flag_approval, updated_at, additional_properties].hash
+      [created_at, description, is_production, key, name, observe_full_evaluation_data, queries, require_feature_flag_approval, updated_at, additional_properties].hash
     end
   end
 end

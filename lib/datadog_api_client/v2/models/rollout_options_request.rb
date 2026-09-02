@@ -21,8 +21,20 @@ module DatadogAPIClient::V2
   class RolloutOptionsRequest
     include BaseGenericModel
 
-    # Whether the schedule should begin automatically.
+    # Whether the schedule should begin automatically. Deprecated in favor of
+    # `scheduled_start`, which takes precedence when both are set.
     attr_accessor :autostart
+
+    # Controls when the schedule starts. Supersedes `autostart`. One of:
+    #
+    # - `none`: create the schedule without starting it.
+    # - `now`: start the schedule immediately.
+    # - `relative:<duration>`: start after a duration (for example `relative:2h`).
+    # - `absolute:<RFC3339 timestamp>`: start at a specific time (for example `absolute:2025-06-13T12:00:00Z`).
+    #
+    # An `absolute` timestamp in the past or present is treated as `now`. A future start time
+    # is not supported for allocations linked to a standard experiment.
+    attr_reader :scheduled_start
 
     # Interval in milliseconds for uniform interval strategies.
     attr_accessor :selection_interval_ms
@@ -37,6 +49,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'autostart' => :'autostart',
+        :'scheduled_start' => :'scheduled_start',
         :'selection_interval_ms' => :'selection_interval_ms',
         :'strategy' => :'strategy'
       }
@@ -47,6 +60,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'autostart' => :'Boolean',
+        :'scheduled_start' => :'String',
         :'selection_interval_ms' => :'Integer',
         :'strategy' => :'RolloutStrategy'
       }
@@ -82,6 +96,10 @@ module DatadogAPIClient::V2
         self.autostart = attributes[:'autostart']
       end
 
+      if attributes.key?(:'scheduled_start')
+        self.scheduled_start = attributes[:'scheduled_start']
+      end
+
       if attributes.key?(:'selection_interval_ms')
         self.selection_interval_ms = attributes[:'selection_interval_ms']
       end
@@ -95,8 +113,21 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      pattern = Regexp.new(/^(none|now|relative:([0-9]+(\.[0-9]+)?(ns|us|µs|ms|s|m|h))+|absolute:\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2}))$/)
+      return false if !@scheduled_start.nil? && @scheduled_start !~ pattern
       return false if @strategy.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param scheduled_start [Object] Object to be assigned
+    # @!visibility private
+    def scheduled_start=(scheduled_start)
+      pattern = Regexp.new(/^(none|now|relative:([0-9]+(\.[0-9]+)?(ns|us|µs|ms|s|m|h))+|absolute:\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2}))$/)
+      if !scheduled_start.nil? && scheduled_start !~ pattern
+        fail ArgumentError, "invalid value for \"scheduled_start\", must conform to the pattern #{pattern}."
+      end
+      @scheduled_start = scheduled_start
     end
 
     # Custom attribute writer method with validation
@@ -136,6 +167,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           autostart == o.autostart &&
+          scheduled_start == o.scheduled_start &&
           selection_interval_ms == o.selection_interval_ms &&
           strategy == o.strategy &&
           additional_properties == o.additional_properties
@@ -145,7 +177,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [autostart, selection_interval_ms, strategy, additional_properties].hash
+      [autostart, scheduled_start, selection_interval_ms, strategy, additional_properties].hash
     end
   end
 end
