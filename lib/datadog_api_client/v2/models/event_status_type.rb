@@ -17,15 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # If an alert event is enabled, its status is one of the following:
-  # `failure`, `error`, `warning`, `info`, `success`, `user_update`,
-  # `recommendation`, or `snapshot`.
+  # The event status. Legacy events can use `failure`, `error`, `warning`,
+  # `info`, `success`, `user_update`, `recommendation`, or `snapshot`.
+  # Alert events can use `error`, `warn`, or `ok`.
   class EventStatusType
     include BaseEnumModel
 
     FAILURE = "failure".freeze
     ERROR = "error".freeze
+    WARN = "warn".freeze
     WARNING = "warning".freeze
+    OK = "ok".freeze
     INFO = "info".freeze
     SUCCESS = "success".freeze
     USER_UPDATE = "user_update".freeze

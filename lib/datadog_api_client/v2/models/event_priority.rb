@@ -17,11 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The priority of the event's monitor. For example, `normal` or `low`.
+  # The priority of the event alert. Legacy events use `normal` or `low`.
+  # Alert events use `1` (highest priority) through `5` (lowest priority).
   class EventPriority
     include BaseEnumModel
 
     NORMAL = "normal".freeze
     LOW = "low".freeze
+    PRIORITY_ONE = "1".freeze
+    PRIORITY_TWO = "2".freeze
+    PRIORITY_THREE = "3".freeze
+    PRIORITY_FOUR = "4".freeze
+    PRIORITY_FIVE = "5".freeze
   end
 end
