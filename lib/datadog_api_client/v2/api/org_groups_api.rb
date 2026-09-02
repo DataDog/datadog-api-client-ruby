@@ -916,6 +916,7 @@ module DatadogAPIClient::V2
     # @param filter_org_group_id [UUID] Filter policies by org group ID.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_policy_name Filter policies by policy name.
+    # @option opts [OrgGroupPolicyFilterPolicyTypeValue] :filter_policy_type Filter policies by policy type. Supported values are `org_config` and `role`.
     # @option opts [Integer] :page_number The page number to return.
     # @option opts [Integer] :page_size The number of items per page. Maximum is 1000.
     # @option opts [OrgGroupPolicySortOption] :sort Field to sort policies by. Supported values: `id`, `name`, `-id`, `-name`. Defaults to `id`.
@@ -934,6 +935,10 @@ module DatadogAPIClient::V2
       # verify the required parameter 'filter_org_group_id' is set
       if @api_client.config.client_side_validation && filter_org_group_id.nil?
         fail ArgumentError, "Missing the required parameter 'filter_org_group_id' when calling OrgGroupsAPI.list_org_group_policies"
+      end
+      allowable_values = ['org_config', 'role']
+      if @api_client.config.client_side_validation && opts[:'filter_policy_type'] && !allowable_values.include?(opts[:'filter_policy_type'])
+        fail ArgumentError, "invalid value for \"filter_policy_type\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
         fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling OrgGroupsAPI.list_org_group_policies, must be greater than or equal to 0.'
@@ -955,6 +960,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'filter[org_group_id]'] = filter_org_group_id
       query_params[:'filter[policy_name]'] = opts[:'filter_policy_name'] if !opts[:'filter_policy_name'].nil?
+      query_params[:'filter[policy_type]'] = opts[:'filter_policy_type'] if !opts[:'filter_policy_type'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?

@@ -5945,6 +5945,7 @@ module DatadogAPIClient
           "v2.org_group_policy_create_request" => "OrgGroupPolicyCreateRequest",
           "v2.org_group_policy_data" => "OrgGroupPolicyData",
           "v2.org_group_policy_enforcement_tier" => "OrgGroupPolicyEnforcementTier",
+          "v2.org_group_policy_filter_policy_type_value" => "OrgGroupPolicyFilterPolicyTypeValue",
           "v2.org_group_policy_list_response" => "OrgGroupPolicyListResponse",
           "v2.org_group_policy_override_attributes" => "OrgGroupPolicyOverrideAttributes",
           "v2.org_group_policy_override_create_attributes" => "OrgGroupPolicyOverrideCreateAttributes",

@@ -4993,6 +4993,7 @@ ScenariosModelMappings = {
     "v2.ListOrgGroupPolicies" => {
             "filter_org_group_id" => "UUID",
             "filter_policy_name" => "String",
+            "filter_policy_type" => "OrgGroupPolicyFilterPolicyTypeValue",
             "page_number" => "Integer",
             "page_size" => "Integer",
             "sort" => "OrgGroupPolicySortOption",

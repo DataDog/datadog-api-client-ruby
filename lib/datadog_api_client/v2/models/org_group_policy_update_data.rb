@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class OrgGroupPolicyUpdateData
     include BaseGenericModel
 
-    # Attributes for updating an org group policy.
+    # Attributes for updating an org group policy. `policy_name`, `content`, and `enforcement_tier` may be omitted individually to leave them unchanged.
     attr_reader :attributes
 
     # The ID of the policy.
