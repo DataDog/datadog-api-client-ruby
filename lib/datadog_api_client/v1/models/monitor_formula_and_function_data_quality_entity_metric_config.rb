@@ -17,36 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Monitor configuration options for data quality queries.
-  class MonitorFormulaAndFunctionDataQualityMonitorOptions
+  # Measure configuration for one side of a source to target comparison.
+  class MonitorFormulaAndFunctionDataQualityEntityMetricConfig
     include BaseGenericModel
 
-    # Crontab expression to override the default schedule.
-    attr_accessor :crontab_override
-
-    # Custom SQL query for the monitor.
+    # Custom SQL query used to compute the measure for this entity.
     attr_accessor :custom_sql
 
-    # Custom WHERE clause for the query.
+    # Custom WHERE clause applied when computing the measure for this entity.
     attr_accessor :custom_where
 
-    # Columns to group results by.
+    # Identifier of the data entity to measure.
+    attr_reader :entity_id
+
+    # Type of the data entity to measure.
+    attr_reader :entity_type
+
+    # Columns to group results by when computing the measure for this entity.
     attr_accessor :group_by_columns
-
-    # Tuning options for the anomaly detection model used by the monitor.
-    attr_accessor :model_configuration
-
-    # Override for the model type used in anomaly detection.
-    attr_accessor :model_type_override
-
-    # Sensitivity of the anomaly detection model, expressed as a multiplier on the width
-    # of the predicted bounds. Higher values widen the bounds and produce fewer alerts;
-    # lower values tighten them and produce more alerts. Defaults to `3.0`.
-    attr_accessor :sensitivity
-
-    # Configuration for a source to target monitor, which compares the same measure
-    # across two data entities and alerts on the difference between them.
-    attr_accessor :source_to_target_config
 
     attr_accessor :additional_properties
 
@@ -54,14 +42,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'crontab_override' => :'crontab_override',
         :'custom_sql' => :'custom_sql',
         :'custom_where' => :'custom_where',
-        :'group_by_columns' => :'group_by_columns',
-        :'model_configuration' => :'model_configuration',
-        :'model_type_override' => :'model_type_override',
-        :'sensitivity' => :'sensitivity',
-        :'source_to_target_config' => :'source_to_target_config'
+        :'entity_id' => :'entity_id',
+        :'entity_type' => :'entity_type',
+        :'group_by_columns' => :'group_by_columns'
       }
     end
 
@@ -69,14 +54,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'crontab_override' => :'String',
         :'custom_sql' => :'String',
         :'custom_where' => :'String',
-        :'group_by_columns' => :'Array<String>',
-        :'model_configuration' => :'MonitorFormulaAndFunctionDataQualityModelConfiguration',
-        :'model_type_override' => :'MonitorFormulaAndFunctionDataQualityModelTypeOverride',
-        :'sensitivity' => :'Float',
-        :'source_to_target_config' => :'MonitorFormulaAndFunctionDataQualitySourceToTargetConfig'
+        :'entity_id' => :'String',
+        :'entity_type' => :'String',
+        :'group_by_columns' => :'Array<String>'
       }
     end
 
@@ -85,7 +67,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorFormulaAndFunctionDataQualityMonitorOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorFormulaAndFunctionDataQualityEntityMetricConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -98,10 +80,6 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'crontab_override')
-        self.crontab_override = attributes[:'crontab_override']
-      end
-
       if attributes.key?(:'custom_sql')
         self.custom_sql = attributes[:'custom_sql']
       end
@@ -110,27 +88,48 @@ module DatadogAPIClient::V1
         self.custom_where = attributes[:'custom_where']
       end
 
+      if attributes.key?(:'entity_id')
+        self.entity_id = attributes[:'entity_id']
+      end
+
+      if attributes.key?(:'entity_type')
+        self.entity_type = attributes[:'entity_type']
+      end
+
       if attributes.key?(:'group_by_columns')
         if (value = attributes[:'group_by_columns']).is_a?(Array)
           self.group_by_columns = value
         end
       end
+    end
 
-      if attributes.key?(:'model_configuration')
-        self.model_configuration = attributes[:'model_configuration']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @entity_id.nil?
+      return false if @entity_type.nil?
+      true
+    end
 
-      if attributes.key?(:'model_type_override')
-        self.model_type_override = attributes[:'model_type_override']
+    # Custom attribute writer method with validation
+    # @param entity_id [Object] Object to be assigned
+    # @!visibility private
+    def entity_id=(entity_id)
+      if entity_id.nil?
+        fail ArgumentError, 'invalid value for "entity_id", entity_id cannot be nil.'
       end
+      @entity_id = entity_id
+    end
 
-      if attributes.key?(:'sensitivity')
-        self.sensitivity = attributes[:'sensitivity']
+    # Custom attribute writer method with validation
+    # @param entity_type [Object] Object to be assigned
+    # @!visibility private
+    def entity_type=(entity_type)
+      if entity_type.nil?
+        fail ArgumentError, 'invalid value for "entity_type", entity_type cannot be nil.'
       end
-
-      if attributes.key?(:'source_to_target_config')
-        self.source_to_target_config = attributes[:'source_to_target_config']
-      end
+      @entity_type = entity_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -159,14 +158,11 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          crontab_override == o.crontab_override &&
           custom_sql == o.custom_sql &&
           custom_where == o.custom_where &&
+          entity_id == o.entity_id &&
+          entity_type == o.entity_type &&
           group_by_columns == o.group_by_columns &&
-          model_configuration == o.model_configuration &&
-          model_type_override == o.model_type_override &&
-          sensitivity == o.sensitivity &&
-          source_to_target_config == o.source_to_target_config &&
           additional_properties == o.additional_properties
     end
 
@@ -174,7 +170,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [crontab_override, custom_sql, custom_where, group_by_columns, model_configuration, model_type_override, sensitivity, source_to_target_config, additional_properties].hash
+      [custom_sql, custom_where, entity_id, entity_type, group_by_columns, additional_properties].hash
     end
   end
 end
