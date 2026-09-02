@@ -9,6 +9,9 @@ body = DatadogAPIClient::V2::CreateWorkflowRequest.new({
       description: "A sample workflow.",
       name: "Example Workflow",
       published: true,
+      run_as: DatadogAPIClient::V2::WorkflowRunAsOwner.new({
+        type: DatadogAPIClient::V2::WorkflowRunAsOwnerType::OWNER,
+      }),
       spec: DatadogAPIClient::V2::Spec.new({
         connection_envs: [
           DatadogAPIClient::V2::ConnectionEnv.new({
