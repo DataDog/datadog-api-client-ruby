@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
+    # Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+    attr_reader :max_connection_duration_secs
+
     # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
     attr_accessor :tls
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
       {
         :'address_key' => :'address_key',
         :'id' => :'id',
+        :'max_connection_duration_secs' => :'max_connection_duration_secs',
         :'tls' => :'tls',
         :'type' => :'type'
       }
@@ -55,6 +59,7 @@ module DatadogAPIClient::V2
       {
         :'address_key' => :'String',
         :'id' => :'String',
+        :'max_connection_duration_secs' => :'Integer',
         :'tls' => :'ObservabilityPipelineMtlsServerTls',
         :'type' => :'ObservabilityPipelineSplunkTcpSourceType'
       }
@@ -86,6 +91,10 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'max_connection_duration_secs')
+        self.max_connection_duration_secs = attributes[:'max_connection_duration_secs']
+      end
+
       if attributes.key?(:'tls')
         self.tls = attributes[:'tls']
       end
@@ -100,6 +109,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @id.nil?
+      return false if !@max_connection_duration_secs.nil? && @max_connection_duration_secs > 9007199254740991
+      return false if !@max_connection_duration_secs.nil? && @max_connection_duration_secs < 1
       return false if @type.nil?
       true
     end
@@ -112,6 +123,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param max_connection_duration_secs [Object] Object to be assigned
+    # @!visibility private
+    def max_connection_duration_secs=(max_connection_duration_secs)
+      if !max_connection_duration_secs.nil? && max_connection_duration_secs > 9007199254740991
+        fail ArgumentError, 'invalid value for "max_connection_duration_secs", must be smaller than or equal to 9007199254740991.'
+      end
+      if !max_connection_duration_secs.nil? && max_connection_duration_secs < 1
+        fail ArgumentError, 'invalid value for "max_connection_duration_secs", must be greater than or equal to 1.'
+      end
+      @max_connection_duration_secs = max_connection_duration_secs
     end
 
     # Custom attribute writer method with validation
@@ -152,6 +176,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           address_key == o.address_key &&
           id == o.id &&
+          max_connection_duration_secs == o.max_connection_duration_secs &&
           tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -161,7 +186,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, id, tls, type, additional_properties].hash
+      [address_key, id, max_connection_duration_secs, tls, type, additional_properties].hash
     end
   end
 end
