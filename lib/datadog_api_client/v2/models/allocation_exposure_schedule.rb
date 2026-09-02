@@ -48,6 +48,10 @@ module DatadogAPIClient::V2
     # Ordered progression steps for exposure.
     attr_reader :rollout_steps
 
+    # The resolved UTC start time computed from `scheduled_start`. This field is
+    # read-only and cannot be set directly.
+    attr_accessor :scheduled_start_time
+
     # The timestamp when the schedule was last updated.
     attr_reader :updated_at
 
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'rollout_options' => :'rollout_options',
         :'rollout_steps' => :'rollout_steps',
+        :'scheduled_start_time' => :'scheduled_start_time',
         :'updated_at' => :'updated_at'
       }
     end
@@ -83,6 +88,7 @@ module DatadogAPIClient::V2
         :'id' => :'UUID',
         :'rollout_options' => :'RolloutOptions',
         :'rollout_steps' => :'Array<AllocationExposureRolloutStep>',
+        :'scheduled_start_time' => :'Time',
         :'updated_at' => :'Time'
       }
     end
@@ -94,6 +100,7 @@ module DatadogAPIClient::V2
         :'absolute_start_time',
         :'control_variant_id',
         :'guardrail_triggered_action',
+        :'scheduled_start_time',
       ])
     end
 
@@ -153,6 +160,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'rollout_steps']).is_a?(Array)
           self.rollout_steps = value
         end
+      end
+
+      if attributes.key?(:'scheduled_start_time')
+        self.scheduled_start_time = attributes[:'scheduled_start_time']
       end
 
       if attributes.key?(:'updated_at')
@@ -268,6 +279,7 @@ module DatadogAPIClient::V2
           id == o.id &&
           rollout_options == o.rollout_options &&
           rollout_steps == o.rollout_steps &&
+          scheduled_start_time == o.scheduled_start_time &&
           updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
@@ -276,7 +288,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [absolute_start_time, allocation_id, control_variant_id, created_at, guardrail_triggered_action, guardrail_triggers, id, rollout_options, rollout_steps, updated_at, additional_properties].hash
+      [absolute_start_time, allocation_id, control_variant_id, created_at, guardrail_triggered_action, guardrail_triggers, id, rollout_options, rollout_steps, scheduled_start_time, updated_at, additional_properties].hash
     end
   end
 end

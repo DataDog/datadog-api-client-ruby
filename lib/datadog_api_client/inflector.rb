@@ -3430,6 +3430,7 @@ module DatadogAPIClient
           "v2.fastly_service_type" => "FastlyServiceType",
           "v2.feature_flag" => "FeatureFlag",
           "v2.feature_flag_attributes" => "FeatureFlagAttributes",
+          "v2.feature_flag_attributes_staleness_details" => "FeatureFlagAttributesStalenessDetails",
           "v2.feature_flag_environment" => "FeatureFlagEnvironment",
           "v2.feature_flag_environment_list_item" => "FeatureFlagEnvironmentListItem",
           "v2.feature_flag_list_item" => "FeatureFlagListItem",

@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Environment-specific settings for the feature flag.
     attr_accessor :feature_flag_environments
 
+    # Indicates whether the feature flag is marked as a favorite by the current user.
+    attr_accessor :is_favorite
+
     # JSON schema for validation when value_type is JSON.
     attr_accessor :json_schema
 
@@ -53,6 +56,9 @@ module DatadogAPIClient::V2
 
     # Indicates whether this feature flag requires approval for changes.
     attr_accessor :require_approval
+
+    # Details about the feature flag's staleness status.
+    attr_accessor :staleness_details
 
     # Indicates the whether a feature flag is stale or not.
     attr_accessor :staleness_status
@@ -81,11 +87,13 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'distribution_channel' => :'distribution_channel',
         :'feature_flag_environments' => :'feature_flag_environments',
+        :'is_favorite' => :'is_favorite',
         :'json_schema' => :'json_schema',
         :'key' => :'key',
         :'last_updated_by' => :'last_updated_by',
         :'name' => :'name',
         :'require_approval' => :'require_approval',
+        :'staleness_details' => :'staleness_details',
         :'staleness_status' => :'staleness_status',
         :'tags' => :'tags',
         :'updated_at' => :'updated_at',
@@ -104,11 +112,13 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'distribution_channel' => :'String',
         :'feature_flag_environments' => :'Array<FeatureFlagEnvironment>',
+        :'is_favorite' => :'Boolean',
         :'json_schema' => :'String',
         :'key' => :'String',
         :'last_updated_by' => :'UUID',
         :'name' => :'String',
         :'require_approval' => :'Boolean',
+        :'staleness_details' => :'FeatureFlagAttributesStalenessDetails',
         :'staleness_status' => :'String',
         :'tags' => :'Array<String>',
         :'updated_at' => :'Time',
@@ -123,6 +133,7 @@ module DatadogAPIClient::V2
       Set.new([
         :'archived_at',
         :'json_schema',
+        :'staleness_details',
       ])
     end
 
@@ -170,6 +181,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'is_favorite')
+        self.is_favorite = attributes[:'is_favorite']
+      end
+
       if attributes.key?(:'json_schema')
         self.json_schema = attributes[:'json_schema']
       end
@@ -188,6 +203,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'require_approval')
         self.require_approval = attributes[:'require_approval']
+      end
+
+      if attributes.key?(:'staleness_details')
+        self.staleness_details = attributes[:'staleness_details']
       end
 
       if attributes.key?(:'staleness_status')
@@ -309,11 +328,13 @@ module DatadogAPIClient::V2
           description == o.description &&
           distribution_channel == o.distribution_channel &&
           feature_flag_environments == o.feature_flag_environments &&
+          is_favorite == o.is_favorite &&
           json_schema == o.json_schema &&
           key == o.key &&
           last_updated_by == o.last_updated_by &&
           name == o.name &&
           require_approval == o.require_approval &&
+          staleness_details == o.staleness_details &&
           staleness_status == o.staleness_status &&
           tags == o.tags &&
           updated_at == o.updated_at &&
@@ -326,7 +347,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, json_schema, key, last_updated_by, name, require_approval, staleness_status, tags, updated_at, value_type, variants, additional_properties].hash
+      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, is_favorite, json_schema, key, last_updated_by, name, require_approval, staleness_details, staleness_status, tags, updated_at, value_type, variants, additional_properties].hash
     end
   end
 end
