@@ -703,6 +703,7 @@ module DatadogAPIClient
             "v2.query_event_filtered_users": false,
             "v2.query_users": false,
             "v2.update_connection": false,
+            "v2.list_product_catalog_sk_us": false,
             "v2.get_pruned_trace_by_id": false,
             "v2.get_trace_by_id": false,
             "v2.get_asm_service_by_name": false,

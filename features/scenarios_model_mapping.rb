@@ -5198,6 +5198,10 @@ ScenariosModelMappings = {
     "v2.ListConnections" => {
             "entity" => "String",
     },
+    "v2.ListProductCatalogSKUs" => {
+            "version" => "ProductCatalogSKUsAPIVersion",
+            "as_of_date" => "Time",
+    },
     "v2.GetPrunedTraceByID" => {
             "trace_id" => "String",
             "expand_span_id" => "Integer",
