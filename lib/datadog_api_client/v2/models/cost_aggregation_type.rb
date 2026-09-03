@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Controls how costs are aggregated when using `start_date`. The `cumulative` option returns month-to-date running totals.
+  # Controls how costs are aggregated when using `start_date`.
+  # The `cumulative` option returns month-to-date running totals.
   class CostAggregationType
     include BaseEnumModel
 
