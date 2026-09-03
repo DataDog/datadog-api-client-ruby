@@ -24,12 +24,6 @@ module DatadogAPIClient::V2
     # The feedback action to apply to an inference.
     attr_reader :action
 
-    # The handle of the actor submitting the feedback.
-    attr_reader :actor_handle
-
-    # The type of actor submitting the feedback, for example `user` or `service`.
-    attr_reader :actor_type
-
     # The corrected owner handle. Required when `action` is `correct`.
     attr_accessor :corrected_owner_handle
 
@@ -49,8 +43,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'action' => :'action',
-        :'actor_handle' => :'actor_handle',
-        :'actor_type' => :'actor_type',
         :'corrected_owner_handle' => :'corrected_owner_handle',
         :'corrected_owner_type' => :'corrected_owner_type',
         :'inference_checksum' => :'inference_checksum',
@@ -63,8 +55,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'action' => :'OwnershipFeedbackAction',
-        :'actor_handle' => :'String',
-        :'actor_type' => :'String',
         :'corrected_owner_handle' => :'String',
         :'corrected_owner_type' => :'String',
         :'inference_checksum' => :'String',
@@ -104,14 +94,6 @@ module DatadogAPIClient::V2
         self.action = attributes[:'action']
       end
 
-      if attributes.key?(:'actor_handle')
-        self.actor_handle = attributes[:'actor_handle']
-      end
-
-      if attributes.key?(:'actor_type')
-        self.actor_type = attributes[:'actor_type']
-      end
-
       if attributes.key?(:'corrected_owner_handle')
         self.corrected_owner_handle = attributes[:'corrected_owner_handle']
       end
@@ -134,8 +116,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @action.nil?
-      return false if @actor_handle.nil?
-      return false if @actor_type.nil?
       return false if @inference_checksum.nil?
       true
     end
@@ -148,26 +128,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "action", action cannot be nil.'
       end
       @action = action
-    end
-
-    # Custom attribute writer method with validation
-    # @param actor_handle [Object] Object to be assigned
-    # @!visibility private
-    def actor_handle=(actor_handle)
-      if actor_handle.nil?
-        fail ArgumentError, 'invalid value for "actor_handle", actor_handle cannot be nil.'
-      end
-      @actor_handle = actor_handle
-    end
-
-    # Custom attribute writer method with validation
-    # @param actor_type [Object] Object to be assigned
-    # @!visibility private
-    def actor_type=(actor_type)
-      if actor_type.nil?
-        fail ArgumentError, 'invalid value for "actor_type", actor_type cannot be nil.'
-      end
-      @actor_type = actor_type
     end
 
     # Custom attribute writer method with validation
@@ -207,8 +167,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
-          actor_handle == o.actor_handle &&
-          actor_type == o.actor_type &&
           corrected_owner_handle == o.corrected_owner_handle &&
           corrected_owner_type == o.corrected_owner_type &&
           inference_checksum == o.inference_checksum &&
@@ -220,7 +178,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, actor_handle, actor_type, corrected_owner_handle, corrected_owner_type, inference_checksum, reason, additional_properties].hash
+      [action, corrected_owner_handle, corrected_owner_type, inference_checksum, reason, additional_properties].hash
     end
   end
 end
