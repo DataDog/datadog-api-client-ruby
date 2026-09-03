@@ -6118,6 +6118,7 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "include" => "String",
             "filter_status" => "String",
+            "filter_source_id" => "String",
             "sort" => "String",
             "filter_source_id" => "String",
     },
