@@ -1887,6 +1887,113 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an annotated queue interaction.
+    #
+    # @see #get_llm_obs_annotated_interaction_with_http_info
+    def get_llm_obs_annotated_interaction(queue_id, interaction_id, opts = {})
+      data, _status_code, _headers = get_llm_obs_annotated_interaction_with_http_info(queue_id, interaction_id, opts)
+      data
+    end
+
+    # Get an annotated queue interaction.
+    #
+    # Retrieve an interaction, its annotations, and a page of related events from an annotation queue.
+    #
+    # @param queue_id [String] The ID of the Agent Observability annotation queue.
+    # @param interaction_id [String] The ID of the interaction in the annotation queue.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit Maximum number of events to return. Defaults to 10.
+    # @option opts [String] :cursor Cursor from the previous response to retrieve the next page of events.
+    # @return [Array<(LLMObsAnnotatedInteractionResponse, Integer, Hash)>] LLMObsAnnotatedInteractionResponse data, response status code and response headers
+    def get_llm_obs_annotated_interaction_with_http_info(queue_id, interaction_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_llm_obs_annotated_interaction".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_llm_obs_annotated_interaction")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_llm_obs_annotated_interaction"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentObservabilityAPI.get_llm_obs_annotated_interaction ...'
+      end
+      # verify the required parameter 'queue_id' is set
+      if @api_client.config.client_side_validation && queue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'queue_id' when calling AgentObservabilityAPI.get_llm_obs_annotated_interaction"
+      end
+      # verify the required parameter 'interaction_id' is set
+      if @api_client.config.client_side_validation && interaction_id.nil?
+        fail ArgumentError, "Missing the required parameter 'interaction_id' when calling AgentObservabilityAPI.get_llm_obs_annotated_interaction"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AgentObservabilityAPI.get_llm_obs_annotated_interaction, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AgentObservabilityAPI.get_llm_obs_annotated_interaction, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions/{interaction_id}'.sub('{queue_id}', CGI.escape(queue_id.to_s).gsub('%2F', '/')).sub('{interaction_id}', CGI.escape(interaction_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LLMObsAnnotatedInteractionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_llm_obs_annotated_interaction,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentObservabilityAPI#get_llm_obs_annotated_interaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an annotated queue interaction.
+    #
+    # Provide a paginated version of {#get_llm_obs_annotated_interaction}, returning all items.
+    #
+    # To use it you need to use a block: get_llm_obs_annotated_interaction_with_pagination { |item| p item }
+    #
+    # @yield [LLMObsAnnotatedInteractionEvent] Paginated items
+    def get_llm_obs_annotated_interaction_with_pagination(queue_id, interaction_id, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "limit", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
+        while true do
+            response = get_llm_obs_annotated_interaction(queue_id, interaction_id, opts)
+            @api_client.get_attribute_from_path(response, "data.attributes.events").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data.attributes.events").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "cursor", String, @api_client.get_attribute_from_path(response, "data.attributes.next_cursor"))
+        end
+    end
+
     # Get annotated queue interactions.
     #
     # @see #get_llm_obs_annotated_interactions_with_http_info
