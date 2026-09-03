@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for updating a RUM operation strong link.
+  # Attributes for updating a RUM operation link.
   class RUMOperationStrongLinkUpdateRequestAttributes
     include BaseGenericModel
 
-    # The status of a RUM operation strong link. Can only be set to `CONFIRMED` or `REJECTED`.
+    # The status of a RUM operation link. Can only be set to `CONFIRMED` or `REJECTED`.
     attr_reader :status
 
     attr_accessor :additional_properties

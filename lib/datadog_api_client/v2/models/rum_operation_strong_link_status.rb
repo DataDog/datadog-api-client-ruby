@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The status of a RUM operation strong link.
+  # The status of a RUM operation link.
   class RUMOperationStrongLinkStatus
     include BaseEnumModel
 

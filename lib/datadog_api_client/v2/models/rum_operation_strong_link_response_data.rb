@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The data object in a RUM operation strong link response.
+  # The data object in a RUM operation link response.
   class RUMOperationStrongLinkResponseData
     include BaseGenericModel
 
-    # Attributes of a RUM operation strong link response.
+    # Attributes of a RUM operation link response.
     attr_reader :attributes
 
-    # The unique identifier of the strong link, formatted as `<operation_id>:<feature_id>`.
+    # The unique identifier of the link, formatted as `<operation_id>:<feature_id>`.
     attr_reader :id
 
-    # The JSON:API type for RUM operation strong link resources.
+    # The JSON:API type for RUM operation link resources.
     attr_reader :type
 
     attr_accessor :additional_properties
