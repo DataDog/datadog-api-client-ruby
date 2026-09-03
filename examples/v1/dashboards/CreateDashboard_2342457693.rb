@@ -66,6 +66,55 @@ body = DatadogAPIClient::V1::Dashboard.new({
         color_by_groups: [],
       }),
     }),
+    DatadogAPIClient::V1::Widget.new({
+      layout: DatadogAPIClient::V1::WidgetLayout.new({
+        x: 48,
+        y: 0,
+        width: 47,
+        height: 15,
+      }),
+      definition: DatadogAPIClient::V1::ScatterPlotWidgetDefinition.new({
+        title: "Data Projection Scatterplot",
+        title_size: "16",
+        title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
+        type: DatadogAPIClient::V1::ScatterPlotWidgetDefinitionType::SCATTERPLOT,
+        requests: DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests.new({
+          table: DatadogAPIClient::V1::ScatterplotTableRequest.new({
+            request_type: DatadogAPIClient::V1::ScatterplotTableRequestType::DATA_PROJECTION,
+            query: DatadogAPIClient::V1::ScatterplotDataProjectionQuery.new({
+              query_string: "@service:web-store",
+              data_source: DatadogAPIClient::V1::FormulaAndFunctionEventsDataSource::SPANS,
+            }),
+            projection: DatadogAPIClient::V1::ScatterplotDataProjectionProjection.new({
+              type: DatadogAPIClient::V1::ScatterplotDataProjectionProjectionType::SCATTERPLOT,
+              dimensions: [
+                DatadogAPIClient::V1::ScatterplotDataProjectionDimension.new({
+                  column: "duration",
+                  dimension: DatadogAPIClient::V1::ScatterplotDimension::X,
+                }),
+                DatadogAPIClient::V1::ScatterplotDataProjectionDimension.new({
+                  column: "@resource_name",
+                  dimension: DatadogAPIClient::V1::ScatterplotDimension::Y,
+                }),
+              ],
+            }),
+            limit: 200,
+          }),
+        }),
+        xaxis: DatadogAPIClient::V1::WidgetAxis.new({
+          scale: "linear",
+          include_zero: true,
+          min: "auto",
+          max: "auto",
+        }),
+        yaxis: DatadogAPIClient::V1::WidgetAxis.new({
+          scale: "linear",
+          include_zero: true,
+          min: "auto",
+          max: "auto",
+        }),
+      }),
+    }),
   ],
   template_variables: [],
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::FREE,
