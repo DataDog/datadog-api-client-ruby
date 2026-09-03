@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for a list of RUM operation strong links.
+  # Metadata for a list of RUM operation links.
   class RUMOperationStrongLinksListResponseMeta
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The current offset.
     attr_accessor :offset
 
-    # The total number of strong links matching the request.
+    # The total number of links matching the request.
     attr_accessor :total
 
     attr_accessor :additional_properties

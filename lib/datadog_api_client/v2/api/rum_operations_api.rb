@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a RUM operation strong link.
+    # Create a RUM operation link.
     #
     # @see #create_rum_operation_strong_link_with_http_info
     def create_rum_operation_strong_link(body, opts = {})
@@ -104,9 +104,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a RUM operation strong link.
+    # Create a RUM operation link.
     #
-    # Create a strong link between a RUM operation and a feature, confirming that the feature
+    # Create a link between a RUM operation and a journey, confirming that the journey
     # belongs to the operation. The operation can be identified by `operation_id` or `operation_name`;
     # if `operation_name` does not match an existing operation, a stub operation is created.
     #
@@ -242,7 +242,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a RUM operation strong link.
+    # Delete a RUM operation link.
     #
     # @see #delete_rum_operation_strong_link_with_http_info
     def delete_rum_operation_strong_link(rum_operation_id, feature_id, opts = {})
@@ -250,12 +250,12 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a RUM operation strong link.
+    # Delete a RUM operation link.
     #
-    # Delete the strong link between a RUM operation and a feature.
+    # Delete the link between a RUM operation and a journey.
     #
     # @param rum_operation_id [String] The unique identifier of the RUM operation.
-    # @param feature_id [String] The unique identifier of the feature.
+    # @param feature_id [String] The unique identifier of the journey.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, opts = {})
@@ -470,7 +470,8 @@ module DatadogAPIClient::V2
 
     # Search RUM operations.
     #
-    # Search RUM operations for your organization. Supports filtering by query, creator, team, feature, and application.
+    # Search RUM operations for your organization. Supports filtering by query, creator, team,
+    # journey, and application.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :query A search query to filter operations by name.
@@ -478,7 +479,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Number of items per page. Maximum of 100.
     # @option opts [String] :creator Filter operations by the email of their creator.
     # @option opts [String] :team Filter operations by team. Accepts a comma-separated list of teams.
-    # @option opts [String] :feature_id Filter operations by feature ID. Accepts a comma-separated list of feature IDs.
+    # @option opts [String] :feature_id Filter operations by journey ID. Accepts a comma-separated list of journey IDs.
     # @option opts [UUID] :application_id Filter operations by RUM application ID.
     # @return [Array<(RUMOperationsListResponse, Integer, Hash)>] RUMOperationsListResponse data, response status code and response headers
     def list_rum_operations_with_http_info(opts = {})
@@ -549,7 +550,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List RUM operation strong links.
+    # List RUM operation links.
     #
     # @see #list_rum_operation_strong_links_with_http_info
     def list_rum_operation_strong_links(opts = {})
@@ -557,15 +558,15 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List RUM operation strong links.
+    # List RUM operation links.
     #
-    # List strong links between RUM operations and features. A strong link confirms that a feature
-    # belongs to an operation. Provide `operation_id`, `feature_id`, or both to filter results;
+    # List links between RUM operations and journeys. A link confirms that a journey
+    # belongs to an operation. Provide `operation_id`, `feature_id` (journey ID), or both to filter results;
     # at least one is required.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :operation_id Filter strong links by RUM operation ID.
-    # @option opts [String] :feature_id Filter strong links by feature ID.
+    # @option opts [String] :operation_id Filter links by RUM operation ID.
+    # @option opts [String] :feature_id Filter links by journey (feature) ID.
     # @option opts [Integer] :page_offset Offset for pagination.
     # @option opts [Integer] :page_limit Number of items per page. Maximum of 200.
     # @return [Array<(RUMOperationStrongLinksListResponse, Integer, Hash)>] RUMOperationStrongLinksListResponse data, response status code and response headers
@@ -707,7 +708,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a RUM operation strong link.
+    # Update a RUM operation link.
     #
     # @see #update_rum_operation_strong_link_with_http_info
     def update_rum_operation_strong_link(rum_operation_id, feature_id, body, opts = {})
@@ -715,12 +716,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a RUM operation strong link.
+    # Update a RUM operation link.
     #
-    # Update the status of a strong link between a RUM operation and a feature.
+    # Update the status of a link between a RUM operation and a journey.
     #
     # @param rum_operation_id [String] The unique identifier of the RUM operation.
-    # @param feature_id [String] The unique identifier of the feature.
+    # @param feature_id [String] The unique identifier of the journey.
     # @param body [RUMOperationStrongLinkUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationStrongLinkResponse, Integer, Hash)>] RUMOperationStrongLinkResponse data, response status code and response headers

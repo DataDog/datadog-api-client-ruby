@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The status of a RUM operation strong link. Can only be set to `CONFIRMED` or `REJECTED`.
+  # The status of a RUM operation link. Can only be set to `CONFIRMED` or `REJECTED`.
   class RUMOperationStrongLinkUpdateStatus
     include BaseEnumModel
 
