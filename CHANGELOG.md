@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.59.1/2026-09-03
+
+### Fixed
+* Exclude generated test assets from the published gem
+
 ## 2.59.0/2026-09-02
 
 ### Added

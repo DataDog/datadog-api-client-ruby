@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rspec", "~> 3.6", ">= 3.6.0"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|cassettes)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|cassettes|generated-test)/}) }
   spec.test_files    = `git ls-files -z spec/`.split("\x0")
   spec.executables   = []
   spec.require_paths = ["lib"]
