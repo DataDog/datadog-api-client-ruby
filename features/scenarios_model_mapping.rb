@@ -2991,6 +2991,19 @@ ScenariosModelMappings = {
             "filter_tag_keys" => "Array<String>",
             "page_size" => "Integer",
     },
+    "v2.CreateUnitCost" => {
+            "body" => "UnitCostCreateRequest",
+    },
+    "v2.DeleteUnitCost" => {
+            "unit_cost_id" => "UUID",
+    },
+    "v2.GetUnitCost" => {
+            "unit_cost_id" => "UUID",
+    },
+    "v2.UpdateUnitCost" => {
+            "unit_cost_id" => "UUID",
+            "body" => "UnitCostUpdateRequest",
+    },
     "v2.CreateTagPipelinesRuleset" => {
             "body" => "CreateRulesetRequest",
     },

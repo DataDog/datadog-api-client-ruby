@@ -370,6 +370,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a unit cost.
+    #
+    # @see #create_unit_cost_with_http_info
+    def create_unit_cost(body, opts = {})
+      data, _status_code, _headers = create_unit_cost_with_http_info(body, opts)
+      data
+    end
+
+    # Create a unit cost.
+    #
+    # Create an ROI metric (unit cost) using the given numerator and denominator queries.
+    #
+    # @param body [UnitCostCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UnitCostResponse, Integer, Hash)>] UnitCostResponse data, response status code and response headers
+    def create_unit_cost_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_unit_cost".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_unit_cost")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_unit_cost"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_unit_cost ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_unit_cost"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/unit_costs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnitCostResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_unit_cost,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_unit_cost\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete budget.
     #
     # @see #delete_budget_with_http_info
@@ -953,6 +1026,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a unit cost.
+    #
+    # @see #delete_unit_cost_with_http_info
+    def delete_unit_cost(unit_cost_id, opts = {})
+      delete_unit_cost_with_http_info(unit_cost_id, opts)
+      nil
+    end
+
+    # Delete a unit cost.
+    #
+    # Delete an ROI metric (unit cost).
+    #
+    # @param unit_cost_id [UUID] The UUID of the unit cost.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_unit_cost_with_http_info(unit_cost_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_unit_cost".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_unit_cost")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_unit_cost"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_unit_cost ...'
+      end
+      # verify the required parameter 'unit_cost_id' is set
+      if @api_client.config.client_side_validation && unit_cost_id.nil?
+        fail ArgumentError, "Missing the required parameter 'unit_cost_id' when calling CloudCostManagementAPI.delete_unit_cost"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/unit_costs/{unit_cost_id}'.sub('{unit_cost_id}', CGI.escape(unit_cost_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_unit_cost,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_unit_cost\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2693,6 +2837,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a unit cost.
+    #
+    # @see #get_unit_cost_with_http_info
+    def get_unit_cost(unit_cost_id, opts = {})
+      data, _status_code, _headers = get_unit_cost_with_http_info(unit_cost_id, opts)
+      data
+    end
+
+    # Get a unit cost.
+    #
+    # Retrieve an ROI metric (unit cost) by UUID.
+    #
+    # @param unit_cost_id [UUID] The UUID of the unit cost.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UnitCostResponse, Integer, Hash)>] UnitCostResponse data, response status code and response headers
+    def get_unit_cost_with_http_info(unit_cost_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_unit_cost".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_unit_cost")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_unit_cost"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_unit_cost ...'
+      end
+      # verify the required parameter 'unit_cost_id' is set
+      if @api_client.config.client_side_validation && unit_cost_id.nil?
+        fail ArgumentError, "Missing the required parameter 'unit_cost_id' when calling CloudCostManagementAPI.get_unit_cost"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/unit_costs/{unit_cost_id}'.sub('{unit_cost_id}', CGI.escape(unit_cost_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnitCostResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_unit_cost,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_unit_cost\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List budgets.
     #
     # @see #list_budgets_with_http_info
@@ -3977,6 +4192,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List unit costs.
+    #
+    # @see #list_unit_costs_with_http_info
+    def list_unit_costs(opts = {})
+      data, _status_code, _headers = list_unit_costs_with_http_info(opts)
+      data
+    end
+
+    # List unit costs.
+    #
+    # List the ROI metrics (unit costs) for the authenticated organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UnitCostsResponse, Integer, Hash)>] UnitCostsResponse data, response status code and response headers
+    def list_unit_costs_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_unit_costs".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_unit_costs")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_unit_costs"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_unit_costs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/unit_costs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnitCostsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_unit_costs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_unit_costs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Reorder custom allocation rules.
     #
     # @see #reorder_custom_allocation_rules_with_http_info
@@ -4635,6 +4916,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a unit cost.
+    #
+    # @see #update_unit_cost_with_http_info
+    def update_unit_cost(unit_cost_id, body, opts = {})
+      data, _status_code, _headers = update_unit_cost_with_http_info(unit_cost_id, body, opts)
+      data
+    end
+
+    # Update a unit cost.
+    #
+    # Replace an ROI metric (unit cost) with a new set of attributes.
+    #
+    # @param unit_cost_id [UUID] The UUID of the unit cost.
+    # @param body [UnitCostUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UnitCostResponse, Integer, Hash)>] UnitCostResponse data, response status code and response headers
+    def update_unit_cost_with_http_info(unit_cost_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_unit_cost".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_unit_cost")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_unit_cost"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_unit_cost ...'
+      end
+      # verify the required parameter 'unit_cost_id' is set
+      if @api_client.config.client_side_validation && unit_cost_id.nil?
+        fail ArgumentError, "Missing the required parameter 'unit_cost_id' when calling CloudCostManagementAPI.update_unit_cost"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_unit_cost"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/unit_costs/{unit_cost_id}'.sub('{unit_cost_id}', CGI.escape(unit_cost_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UnitCostResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_unit_cost,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_unit_cost\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
