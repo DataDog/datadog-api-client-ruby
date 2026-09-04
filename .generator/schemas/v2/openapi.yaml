@@ -19100,6 +19100,11 @@ components:
           format: int32
           maximum: 2147483647
           type: integer
+        contentPackUpdateAvailable:
+          description: "Whether an update is available for the content pack. Only set for activated content packs, `null` otherwise"
+          example: false
+          nullable: true
+          type: boolean
         datadogManaged:
           description: "Whether the policy is managed by Datadog"
           example: false
@@ -19166,6 +19171,10 @@ components:
           format: int32
           maximum: 2147483647
           type: integer
+        sourceDefaultPolicyId:
+          description: "The ID of the Datadog-managed default policy this policy is derived from"
+          example: "xxx-yyy-zzz"
+          type: string
         updateDate:
           description: "Timestamp in milliseconds when the policy was last updated"
           example: 1624366480320

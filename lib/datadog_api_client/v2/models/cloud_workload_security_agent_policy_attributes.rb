@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The number of rules with the blocking feature in this policy
     attr_reader :blocking_rules_count
 
+    # Whether an update is available for the content pack. Only set for activated content packs, `null` otherwise
+    attr_accessor :content_pack_update_available
+
     # Whether the policy is managed by Datadog
     attr_accessor :datadog_managed
 
@@ -63,6 +66,9 @@ module DatadogAPIClient::V2
     # The number of rules in this policy
     attr_reader :rule_count
 
+    # The ID of the Datadog-managed default policy this policy is derived from
+    attr_accessor :source_default_policy_id
+
     # Timestamp in milliseconds when the policy was last updated
     attr_accessor :update_date
 
@@ -82,6 +88,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'blocking_rules_count' => :'blockingRulesCount',
+        :'content_pack_update_available' => :'contentPackUpdateAvailable',
         :'datadog_managed' => :'datadogManaged',
         :'description' => :'description',
         :'disabled_rules_count' => :'disabledRulesCount',
@@ -95,6 +102,7 @@ module DatadogAPIClient::V2
         :'policy_version' => :'policyVersion',
         :'priority' => :'priority',
         :'rule_count' => :'ruleCount',
+        :'source_default_policy_id' => :'sourceDefaultPolicyId',
         :'update_date' => :'updateDate',
         :'updated_at' => :'updatedAt',
         :'updater' => :'updater',
@@ -107,6 +115,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'blocking_rules_count' => :'Integer',
+        :'content_pack_update_available' => :'Boolean',
         :'datadog_managed' => :'Boolean',
         :'description' => :'String',
         :'disabled_rules_count' => :'Integer',
@@ -120,11 +129,20 @@ module DatadogAPIClient::V2
         :'policy_version' => :'String',
         :'priority' => :'Integer',
         :'rule_count' => :'Integer',
+        :'source_default_policy_id' => :'String',
         :'update_date' => :'Integer',
         :'updated_at' => :'Integer',
         :'updater' => :'CloudWorkloadSecurityAgentPolicyUpdaterAttributes',
         :'versions' => :'Array<CloudWorkloadSecurityAgentPolicyVersion>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'content_pack_update_available',
+      ])
     end
 
     # Initializes the object
@@ -147,6 +165,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'blocking_rules_count')
         self.blocking_rules_count = attributes[:'blocking_rules_count']
+      end
+
+      if attributes.key?(:'content_pack_update_available')
+        self.content_pack_update_available = attributes[:'content_pack_update_available']
       end
 
       if attributes.key?(:'datadog_managed')
@@ -203,6 +225,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rule_count')
         self.rule_count = attributes[:'rule_count']
+      end
+
+      if attributes.key?(:'source_default_policy_id')
+        self.source_default_policy_id = attributes[:'source_default_policy_id']
       end
 
       if attributes.key?(:'update_date')
@@ -302,6 +328,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           blocking_rules_count == o.blocking_rules_count &&
+          content_pack_update_available == o.content_pack_update_available &&
           datadog_managed == o.datadog_managed &&
           description == o.description &&
           disabled_rules_count == o.disabled_rules_count &&
@@ -315,6 +342,7 @@ module DatadogAPIClient::V2
           policy_version == o.policy_version &&
           priority == o.priority &&
           rule_count == o.rule_count &&
+          source_default_policy_id == o.source_default_policy_id &&
           update_date == o.update_date &&
           updated_at == o.updated_at &&
           updater == o.updater &&
@@ -326,7 +354,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [blocking_rules_count, datadog_managed, description, disabled_rules_count, enabled, host_tags, host_tags_lists, monitoring_rules_count, name, pinned, policy_type, policy_version, priority, rule_count, update_date, updated_at, updater, versions, additional_properties].hash
+      [blocking_rules_count, content_pack_update_available, datadog_managed, description, disabled_rules_count, enabled, host_tags, host_tags_lists, monitoring_rules_count, name, pinned, policy_type, policy_version, priority, rule_count, source_default_policy_id, update_date, updated_at, updater, versions, additional_properties].hash
     end
   end
 end
