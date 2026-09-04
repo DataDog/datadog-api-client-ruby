@@ -2723,6 +2723,12 @@ ScenariosModelMappings = {
     "v2.GetCodeCoverageCommitSummary" => {
             "body" => "CommitCoverageSummaryRequest",
     },
+    "v2.GetCodeCoverageFiles" => {
+            "body" => "FilesCoverageRequest",
+    },
+    "v2.GetCodeCoveragePRSummary" => {
+            "body" => "PRCoverageSummaryRequest",
+    },
     "v2.GetRuleBasedView" => {
             "to" => "Integer",
             "framework" => "String",
