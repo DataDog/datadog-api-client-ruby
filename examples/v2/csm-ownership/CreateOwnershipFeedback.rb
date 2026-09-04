@@ -10,8 +10,6 @@ body = DatadogAPIClient::V2::OwnershipFeedbackRequest.new({
   data: DatadogAPIClient::V2::OwnershipFeedbackRequestData.new({
     attributes: DatadogAPIClient::V2::OwnershipFeedbackRequestAttributes.new({
       action: DatadogAPIClient::V2::OwnershipFeedbackAction::CONFIRM,
-      actor_handle: "user@example.com",
-      actor_type: "user",
       corrected_owner_handle: "team-b",
       corrected_owner_type: "team",
       inference_checksum: "abc123",
