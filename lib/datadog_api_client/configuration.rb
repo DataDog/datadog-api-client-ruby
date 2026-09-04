@@ -789,6 +789,7 @@ module DatadogAPIClient
             "v2.add_member_team": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
+            "v2.create_timeseries_anomaly_investigation": false,
             "v2.create_web_integration_account": false,
             "v2.delete_web_integration_account": false,
             "v2.get_web_integration_account": false,
