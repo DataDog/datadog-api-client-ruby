@@ -22,7 +22,8 @@ module DatadogAPIClient::V2
   # workload_security, signal_correlation, cloud_configuration and infrastructure_configuration.
   # Vulnerability-based notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
   # application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk, misconfiguration,
-  # api_security, host_vulnerability, iac_misconfiguration, sast_vulnerability, secret_vulnerability and workload_activity.
+  # api_security, host_vulnerability, iac_misconfiguration, sast_vulnerability, secret_vulnerability, workload_activity,
+  # sensitive_data and serverless_function_code_vulnerability.
   class RuleTypesItems
     include BaseEnumModel
 
@@ -44,5 +45,7 @@ module DatadogAPIClient::V2
     SAST_VULNERABILITY = "sast_vulnerability".freeze
     SECRET_VULNERABILITY = "secret_vulnerability".freeze
     WORKLOAD_ACTIVITY = "workload_activity".freeze
+    SENSITIVE_DATA = "sensitive_data".freeze
+    SERVERLESS_FUNCTION_CODE_VULNERABILITY = "serverless_function_code_vulnerability".freeze
   end
 end
