@@ -3027,6 +3027,8 @@ module DatadogAPIClient
           "v2.deployment_rule_data_type" => "DeploymentRuleDataType",
           "v2.deployment_rule_options_faulty_deployment_detection" => "DeploymentRuleOptionsFaultyDeploymentDetection",
           "v2.deployment_rule_options_monitor" => "DeploymentRuleOptionsMonitor",
+          "v2.deployment_rule_options_monitor_id" => "DeploymentRuleOptionsMonitorId",
+          "v2.deployment_rule_options_monitor_ids" => "DeploymentRuleOptionsMonitorIds",
           "v2.deployment_rule_response" => "DeploymentRuleResponse",
           "v2.deployment_rule_response_data" => "DeploymentRuleResponseData",
           "v2.deployment_rule_response_data_attributes" => "DeploymentRuleResponseDataAttributes",
