@@ -1,7 +1,16 @@
-require 'json'
-
-KEYWORDS = JSON.parse(File.read(File.join(__dir__, "..", "..", ".generator", "src", "generator", "keywords.json")))
-EDGE_CASES = JSON.parse(File.read(File.join(__dir__, "..", "..", ".generator", "src", "generator", "replacement.json")))
+KEYWORDS = %w[
+  __FILE__ and def end in or self unless __LINE__ begin defined? ensure module
+  redo super until BEGIN break do false next rescue then when END case else for
+  nil retry true while alias class elsif if not return undef yield hash
+].freeze
+EDGE_CASES = {
+  "IdP" => "Idp",
+  "AuthNMapping" => "AuthnMapping",
+  "AuthN " => "Authn ",
+  "IoT" => "Iot",
+  "SLOs" => "Slos",
+  "APIs" => "Apis",
+}.freeze
 REPLACED_KEYS = EDGE_CASES.keys.map { |k| Regexp.quote(k) }.join("|")
 
 class Object

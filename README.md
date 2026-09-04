@@ -1,7 +1,7 @@
 # datadog-api-client-ruby
 
 This repository contains a Ruby API client for the [Datadog API](https://docs.datadoghq.com/api/).
-The code is generated using [`generator`](https://github.com/DataDog/datadog-api-client-ruby/tree/master/.generator) package.
+The client code is generated from Datadog's public OpenAPI specifications. The generator is maintained in the [Datadog API client generator](https://github.com/DataDog/datadog-api-client-generator) repository.
 
 ## Requirements
 
