@@ -1,17 +1,19 @@
-KEYWORDS = %w[
-  __FILE__ and def end in or self unless __LINE__ begin defined? ensure module
-  redo super until BEGIN break do false next rescue then when END case else for
-  nil retry true while alias class elsif if not return undef yield hash
-].freeze
-EDGE_CASES = {
-  "IdP" => "Idp",
-  "AuthNMapping" => "AuthnMapping",
-  "AuthN " => "Authn ",
-  "IoT" => "Iot",
-  "SLOs" => "Slos",
-  "APIs" => "Apis",
-}.freeze
-REPLACED_KEYS = EDGE_CASES.keys.map { |k| Regexp.quote(k) }.join("|")
+module GeneratedCode
+  def self.normalize_identifier(value)
+    value.to_s.gsub(/[^a-z0-9]/i, '').downcase
+  end
+
+  def self.same_identifier?(left, right)
+    normalize_identifier(left) == normalize_identifier(right)
+  end
+
+  def self.find_identifier(value, candidates, &block)
+    candidates.find do |candidate|
+      compared_value = block ? block.call(candidate) : candidate
+      same_identifier?(value, compared_value)
+    end
+  end
+end
 
 class Object
   def lookup(dotted_path)
@@ -30,9 +32,16 @@ class Object
           when Hash
             result = result.include?(part.to_sym) ? result[part.to_sym] : result[part]
           else
-            s = part.snakecase
-            s = "_#{s}" if KEYWORDS.include? s
-            result = result.send(s)
+            attribute = if result.class.respond_to?(:attribute_map)
+              result.class.attribute_map.find do |_ruby_name, json_name|
+                GeneratedCode.same_identifier?(part, json_name)
+              end&.first
+            else
+              GeneratedCode.find_identifier(part, result.public_methods)
+            end
+            raise NoMethodError, "No generated attribute for #{part.inspect} on #{result.class}" unless attribute
+
+            result = result.public_send(attribute)
           end
         end
       end
@@ -43,24 +52,6 @@ class Object
 end
 
 class String
-  def snakecase
-    gsub(/#{REPLACED_KEYS}/, EDGE_CASES).
-    gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2').
-      gsub(/([a-z\d])([A-Z])/, '\1_\2').
-      tr('-', '_').
-      gsub(/\W+/, '_').
-      gsub(/_+$/, '').
-      gsub(/\s/, '_').
-      gsub(/__+/, '_').
-      downcase
-  end
-
-  def to_parameter
-    name = snakecase
-    name = '_' + snakecase if name == "end"
-    name
-  end
-
   def templated(data)
     self.gsub(/{{ *([^{}]+|'[^']+'|"[^"]+") *}}/) do
       path = $1.strip
