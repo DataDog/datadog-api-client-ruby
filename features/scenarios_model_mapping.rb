@@ -1856,7 +1856,7 @@ ScenariosModelMappings = {
     },
     "v2.CreateCaseNotebook" => {
             "case_id" => "String",
-            "body" => "NotebookCreateRequest",
+            "body" => "CaseInvestigationNotebookCreateRequest",
     },
     "v2.MoveCaseToProject" => {
             "case_id" => "String",
