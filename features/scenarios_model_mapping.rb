@@ -6580,6 +6580,9 @@ ScenariosModelMappings = {
     "v2.GetUserMemberships" => {
             "user_uuid" => "String",
     },
+    "v2.CreateTimeseriesAnomalyInvestigation" => {
+            "body" => "TimeseriesAnomalyInvestigationRequest",
+    },
     "v2.ListUserAuthorizedClients" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
