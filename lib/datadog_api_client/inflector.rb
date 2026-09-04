@@ -3043,6 +3043,7 @@ module DatadogAPIClient
           "v2.device_attributes" => "DeviceAttributes",
           "v2.device_attributes_interface_statuses" => "DeviceAttributesInterfaceStatuses",
           "v2.devices_list_data" => "DevicesListData",
+          "v2.device_tags_by_source" => "DeviceTagsBySource",
           "v2.dns_metric_key" => "DnsMetricKey",
           "v2.domain_allowlist" => "DomainAllowlist",
           "v2.domain_allowlist_attributes" => "DomainAllowlistAttributes",

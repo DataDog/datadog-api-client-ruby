@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of ListTagsResponseDataAttributes object.
-  class ListTagsResponseDataAttributes
+  # Tags associated with a device from a specific source.
+  class DeviceTagsBySource
     include BaseGenericModel
 
-    # The list of device tags grouped by source.
-    attr_accessor :by_source
+    # The source of the tags.
+    attr_accessor :source
 
-    # The list of tags
+    # The list of tags for the source.
     attr_accessor :tags
 
     attr_accessor :additional_properties
@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'by_source' => :'by_source',
+        :'source' => :'source',
         :'tags' => :'tags'
       }
     end
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'by_source' => :'Array<DeviceTagsBySource>',
+        :'source' => :'String',
         :'tags' => :'Array<String>'
       }
     end
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListTagsResponseDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeviceTagsBySource` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,10 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'by_source')
-        if (value = attributes[:'by_source']).is_a?(Array)
-          self.by_source = value
-        end
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'tags')
@@ -104,7 +102,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          by_source == o.by_source &&
+          source == o.source &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -113,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [by_source, tags, additional_properties].hash
+      [source, tags, additional_properties].hash
     end
   end
 end
