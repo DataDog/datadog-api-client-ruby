@@ -3974,6 +3974,19 @@ ScenariosModelMappings = {
             "id" => "UUID",
             "body" => "IncidentTimestampOverridePatchRequest",
     },
+    "v2.CreateDatabricksIntegrationAccount" => {
+            "body" => "DatabricksIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteDatabricksIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetDatabricksIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateDatabricksIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "DatabricksIntegrationAccountUpdateRequest",
+    },
     "v2.CreateElasticCloudIntegrationAccount" => {
             "body" => "ElasticCloudIntegrationAccountCreateRequest",
     },
