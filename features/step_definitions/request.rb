@@ -124,6 +124,22 @@ module APIWorld
     File.expand_path('..', __dir__)
   end
 
+  def generated_operation_method(api_instance, operation_id)
+    method_name = GeneratedCode.find_identifier(
+      operation_id,
+      api_instance.public_methods.grep(/_with_http_info$/)
+    ) { |name| name.to_s.delete_suffix('_with_http_info') }
+    raise NameError, "No generated API method for #{operation_id.inspect} on #{api_instance.class}" unless method_name
+
+    api_instance.method(method_name)
+  end
+
+  def scenario_parameter_name(name, api_version = @api_version, operation_id = @operation_id)
+    parameters = ScenariosModelMappings.fetch("v#{api_version}.#{operation_id}").keys
+    GeneratedCode.find_identifier(name, parameters) ||
+      raise(NameError, "No generated parameter for #{name.inspect} on v#{api_version}.#{operation_id}")
+  end
+
   def undo_operations
     return @undo_operations if @undo_operations
     @undo_operations = {}
@@ -132,7 +148,7 @@ module APIWorld
       version = m[:version]
       @undo_operations[version] = {}
       JSON.parse(File.read(undo_path)).each do |operation_id, settings|
-        @undo_operations[version][operation_id.snakecase] = settings["undo"]
+        @undo_operations[version][GeneratedCode.normalize_identifier(operation_id)] = settings["undo"]
       end
     end
     @undo_operations
@@ -150,8 +166,9 @@ module APIWorld
     operation = undo_operations
     raise "missing x-undo for #{version}" unless operation.key? version
     operation = operation[version]
-    raise "missing x-undo for #{version}: #{operation_id}" unless operation.key? operation_id
-    operation = operation[operation_id]
+    operation_key = GeneratedCode.normalize_identifier(operation_id)
+    raise "missing x-undo for #{version}: #{operation_id}" unless operation.key? operation_key
+    operation = operation[operation_key]
     raise "update x-undo for #{version}: #{operation_id}" unless operation["type"]
 
     return if operation["type"] != "unsafe"
@@ -169,8 +186,8 @@ module APIWorld
     end
 
     api_instance ||= @api_instance
-    operation_name = operation["operationId"].snakecase
-    method = api_instance.method("#{operation_name}_with_http_info".to_sym)
+    method = generated_operation_method(api_instance, operation["operationId"])
+    operation_name = method.name.to_s.delete_suffix('_with_http_info')
 
     lambda do |response, request|
       args = operation["parameters"].map do |p|
@@ -180,13 +197,11 @@ module APIWorld
           # Extract from path parameters
           if p["source"]
             param_name = p["source"]
-            snake_param = param_name.to_parameter
-            if @path_parameters&.key?(param_name)
-              [p["name"].to_sym, @path_parameters[param_name]]
-            elsif @path_parameters&.key?(param_name.to_sym)
-              [p["name"].to_sym, @path_parameters[param_name.to_sym]]
-            elsif @path_parameters&.key?(snake_param)
-              [p["name"].to_sym, @path_parameters[snake_param]]
+            path_parameter = @path_parameters&.find do |name, _value|
+              GeneratedCode.same_identifier?(name, param_name)
+            end
+            if path_parameter
+              [p["name"].to_sym, path_parameter.last]
             else
               warn "Path parameter '#{param_name}' not found"
               nil
@@ -220,7 +235,6 @@ module APIWorld
 
   def build_given(api_version, operation)
     api_name = build_api_name(operation["tag"])
-    operation_name = operation["operationId"].snakecase
 
     # make sure we have a fresh instance of API client and configuration
     given_api = Object.const_get("DatadogAPIClient")
@@ -230,7 +244,8 @@ module APIWorld
     given_api_client = given_api::APIClient.new given_configuration
     add_test_server_session(given_api_client)
     given_api_instance = given_api.const_get("V#{api_version}").const_get(api_name).new given_api_client
-    method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
+    method = generated_operation_method(given_api_instance, operation["operationId"])
+    operation_name = method.name.to_s.delete_suffix('_with_http_info')
 
     # find undo method
     undo_builder = build_undo_for(api_version, operation_name, given_api_instance)
@@ -262,10 +277,9 @@ module APIWorld
         # 2. Parameter is not named "body" (body is required but not a path param)
         if index < required_params.length && p["name"] != "body"
           param_value = args[index]
-          # Store with all naming variants for compatibility with undo lookup
+          # Store both forms for compatibility with undo lookup.
           path_parameters[p["name"]] = param_value
-          path_parameters[p["name"].to_parameter] = param_value
-          path_parameters[p["name"].to_parameter.to_sym] = param_value
+          path_parameters[p["name"].to_sym] = param_value
         end
       end
     end
@@ -317,8 +331,8 @@ Given(/^an instance of "([^"]+)" API$/) do |api_name|
 end
 
 Given('operation {string} enabled') do |name|
-  "V#{@api_version}.#{name.snakecase}".to_sym
-  configuration.unstable_operations["v#{@api_version}.#{name.snakecase}".to_sym] = true
+  operation_name = generated_operation_method(@api_instance, name).name.to_s.delete_suffix('_with_http_info')
+  configuration.unstable_operations["v#{@api_version}.#{operation_name}".to_sym] = true
 end
 
 Given(/^body with value (.*)$/) do |body|
@@ -339,32 +353,32 @@ end
 Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_name, fixture_path|
   next if test_runner_enabled?
 
-  param_value = model_builder(parameter_name.to_parameter, fixtures.lookup(fixture_path))
-  param_key = parameter_name.to_parameter.to_sym
+  ruby_name = scenario_parameter_name(parameter_name)
+  param_value = model_builder(ruby_name, fixtures.lookup(fixture_path))
+  param_key = ruby_name.to_sym
   opts[param_key] = param_value
-  # Store in path_parameters for undo operations with all naming variants
+  # Store in path_parameters for undo operations with both naming variants.
   path_parameters[parameter_name] = param_value
   path_parameters[param_key] = param_value
-  path_parameters[parameter_name.to_parameter] = param_value
 end
 
 Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
   next if test_runner_enabled?
 
-  param_value = model_builder(parameter_name.to_parameter, JSON.parse(value.templated fixtures))
-  param_key = parameter_name.to_parameter.to_sym
+  ruby_name = scenario_parameter_name(parameter_name)
+  param_value = model_builder(ruby_name, JSON.parse(value.templated fixtures))
+  param_key = ruby_name.to_sym
   opts[param_key] = param_value
-  # Store in path_parameters for undo operations with all naming variants
+  # Store in path_parameters for undo operations with both naming variants.
   path_parameters[parameter_name] = param_value
   path_parameters[param_key] = param_value
-  path_parameters[parameter_name.to_parameter] = param_value
 end
 
 Given(/^new "([^"]+)" request$/) do |name|
   next if test_runner_enabled?
 
   @operation_id = name
-  @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
+  @api_method = generated_operation_method(@api_instance, name)
 end
 
 When('the request is sent') do

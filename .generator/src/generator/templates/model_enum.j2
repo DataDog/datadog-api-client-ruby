@@ -1,8 +1,0 @@
-  class {{ name }}
-    include BaseEnumModel
-{# keep new line #}
-
-{%- for index, value in enumerate(model.enum) %}
-    {{ model["x-enum-varnames"][index] or value.upper() }} = {{ value|format_value(quotes='"') }}.freeze
-{%- endfor %}
-  end
