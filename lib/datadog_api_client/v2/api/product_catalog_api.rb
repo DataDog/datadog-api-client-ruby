@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # that code in ascending order. The whole catalog is returned in a single response, so
     # this endpoint is not paginated.
     #
-    # @param version [ProductCatalogSKUsAPIVersion] The version of the product catalog contract to return. `v1` is the latest.
+    # @param version [ProductCatalogSKUsAPIVersion] The version of the product catalog response contract to return. `v1` is the latest. This is independent of the `/api/v2` path segment, which is the version of the Datadog API itself.
     # @param opts [Hash] the optional parameters
-    # @option opts [Time] :as_of_date The date the returned prices, allotments, and pricing tiers are effective as of, in `YYYY-MM-DD` format. Defaults to the date of the request, and must not be later than it.
+    # @option opts [Time] :as_of_date The date the returned prices, allotments, and pricing tiers are effective as of, in `YYYY-MM-DD` format. Defaults to the date of the request, and must not be later than it. Set it to a date in a past billing period to reconcile that period against the prices that were in effect then, rather than today.
     # @return [Array<(ProductCatalogSKUsResponse, Integer, Hash)>] ProductCatalogSKUsResponse data, response status code and response headers
     def list_product_catalog_sk_us_with_http_info(version, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_product_catalog_sk_us".to_sym]
