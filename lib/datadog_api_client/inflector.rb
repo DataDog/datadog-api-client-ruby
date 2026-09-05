@@ -3,7 +3,7 @@ require 'zeitwerk'
 module DatadogAPIClient
   class DatadogAPIClientInflector < Zeitwerk::Inflector
     def camelize(basename, abspath)
-      model_name = "#{abspath.match(/datadog_api_client\/(v[0-9])\//)&.captures&.first}.#{basename}"
+      model_name = "#{abspath.match(/datadog_api_client\/(v[0-9](?:_[0-9]{8})?)\//)&.captures&.first}.#{basename}"
       overrides[model_name] || basename.split('_').each(&:capitalize!).join
     end
 
@@ -1179,6 +1179,9 @@ module DatadogAPIClient
           "v1.wildcard_widget_request" => "WildcardWidgetRequest",
           "v1.wildcard_widget_specification" => "WildcardWidgetSpecification",
           "v1.wildcard_widget_specification_type" => "WildcardWidgetSpecificationType",
+          "v1_20270101.dashboard_summary" => "DashboardSummary",
+          "v1_20270101.dashboard_summary_definition" => "DashboardSummaryDefinition",
+          "v1_20270101.dashboard_summary_id" => "DashboardSummaryID",
           "v2.access_token_list_item" => "AccessTokenListItem",
           "v2.access_token_list_item_relationships" => "AccessTokenListItemRelationships",
           "v2.access_token_owner_type" => "AccessTokenOwnerType",
@@ -8934,6 +8937,7 @@ module DatadogAPIClient
         "v1.usage_metering_api" => "UsageMeteringAPI",
         "v1.users_api" => "UsersAPI",
         "v1.webhooks_integration_api" => "WebhooksIntegrationAPI",
+        "v1_20270101.dashboards_api" => "DashboardsAPI",
         "v2.action_connection_api" => "ActionConnectionAPI",
         "v2.actions_datastores_api" => "ActionsDatastoresAPI",
         "v2.agent_observability_api" => "AgentObservabilityAPI",
