@@ -10155,7 +10155,7 @@ module DatadogAPIClient::V2
     #
     # @param body [DueDateRuleReorderRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(DueDateRuleReorderRequest, Integer, Hash)>] DueDateRuleReorderRequest data, response status code and response headers
+    # @return [Array<(DueDateRuleReorderResponse, Integer, Hash)>] DueDateRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_due_date_rules_with_http_info(body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.reorder_security_findings_automation_due_date_rules".to_sym]
       if unstable_enabled
@@ -10191,7 +10191,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DueDateRuleReorderRequest'
+      return_type = opts[:debug_return_type] || 'DueDateRuleReorderResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -10228,7 +10228,7 @@ module DatadogAPIClient::V2
     #
     # @param body [MuteRuleReorderRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(MuteRuleReorderRequest, Integer, Hash)>] MuteRuleReorderRequest data, response status code and response headers
+    # @return [Array<(MuteRuleReorderResponse, Integer, Hash)>] MuteRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_mute_rules_with_http_info(body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.reorder_security_findings_automation_mute_rules".to_sym]
       if unstable_enabled
@@ -10264,7 +10264,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MuteRuleReorderRequest'
+      return_type = opts[:debug_return_type] || 'MuteRuleReorderResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -10374,7 +10374,7 @@ module DatadogAPIClient::V2
     #
     # @param body [TicketCreationRuleReorderRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(TicketCreationRuleReorderRequest, Integer, Hash)>] TicketCreationRuleReorderRequest data, response status code and response headers
+    # @return [Array<(TicketCreationRuleReorderResponse, Integer, Hash)>] TicketCreationRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_ticket_creation_rules_with_http_info(body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.reorder_security_findings_automation_ticket_creation_rules".to_sym]
       if unstable_enabled
@@ -10410,7 +10410,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'TicketCreationRuleReorderRequest'
+      return_type = opts[:debug_return_type] || 'TicketCreationRuleReorderResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
