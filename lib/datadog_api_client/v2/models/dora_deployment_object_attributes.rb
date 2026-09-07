@@ -21,8 +21,32 @@ module DatadogAPIClient::V2
   class DORADeploymentObjectAttributes
     include BaseGenericModel
 
+    # AI-assisted development metrics aggregated across the commits and pull requests included in the deployment.
+    attr_accessor :ai
+
+    # Averaged DORA and delivery metrics computed across the commits and pull requests included in the deployment.
+    attr_accessor :averaged_metrics
+
+    # Whether the deployment is flagged as a change failure.
+    attr_accessor :change_failure
+
+    # The list of commits included in the deployment.
+    attr_accessor :commits
+
+    # The time when the deployment event was recorded.
+    attr_accessor :created_at
+
+    # A map of custom metadata associated with the deployment.
+    attr_accessor :custom
+
     # A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
     attr_accessor :custom_tags
+
+    # The type of the deployment.
+    attr_accessor :deployment_type
+
+    # The duration of the deployment.
+    attr_accessor :duration
 
     # Environment name to where the service was deployed.
     attr_accessor :env
@@ -33,8 +57,26 @@ module DatadogAPIClient::V2
     # Git info returned by DORA Metrics events.
     attr_accessor :git
 
+    # The number of commits associated with the deployment.
+    attr_accessor :number_of_commits
+
+    # The number of pull requests associated with the deployment.
+    attr_accessor :number_of_pull_requests
+
+    # The list of pull requests included in the deployment.
+    attr_accessor :pull_requests
+
+    # The recovery time, in seconds, for a deployment flagged as a change failure.
+    attr_accessor :recovery_time_sec
+
+    # Remediation details for a deployment that was flagged as a change failure.
+    attr_accessor :remediation
+
     # Service name.
     attr_reader :service
+
+    # The source of the deployment event.
+    attr_accessor :source
 
     # The time when the deployment started.
     attr_reader :started_at
@@ -51,11 +93,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'ai' => :'ai',
+        :'averaged_metrics' => :'averaged_metrics',
+        :'change_failure' => :'change_failure',
+        :'commits' => :'commits',
+        :'created_at' => :'created_at',
+        :'custom' => :'custom',
         :'custom_tags' => :'custom_tags',
+        :'deployment_type' => :'deployment_type',
+        :'duration' => :'duration',
         :'env' => :'env',
         :'finished_at' => :'finished_at',
         :'git' => :'git',
+        :'number_of_commits' => :'number_of_commits',
+        :'number_of_pull_requests' => :'number_of_pull_requests',
+        :'pull_requests' => :'pull_requests',
+        :'recovery_time_sec' => :'recovery_time_sec',
+        :'remediation' => :'remediation',
         :'service' => :'service',
+        :'source' => :'source',
         :'started_at' => :'started_at',
         :'team' => :'team',
         :'version' => :'version'
@@ -66,11 +122,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'ai' => :'Hash<String, Object>',
+        :'averaged_metrics' => :'DORADeploymentAveragedMetrics',
+        :'change_failure' => :'Boolean',
+        :'commits' => :'Array<Hash<String, Object>>',
+        :'created_at' => :'Time',
+        :'custom' => :'Hash<String, Object>',
         :'custom_tags' => :'Array<String>',
+        :'deployment_type' => :'String',
+        :'duration' => :'Integer',
         :'env' => :'String',
         :'finished_at' => :'Time',
         :'git' => :'DORAGitInfoResponse',
+        :'number_of_commits' => :'Integer',
+        :'number_of_pull_requests' => :'Integer',
+        :'pull_requests' => :'Array<Hash<String, Object>>',
+        :'recovery_time_sec' => :'Integer',
+        :'remediation' => :'DORADeploymentRemediation',
         :'service' => :'String',
+        :'source' => :'String',
         :'started_at' => :'Time',
         :'team' => :'String',
         :'version' => :'String'
@@ -103,10 +173,44 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'ai')
+        self.ai = attributes[:'ai']
+      end
+
+      if attributes.key?(:'averaged_metrics')
+        self.averaged_metrics = attributes[:'averaged_metrics']
+      end
+
+      if attributes.key?(:'change_failure')
+        self.change_failure = attributes[:'change_failure']
+      end
+
+      if attributes.key?(:'commits')
+        if (value = attributes[:'commits']).is_a?(Array)
+          self.commits = value
+        end
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'custom')
+        self.custom = attributes[:'custom']
+      end
+
       if attributes.key?(:'custom_tags')
         if (value = attributes[:'custom_tags']).is_a?(Array)
           self.custom_tags = value
         end
+      end
+
+      if attributes.key?(:'deployment_type')
+        self.deployment_type = attributes[:'deployment_type']
+      end
+
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
       end
 
       if attributes.key?(:'env')
@@ -121,8 +225,34 @@ module DatadogAPIClient::V2
         self.git = attributes[:'git']
       end
 
+      if attributes.key?(:'number_of_commits')
+        self.number_of_commits = attributes[:'number_of_commits']
+      end
+
+      if attributes.key?(:'number_of_pull_requests')
+        self.number_of_pull_requests = attributes[:'number_of_pull_requests']
+      end
+
+      if attributes.key?(:'pull_requests')
+        if (value = attributes[:'pull_requests']).is_a?(Array)
+          self.pull_requests = value
+        end
+      end
+
+      if attributes.key?(:'recovery_time_sec')
+        self.recovery_time_sec = attributes[:'recovery_time_sec']
+      end
+
+      if attributes.key?(:'remediation')
+        self.remediation = attributes[:'remediation']
+      end
+
       if attributes.key?(:'service')
         self.service = attributes[:'service']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'started_at')
@@ -193,11 +323,25 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai == o.ai &&
+          averaged_metrics == o.averaged_metrics &&
+          change_failure == o.change_failure &&
+          commits == o.commits &&
+          created_at == o.created_at &&
+          custom == o.custom &&
           custom_tags == o.custom_tags &&
+          deployment_type == o.deployment_type &&
+          duration == o.duration &&
           env == o.env &&
           finished_at == o.finished_at &&
           git == o.git &&
+          number_of_commits == o.number_of_commits &&
+          number_of_pull_requests == o.number_of_pull_requests &&
+          pull_requests == o.pull_requests &&
+          recovery_time_sec == o.recovery_time_sec &&
+          remediation == o.remediation &&
           service == o.service &&
+          source == o.source &&
           started_at == o.started_at &&
           team == o.team &&
           version == o.version &&
@@ -208,7 +352,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_tags, env, finished_at, git, service, started_at, team, version, additional_properties].hash
+      [ai, averaged_metrics, change_failure, commits, created_at, custom, custom_tags, deployment_type, duration, env, finished_at, git, number_of_commits, number_of_pull_requests, pull_requests, recovery_time_sec, remediation, service, source, started_at, team, version, additional_properties].hash
     end
   end
 end
