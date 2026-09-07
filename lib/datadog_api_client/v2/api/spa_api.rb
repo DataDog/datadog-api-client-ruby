@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get SPA Recommendations with a shard parameter.
+    # Get SPA recommendations using a shard parameter.
     #
     # @see #get_spa_recommendations_with_shard_with_http_info
     def get_spa_recommendations_with_shard(shard, service, opts = {})
@@ -104,7 +104,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get SPA Recommendations with a shard parameter.
+    # Get SPA recommendations using a shard parameter.
     #
     # This endpoint is currently experimental and restricted to Datadog internal use only. Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and shard identifier, and SPA returns structured recommendations for driver and executor resources.
     #

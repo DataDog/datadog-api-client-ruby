@@ -1,4 +1,4 @@
-# Get SPA Recommendations with a shard parameter returns "OK" response
+# Get SPA recommendations using a shard parameter returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
