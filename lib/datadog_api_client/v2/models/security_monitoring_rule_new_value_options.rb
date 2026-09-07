@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
     attr_accessor :instantaneous_baseline
 
+    # Timeout in minutes for constructing the instantaneous baseline.
+    attr_reader :instantaneous_baseline_timeout_minutes
+
     # The duration in days during which values are learned, and after which signals will be generated for values that
     # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
     attr_reader :learning_duration
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
       {
         :'forget_after' => :'forgetAfter',
         :'instantaneous_baseline' => :'instantaneousBaseline',
+        :'instantaneous_baseline_timeout_minutes' => :'instantaneousBaselineTimeoutMinutes',
         :'learning_duration' => :'learningDuration',
         :'learning_method' => :'learningMethod',
         :'learning_threshold' => :'learningThreshold'
@@ -57,6 +61,7 @@ module DatadogAPIClient::V2
       {
         :'forget_after' => :'Integer',
         :'instantaneous_baseline' => :'Boolean',
+        :'instantaneous_baseline_timeout_minutes' => :'Integer',
         :'learning_duration' => :'Integer',
         :'learning_method' => :'SecurityMonitoringRuleNewValueOptionsLearningMethod',
         :'learning_threshold' => :'SecurityMonitoringRuleNewValueOptionsLearningThreshold'
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
         self.instantaneous_baseline = attributes[:'instantaneous_baseline']
       end
 
+      if attributes.key?(:'instantaneous_baseline_timeout_minutes')
+        self.instantaneous_baseline_timeout_minutes = attributes[:'instantaneous_baseline_timeout_minutes']
+      end
+
       if attributes.key?(:'learning_duration')
         self.learning_duration = attributes[:'learning_duration']
       end
@@ -108,6 +117,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if !@forget_after.nil? && @forget_after > 30
       return false if !@forget_after.nil? && @forget_after < 1
+      return false if !@instantaneous_baseline_timeout_minutes.nil? && @instantaneous_baseline_timeout_minutes > 2147483647
       return false if !@learning_duration.nil? && @learning_duration > 30
       return false if !@learning_duration.nil? && @learning_duration < 0
       true
@@ -124,6 +134,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "forget_after", must be greater than or equal to 1.'
       end
       @forget_after = forget_after
+    end
+
+    # Custom attribute writer method with validation
+    # @param instantaneous_baseline_timeout_minutes [Object] Object to be assigned
+    # @!visibility private
+    def instantaneous_baseline_timeout_minutes=(instantaneous_baseline_timeout_minutes)
+      if !instantaneous_baseline_timeout_minutes.nil? && instantaneous_baseline_timeout_minutes > 2147483647
+        fail ArgumentError, 'invalid value for "instantaneous_baseline_timeout_minutes", must be smaller than or equal to 2147483647.'
+      end
+      @instantaneous_baseline_timeout_minutes = instantaneous_baseline_timeout_minutes
     end
 
     # Custom attribute writer method with validation
@@ -167,6 +187,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           forget_after == o.forget_after &&
           instantaneous_baseline == o.instantaneous_baseline &&
+          instantaneous_baseline_timeout_minutes == o.instantaneous_baseline_timeout_minutes &&
           learning_duration == o.learning_duration &&
           learning_method == o.learning_method &&
           learning_threshold == o.learning_threshold &&
@@ -177,7 +198,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [forget_after, instantaneous_baseline, learning_duration, learning_method, learning_threshold, additional_properties].hash
+      [forget_after, instantaneous_baseline, instantaneous_baseline_timeout_minutes, learning_duration, learning_method, learning_threshold, additional_properties].hash
     end
   end
 end
