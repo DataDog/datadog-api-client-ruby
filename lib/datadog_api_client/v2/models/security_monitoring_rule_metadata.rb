@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A rule version with a list of updates.
-  class RuleVersions
+  # Metadata associated with the rule.
+  class SecurityMonitoringRuleMetadata
     include BaseGenericModel
 
-    # A list of changes.
-    attr_accessor :changes
+    # Entities associated with the rule, or null when metadata is not requested.
+    attr_accessor :entities
 
-    # A security monitoring rule.
-    attr_accessor :rule
+    # Sources associated with the rule, or null when metadata is not requested.
+    attr_accessor :sources
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'changes' => :'changes',
-        :'rule' => :'rule'
+        :'entities' => :'entities',
+        :'sources' => :'sources'
       }
     end
 
@@ -42,9 +42,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'changes' => :'Array<VersionHistoryUpdate>',
-        :'rule' => :'SecurityMonitoringRuleResponse'
+        :'entities' => :'Array<Object>',
+        :'sources' => :'Array<String>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'entities',
+        :'sources',
+      ])
     end
 
     # Initializes the object
@@ -52,7 +61,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RuleVersions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleMetadata` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +74,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'changes')
-        if (value = attributes[:'changes']).is_a?(Array)
-          self.changes = value
+      if attributes.key?(:'entities')
+        if (value = attributes[:'entities']).is_a?(Array)
+          self.entities = value
         end
       end
 
-      if attributes.key?(:'rule')
-        self.rule = attributes[:'rule']
+      if attributes.key?(:'sources')
+        if (value = attributes[:'sources']).is_a?(Array)
+          self.sources = value
+        end
       end
     end
 
@@ -102,8 +113,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          changes == o.changes &&
-          rule == o.rule &&
+          entities == o.entities &&
+          sources == o.sources &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +122,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [changes, rule, additional_properties].hash
+      [entities, sources, additional_properties].hash
     end
   end
 end
