@@ -3237,6 +3237,59 @@ ScenariosModelMappings = {
     "v2.CancelDataDeletionRequest" => {
             "id" => "String",
     },
+    "v2.CreateJourney" => {
+            "body" => "DemJourneyCreateRequest",
+    },
+    "v2.DeleteIgnoredInferredJourney" => {
+            "journey_id" => "String",
+    },
+    "v2.SearchInferredJourneys" => {
+            "status" => "DemInferredJourneyStatus",
+            "q" => "String",
+            "app_id" => "String",
+    },
+    "v2.IgnoreInferredJourney" => {
+            "journey_id" => "String",
+    },
+    "v2.SearchJourneys" => {
+            "query" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "creator" => "String",
+            "team" => "String",
+            "app_id" => "String",
+    },
+    "v2.BatchGetJourneysByTestSuiteIDs" => {
+            "body" => "DemBatchGetJourneysRequest",
+    },
+    "v2.DeleteJourneyVariant" => {
+            "variant_id" => "String",
+    },
+    "v2.UpdateJourneyVariant" => {
+            "variant_id" => "String",
+            "body" => "DemVariantRequest",
+    },
+    "v2.DeleteJourney" => {
+            "journey_id" => "String",
+    },
+    "v2.GetJourney" => {
+            "journey_id" => "String",
+    },
+    "v2.UpdateJourney" => {
+            "journey_id" => "String",
+            "body" => "DemJourneyCreateRequest",
+    },
+    "v2.GetJourneyRecommendedTests" => {
+            "journey_id" => "String",
+    },
+    "v2.CreateJourneyVariant" => {
+            "journey_id" => "String",
+            "body" => "DemVariantRequest",
+    },
+    "v2.CreateTestSuiteForJourney" => {
+            "public_journey_id" => "String",
+            "body" => "DemCreateJourneyTestSuiteRequest",
+    },
     "v2.ListDeploymentGates" => {
             "page_cursor" => "String",
             "page_size" => "Integer",
