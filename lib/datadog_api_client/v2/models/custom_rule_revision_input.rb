@@ -17,30 +17,34 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Input attributes for creating or updating a custom rule revision.
-  class CustomRuleRevisionInputAttributes
+  # A revision of a custom static analysis rule as embedded in a rule supplied by a create
+  # or update request. Nested revisions are sent flat, without a `data`/`type`/`attributes`
+  # envelope. `id`, `version_id`, `checksum`, `created_at` and `created_by` are server-assigned
+  # and read-only; they are declared so that a ruleset previously read back can be supplied
+  # unchanged.
+  class CustomRuleRevisionInput
     include BaseGenericModel
 
     # Rule arguments
     attr_accessor :arguments
 
     # Rule category
-    attr_reader :category
+    attr_accessor :category
 
-    # Code checksum. Derived by the API from `code`; ignored on write.
+    # Code checksum
     attr_accessor :checksum
 
     # Rule code
-    attr_reader :code
+    attr_accessor :code
 
-    # Creation timestamp. Set by the API; ignored on write.
+    # Creation timestamp
     attr_accessor :created_at
 
-    # Creator identifier. Set by the API from the caller; ignored on write.
+    # Creator identifier
     attr_accessor :created_by
 
     # Revision creation message
-    attr_reader :creation_message
+    attr_accessor :creation_message
 
     # Associated CVE
     attr_accessor :cve
@@ -48,29 +52,32 @@ module DatadogAPIClient::V2
     # Associated CWE
     attr_accessor :cwe
 
-    # Full description
-    attr_reader :description
+    # Base64-encoded full description
+    attr_accessor :description
 
     # Documentation URL
     attr_accessor :documentation_url
 
-    # Whether the revision is published
-    attr_reader :is_published
+    # Revision identifier
+    attr_accessor :id
+
+    # Whether the revision should be published
+    attr_accessor :is_published
 
     # Whether this is a testing revision
-    attr_reader :is_testing
+    attr_accessor :is_testing
 
     # Programming language
-    attr_reader :language
+    attr_accessor :language
 
     # Rule severity
-    attr_reader :severity
+    attr_accessor :severity
 
-    # Short description
-    attr_reader :short_description
+    # Base64-encoded short description
+    attr_accessor :short_description
 
     # Whether to use AI for fixes
-    attr_reader :should_use_ai_fix
+    attr_accessor :should_use_ai_fix
 
     # Rule tags
     attr_accessor :tags
@@ -79,12 +86,10 @@ module DatadogAPIClient::V2
     attr_accessor :tests
 
     # Tree-sitter query
-    attr_reader :tree_sitter_query
+    attr_accessor :tree_sitter_query
 
-    # Monotonically increasing version number of the revision. Assigned by the API; ignored on write.
+    # Monotonically increasing version number of the revision.
     attr_accessor :version_id
-
-    attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -101,6 +106,7 @@ module DatadogAPIClient::V2
         :'cwe' => :'cwe',
         :'description' => :'description',
         :'documentation_url' => :'documentation_url',
+        :'id' => :'id',
         :'is_published' => :'is_published',
         :'is_testing' => :'is_testing',
         :'language' => :'language',
@@ -129,6 +135,7 @@ module DatadogAPIClient::V2
         :'cwe' => :'String',
         :'description' => :'String',
         :'documentation_url' => :'String',
+        :'id' => :'String',
         :'is_published' => :'Boolean',
         :'is_testing' => :'Boolean',
         :'language' => :'Language',
@@ -160,17 +167,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CustomRuleRevisionInputAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CustomRuleRevisionInput` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CustomRuleRevisionInput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'arguments')
@@ -219,6 +224,10 @@ module DatadogAPIClient::V2
         self.documentation_url = attributes[:'documentation_url']
       end
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.key?(:'is_published')
         self.is_published = attributes[:'is_published']
       end
@@ -264,154 +273,6 @@ module DatadogAPIClient::V2
       end
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @category.nil?
-      return false if @code.nil?
-      return false if @creation_message.nil?
-      return false if @description.nil?
-      return false if @is_published.nil?
-      return false if @is_testing.nil?
-      return false if @language.nil?
-      return false if @severity.nil?
-      return false if @short_description.nil?
-      return false if @should_use_ai_fix.nil?
-      return false if @tree_sitter_query.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param category [Object] Object to be assigned
-    # @!visibility private
-    def category=(category)
-      if category.nil?
-        fail ArgumentError, 'invalid value for "category", category cannot be nil.'
-      end
-      @category = category
-    end
-
-    # Custom attribute writer method with validation
-    # @param code [Object] Object to be assigned
-    # @!visibility private
-    def code=(code)
-      if code.nil?
-        fail ArgumentError, 'invalid value for "code", code cannot be nil.'
-      end
-      @code = code
-    end
-
-    # Custom attribute writer method with validation
-    # @param creation_message [Object] Object to be assigned
-    # @!visibility private
-    def creation_message=(creation_message)
-      if creation_message.nil?
-        fail ArgumentError, 'invalid value for "creation_message", creation_message cannot be nil.'
-      end
-      @creation_message = creation_message
-    end
-
-    # Custom attribute writer method with validation
-    # @param description [Object] Object to be assigned
-    # @!visibility private
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
-      end
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param is_published [Object] Object to be assigned
-    # @!visibility private
-    def is_published=(is_published)
-      if is_published.nil?
-        fail ArgumentError, 'invalid value for "is_published", is_published cannot be nil.'
-      end
-      @is_published = is_published
-    end
-
-    # Custom attribute writer method with validation
-    # @param is_testing [Object] Object to be assigned
-    # @!visibility private
-    def is_testing=(is_testing)
-      if is_testing.nil?
-        fail ArgumentError, 'invalid value for "is_testing", is_testing cannot be nil.'
-      end
-      @is_testing = is_testing
-    end
-
-    # Custom attribute writer method with validation
-    # @param language [Object] Object to be assigned
-    # @!visibility private
-    def language=(language)
-      if language.nil?
-        fail ArgumentError, 'invalid value for "language", language cannot be nil.'
-      end
-      @language = language
-    end
-
-    # Custom attribute writer method with validation
-    # @param severity [Object] Object to be assigned
-    # @!visibility private
-    def severity=(severity)
-      if severity.nil?
-        fail ArgumentError, 'invalid value for "severity", severity cannot be nil.'
-      end
-      @severity = severity
-    end
-
-    # Custom attribute writer method with validation
-    # @param short_description [Object] Object to be assigned
-    # @!visibility private
-    def short_description=(short_description)
-      if short_description.nil?
-        fail ArgumentError, 'invalid value for "short_description", short_description cannot be nil.'
-      end
-      @short_description = short_description
-    end
-
-    # Custom attribute writer method with validation
-    # @param should_use_ai_fix [Object] Object to be assigned
-    # @!visibility private
-    def should_use_ai_fix=(should_use_ai_fix)
-      if should_use_ai_fix.nil?
-        fail ArgumentError, 'invalid value for "should_use_ai_fix", should_use_ai_fix cannot be nil.'
-      end
-      @should_use_ai_fix = should_use_ai_fix
-    end
-
-    # Custom attribute writer method with validation
-    # @param tree_sitter_query [Object] Object to be assigned
-    # @!visibility private
-    def tree_sitter_query=(tree_sitter_query)
-      if tree_sitter_query.nil?
-        fail ArgumentError, 'invalid value for "tree_sitter_query", tree_sitter_query cannot be nil.'
-      end
-      @tree_sitter_query = tree_sitter_query
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -429,6 +290,7 @@ module DatadogAPIClient::V2
           cwe == o.cwe &&
           description == o.description &&
           documentation_url == o.documentation_url &&
+          id == o.id &&
           is_published == o.is_published &&
           is_testing == o.is_testing &&
           language == o.language &&
@@ -438,15 +300,14 @@ module DatadogAPIClient::V2
           tags == o.tags &&
           tests == o.tests &&
           tree_sitter_query == o.tree_sitter_query &&
-          version_id == o.version_id &&
-          additional_properties == o.additional_properties
+          version_id == o.version_id
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [arguments, category, checksum, code, created_at, created_by, creation_message, cve, cwe, description, documentation_url, is_published, is_testing, language, severity, short_description, should_use_ai_fix, tags, tests, tree_sitter_query, version_id, additional_properties].hash
+      [arguments, category, checksum, code, created_at, created_by, creation_message, cve, cwe, description, documentation_url, id, is_published, is_testing, language, severity, short_description, should_use_ai_fix, tags, tests, tree_sitter_query, version_id].hash
     end
   end
 end

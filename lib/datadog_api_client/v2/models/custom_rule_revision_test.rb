@@ -88,6 +88,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @annotation_count.nil?
+      return false if @annotation_count > 65535
+      return false if @annotation_count < 0
       return false if @code.nil?
       return false if @filename.nil?
       true
@@ -99,6 +101,12 @@ module DatadogAPIClient::V2
     def annotation_count=(annotation_count)
       if annotation_count.nil?
         fail ArgumentError, 'invalid value for "annotation_count", annotation_count cannot be nil.'
+      end
+      if annotation_count > 65535
+        fail ArgumentError, 'invalid value for "annotation_count", must be smaller than or equal to 65535.'
+      end
+      if annotation_count < 0
+        fail ArgumentError, 'invalid value for "annotation_count", must be greater than or equal to 0.'
       end
       @annotation_count = annotation_count
     end

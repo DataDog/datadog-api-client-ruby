@@ -21,20 +21,20 @@ module DatadogAPIClient::V2
   class GetMultipleRulesetsResponseDataAttributesRulesetsItems
     include BaseGenericModel
 
-    # The resource identifier and type for a ruleset.
-    attr_reader :data
-
     # A detailed description of the ruleset's purpose and the types of issues it targets.
-    attr_accessor :description
+    attr_reader :description
+
+    # The unique identifier of the ruleset, which is the same as its name.
+    attr_reader :id
 
     # The unique name of the ruleset.
-    attr_accessor :name
+    attr_reader :name
 
     # The list of static analysis rules included in this ruleset.
-    attr_accessor :rules
+    attr_reader :rules
 
     # A brief summary of the ruleset, suitable for display in listings.
-    attr_accessor :short_description
+    attr_reader :short_description
 
     attr_accessor :additional_properties
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
         :'description' => :'description',
+        :'id' => :'id',
         :'name' => :'name',
         :'rules' => :'rules',
         :'short_description' => :'short_description'
@@ -54,8 +54,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'GetMultipleRulesetsResponseDataAttributesRulesetsItemsData',
         :'description' => :'String',
+        :'id' => :'String',
         :'name' => :'String',
         :'rules' => :'Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems>',
         :'short_description' => :'String'
@@ -80,12 +80,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'name')
@@ -107,18 +107,62 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @description.nil?
+      return false if @id.nil?
+      return false if @name.nil?
+      return false if @rules.nil?
+      return false if @short_description.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param description [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def description=(description)
+      if description.nil?
+        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
       end
-      @data = data
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param rules [Object] Object to be assigned
+    # @!visibility private
+    def rules=(rules)
+      if rules.nil?
+        fail ArgumentError, 'invalid value for "rules", rules cannot be nil.'
+      end
+      @rules = rules
+    end
+
+    # Custom attribute writer method with validation
+    # @param short_description [Object] Object to be assigned
+    # @!visibility private
+    def short_description=(short_description)
+      if short_description.nil?
+        fail ArgumentError, 'invalid value for "short_description", short_description cannot be nil.'
+      end
+      @short_description = short_description
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -147,8 +191,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
           description == o.description &&
+          id == o.id &&
           name == o.name &&
           rules == o.rules &&
           short_description == o.short_description &&
@@ -159,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, description, name, rules, short_description, additional_properties].hash
+      [description, id, name, rules, short_description, additional_properties].hash
     end
   end
 end

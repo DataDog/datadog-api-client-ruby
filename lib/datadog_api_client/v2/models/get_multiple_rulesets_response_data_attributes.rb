@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The list of rulesets returned in response to the batch request.
-    attr_accessor :rulesets
+    attr_reader :rulesets
 
     attr_accessor :additional_properties
 
@@ -65,6 +65,24 @@ module DatadogAPIClient::V2
           self.rulesets = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @rulesets.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param rulesets [Object] Object to be assigned
+    # @!visibility private
+    def rulesets=(rulesets)
+      if rulesets.nil?
+        fail ArgumentError, 'invalid value for "rulesets", rulesets cannot be nil.'
+      end
+      @rulesets = rulesets
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

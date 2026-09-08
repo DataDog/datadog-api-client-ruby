@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
         :'created_by' => :'String',
         :'description' => :'String',
         :'name' => :'String',
-        :'rules' => :'Array<CustomRule>',
+        :'rules' => :'Array<CustomRulesetRuleEmbedded>',
         :'short_description' => :'String'
       }
     end

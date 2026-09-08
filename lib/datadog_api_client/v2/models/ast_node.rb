@@ -17,18 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object returned in a custom rule response, including its ID, type, and attributes.
-  class CustomRuleResponseData
+  # A node in the abstract syntax tree of the parsed source code.
+  class AstNode
     include BaseGenericModel
 
-    # Attributes of a custom static analysis rule, including its most recent revision and revision history.
-    attr_reader :attributes
+    # The tree-sitter node type of this AST node.
+    attr_reader :ast_type
 
-    # Rule identifier
-    attr_reader :id
+    # The child nodes of this AST node, or null for a leaf node.
+    attr_accessor :children
 
-    # Resource type
-    attr_reader :type
+    # A position in source code, identified by line and column numbers.
+    attr_reader :_end
+
+    # The name of the field this node occupies within its parent node, when the parent addresses it by name.
+    attr_accessor :field_name
+
+    # A position in source code, identified by line and column numbers.
+    attr_reader :start
 
     attr_accessor :additional_properties
 
@@ -36,9 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'ast_type' => :'ast_type',
+        :'children' => :'children',
+        :'_end' => :'end',
+        :'field_name' => :'field_name',
+        :'start' => :'start'
       }
     end
 
@@ -46,10 +54,20 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'CustomRuleAttributes',
-        :'id' => :'String',
-        :'type' => :'CustomRuleDataType'
+        :'ast_type' => :'String',
+        :'children' => :'Array<AstNode>',
+        :'_end' => :'AnalysisPosition',
+        :'field_name' => :'String',
+        :'start' => :'AnalysisPosition'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'children',
+      ])
     end
 
     # Initializes the object
@@ -57,7 +75,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CustomRuleResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AstNode` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +88,26 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'ast_type')
+        self.ast_type = attributes[:'ast_type']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'children')
+        if (value = attributes[:'children']).is_a?(Array)
+          self.children = value
+        end
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'_end')
+        self._end = attributes[:'_end']
+      end
+
+      if attributes.key?(:'field_name')
+        self.field_name = attributes[:'field_name']
+      end
+
+      if attributes.key?(:'start')
+        self.start = attributes[:'start']
       end
     end
 
@@ -87,40 +115,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @ast_type.nil?
+      return false if @_end.nil?
+      return false if @start.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param ast_type [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def ast_type=(ast_type)
+      if ast_type.nil?
+        fail ArgumentError, 'invalid value for "ast_type", ast_type cannot be nil.'
       end
-      @attributes = attributes
+      @ast_type = ast_type
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param _end [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def _end=(_end)
+      if _end.nil?
+        fail ArgumentError, 'invalid value for "_end", _end cannot be nil.'
       end
-      @id = id
+      @_end = _end
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param start [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def start=(start)
+      if start.nil?
+        fail ArgumentError, 'invalid value for "start", start cannot be nil.'
       end
-      @type = type
+      @start = start
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +177,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          ast_type == o.ast_type &&
+          children == o.children &&
+          _end == o._end &&
+          field_name == o.field_name &&
+          start == o.start &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +189,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [ast_type, children, _end, field_name, start, additional_properties].hash
     end
   end
 end
