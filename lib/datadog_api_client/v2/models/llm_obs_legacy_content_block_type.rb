@@ -17,9 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Discriminator for a single `display_block` content block. Adding a
-  # variant requires coordinated changes in the frontend renderer.
-  class LLMObsContentBlockType
+  # Type discriminator for an existing non-frontend display block.
+  class LLMObsLegacyContentBlockType
     include BaseEnumModel
 
     MARKDOWN = "markdown".freeze
@@ -29,6 +28,5 @@ module DatadogAPIClient::V2
     IMAGE = "image".freeze
     WIDGET = "widget".freeze
     LLMOBS_TRACE = "llmobs_trace".freeze
-    FRONTEND = "frontend".freeze
   end
 end
