@@ -6549,6 +6549,7 @@ module DatadogAPIClient
           "v2.recommendation_data" => "RecommendationData",
           "v2.recommendation_document" => "RecommendationDocument",
           "v2.recommendations_filter_request" => "RecommendationsFilterRequest",
+          "v2.recommendations_filter_request_scope" => "RecommendationsFilterRequestScope",
           "v2.recommendations_filter_request_sort_items" => "RecommendationsFilterRequestSortItems",
           "v2.recommendations_page_meta" => "RecommendationsPageMeta",
           "v2.recommendations_page_meta_page" => "RecommendationsPageMetaPage",
