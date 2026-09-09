@@ -6181,6 +6181,7 @@ ScenariosModelMappings = {
             "page_offset" => "Integer",
             "page_limit" => "Integer",
             "filter_domain_prefix" => "String",
+            "filter_name" => "String",
             "include" => "String",
     },
     "v2.CreateStatusPage" => {
