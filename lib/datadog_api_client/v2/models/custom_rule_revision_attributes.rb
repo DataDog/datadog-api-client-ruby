@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Rule arguments
-    attr_reader :arguments
+    attr_accessor :arguments
 
     # Rule category
     attr_reader :category
@@ -73,13 +73,16 @@ module DatadogAPIClient::V2
     attr_reader :should_use_ai_fix
 
     # Rule tags
-    attr_reader :tags
+    attr_accessor :tags
 
     # Rule tests
-    attr_reader :tests
+    attr_accessor :tests
 
     # Tree-sitter query
     attr_reader :tree_sitter_query
+
+    # Monotonically increasing version number of the revision.
+    attr_reader :version_id
 
     attr_accessor :additional_properties
 
@@ -106,7 +109,8 @@ module DatadogAPIClient::V2
         :'should_use_ai_fix' => :'should_use_ai_fix',
         :'tags' => :'tags',
         :'tests' => :'tests',
-        :'tree_sitter_query' => :'tree_sitter_query'
+        :'tree_sitter_query' => :'tree_sitter_query',
+        :'version_id' => :'version_id'
       }
     end
 
@@ -133,7 +137,8 @@ module DatadogAPIClient::V2
         :'should_use_ai_fix' => :'Boolean',
         :'tags' => :'Array<String>',
         :'tests' => :'Array<CustomRuleRevisionTest>',
-        :'tree_sitter_query' => :'String'
+        :'tree_sitter_query' => :'String',
+        :'version_id' => :'Integer'
       }
     end
 
@@ -141,9 +146,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'arguments',
         :'cve',
         :'cwe',
         :'documentation_url',
+        :'tags',
+        :'tests',
       ])
     end
 
@@ -250,13 +258,16 @@ module DatadogAPIClient::V2
       if attributes.key?(:'tree_sitter_query')
         self.tree_sitter_query = attributes[:'tree_sitter_query']
       end
+
+      if attributes.key?(:'version_id')
+        self.version_id = attributes[:'version_id']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @arguments.nil?
       return false if @category.nil?
       return false if @checksum.nil?
       return false if @code.nil?
@@ -270,20 +281,9 @@ module DatadogAPIClient::V2
       return false if @severity.nil?
       return false if @short_description.nil?
       return false if @should_use_ai_fix.nil?
-      return false if @tags.nil?
-      return false if @tests.nil?
       return false if @tree_sitter_query.nil?
+      return false if @version_id.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param arguments [Object] Object to be assigned
-    # @!visibility private
-    def arguments=(arguments)
-      if arguments.nil?
-        fail ArgumentError, 'invalid value for "arguments", arguments cannot be nil.'
-      end
-      @arguments = arguments
     end
 
     # Custom attribute writer method with validation
@@ -417,26 +417,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param tags [Object] Object to be assigned
-    # @!visibility private
-    def tags=(tags)
-      if tags.nil?
-        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
-      end
-      @tags = tags
-    end
-
-    # Custom attribute writer method with validation
-    # @param tests [Object] Object to be assigned
-    # @!visibility private
-    def tests=(tests)
-      if tests.nil?
-        fail ArgumentError, 'invalid value for "tests", tests cannot be nil.'
-      end
-      @tests = tests
-    end
-
-    # Custom attribute writer method with validation
     # @param tree_sitter_query [Object] Object to be assigned
     # @!visibility private
     def tree_sitter_query=(tree_sitter_query)
@@ -444,6 +424,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "tree_sitter_query", tree_sitter_query cannot be nil.'
       end
       @tree_sitter_query = tree_sitter_query
+    end
+
+    # Custom attribute writer method with validation
+    # @param version_id [Object] Object to be assigned
+    # @!visibility private
+    def version_id=(version_id)
+      if version_id.nil?
+        fail ArgumentError, 'invalid value for "version_id", version_id cannot be nil.'
+      end
+      @version_id = version_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -492,6 +482,7 @@ module DatadogAPIClient::V2
           tags == o.tags &&
           tests == o.tests &&
           tree_sitter_query == o.tree_sitter_query &&
+          version_id == o.version_id &&
           additional_properties == o.additional_properties
     end
 
@@ -499,7 +490,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [arguments, category, checksum, code, created_at, created_by, creation_message, cve, cwe, description, documentation_url, is_published, is_testing, language, severity, short_description, should_use_ai_fix, tags, tests, tree_sitter_query, additional_properties].hash
+      [arguments, category, checksum, code, created_at, created_by, creation_message, cve, cwe, description, documentation_url, is_published, is_testing, language, severity, short_description, should_use_ai_fix, tags, tests, tree_sitter_query, version_id, additional_properties].hash
     end
   end
 end

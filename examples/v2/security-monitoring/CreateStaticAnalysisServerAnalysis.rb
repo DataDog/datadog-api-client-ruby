@@ -15,14 +15,21 @@ body = DatadogAPIClient::V2::AnalysisRequest.new({
       language: "python",
       rules: [
         DatadogAPIClient::V2::AnalysisRequestRule.new({
+          arguments: [
+            DatadogAPIClient::V2::AnalysisRequestRuleArgument.new({}),
+          ],
           category: "BEST_PRACTICES",
           checksum: "abc123def456",
           code: "ZnVuY3Rpb24gdmlzaXQobm9kZSkge30=",
           entity_checked: nil,
           id: "python-best-practices/no-exit",
           language: "python",
+          name: "no-exit",
           regex: nil,
           severity: "WARNING",
+          tests: [
+            DatadogAPIClient::V2::AnalysisRequestRuleTest.new({}),
+          ],
           tree_sitter_query: "KGNhbGwgbmFtZTogKGF0dHJpYnV0ZSkpQHZhbA==",
           type: "TREE_SITTER_QUERY",
         }),

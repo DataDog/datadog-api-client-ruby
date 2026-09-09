@@ -17,9 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A static analysis rule to apply during code analysis.
+  # A static analysis rule to apply during code analysis. Clients forward complete rule
+  # objects returned by the rulesets endpoints, so every member of that resource is
+  # declared here; only `id`, `category`, `checksum`, `language`, `severity`,
+  # `tree_sitter_query`, `entity_checked`, `regex`, `type` and `code` are read by this
+  # operation and the rest are ignored. The schema stays open so that any member beyond
+  # the forwarded rule resource is reported as a promotion candidate rather than
+  # rejected; it can be closed once that telemetry confirms none remain.
   class AnalysisRequestRule
     include BaseGenericModel
+
+    # The configurable arguments accepted by the rule. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :arguments
 
     # The category of the rule (for example, `BEST_PRACTICES`, `SECURITY`).
     attr_reader :category
@@ -30,20 +39,62 @@ module DatadogAPIClient::V2
     # The base64-encoded rule implementation code.
     attr_reader :code
 
+    # The date and time when the rule was created. Server-assigned by the rulesets endpoints; ignored by this operation.
+    attr_accessor :created_at
+
+    # The identifier of the user or system that created the rule. Server-assigned by the rulesets endpoints; ignored by this operation.
+    attr_accessor :created_by
+
+    # The CVE identifier associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :cve
+
+    # The CWE identifier associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :cwe
+
+    # A detailed explanation of what the rule detects. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :description
+
+    # A URL pointing to the rule documentation. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :documentation_url
+
     # The code entity type checked by the rule, applicable when rule type is `AST_CHECK`.
     attr_accessor :entity_checked
 
     # The unique identifier of the rule.
     attr_reader :id
 
+    # Whether the rule is published. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :is_published
+
+    # Whether the rule is in testing mode. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :is_testing
+
     # The programming language this rule targets.
     attr_reader :language
+
+    # The date and time when the rule was last modified. Server-assigned by the rulesets endpoints; ignored by this operation.
+    attr_accessor :last_updated_at
+
+    # The identifier of the user or system that last updated the rule. Server-assigned by the rulesets endpoints; ignored by this operation.
+    attr_accessor :last_updated_by
+
+    # The name of the rule. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :name
 
     # A base64-encoded regex pattern used by the rule, applicable when rule type is `REGEX`.
     attr_accessor :regex
 
     # The severity of findings from this rule (for example, `ERROR`, `WARNING`).
     attr_reader :severity
+
+    # A brief summary of what the rule detects. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :short_description
+
+    # Whether an AI-generated fix should be offered. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :should_use_ai_fix
+
+    # The test cases associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
+    attr_accessor :tests
 
     # The base64-encoded tree-sitter query used by the rule.
     attr_reader :tree_sitter_query
@@ -57,14 +108,29 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'arguments' => :'arguments',
         :'category' => :'category',
         :'checksum' => :'checksum',
         :'code' => :'code',
+        :'created_at' => :'created_at',
+        :'created_by' => :'created_by',
+        :'cve' => :'cve',
+        :'cwe' => :'cwe',
+        :'description' => :'description',
+        :'documentation_url' => :'documentation_url',
         :'entity_checked' => :'entity_checked',
         :'id' => :'id',
+        :'is_published' => :'is_published',
+        :'is_testing' => :'is_testing',
         :'language' => :'language',
+        :'last_updated_at' => :'last_updated_at',
+        :'last_updated_by' => :'last_updated_by',
+        :'name' => :'name',
         :'regex' => :'regex',
         :'severity' => :'severity',
+        :'short_description' => :'short_description',
+        :'should_use_ai_fix' => :'should_use_ai_fix',
+        :'tests' => :'tests',
         :'tree_sitter_query' => :'tree_sitter_query',
         :'type' => :'type'
       }
@@ -74,14 +140,29 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'arguments' => :'Array<AnalysisRequestRuleArgument>',
         :'category' => :'String',
         :'checksum' => :'String',
         :'code' => :'String',
+        :'created_at' => :'Time',
+        :'created_by' => :'String',
+        :'cve' => :'String',
+        :'cwe' => :'String',
+        :'description' => :'String',
+        :'documentation_url' => :'String',
         :'entity_checked' => :'String',
         :'id' => :'String',
+        :'is_published' => :'Boolean',
+        :'is_testing' => :'Boolean',
         :'language' => :'String',
+        :'last_updated_at' => :'Time',
+        :'last_updated_by' => :'String',
+        :'name' => :'String',
         :'regex' => :'String',
         :'severity' => :'String',
+        :'short_description' => :'String',
+        :'should_use_ai_fix' => :'Boolean',
+        :'tests' => :'Array<AnalysisRequestRuleTest>',
         :'tree_sitter_query' => :'String',
         :'type' => :'String'
       }
@@ -114,6 +195,12 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'arguments')
+        if (value = attributes[:'arguments']).is_a?(Array)
+          self.arguments = value
+        end
+      end
+
       if attributes.key?(:'category')
         self.category = attributes[:'category']
       end
@@ -126,6 +213,30 @@ module DatadogAPIClient::V2
         self.code = attributes[:'code']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'cve')
+        self.cve = attributes[:'cve']
+      end
+
+      if attributes.key?(:'cwe')
+        self.cwe = attributes[:'cwe']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'documentation_url')
+        self.documentation_url = attributes[:'documentation_url']
+      end
+
       if attributes.key?(:'entity_checked')
         self.entity_checked = attributes[:'entity_checked']
       end
@@ -134,8 +245,28 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'is_published')
+        self.is_published = attributes[:'is_published']
+      end
+
+      if attributes.key?(:'is_testing')
+        self.is_testing = attributes[:'is_testing']
+      end
+
       if attributes.key?(:'language')
         self.language = attributes[:'language']
+      end
+
+      if attributes.key?(:'last_updated_at')
+        self.last_updated_at = attributes[:'last_updated_at']
+      end
+
+      if attributes.key?(:'last_updated_by')
+        self.last_updated_by = attributes[:'last_updated_by']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'regex')
@@ -144,6 +275,20 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
+      end
+
+      if attributes.key?(:'short_description')
+        self.short_description = attributes[:'short_description']
+      end
+
+      if attributes.key?(:'should_use_ai_fix')
+        self.should_use_ai_fix = attributes[:'should_use_ai_fix']
+      end
+
+      if attributes.key?(:'tests')
+        if (value = attributes[:'tests']).is_a?(Array)
+          self.tests = value
+        end
       end
 
       if attributes.key?(:'tree_sitter_query')
@@ -276,14 +421,29 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          arguments == o.arguments &&
           category == o.category &&
           checksum == o.checksum &&
           code == o.code &&
+          created_at == o.created_at &&
+          created_by == o.created_by &&
+          cve == o.cve &&
+          cwe == o.cwe &&
+          description == o.description &&
+          documentation_url == o.documentation_url &&
           entity_checked == o.entity_checked &&
           id == o.id &&
+          is_published == o.is_published &&
+          is_testing == o.is_testing &&
           language == o.language &&
+          last_updated_at == o.last_updated_at &&
+          last_updated_by == o.last_updated_by &&
+          name == o.name &&
           regex == o.regex &&
           severity == o.severity &&
+          short_description == o.short_description &&
+          should_use_ai_fix == o.should_use_ai_fix &&
+          tests == o.tests &&
           tree_sitter_query == o.tree_sitter_query &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -293,7 +453,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, checksum, code, entity_checked, id, language, regex, severity, tree_sitter_query, type, additional_properties].hash
+      [arguments, category, checksum, code, created_at, created_by, cve, cwe, description, documentation_url, entity_checked, id, is_published, is_testing, language, last_updated_at, last_updated_by, name, regex, severity, short_description, should_use_ai_fix, tests, tree_sitter_query, type, additional_properties].hash
     end
   end
 end

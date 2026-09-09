@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The resource identifier and type for a static analysis rule.
-  class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData
+  # A configurable argument of a forwarded static analysis rule.
+  class AnalysisRequestRuleArgument
     include BaseGenericModel
 
-    # The unique identifier of the rule resource.
-    attr_accessor :id
+    # An explanation of the argument's purpose and accepted values.
+    attr_accessor :description
 
-    # Rules resource type.
-    attr_reader :type
+    # The name of the rule argument.
+    attr_accessor :name
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'type' => :'type'
+        :'description' => :'description',
+        :'name' => :'name'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType'
+        :'description' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AnalysisRequestRuleArgument` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,31 +65,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,8 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
+          description == o.description &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type, additional_properties].hash
+      [description, name, additional_properties].hash
     end
   end
 end

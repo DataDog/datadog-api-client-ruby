@@ -17,84 +17,75 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A static analysis rule within a ruleset, including its definition, metadata, and associated test cases.
-  class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems
+  # A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+  class CustomRuleRevisionEmbedded
     include BaseGenericModel
 
-    # The list of configurable arguments accepted by this rule.
-    attr_reader :arguments
+    # Rule arguments
+    attr_accessor :arguments
 
-    # The category classifying the type of issue this rule detects (e.g., security, style, performance).
+    # Rule category
     attr_reader :category
 
-    # A checksum of the rule definition used to detect changes.
+    # Code checksum
     attr_reader :checksum
 
-    # The rule implementation code used by the static analysis engine.
+    # Rule code
     attr_reader :code
 
-    # The date and time when the rule was created.
+    # Creation timestamp
     attr_reader :created_at
 
-    # The identifier of the user or system that created the rule.
+    # Creator identifier
     attr_reader :created_by
 
-    # The CVE identifier associated with the vulnerability this rule detects, if applicable.
+    # Revision creation message
+    attr_reader :creation_message
+
+    # Associated CVE. Omitted when the revision has no associated CVE.
     attr_accessor :cve
 
-    # The CWE identifier associated with the weakness category this rule detects, if applicable.
+    # Associated CWE. Omitted when the revision has no associated CWE.
     attr_accessor :cwe
 
-    # A detailed explanation of what the rule detects and why it matters.
+    # Full description
     attr_reader :description
 
-    # A URL pointing to additional documentation for this rule.
+    # Documentation URL. Omitted when the revision has no documentation URL.
     attr_accessor :documentation_url
 
-    # The code entity type (e.g., function, class, variable) that this rule inspects.
-    attr_accessor :entity_checked
-
-    # The unique identifier of the rule, which is the same as its name.
+    # Revision identifier
     attr_reader :id
 
-    # Indicates whether the rule is publicly published and available to all users.
+    # Whether the revision is published
     attr_reader :is_published
 
-    # Indicates whether the rule is in testing mode and not yet promoted to production.
+    # Whether this is a testing revision
     attr_reader :is_testing
 
-    # The programming language this rule applies to.
+    # Programming language
     attr_reader :language
 
-    # The date and time when the rule was last modified.
-    attr_reader :last_updated_at
-
-    # The identifier of the user or system that last updated the rule.
-    attr_reader :last_updated_by
-
-    # The unique name identifying this rule within its ruleset.
-    attr_reader :name
-
-    # A regular expression pattern used by the rule for pattern-based detection.
-    attr_accessor :regex
-
-    # The severity level of findings produced by this rule (e.g., ERROR, WARNING, NOTICE).
+    # Rule severity
     attr_reader :severity
 
-    # A brief summary of what the rule detects, suitable for display in listings.
+    # Short description
     attr_reader :short_description
 
-    # Indicates whether an AI-generated fix suggestion should be offered for findings from this rule.
+    # Whether to use AI for fixes
     attr_reader :should_use_ai_fix
 
-    # The list of test cases used to validate the rule's behavior.
-    attr_reader :tests
+    # Rule tags
+    attr_accessor :tags
 
-    # The Tree-sitter query expression used by the rule to match code patterns in the AST.
-    attr_accessor :tree_sitter_query
+    # Rule tests
+    attr_accessor :tests
 
-    # The rule type indicating the detection mechanism used (e.g., tree_sitter, regex).
-    attr_reader :type
+    # Tree-sitter query
+    attr_reader :tree_sitter_query
+
+    # Monotonically increasing version number of the revision.
+    attr_reader :version_id
 
     attr_accessor :additional_properties
 
@@ -108,25 +99,22 @@ module DatadogAPIClient::V2
         :'code' => :'code',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
+        :'creation_message' => :'creation_message',
         :'cve' => :'cve',
         :'cwe' => :'cwe',
         :'description' => :'description',
         :'documentation_url' => :'documentation_url',
-        :'entity_checked' => :'entity_checked',
         :'id' => :'id',
         :'is_published' => :'is_published',
         :'is_testing' => :'is_testing',
         :'language' => :'language',
-        :'last_updated_at' => :'last_updated_at',
-        :'last_updated_by' => :'last_updated_by',
-        :'name' => :'name',
-        :'regex' => :'regex',
         :'severity' => :'severity',
         :'short_description' => :'short_description',
         :'should_use_ai_fix' => :'should_use_ai_fix',
+        :'tags' => :'tags',
         :'tests' => :'tests',
         :'tree_sitter_query' => :'tree_sitter_query',
-        :'type' => :'type'
+        :'version_id' => :'version_id'
       }
     end
 
@@ -134,32 +122,39 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'arguments' => :'Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>',
-        :'category' => :'String',
+        :'arguments' => :'Array<Argument>',
+        :'category' => :'CustomRuleRevisionAttributesCategory',
         :'checksum' => :'String',
         :'code' => :'String',
         :'created_at' => :'Time',
         :'created_by' => :'String',
+        :'creation_message' => :'String',
         :'cve' => :'String',
         :'cwe' => :'String',
         :'description' => :'String',
         :'documentation_url' => :'String',
-        :'entity_checked' => :'String',
         :'id' => :'String',
         :'is_published' => :'Boolean',
         :'is_testing' => :'Boolean',
-        :'language' => :'String',
-        :'last_updated_at' => :'Time',
-        :'last_updated_by' => :'String',
-        :'name' => :'String',
-        :'regex' => :'String',
-        :'severity' => :'String',
+        :'language' => :'Language',
+        :'severity' => :'CustomRuleRevisionAttributesSeverity',
         :'short_description' => :'String',
         :'should_use_ai_fix' => :'Boolean',
-        :'tests' => :'Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems>',
+        :'tags' => :'Array<String>',
+        :'tests' => :'Array<CustomRuleRevisionTest>',
         :'tree_sitter_query' => :'String',
-        :'type' => :'String'
+        :'version_id' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'arguments',
+        :'tags',
+        :'tests',
+      ])
     end
 
     # Initializes the object
@@ -167,7 +162,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CustomRuleRevisionEmbedded` initialize method"
       end
 
       self.additional_properties = {}
@@ -206,6 +201,10 @@ module DatadogAPIClient::V2
         self.created_by = attributes[:'created_by']
       end
 
+      if attributes.key?(:'creation_message')
+        self.creation_message = attributes[:'creation_message']
+      end
+
       if attributes.key?(:'cve')
         self.cve = attributes[:'cve']
       end
@@ -220,10 +219,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'documentation_url')
         self.documentation_url = attributes[:'documentation_url']
-      end
-
-      if attributes.key?(:'entity_checked')
-        self.entity_checked = attributes[:'entity_checked']
       end
 
       if attributes.key?(:'id')
@@ -242,22 +237,6 @@ module DatadogAPIClient::V2
         self.language = attributes[:'language']
       end
 
-      if attributes.key?(:'last_updated_at')
-        self.last_updated_at = attributes[:'last_updated_at']
-      end
-
-      if attributes.key?(:'last_updated_by')
-        self.last_updated_by = attributes[:'last_updated_by']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'regex')
-        self.regex = attributes[:'regex']
-      end
-
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
       end
@@ -270,6 +249,12 @@ module DatadogAPIClient::V2
         self.should_use_ai_fix = attributes[:'should_use_ai_fix']
       end
 
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
       if attributes.key?(:'tests')
         if (value = attributes[:'tests']).is_a?(Array)
           self.tests = value
@@ -280,8 +265,8 @@ module DatadogAPIClient::V2
         self.tree_sitter_query = attributes[:'tree_sitter_query']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'version_id')
+        self.version_id = attributes[:'version_id']
       end
     end
 
@@ -289,36 +274,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @arguments.nil?
       return false if @category.nil?
       return false if @checksum.nil?
       return false if @code.nil?
       return false if @created_at.nil?
       return false if @created_by.nil?
+      return false if @creation_message.nil?
       return false if @description.nil?
       return false if @id.nil?
       return false if @is_published.nil?
       return false if @is_testing.nil?
       return false if @language.nil?
-      return false if @last_updated_at.nil?
-      return false if @last_updated_by.nil?
-      return false if @name.nil?
       return false if @severity.nil?
       return false if @short_description.nil?
       return false if @should_use_ai_fix.nil?
-      return false if @tests.nil?
-      return false if @type.nil?
+      return false if @tree_sitter_query.nil?
+      return false if @version_id.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param arguments [Object] Object to be assigned
-    # @!visibility private
-    def arguments=(arguments)
-      if arguments.nil?
-        fail ArgumentError, 'invalid value for "arguments", arguments cannot be nil.'
-      end
-      @arguments = arguments
     end
 
     # Custom attribute writer method with validation
@@ -372,6 +344,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param creation_message [Object] Object to be assigned
+    # @!visibility private
+    def creation_message=(creation_message)
+      if creation_message.nil?
+        fail ArgumentError, 'invalid value for "creation_message", creation_message cannot be nil.'
+      end
+      @creation_message = creation_message
+    end
+
+    # Custom attribute writer method with validation
     # @param description [Object] Object to be assigned
     # @!visibility private
     def description=(description)
@@ -422,36 +404,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param last_updated_at [Object] Object to be assigned
-    # @!visibility private
-    def last_updated_at=(last_updated_at)
-      if last_updated_at.nil?
-        fail ArgumentError, 'invalid value for "last_updated_at", last_updated_at cannot be nil.'
-      end
-      @last_updated_at = last_updated_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param last_updated_by [Object] Object to be assigned
-    # @!visibility private
-    def last_updated_by=(last_updated_by)
-      if last_updated_by.nil?
-        fail ArgumentError, 'invalid value for "last_updated_by", last_updated_by cannot be nil.'
-      end
-      @last_updated_by = last_updated_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
     # @param severity [Object] Object to be assigned
     # @!visibility private
     def severity=(severity)
@@ -482,23 +434,23 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param tests [Object] Object to be assigned
+    # @param tree_sitter_query [Object] Object to be assigned
     # @!visibility private
-    def tests=(tests)
-      if tests.nil?
-        fail ArgumentError, 'invalid value for "tests", tests cannot be nil.'
+    def tree_sitter_query=(tree_sitter_query)
+      if tree_sitter_query.nil?
+        fail ArgumentError, 'invalid value for "tree_sitter_query", tree_sitter_query cannot be nil.'
       end
-      @tests = tests
+      @tree_sitter_query = tree_sitter_query
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param version_id [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def version_id=(version_id)
+      if version_id.nil?
+        fail ArgumentError, 'invalid value for "version_id", version_id cannot be nil.'
       end
-      @type = type
+      @version_id = version_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -533,25 +485,22 @@ module DatadogAPIClient::V2
           code == o.code &&
           created_at == o.created_at &&
           created_by == o.created_by &&
+          creation_message == o.creation_message &&
           cve == o.cve &&
           cwe == o.cwe &&
           description == o.description &&
           documentation_url == o.documentation_url &&
-          entity_checked == o.entity_checked &&
           id == o.id &&
           is_published == o.is_published &&
           is_testing == o.is_testing &&
           language == o.language &&
-          last_updated_at == o.last_updated_at &&
-          last_updated_by == o.last_updated_by &&
-          name == o.name &&
-          regex == o.regex &&
           severity == o.severity &&
           short_description == o.short_description &&
           should_use_ai_fix == o.should_use_ai_fix &&
+          tags == o.tags &&
           tests == o.tests &&
           tree_sitter_query == o.tree_sitter_query &&
-          type == o.type &&
+          version_id == o.version_id &&
           additional_properties == o.additional_properties
     end
 
@@ -559,7 +508,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [arguments, category, checksum, code, created_at, created_by, cve, cwe, description, documentation_url, entity_checked, id, is_published, is_testing, language, last_updated_at, last_updated_by, name, regex, severity, short_description, should_use_ai_fix, tests, tree_sitter_query, type, additional_properties].hash
+      [arguments, category, checksum, code, created_at, created_by, creation_message, cve, cwe, description, documentation_url, id, is_published, is_testing, language, severity, short_description, should_use_ai_fix, tags, tests, tree_sitter_query, version_id, additional_properties].hash
     end
   end
 end

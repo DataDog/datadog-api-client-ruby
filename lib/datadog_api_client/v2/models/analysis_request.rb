@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AnalysisRequest
     include BaseGenericModel
 
+    # CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+    attr_accessor :_authentication_token
+
     # The primary data object in the analysis request.
     attr_reader :data
 
@@ -30,6 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'_authentication_token' => :'_authentication_token',
         :'data' => :'data'
       }
     end
@@ -38,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'_authentication_token' => :'String',
         :'data' => :'AnalysisRequestData'
       }
     end
@@ -59,6 +64,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'_authentication_token')
+        self._authentication_token = attributes[:'_authentication_token']
+      end
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
@@ -109,6 +118,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          _authentication_token == o._authentication_token &&
           data == o.data &&
           additional_properties == o.additional_properties
     end
@@ -117,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [_authentication_token, data, additional_properties].hash
     end
   end
 end

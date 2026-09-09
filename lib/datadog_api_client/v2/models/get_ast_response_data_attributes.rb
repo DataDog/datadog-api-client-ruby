@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class GetAstResponseDataAttributes
     include BaseGenericModel
 
-    # The parsed abstract syntax tree as a JSON object.
-    attr_reader :ast
+    # A node in the abstract syntax tree of the parsed source code.
+    attr_reader :result
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'ast' => :'ast'
+        :'result' => :'result'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'ast' => :'Hash<String, Object>'
+        :'result' => :'AstNode'
       }
     end
 
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'ast')
-        self.ast = attributes[:'ast']
+      if attributes.key?(:'result')
+        self.result = attributes[:'result']
       end
     end
 
@@ -69,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @ast.nil?
+      return false if @result.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param ast [Object] Object to be assigned
+    # @param result [Object] Object to be assigned
     # @!visibility private
-    def ast=(ast)
-      if ast.nil?
-        fail ArgumentError, 'invalid value for "ast", ast cannot be nil.'
+    def result=(result)
+      if result.nil?
+        fail ArgumentError, 'invalid value for "result", result cannot be nil.'
       end
-      @ast = ast
+      @result = result
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ast == o.ast &&
+          result == o.result &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ast, additional_properties].hash
+      [result, additional_properties].hash
     end
   end
 end

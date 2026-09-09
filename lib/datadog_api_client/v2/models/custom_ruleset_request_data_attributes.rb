@@ -17,15 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating or updating a custom ruleset.
+  # Attributes for creating or updating a custom ruleset. `name` is required and must
+  # equal the resource `id`; the server rejects a mismatch with a 412 response.
   class CustomRulesetRequestDataAttributes
     include BaseGenericModel
 
     # Base64-encoded full description
     attr_accessor :description
 
-    # Ruleset name
-    attr_accessor :name
+    # Ruleset name, which must be the same as the resource identifier.
+    attr_reader :name
 
     # Rules in the ruleset
     attr_accessor :rules
@@ -100,6 +101,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'short_description')
         self.short_description = attributes[:'short_description']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @name.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

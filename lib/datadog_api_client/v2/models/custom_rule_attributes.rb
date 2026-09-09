@@ -17,29 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A custom static analysis rule within a ruleset, as supplied in a create or update
-  # request. Nested rules are sent flat, without a `data`/`type`/`attributes` envelope.
-  # `id` and `name` are client-supplied and must match each other. The remaining members
-  # are server-assigned and read-only; they are declared so that a ruleset previously
-  # read back can be supplied unchanged.
-  class CustomRule
+  # Attributes of a custom static analysis rule, including its most recent revision and revision history.
+  class CustomRuleAttributes
     include BaseGenericModel
 
     # Creation timestamp
-    attr_accessor :created_at
+    attr_reader :created_at
 
     # Creator identifier
-    attr_accessor :created_by
+    attr_reader :created_by
 
-    # Rule identifier, which is the same as the rule name.
-    attr_reader :id
-
-    # A revision of a custom static analysis rule as embedded in a rule supplied by a create
-    # or update request. Nested revisions are sent flat, without a `data`/`type`/`attributes`
-    # envelope. `id`, `version_id`, `checksum`, `created_at` and `created_by` are server-assigned
-    # and read-only; they are declared so that a ruleset previously read back can be supplied
-    # unchanged.
-    attr_accessor :last_revision
+    # A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+    attr_reader :last_revision
 
     # Rule name
     attr_reader :name
@@ -47,13 +36,14 @@ module DatadogAPIClient::V2
     # Revision history of the rule.
     attr_accessor :revisions
 
+    attr_accessor :additional_properties
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
-        :'id' => :'id',
         :'last_revision' => :'last_revision',
         :'name' => :'name',
         :'revisions' => :'revisions'
@@ -66,10 +56,9 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'Time',
         :'created_by' => :'String',
-        :'id' => :'String',
-        :'last_revision' => :'CustomRuleRevisionInput',
+        :'last_revision' => :'CustomRuleRevisionEmbedded',
         :'name' => :'String',
-        :'revisions' => :'Array<CustomRuleRevisionInput>'
+        :'revisions' => :'Array<CustomRuleRevisionEmbedded>'
       }
     end
 
@@ -86,15 +75,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CustomRule` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CustomRuleAttributes` initialize method"
       end
 
+      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CustomRule`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          self.additional_properties[k.to_sym] = v
+        else
+          h[k.to_sym] = v
         end
-        h[k.to_sym] = v
       }
 
       if attributes.key?(:'created_at')
@@ -103,10 +94,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'last_revision')
@@ -128,19 +115,41 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
+      return false if @created_at.nil?
+      return false if @created_by.nil?
+      return false if @last_revision.nil?
       return false if @name.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param created_at [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def created_at=(created_at)
+      if created_at.nil?
+        fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
       end
-      @id = id
+      @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param created_by [Object] Object to be assigned
+    # @!visibility private
+    def created_by=(created_by)
+      if created_by.nil?
+        fail ArgumentError, 'invalid value for "created_by", created_by cannot be nil.'
+      end
+      @created_by = created_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param last_revision [Object] Object to be assigned
+    # @!visibility private
+    def last_revision=(last_revision)
+      if last_revision.nil?
+        fail ArgumentError, 'invalid value for "last_revision", last_revision cannot be nil.'
+      end
+      @last_revision = last_revision
     end
 
     # Custom attribute writer method with validation
@@ -153,6 +162,26 @@ module DatadogAPIClient::V2
       @name = name
     end
 
+    # Returns the object in the form of hash, with additionalProperties support.
+    # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      self.additional_properties.each_pair do |attr, value|
+        hash[attr] = value
+      end
+      hash
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -161,17 +190,17 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           created_at == o.created_at &&
           created_by == o.created_by &&
-          id == o.id &&
           last_revision == o.last_revision &&
           name == o.name &&
-          revisions == o.revisions
+          revisions == o.revisions &&
+          additional_properties == o.additional_properties
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, id, last_revision, name, revisions].hash
+      [created_at, created_by, last_revision, name, revisions, additional_properties].hash
     end
   end
 end

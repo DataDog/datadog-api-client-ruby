@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The resource identifier and type for a ruleset.
-  class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData
+  # A test case of a forwarded static analysis rule.
+  class AnalysisRequestRuleTest
     include BaseGenericModel
 
-    # The unique identifier of the ruleset resource.
-    attr_accessor :id
+    # The expected number of findings the rule should produce against the test code.
+    attr_reader :annotation_count
 
-    # Rulesets resource type.
-    attr_reader :type
+    # The source code snippet used as input for the rule test.
+    attr_accessor :code
+
+    # The filename associated with the test code snippet.
+    attr_accessor :filename
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'type' => :'type'
+        :'annotation_count' => :'annotation_count',
+        :'code' => :'code',
+        :'filename' => :'filename'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType'
+        :'annotation_count' => :'Integer',
+        :'code' => :'String',
+        :'filename' => :'String'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetMultipleRulesetsResponseDataAttributesRulesetsItemsData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AnalysisRequestRuleTest` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'annotation_count')
+        self.annotation_count = attributes[:'annotation_count']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
+      end
+
+      if attributes.key?(:'filename')
+        self.filename = attributes[:'filename']
       end
     end
 
@@ -78,18 +87,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @type.nil?
+      return false if !@annotation_count.nil? && @annotation_count > 65535
+      return false if !@annotation_count.nil? && @annotation_count < 0
       true
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param annotation_count [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def annotation_count=(annotation_count)
+      if !annotation_count.nil? && annotation_count > 65535
+        fail ArgumentError, 'invalid value for "annotation_count", must be smaller than or equal to 65535.'
       end
-      @type = type
+      if !annotation_count.nil? && annotation_count < 0
+        fail ArgumentError, 'invalid value for "annotation_count", must be greater than or equal to 0.'
+      end
+      @annotation_count = annotation_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,8 +131,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
+          annotation_count == o.annotation_count &&
+          code == o.code &&
+          filename == o.filename &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type, additional_properties].hash
+      [annotation_count, code, filename, additional_properties].hash
     end
   end
 end

@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for a custom ruleset create or update request.
+  # Data object for a custom ruleset create or update request. The resource `id` is
+  # required and must equal both `attributes.name` and, on update, the `ruleset_name`
+  # path parameter; a request that omits it or supplies a different value is rejected
+  # with a 412 response.
   class CustomRulesetRequestData
     include BaseGenericModel
 
-    # Attributes for creating or updating a custom ruleset.
-    attr_accessor :attributes
+    # Attributes for creating or updating a custom ruleset. `name` is required and must
+    # equal the resource `id`; the server rejects a mismatch with a 412 response.
+    attr_reader :attributes
 
-    # Ruleset identifier
-    attr_accessor :id
+    # Ruleset identifier, which is the same as the ruleset name.
+    attr_reader :id
 
     # Resource type
-    attr_accessor :type
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -81,6 +85,46 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
