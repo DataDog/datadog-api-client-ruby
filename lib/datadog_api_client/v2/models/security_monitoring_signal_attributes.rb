@@ -22,7 +22,10 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalAttributes
     include BaseGenericModel
 
-    # A JSON object of attributes in the security signal.
+    # A JSON object of attributes in the security signal, returned when listing or searching signals.
+    attr_accessor :attributes
+
+    # A JSON object of attributes in the security signal, returned when retrieving a single signal.
     attr_accessor :custom
 
     # The message in the security signal defined by the rule that generated the signal.
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'attributes' => :'attributes',
         :'custom' => :'custom',
         :'message' => :'message',
         :'tags' => :'tags',
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'attributes' => :'Hash<String, Object>',
         :'custom' => :'Hash<String, Object>',
         :'message' => :'String',
         :'tags' => :'Array<String>',
@@ -75,6 +80,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
 
       if attributes.key?(:'custom')
         self.custom = attributes[:'custom']
@@ -121,6 +130,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attributes == o.attributes &&
           custom == o.custom &&
           message == o.message &&
           tags == o.tags &&
@@ -132,7 +142,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom, message, tags, timestamp, additional_properties].hash
+      [attributes, custom, message, tags, timestamp, additional_properties].hash
     end
   end
 end
