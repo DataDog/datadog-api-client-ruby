@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The RUM application ID that was analyzed.
     attr_reader :application_id
 
-    # Performance criteria to filter view instances by a metric threshold.
+    # Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
     attr_accessor :criteria
 
     # Start of the analyzed time range as a Unix timestamp in seconds.
@@ -67,7 +67,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'application_id' => :'String',
-        :'criteria' => :'AggregatedWaterfallPerformanceCriteria',
+        :'criteria' => :'AggregatedLongTasksResponseAttributesCriteria',
         :'from' => :'Integer',
         :'long_tasks_by_invoker_type' => :'Array<AggregatedLongTasksByInvokerType>',
         :'sampled_view_ids' => :'Array<String>',
@@ -75,6 +75,14 @@ module DatadogAPIClient::V2
         :'view_count' => :'Integer',
         :'view_name' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'criteria',
+      ])
     end
 
     # Initializes the object
