@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'DeploymentRuleOptionsFaultyDeploymentDetection',
-          :'DeploymentRuleOptionsMonitor'
+          :'DeploymentRuleOptionsMonitor',
+          :'DeploymentRuleOptionsMonitorIds'
         ]
       end
       # Builds the object
