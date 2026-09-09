@@ -1232,6 +1232,7 @@ module DatadogAPIClient
           "v2.aggregated_long_tasks_request_type" => "AggregatedLongTasksRequestType",
           "v2.aggregated_long_tasks_response" => "AggregatedLongTasksResponse",
           "v2.aggregated_long_tasks_response_attributes" => "AggregatedLongTasksResponseAttributes",
+          "v2.aggregated_long_tasks_response_attributes_criteria" => "AggregatedLongTasksResponseAttributesCriteria",
           "v2.aggregated_long_tasks_response_data" => "AggregatedLongTasksResponseData",
           "v2.aggregated_low_cache_hit_rate" => "AggregatedLowCacheHitRate",
           "v2.aggregated_mobile_scroll_friction" => "AggregatedMobileScrollFriction",
