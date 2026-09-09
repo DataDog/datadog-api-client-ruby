@@ -26,6 +26,7 @@ module DatadogAPIClient::V2
   # - `image`: `url` is required.
   # - `widget`: `tileDef` is required (any well-formed JSON; the frontend owns the renderable schema).
   # - `llmobs_trace`: `traceId` is required; `interactionType`, when set, must be `trace` or `experiment_trace`.
+  # - `frontend`: `code` is required and must be a non-empty string; `label` is optional.
   # 
   # `height`, when set, must be positive.
   class LLMObsContentBlock
@@ -34,9 +35,12 @@ module DatadogAPIClient::V2
     # Alternative text for an `image` block.
     attr_accessor :alt
 
+    # HTML code rendered by a `frontend` block. Required for `frontend` blocks.
+    attr_reader :code
+
     # Block payload. A string for `markdown`, `header`, and `text`; an
     # arbitrary JSON value (object, array, or scalar) for `json`. Omitted
-    # for `image`, `widget`, and `llmobs_trace`.
+    # for `image`, `widget`, `llmobs_trace`, and `frontend`.
     attr_accessor :content
 
     # Optional rendered height. Must be positive when set.
@@ -46,7 +50,7 @@ module DatadogAPIClient::V2
     # Restricted to `trace` or `experiment_trace`.
     attr_accessor :interaction_type
 
-    # Optional label rendered alongside the block.
+    # Optional label rendered alongside a `frontend` block.
     attr_accessor :label
 
     # Visual size for a `header` block.
@@ -76,6 +80,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'alt' => :'alt',
+        :'code' => :'code',
         :'content' => :'content',
         :'height' => :'height',
         :'interaction_type' => :'interactionType',
@@ -94,6 +99,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'alt' => :'String',
+        :'code' => :'String',
         :'content' => :'Object',
         :'height' => :'Integer',
         :'interaction_type' => :'LLMObsContentBlockLLMObsTraceInteractionType',
@@ -127,6 +133,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'alt')
         self.alt = attributes[:'alt']
+      end
+
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
       if attributes.key?(:'content')
@@ -174,8 +184,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@code.nil? && @code.to_s.length < 1
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param code [Object] Object to be assigned
+    # @!visibility private
+    def code=(code)
+      if !code.nil? && code.to_s.length < 1
+        fail ArgumentError, 'invalid value for "code", the character length must be great than or equal to 1.'
+      end
+      @code = code
     end
 
     # Custom attribute writer method with validation
@@ -215,6 +236,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           alt == o.alt &&
+          code == o.code &&
           content == o.content &&
           height == o.height &&
           interaction_type == o.interaction_type &&
@@ -232,7 +254,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alt, content, height, interaction_type, label, level, tile_def, time_frame, trace_id, type, url, additional_properties].hash
+      [alt, code, content, height, interaction_type, label, level, tile_def, time_frame, trace_id, type, url, additional_properties].hash
     end
   end
 end
