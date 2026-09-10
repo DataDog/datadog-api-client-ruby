@@ -51,7 +51,7 @@ module DatadogAPIClient::V2
     # Popularity of the dashboard.
     attr_reader :popularity
 
-    # List of team names representing ownership of a dashboard.
+    # Tags associated with the dashboard. Supports up to five team tags and two AI tags.
     attr_reader :tags
 
     # Title of the dashboard.
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @id.nil?
       return false if !@popularity.nil? && @popularity > 5
-      return false if !@tags.nil? && @tags.length > 5
+      return false if !@tags.nil? && @tags.length > 7
       return false if @type.nil?
       true
     end
@@ -229,8 +229,8 @@ module DatadogAPIClient::V2
     # @param tags [Object] Object to be assigned
     # @!visibility private
     def tags=(tags)
-      if !tags.nil? && tags.length > 5
-        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 5.'
+      if !tags.nil? && tags.length > 7
+        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 7.'
       end
       @tags = tags
     end

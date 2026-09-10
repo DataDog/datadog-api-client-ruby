@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Product page that published the dataset queried by a `DatasetListQuery`. `ddsql_query` is the only provider currently supported for host map widgets.
     attr_reader :dataset_provider
 
-    # Filter applied to the dataset's rows, using events-style search syntax.
+    # Filter applied to the rows of the dataset, using events-style search syntax.
     attr_accessor :filter
 
     # Maximum number of rows to return from the dataset query.
