@@ -41,12 +41,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CoverageSummaryResponse, Integer, Hash)>] CoverageSummaryResponse data, response status code and response headers
     def get_code_coverage_branch_summary_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_code_coverage_branch_summary".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_code_coverage_branch_summary")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_code_coverage_branch_summary"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CodeCoverageAPI.get_code_coverage_branch_summary ...'
@@ -118,12 +112,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CoverageSummaryResponse, Integer, Hash)>] CoverageSummaryResponse data, response status code and response headers
     def get_code_coverage_commit_summary_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_code_coverage_commit_summary".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_code_coverage_commit_summary")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_code_coverage_commit_summary"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CodeCoverageAPI.get_code_coverage_commit_summary ...'
@@ -171,6 +159,144 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CodeCoverageAPI#get_code_coverage_commit_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get per-file code coverage data.
+    #
+    # @see #get_code_coverage_files_with_http_info
+    def get_code_coverage_files(body, opts = {})
+      data, _status_code, _headers = get_code_coverage_files_with_http_info(body, opts)
+      data
+    end
+
+    # Get per-file code coverage data.
+    #
+    # Retrieve per-file code coverage data for a specific commit, branch, or pull request.
+    # Exactly one of `commit_sha`, `branch`, or `pr_number` must be provided.
+    # Optionally filter by `service`, `codeowner`, or `flag` (at most one).
+    #
+    # @param body [FilesCoverageRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FilesCoverageResponse, Integer, Hash)>] FilesCoverageResponse data, response status code and response headers
+    def get_code_coverage_files_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CodeCoverageAPI.get_code_coverage_files ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CodeCoverageAPI.get_code_coverage_files"
+      end
+      # resource path
+      local_var_path = '/api/v2/code-coverage/files'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FilesCoverageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_code_coverage_files,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CodeCoverageAPI#get_code_coverage_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get code coverage summary for a pull request.
+    #
+    # @see #get_code_coverage_pr_summary_with_http_info
+    def get_code_coverage_pr_summary(body, opts = {})
+      data, _status_code, _headers = get_code_coverage_pr_summary_with_http_info(body, opts)
+      data
+    end
+
+    # Get code coverage summary for a pull request.
+    #
+    # Retrieve aggregated code coverage statistics for a specific pull request in a repository.
+    # This endpoint provides overall coverage metrics as well as breakdowns by service
+    # and code owner.
+    #
+    # @param body [PRCoverageSummaryRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CoverageSummaryResponse, Integer, Hash)>] CoverageSummaryResponse data, response status code and response headers
+    def get_code_coverage_pr_summary_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CodeCoverageAPI.get_code_coverage_pr_summary ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CodeCoverageAPI.get_code_coverage_pr_summary"
+      end
+      # resource path
+      local_var_path = '/api/v2/code-coverage/pr/summary'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CoverageSummaryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_code_coverage_pr_summary,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CodeCoverageAPI#get_code_coverage_pr_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
