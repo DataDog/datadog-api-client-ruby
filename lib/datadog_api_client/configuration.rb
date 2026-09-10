@@ -392,8 +392,6 @@ module DatadogAPIClient
             "v2.update_security_monitoring_integration_config": false,
             "v2.validate_security_monitoring_integration_config": false,
             "v2.validate_security_monitoring_integration_credentials": false,
-            "v2.get_code_coverage_branch_summary": false,
-            "v2.get_code_coverage_commit_summary": false,
             "v2.get_rule_based_view": false,
             "v2.create_unit_cost": false,
             "v2.delete_unit_cost": false,
