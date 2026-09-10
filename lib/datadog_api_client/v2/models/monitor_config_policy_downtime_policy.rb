@@ -17,26 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Tag attributes of a monitor configuration policy.
-  class MonitorConfigPolicyTagPolicy
+  # Downtime duration attributes of a monitor configuration policy.
+  class MonitorConfigPolicyDowntimePolicy
     include BaseGenericModel
 
-    # The key of the tag.
-    attr_reader :tag_key
-
-    # If a tag key is required for monitor creation.
-    attr_accessor :tag_key_required
-
-    # Valid values for the tag.
-    attr_accessor :valid_tag_values
+    # The maximum allowed downtime duration, in milliseconds.
+    attr_reader :max_duration_ms
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'tag_key' => :'tag_key',
-        :'tag_key_required' => :'tag_key_required',
-        :'valid_tag_values' => :'valid_tag_values'
+        :'max_duration_ms' => :'max_duration_ms'
       }
     end
 
@@ -44,9 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'tag_key' => :'String',
-        :'tag_key_required' => :'Boolean',
-        :'valid_tag_values' => :'Array<String>'
+        :'max_duration_ms' => :'Integer'
       }
     end
 
@@ -55,29 +45,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorConfigPolicyTagPolicy` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorConfigPolicyDowntimePolicy` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MonitorConfigPolicyTagPolicy`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MonitorConfigPolicyDowntimePolicy`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'tag_key')
-        self.tag_key = attributes[:'tag_key']
-      end
-
-      if attributes.key?(:'tag_key_required')
-        self.tag_key_required = attributes[:'tag_key_required']
-      end
-
-      if attributes.key?(:'valid_tag_values')
-        if (value = attributes[:'valid_tag_values']).is_a?(Array)
-          self.valid_tag_values = value
-        end
+      if attributes.key?(:'max_duration_ms')
+        self.max_duration_ms = attributes[:'max_duration_ms']
       end
     end
 
@@ -85,18 +65,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@tag_key.nil? && @tag_key.to_s.length > 255
+      return false if @max_duration_ms.nil?
+      return false if @max_duration_ms < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param tag_key [Object] Object to be assigned
+    # @param max_duration_ms [Object] Object to be assigned
     # @!visibility private
-    def tag_key=(tag_key)
-      if !tag_key.nil? && tag_key.to_s.length > 255
-        fail ArgumentError, 'invalid value for "tag_key", the character length must be smaller than or equal to 255.'
+    def max_duration_ms=(max_duration_ms)
+      if max_duration_ms.nil?
+        fail ArgumentError, 'invalid value for "max_duration_ms", max_duration_ms cannot be nil.'
       end
-      @tag_key = tag_key
+      if max_duration_ms < 1
+        fail ArgumentError, 'invalid value for "max_duration_ms", must be greater than or equal to 1.'
+      end
+      @max_duration_ms = max_duration_ms
     end
 
     # Checks equality by comparing each attribute.
@@ -105,16 +89,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          tag_key == o.tag_key &&
-          tag_key_required == o.tag_key_required &&
-          valid_tag_values == o.valid_tag_values
+          max_duration_ms == o.max_duration_ms
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tag_key, tag_key_required, valid_tag_values].hash
+      [max_duration_ms].hash
     end
   end
 end

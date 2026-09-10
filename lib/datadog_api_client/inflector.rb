@@ -5334,6 +5334,8 @@ module DatadogAPIClient
           "v2.monitor_config_policy_attribute_response" => "MonitorConfigPolicyAttributeResponse",
           "v2.monitor_config_policy_create_data" => "MonitorConfigPolicyCreateData",
           "v2.monitor_config_policy_create_request" => "MonitorConfigPolicyCreateRequest",
+          "v2.monitor_config_policy_downtime_policy" => "MonitorConfigPolicyDowntimePolicy",
+          "v2.monitor_config_policy_downtime_policy_create_request" => "MonitorConfigPolicyDowntimePolicyCreateRequest",
           "v2.monitor_config_policy_edit_data" => "MonitorConfigPolicyEditData",
           "v2.monitor_config_policy_edit_request" => "MonitorConfigPolicyEditRequest",
           "v2.monitor_config_policy_list_response" => "MonitorConfigPolicyListResponse",
