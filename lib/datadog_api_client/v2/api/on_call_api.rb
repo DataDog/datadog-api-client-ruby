@@ -1128,6 +1128,96 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List On-Call schedules.
+    #
+    # @see #list_on_call_schedules_with_http_info
+    def list_on_call_schedules(opts = {})
+      data, _status_code, _headers = list_on_call_schedules_with_http_info(opts)
+      data
+    end
+
+    # List On-Call schedules.
+    #
+    # Retrieve a list of On-Call schedules.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :filter_query Search query to filter schedules. Supports free-text search on schedule name (case-insensitive, `*` wildcards), and structured filters such as `team.id:<uuid>` and `user.id:<uuid>` (multiple values can be combined with `OR`, e.g. `user.id:(<uuid> OR <uuid>)`).
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed value: `teams`.
+    # @return [Array<(Schedules, Integer, Hash)>] Schedules data, response status code and response headers
+    def list_on_call_schedules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_on_call_schedules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Schedules'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_on_call_schedules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_on_call_schedules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List On-Call schedules.
+    #
+    # Provide a paginated version of {#list_on_call_schedules}, returning all items.
+    #
+    # To use it you need to use a block: list_on_call_schedules_with_pagination { |item| p item }
+    #
+    # @yield [ScheduleListItem] Paginated items
+    def list_on_call_schedules_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_on_call_schedules(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # List On-Call notification channels for a user.
     #
     # @see #list_user_notification_channels_with_http_info
