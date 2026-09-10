@@ -8,7 +8,6 @@ rerun.txt
 coverage/
 datadog_api_client-*.gem
 vendor/
-.generator/lib
 .idea/
 
 __pycache__

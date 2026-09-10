@@ -92,7 +92,7 @@ module TestRunnerWorld
   def prepare_test_runner_request
     plan = test_runner_plan
     @operation_id = plan.fetch('operation_id')
-    @api_method = @api_instance.method("#{@operation_id.snakecase}_with_http_info".to_sym)
+    @api_method = generated_operation_method(@api_instance, @operation_id)
     request = plan.fetch('request')
 
     if request['body']
@@ -109,7 +109,8 @@ module TestRunnerWorld
         materialize_test_value(source.fetch('value'))
       end
       name = parameter.fetch('name')
-      opts[name.to_parameter.to_sym] = model_builder(name.to_parameter, value, parameter['schema'])
+      ruby_name = scenario_parameter_name(name)
+      opts[ruby_name.to_sym] = model_builder(ruby_name, value, parameter['schema'])
     end
   end
 
