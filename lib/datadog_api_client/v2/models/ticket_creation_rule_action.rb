@@ -24,7 +24,11 @@ module DatadogAPIClient::V2
     # The UUID of the default assignee for created tickets.
     attr_accessor :assignee_id
 
-    # Custom fields of the Jira issue to create. For the list of available fields, see [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+    # Target-specific fields of the ticket to create.
+    #
+    # For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+    #
+    # For `target: linear`, the optional keys `linear_project_id` (string, the identifier of the Linear project the issue is created in) and `linear_label_ids` (array of strings, the identifiers of the Linear labels applied to the issue).
     attr_accessor :fields
 
     # The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule.
