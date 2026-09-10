@@ -21,8 +21,17 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalsListResponseMeta
     include BaseGenericModel
 
+    # The time elapsed in milliseconds.
+    attr_accessor :elapsed
+
     # Paging attributes.
     attr_accessor :page
+
+    # The unique identifier of the request.
+    attr_accessor :request_id
+
+    # The status of the response.
+    attr_accessor :status
 
     attr_accessor :additional_properties
 
@@ -30,7 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'page' => :'page'
+        :'elapsed' => :'elapsed',
+        :'page' => :'page',
+        :'request_id' => :'request_id',
+        :'status' => :'status'
       }
     end
 
@@ -38,7 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'page' => :'SecurityMonitoringSignalsListResponseMetaPage'
+        :'elapsed' => :'Integer',
+        :'page' => :'SecurityMonitoringSignalsListResponseMetaPage',
+        :'request_id' => :'String',
+        :'status' => :'String'
       }
     end
 
@@ -60,8 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'elapsed')
+        self.elapsed = attributes[:'elapsed']
+      end
+
       if attributes.key?(:'page')
         self.page = attributes[:'page']
+      end
+
+      if attributes.key?(:'request_id')
+        self.request_id = attributes[:'request_id']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -91,7 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          elapsed == o.elapsed &&
           page == o.page &&
+          request_id == o.request_id &&
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [page, additional_properties].hash
+      [elapsed, page, request_id, status, additional_properties].hash
     end
   end
 end
