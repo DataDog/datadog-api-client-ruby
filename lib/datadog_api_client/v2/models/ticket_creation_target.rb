@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     JIRA = "jira".freeze
     CASE_MANAGEMENT = "case_management".freeze
+    LINEAR = "linear".freeze
   end
 end
