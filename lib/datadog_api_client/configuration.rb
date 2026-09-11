@@ -619,8 +619,6 @@ module DatadogAPIClient
             "v2.list_jira_accounts": false,
             "v2.list_jira_issue_templates": false,
             "v2.update_jira_issue_template": false,
-            "v2.create_tenancy_config": false,
-            "v2.get_tenancy_configs": false,
             "v2.add_role_to_restriction_query": false,
             "v2.create_restriction_query": false,
             "v2.delete_restriction_query": false,

@@ -1,9 +1,6 @@
 # Create tenancy config returns "Created" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_tenancy_config".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::OCIIntegrationAPI.new
 
 body = DatadogAPIClient::V2::CreateTenancyConfigRequest.new({
