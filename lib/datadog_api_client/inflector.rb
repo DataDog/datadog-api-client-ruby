@@ -1256,6 +1256,7 @@ module DatadogAPIClient
           "v2.aggregated_waterfall_request_type" => "AggregatedWaterfallRequestType",
           "v2.aggregated_waterfall_response" => "AggregatedWaterfallResponse",
           "v2.aggregated_waterfall_response_attributes" => "AggregatedWaterfallResponseAttributes",
+          "v2.aggregated_waterfall_response_attributes_criteria" => "AggregatedWaterfallResponseAttributesCriteria",
           "v2.aggregated_waterfall_response_data" => "AggregatedWaterfallResponseData",
           "v2.ai_custom_rule_data_type" => "AiCustomRuleDataType",
           "v2.ai_custom_rule_item" => "AiCustomRuleItem",
