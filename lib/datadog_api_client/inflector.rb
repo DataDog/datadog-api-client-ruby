@@ -5879,6 +5879,7 @@ module DatadogAPIClient
           "v2.oci_config_attributes" => "OCIConfigAttributes",
           "v2.oci_configs_response" => "OCIConfigsResponse",
           "v2.oci_config_type" => "OCIConfigType",
+          "v2.oidc_discovery_document" => "OIDCDiscoveryDocument",
           "v2.okta_account" => "OktaAccount",
           "v2.okta_account_attributes" => "OktaAccountAttributes",
           "v2.okta_account_request" => "OktaAccountRequest",
