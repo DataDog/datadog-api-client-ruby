@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MuteRuleReorderRequest
     include BaseGenericModel
 
-    # The ordered list of all mute rules; every rule must be included.
+    # The ordered list of all mute rules. Every rule must be included.
     attr_reader :data
 
     attr_accessor :additional_properties

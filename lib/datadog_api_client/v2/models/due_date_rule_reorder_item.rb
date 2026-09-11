@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DueDateRuleReorderItem
     include BaseGenericModel
 
-    # The ID of the automation rule.
+    # The ID of the due date rule.
     attr_reader :id
 
     # The JSON:API type for due date rules.

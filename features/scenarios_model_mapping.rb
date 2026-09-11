@@ -2120,6 +2120,15 @@ ScenariosModelMappings = {
     "v2.UpdateFindingsAssignee" => {
             "body" => "AssigneeRequest",
     },
+    "v2.GetSecurityFindingsAutomationDefaultInboxRule" => {
+            "rule_id" => "String",
+    },
+    "v2.DisableSecurityFindingsAutomationDefaultInboxRule" => {
+            "rule_id" => "String",
+    },
+    "v2.EnableSecurityFindingsAutomationDefaultInboxRule" => {
+            "rule_id" => "String",
+    },
     "v2.ListSecurityFindingsAutomationDueDateRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -2139,6 +2148,26 @@ ScenariosModelMappings = {
     "v2.UpdateSecurityFindingsAutomationDueDateRule" => {
             "rule_id" => "UUID",
             "body" => "DueDateRuleUpdateRequest",
+    },
+    "v2.ListSecurityFindingsAutomationInboxRules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateSecurityFindingsAutomationInboxRule" => {
+            "body" => "InboxRuleCreateRequest",
+    },
+    "v2.ReorderSecurityFindingsAutomationInboxRules" => {
+            "body" => "InboxRuleReorderRequest",
+    },
+    "v2.DeleteSecurityFindingsAutomationInboxRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.GetSecurityFindingsAutomationInboxRule" => {
+            "rule_id" => "UUID",
+    },
+    "v2.UpdateSecurityFindingsAutomationInboxRule" => {
+            "rule_id" => "UUID",
+            "body" => "InboxRuleUpdateRequest",
     },
     "v2.ListSecurityFindingsAutomationMuteRules" => {
             "page_size" => "Integer",

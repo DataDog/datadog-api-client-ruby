@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MuteRuleReorderItem
     include BaseGenericModel
 
-    # The ID of the automation rule.
+    # The ID of the mute rule.
     attr_reader :id
 
     # The JSON:API type for mute rules.

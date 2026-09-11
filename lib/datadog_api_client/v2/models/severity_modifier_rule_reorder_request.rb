@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SeverityModifierRuleReorderRequest
     include BaseGenericModel
 
-    # The ordered list of severity modifier rules; every rule must be included.
+    # The ordered list of all severity modifier rules. Every rule must be included.
     attr_reader :data
 
     attr_accessor :additional_properties

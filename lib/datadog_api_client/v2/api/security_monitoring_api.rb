@@ -1978,7 +1978,7 @@ module DatadogAPIClient::V2
 
     # Create a due date rule.
     #
-    # Create a new due date rule for the current organization.
+    # Create a due date rule for the current organization.
     #
     # @param body [DueDateRuleCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -2041,6 +2041,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an inbox rule.
+    #
+    # @see #create_security_findings_automation_inbox_rule_with_http_info
+    def create_security_findings_automation_inbox_rule(body, opts = {})
+      data, _status_code, _headers = create_security_findings_automation_inbox_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create an inbox rule.
+    #
+    # Create an inbox rule for the current organization.
+    #
+    # @param body [InboxRuleCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def create_security_findings_automation_inbox_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_findings_automation_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_findings_automation_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_findings_automation_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_findings_automation_inbox_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_findings_automation_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/inbox_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_security_findings_automation_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_findings_automation_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a mute rule.
     #
     # @see #create_security_findings_automation_mute_rule_with_http_info
@@ -2051,7 +2124,7 @@ module DatadogAPIClient::V2
 
     # Create a mute rule.
     #
-    # Create a new mute rule for the current organization.
+    # Create a mute rule for the current organization.
     #
     # @param body [MuteRuleCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -2124,7 +2197,7 @@ module DatadogAPIClient::V2
 
     # Create a severity modifier rule.
     #
-    # Create a new severity modifier rule for the current organization.
+    # Create a severity modifier rule for the current organization.
     #
     # @param body [SeverityModifierRuleCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -2197,7 +2270,7 @@ module DatadogAPIClient::V2
 
     # Create a ticket creation rule.
     #
-    # Create a new ticket creation rule for the current organization.
+    # Create a ticket creation rule for the current organization.
     #
     # @param body [TicketCreationRuleCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -3393,7 +3466,7 @@ module DatadogAPIClient::V2
 
     # Delete a due date rule.
     #
-    # Delete an existing due date rule by ID.
+    # Delete a due date rule by ID.
     #
     # @param rule_id [UUID] The ID of the due date rule.
     # @param opts [Hash] the optional parameters
@@ -3454,6 +3527,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an inbox rule.
+    #
+    # @see #delete_security_findings_automation_inbox_rule_with_http_info
+    def delete_security_findings_automation_inbox_rule(rule_id, opts = {})
+      delete_security_findings_automation_inbox_rule_with_http_info(rule_id, opts)
+      nil
+    end
+
+    # Delete an inbox rule.
+    #
+    # Delete an inbox rule by ID.
+    #
+    # @param rule_id [UUID] The ID of the inbox rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_findings_automation_inbox_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_security_findings_automation_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_security_findings_automation_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_security_findings_automation_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_findings_automation_inbox_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.delete_security_findings_automation_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/inbox_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_security_findings_automation_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_findings_automation_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a mute rule.
     #
     # @see #delete_security_findings_automation_mute_rule_with_http_info
@@ -3464,7 +3608,7 @@ module DatadogAPIClient::V2
 
     # Delete a mute rule.
     #
-    # Delete an existing mute rule by ID.
+    # Delete a mute rule by ID.
     #
     # @param rule_id [UUID] The ID of the mute rule.
     # @param opts [Hash] the optional parameters
@@ -3535,7 +3679,7 @@ module DatadogAPIClient::V2
 
     # Delete a severity modifier rule.
     #
-    # Delete an existing severity modifier rule by ID.
+    # Delete a severity modifier rule by ID.
     #
     # @param rule_id [UUID] The ID of the severity modifier rule.
     # @param opts [Hash] the optional parameters
@@ -3606,7 +3750,7 @@ module DatadogAPIClient::V2
 
     # Delete a ticket creation rule.
     #
-    # Delete an existing ticket creation rule by ID.
+    # Delete a ticket creation rule by ID.
     #
     # @param rule_id [UUID] The ID of the ticket creation rule.
     # @param opts [Hash] the optional parameters
@@ -4204,6 +4348,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Disable a default inbox rule.
+    #
+    # @see #disable_security_findings_automation_default_inbox_rule_with_http_info
+    def disable_security_findings_automation_default_inbox_rule(rule_id, opts = {})
+      data, _status_code, _headers = disable_security_findings_automation_default_inbox_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Disable a default inbox rule.
+    #
+    # Disable a default inbox rule for the current organization.
+    #
+    # @param rule_id [String] The ID of the default inbox rule. Known default rule IDs include: `identity_risk_default_rule`, `secret_default_rule`, `library_vulnerability_default_rule`, `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`, `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`, and `misconfiguration_default_rule`. Datadog can add new default rules over time.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DefaultInboxRuleResponse, Integer, Hash)>] DefaultInboxRuleResponse data, response status code and response headers
+    def disable_security_findings_automation_default_inbox_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.disable_security_findings_automation_default_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.disable_security_findings_automation_default_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.disable_security_findings_automation_default_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.disable_security_findings_automation_default_inbox_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.disable_security_findings_automation_default_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/disable'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DefaultInboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :disable_security_findings_automation_default_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#disable_security_findings_automation_default_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update security signal triage state or assignee.
     #
     # @see #edit_security_monitoring_signal_with_http_info
@@ -4488,6 +4703,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Enable a default inbox rule.
+    #
+    # @see #enable_security_findings_automation_default_inbox_rule_with_http_info
+    def enable_security_findings_automation_default_inbox_rule(rule_id, opts = {})
+      data, _status_code, _headers = enable_security_findings_automation_default_inbox_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Enable a default inbox rule.
+    #
+    # Enable a default inbox rule for the current organization.
+    #
+    # @param rule_id [String] The ID of the default inbox rule. Known default rule IDs include: `identity_risk_default_rule`, `secret_default_rule`, `library_vulnerability_default_rule`, `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`, `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`, and `misconfiguration_default_rule`. Datadog can add new default rules over time.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DefaultInboxRuleResponse, Integer, Hash)>] DefaultInboxRuleResponse data, response status code and response headers
+    def enable_security_findings_automation_default_inbox_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.enable_security_findings_automation_default_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.enable_security_findings_automation_default_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.enable_security_findings_automation_default_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.enable_security_findings_automation_default_inbox_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.enable_security_findings_automation_default_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/enable'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DefaultInboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :enable_security_findings_automation_default_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#enable_security_findings_automation_default_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5586,6 +5872,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a default inbox rule.
+    #
+    # @see #get_security_findings_automation_default_inbox_rule_with_http_info
+    def get_security_findings_automation_default_inbox_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_security_findings_automation_default_inbox_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get a default inbox rule.
+    #
+    # Get the details of a default inbox rule by ID.
+    # Datadog manages default inbox rules. Their name, rule, and action are
+    # read-only, and each organization can change only whether they are enabled.
+    #
+    # @param rule_id [String] The ID of the default inbox rule. Known default rule IDs include: `identity_risk_default_rule`, `secret_default_rule`, `library_vulnerability_default_rule`, `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`, `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`, and `misconfiguration_default_rule`. Datadog can add new default rules over time.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DefaultInboxRuleResponse, Integer, Hash)>] DefaultInboxRuleResponse data, response status code and response headers
+    def get_security_findings_automation_default_inbox_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_findings_automation_default_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_findings_automation_default_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_findings_automation_default_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_findings_automation_default_inbox_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.get_security_findings_automation_default_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/default_inbox_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DefaultInboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_security_findings_automation_default_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_findings_automation_default_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a due date rule.
     #
     # @see #get_security_findings_automation_due_date_rule_with_http_info
@@ -5653,6 +6012,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_findings_automation_due_date_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an inbox rule.
+    #
+    # @see #get_security_findings_automation_inbox_rule_with_http_info
+    def get_security_findings_automation_inbox_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_security_findings_automation_inbox_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get an inbox rule.
+    #
+    # Get the details of an inbox rule by ID.
+    #
+    # @param rule_id [UUID] The ID of the inbox rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def get_security_findings_automation_inbox_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_findings_automation_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_findings_automation_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_findings_automation_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_findings_automation_inbox_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.get_security_findings_automation_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/inbox_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_security_findings_automation_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_findings_automation_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -8590,6 +9020,74 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Get all default inbox rules.
+    #
+    # @see #list_security_findings_automation_default_inbox_rules_with_http_info
+    def list_security_findings_automation_default_inbox_rules(opts = {})
+      data, _status_code, _headers = list_security_findings_automation_default_inbox_rules_with_http_info(opts)
+      data
+    end
+
+    # Get all default inbox rules.
+    #
+    # Get all default inbox rules for the current organization.
+    # Datadog manages default inbox rules. Their name, rule, and action are
+    # read-only, and each organization can change only whether they are enabled.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DefaultInboxRulesResponse, Integer, Hash)>] DefaultInboxRulesResponse data, response status code and response headers
+    def list_security_findings_automation_default_inbox_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_findings_automation_default_inbox_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_findings_automation_default_inbox_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_findings_automation_default_inbox_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_findings_automation_default_inbox_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/default_inbox_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DefaultInboxRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_security_findings_automation_default_inbox_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_findings_automation_default_inbox_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all due date rules.
     #
     # @see #list_security_findings_automation_due_date_rules_with_http_info
@@ -8665,6 +9163,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_findings_automation_due_date_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all inbox rules.
+    #
+    # @see #list_security_findings_automation_inbox_rules_with_http_info
+    def list_security_findings_automation_inbox_rules(opts = {})
+      data, _status_code, _headers = list_security_findings_automation_inbox_rules_with_http_info(opts)
+      data
+    end
+
+    # Get all inbox rules.
+    #
+    # Get all inbox rules for the current organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of rules per page. Maximum is 1000.
+    # @option opts [Integer] :page_number The page number to return.
+    # @return [Array<(InboxRulesResponse, Integer, Hash)>] InboxRulesResponse data, response status code and response headers
+    def list_security_findings_automation_inbox_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_findings_automation_inbox_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_findings_automation_inbox_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_findings_automation_inbox_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_findings_automation_inbox_rules ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_findings_automation_inbox_rules, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_findings_automation_inbox_rules, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_security_findings_automation_inbox_rules, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/inbox_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_security_findings_automation_inbox_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_findings_automation_inbox_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -10214,6 +10791,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Reorder inbox rules.
+    #
+    # @see #reorder_security_findings_automation_inbox_rules_with_http_info
+    def reorder_security_findings_automation_inbox_rules(body, opts = {})
+      data, _status_code, _headers = reorder_security_findings_automation_inbox_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Reorder inbox rules.
+    #
+    # Reorder the list of inbox rules for the current organization.
+    #
+    # @param body [InboxRuleReorderRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleReorderResponse, Integer, Hash)>] InboxRuleReorderResponse data, response status code and response headers
+    def reorder_security_findings_automation_inbox_rules_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.reorder_security_findings_automation_inbox_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.reorder_security_findings_automation_inbox_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.reorder_security_findings_automation_inbox_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.reorder_security_findings_automation_inbox_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.reorder_security_findings_automation_inbox_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/inbox_rules/reorder'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleReorderResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :reorder_security_findings_automation_inbox_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#reorder_security_findings_automation_inbox_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Reorder mute rules.
     #
     # @see #reorder_security_findings_automation_mute_rules_with_http_info
@@ -11340,7 +11990,7 @@ module DatadogAPIClient::V2
 
     # Update a due date rule.
     #
-    # Update an existing due date rule by ID.
+    # Update a due date rule by ID.
     #
     # @param rule_id [UUID] The ID of the due date rule.
     # @param body [DueDateRuleUpdateRequest] 
@@ -11408,6 +12058,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update an inbox rule.
+    #
+    # @see #update_security_findings_automation_inbox_rule_with_http_info
+    def update_security_findings_automation_inbox_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = update_security_findings_automation_inbox_rule_with_http_info(rule_id, body, opts)
+      data
+    end
+
+    # Update an inbox rule.
+    #
+    # Update an inbox rule by ID.
+    #
+    # @param rule_id [UUID] The ID of the inbox rule.
+    # @param body [InboxRuleUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def update_security_findings_automation_inbox_rule_with_http_info(rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_findings_automation_inbox_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_findings_automation_inbox_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_findings_automation_inbox_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_findings_automation_inbox_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.update_security_findings_automation_inbox_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_findings_automation_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/automation/inbox_rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_security_findings_automation_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_findings_automation_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a mute rule.
     #
     # @see #update_security_findings_automation_mute_rule_with_http_info
@@ -11418,7 +12146,7 @@ module DatadogAPIClient::V2
 
     # Update a mute rule.
     #
-    # Update an existing mute rule by ID.
+    # Update a mute rule by ID.
     #
     # @param rule_id [UUID] The ID of the mute rule.
     # @param body [MuteRuleUpdateRequest] 
@@ -11496,7 +12224,7 @@ module DatadogAPIClient::V2
 
     # Update a severity modifier rule.
     #
-    # Update an existing severity modifier rule by ID.
+    # Update a severity modifier rule by ID.
     #
     # @param rule_id [UUID] The ID of the severity modifier rule.
     # @param body [SeverityModifierRuleUpdateRequest] 
@@ -11574,7 +12302,7 @@ module DatadogAPIClient::V2
 
     # Update a ticket creation rule.
     #
-    # Update an existing ticket creation rule by ID.
+    # Update a ticket creation rule by ID.
     #
     # @param rule_id [UUID] The ID of the ticket creation rule.
     # @param body [TicketCreationRuleUpdateRequest] 

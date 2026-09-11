@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of the ticket creation rule reorder request.
-  class TicketCreationRuleReorderRequest
+  # A list of default inbox rules.
+  class DefaultInboxRulesResponse
     include BaseGenericModel
 
-    # The ordered list of all ticket creation rules. Every rule must be included.
+    # A list of default inbox rule data objects.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<TicketCreationRuleReorderItem>'
+        :'data' => :'Array<DefaultInboxRuleDataResponse>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TicketCreationRuleReorderRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DefaultInboxRulesResponse` initialize method"
       end
 
       self.additional_properties = {}

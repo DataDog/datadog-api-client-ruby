@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of the ticket creation rule reorder request.
-  class TicketCreationRuleReorderRequest
+  # The action to take when the inbox rule matches a finding.
+  class InboxRuleAction
     include BaseGenericModel
 
-    # The ordered list of all ticket creation rules. Every rule must be included.
-    attr_reader :data
+    # An optional description providing more context for the rule.
+    attr_reader :description
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'description' => :'description'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<TicketCreationRuleReorderItem>'
+        :'description' => :'String'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TicketCreationRuleReorderRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::InboxRuleAction` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
     end
 
@@ -71,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if !@description.nil? && @description.to_s.length > 20000
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param description [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def description=(description)
+      if !description.nil? && description.to_s.length > 20000
+        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 20000.'
       end
-      @data = data
+      @description = description
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          description == o.description &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [description, additional_properties].hash
     end
   end
 end
