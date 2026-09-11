@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::TimeseriesAnomalyInvestigationRequest.new({
         DatadogAPIClient::V2::TimeseriesAnomalyInvestigationTimeseriesRequest.new({
           formulas: [
             DatadogAPIClient::V2::TimeseriesAnomalyInvestigationFormula.new({
-              formula: "anomalies(query1, 'agile', 3)",
+              formula: "query1",
             }),
           ],
           from: 1754406000000,

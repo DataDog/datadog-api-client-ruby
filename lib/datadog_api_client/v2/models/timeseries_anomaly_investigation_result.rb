@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class TimeseriesAnomalyInvestigationResult
     include BaseGenericModel
 
-    # Detected anomalies. This API version returns at most one anomaly.
+    # Detected anomalies, ordered by significance. This API version returns at most
+    # three anomalies across the submitted request.
     attr_reader :anomalies
 
     # Status value indicating successful completion.
@@ -81,7 +82,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @anomalies.nil?
-      return false if @anomalies.length > 1
+      return false if @anomalies.length > 3
       return false if @status.nil?
       true
     end
@@ -93,8 +94,8 @@ module DatadogAPIClient::V2
       if anomalies.nil?
         fail ArgumentError, 'invalid value for "anomalies", anomalies cannot be nil.'
       end
-      if anomalies.length > 1
-        fail ArgumentError, 'invalid value for "anomalies", number of items must be less than or equal to 1.'
+      if anomalies.length > 3
+        fail ArgumentError, 'invalid value for "anomalies", number of items must be less than or equal to 3.'
       end
       @anomalies = anomalies
     end

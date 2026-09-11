@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Most significant anomaly detected in the request.
+  # One of the most significant anomalies detected in the request.
   class TimeseriesAnomalyInvestigationAnomaly
     include BaseGenericModel
 
