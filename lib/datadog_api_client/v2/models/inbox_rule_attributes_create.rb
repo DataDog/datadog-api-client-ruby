@@ -17,12 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of the ticket creation rule reorder request.
-  class TicketCreationRuleReorderRequest
+  # Attributes for creating or updating an inbox rule.
+  class InboxRuleAttributesCreate
     include BaseGenericModel
 
-    # The ordered list of all ticket creation rules. Every rule must be included.
-    attr_reader :data
+    # The action to take when the inbox rule matches a finding.
+    attr_reader :action
+
+    # Whether the inbox rule is enabled.
+    attr_accessor :enabled
+
+    # The name of the inbox rule.
+    attr_reader :name
+
+    # Defines the scope of findings to which the automation rule applies.
+    attr_reader :rule
 
     attr_accessor :additional_properties
 
@@ -30,7 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'action' => :'action',
+        :'enabled' => :'enabled',
+        :'name' => :'name',
+        :'rule' => :'rule'
       }
     end
 
@@ -38,7 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<TicketCreationRuleReorderItem>'
+        :'action' => :'InboxRuleAction',
+        :'enabled' => :'Boolean',
+        :'name' => :'String',
+        :'rule' => :'AutomationRuleScope'
       }
     end
 
@@ -47,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TicketCreationRuleReorderRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::InboxRuleAttributesCreate` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'action')
+        self.action = attributes[:'action']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'rule')
+        self.rule = attributes[:'rule']
       end
     end
 
@@ -71,18 +96,48 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @action.nil?
+      return false if @name.nil?
+      return false if @name.to_s.length > 255
+      return false if @name.to_s.length < 1
+      return false if @rule.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param action [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def action=(action)
+      if action.nil?
+        fail ArgumentError, 'invalid value for "action", action cannot be nil.'
       end
-      @data = data
+      @action = action
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
+      end
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param rule [Object] Object to be assigned
+    # @!visibility private
+    def rule=(rule)
+      if rule.nil?
+        fail ArgumentError, 'invalid value for "rule", rule cannot be nil.'
+      end
+      @rule = rule
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,7 +166,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          action == o.action &&
+          enabled == o.enabled &&
+          name == o.name &&
+          rule == o.rule &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +177,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [action, enabled, name, rule, additional_properties].hash
     end
   end
 end

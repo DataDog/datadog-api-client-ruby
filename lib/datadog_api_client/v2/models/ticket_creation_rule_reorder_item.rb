@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class TicketCreationRuleReorderItem
     include BaseGenericModel
 
-    # The ID of the automation rule.
+    # The ID of the ticket creation rule.
     attr_reader :id
 
     # The JSON:API type for ticket creation rules.

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SeverityModifierRuleReorderItem
     include BaseGenericModel
 
-    # The ID of the automation rule.
+    # The ID of the severity modifier rule.
     attr_reader :id
 
     # The JSON:API type for severity modifier rules.
