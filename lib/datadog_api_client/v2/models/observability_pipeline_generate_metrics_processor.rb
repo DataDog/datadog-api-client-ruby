@@ -21,6 +21,10 @@ module DatadogAPIClient::V2
   # Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
   # 
   # **Supported pipeline types:** logs
+  # 
+  # **Deprecated:** This processor is deprecated. Use the `generate_metrics` processor instead.
+  #
+  # @deprecated This model is deprecated.
   class ObservabilityPipelineGenerateMetricsProcessor
     include BaseGenericModel
 
@@ -74,6 +78,7 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `ObservabilityPipelineGenerateMetricsProcessor` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineGenerateMetricsProcessor` initialize method"
       end
