@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
 
     # List IP Ranges.
     #
-    # Get information about Datadog IP ranges.
+    # Get information about Datadog IP ranges, including service-specific prefixes.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(IPRanges, Integer, Hash)>] IPRanges data, response status code and response headers
