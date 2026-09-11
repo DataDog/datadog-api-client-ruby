@@ -53,6 +53,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineDatabricksZerobusDestination',
           :'ObservabilityPipelineDatadogMetricsDestination',
           :'ObservabilityPipelineOpentelemetryMetricsDestination',
+          :'ObservabilityPipelinePrometheusRemoteWriteDestination',
           :'ObservabilityPipelineSplunkHecMetricsDestination'
         ]
       end
