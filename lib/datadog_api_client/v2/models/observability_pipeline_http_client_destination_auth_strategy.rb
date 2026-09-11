@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     NONE = "none".freeze
     BASIC = "basic".freeze
     BEARER = "bearer".freeze
+    CUSTOM = "custom".freeze
   end
 end
