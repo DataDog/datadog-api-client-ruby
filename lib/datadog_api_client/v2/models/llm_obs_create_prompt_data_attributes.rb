@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Customer-provided identifier for the new prompt.
     attr_reader :prompt_id
 
-    # A text template or a list of chat messages.
+    # A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`. Use an authored chat object when including prompts as chat messages.
     attr_reader :template
 
     # Optional title of the prompt.
