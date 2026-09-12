@@ -17,9 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
+  # Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional. If `config` is omitted, the first version stores an empty object.
   class LLMObsCreatePromptDataAttributes
     include BaseGenericModel
+
+    # Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+    attr_accessor :config
 
     # Optional description of the prompt.
     attr_accessor :description
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'config' => :'config',
         :'description' => :'description',
         :'env_ids' => :'env_ids',
         :'labels' => :'labels',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'config' => :'Hash<String, Object>',
         :'description' => :'String',
         :'env_ids' => :'Array<String>',
         :'labels' => :'Array<LLMObsPromptVersionLabel>',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -182,6 +191,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          config == o.config &&
           description == o.description &&
           env_ids == o.env_ids &&
           labels == o.labels &&
@@ -196,7 +206,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, env_ids, labels, prompt_id, template, title, user_version, additional_properties].hash
+      [config, description, env_ids, labels, prompt_id, template, title, user_version, additional_properties].hash
     end
   end
 end
