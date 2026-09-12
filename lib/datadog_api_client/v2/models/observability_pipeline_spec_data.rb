@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Contains the the pipeline configuration.
+  # Contains the pipeline configuration.
   class ObservabilityPipelineSpecData
     include BaseGenericModel
 
