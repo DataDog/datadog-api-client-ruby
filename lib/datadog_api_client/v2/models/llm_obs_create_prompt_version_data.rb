@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LLMObsCreatePromptVersionData
     include BaseGenericModel
 
-    # Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional.
+    # Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional. If `config` is omitted, the latest version's configuration is carried forward. An explicit empty object clears it.
     attr_reader :attributes
 
     # Resource type of an Agent Observability prompt version.

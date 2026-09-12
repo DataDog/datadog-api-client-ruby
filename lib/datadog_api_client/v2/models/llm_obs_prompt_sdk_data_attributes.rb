@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
     attr_accessor :chat_template
 
+    # Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+    attr_reader :config
+
     # Labels attached to the selected version.
     attr_accessor :labels
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'chat_template' => :'chat_template',
+        :'config' => :'config',
         :'labels' => :'labels',
         :'prompt_id' => :'prompt_id',
         :'prompt_version_uuid' => :'prompt_version_uuid',
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'chat_template' => :'Array<LLMObsPromptChatMessage>',
+        :'config' => :'Hash<String, Object>',
         :'labels' => :'Array<String>',
         :'prompt_id' => :'String',
         :'prompt_version_uuid' => :'String',
@@ -91,6 +96,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
+      end
+
       if attributes.key?(:'labels')
         if (value = attributes[:'labels']).is_a?(Array)
           self.labels = value
@@ -112,6 +121,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @config.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param config [Object] Object to be assigned
+    # @!visibility private
+    def config=(config)
+      if config.nil?
+        fail ArgumentError, 'invalid value for "config", config cannot be nil.'
+      end
+      @config = config
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -141,6 +168,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           chat_template == o.chat_template &&
+          config == o.config &&
           labels == o.labels &&
           prompt_id == o.prompt_id &&
           prompt_version_uuid == o.prompt_version_uuid &&
@@ -153,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [chat_template, labels, prompt_id, prompt_version_uuid, template, version, additional_properties].hash
+      [chat_template, config, labels, prompt_id, prompt_version_uuid, template, version, additional_properties].hash
     end
   end
 end

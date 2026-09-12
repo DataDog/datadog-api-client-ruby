@@ -916,7 +916,7 @@ module DatadogAPIClient::V2
     #
     # @param body [LLMObsCreatePromptRequest] Create prompt payload.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(LLMObsPromptResponse, Integer, Hash)>] LLMObsPromptResponse data, response status code and response headers
+    # @return [Array<(LLMObsCreatePromptResponse, Integer, Hash)>] LLMObsCreatePromptResponse data, response status code and response headers
     def create_llm_obs_prompt_with_http_info(body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.create_llm_obs_prompt".to_sym]
       if unstable_enabled
@@ -952,7 +952,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'LLMObsPromptResponse'
+      return_type = opts[:debug_return_type] || 'LLMObsCreatePromptResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -2595,7 +2595,7 @@ module DatadogAPIClient::V2
 
     # Get a specific Agent Observability prompt version.
     #
-    # Get the full template of a single, specific version of an Agent Observability prompt.
+    # Get the full template and configuration of a single, specific version of an Agent Observability prompt.
     #
     # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param version [Integer] The version number of the Agent Observability prompt.

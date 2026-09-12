@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
-  class LLMObsPromptDataAttributes
+  # Attributes returned after creating an Agent Observability prompt and its first version.
+  class LLMObsCreatePromptResponseDataAttributes
     include BaseGenericModel
 
     # UUID of the user who authored the prompt.
     attr_accessor :author
+
+    # Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+    attr_reader :config
 
     # Timestamp when the prompt was created.
     attr_accessor :created_at
@@ -76,6 +79,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'author' => :'author',
+        :'config' => :'config',
         :'created_at' => :'created_at',
         :'created_from' => :'created_from',
         :'datasets' => :'datasets',
@@ -99,6 +103,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'author' => :'String',
+        :'config' => :'Hash<String, Object>',
         :'created_at' => :'Time',
         :'created_from' => :'String',
         :'datasets' => :'Array<LLMObsPromptDataset>',
@@ -122,7 +127,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPromptDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsCreatePromptResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -137,6 +142,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'author')
         self.author = attributes[:'author']
+      end
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
       end
 
       if attributes.key?(:'created_at')
@@ -210,12 +219,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @config.nil?
       return false if @created_from.nil?
       return false if @in_registry.nil?
       return false if @num_versions.nil?
       return false if @prompt_id.nil?
       return false if @source.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param config [Object] Object to be assigned
+    # @!visibility private
+    def config=(config)
+      if config.nil?
+        fail ArgumentError, 'invalid value for "config", config cannot be nil.'
+      end
+      @config = config
     end
 
     # Custom attribute writer method with validation
@@ -295,6 +315,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
+          config == o.config &&
           created_at == o.created_at &&
           created_from == o.created_from &&
           datasets == o.datasets &&
@@ -317,7 +338,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created_at, created_from, datasets, description, extracted_from, in_registry, last_seen_at, last_version_created_at, ml_app, ml_apps, num_versions, prompt_id, source, tags, title, additional_properties].hash
+      [author, config, created_at, created_from, datasets, description, extracted_from, in_registry, last_seen_at, last_version_created_at, ml_app, ml_apps, num_versions, prompt_id, source, tags, title, additional_properties].hash
     end
   end
 end
