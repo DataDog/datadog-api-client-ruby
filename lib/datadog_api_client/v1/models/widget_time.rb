@@ -28,7 +28,8 @@ module DatadogAPIClient::V1
         [
           :'WidgetLegacyLiveSpan',
           :'WidgetNewLiveSpan',
-          :'WidgetNewFixedSpan'
+          :'WidgetNewFixedSpan',
+          :'WidgetCalendarAlignedSpan'
         ]
       end
       # Builds the object
