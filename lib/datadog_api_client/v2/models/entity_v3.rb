@@ -30,7 +30,8 @@ module DatadogAPIClient::V2
           :'EntityV3Datastore',
           :'EntityV3Queue',
           :'EntityV3System',
-          :'EntityV3API'
+          :'EntityV3API',
+          :'EntityV3Repository'
         ]
       end
       # Builds the object
