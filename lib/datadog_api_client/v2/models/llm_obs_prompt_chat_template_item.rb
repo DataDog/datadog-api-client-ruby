@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A text template or a list of chat messages.
-  module LLMObsPromptTemplate
+  # A chat message or a named message placeholder in a prompt template.
+  module LLMObsPromptChatTemplateItem
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,8 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'String',
-          :'Array<LLMObsPromptChatTemplateItem>'
+          :'LLMObsPromptChatMessage',
+          :'LLMObsPromptMessagePlaceholder'
         ]
       end
       # Builds the object
