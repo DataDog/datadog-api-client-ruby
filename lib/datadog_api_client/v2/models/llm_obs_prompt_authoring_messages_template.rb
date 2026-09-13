@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for a specific version of an Agent Observability prompt.
-  class LLMObsPromptVersionData
+  # A chat prompt whose authored items are stored under `messages`.
+  class LLMObsPromptAuthoringMessagesTemplate
     include BaseGenericModel
 
-    # Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute.
-    attr_reader :attributes
-
-    # Unique identifier of the prompt version.
-    attr_reader :id
-
-    # Resource type of an Agent Observability prompt version.
-    attr_reader :type
+    # A chat prompt containing messages, pinned includes, or both.
+    attr_reader :messages
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'messages' => :'messages'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'LLMObsPromptVersionDataAttributes',
-        :'id' => :'String',
-        :'type' => :'LLMObsPromptVersionType'
+        :'messages' => :'Array<LLMObsPromptAuthoringItem>'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPromptVersionData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPromptAuthoringMessagesTemplate` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,10 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'messages')
+        if (value = attributes[:'messages']).is_a?(Array)
+          self.messages = value
+        end
       end
     end
 
@@ -87,40 +71,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @messages.nil?
+      return false if @messages.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param messages [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def messages=(messages)
+      if messages.nil?
+        fail ArgumentError, 'invalid value for "messages", messages cannot be nil.'
       end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      if messages.length < 1
+        fail ArgumentError, 'invalid value for "messages", number of items must be greater than or equal to 1.'
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @messages = messages
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -149,9 +115,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          messages == o.messages &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +123,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [messages, additional_properties].hash
     end
   end
 end
