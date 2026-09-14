@@ -51,6 +51,9 @@ module DatadogAPIClient::V2
     # Percentage of sampled view instances that loaded this resource.
     attr_reader :load_frequency_pct
 
+    # Number of requests served from the local browser cache without a network round trip.
+    attr_reader :local_cache_count
+
     # Maximum duration in milliseconds.
     attr_reader :max_duration_ms
 
@@ -60,17 +63,29 @@ module DatadogAPIClient::V2
     # Minimum duration in milliseconds.
     attr_reader :min_duration_ms
 
+    # Number of requests reported by the browser as non-render-blocking.
+    attr_reader :non_blocking_count
+
     # 75th percentile duration in milliseconds.
     attr_reader :p75_duration_ms
 
     # 95th percentile duration in milliseconds.
     attr_reader :p95_duration_ms
 
+    # Number of requests reported by the browser as render-blocking.
+    attr_reader :render_blocking_count
+
+    # Percentage of render-blocking requests among those reporting a render-blocking status.
+    attr_reader :render_blocking_pct
+
     # Resource type (JS, CSS, image, fetch, XHR, document, and so on).
     attr_accessor :resource_type
 
     # URL path group used to aggregate similar resources.
     attr_reader :resource_url_path_group
+
+    # Number of cached requests revalidated by the server with a 304 response.
+    attr_reader :server_validated_cache_count
 
     # Average timing breakdown per network phase for a resource.
     attr_reader :timing_breakdown
@@ -97,13 +112,18 @@ module DatadogAPIClient::V2
         :'global_view_name_pct' => :'global_view_name_pct',
         :'http_method' => :'http_method',
         :'load_frequency_pct' => :'load_frequency_pct',
+        :'local_cache_count' => :'local_cache_count',
         :'max_duration_ms' => :'max_duration_ms',
         :'median_duration_ms' => :'median_duration_ms',
         :'min_duration_ms' => :'min_duration_ms',
+        :'non_blocking_count' => :'non_blocking_count',
         :'p75_duration_ms' => :'p75_duration_ms',
         :'p95_duration_ms' => :'p95_duration_ms',
+        :'render_blocking_count' => :'render_blocking_count',
+        :'render_blocking_pct' => :'render_blocking_pct',
         :'resource_type' => :'resource_type',
         :'resource_url_path_group' => :'resource_url_path_group',
+        :'server_validated_cache_count' => :'server_validated_cache_count',
         :'timing_breakdown' => :'timing_breakdown',
         :'total_requests' => :'total_requests',
         :'views_with_resource' => :'views_with_resource'
@@ -124,13 +144,18 @@ module DatadogAPIClient::V2
         :'global_view_name_pct' => :'Float',
         :'http_method' => :'String',
         :'load_frequency_pct' => :'Float',
+        :'local_cache_count' => :'Integer',
         :'max_duration_ms' => :'Float',
         :'median_duration_ms' => :'Float',
         :'min_duration_ms' => :'Float',
+        :'non_blocking_count' => :'Integer',
         :'p75_duration_ms' => :'Float',
         :'p95_duration_ms' => :'Float',
+        :'render_blocking_count' => :'Integer',
+        :'render_blocking_pct' => :'Float',
         :'resource_type' => :'String',
         :'resource_url_path_group' => :'String',
+        :'server_validated_cache_count' => :'Integer',
         :'timing_breakdown' => :'AggregatedResourceTimingBreakdown',
         :'total_requests' => :'Integer',
         :'views_with_resource' => :'Integer'
@@ -204,6 +229,10 @@ module DatadogAPIClient::V2
         self.load_frequency_pct = attributes[:'load_frequency_pct']
       end
 
+      if attributes.key?(:'local_cache_count')
+        self.local_cache_count = attributes[:'local_cache_count']
+      end
+
       if attributes.key?(:'max_duration_ms')
         self.max_duration_ms = attributes[:'max_duration_ms']
       end
@@ -216,6 +245,10 @@ module DatadogAPIClient::V2
         self.min_duration_ms = attributes[:'min_duration_ms']
       end
 
+      if attributes.key?(:'non_blocking_count')
+        self.non_blocking_count = attributes[:'non_blocking_count']
+      end
+
       if attributes.key?(:'p75_duration_ms')
         self.p75_duration_ms = attributes[:'p75_duration_ms']
       end
@@ -224,12 +257,24 @@ module DatadogAPIClient::V2
         self.p95_duration_ms = attributes[:'p95_duration_ms']
       end
 
+      if attributes.key?(:'render_blocking_count')
+        self.render_blocking_count = attributes[:'render_blocking_count']
+      end
+
+      if attributes.key?(:'render_blocking_pct')
+        self.render_blocking_pct = attributes[:'render_blocking_pct']
+      end
+
       if attributes.key?(:'resource_type')
         self.resource_type = attributes[:'resource_type']
       end
 
       if attributes.key?(:'resource_url_path_group')
         self.resource_url_path_group = attributes[:'resource_url_path_group']
+      end
+
+      if attributes.key?(:'server_validated_cache_count')
+        self.server_validated_cache_count = attributes[:'server_validated_cache_count']
       end
 
       if attributes.key?(:'timing_breakdown')
@@ -258,12 +303,21 @@ module DatadogAPIClient::V2
       return false if @downloaded_count > 2147483647
       return false if !@global_view_name_count.nil? && @global_view_name_count > 2147483647
       return false if @load_frequency_pct.nil?
+      return false if @local_cache_count.nil?
+      return false if @local_cache_count > 2147483647
       return false if @max_duration_ms.nil?
       return false if @median_duration_ms.nil?
       return false if @min_duration_ms.nil?
+      return false if @non_blocking_count.nil?
+      return false if @non_blocking_count > 2147483647
       return false if @p75_duration_ms.nil?
       return false if @p95_duration_ms.nil?
+      return false if @render_blocking_count.nil?
+      return false if @render_blocking_count > 2147483647
+      return false if @render_blocking_pct.nil?
       return false if @resource_url_path_group.nil?
+      return false if @server_validated_cache_count.nil?
+      return false if @server_validated_cache_count > 2147483647
       return false if @timing_breakdown.nil?
       return false if @total_requests.nil?
       return false if @total_requests > 2147483647
@@ -349,6 +403,19 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param local_cache_count [Object] Object to be assigned
+    # @!visibility private
+    def local_cache_count=(local_cache_count)
+      if local_cache_count.nil?
+        fail ArgumentError, 'invalid value for "local_cache_count", local_cache_count cannot be nil.'
+      end
+      if local_cache_count > 2147483647
+        fail ArgumentError, 'invalid value for "local_cache_count", must be smaller than or equal to 2147483647.'
+      end
+      @local_cache_count = local_cache_count
+    end
+
+    # Custom attribute writer method with validation
     # @param max_duration_ms [Object] Object to be assigned
     # @!visibility private
     def max_duration_ms=(max_duration_ms)
@@ -379,6 +446,19 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param non_blocking_count [Object] Object to be assigned
+    # @!visibility private
+    def non_blocking_count=(non_blocking_count)
+      if non_blocking_count.nil?
+        fail ArgumentError, 'invalid value for "non_blocking_count", non_blocking_count cannot be nil.'
+      end
+      if non_blocking_count > 2147483647
+        fail ArgumentError, 'invalid value for "non_blocking_count", must be smaller than or equal to 2147483647.'
+      end
+      @non_blocking_count = non_blocking_count
+    end
+
+    # Custom attribute writer method with validation
     # @param p75_duration_ms [Object] Object to be assigned
     # @!visibility private
     def p75_duration_ms=(p75_duration_ms)
@@ -399,6 +479,29 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param render_blocking_count [Object] Object to be assigned
+    # @!visibility private
+    def render_blocking_count=(render_blocking_count)
+      if render_blocking_count.nil?
+        fail ArgumentError, 'invalid value for "render_blocking_count", render_blocking_count cannot be nil.'
+      end
+      if render_blocking_count > 2147483647
+        fail ArgumentError, 'invalid value for "render_blocking_count", must be smaller than or equal to 2147483647.'
+      end
+      @render_blocking_count = render_blocking_count
+    end
+
+    # Custom attribute writer method with validation
+    # @param render_blocking_pct [Object] Object to be assigned
+    # @!visibility private
+    def render_blocking_pct=(render_blocking_pct)
+      if render_blocking_pct.nil?
+        fail ArgumentError, 'invalid value for "render_blocking_pct", render_blocking_pct cannot be nil.'
+      end
+      @render_blocking_pct = render_blocking_pct
+    end
+
+    # Custom attribute writer method with validation
     # @param resource_url_path_group [Object] Object to be assigned
     # @!visibility private
     def resource_url_path_group=(resource_url_path_group)
@@ -406,6 +509,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "resource_url_path_group", resource_url_path_group cannot be nil.'
       end
       @resource_url_path_group = resource_url_path_group
+    end
+
+    # Custom attribute writer method with validation
+    # @param server_validated_cache_count [Object] Object to be assigned
+    # @!visibility private
+    def server_validated_cache_count=(server_validated_cache_count)
+      if server_validated_cache_count.nil?
+        fail ArgumentError, 'invalid value for "server_validated_cache_count", server_validated_cache_count cannot be nil.'
+      end
+      if server_validated_cache_count > 2147483647
+        fail ArgumentError, 'invalid value for "server_validated_cache_count", must be smaller than or equal to 2147483647.'
+      end
+      @server_validated_cache_count = server_validated_cache_count
     end
 
     # Custom attribute writer method with validation
@@ -480,13 +596,18 @@ module DatadogAPIClient::V2
           global_view_name_pct == o.global_view_name_pct &&
           http_method == o.http_method &&
           load_frequency_pct == o.load_frequency_pct &&
+          local_cache_count == o.local_cache_count &&
           max_duration_ms == o.max_duration_ms &&
           median_duration_ms == o.median_duration_ms &&
           min_duration_ms == o.min_duration_ms &&
+          non_blocking_count == o.non_blocking_count &&
           p75_duration_ms == o.p75_duration_ms &&
           p95_duration_ms == o.p95_duration_ms &&
+          render_blocking_count == o.render_blocking_count &&
+          render_blocking_pct == o.render_blocking_pct &&
           resource_type == o.resource_type &&
           resource_url_path_group == o.resource_url_path_group &&
+          server_validated_cache_count == o.server_validated_cache_count &&
           timing_breakdown == o.timing_breakdown &&
           total_requests == o.total_requests &&
           views_with_resource == o.views_with_resource &&
@@ -497,7 +618,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avg_duration_ms, avg_start_time_ms, cache_hit_rate_pct, cached_count, downloaded_count, global_p75_duration_ms, global_view_name_count, global_view_name_pct, http_method, load_frequency_pct, max_duration_ms, median_duration_ms, min_duration_ms, p75_duration_ms, p95_duration_ms, resource_type, resource_url_path_group, timing_breakdown, total_requests, views_with_resource, additional_properties].hash
+      [avg_duration_ms, avg_start_time_ms, cache_hit_rate_pct, cached_count, downloaded_count, global_p75_duration_ms, global_view_name_count, global_view_name_pct, http_method, load_frequency_pct, local_cache_count, max_duration_ms, median_duration_ms, min_duration_ms, non_blocking_count, p75_duration_ms, p95_duration_ms, render_blocking_count, render_blocking_pct, resource_type, resource_url_path_group, server_validated_cache_count, timing_breakdown, total_requests, views_with_resource, additional_properties].hash
     end
   end
 end
