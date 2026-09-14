@@ -2139,6 +2139,8 @@ module DatadogAPIClient
           "v2.ci_app_test_events_response" => "CIAppTestEventsResponse",
           "v2.ci_app_test_event_type_name" => "CIAppTestEventTypeName",
           "v2.ci_app_test_level" => "CIAppTestLevel",
+          "v2.ci_app_test_query_page_limit" => "CIAppTestQueryPageLimit",
+          "v2.ci_app_test_query_page_options" => "CIAppTestQueryPageOptions",
           "v2.ci_app_tests_aggregate_request" => "CIAppTestsAggregateRequest",
           "v2.ci_app_tests_aggregation_buckets_response" => "CIAppTestsAggregationBucketsResponse",
           "v2.ci_app_tests_analytics_aggregate_response" => "CIAppTestsAnalyticsAggregateResponse",

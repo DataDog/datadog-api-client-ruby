@@ -17,22 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request for a tests search.
-  class CIAppTestEventsRequest
+  # Paging attributes for listing test events.
+  class CIAppTestQueryPageOptions
     include BaseGenericModel
 
-    # The search and filter query settings.
-    attr_accessor :filter
+    # List following results with a cursor provided in the previous query.
+    attr_accessor :cursor
 
-    # Global query options that are used during the query.
-    # Only supply timezone or time offset, not both. Otherwise, the query fails.
-    attr_accessor :options
-
-    # Paging attributes for listing test events.
-    attr_accessor :page
-
-    # Sort parameters when querying events.
-    attr_accessor :sort
+    # Maximum number of events in the response, supplied as an integer or a string containing decimal digits.
+    attr_accessor :limit
 
     attr_accessor :additional_properties
 
@@ -40,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'filter' => :'filter',
-        :'options' => :'options',
-        :'page' => :'page',
-        :'sort' => :'sort'
+        :'cursor' => :'cursor',
+        :'limit' => :'limit'
       }
     end
 
@@ -51,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'filter' => :'CIAppTestsQueryFilter',
-        :'options' => :'CIAppQueryOptions',
-        :'page' => :'CIAppTestQueryPageOptions',
-        :'sort' => :'CIAppSort'
+        :'cursor' => :'String',
+        :'limit' => :'CIAppTestQueryPageLimit'
       }
     end
 
@@ -63,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppTestEventsRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppTestQueryPageOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -76,20 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
+      if attributes.key?(:'cursor')
+        self.cursor = attributes[:'cursor']
       end
 
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
-      end
-
-      if attributes.key?(:'page')
-        self.page = attributes[:'page']
-      end
-
-      if attributes.key?(:'sort')
-        self.sort = attributes[:'sort']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
     end
 
@@ -119,10 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          filter == o.filter &&
-          options == o.options &&
-          page == o.page &&
-          sort == o.sort &&
+          cursor == o.cursor &&
+          limit == o.limit &&
           additional_properties == o.additional_properties
     end
 
@@ -130,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, options, page, sort, additional_properties].hash
+      [cursor, limit, additional_properties].hash
     end
   end
 end

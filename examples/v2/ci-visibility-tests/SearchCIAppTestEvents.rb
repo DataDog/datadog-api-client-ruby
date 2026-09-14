@@ -12,7 +12,7 @@ body = DatadogAPIClient::V2::CIAppTestEventsRequest.new({
   options: DatadogAPIClient::V2::CIAppQueryOptions.new({
     timezone: "GMT",
   }),
-  page: DatadogAPIClient::V2::CIAppQueryPageOptions.new({
+  page: DatadogAPIClient::V2::CIAppTestQueryPageOptions.new({
     limit: 25,
   }),
   sort: DatadogAPIClient::V2::CIAppSort::TIMESTAMP_ASCENDING,

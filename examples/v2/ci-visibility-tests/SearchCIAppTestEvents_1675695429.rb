@@ -9,7 +9,7 @@ body = DatadogAPIClient::V2::CIAppTestEventsRequest.new({
     query: "@test.status:pass AND -@language:python",
     to: "now",
   }),
-  page: DatadogAPIClient::V2::CIAppQueryPageOptions.new({
+  page: DatadogAPIClient::V2::CIAppTestQueryPageOptions.new({
     limit: 2,
   }),
   sort: DatadogAPIClient::V2::CIAppSort::TIMESTAMP_ASCENDING,
