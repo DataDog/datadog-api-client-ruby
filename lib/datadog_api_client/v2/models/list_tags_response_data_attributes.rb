@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class ListTagsResponseDataAttributes
     include BaseGenericModel
 
-    # The list of device tags grouped by source.
-    attr_accessor :by_source
-
     # The list of tags
     attr_accessor :tags
 
@@ -33,7 +30,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'by_source' => :'by_source',
         :'tags' => :'tags'
       }
     end
@@ -42,7 +38,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'by_source' => :'Array<DeviceTagsBySource>',
         :'tags' => :'Array<String>'
       }
     end
@@ -64,12 +59,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'by_source')
-        if (value = attributes[:'by_source']).is_a?(Array)
-          self.by_source = value
-        end
-      end
 
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
@@ -104,7 +93,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          by_source == o.by_source &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -113,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [by_source, tags, additional_properties].hash
+      [tags, additional_properties].hash
     end
   end
 end

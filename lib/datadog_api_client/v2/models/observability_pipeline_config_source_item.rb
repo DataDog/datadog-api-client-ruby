@@ -43,7 +43,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSumoLogicSource',
           :'ObservabilityPipelineSyslogNgSource',
           :'ObservabilityPipelineWebsocketSource',
-          :'ObservabilityPipelineOpentelemetrySource'
+          :'ObservabilityPipelineOpentelemetrySource',
+          :'ObservabilityPipelinePrometheusRemoteWriteSource'
         ]
       end
       # Builds the object

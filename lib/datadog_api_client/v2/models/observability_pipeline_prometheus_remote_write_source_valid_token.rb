@@ -17,15 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Tags associated with a device from a specific source.
-  class DeviceTagsBySource
+  # An accepted token used to authenticate incoming Prometheus Remote Write requests.
+  class ObservabilityPipelinePrometheusRemoteWriteSourceValidToken
     include BaseGenericModel
 
-    # The source of the tags.
-    attr_accessor :source
+    # Indicates whether this token is currently accepted. Disabled tokens are rejected without
+    # being removed from the configuration.
+    attr_accessor :enabled
 
-    # The list of tags for the source.
-    attr_accessor :tags
+    # Specifies where the worker extracts the token from in the incoming HTTP request.
+    # This can be either a built-in location (`path` or `address`) or an HTTP header object.
+    attr_accessor :path_to_token
+
+    # Name of the environment variable or secret that holds the expected token value.
+    attr_reader :token_key
 
     attr_accessor :additional_properties
 
@@ -33,8 +38,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'source' => :'source',
-        :'tags' => :'tags'
+        :'enabled' => :'enabled',
+        :'path_to_token' => :'path_to_token',
+        :'token_key' => :'token_key'
       }
     end
 
@@ -42,8 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'source' => :'String',
-        :'tags' => :'Array<String>'
+        :'enabled' => :'Boolean',
+        :'path_to_token' => :'ObservabilityPipelineHttpServerSourceValidTokenPathToToken',
+        :'token_key' => :'String'
       }
     end
 
@@ -52,7 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeviceTagsBySource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelinePrometheusRemoteWriteSourceValidToken` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,15 +72,41 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'path_to_token')
+        self.path_to_token = attributes[:'path_to_token']
       end
+
+      if attributes.key?(:'token_key')
+        self.token_key = attributes[:'token_key']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @token_key.nil?
+      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      return false if @token_key !~ pattern
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param token_key [Object] Object to be assigned
+    # @!visibility private
+    def token_key=(token_key)
+      if token_key.nil?
+        fail ArgumentError, 'invalid value for "token_key", token_key cannot be nil.'
+      end
+      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      if token_key !~ pattern
+        fail ArgumentError, "invalid value for \"token_key\", must conform to the pattern #{pattern}."
+      end
+      @token_key = token_key
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -102,8 +135,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          source == o.source &&
-          tags == o.tags &&
+          enabled == o.enabled &&
+          path_to_token == o.path_to_token &&
+          token_key == o.token_key &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +145,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [source, tags, additional_properties].hash
+      [enabled, path_to_token, token_key, additional_properties].hash
     end
   end
 end
