@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringStandardRuleResponse
     include BaseGenericModel
 
+    # Whether the rule blocks requests.
+    attr_accessor :blocking
+
     # Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
     attr_accessor :calculated_fields
 
@@ -36,14 +39,23 @@ module DatadogAPIClient::V2
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
 
+    # A user.
+    attr_accessor :creator
+
     # Custom/Overridden message for generated signals (used in case of Default rule update).
     attr_accessor :custom_message
 
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
 
+    # Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
+    attr_accessor :data_source
+
     # Default Tags for default rules (included in tags)
     attr_accessor :default_tags
+
+    # Dependencies used by the rule.
+    attr_accessor :dependencies
 
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
@@ -60,17 +72,29 @@ module DatadogAPIClient::V2
     # The ID of the rule.
     attr_accessor :id
 
+    # Whether the rule is in beta.
+    attr_accessor :is_beta
+
     # Whether the rule is included by default.
     attr_accessor :is_default
 
     # Whether the rule has been deleted.
     attr_accessor :is_deleted
 
+    # Whether the rule is deprecated.
+    attr_accessor :is_deprecated
+
     # Whether the rule is enabled.
     attr_accessor :is_enabled
 
+    # Whether the rule is provided by a partner.
+    attr_accessor :is_partner
+
     # Message for generated signals.
     attr_accessor :message
+
+    # Additional metadata about the rule.
+    attr_accessor :metadata
 
     # The name of the rule.
     attr_accessor :name
@@ -102,6 +126,9 @@ module DatadogAPIClient::V2
     # The date the rule was last updated, in milliseconds.
     attr_accessor :updated_at
 
+    # A user.
+    attr_accessor :updater
+
     # The version of the rule.
     attr_accessor :version
 
@@ -111,23 +138,31 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'blocking' => :'blocking',
         :'calculated_fields' => :'calculatedFields',
         :'cases' => :'cases',
         :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
+        :'creator' => :'creator',
         :'custom_message' => :'customMessage',
         :'custom_name' => :'customName',
+        :'data_source' => :'dataSource',
         :'default_tags' => :'defaultTags',
+        :'dependencies' => :'dependencies',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
         :'group_signals_by' => :'groupSignalsBy',
         :'has_extended_title' => :'hasExtendedTitle',
         :'id' => :'id',
+        :'is_beta' => :'isBeta',
         :'is_default' => :'isDefault',
         :'is_deleted' => :'isDeleted',
+        :'is_deprecated' => :'isDeprecated',
         :'is_enabled' => :'isEnabled',
+        :'is_partner' => :'isPartner',
         :'message' => :'message',
+        :'metadata' => :'metadata',
         :'name' => :'name',
         :'options' => :'options',
         :'queries' => :'queries',
@@ -138,6 +173,7 @@ module DatadogAPIClient::V2
         :'type' => :'type',
         :'update_author_id' => :'updateAuthorId',
         :'updated_at' => :'updatedAt',
+        :'updater' => :'updater',
         :'version' => :'version'
       }
     end
@@ -146,23 +182,31 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'blocking' => :'Boolean',
         :'calculated_fields' => :'Array<CalculatedField>',
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
+        :'creator' => :'SecurityMonitoringUser',
         :'custom_message' => :'String',
         :'custom_name' => :'String',
+        :'data_source' => :'SecurityMonitoringStandardDataSource',
         :'default_tags' => :'Array<String>',
+        :'dependencies' => :'Array<String>',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'group_signals_by' => :'Array<String>',
         :'has_extended_title' => :'Boolean',
         :'id' => :'String',
+        :'is_beta' => :'Boolean',
         :'is_default' => :'Boolean',
         :'is_deleted' => :'Boolean',
+        :'is_deprecated' => :'Boolean',
         :'is_enabled' => :'Boolean',
+        :'is_partner' => :'Boolean',
         :'message' => :'String',
+        :'metadata' => :'Hash<String, Object>',
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringStandardRuleQuery>',
@@ -173,6 +217,7 @@ module DatadogAPIClient::V2
         :'type' => :'SecurityMonitoringRuleTypeRead',
         :'update_author_id' => :'Integer',
         :'updated_at' => :'Integer',
+        :'updater' => :'SecurityMonitoringUser',
         :'version' => :'Integer'
       }
     end
@@ -203,6 +248,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'blocking')
+        self.blocking = attributes[:'blocking']
+      end
+
       if attributes.key?(:'calculated_fields')
         if (value = attributes[:'calculated_fields']).is_a?(Array)
           self.calculated_fields = value
@@ -227,6 +276,10 @@ module DatadogAPIClient::V2
         self.creation_author_id = attributes[:'creation_author_id']
       end
 
+      if attributes.key?(:'creator')
+        self.creator = attributes[:'creator']
+      end
+
       if attributes.key?(:'custom_message')
         self.custom_message = attributes[:'custom_message']
       end
@@ -235,9 +288,19 @@ module DatadogAPIClient::V2
         self.custom_name = attributes[:'custom_name']
       end
 
+      if attributes.key?(:'data_source')
+        self.data_source = attributes[:'data_source']
+      end
+
       if attributes.key?(:'default_tags')
         if (value = attributes[:'default_tags']).is_a?(Array)
           self.default_tags = value
+        end
+      end
+
+      if attributes.key?(:'dependencies')
+        if (value = attributes[:'dependencies']).is_a?(Array)
+          self.dependencies = value
         end
       end
 
@@ -265,6 +328,10 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'is_beta')
+        self.is_beta = attributes[:'is_beta']
+      end
+
       if attributes.key?(:'is_default')
         self.is_default = attributes[:'is_default']
       end
@@ -273,12 +340,24 @@ module DatadogAPIClient::V2
         self.is_deleted = attributes[:'is_deleted']
       end
 
+      if attributes.key?(:'is_deprecated')
+        self.is_deprecated = attributes[:'is_deprecated']
+      end
+
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
       end
 
+      if attributes.key?(:'is_partner')
+        self.is_partner = attributes[:'is_partner']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
       end
 
       if attributes.key?(:'name')
@@ -329,6 +408,10 @@ module DatadogAPIClient::V2
         self.updated_at = attributes[:'updated_at']
       end
 
+      if attributes.key?(:'updater')
+        self.updater = attributes[:'updater']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -360,23 +443,31 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          blocking == o.blocking &&
           calculated_fields == o.calculated_fields &&
           cases == o.cases &&
           compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
+          creator == o.creator &&
           custom_message == o.custom_message &&
           custom_name == o.custom_name &&
+          data_source == o.data_source &&
           default_tags == o.default_tags &&
+          dependencies == o.dependencies &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
           group_signals_by == o.group_signals_by &&
           has_extended_title == o.has_extended_title &&
           id == o.id &&
+          is_beta == o.is_beta &&
           is_default == o.is_default &&
           is_deleted == o.is_deleted &&
+          is_deprecated == o.is_deprecated &&
           is_enabled == o.is_enabled &&
+          is_partner == o.is_partner &&
           message == o.message &&
+          metadata == o.metadata &&
           name == o.name &&
           options == o.options &&
           queries == o.queries &&
@@ -387,6 +478,7 @@ module DatadogAPIClient::V2
           type == o.type &&
           update_author_id == o.update_author_id &&
           updated_at == o.updated_at &&
+          updater == o.updater &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -395,7 +487,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculated_fields, cases, compliance_signal_options, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, scheduling_options, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
+      [blocking, calculated_fields, cases, compliance_signal_options, created_at, creation_author_id, creator, custom_message, custom_name, data_source, default_tags, dependencies, deprecation_date, filters, group_signals_by, has_extended_title, id, is_beta, is_default, is_deleted, is_deprecated, is_enabled, is_partner, message, metadata, name, options, queries, reference_tables, scheduling_options, tags, third_party_cases, type, update_author_id, updated_at, updater, version, additional_properties].hash
     end
   end
 end
