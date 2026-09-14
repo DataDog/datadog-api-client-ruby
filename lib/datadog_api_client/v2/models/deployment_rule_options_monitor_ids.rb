@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Monitor query options for deployment rules.
-  class DeploymentRuleOptionsMonitor
+  # Specific monitor options for deployment rules.
+  class DeploymentRuleOptionsMonitorIds
     include BaseGenericModel
 
-    # Seconds the monitor needs to stay in OK status for the rule to pass.
+    # Seconds the monitors need to stay in OK status for the rule to pass.
     attr_accessor :duration
 
-    # Whether the rule should fail if a matching monitor group is in a NO DATA state.
+    # Whether the rule should fail if a selected monitor group is in a NO DATA state.
     attr_accessor :fail_on_no_data
 
-    # Whether the rule should fail if no monitor groups are found for the query.
+    # Whether the rule should fail if no monitor groups are found for the selected monitors.
     attr_accessor :fail_on_no_groups_found
 
-    # A query that selects the monitors to evaluate.
-    attr_reader :query
+    # A non-empty list of specific monitors to evaluate.
+    attr_reader :monitor_ids
 
-    # Seconds to wait after a deployment starts before evaluating the monitor's status.
+    # Seconds to wait after a deployment starts before evaluating the monitors' statuses.
     attr_reader :warmup
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
         :'duration' => :'duration',
         :'fail_on_no_data' => :'fail_on_no_data',
         :'fail_on_no_groups_found' => :'fail_on_no_groups_found',
-        :'query' => :'query',
+        :'monitor_ids' => :'monitor_ids',
         :'warmup' => :'warmup'
       }
     end
@@ -55,7 +55,7 @@ module DatadogAPIClient::V2
         :'duration' => :'Integer',
         :'fail_on_no_data' => :'Boolean',
         :'fail_on_no_groups_found' => :'Boolean',
-        :'query' => :'String',
+        :'monitor_ids' => :'Array<DeploymentRuleOptionsMonitorId>',
         :'warmup' => :'Integer'
       }
     end
@@ -65,13 +65,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeploymentRuleOptionsMonitor` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeploymentRuleOptionsMonitorIds` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::DeploymentRuleOptionsMonitor`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::DeploymentRuleOptionsMonitorIds`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -88,8 +88,10 @@ module DatadogAPIClient::V2
         self.fail_on_no_groups_found = attributes[:'fail_on_no_groups_found']
       end
 
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
+      if attributes.key?(:'monitor_ids')
+        if (value = attributes[:'monitor_ids']).is_a?(Array)
+          self.monitor_ids = value
+        end
       end
 
       if attributes.key?(:'warmup')
@@ -101,19 +103,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @query.nil?
+      return false if @monitor_ids.nil?
+      return false if @monitor_ids.length < 1
       return false if !@warmup.nil? && @warmup < 0
       true
     end
 
     # Custom attribute writer method with validation
-    # @param query [Object] Object to be assigned
+    # @param monitor_ids [Object] Object to be assigned
     # @!visibility private
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+    def monitor_ids=(monitor_ids)
+      if monitor_ids.nil?
+        fail ArgumentError, 'invalid value for "monitor_ids", monitor_ids cannot be nil.'
       end
-      @query = query
+      if monitor_ids.length < 1
+        fail ArgumentError, 'invalid value for "monitor_ids", number of items must be greater than or equal to 1.'
+      end
+      @monitor_ids = monitor_ids
     end
 
     # Custom attribute writer method with validation
@@ -135,7 +141,7 @@ module DatadogAPIClient::V2
           duration == o.duration &&
           fail_on_no_data == o.fail_on_no_data &&
           fail_on_no_groups_found == o.fail_on_no_groups_found &&
-          query == o.query &&
+          monitor_ids == o.monitor_ids &&
           warmup == o.warmup
     end
 
@@ -143,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [duration, fail_on_no_data, fail_on_no_groups_found, query, warmup].hash
+      [duration, fail_on_no_data, fail_on_no_groups_found, monitor_ids, warmup].hash
     end
   end
 end
