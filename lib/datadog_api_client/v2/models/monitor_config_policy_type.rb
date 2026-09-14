@@ -18,9 +18,12 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The monitor configuration policy type.
+  # `tag` enforces required tags on monitors.
+  # `downtime` sets a maximum downtime duration for the organization.
   class MonitorConfigPolicyType
     include BaseEnumModel
 
     TAG = "tag".freeze
+    DOWNTIME = "downtime".freeze
   end
 end

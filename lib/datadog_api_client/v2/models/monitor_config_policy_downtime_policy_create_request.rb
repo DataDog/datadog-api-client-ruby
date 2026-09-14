@@ -17,20 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of ListTagsResponseDataAttributes object.
-  class ListTagsResponseDataAttributes
+  # Downtime duration attributes of a monitor configuration policy.
+  class MonitorConfigPolicyDowntimePolicyCreateRequest
     include BaseGenericModel
 
-    # The list of tags
-    attr_accessor :tags
-
-    attr_accessor :additional_properties
+    # The maximum allowed downtime duration, in milliseconds.
+    attr_reader :max_duration_ms
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'tags' => :'tags'
+        :'max_duration_ms' => :'max_duration_ms'
       }
     end
 
@@ -38,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'tags' => :'Array<String>'
+        :'max_duration_ms' => :'Integer'
       }
     end
 
@@ -47,44 +45,42 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListTagsResponseDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorConfigPolicyDowntimePolicyCreateRequest` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MonitorConfigPolicyDowntimePolicyCreateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'max_duration_ms')
+        self.max_duration_ms = attributes[:'max_duration_ms']
       end
     end
 
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
     # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
+    def valid?
+      return false if @max_duration_ms.nil?
+      return false if @max_duration_ms < 1
+      true
+    end
 
-        hash[param] = _to_hash(value)
+    # Custom attribute writer method with validation
+    # @param max_duration_ms [Object] Object to be assigned
+    # @!visibility private
+    def max_duration_ms=(max_duration_ms)
+      if max_duration_ms.nil?
+        fail ArgumentError, 'invalid value for "max_duration_ms", max_duration_ms cannot be nil.'
       end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
+      if max_duration_ms < 1
+        fail ArgumentError, 'invalid value for "max_duration_ms", must be greater than or equal to 1.'
       end
-      hash
+      @max_duration_ms = max_duration_ms
     end
 
     # Checks equality by comparing each attribute.
@@ -93,15 +89,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          tags == o.tags &&
-          additional_properties == o.additional_properties
+          max_duration_ms == o.max_duration_ms
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tags, additional_properties].hash
+      [max_duration_ms].hash
     end
   end
 end
