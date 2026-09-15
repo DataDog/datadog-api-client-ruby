@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Kill system call applied on the container matching the rule
-  class CloudWorkloadSecurityAgentRuleKill
+  # The network filter action applied on the network traffic matching the rule.
+  class CloudWorkloadSecurityAgentRuleActionNetworkFilter
     include BaseGenericModel
 
-    # Whether the automatic container safeguard of the kill action is disabled.
-    attr_accessor :disable_container_disarmer
+    # The filter expression of the network filter action.
+    attr_accessor :filter
 
-    # Whether the automatic executable safeguard of the kill action is disabled.
-    attr_accessor :disable_executable_disarmer
+    # The policy of the network filter action.
+    attr_accessor :policy
 
-    # The scope of the kill action.
+    # The scope of the network filter action.
     attr_accessor :scope
-
-    # Supported signals for the kill system call
-    attr_accessor :signal
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'disable_container_disarmer' => :'disable_container_disarmer',
-        :'disable_executable_disarmer' => :'disable_executable_disarmer',
-        :'scope' => :'scope',
-        :'signal' => :'signal'
+        :'filter' => :'filter',
+        :'policy' => :'policy',
+        :'scope' => :'scope'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'disable_container_disarmer' => :'Boolean',
-        :'disable_executable_disarmer' => :'Boolean',
-        :'scope' => :'String',
-        :'signal' => :'String'
+        :'filter' => :'String',
+        :'policy' => :'String',
+        :'scope' => :'String'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleKill` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionNetworkFilter` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'disable_container_disarmer')
-        self.disable_container_disarmer = attributes[:'disable_container_disarmer']
+      if attributes.key?(:'filter')
+        self.filter = attributes[:'filter']
       end
 
-      if attributes.key?(:'disable_executable_disarmer')
-        self.disable_executable_disarmer = attributes[:'disable_executable_disarmer']
+      if attributes.key?(:'policy')
+        self.policy = attributes[:'policy']
       end
 
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
-      end
-
-      if attributes.key?(:'signal')
-        self.signal = attributes[:'signal']
       end
     end
 
@@ -118,10 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          disable_container_disarmer == o.disable_container_disarmer &&
-          disable_executable_disarmer == o.disable_executable_disarmer &&
+          filter == o.filter &&
+          policy == o.policy &&
           scope == o.scope &&
-          signal == o.signal &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disable_container_disarmer, disable_executable_disarmer, scope, signal, additional_properties].hash
+      [filter, policy, scope, additional_properties].hash
     end
   end
 end

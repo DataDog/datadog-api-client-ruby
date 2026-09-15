@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleAction
     include BaseGenericModel
 
+    # The core dump action applied on the process matching the rule.
+    attr_accessor :coredump
+
     # Whether the action is disabled
     attr_accessor :disabled
 
@@ -33,8 +36,14 @@ module DatadogAPIClient::V2
     # Kill system call applied on the container matching the rule
     attr_accessor :kill
 
+    # The log action applied when the rule is triggered.
+    attr_accessor :log
+
     # The metadata action applied on the scope matching the rule
     attr_accessor :metadata
+
+    # The network filter action applied on the network traffic matching the rule.
+    attr_accessor :network_filter
 
     # The set action applied on the scope matching the rule
     attr_accessor :set
@@ -45,11 +54,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'coredump' => :'coredump',
         :'disabled' => :'disabled',
         :'filter' => :'filter',
         :'_hash' => :'hash',
         :'kill' => :'kill',
+        :'log' => :'log',
         :'metadata' => :'metadata',
+        :'network_filter' => :'network_filter',
         :'set' => :'set'
       }
     end
@@ -58,11 +70,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'coredump' => :'CloudWorkloadSecurityAgentRuleActionCoreDump',
         :'disabled' => :'Boolean',
         :'filter' => :'String',
         :'_hash' => :'CloudWorkloadSecurityAgentRuleActionHash',
         :'kill' => :'CloudWorkloadSecurityAgentRuleKill',
+        :'log' => :'CloudWorkloadSecurityAgentRuleActionLog',
         :'metadata' => :'CloudWorkloadSecurityAgentRuleActionMetadata',
+        :'network_filter' => :'CloudWorkloadSecurityAgentRuleActionNetworkFilter',
         :'set' => :'CloudWorkloadSecurityAgentRuleActionSet'
       }
     end
@@ -85,6 +100,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'coredump')
+        self.coredump = attributes[:'coredump']
+      end
+
       if attributes.key?(:'disabled')
         self.disabled = attributes[:'disabled']
       end
@@ -101,8 +120,16 @@ module DatadogAPIClient::V2
         self.kill = attributes[:'kill']
       end
 
+      if attributes.key?(:'log')
+        self.log = attributes[:'log']
+      end
+
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'network_filter')
+        self.network_filter = attributes[:'network_filter']
       end
 
       if attributes.key?(:'set')
@@ -136,11 +163,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          coredump == o.coredump &&
           disabled == o.disabled &&
           filter == o.filter &&
           _hash == o._hash &&
           kill == o.kill &&
+          log == o.log &&
           metadata == o.metadata &&
+          network_filter == o.network_filter &&
           set == o.set &&
           additional_properties == o.additional_properties
     end
@@ -149,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disabled, filter, _hash, kill, metadata, set, additional_properties].hash
+      [coredump, disabled, filter, _hash, kill, log, metadata, network_filter, set, additional_properties].hash
     end
   end
 end

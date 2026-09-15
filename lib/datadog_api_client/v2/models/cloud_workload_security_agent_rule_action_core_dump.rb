@@ -17,21 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Kill system call applied on the container matching the rule
-  class CloudWorkloadSecurityAgentRuleKill
+  # The core dump action applied on the process matching the rule.
+  class CloudWorkloadSecurityAgentRuleActionCoreDump
     include BaseGenericModel
 
-    # Whether the automatic container safeguard of the kill action is disabled.
-    attr_accessor :disable_container_disarmer
+    # Whether the directory entry information is included in the core dump.
+    attr_accessor :dentry
 
-    # Whether the automatic executable safeguard of the kill action is disabled.
-    attr_accessor :disable_executable_disarmer
+    # Whether the mount information is included in the core dump.
+    attr_accessor :mount
 
-    # The scope of the kill action.
-    attr_accessor :scope
+    # Whether the core dump is left uncompressed.
+    attr_accessor :no_compression
 
-    # Supported signals for the kill system call
-    attr_accessor :signal
+    # Whether the process memory is included in the core dump.
+    attr_accessor :process
 
     attr_accessor :additional_properties
 
@@ -39,10 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'disable_container_disarmer' => :'disable_container_disarmer',
-        :'disable_executable_disarmer' => :'disable_executable_disarmer',
-        :'scope' => :'scope',
-        :'signal' => :'signal'
+        :'dentry' => :'dentry',
+        :'mount' => :'mount',
+        :'no_compression' => :'no_compression',
+        :'process' => :'process'
       }
     end
 
@@ -50,10 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'disable_container_disarmer' => :'Boolean',
-        :'disable_executable_disarmer' => :'Boolean',
-        :'scope' => :'String',
-        :'signal' => :'String'
+        :'dentry' => :'Boolean',
+        :'mount' => :'Boolean',
+        :'no_compression' => :'Boolean',
+        :'process' => :'Boolean'
       }
     end
 
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleKill` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionCoreDump` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'disable_container_disarmer')
-        self.disable_container_disarmer = attributes[:'disable_container_disarmer']
+      if attributes.key?(:'dentry')
+        self.dentry = attributes[:'dentry']
       end
 
-      if attributes.key?(:'disable_executable_disarmer')
-        self.disable_executable_disarmer = attributes[:'disable_executable_disarmer']
+      if attributes.key?(:'mount')
+        self.mount = attributes[:'mount']
       end
 
-      if attributes.key?(:'scope')
-        self.scope = attributes[:'scope']
+      if attributes.key?(:'no_compression')
+        self.no_compression = attributes[:'no_compression']
       end
 
-      if attributes.key?(:'signal')
-        self.signal = attributes[:'signal']
+      if attributes.key?(:'process')
+        self.process = attributes[:'process']
       end
     end
 
@@ -118,10 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          disable_container_disarmer == o.disable_container_disarmer &&
-          disable_executable_disarmer == o.disable_executable_disarmer &&
-          scope == o.scope &&
-          signal == o.signal &&
+          dentry == o.dentry &&
+          mount == o.mount &&
+          no_compression == o.no_compression &&
+          process == o.process &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disable_container_disarmer, disable_executable_disarmer, scope, signal, additional_properties].hash
+      [dentry, mount, no_compression, process, additional_properties].hash
     end
   end
 end
