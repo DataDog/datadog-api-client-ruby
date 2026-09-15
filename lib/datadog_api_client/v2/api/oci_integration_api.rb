@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TenancyConfig, Integer, Hash)>] TenancyConfig data, response status code and response headers
     def create_tenancy_config_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_tenancy_config".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_tenancy_config")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_tenancy_config"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OCIIntegrationAPI.create_tenancy_config ...'
@@ -241,12 +235,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TenancyConfigList, Integer, Hash)>] TenancyConfigList data, response status code and response headers
     def get_tenancy_configs_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_tenancy_configs".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_tenancy_configs")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_tenancy_configs"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OCIIntegrationAPI.get_tenancy_configs ...'
