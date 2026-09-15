@@ -4,7 +4,7 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.create_elastic_cloud_integration_account".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::ElasticCloudIntegrationAccountsAPI.new
+api_instance = DatadogAPIClient::V2::ElasticCloudIntegrationAPI.new
 
 body = DatadogAPIClient::V2::ElasticCloudIntegrationAccountCreateRequest.new({
   data: DatadogAPIClient::V2::ElasticCloudIntegrationAccountCreateData.new({
