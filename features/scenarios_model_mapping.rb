@@ -4088,6 +4088,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "ElasticCloudIntegrationAccountUpdateRequest",
     },
+    "v2.CreateSnowflakeIntegrationAccount" => {
+            "body" => "SnowflakeIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteSnowflakeIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetSnowflakeIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateSnowflakeIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "SnowflakeIntegrationAccountUpdateRequest",
+    },
     "v2.CreateTwilioIntegrationAccount" => {
             "body" => "TwilioIntegrationAccountCreateRequest",
     },
