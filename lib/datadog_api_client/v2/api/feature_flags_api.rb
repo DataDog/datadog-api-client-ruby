@@ -69,7 +69,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FeatureFlagResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :archive_feature_flag,
@@ -146,7 +146,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AllocationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_allocations_for_feature_flag_in_environment,
@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FeatureFlagResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_feature_flag,
@@ -280,7 +280,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'EnvironmentResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_feature_flags_environment,
@@ -358,7 +358,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Variant'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_variant_for_feature_flag,
@@ -423,7 +423,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_feature_flags_environment,
@@ -495,7 +495,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_variant_from_feature_flag,
@@ -565,7 +565,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :disable_feature_flag_environment,
@@ -635,7 +635,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :enable_feature_flag_environment,
@@ -701,7 +701,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FeatureFlagResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_feature_flag,
@@ -766,7 +766,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'EnvironmentResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_feature_flags_environment,
@@ -844,7 +844,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListFeatureFlagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_feature_flags,
@@ -924,7 +924,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListEnvironmentsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_feature_flags_environments,
@@ -989,7 +989,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :pause_exposure_schedule,
@@ -1054,7 +1054,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :resume_exposure_schedule,
@@ -1119,7 +1119,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :start_exposure_schedule,
@@ -1184,7 +1184,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :stop_exposure_schedule,
@@ -1250,7 +1250,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FeatureFlagResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :unarchive_feature_flag,
@@ -1328,7 +1328,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListAllocationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_allocations_for_feature_flag_in_environment,
@@ -1401,7 +1401,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FeatureFlagResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_feature_flag,
@@ -1474,7 +1474,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'EnvironmentResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_feature_flags_environment,
@@ -1553,7 +1553,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Variant'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_variant_for_feature_flag,
