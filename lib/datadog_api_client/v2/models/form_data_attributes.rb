@@ -39,7 +39,8 @@ module DatadogAPIClient::V2
     # The date and time at which the form stops accepting responses.
     attr_accessor :end_date
 
-    # Whether the current user has already submitted this form. Only present for forms with `single_response` set to `true`.
+    # Whether the current user has already submitted this form. Only present for forms with
+    # `single_response` set to `true`.
     attr_accessor :has_submitted
 
     # Whether the form is an IDP survey.
