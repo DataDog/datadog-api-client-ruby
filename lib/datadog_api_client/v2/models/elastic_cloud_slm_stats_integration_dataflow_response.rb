@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Elastic Cloud snapshot lifecycle management stats dataflow.
+  # Metrics about the actions taken by snapshot lifecycle management. Requires the `read_slm` Elasticsearch cluster privilege on the role of the user in `authentication`; without it this dataflow collects no data.
   class ElasticCloudSlmStatsIntegrationDataflowResponse
     include BaseGenericModel
 
-    # Whether the Elastic Cloud dataflow is enabled.
+    # Whether Datadog collects this data.
     attr_accessor :enabled
 
     # Read-only collection status of a dataflow.

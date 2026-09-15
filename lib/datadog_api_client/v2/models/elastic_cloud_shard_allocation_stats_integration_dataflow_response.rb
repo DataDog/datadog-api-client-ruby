@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Elastic Cloud shard allocation stats dataflow.
+  # Metrics for how many shards are allocated to each data node, and the disk space they use.
   class ElasticCloudShardAllocationStatsIntegrationDataflowResponse
     include BaseGenericModel
 
-    # Whether the Elastic Cloud dataflow is enabled.
+    # Whether Datadog collects this data.
     attr_accessor :enabled
 
     # Read-only collection status of a dataflow.

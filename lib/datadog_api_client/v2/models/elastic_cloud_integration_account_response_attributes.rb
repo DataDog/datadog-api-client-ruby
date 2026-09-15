@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Authentication configured on the Elastic Cloud integration account.
     attr_accessor :authentication
 
-    # Dataflows configured on the Elastic Cloud integration account, keyed by dataflow id.
+    # Data Datadog collects from Elastic Cloud, keyed by dataflow id.
     attr_accessor :dataflows
 
     # Human-readable name of the Elastic Cloud integration account.

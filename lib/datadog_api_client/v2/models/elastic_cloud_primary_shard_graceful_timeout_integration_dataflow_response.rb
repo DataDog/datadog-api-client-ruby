@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Elastic Cloud primary shard graceful timeout dataflow.
+  # Tolerance for slow primary shard requests, keeping the rest of the collection running when a primary shard request times out instead of failing the run. Only has an effect alongside `elastic-cloud-primary-shard-stats`.
   class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse
     include BaseGenericModel
 
-    # Whether the Elastic Cloud dataflow is enabled.
+    # Whether this tolerance is applied.
     attr_accessor :enabled
 
     # Read-only collection status of a dataflow.

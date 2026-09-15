@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Authentication configured on the Twilio integration account.
     attr_accessor :authentication
 
-    # Dataflows configured on the Twilio integration account, keyed by dataflow id.
+    # Data Datadog collects from Twilio, keyed by dataflow id.
     attr_accessor :dataflows
 
     # Human-readable name of the Twilio integration account.
