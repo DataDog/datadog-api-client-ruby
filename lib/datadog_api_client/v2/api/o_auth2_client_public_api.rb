@@ -160,6 +160,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get OpenID Connect provider metadata.
+    #
+    # @see #get_oidc_discovery_document_with_http_info
+    def get_oidc_discovery_document(opts = {})
+      data, _status_code, _headers = get_oidc_discovery_document_with_http_info(opts)
+      data
+    end
+
+    # Get OpenID Connect provider metadata.
+    #
+    # Retrieve OpenID Connect provider metadata for the OAuth2 v2 token endpoint.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OIDCDiscoveryDocument, Integer, Hash)>] OIDCDiscoveryDocument data, response status code and response headers
+    def get_oidc_discovery_document_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_oidc_discovery_document".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_oidc_discovery_document")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_oidc_discovery_document"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OAuth2ClientPublicAPI.get_oidc_discovery_document ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/oauth2/.well-known/openid-configuration'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OIDCDiscoveryDocument'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :get_oidc_discovery_document,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OAuth2ClientPublicAPI#get_oidc_discovery_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an OAuth2 client scopes restriction.
     #
     # @see #get_scopes_restriction_with_http_info

@@ -671,6 +671,7 @@ module DatadogAPIClient
             "v2.list_network_health_insights": false,
             "v2.delete_scopes_restriction": false,
             "v2.get_o_auth2_well_known_sites": false,
+            "v2.get_oidc_discovery_document": false,
             "v2.get_scopes_restriction": false,
             "v2.register_o_auth_client": false,
             "v2.upsert_scopes_restriction": false,
@@ -1184,6 +1185,61 @@ module DatadogAPIClient
               subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "http-intake.logs",
+              }
+            }
+          }
+        ],
+        "v2.get_oidc_discovery_document": [
+          {
+            url: +"https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The regional site for Datadog customers.",
+                default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "us3.datadoghq.com",
+                  "us5.datadoghq.com",
+                  "ap1.datadoghq.com",
+                  "ap2.datadoghq.com",
+                  "uk1.datadoghq.com",
+                  "datadoghq.eu",
+                  "ddog-gov.com",
+                  "us2.ddog-gov.com"
+                ]
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "app",
+              }
+            }
+          },
+          {
+            url: +"{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "Full site DNS name.",
+                default_value: "app.datadoghq.com",
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: +"https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "app",
               }
             }
           }
