@@ -25,8 +25,6 @@ module DatadogAPIClient::V2
     attr_accessor :policy
 
     # The monitor configuration policy type.
-    # `tag` enforces required tags on monitors.
-    # `downtime` sets a maximum downtime duration for the organization.
     attr_accessor :policy_type
 
     attr_accessor :additional_properties
