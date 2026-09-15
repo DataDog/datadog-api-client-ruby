@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'family' => :'String',
-        :'id' => :'String',
+        :'id' => :'Integer',
         :'name' => :'String',
         :'plural' => :'String',
         :'scale_factor' => :'Float',
