@@ -39,8 +39,14 @@ module DatadogAPIClient::V2
     # The name of the set action
     attr_accessor :name
 
+    # Whether the value of the set action is private.
+    attr_accessor :private
+
     # The scope of the set action.
     attr_accessor :scope
+
+    # The scope field of the set action.
+    attr_accessor :scope_field
 
     # The size of the set action.
     attr_accessor :size
@@ -63,7 +69,9 @@ module DatadogAPIClient::V2
         :'field' => :'field',
         :'inherited' => :'inherited',
         :'name' => :'name',
+        :'private' => :'private',
         :'scope' => :'scope',
+        :'scope_field' => :'scope_field',
         :'size' => :'size',
         :'ttl' => :'ttl',
         :'value' => :'value'
@@ -80,7 +88,9 @@ module DatadogAPIClient::V2
         :'field' => :'String',
         :'inherited' => :'Boolean',
         :'name' => :'String',
+        :'private' => :'Boolean',
         :'scope' => :'String',
+        :'scope_field' => :'String',
         :'size' => :'Integer',
         :'ttl' => :'Integer',
         :'value' => :'CloudWorkloadSecurityAgentRuleActionSetValue'
@@ -129,8 +139,16 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'private')
+        self.private = attributes[:'private']
+      end
+
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
+      end
+
+      if attributes.key?(:'scope_field')
+        self.scope_field = attributes[:'scope_field']
       end
 
       if attributes.key?(:'size')
@@ -178,7 +196,9 @@ module DatadogAPIClient::V2
           field == o.field &&
           inherited == o.inherited &&
           name == o.name &&
+          private == o.private &&
           scope == o.scope &&
+          scope_field == o.scope_field &&
           size == o.size &&
           ttl == o.ttl &&
           value == o.value &&
@@ -189,7 +209,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [append, default_value, expression, field, inherited, name, scope, size, ttl, value, additional_properties].hash
+      [append, default_value, expression, field, inherited, name, private, scope, scope_field, size, ttl, value, additional_properties].hash
     end
   end
 end

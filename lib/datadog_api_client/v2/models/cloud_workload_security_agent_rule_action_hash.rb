@@ -24,13 +24,17 @@ module DatadogAPIClient::V2
     # The field of the hash action
     attr_accessor :field
 
+    # The maximum size of the files to hash, in bytes.
+    attr_accessor :max_file_size
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'field' => :'field'
+        :'field' => :'field',
+        :'max_file_size' => :'max_file_size'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'field' => :'String'
+        :'field' => :'String',
+        :'max_file_size' => :'Integer'
       }
     end
 
@@ -62,6 +67,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'field')
         self.field = attributes[:'field']
+      end
+
+      if attributes.key?(:'max_file_size')
+        self.max_file_size = attributes[:'max_file_size']
       end
     end
 
@@ -92,6 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           field == o.field &&
+          max_file_size == o.max_file_size &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, additional_properties].hash
+      [field, max_file_size, additional_properties].hash
     end
   end
 end
