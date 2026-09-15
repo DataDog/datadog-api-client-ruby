@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # The effective type of identity used to run the workflow.
     attr_accessor :run_as_user_mode
 
+    # Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+    attr_accessor :sensitive_privileges
+
     # A complete Workflow Automation definition, including its triggers, steps, and connections.
     attr_reader :spec
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
         :'published' => :'published',
         :'run_as' => :'runAs',
         :'run_as_user_mode' => :'runAsUserMode',
+        :'sensitive_privileges' => :'sensitivePrivileges',
         :'spec' => :'spec',
         :'tags' => :'tags',
         :'updated_at' => :'updatedAt',
@@ -80,6 +84,7 @@ module DatadogAPIClient::V2
         :'published' => :'Boolean',
         :'run_as' => :'WorkflowRunAs',
         :'run_as_user_mode' => :'WorkflowRunAsUserMode',
+        :'sensitive_privileges' => :'Boolean',
         :'spec' => :'Spec',
         :'tags' => :'Array<String>',
         :'updated_at' => :'Time',
@@ -127,6 +132,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'run_as_user_mode')
         self.run_as_user_mode = attributes[:'run_as_user_mode']
+      end
+
+      if attributes.key?(:'sensitive_privileges')
+        self.sensitive_privileges = attributes[:'sensitive_privileges']
       end
 
       if attributes.key?(:'spec')
@@ -209,6 +218,7 @@ module DatadogAPIClient::V2
           published == o.published &&
           run_as == o.run_as &&
           run_as_user_mode == o.run_as_user_mode &&
+          sensitive_privileges == o.sensitive_privileges &&
           spec == o.spec &&
           tags == o.tags &&
           updated_at == o.updated_at &&
@@ -220,7 +230,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, description, name, published, run_as, run_as_user_mode, spec, tags, updated_at, webhook_secret, additional_properties].hash
+      [created_at, description, name, published, run_as, run_as_user_mode, sensitive_privileges, spec, tags, updated_at, webhook_secret, additional_properties].hash
     end
   end
 end
