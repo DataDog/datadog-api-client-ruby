@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # The query string for a RUM retention filter.
     attr_accessor :query
 
-    # The sample rate for a RUM retention filter, between 0.1 and 100.
+    # The sample rate for a RUM retention filter, between 0.1 and 100. Values are truncated to one decimal place.
     attr_reader :sample_rate
 
     attr_accessor :additional_properties
