@@ -57,6 +57,9 @@ module DatadogAPIClient::V2
     # The month when the budget starts.
     attr_accessor :start_month
 
+    # The tag keys used to group costs for the budget.
+    attr_accessor :tags
+
     # The sum of all budget entries' amounts.
     attr_accessor :total_amount
 
@@ -84,6 +87,7 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'org_id' => :'org_id',
         :'start_month' => :'start_month',
+        :'tags' => :'tags',
         :'total_amount' => :'total_amount',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by'
@@ -106,6 +110,7 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'org_id' => :'Integer',
         :'start_month' => :'Integer',
+        :'tags' => :'Array<String>',
         :'total_amount' => :'Float',
         :'updated_at' => :'Integer',
         :'updated_by' => :'String'
@@ -180,6 +185,12 @@ module DatadogAPIClient::V2
         self.start_month = attributes[:'start_month']
       end
 
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
       if attributes.key?(:'total_amount')
         self.total_amount = attributes[:'total_amount']
       end
@@ -231,6 +242,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           org_id == o.org_id &&
           start_month == o.start_month &&
+          tags == o.tags &&
           total_amount == o.total_amount &&
           updated_at == o.updated_at &&
           updated_by == o.updated_by &&
@@ -241,7 +253,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [costs, costs_period_end, costs_period_start, costs_unit, created_at, created_by, end_month, entries, metrics_query, name, org_id, start_month, total_amount, updated_at, updated_by, additional_properties].hash
+      [costs, costs_period_end, costs_period_start, costs_unit, created_at, created_by, end_month, entries, metrics_query, name, org_id, start_month, tags, total_amount, updated_at, updated_by, additional_properties].hash
     end
   end
 end
