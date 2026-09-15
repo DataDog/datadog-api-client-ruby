@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of the `BudgetWithEntries` object.
-  class BudgetWithEntries
+  # Additional information about errors encountered while retrieving budget cost data.
+  class BudgetWithEntriesMeta
     include BaseGenericModel
 
-    # A budget and all its entries.
-    attr_accessor :data
-
-    # Additional information about errors encountered while retrieving budget cost data.
-    attr_accessor :meta
+    # A user-facing explanation of why budget cost data could not be retrieved.
+    attr_reader :error
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'error' => :'error'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'BudgetWithEntriesData',
-        :'meta' => :'BudgetWithEntriesMeta'
+        :'error' => :'String'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BudgetWithEntries` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BudgetWithEntriesMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
+    end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @error.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param error [Object] Object to be assigned
+    # @!visibility private
+    def error=(error)
+      if error.nil?
+        fail ArgumentError, 'invalid value for "error", error cannot be nil.'
       end
+      @error = error
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          error == o.error &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [error, additional_properties].hash
     end
   end
 end
