@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Whether the cross-product retention filter for APM traces is enabled.
     attr_accessor :trace_enabled
 
-    # The sample rate for the APM cross-product retention filter, between 0 and 100.
+    # The sample rate for the APM cross-product retention filter, between 0 and 100. Values returned by the API are rounded to two decimal places.
     attr_reader :trace_sample_rate
 
     attr_accessor :additional_properties
