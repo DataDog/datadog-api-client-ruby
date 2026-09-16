@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'aggregations' => :'Array<MetricCustomAggregation>',
+        :'aggregations' => :'MetricCustomAggregations',
         :'exclude_tags_mode' => :'Boolean',
         :'include_percentiles' => :'Boolean',
         :'tags' => :'Array<String>'
@@ -79,9 +79,7 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'aggregations')
-        if (value = attributes[:'aggregations']).is_a?(Array)
-          self.aggregations = value
-        end
+        self.aggregations = attributes[:'aggregations']
       end
 
       if attributes.key?(:'exclude_tags_mode')
