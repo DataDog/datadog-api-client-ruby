@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A rule version with a list of updates.
-  class RuleVersions
+  # The user who created or last updated the rule.
+  class SecurityMonitoringRuleUser
     include BaseGenericModel
 
-    # A list of changes.
-    attr_accessor :changes
+    # The user handle. Empty for a default rule with no user.
+    attr_accessor :handle
 
-    # A security monitoring rule.
-    attr_accessor :rule
+    # The user name. Empty for a default rule with no user.
+    attr_accessor :name
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'changes' => :'changes',
-        :'rule' => :'rule'
+        :'handle' => :'handle',
+        :'name' => :'name'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'changes' => :'Array<VersionHistoryUpdate>',
-        :'rule' => :'SecurityMonitoringRuleResponse'
+        :'handle' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RuleVersions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleUser` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'changes')
-        if (value = attributes[:'changes']).is_a?(Array)
-          self.changes = value
-        end
+      if attributes.key?(:'handle')
+        self.handle = attributes[:'handle']
       end
 
-      if attributes.key?(:'rule')
-        self.rule = attributes[:'rule']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -102,8 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          changes == o.changes &&
-          rule == o.rule &&
+          handle == o.handle &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [changes, rule, additional_properties].hash
+      [handle, name, additional_properties].hash
     end
   end
 end

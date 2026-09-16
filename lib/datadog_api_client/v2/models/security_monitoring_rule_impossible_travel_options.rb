@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # The duration in days during which Datadog learns the user's regular access locations. After this period, signals are generated for accesses from unknown locations.
     attr_reader :baseline_user_locations_duration
 
+    # Whether to detect transitions between IP addresses.
+    attr_accessor :detect_ip_transition
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -35,7 +38,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'baseline_user_locations' => :'baselineUserLocations',
-        :'baseline_user_locations_duration' => :'baselineUserLocationsDuration'
+        :'baseline_user_locations_duration' => :'baselineUserLocationsDuration',
+        :'detect_ip_transition' => :'detectIpTransition'
       }
     end
 
@@ -44,7 +48,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'baseline_user_locations' => :'Boolean',
-        :'baseline_user_locations_duration' => :'Integer'
+        :'baseline_user_locations_duration' => :'Integer',
+        :'detect_ip_transition' => :'Boolean'
       }
     end
 
@@ -80,6 +85,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'baseline_user_locations_duration')
         self.baseline_user_locations_duration = attributes[:'baseline_user_locations_duration']
+      end
+
+      if attributes.key?(:'detect_ip_transition')
+        self.detect_ip_transition = attributes[:'detect_ip_transition']
       end
     end
 
@@ -133,6 +142,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           baseline_user_locations == o.baseline_user_locations &&
           baseline_user_locations_duration == o.baseline_user_locations_duration &&
+          detect_ip_transition == o.detect_ip_transition &&
           additional_properties == o.additional_properties
     end
 
@@ -140,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [baseline_user_locations, baseline_user_locations_duration, additional_properties].hash
+      [baseline_user_locations, baseline_user_locations_duration, detect_ip_transition, additional_properties].hash
     end
   end
 end

@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Fields to group by.
     attr_accessor :group_by_fields
 
+    # Whether events with missing group-by fields are processed with a replacement value.
+    attr_accessor :has_optional_group_by_fields
+
     # Group of target fields to aggregate over.
     attr_accessor :metrics
 
@@ -60,6 +63,7 @@ module DatadogAPIClient::V2
         :'default_rule_id' => :'defaultRuleId',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
+        :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
         :'metrics' => :'metrics',
         :'name' => :'name',
         :'rule_id' => :'ruleId'
@@ -76,6 +80,7 @@ module DatadogAPIClient::V2
         :'default_rule_id' => :'String',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
+        :'has_optional_group_by_fields' => :'Boolean',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
         :'rule_id' => :'String'
@@ -128,6 +133,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'group_by_fields']).is_a?(Array)
           self.group_by_fields = value
         end
+      end
+
+      if attributes.key?(:'has_optional_group_by_fields')
+        self.has_optional_group_by_fields = attributes[:'has_optional_group_by_fields']
       end
 
       if attributes.key?(:'metrics')
@@ -195,6 +204,7 @@ module DatadogAPIClient::V2
           default_rule_id == o.default_rule_id &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
+          has_optional_group_by_fields == o.has_optional_group_by_fields &&
           metrics == o.metrics &&
           name == o.name &&
           rule_id == o.rule_id &&
@@ -205,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, correlated_by_fields, correlated_query_index, default_rule_id, distinct_fields, group_by_fields, metrics, name, rule_id, additional_properties].hash
+      [aggregation, correlated_by_fields, correlated_query_index, default_rule_id, distinct_fields, group_by_fields, has_optional_group_by_fields, metrics, name, rule_id, additional_properties].hash
     end
   end
 end

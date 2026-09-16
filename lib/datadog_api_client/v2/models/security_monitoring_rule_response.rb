@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Create a new rule.
+  # A security monitoring rule.
   module SecurityMonitoringRuleResponse
     class << self
       include BaseOneOfModel
