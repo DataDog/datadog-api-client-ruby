@@ -802,22 +802,22 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [String] :key Filter feature flags by key (partial matching).
     # @option opts [Boolean] :is_archived Filter by archived status.
-    # @option opts [Integer] :limit Maximum number of results to return.
-    # @option opts [Integer] :offset Number of results to skip.
+    # @option opts [Integer] :page_limit Maximum number of feature flags to return.
+    # @option opts [Integer] :page_offset Number of feature flags to skip for pagination.
     # @return [Array<(ListFeatureFlagsResponse, Integer, Hash)>] ListFeatureFlagsResponse data, response status code and response headers
     def list_feature_flags_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.list_feature_flags ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeatureFlagsAPI.list_feature_flags, must be smaller than or equal to 1000.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling FeatureFlagsAPI.list_feature_flags, must be smaller than or equal to 1000.'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 1.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 1.'
       end
-      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 0.'
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 0.'
       end
       # resource path
       local_var_path = '/api/v2/feature-flags'
@@ -826,8 +826,8 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'key'] = opts[:'key'] if !opts[:'key'].nil?
       query_params[:'is_archived'] = opts[:'is_archived'] if !opts[:'is_archived'].nil?
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
