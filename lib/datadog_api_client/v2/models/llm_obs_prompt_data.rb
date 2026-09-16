@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LLMObsPromptData
     include BaseGenericModel
 
-    # Attributes of an Agent Observability prompt registry entry.
+    # Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
     attr_reader :attributes
 
     # Unique identifier of the prompt.

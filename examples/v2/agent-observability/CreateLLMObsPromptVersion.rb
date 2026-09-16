@@ -9,6 +9,7 @@ api_instance = DatadogAPIClient::V2::AgentObservabilityAPI.new
 body = DatadogAPIClient::V2::LLMObsCreatePromptVersionRequest.new({
   data: DatadogAPIClient::V2::LLMObsCreatePromptVersionData.new({
     attributes: DatadogAPIClient::V2::LLMObsCreatePromptVersionDataAttributes.new({
+      config: DatadogAPIClient::V2::LLMObsPromptConfig.new({}),
       env_ids: [],
       labels: [
         DatadogAPIClient::V2::LLMObsPromptVersionLabel::PRODUCTION,
