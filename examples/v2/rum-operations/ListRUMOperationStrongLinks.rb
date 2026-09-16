@@ -1,4 +1,4 @@
-# List RUM operation strong links returns "OK" response
+# List RUM operation links returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RUMOperationsAPI.new
