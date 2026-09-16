@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a specific version of an Agent Observability prompt.
+  # Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute.
   class LLMObsPromptVersionDataAttributes
     include BaseGenericModel
 
     # UUID of the user who authored this version.
     attr_accessor :author
+
+    # A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`. Use an authored chat object when including prompts as chat messages.
+    attr_accessor :authoring_template
 
     # Timestamp stored on this prompt version.
     attr_accessor :created_at
@@ -54,7 +57,7 @@ module DatadogAPIClient::V2
     # Tags observed on runs of this prompt version.
     attr_accessor :tags
 
-    # A text template or a list of chat messages.
+    # A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`. Use an authored chat object when including prompts as chat messages.
     attr_reader :template
 
     # User-supplied identifier for this version.
@@ -73,6 +76,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'author' => :'author',
+        :'authoring_template' => :'authoring_template',
         :'created_at' => :'created_at',
         :'datasets' => :'datasets',
         :'description' => :'description',
@@ -95,6 +99,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'author' => :'String',
+        :'authoring_template' => :'LLMObsPromptTemplate',
         :'created_at' => :'Time',
         :'datasets' => :'Array<LLMObsPromptDataset>',
         :'description' => :'String',
@@ -132,6 +137,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'author')
         self.author = attributes[:'author']
+      end
+
+      if attributes.key?(:'authoring_template')
+        self.authoring_template = attributes[:'authoring_template']
       end
 
       if attributes.key?(:'created_at')
@@ -281,6 +290,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
+          authoring_template == o.authoring_template &&
           created_at == o.created_at &&
           datasets == o.datasets &&
           description == o.description &&
@@ -302,7 +312,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
+      [author, authoring_template, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
     end
   end
 end
