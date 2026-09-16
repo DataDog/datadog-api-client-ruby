@@ -1864,6 +1864,7 @@ module DatadogAPIClient
           "v2.budget_with_entries_data_attributes_entries_items_costs" => "BudgetWithEntriesDataAttributesEntriesItemsCosts",
           "v2.budget_with_entries_data_attributes_entries_items_tag_filters_items" => "BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems",
           "v2.budget_with_entries_data_type" => "BudgetWithEntriesDataType",
+          "v2.budget_with_entries_meta" => "BudgetWithEntriesMeta",
           "v2.bulk_delete_apps_datastore_items_request" => "BulkDeleteAppsDatastoreItemsRequest",
           "v2.bulk_delete_apps_datastore_items_request_data" => "BulkDeleteAppsDatastoreItemsRequestData",
           "v2.bulk_delete_apps_datastore_items_request_data_attributes" => "BulkDeleteAppsDatastoreItemsRequestDataAttributes",

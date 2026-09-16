@@ -36,12 +36,18 @@ body = DatadogAPIClient::V2::BudgetWithEntries.new({
       name: "my budget",
       org_id: 123,
       start_month: 202501,
+      tags: [
+        "service",
+      ],
       total_amount: 1000,
       updated_at: 1738258683590,
       updated_by: "00000000-0a0a-0a0a-aaa0-00000000000a",
     }),
     id: "00000000-0a0a-0a0a-aaa0-00000000000a",
     type: "",
+  }),
+  meta: DatadogAPIClient::V2::BudgetWithEntriesMeta.new({
+    error: "",
   }),
 })
 p api_instance.upsert_budget(body)
