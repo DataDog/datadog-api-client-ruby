@@ -12,7 +12,9 @@ body = DatadogAPIClient::V2::BudgetWithEntries.new({
         forecast: nil,
         ootb_forecast: nil,
       }),
-      costs_unit: DatadogAPIClient::V2::BudgetAttributesCostsUnit.new({}),
+      costs_unit: DatadogAPIClient::V2::BudgetAttributesCostsUnit.new({
+        id: 42,
+      }),
       created_at: 1738258683590,
       created_by: "00000000-0a0a-0a0a-aaa0-00000000000a",
       end_month: 202502,
