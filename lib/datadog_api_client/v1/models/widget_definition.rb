@@ -33,6 +33,7 @@ module DatadogAPIClient::V1
           :'CheckStatusWidgetDefinition',
           :'CohortWidgetDefinition',
           :'DistributionWidgetDefinition',
+          :'EmbeddedAppWidgetDefinition',
           :'EventStreamWidgetDefinition',
           :'EventTimelineWidgetDefinition',
           :'FreeTextWidgetDefinition',
