@@ -305,12 +305,16 @@ module APIWorld
     model = if schema
       test_runner_model(schema)
     else
-      ScenariosModelMappings["v#{@api_version}.#{@operation_id}"][param]
+      ScenariosModelMappings["v#{operation_api_version}.#{@operation_id}"][param]
     end
     if model == 'File'
       return File.open(File.join(test_features_root, "v" + @api_version, obj))
     end
-    @api_client.convert_to_type(obj, model, "V#{@api_version}")
+    @api_client.convert_to_type(obj, model, "V#{operation_api_version}")
+  end
+
+  def operation_api_version
+    @operation_api_version || @api_version
   end
 end
 
@@ -326,8 +330,8 @@ Given('a valid "appKeyAuth" key in the system') do
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
-  name = build_api_name(api_name)
-  @api_instance = api.const_get("V#{@api_version}").const_get(name).new api_client
+  @api_name = build_api_name(api_name)
+  @api_instance = api.const_get("V#{@api_version}").const_get(@api_name).new api_client
 end
 
 Given('operation {string} enabled') do |name|
@@ -379,6 +383,15 @@ Given(/^new "([^"]+)" request$/) do |name|
 
   @operation_id = name
   @api_method = generated_operation_method(@api_instance, name)
+end
+
+Given(/^new "([^"]+)" with version "([^"]+)" request$/) do |name, version|
+  @operation_api_version = "#{@api_version}_#{version.delete('-')}"
+  @api_instance = api.const_get("V#{operation_api_version}").const_get(@api_name).new api_client
+  next if test_runner_enabled?
+
+  @operation_id = name
+  @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
 end
 
 When('the request is sent') do
