@@ -3006,6 +3006,7 @@ ScenariosModelMappings = {
     "v2.ListCostTagMetadataMetrics" => {
             "filter_month" => "String",
             "filter_provider" => "String",
+            "filter_enabled_metrics_only" => "Boolean",
     },
     "v2.ListCostTagMetadataMonths" => {
             "filter_provider" => "String",
