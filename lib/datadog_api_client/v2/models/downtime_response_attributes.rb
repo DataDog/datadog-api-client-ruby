@@ -50,6 +50,11 @@ module DatadogAPIClient::V2
     # Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
     attr_accessor :notify_end_types
 
+    # The principals (users, roles, or teams) allowed to act on behalf of the downtime.
+    #
+    # **Note**: This feature is currently in Preview and may not be available for all organizations.
+    attr_accessor :run_as
+
     # The schedule that defines when the monitor starts, stops, and recurs. There are two types of schedules:
     # one-time and recurring. Recurring schedules may have up to five RRULE-based recurrences. If no schedules are
     # provided, the downtime will begin immediately and never end.
@@ -76,6 +81,7 @@ module DatadogAPIClient::V2
         :'mute_first_recovery_notification' => :'mute_first_recovery_notification',
         :'notify_end_states' => :'notify_end_states',
         :'notify_end_types' => :'notify_end_types',
+        :'run_as' => :'run_as',
         :'schedule' => :'schedule',
         :'scope' => :'scope',
         :'status' => :'status'
@@ -95,6 +101,7 @@ module DatadogAPIClient::V2
         :'mute_first_recovery_notification' => :'Boolean',
         :'notify_end_states' => :'Array<DowntimeNotifyEndStateTypes>',
         :'notify_end_types' => :'Array<DowntimeNotifyEndStateActions>',
+        :'run_as' => :'Array<DowntimeRunAsItem>',
         :'schedule' => :'DowntimeScheduleResponse',
         :'scope' => :'String',
         :'status' => :'DowntimeStatus'
@@ -169,6 +176,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'run_as')
+        if (value = attributes[:'run_as']).is_a?(Array)
+          self.run_as = value
+        end
+      end
+
       if attributes.key?(:'schedule')
         self.schedule = attributes[:'schedule']
       end
@@ -217,6 +230,7 @@ module DatadogAPIClient::V2
           mute_first_recovery_notification == o.mute_first_recovery_notification &&
           notify_end_states == o.notify_end_states &&
           notify_end_types == o.notify_end_types &&
+          run_as == o.run_as &&
           schedule == o.schedule &&
           scope == o.scope &&
           status == o.status &&
@@ -227,7 +241,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [canceled, created, display_timezone, message, modified, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, schedule, scope, status, additional_properties].hash
+      [canceled, created, display_timezone, message, modified, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, run_as, schedule, scope, status, additional_properties].hash
     end
   end
 end
