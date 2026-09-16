@@ -66,7 +66,7 @@ module DatadogAPIClient::V2
     # Severity level based on risk score
     attr_reader :severity
 
-    # Number of security signals detected for this entity.
+    # Number of risk-contributing security signals detected for this entity.
     attr_reader :signals_detected
 
     attr_accessor :additional_properties
