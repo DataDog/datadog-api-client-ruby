@@ -30,8 +30,11 @@ module DatadogAPIClient::V1
     # Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
     attr_reader :compute
 
-    # Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
+    # Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead. apm_recommendations_stream is used to query APM recommendations, and supports filtering by environment, services, teams, recommendation types, and status.
     attr_reader :data_source
+
+    # Filter by APM environment. Usable only with `apm_recommendations_stream`.
+    attr_accessor :env
 
     # Size to use to display an event.
     attr_accessor :event_size
@@ -48,11 +51,20 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_reader :query_string
 
+    # Filter by recommendation types. Usable only with `apm_recommendations_stream`.
+    attr_accessor :recommendation_types
+
+    # Filter by service names. Usable only with `apm_recommendations_stream`.
+    attr_accessor :services
+
     # Which column and order to sort by
     attr_accessor :sort
 
     # Filter by issue states. Usable only with `issue_stream`.
     attr_accessor :states
+
+    # Filter by recommendation statuses. Usable only with `apm_recommendations_stream`.
+    attr_accessor :statuses
 
     # Option for storage location. Feature in Private Beta.
     attr_accessor :storage
@@ -62,6 +74,9 @@ module DatadogAPIClient::V1
 
     # Filter by team handles. Usable only with `issue_stream`.
     attr_accessor :team_handles
+
+    # Filter by team handles. Usable only with `apm_recommendations_stream`.
+    attr_accessor :teams
 
     # Version of the query for the logs transaction stream widget. When omitted, v1 query behavior is
     # preserved. Set to `sequential_query` to use v2 behavior. **This feature is in Preview.**
@@ -77,16 +92,21 @@ module DatadogAPIClient::V1
         :'clustering_pattern_field_path' => :'clustering_pattern_field_path',
         :'compute' => :'compute',
         :'data_source' => :'data_source',
+        :'env' => :'env',
         :'event_size' => :'event_size',
         :'group_by' => :'group_by',
         :'indexes' => :'indexes',
         :'persona' => :'persona',
         :'query_string' => :'query_string',
+        :'recommendation_types' => :'recommendation_types',
+        :'services' => :'services',
         :'sort' => :'sort',
         :'states' => :'states',
+        :'statuses' => :'statuses',
         :'storage' => :'storage',
         :'suspected_causes' => :'suspected_causes',
         :'team_handles' => :'team_handles',
+        :'teams' => :'teams',
         :'version' => :'version'
       }
     end
@@ -99,16 +119,21 @@ module DatadogAPIClient::V1
         :'clustering_pattern_field_path' => :'String',
         :'compute' => :'Array<ListStreamComputeItems>',
         :'data_source' => :'ListStreamSource',
+        :'env' => :'String',
         :'event_size' => :'WidgetEventSize',
         :'group_by' => :'Array<ListStreamGroupByItems>',
         :'indexes' => :'Array<String>',
         :'persona' => :'ListStreamIssuePersona',
         :'query_string' => :'String',
+        :'recommendation_types' => :'Array<String>',
+        :'services' => :'Array<String>',
         :'sort' => :'WidgetFieldSort',
         :'states' => :'Array<ListStreamIssueState>',
+        :'statuses' => :'Array<String>',
         :'storage' => :'String',
         :'suspected_causes' => :'Array<String>',
         :'team_handles' => :'Array<String>',
+        :'teams' => :'Array<String>',
         :'version' => :'ListStreamQueryVersion'
       }
     end
@@ -151,6 +176,10 @@ module DatadogAPIClient::V1
         self.data_source = attributes[:'data_source']
       end
 
+      if attributes.key?(:'env')
+        self.env = attributes[:'env']
+      end
+
       if attributes.key?(:'event_size')
         self.event_size = attributes[:'event_size']
       end
@@ -175,6 +204,18 @@ module DatadogAPIClient::V1
         self.query_string = attributes[:'query_string']
       end
 
+      if attributes.key?(:'recommendation_types')
+        if (value = attributes[:'recommendation_types']).is_a?(Array)
+          self.recommendation_types = value
+        end
+      end
+
+      if attributes.key?(:'services')
+        if (value = attributes[:'services']).is_a?(Array)
+          self.services = value
+        end
+      end
+
       if attributes.key?(:'sort')
         self.sort = attributes[:'sort']
       end
@@ -182,6 +223,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'states')
         if (value = attributes[:'states']).is_a?(Array)
           self.states = value
+        end
+      end
+
+      if attributes.key?(:'statuses')
+        if (value = attributes[:'statuses']).is_a?(Array)
+          self.statuses = value
         end
       end
 
@@ -198,6 +245,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'team_handles')
         if (value = attributes[:'team_handles']).is_a?(Array)
           self.team_handles = value
+        end
+      end
+
+      if attributes.key?(:'teams')
+        if (value = attributes[:'teams']).is_a?(Array)
+          self.teams = value
         end
       end
 
@@ -291,16 +344,21 @@ module DatadogAPIClient::V1
           clustering_pattern_field_path == o.clustering_pattern_field_path &&
           compute == o.compute &&
           data_source == o.data_source &&
+          env == o.env &&
           event_size == o.event_size &&
           group_by == o.group_by &&
           indexes == o.indexes &&
           persona == o.persona &&
           query_string == o.query_string &&
+          recommendation_types == o.recommendation_types &&
+          services == o.services &&
           sort == o.sort &&
           states == o.states &&
+          statuses == o.statuses &&
           storage == o.storage &&
           suspected_causes == o.suspected_causes &&
           team_handles == o.team_handles &&
+          teams == o.teams &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -309,7 +367,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignee_uuids, clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, persona, query_string, sort, states, storage, suspected_causes, team_handles, version, additional_properties].hash
+      [assignee_uuids, clustering_pattern_field_path, compute, data_source, env, event_size, group_by, indexes, persona, query_string, recommendation_types, services, sort, states, statuses, storage, suspected_causes, team_handles, teams, version, additional_properties].hash
     end
   end
 end
