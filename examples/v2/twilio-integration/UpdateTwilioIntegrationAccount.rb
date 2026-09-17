@@ -4,13 +4,13 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.update_twilio_integration_account".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::TwilioIntegrationAccountsAPI.new
+api_instance = DatadogAPIClient::V2::TwilioIntegrationAPI.new
 
 body = DatadogAPIClient::V2::TwilioIntegrationAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::TwilioIntegrationAccountUpdateData.new({
     attributes: DatadogAPIClient::V2::TwilioIntegrationAccountUpdateAttributes.new({
-      authentication: DatadogAPIClient::V2::IntegrationAccountBasicAuthUpdate.new({
-        auth_type: DatadogAPIClient::V2::IntegrationAccountBasicAuthType::BASIC,
+      authentication: DatadogAPIClient::V2::TwilioIntegrationAccountBasicAuthUpdate.new({
+        auth_type: DatadogAPIClient::V2::TwilioIntegrationAccountBasicAuthType::BASIC,
         password: "your-password",
         username: "datadog",
       }),

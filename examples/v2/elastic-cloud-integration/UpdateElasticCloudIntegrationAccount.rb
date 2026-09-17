@@ -4,13 +4,13 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.update_elastic_cloud_integration_account".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::ElasticCloudIntegrationAccountsAPI.new
+api_instance = DatadogAPIClient::V2::ElasticCloudIntegrationAPI.new
 
 body = DatadogAPIClient::V2::ElasticCloudIntegrationAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::ElasticCloudIntegrationAccountUpdateData.new({
     attributes: DatadogAPIClient::V2::ElasticCloudIntegrationAccountUpdateAttributes.new({
-      authentication: DatadogAPIClient::V2::IntegrationAccountBasicAuthUpdate.new({
-        auth_type: DatadogAPIClient::V2::IntegrationAccountBasicAuthType::BASIC,
+      authentication: DatadogAPIClient::V2::ElasticCloudIntegrationAccountBasicAuthUpdate.new({
+        auth_type: DatadogAPIClient::V2::ElasticCloudIntegrationAccountBasicAuthType::BASIC,
         password: "your-password",
         username: "datadog",
       }),

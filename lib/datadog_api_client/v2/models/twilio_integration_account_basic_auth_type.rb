@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The authentication method type.
-  class IntegrationAccountBasicAuthType
+  class TwilioIntegrationAccountBasicAuthType
     include BaseEnumModel
 
     BASIC = "basic".freeze

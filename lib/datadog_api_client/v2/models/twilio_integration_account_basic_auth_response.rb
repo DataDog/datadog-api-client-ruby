@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Writable attributes used to update an Elastic Cloud integration account. Every field is optional; only the fields provided are changed. When `dataflows` is provided, only the dataflow ids included in the request are modified; dataflows omitted from the map keep their current configuration.
-  class ElasticCloudIntegrationAccountUpdateAttributes
+  # The basic authentication method and username configured on the account.
+  class TwilioIntegrationAccountBasicAuthResponse
     include BaseGenericModel
 
-    # Authentication for updating the Elastic Cloud integration account. Exactly one method is set.
-    attr_accessor :authentication
+    # The authentication method type.
+    attr_reader :auth_type
 
-    # Data Datadog collects from Elastic Cloud, keyed by dataflow id. Node-level cluster statistics are always collected; each dataflow here adds a further set of metrics on top of that baseline, so set `enabled` to start or stop it. Defaults listed on each dataflow apply when the account is created; on update, omitted fields keep their current values. Every dataflow queries the deployment as the user in `authentication`, so that user's role must hold the required Elasticsearch privileges; a dataflow enabled without them is stored but collects no data.
-    attr_accessor :dataflows
-
-    # Human-readable name of the Elastic Cloud integration account.
-    attr_accessor :name
-
-    # Settings for updating the Elastic Cloud integration account. Only the fields provided are changed.
-    attr_accessor :settings
+    # Non-secret username or public identifier for the credential pair.
+    attr_reader :username
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'authentication' => :'authentication',
-        :'dataflows' => :'dataflows',
-        :'name' => :'name',
-        :'settings' => :'settings'
+        :'auth_type' => :'auth_type',
+        :'username' => :'username'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'authentication' => :'ElasticCloudIntegrationAccountAuthenticationUpdate',
-        :'dataflows' => :'ElasticCloudIntegrationDataflowsRequest',
-        :'name' => :'String',
-        :'settings' => :'ElasticCloudIntegrationAccountSettingsUpdate'
+        :'auth_type' => :'TwilioIntegrationAccountBasicAuthType',
+        :'username' => :'String'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ElasticCloudIntegrationAccountUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TwilioIntegrationAccountBasicAuthResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,21 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'authentication')
-        self.authentication = attributes[:'authentication']
+      if attributes.key?(:'auth_type')
+        self.auth_type = attributes[:'auth_type']
       end
 
-      if attributes.key?(:'dataflows')
-        self.dataflows = attributes[:'dataflows']
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
       end
+    end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @auth_type.nil?
+      return false if @username.nil?
+      true
+    end
 
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+    # Custom attribute writer method with validation
+    # @param auth_type [Object] Object to be assigned
+    # @!visibility private
+    def auth_type=(auth_type)
+      if auth_type.nil?
+        fail ArgumentError, 'invalid value for "auth_type", auth_type cannot be nil.'
       end
+      @auth_type = auth_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param username [Object] Object to be assigned
+    # @!visibility private
+    def username=(username)
+      if username.nil?
+        fail ArgumentError, 'invalid value for "username", username cannot be nil.'
+      end
+      @username = username
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,10 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          authentication == o.authentication &&
-          dataflows == o.dataflows &&
-          name == o.name &&
-          settings == o.settings &&
+          auth_type == o.auth_type &&
+          username == o.username &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [authentication, dataflows, name, settings, additional_properties].hash
+      [auth_type, username, additional_properties].hash
     end
   end
 end

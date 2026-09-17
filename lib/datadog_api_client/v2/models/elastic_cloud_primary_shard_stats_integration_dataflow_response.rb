@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Elastic Cloud primary shard stats dataflow.
+  # Metrics covering only the cluster's primary shards.
   class ElasticCloudPrimaryShardStatsIntegrationDataflowResponse
     include BaseGenericModel
 
-    # Whether the Elastic Cloud dataflow is enabled.
+    # Whether Datadog collects this data.
     attr_accessor :enabled
 
     # Read-only collection status of a dataflow.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Twilio messages logs dataflow.
+  # Twilio Message resource logs for inbound and outbound messages, used to track delivery and troubleshoot message errors. A log is produced when you send a message through the REST API, when Twilio executes a TwiML instruction, and when someone messages one of your Twilio numbers or channel addresses. Message bodies are never collected.
   class TwilioMessagesLogsIntegrationDataflowResponse
     include BaseGenericModel
 
-    # Whether the Twilio dataflow is enabled.
+    # Whether Datadog collects this data.
     attr_accessor :enabled
 
     # Read-only collection status of a dataflow.

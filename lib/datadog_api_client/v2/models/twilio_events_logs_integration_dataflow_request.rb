@@ -17,14 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Twilio events logs dataflow.
+  # Twilio Event resource logs, which record virtually every action taken in your Twilio account, such as provisioning a phone number, changing account security settings, or deleting a recording. Actions are recorded whether they came from the REST API, a user in the Twilio Console, or Twilio itself. [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) analyzes and correlates these logs to detect threats in real time.
   class TwilioEventsLogsIntegrationDataflowRequest
     include BaseGenericModel
 
-    # Whether the Twilio dataflow is enabled.
+    # Whether Datadog collects this data. Defaults to `false`; set to `true` to start collection.
     attr_accessor :enabled
-
-    attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -50,39 +48,17 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TwilioEventsLogsIntegrationDataflowRequest` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::TwilioEventsLogsIntegrationDataflowRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
       end
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
     end
 
     # Checks equality by comparing each attribute.
@@ -91,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          enabled == o.enabled &&
-          additional_properties == o.additional_properties
+          enabled == o.enabled
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, additional_properties].hash
+      [enabled].hash
     end
   end
 end
