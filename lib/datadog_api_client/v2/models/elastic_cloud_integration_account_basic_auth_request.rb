@@ -17,23 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The basic authentication method and username configured on the account.
-  class IntegrationAccountBasicAuthResponse
+  # Username and password authentication.
+  class ElasticCloudIntegrationAccountBasicAuthRequest
     include BaseGenericModel
 
     # The authentication method type.
     attr_reader :auth_type
 
+    # Secret password or private key.
+    attr_reader :password
+
     # Non-secret username or public identifier for the credential pair.
     attr_reader :username
-
-    attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'auth_type' => :'auth_type',
+        :'password' => :'password',
         :'username' => :'username'
       }
     end
@@ -42,7 +44,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'auth_type' => :'IntegrationAccountBasicAuthType',
+        :'auth_type' => :'ElasticCloudIntegrationAccountBasicAuthType',
+        :'password' => :'String',
         :'username' => :'String'
       }
     end
@@ -52,21 +55,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationAccountBasicAuthResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ElasticCloudIntegrationAccountBasicAuthRequest` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ElasticCloudIntegrationAccountBasicAuthRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'auth_type')
         self.auth_type = attributes[:'auth_type']
+      end
+
+      if attributes.key?(:'password')
+        self.password = attributes[:'password']
       end
 
       if attributes.key?(:'username')
@@ -79,6 +84,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @auth_type.nil?
+      return false if @password.nil?
       return false if @username.nil?
       true
     end
@@ -94,6 +100,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param password [Object] Object to be assigned
+    # @!visibility private
+    def password=(password)
+      if password.nil?
+        fail ArgumentError, 'invalid value for "password", password cannot be nil.'
+      end
+      @password = password
+    end
+
+    # Custom attribute writer method with validation
     # @param username [Object] Object to be assigned
     # @!visibility private
     def username=(username)
@@ -103,26 +119,6 @@ module DatadogAPIClient::V2
       @username = username
     end
 
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -130,15 +126,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth_type == o.auth_type &&
-          username == o.username &&
-          additional_properties == o.additional_properties
+          password == o.password &&
+          username == o.username
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_type, username, additional_properties].hash
+      [auth_type, password, username].hash
     end
   end
 end
