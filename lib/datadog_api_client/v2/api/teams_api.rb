@@ -1861,6 +1861,7 @@ module DatadogAPIClient::V2
     #
     # Get all teams.
     # Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
+    # This temporary description change exercises SDK generation.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_number Specific page number to return.
