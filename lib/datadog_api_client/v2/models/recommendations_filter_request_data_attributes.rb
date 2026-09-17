@@ -17,13 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API request body for filtering cost recommendations.
-  class RecommendationsFilterRequest
+  # Attributes used to filter and sort cost recommendations.
+  class RecommendationsFilterRequestDataAttributes
     include BaseGenericModel
 
-    # JSON:API resource containing the cost recommendations filter. This legacy search contract
-    # uses the resource ID for the filter expression rather than as a persistent resource identifier.
-    attr_reader :data
+    # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+    attr_accessor :scope
+
+    # Ordered list of sort clauses applied to the result set.
+    attr_accessor :sort
+
+    # Active view name (for example, `active`, `dismissed`, `open`, `in-progress`, or `completed`).
+    attr_accessor :view
 
     attr_accessor :additional_properties
 
@@ -31,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'scope' => :'scope',
+        :'sort' => :'sort',
+        :'view' => :'view'
       }
     end
 
@@ -39,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RecommendationsFilterRequestData'
+        :'scope' => :'RecommendationsFilterRequestScope',
+        :'sort' => :'Array<RecommendationsFilterRequestSortItems>',
+        :'view' => :'String'
       }
     end
 
@@ -48,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RecommendationsFilterRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RecommendationsFilterRequestDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,27 +70,19 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      if attributes.key?(:'sort')
+        if (value = attributes[:'sort']).is_a?(Array)
+          self.sort = value
+        end
       end
-      @data = data
+
+      if attributes.key?(:'view')
+        self.view = attributes[:'view']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -110,7 +111,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          scope == o.scope &&
+          sort == o.sort &&
+          view == o.view &&
           additional_properties == o.additional_properties
     end
 
@@ -118,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [scope, sort, view, additional_properties].hash
     end
   end
 end
