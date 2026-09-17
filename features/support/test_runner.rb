@@ -101,6 +101,11 @@ module TestRunnerWorld
       opts[:body] = model_builder('body', value, request['body']['schema'])
     end
 
+    if request['compression']
+      name = scenario_parameter_name('Content-Encoding')
+      opts[name.to_sym] = request['compression']
+    end
+
     request.fetch('parameters').each do |parameter|
       source = parameter.fetch('source')
       value = if source.fetch('type') == 'fixture'
