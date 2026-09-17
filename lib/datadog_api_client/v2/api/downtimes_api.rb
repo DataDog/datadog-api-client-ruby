@@ -172,6 +172,7 @@ module DatadogAPIClient::V2
     # @param downtime_id [String] ID of the downtime to fetch.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `monitor`.
+    # @option opts [Boolean] :with_run_as If `true`, include the `run_as` attribute in the response, which lists the principals allowed to act on behalf of the downtime.  **Note**: This feature is currently in Preview and may not be available for all organizations.
     # @return [Array<(DowntimeResponse, Integer, Hash)>] DowntimeResponse data, response status code and response headers
     def get_downtime_with_http_info(downtime_id, opts = {})
 
@@ -188,6 +189,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'with_run_as'] = opts[:'with_run_as'] if !opts[:'with_run_as'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

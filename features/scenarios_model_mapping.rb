@@ -3433,6 +3433,7 @@ ScenariosModelMappings = {
     "v2.GetDowntime" => {
             "downtime_id" => "String",
             "include" => "String",
+            "with_run_as" => "Boolean",
     },
     "v2.UpdateDowntime" => {
             "downtime_id" => "String",
