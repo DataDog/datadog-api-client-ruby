@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The trigger definition for starting an investigation.
-  module TriggerAttributes
+  # Attributes for a general investigation, not tied to a specific monitor alert.
+  module GeneralInvestigationAttributes
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,8 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'MonitorAlertTrigger',
-          :'GeneralInvestigationTrigger'
+          :'GeneralInvestigationAttributesWithoutTimeBounds',
+          :'GeneralInvestigationAttributesWithTimeBounds'
         ]
       end
       # Builds the object
