@@ -1186,7 +1186,9 @@ module DatadogAPIClient::V2
 
     # List usage quotas.
     #
-    # Lists usage quotas for the caller's organization in a quota namespace. You can optionally include descendant organizations in the same datacenter as the caller. Requires the `billing_edit` permission.
+    # Lists usage quotas for the caller's organization in a quota namespace. You can optionally include
+    # descendant organizations in the same datacenter as the caller. Requires the `billing_read` or
+    # `billing_edit` permission.
     #
     # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
     # @param opts [Hash] the optional parameters
