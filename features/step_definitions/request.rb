@@ -381,6 +381,14 @@ Given(/^new "([^"]+)" request$/) do |name|
   @api_method = generated_operation_method(@api_instance, name)
 end
 
+Given('the request uses {string} compression') do |_compression|
+  # The generated replay server validates the Content-Encoding header and compressed body.
+end
+
+Given('the user selects {string} compression') do |_compression|
+  # The generated request plan passes the selected compression to the client call.
+end
+
 When('the request is sent') do
   prepare_test_runner_request if test_runner_enabled?
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
