@@ -101,9 +101,9 @@ module TestRunnerWorld
       opts[:body] = model_builder('body', value, request['body']['schema'])
     end
 
-    if request['compression']
+    if request['selected_compression']
       name = scenario_parameter_name('Content-Encoding')
-      opts[name.to_sym] = request['compression']
+      opts[name.to_sym] = request['selected_compression']
     end
 
     request.fetch('parameters').each do |parameter|
