@@ -345,6 +345,7 @@ module DatadogAPIClient
             "v2.get_finding": false,
             "v2.get_historical_job": false,
             "v2.get_indicator_of_compromise": false,
+            "v2.get_matching_signals": false,
             "v2.get_rule_version_history": false,
             "v2.get_secrets_rules": false,
             "v2.get_security_findings_automation_default_inbox_rule": false,

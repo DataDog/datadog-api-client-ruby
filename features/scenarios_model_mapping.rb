@@ -2545,6 +2545,10 @@ ScenariosModelMappings = {
             "to" => "String",
             "as_of" => "String",
     },
+    "v2.GetMatchingSignals" => {
+            "event_id" => "String",
+            "track" => "String",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",

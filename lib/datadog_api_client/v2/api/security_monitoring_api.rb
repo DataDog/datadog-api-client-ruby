@@ -5513,6 +5513,83 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get signals matching an event.
+    #
+    # @see #get_matching_signals_with_http_info
+    def get_matching_signals(event_id, track, opts = {})
+      data, _status_code, _headers = get_matching_signals_with_http_info(event_id, track, opts)
+      data
+    end
+
+    # Get signals matching an event.
+    #
+    # Returns the list of security signals that match a given event on the given track.
+    #
+    # @param event_id [String] The ID of the event to find matching signals for.
+    # @param track [String] The product track that the event belongs to.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MatchingSignalsResponse, Integer, Hash)>] MatchingSignalsResponse data, response status code and response headers
+    def get_matching_signals_with_http_info(event_id, track, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_matching_signals".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_matching_signals")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_matching_signals"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_matching_signals ...'
+      end
+      # verify the required parameter 'event_id' is set
+      if @api_client.config.client_side_validation && event_id.nil?
+        fail ArgumentError, "Missing the required parameter 'event_id' when calling SecurityMonitoringAPI.get_matching_signals"
+      end
+      # verify the required parameter 'track' is set
+      if @api_client.config.client_side_validation && track.nil?
+        fail ArgumentError, "Missing the required parameter 'track' when calling SecurityMonitoringAPI.get_matching_signals"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/events/{event_id}/matching_signals'.sub('{event_id}', CGI.escape(event_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'track'] = track
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MatchingSignalsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_matching_signals,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_matching_signals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List resource filters.
     #
     # @see #get_resource_evaluation_filters_with_http_info
