@@ -236,7 +236,7 @@ module DatadogAPIClient::V2
 
     # Get all downtimes.
     #
-    # Get all scheduled downtimes.
+    # List scheduled downtimes, optionally filtering to those that are active when the request is made.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
