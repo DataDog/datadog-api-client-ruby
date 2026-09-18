@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
 
     # Trigger a Bits AI investigation.
     #
-    # Trigger a new Bits AI investigation based on a monitor alert.
+    # Trigger a new Bits AI investigation from either a monitor alert or a general investigation request.
     #
     # @param body [TriggerInvestigationRequest] Trigger investigation request body.
     # @param opts [Hash] the optional parameters
