@@ -30,6 +30,10 @@ module DatadogAPIClient::V1
     # A percentage threshold of the daily quota at which a Datadog warning event is generated.
     attr_reader :daily_limit_warning_threshold_percentage
 
+    # A description of the index, to help explain its purpose or configuration to other users.
+    # Maximum length of 250 characters.
+    attr_accessor :description
+
     # If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any
     # specified `daily_limit` value in the request is ignored). If false or omitted, the index's current
     # `daily_limit` is maintained.
@@ -69,6 +73,7 @@ module DatadogAPIClient::V1
         :'daily_limit' => :'daily_limit',
         :'daily_limit_reset' => :'daily_limit_reset',
         :'daily_limit_warning_threshold_percentage' => :'daily_limit_warning_threshold_percentage',
+        :'description' => :'description',
         :'disable_daily_limit' => :'disable_daily_limit',
         :'exclusion_filters' => :'exclusion_filters',
         :'filter' => :'filter',
@@ -85,6 +90,7 @@ module DatadogAPIClient::V1
         :'daily_limit' => :'Integer',
         :'daily_limit_reset' => :'LogsDailyLimitReset',
         :'daily_limit_warning_threshold_percentage' => :'Float',
+        :'description' => :'String',
         :'disable_daily_limit' => :'Boolean',
         :'exclusion_filters' => :'Array<LogsExclusion>',
         :'filter' => :'LogsFilter',
@@ -122,6 +128,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'daily_limit_warning_threshold_percentage')
         self.daily_limit_warning_threshold_percentage = attributes[:'daily_limit_warning_threshold_percentage']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'disable_daily_limit')
@@ -215,6 +225,7 @@ module DatadogAPIClient::V1
           daily_limit == o.daily_limit &&
           daily_limit_reset == o.daily_limit_reset &&
           daily_limit_warning_threshold_percentage == o.daily_limit_warning_threshold_percentage &&
+          description == o.description &&
           disable_daily_limit == o.disable_daily_limit &&
           exclusion_filters == o.exclusion_filters &&
           filter == o.filter &&
@@ -228,7 +239,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, disable_daily_limit, exclusion_filters, filter, num_flex_logs_retention_days, num_retention_days, tags, additional_properties].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, description, disable_daily_limit, exclusion_filters, filter, num_flex_logs_retention_days, num_retention_days, tags, additional_properties].hash
     end
   end
 end
