@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSpec
     include BaseGenericModel
 
-    # Contains the the pipeline configuration.
+    # Contains the pipeline configuration.
     attr_reader :data
 
     attr_accessor :additional_properties
