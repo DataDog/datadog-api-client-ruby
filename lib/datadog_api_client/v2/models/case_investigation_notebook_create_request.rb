@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Notebook creation request
-  class NotebookCreateRequest
+  # Case investigation notebook creation request.
+  class CaseInvestigationNotebookCreateRequest
     include BaseGenericModel
 
-    # Notebook creation data
+    # Case investigation notebook creation data.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'NotebookCreateData'
+        :'data' => :'CaseInvestigationNotebookCreateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NotebookCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CaseInvestigationNotebookCreateRequest` initialize method"
       end
 
       self.additional_properties = {}
