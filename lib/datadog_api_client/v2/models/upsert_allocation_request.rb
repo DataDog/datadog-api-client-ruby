@@ -21,7 +21,9 @@ module DatadogAPIClient::V2
   class UpsertAllocationRequest
     include BaseGenericModel
 
-    # The experiment ID for experiment-linked allocations.
+    # The experiment ID linked to the allocation. For `FEATURE_GATE` allocations,
+    # a non-null value denotes a standard experiment. For `CANARY` allocations,
+    # Datadog manages this value. Omit it when creating a canary allocation.
     attr_accessor :experiment_id
 
     # Progressive release request payload.
