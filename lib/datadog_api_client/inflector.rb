@@ -8308,6 +8308,7 @@ module DatadogAPIClient
           "v2.table_result_v2_data_attributes_schema_fields_items" => "TableResultV2DataAttributesSchemaFieldsItems",
           "v2.table_result_v2_data_type" => "TableResultV2DataType",
           "v2.table_row_resource_array" => "TableRowResourceArray",
+          "v2.table_row_resource_array_meta" => "TableRowResourceArrayMeta",
           "v2.table_row_resource_data" => "TableRowResourceData",
           "v2.table_row_resource_data_attributes" => "TableRowResourceDataAttributes",
           "v2.table_row_resource_data_type" => "TableRowResourceDataType",
