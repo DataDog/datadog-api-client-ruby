@@ -1,6 +1,9 @@
 # Create a new dashboard with logs_transaction_stream list_stream widget and version
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({

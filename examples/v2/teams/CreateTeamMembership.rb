@@ -1,6 +1,9 @@
 # Add a user to a team returns "Represents a user's association to a team" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::TeamsAPI.new
 
 # there is a valid "dd_team" in the system
