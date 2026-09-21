@@ -17,10 +17,7 @@ body = DatadogAPIClient::V2::TagIndexingRuleCreateRequest.new({
       name: "my-indexing-rule",
       options: DatadogAPIClient::V2::TagIndexingRuleOptions.new({
         data: DatadogAPIClient::V2::TagIndexingRuleOptionsData.new({
-          dynamic_tags: DatadogAPIClient::V2::TagIndexingRuleDynamicTags.new({
-            queried_tags_window_seconds: 3600,
-            related_asset_tags: false,
-          }),
+          dynamic_tags: DatadogAPIClient::V2::TagIndexingRuleDynamicTags.new({}),
           manage_preexisting_metrics: true,
           metric_match: DatadogAPIClient::V2::TagIndexingRuleMetricMatch.new({
             queried_window_seconds: 3600,
