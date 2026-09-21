@@ -32,5 +32,17 @@ module DatadogAPIClient::V2
     PHP = "PHP".freeze
     KOTLIN = "KOTLIN".freeze
     SWIFT = "SWIFT".freeze
+    DART = "DART".freeze
+    DOCKERFILE = "DOCKERFILE".freeze
+    ELIXIR = "ELIXIR".freeze
+    JSON = "JSON".freeze
+    RUST = "RUST".freeze
+    TERRAFORM = "TERRAFORM".freeze
+    STARLARK = "STARLARK".freeze
+    BASH = "BASH".freeze
+    MARKDOWN = "MARKDOWN".freeze
+    APEX = "APEX".freeze
+    R = "R".freeze
+    SQL = "SQL".freeze
   end
 end
