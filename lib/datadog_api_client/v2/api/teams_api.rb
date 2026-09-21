@@ -1859,7 +1859,7 @@ module DatadogAPIClient::V2
 
     # Get all teams.
     #
-    # Get all teams.
+    # Get all teams in your organization.
     # Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
     #
     # @param opts [Hash] the optional parameters
