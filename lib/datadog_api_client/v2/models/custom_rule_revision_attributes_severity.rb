@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     ERROR = "ERROR".freeze
     WARNING = "WARNING".freeze
     NOTICE = "NOTICE".freeze
+    NONE = "NONE".freeze
   end
 end

@@ -45,6 +45,9 @@ module DatadogAPIClient::V2
     # The identifier of the user or system that created the rule. Server-assigned by the rulesets endpoints; ignored by this operation.
     attr_accessor :created_by
 
+    # The message associated with the custom rule revision. Forwarded from the custom rulesets endpoints; ignored by this operation.
+    attr_accessor :creation_message
+
     # The CVE identifier associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
     attr_accessor :cve
 
@@ -93,6 +96,9 @@ module DatadogAPIClient::V2
     # Whether an AI-generated fix should be offered. Forwarded from the rulesets endpoints; ignored by this operation.
     attr_accessor :should_use_ai_fix
 
+    # Tags associated with the custom rule revision. Forwarded from the custom rulesets endpoints; ignored by this operation.
+    attr_accessor :tags
+
     # The test cases associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
     attr_accessor :tests
 
@@ -101,6 +107,9 @@ module DatadogAPIClient::V2
 
     # The rule type indicating the detection mechanism (for example, `TREE_SITTER_QUERY`).
     attr_reader :type
+
+    # The custom rule revision version. Forwarded from the custom rulesets endpoints; ignored by this operation.
+    attr_accessor :version_id
 
     attr_accessor :additional_properties
 
@@ -114,6 +123,7 @@ module DatadogAPIClient::V2
         :'code' => :'code',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
+        :'creation_message' => :'creation_message',
         :'cve' => :'cve',
         :'cwe' => :'cwe',
         :'description' => :'description',
@@ -130,9 +140,11 @@ module DatadogAPIClient::V2
         :'severity' => :'severity',
         :'short_description' => :'short_description',
         :'should_use_ai_fix' => :'should_use_ai_fix',
+        :'tags' => :'tags',
         :'tests' => :'tests',
         :'tree_sitter_query' => :'tree_sitter_query',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'version_id' => :'version_id'
       }
     end
 
@@ -146,6 +158,7 @@ module DatadogAPIClient::V2
         :'code' => :'String',
         :'created_at' => :'Time',
         :'created_by' => :'String',
+        :'creation_message' => :'String',
         :'cve' => :'String',
         :'cwe' => :'String',
         :'description' => :'String',
@@ -162,9 +175,11 @@ module DatadogAPIClient::V2
         :'severity' => :'String',
         :'short_description' => :'String',
         :'should_use_ai_fix' => :'Boolean',
+        :'tags' => :'Array<String>',
         :'tests' => :'Array<AnalysisRequestRuleTest>',
         :'tree_sitter_query' => :'String',
-        :'type' => :'String'
+        :'type' => :'String',
+        :'version_id' => :'Integer'
       }
     end
 
@@ -219,6 +234,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'creation_message')
+        self.creation_message = attributes[:'creation_message']
       end
 
       if attributes.key?(:'cve')
@@ -285,6 +304,12 @@ module DatadogAPIClient::V2
         self.should_use_ai_fix = attributes[:'should_use_ai_fix']
       end
 
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
       if attributes.key?(:'tests')
         if (value = attributes[:'tests']).is_a?(Array)
           self.tests = value
@@ -297,6 +322,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'version_id')
+        self.version_id = attributes[:'version_id']
       end
     end
 
@@ -427,6 +456,7 @@ module DatadogAPIClient::V2
           code == o.code &&
           created_at == o.created_at &&
           created_by == o.created_by &&
+          creation_message == o.creation_message &&
           cve == o.cve &&
           cwe == o.cwe &&
           description == o.description &&
@@ -443,9 +473,11 @@ module DatadogAPIClient::V2
           severity == o.severity &&
           short_description == o.short_description &&
           should_use_ai_fix == o.should_use_ai_fix &&
+          tags == o.tags &&
           tests == o.tests &&
           tree_sitter_query == o.tree_sitter_query &&
           type == o.type &&
+          version_id == o.version_id &&
           additional_properties == o.additional_properties
     end
 
@@ -453,7 +485,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [arguments, category, checksum, code, created_at, created_by, cve, cwe, description, documentation_url, entity_checked, id, is_published, is_testing, language, last_updated_at, last_updated_by, name, regex, severity, short_description, should_use_ai_fix, tests, tree_sitter_query, type, additional_properties].hash
+      [arguments, category, checksum, code, created_at, created_by, creation_message, cve, cwe, description, documentation_url, entity_checked, id, is_published, is_testing, language, last_updated_at, last_updated_by, name, regex, severity, short_description, should_use_ai_fix, tags, tests, tree_sitter_query, type, version_id, additional_properties].hash
     end
   end
 end

@@ -27,6 +27,7 @@ body = DatadogAPIClient::V2::AnalysisRequest.new({
           name: "no-exit",
           regex: nil,
           severity: "WARNING",
+          tags: [],
           tests: [
             DatadogAPIClient::V2::AnalysisRequestRuleTest.new({}),
           ],
