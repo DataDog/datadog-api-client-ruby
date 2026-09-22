@@ -46,6 +46,10 @@ module DatadogAPIClient::V2
     # When enabled, Datadog collects metrics where location is explicitly stated as "global" or where location information cannot be deduced from GCP labels.
     attr_accessor :is_global_location_enabled
 
+    # When enabled, Datadog scans for organization and folder-level resources
+    # under the organization the service account belongs to.
+    attr_accessor :is_org_folder_resource_collection_enabled
+
     # When enabled, Datadog applies the `X-Goog-User-Project` header, attributing Google Cloud billing and quota usage to the project being monitored rather than the default service account project.
     attr_accessor :is_per_project_quota_enabled
 
@@ -64,7 +68,7 @@ module DatadogAPIClient::V2
     # Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
     attr_accessor :region_filter_configs
 
-    # When enabled, Datadog scans for all resources in your GCP environment.
+    # When enabled, Datadog scans for all project-level resources in your GCP environment.
     attr_accessor :resource_collection_enabled
 
     attr_accessor :additional_properties
@@ -80,6 +84,7 @@ module DatadogAPIClient::V2
         :'host_filters' => :'host_filters',
         :'is_cspm_enabled' => :'is_cspm_enabled',
         :'is_global_location_enabled' => :'is_global_location_enabled',
+        :'is_org_folder_resource_collection_enabled' => :'is_org_folder_resource_collection_enabled',
         :'is_per_project_quota_enabled' => :'is_per_project_quota_enabled',
         :'is_resource_change_collection_enabled' => :'is_resource_change_collection_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
@@ -101,6 +106,7 @@ module DatadogAPIClient::V2
         :'host_filters' => :'Array<String>',
         :'is_cspm_enabled' => :'Boolean',
         :'is_global_location_enabled' => :'Boolean',
+        :'is_org_folder_resource_collection_enabled' => :'Boolean',
         :'is_per_project_quota_enabled' => :'Boolean',
         :'is_resource_change_collection_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
@@ -161,6 +167,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'is_global_location_enabled')
         self.is_global_location_enabled = attributes[:'is_global_location_enabled']
+      end
+
+      if attributes.key?(:'is_org_folder_resource_collection_enabled')
+        self.is_org_folder_resource_collection_enabled = attributes[:'is_org_folder_resource_collection_enabled']
       end
 
       if attributes.key?(:'is_per_project_quota_enabled')
@@ -231,6 +241,7 @@ module DatadogAPIClient::V2
           host_filters == o.host_filters &&
           is_cspm_enabled == o.is_cspm_enabled &&
           is_global_location_enabled == o.is_global_location_enabled &&
+          is_org_folder_resource_collection_enabled == o.is_org_folder_resource_collection_enabled &&
           is_per_project_quota_enabled == o.is_per_project_quota_enabled &&
           is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
@@ -245,7 +256,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_global_location_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, region_filter_configs, resource_collection_enabled, additional_properties].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_global_location_enabled, is_org_folder_resource_collection_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, region_filter_configs, resource_collection_enabled, additional_properties].hash
     end
   end
 end
