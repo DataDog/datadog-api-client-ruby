@@ -30,10 +30,10 @@ module DatadogAPIClient::V2
     # The reason for the rule result, if applicable.
     attr_accessor :reason
 
-    # The overall status of the gate evaluation.
+    # The recorded result of a gate or rule evaluation.
     # - `in_progress`: The evaluation is still running.
-    # - `pass`: All rules passed successfully and the deployment is allowed to proceed.
-    # - `fail`: One or more rules did not pass; the deployment should not proceed.
+    # - `pass`: All rules passed successfully.
+    # - `fail`: One or more rules did not pass.
     attr_accessor :status
 
     attr_accessor :additional_properties
