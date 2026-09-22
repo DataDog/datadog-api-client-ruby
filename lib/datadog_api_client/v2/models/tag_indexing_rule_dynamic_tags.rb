@@ -35,12 +35,6 @@ module DatadogAPIClient::V2
     # Tags not used in any dashboards,  monitors, notebooks, or SLOs are excluded from indexing.
     attr_accessor :exclude_not_used_in_assets
 
-    # Window in seconds for evaluating queried tags.
-    attr_accessor :queried_tags_window_seconds
-
-    # When true, tags from related assets are included.
-    attr_accessor :related_asset_tags
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -48,9 +42,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'exclude_not_queried_window_seconds' => :'exclude_not_queried_window_seconds',
-        :'exclude_not_used_in_assets' => :'exclude_not_used_in_assets',
-        :'queried_tags_window_seconds' => :'queried_tags_window_seconds',
-        :'related_asset_tags' => :'related_asset_tags'
+        :'exclude_not_used_in_assets' => :'exclude_not_used_in_assets'
       }
     end
 
@@ -59,9 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'exclude_not_queried_window_seconds' => :'Integer',
-        :'exclude_not_used_in_assets' => :'Boolean',
-        :'queried_tags_window_seconds' => :'Integer',
-        :'related_asset_tags' => :'Boolean'
+        :'exclude_not_used_in_assets' => :'Boolean'
       }
     end
 
@@ -89,14 +79,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'exclude_not_used_in_assets')
         self.exclude_not_used_in_assets = attributes[:'exclude_not_used_in_assets']
-      end
-
-      if attributes.key?(:'queried_tags_window_seconds')
-        self.queried_tags_window_seconds = attributes[:'queried_tags_window_seconds']
-      end
-
-      if attributes.key?(:'related_asset_tags')
-        self.related_asset_tags = attributes[:'related_asset_tags']
       end
     end
 
@@ -146,8 +128,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           exclude_not_queried_window_seconds == o.exclude_not_queried_window_seconds &&
           exclude_not_used_in_assets == o.exclude_not_used_in_assets &&
-          queried_tags_window_seconds == o.queried_tags_window_seconds &&
-          related_asset_tags == o.related_asset_tags &&
           additional_properties == o.additional_properties
     end
 
@@ -155,7 +135,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [exclude_not_queried_window_seconds, exclude_not_used_in_assets, queried_tags_window_seconds, related_asset_tags, additional_properties].hash
+      [exclude_not_queried_window_seconds, exclude_not_used_in_assets, additional_properties].hash
     end
   end
 end
