@@ -1621,11 +1621,17 @@ module DatadogAPIClient::V2
     #
     # Create a page from an incident using the Cases service.
     #
+    # **Deprecated**: This endpoint is deprecated. Use
+    # [Create an on-call page from an incident](#create-an-on-call-page-from-an-incident) instead.
+    #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentCreatePageFromIncidentRequest] Page creation payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentPageUUIDResponse, Integer, Hash)>] IncidentPageUUIDResponse data, response status code and response headers
     def create_page_from_incident_with_http_info(incident_id, body, opts = {})
+      warn "[DEPRECATION] `CreatePageFromIncident` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_page_from_incident".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_page_from_incident")

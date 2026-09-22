@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Name of the API key.
     attr_accessor :name
 
+    # Whether the API key can enroll a Private Action Runner.
+    attr_accessor :private_action_runner_enroll_enabled
+
     # The remote config read enabled status.
     attr_accessor :remote_config_read_enabled
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'last4' => :'last4',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
+        :'private_action_runner_enroll_enabled' => :'private_action_runner_enroll_enabled',
         :'remote_config_read_enabled' => :'remote_config_read_enabled'
       }
     end
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
         :'last4' => :'String',
         :'modified_at' => :'String',
         :'name' => :'String',
+        :'private_action_runner_enroll_enabled' => :'Boolean',
         :'remote_config_read_enabled' => :'Boolean'
       }
     end
@@ -120,6 +125,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'private_action_runner_enroll_enabled')
+        self.private_action_runner_enroll_enabled = attributes[:'private_action_runner_enroll_enabled']
       end
 
       if attributes.key?(:'remote_config_read_enabled')
@@ -181,6 +190,7 @@ module DatadogAPIClient::V2
           last4 == o.last4 &&
           modified_at == o.modified_at &&
           name == o.name &&
+          private_action_runner_enroll_enabled == o.private_action_runner_enroll_enabled &&
           remote_config_read_enabled == o.remote_config_read_enabled &&
           additional_properties == o.additional_properties
     end
@@ -189,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, date_last_used, last4, modified_at, name, remote_config_read_enabled, additional_properties].hash
+      [category, created_at, date_last_used, last4, modified_at, name, private_action_runner_enroll_enabled, remote_config_read_enabled, additional_properties].hash
     end
   end
 end
