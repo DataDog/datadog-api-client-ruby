@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RecommendationsFilterRequestSortItems
     include BaseGenericModel
 
-    # Field to sort by (for example, `potential_daily_savings.amount`).
+    # Field to sort by (for example, `@potential_daily_savings`).
     attr_accessor :expression
 
     # Sort direction, either `ASC` or `DESC`.
