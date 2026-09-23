@@ -17,12 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # Attributes of a Databricks integration account returned in responses.
+  class DatabricksIntegrationAccountResponseAttributes
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
-    attr_reader :data
+    # Authentication configured on the Databricks integration account. A `bearer_token` method indicates an account still on token authentication, which Databricks accepts only on accounts that already use it.
+    attr_accessor :authentication
+
+    # Data Datadog collects from Databricks, keyed by dataflow id.
+    attr_accessor :dataflows
+
+    # Human-readable name of the Databricks integration account.
+    attr_reader :name
+
+    # Settings configured on the Databricks integration account.
+    attr_reader :settings
 
     attr_accessor :additional_properties
 
@@ -30,7 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'authentication' => :'authentication',
+        :'dataflows' => :'dataflows',
+        :'name' => :'name',
+        :'settings' => :'settings'
       }
     end
 
@@ -38,7 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'authentication' => :'DatabricksIntegrationAccountAuthenticationResponse',
+        :'dataflows' => :'DatabricksIntegrationDataflowsResponse',
+        :'name' => :'String',
+        :'settings' => :'DatabricksIntegrationAccountSettingsResponse'
       }
     end
 
@@ -47,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'authentication')
+        self.authentication = attributes[:'authentication']
+      end
+
+      if attributes.key?(:'dataflows')
+        self.dataflows = attributes[:'dataflows']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'settings')
+        self.settings = attributes[:'settings']
       end
     end
 
@@ -71,22 +96,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
-      return false if @data.length > 20971
+      return false if @name.nil?
+      return false if @settings.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param settings [Object] Object to be assigned
+    # @!visibility private
+    def settings=(settings)
+      if settings.nil?
+        fail ArgumentError, 'invalid value for "settings", settings cannot be nil.'
       end
-      @data = data
+      @settings = settings
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +147,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          authentication == o.authentication &&
+          dataflows == o.dataflows &&
+          name == o.name &&
+          settings == o.settings &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [authentication, dataflows, name, settings, additional_properties].hash
     end
   end
 end

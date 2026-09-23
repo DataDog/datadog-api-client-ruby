@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # Settings configured on the Databricks integration account.
+  class DatabricksIntegrationAccountSettingsResponse
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
-    attr_reader :data
+    # ID of the SQL warehouse used to query the Databricks system tables.
+    attr_accessor :system_tables_sql_warehouse_id
+
+    # URL of the Databricks workspace.
+    attr_reader :workspace_url
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'system_tables_sql_warehouse_id' => :'system_tables_sql_warehouse_id',
+        :'workspace_url' => :'workspace_url'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'system_tables_sql_warehouse_id' => :'String',
+        :'workspace_url' => :'String'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountSettingsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'system_tables_sql_warehouse_id')
+        self.system_tables_sql_warehouse_id = attributes[:'system_tables_sql_warehouse_id']
+      end
+
+      if attributes.key?(:'workspace_url')
+        self.workspace_url = attributes[:'workspace_url']
       end
     end
 
@@ -71,22 +78,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
-      return false if @data.length > 20971
+      return false if @workspace_url.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param workspace_url [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def workspace_url=(workspace_url)
+      if workspace_url.nil?
+        fail ArgumentError, 'invalid value for "workspace_url", workspace_url cannot be nil.'
       end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
-      end
-      @data = data
+      @workspace_url = workspace_url
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          system_tables_sql_warehouse_id == o.system_tables_sql_warehouse_id &&
+          workspace_url == o.workspace_url &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [system_tables_sql_warehouse_id, workspace_url, additional_properties].hash
     end
   end
 end

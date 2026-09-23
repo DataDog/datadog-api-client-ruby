@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # Request payload to update a Databricks integration account.
+  class DatabricksIntegrationAccountUpdateRequest
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
+    # Data envelope for updating a Databricks integration account.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'data' => :'DatabricksIntegrationAccountUpdateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountUpdateRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,9 +61,7 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+        self.data = attributes[:'data']
       end
     end
 
@@ -72,7 +70,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @data.nil?
-      return false if @data.length > 20971
       true
     end
 
@@ -82,9 +79,6 @@ module DatadogAPIClient::V2
     def data=(data)
       if data.nil?
         fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
       end
       @data = data
     end

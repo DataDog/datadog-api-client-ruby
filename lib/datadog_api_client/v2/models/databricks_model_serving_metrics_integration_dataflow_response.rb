@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # Health and usage metrics for your Databricks model serving endpoints. Not supported on accounts that authenticate with `private_action_runner`; on those accounts this dataflow collects no data.
+  class DatabricksModelServingMetricsIntegrationDataflowResponse
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
-    attr_reader :data
+    # Whether Datadog collects this data.
+    attr_accessor :enabled
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'enabled' => :'enabled'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'enabled' => :'Boolean'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksModelServingMetricsIntegrationDataflowResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,33 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      return false if @data.length > 20971
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          enabled == o.enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [enabled, additional_properties].hash
     end
   end
 end

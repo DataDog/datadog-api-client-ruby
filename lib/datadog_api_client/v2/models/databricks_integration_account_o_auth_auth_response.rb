@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # The Databricks OAuth authentication method and service principal configured on the account.
+  class DatabricksIntegrationAccountOAuthAuthResponse
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
-    attr_reader :data
+    # The authentication method type.
+    attr_reader :auth_type
+
+    # Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
+    attr_accessor :azure_tenant_id
+
+    # Client ID of the Databricks service principal.
+    attr_reader :client_id
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'auth_type' => :'auth_type',
+        :'azure_tenant_id' => :'azure_tenant_id',
+        :'client_id' => :'client_id'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'auth_type' => :'DatabricksIntegrationAccountOAuthAuthType',
+        :'azure_tenant_id' => :'String',
+        :'client_id' => :'String'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountOAuthAuthResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'auth_type')
+        self.auth_type = attributes[:'auth_type']
+      end
+
+      if attributes.key?(:'azure_tenant_id')
+        self.azure_tenant_id = attributes[:'azure_tenant_id']
+      end
+
+      if attributes.key?(:'client_id')
+        self.client_id = attributes[:'client_id']
       end
     end
 
@@ -71,22 +87,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
-      return false if @data.length > 20971
+      return false if @auth_type.nil?
+      return false if @client_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param auth_type [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def auth_type=(auth_type)
+      if auth_type.nil?
+        fail ArgumentError, 'invalid value for "auth_type", auth_type cannot be nil.'
       end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
+      @auth_type = auth_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param client_id [Object] Object to be assigned
+    # @!visibility private
+    def client_id=(client_id)
+      if client_id.nil?
+        fail ArgumentError, 'invalid value for "client_id", client_id cannot be nil.'
       end
-      @data = data
+      @client_id = client_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +138,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          auth_type == o.auth_type &&
+          azure_tenant_id == o.azure_tenant_id &&
+          client_id == o.client_id &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [auth_type, azure_tenant_id, client_id, additional_properties].hash
     end
   end
 end

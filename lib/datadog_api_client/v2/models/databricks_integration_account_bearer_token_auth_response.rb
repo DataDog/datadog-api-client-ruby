@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # The bearer token authentication method configured on the account.
+  class DatabricksIntegrationAccountBearerTokenAuthResponse
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
-    attr_reader :data
+    # The authentication method type.
+    attr_reader :auth_type
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'auth_type' => :'auth_type'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'auth_type' => :'DatabricksIntegrationAccountBearerTokenAuthType'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountBearerTokenAuthResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'auth_type')
+        self.auth_type = attributes[:'auth_type']
       end
     end
 
@@ -71,22 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
-      return false if @data.length > 20971
+      return false if @auth_type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param auth_type [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def auth_type=(auth_type)
+      if auth_type.nil?
+        fail ArgumentError, 'invalid value for "auth_type", auth_type cannot be nil.'
       end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
-      end
-      @data = data
+      @auth_type = auth_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          auth_type == o.auth_type &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [auth_type, additional_properties].hash
     end
   end
 end

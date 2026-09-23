@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for creating or updating multiple rows into a reference table.
-  class BatchUpsertRowsRequestArray
+  # Settings of the Data Observability dataflow.
+  class DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
-    attr_reader :data
+    # Cron expression setting how often Datadog connects to your Databricks warehouse to collect metadata. Currently, only hourly (`0 * * * *`) and daily (`0 0 * * *`) are supported.
+    attr_accessor :do_crawlers_cron
+
+    # Whether metadata from the Databricks `system` catalog is included in Data Observability alongside your data catalogs.
+    attr_accessor :sync_system_catalog
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'do_crawlers_cron' => :'do_crawlers_cron',
+        :'sync_system_catalog' => :'sync_system_catalog'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchUpsertRowsRequestData>'
+        :'do_crawlers_cron' => :'String',
+        :'sync_system_catalog' => :'Boolean'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchUpsertRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,33 +65,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'do_crawlers_cron')
+        self.do_crawlers_cron = attributes[:'do_crawlers_cron']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      return false if @data.length > 20971
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      if attributes.key?(:'sync_system_catalog')
+        self.sync_system_catalog = attributes[:'sync_system_catalog']
       end
-      if data.length > 20971
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          do_crawlers_cron == o.do_crawlers_cron &&
+          sync_system_catalog == o.sync_system_catalog &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [do_crawlers_cron, sync_system_catalog, additional_properties].hash
     end
   end
 end

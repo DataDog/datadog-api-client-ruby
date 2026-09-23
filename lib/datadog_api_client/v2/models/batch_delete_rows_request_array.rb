@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class BatchDeleteRowsRequestArray
     include BaseGenericModel
 
-    # List of row resources to delete from the reference table.
+    # List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @data.nil?
-      return false if @data.length > 200
+      return false if @data.length > 45589
       true
     end
 
@@ -83,8 +83,8 @@ module DatadogAPIClient::V2
       if data.nil?
         fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      if data.length > 200
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 200.'
+      if data.length > 45589
+        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 45589.'
       end
       @data = data
     end
