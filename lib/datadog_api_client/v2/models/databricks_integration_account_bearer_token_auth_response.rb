@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A RUM node within a journey step.
-  class DemRumNode
+  # The bearer token authentication method configured on the account.
+  class DatabricksIntegrationAccountBearerTokenAuthResponse
     include BaseGenericModel
 
-    # The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
-    attr_reader :app_id
-
-    # The ID of the RUM node element.
-    attr_accessor :id
-
-    # The RUM query for matching this node.
-    attr_reader :query
+    # The authentication method type.
+    attr_reader :auth_type
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'app_id' => :'app_id',
-        :'id' => :'id',
-        :'query' => :'query'
+        :'auth_type' => :'auth_type'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'app_id' => :'String',
-        :'id' => :'String',
-        :'query' => :'String'
+        :'auth_type' => :'DatabricksIntegrationAccountBearerTokenAuthType'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DemRumNode` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountBearerTokenAuthResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'app_id')
-        self.app_id = attributes[:'app_id']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
+      if attributes.key?(:'auth_type')
+        self.auth_type = attributes[:'auth_type']
       end
     end
 
@@ -87,33 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @app_id.nil?
-      return false if @app_id.to_s.length < 1
-      return false if @query.nil?
+      return false if @auth_type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param app_id [Object] Object to be assigned
+    # @param auth_type [Object] Object to be assigned
     # @!visibility private
-    def app_id=(app_id)
-      if app_id.nil?
-        fail ArgumentError, 'invalid value for "app_id", app_id cannot be nil.'
+    def auth_type=(auth_type)
+      if auth_type.nil?
+        fail ArgumentError, 'invalid value for "auth_type", auth_type cannot be nil.'
       end
-      if app_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "app_id", the character length must be great than or equal to 1.'
-      end
-      @app_id = app_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param query [Object] Object to be assigned
-    # @!visibility private
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
-      end
-      @query = query
+      @auth_type = auth_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -142,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          app_id == o.app_id &&
-          id == o.id &&
-          query == o.query &&
+          auth_type == o.auth_type &&
           additional_properties == o.additional_properties
     end
 
@@ -152,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_id, id, query, additional_properties].hash
+      [auth_type, additional_properties].hash
     end
   end
 end

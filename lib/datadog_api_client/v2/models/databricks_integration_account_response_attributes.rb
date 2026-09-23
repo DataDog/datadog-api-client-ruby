@@ -17,18 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A RUM node within a journey step.
-  class DemRumNode
+  # Attributes of a Databricks integration account returned in responses.
+  class DatabricksIntegrationAccountResponseAttributes
     include BaseGenericModel
 
-    # The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
-    attr_reader :app_id
+    # Authentication configured on the Databricks integration account. A `bearer_token` method indicates an account still on token authentication, which Databricks accepts only on accounts that already use it.
+    attr_accessor :authentication
 
-    # The ID of the RUM node element.
-    attr_accessor :id
+    # Data Datadog collects from Databricks, keyed by dataflow id.
+    attr_accessor :dataflows
 
-    # The RUM query for matching this node.
-    attr_reader :query
+    # Human-readable name of the Databricks integration account.
+    attr_reader :name
+
+    # Settings configured on the Databricks integration account.
+    attr_reader :settings
 
     attr_accessor :additional_properties
 
@@ -36,9 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'app_id' => :'app_id',
-        :'id' => :'id',
-        :'query' => :'query'
+        :'authentication' => :'authentication',
+        :'dataflows' => :'dataflows',
+        :'name' => :'name',
+        :'settings' => :'settings'
       }
     end
 
@@ -46,9 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'app_id' => :'String',
-        :'id' => :'String',
-        :'query' => :'String'
+        :'authentication' => :'DatabricksIntegrationAccountAuthenticationResponse',
+        :'dataflows' => :'DatabricksIntegrationDataflowsResponse',
+        :'name' => :'String',
+        :'settings' => :'DatabricksIntegrationAccountSettingsResponse'
       }
     end
 
@@ -57,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DemRumNode` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksIntegrationAccountResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'app_id')
-        self.app_id = attributes[:'app_id']
+      if attributes.key?(:'authentication')
+        self.authentication = attributes[:'authentication']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'dataflows')
+        self.dataflows = attributes[:'dataflows']
       end
 
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'settings')
+        self.settings = attributes[:'settings']
       end
     end
 
@@ -87,33 +96,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @app_id.nil?
-      return false if @app_id.to_s.length < 1
-      return false if @query.nil?
+      return false if @name.nil?
+      return false if @settings.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param app_id [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def app_id=(app_id)
-      if app_id.nil?
-        fail ArgumentError, 'invalid value for "app_id", app_id cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if app_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "app_id", the character length must be great than or equal to 1.'
-      end
-      @app_id = app_id
+      @name = name
     end
 
     # Custom attribute writer method with validation
-    # @param query [Object] Object to be assigned
+    # @param settings [Object] Object to be assigned
     # @!visibility private
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+    def settings=(settings)
+      if settings.nil?
+        fail ArgumentError, 'invalid value for "settings", settings cannot be nil.'
       end
-      @query = query
+      @settings = settings
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -142,9 +147,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          app_id == o.app_id &&
-          id == o.id &&
-          query == o.query &&
+          authentication == o.authentication &&
+          dataflows == o.dataflows &&
+          name == o.name &&
+          settings == o.settings &&
           additional_properties == o.additional_properties
     end
 
@@ -152,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_id, id, query, additional_properties].hash
+      [authentication, dataflows, name, settings, additional_properties].hash
     end
   end
 end

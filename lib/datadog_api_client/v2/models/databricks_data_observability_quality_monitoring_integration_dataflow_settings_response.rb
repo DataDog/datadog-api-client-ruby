@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A RUM node within a journey step.
-  class DemRumNode
+  # Settings of the Data Observability dataflow.
+  class DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse
     include BaseGenericModel
 
-    # The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
-    attr_reader :app_id
+    # Cron expression setting how often Datadog connects to your Databricks warehouse to collect metadata. Currently, only hourly (`0 * * * *`) and daily (`0 0 * * *`) are supported.
+    attr_accessor :do_crawlers_cron
 
-    # The ID of the RUM node element.
-    attr_accessor :id
-
-    # The RUM query for matching this node.
-    attr_reader :query
+    # Whether metadata from the Databricks `system` catalog is included in Data Observability alongside your data catalogs.
+    attr_accessor :sync_system_catalog
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'app_id' => :'app_id',
-        :'id' => :'id',
-        :'query' => :'query'
+        :'do_crawlers_cron' => :'do_crawlers_cron',
+        :'sync_system_catalog' => :'sync_system_catalog'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'app_id' => :'String',
-        :'id' => :'String',
-        :'query' => :'String'
+        :'do_crawlers_cron' => :'String',
+        :'sync_system_catalog' => :'Boolean'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DemRumNode` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,50 +65,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'app_id')
-        self.app_id = attributes[:'app_id']
+      if attributes.key?(:'do_crawlers_cron')
+        self.do_crawlers_cron = attributes[:'do_crawlers_cron']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'sync_system_catalog')
+        self.sync_system_catalog = attributes[:'sync_system_catalog']
       end
-
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @app_id.nil?
-      return false if @app_id.to_s.length < 1
-      return false if @query.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param app_id [Object] Object to be assigned
-    # @!visibility private
-    def app_id=(app_id)
-      if app_id.nil?
-        fail ArgumentError, 'invalid value for "app_id", app_id cannot be nil.'
-      end
-      if app_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "app_id", the character length must be great than or equal to 1.'
-      end
-      @app_id = app_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param query [Object] Object to be assigned
-    # @!visibility private
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
-      end
-      @query = query
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -142,9 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          app_id == o.app_id &&
-          id == o.id &&
-          query == o.query &&
+          do_crawlers_cron == o.do_crawlers_cron &&
+          sync_system_catalog == o.sync_system_catalog &&
           additional_properties == o.additional_properties
     end
 
@@ -152,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_id, id, query, additional_properties].hash
+      [do_crawlers_cron, sync_system_catalog, additional_properties].hash
     end
   end
 end
