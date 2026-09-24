@@ -24,6 +24,10 @@ module DatadogAPIClient::V2
     # Specifies the list of actions to perform when the routing rule is matched.
     attr_accessor :actions
 
+    # Specifies the unique identifier of an existing routing rule to update.
+    # If omitted, a new routing rule is created.
+    attr_accessor :id
+
     # Identifies the policy to be applied when this routing rule matches.
     attr_accessor :policy_id
 
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'actions' => :'actions',
+        :'id' => :'id',
         :'policy_id' => :'policy_id',
         :'query' => :'query',
         :'time_restriction' => :'time_restriction',
@@ -55,6 +60,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'actions' => :'Array<RoutingRuleAction>',
+        :'id' => :'String',
         :'policy_id' => :'String',
         :'query' => :'String',
         :'time_restriction' => :'TimeRestrictions',
@@ -84,6 +90,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'actions']).is_a?(Array)
           self.actions = value
         end
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'policy_id')
@@ -130,6 +140,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           actions == o.actions &&
+          id == o.id &&
           policy_id == o.policy_id &&
           query == o.query &&
           time_restriction == o.time_restriction &&
@@ -141,7 +152,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, policy_id, query, time_restriction, urgency, additional_properties].hash
+      [actions, id, policy_id, query, time_restriction, urgency, additional_properties].hash
     end
   end
 end
