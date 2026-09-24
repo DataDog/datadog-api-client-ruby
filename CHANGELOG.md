@@ -1,5 +1,62 @@
 # CHANGELOG
 
+## 2.60.0/2026-09-24
+
+### Added
+* Document Deployment Gate evaluation APIs [#3846](https://github.com/DataDog/datadog-api-client-ruby/pull/3846)
+* Update GCP V2 API spec to support is_org_folder_resource_collection_enabled  [#3839](https://github.com/DataDog/datadog-api-client-ruby/pull/3839)
+* allow billing read for ListQuotas GET endpoint [#3831](https://github.com/DataDog/datadog-api-client-ruby/pull/3831)
+* Document run_as attribute and with_run_as param for downtime v2 API [#3825](https://github.com/DataDog/datadog-api-client-ruby/pull/3825)
+* Add draft monitor permissions definition [#3819](https://github.com/DataDog/datadog-api-client-ruby/pull/3819)
+* Add sensitivePrivileges field to Workflow Automation spec [#3818](https://github.com/DataDog/datadog-api-client-ruby/pull/3818)
+* Document NDM device tag sources [#3811](https://github.com/DataDog/datadog-api-client-ruby/pull/3811)
+* Document GetBudget response metadata [#3808](https://github.com/DataDog/datadog-api-client-ruby/pull/3808)
+* Add versioned prompt configuration [#3803](https://github.com/DataDog/datadog-api-client-ruby/pull/3803)
+* Document OAuth v2 OIDC discovery endpoint [#3802](https://github.com/DataDog/datadog-api-client-ruby/pull/3802)
+* Add prometheus remote write source and sink to obs-pipelines public api spec [#3798](https://github.com/DataDog/datadog-api-client-ruby/pull/3798)
+* Allow up to three timeseries anomaly investigation results [#3797](https://github.com/DataDog/datadog-api-client-ruby/pull/3797)
+* Security findings default and regular inbox rules API spec [#3795](https://github.com/DataDog/datadog-api-client-ruby/pull/3795)
+* Add Integration Accounts v2 API for Snowflake [#3794](https://github.com/DataDog/datadog-api-client-ruby/pull/3794)
+* Add downtime duration policy to Monitor Config Policy API spec [#3792](https://github.com/DataDog/datadog-api-client-ruby/pull/3792)
+* Add overflow and metrics destinations, deprecate generate_datadog_metrics, add custom auth for http_client [#3791](https://github.com/DataDog/datadog-api-client-ruby/pull/3791)
+* promote GET `/api/v2/on-call/schedules` to a public ListOnCallSchedules operation [#3790](https://github.com/DataDog/datadog-api-client-ruby/pull/3790)
+* Add documentation for name filter query parameter in ListStatusPages [#3789](https://github.com/DataDog/datadog-api-client-ruby/pull/3789)
+* Add embedded app widgets to the Dashboard API [#3785](https://github.com/DataDog/datadog-api-client-ruby/pull/3785)
+* Support frontend annotation display blocks [#3784](https://github.com/DataDog/datadog-api-client-ruby/pull/3784)
+* Accept the linear ticket creation target in security pipelines automation [#3783](https://github.com/DataDog/datadog-api-client-ruby/pull/3783)
+* Add timeseries anomaly investigations API [#3775](https://github.com/DataDog/datadog-api-client-ruby/pull/3775)
+* Add monitor IDs to deployment rules [#3773](https://github.com/DataDog/datadog-api-client-ruby/pull/3773)
+* Change usage quotas public APIs to only required billing_edit [#3771](https://github.com/DataDog/datadog-api-client-ruby/pull/3771)
+* Add `sensitive_data` and `serverless_function_code_vulnerability` to security finding notification API spec [#3770](https://github.com/DataDog/datadog-api-client-ruby/pull/3770)
+* Add Integration Accounts v2 API for Databricks [#3765](https://github.com/DataDog/datadog-api-client-ruby/pull/3765)
+* Add unit cost ROI endpoints to Cloud Cost Management [#3760](https://github.com/DataDog/datadog-api-client-ruby/pull/3760)
+* Add annotated interaction details endpoint [#3753](https://github.com/DataDog/datadog-api-client-ruby/pull/3753)
+* [DEM-68] - Publish DEM Journey APIs [#3751](https://github.com/DataDog/datadog-api-client-ruby/pull/3751)
+* Document NDM device tag sources [#3712](https://github.com/DataDog/datadog-api-client-ruby/pull/3712)
+* Promote Code Coverage v2 endpoints to stable [#3684](https://github.com/DataDog/datadog-api-client-ruby/pull/3684)
+* Document include_scopes query param on GET /api/v2/permissions [#3649](https://github.com/DataDog/datadog-api-client-ruby/pull/3649)
+
+### Removed
+* Remove deprecated queried_tags_window_seconds and related_asset_tags fields [#3842](https://github.com/DataDog/datadog-api-client-ruby/pull/3842)
+* Deprecate POST incidents /cases/page endpoint [#3832](https://github.com/DataDog/datadog-api-client-ruby/pull/3832)
+* Remove actor_handle and actor_type from the CSM ownership feedback request [#3767](https://github.com/DataDog/datadog-api-client-ruby/pull/3767)
+
+### Fixed
+* Fix static analysis OpenAPI drift [#3841](https://github.com/DataDog/datadog-api-client-ruby/pull/3841)
+* Fix cost recommendations JSON API request schema [#3826](https://github.com/DataDog/datadog-api-client-ruby/pull/3826)
+* Add Private Action Runner flag to API key schemas [#3823](https://github.com/DataDog/datadog-api-client-ruby/pull/3823)
+* Document monitor scope for investigations [#3799](https://github.com/DataDog/datadog-api-client-ruby/pull/3799)
+* Fix static-analysis-api spec drift [#3787](https://github.com/DataDog/datadog-api-client-ruby/pull/3787)
+* Release 2.59.1 without generated test assets [#3766](https://github.com/DataDog/datadog-api-client-ruby/pull/3766)
+
+### Changed
+* Normalize Twilio and Elastic Cloud integration account specs [#3816](https://github.com/DataDog/datadog-api-client-ruby/pull/3816)
+* Use JSONAPI error schema for cost tag endpoints [#3813](https://github.com/DataDog/datadog-api-client-ruby/pull/3813)
+* Fix GetBudget costs_unit.id type to integer [#3810](https://github.com/DataDog/datadog-api-client-ruby/pull/3810)
+
+### Deprecated
+* Deprecate OCI config listing endpoint [#3744](https://github.com/DataDog/datadog-api-client-ruby/pull/3744)
+
 ## 2.59.1/2026-09-03
 
 ### Fixed
