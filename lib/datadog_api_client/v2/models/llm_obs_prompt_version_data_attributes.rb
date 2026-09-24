@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a specific version of an Agent Observability prompt.
+  # Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
   class LLMObsPromptVersionDataAttributes
     include BaseGenericModel
 
     # UUID of the user who authored this version.
     attr_accessor :author
+
+    # Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+    attr_accessor :config
 
     # Timestamp stored on this prompt version.
     attr_accessor :created_at
@@ -73,6 +76,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'author' => :'author',
+        :'config' => :'config',
         :'created_at' => :'created_at',
         :'datasets' => :'datasets',
         :'description' => :'description',
@@ -95,6 +99,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'author' => :'String',
+        :'config' => :'Hash<String, Object>',
         :'created_at' => :'Time',
         :'datasets' => :'Array<LLMObsPromptDataset>',
         :'description' => :'String',
@@ -132,6 +137,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'author')
         self.author = attributes[:'author']
+      end
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
       end
 
       if attributes.key?(:'created_at')
@@ -281,6 +290,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
+          config == o.config &&
           created_at == o.created_at &&
           datasets == o.datasets &&
           description == o.description &&
@@ -302,7 +312,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
+      [author, config, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
     end
   end
 end
