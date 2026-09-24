@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentHandleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_global_incident_handle,
@@ -908,7 +908,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Attachment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_incident_postmortem_attachment,
@@ -981,7 +981,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PostmortemTemplateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_incident_postmortem_template,
@@ -1817,7 +1817,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_global_incident_handle,
@@ -2395,7 +2395,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_incident_postmortem_template,
@@ -2973,7 +2973,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GlobalIncidentSettingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_global_incident_settings,
@@ -3410,7 +3410,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PostmortemTemplateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_incident_postmortem_template,
@@ -4146,7 +4146,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentHandlesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_global_incident_handles,
@@ -4221,7 +4221,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AttachmentArray'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_incident_attachments,
@@ -4633,7 +4633,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PostmortemTemplatesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_incident_postmortem_templates,
@@ -5577,7 +5577,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentHandleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_global_incident_handle,
@@ -5650,7 +5650,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GlobalIncidentSettingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_global_incident_settings,
@@ -6445,7 +6445,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PostmortemTemplateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_incident_postmortem_template,

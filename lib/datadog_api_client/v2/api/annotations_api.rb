@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AnnotationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_annotation,
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_annotation,
@@ -235,7 +235,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PageAnnotationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_page_annotations,
@@ -321,7 +321,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AnnotationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_annotations,
@@ -401,7 +401,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AnnotationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_annotation,

@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyFunnelResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_journey_funnel,
@@ -153,7 +153,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_journey_list,
@@ -227,7 +227,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyScalarResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_journey_scalar,
@@ -301,7 +301,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyTimeseriesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_journey_timeseries,
@@ -376,7 +376,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsAnalyticsListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_list,
@@ -450,7 +450,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsRetentionGridResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_retention_grid,
@@ -524,7 +524,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsRetentionListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_retention_list,
@@ -597,7 +597,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsScalarResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_retention_scalar,
@@ -671,7 +671,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsTimeseriesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_retention_timeseries,
@@ -745,7 +745,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsSankeyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_sankey,
@@ -813,7 +813,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsScalarResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_scalar,
@@ -882,7 +882,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProductAnalyticsTimeseriesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_product_analytics_timeseries,

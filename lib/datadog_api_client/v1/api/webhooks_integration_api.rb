@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'WebhooksIntegrationCustomVariableResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_webhooks_integration_custom_variable,
@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_webhooks_integration,
@@ -267,7 +267,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_webhooks_integration_custom_variable,
@@ -332,7 +332,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'WebhooksIntegration'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_webhooks_integration,
@@ -400,7 +400,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'WebhooksIntegrationCustomVariableResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_webhooks_integration_custom_variable,
@@ -472,7 +472,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'WebhooksIntegration'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_webhooks_integration,
@@ -544,7 +544,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'WebhooksIntegrationCustomVariableResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_webhooks_integration_custom_variable,

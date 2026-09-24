@@ -76,7 +76,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSAccountCreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_aws_account,
@@ -146,7 +146,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSEventBridgeCreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_aws_event_bridge_source,
@@ -216,7 +216,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_aws_tag_filter,
@@ -286,7 +286,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSAccountCreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_new_aws_external_id,
@@ -356,7 +356,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_aws_account,
@@ -426,7 +426,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSEventBridgeDeleteResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_aws_event_bridge_source,
@@ -496,7 +496,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_aws_tag_filter,
@@ -559,7 +559,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<String>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_available_aws_namespaces,
@@ -628,7 +628,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSAccountListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_aws_accounts,
@@ -691,7 +691,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSEventBridgeListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_aws_event_bridge_sources,
@@ -760,7 +760,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSTagFilterListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_aws_tag_filters,
@@ -836,7 +836,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_aws_account,

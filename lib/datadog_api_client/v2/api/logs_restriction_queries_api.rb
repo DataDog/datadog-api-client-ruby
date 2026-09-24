@@ -83,7 +83,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :add_role_to_restriction_query,
@@ -156,7 +156,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryWithoutRelationshipsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_restriction_query,
@@ -227,7 +227,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_restriction_query,
@@ -298,7 +298,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryWithRelationshipsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_restriction_query,
@@ -369,7 +369,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_role_restriction_query,
@@ -439,7 +439,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_restriction_queries,
@@ -514,7 +514,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryRolesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_restriction_query_roles,
@@ -585,7 +585,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_user_restriction_queries,
@@ -663,7 +663,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :remove_role_from_restriction_query,
@@ -741,7 +741,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryWithoutRelationshipsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :replace_restriction_query,
@@ -819,7 +819,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionQueryWithoutRelationshipsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_restriction_query,

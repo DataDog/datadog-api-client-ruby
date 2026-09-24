@@ -1,6 +1,9 @@
 # Get an API test result returns result with failure object
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 
 # there is a "synthetics_api_test_with_wrong_dns" in the system

@@ -76,7 +76,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TwilioIntegrationAccountResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_twilio_integration_account,
@@ -147,7 +147,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_twilio_integration_account,
@@ -218,7 +218,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TwilioIntegrationAccountResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_twilio_integration_account,
@@ -284,7 +284,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TwilioIntegrationAccountsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_twilio_integration_accounts,
@@ -362,7 +362,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TwilioIntegrationAccountResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_twilio_integration_account,

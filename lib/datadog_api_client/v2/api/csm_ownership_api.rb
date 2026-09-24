@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipFeedbackResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_ownership_feedback,
@@ -180,7 +180,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipEvidenceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_ownership_evidence,
@@ -265,7 +265,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipInferenceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_ownership_inference,
@@ -331,7 +331,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipSettingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_ownership_settings,
@@ -397,7 +397,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipUntaggedFindingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_ownership_untagged_findings,
@@ -478,7 +478,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipHistoryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_ownership_history,
@@ -569,7 +569,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipHistoryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_ownership_history_by_owner_type,
@@ -640,7 +640,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipInferenceListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_ownership_inferences,
@@ -713,7 +713,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OwnershipSettingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :post_ownership_settings,

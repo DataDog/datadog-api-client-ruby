@@ -79,7 +79,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'OrganizationCreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_child_org,
@@ -144,7 +144,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'OrgDowngradedResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :downgrade_org,
@@ -209,7 +209,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'OrganizationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_org,
@@ -269,7 +269,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'OrganizationListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_orgs,
@@ -341,7 +341,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'OrganizationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_org,
@@ -419,7 +419,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'IdpResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :upload_idp_for_org,

@@ -75,7 +75,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CustomAttributeConfigResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_custom_attribute_config,
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_custom_attribute_config,
@@ -210,7 +210,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CustomAttributeConfigsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_all_custom_attribute_configs_by_case_type,
@@ -270,7 +270,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CustomAttributeConfigsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_all_custom_attributes,

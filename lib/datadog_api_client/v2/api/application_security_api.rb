@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafCustomRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_application_security_waf_custom_rule,
@@ -140,7 +140,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafExclusionFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_application_security_waf_exclusion_filter,
@@ -207,7 +207,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_application_security_waf_policy,
@@ -272,7 +272,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_application_security_waf_custom_rule,
@@ -337,7 +337,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_application_security_waf_exclusion_filter,
@@ -402,7 +402,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_application_security_waf_policy,
@@ -467,7 +467,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafCustomRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_application_security_waf_custom_rule,
@@ -532,7 +532,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafExclusionFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_application_security_waf_exclusion_filter,
@@ -597,7 +597,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_application_security_waf_policy,
@@ -671,7 +671,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityServicesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_asm_service_by_name,
@@ -731,7 +731,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafCustomRuleListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_application_security_waf_custom_rules,
@@ -791,7 +791,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafExclusionFiltersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_application_security_waf_exclusion_filters,
@@ -851,7 +851,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityPolicyListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_application_security_waf_policies,
@@ -924,7 +924,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafCustomRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_application_security_waf_custom_rule,
@@ -997,7 +997,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityWafExclusionFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_application_security_waf_exclusion_filter,
@@ -1070,7 +1070,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ApplicationSecurityPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_application_security_waf_policy,

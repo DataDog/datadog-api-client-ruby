@@ -75,7 +75,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatTargetAudienceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_google_chat_target_audience,
@@ -147,7 +147,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatOrganizationHandleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_organization_handle,
@@ -212,7 +212,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_google_chat_delegated_user,
@@ -277,7 +277,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_google_chat_organization,
@@ -347,7 +347,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_google_chat_target_audience,
@@ -417,7 +417,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_organization_handle,
@@ -482,7 +482,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatDelegatedUserResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_google_chat_delegated_user,
@@ -547,7 +547,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatOrganizationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_google_chat_organization,
@@ -617,7 +617,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatTargetAudienceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_google_chat_target_audience,
@@ -687,7 +687,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatOrganizationHandleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_organization_handle,
@@ -757,7 +757,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatAppNamedSpaceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_space_by_display_name,
@@ -817,7 +817,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatOrganizationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_google_chat_organizations,
@@ -882,7 +882,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatTargetAudiencesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_google_chat_target_audiences,
@@ -947,7 +947,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatOrganizationHandlesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_organization_handles,
@@ -1024,7 +1024,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatTargetAudienceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_google_chat_target_audience,
@@ -1101,7 +1101,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GoogleChatOrganizationHandleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_organization_handle,

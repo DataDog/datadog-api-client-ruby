@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TenancyConfig'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_tenancy_config,
@@ -135,7 +135,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_tenancy_config,
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TenancyConfig'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_tenancy_config,
@@ -260,7 +260,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TenancyConfigList'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_tenancy_configs,
@@ -326,7 +326,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TenancyProductsList'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_tenancy_products,
@@ -398,7 +398,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TenancyConfig'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_tenancy_config,

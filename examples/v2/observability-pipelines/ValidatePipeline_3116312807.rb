@@ -1,6 +1,9 @@
 # Validate an observability pipeline with Splunk TCP source max_connection_duration_secs returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::ObservabilityPipelinesAPI.new
 
 body = DatadogAPIClient::V2::ObservabilityPipelineSpec.new({

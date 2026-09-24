@@ -75,7 +75,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SlackIntegrationChannel'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_slack_integration_channel,
@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SlackIntegrationChannel'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_slack_integration_channel,
@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<SlackIntegrationChannel>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_slack_integration_channels,
@@ -280,7 +280,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :remove_slack_integration_channel,
@@ -357,7 +357,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SlackIntegrationChannel'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_slack_integration_channel,

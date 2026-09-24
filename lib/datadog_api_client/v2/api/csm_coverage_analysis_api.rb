@@ -65,7 +65,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmCloudAccountsCoverageAnalysisResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_csm_cloud_accounts_coverage_analysis,
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmHostsAndContainersCoverageAnalysisResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_csm_hosts_and_containers_coverage_analysis,
@@ -189,7 +189,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmServerlessCoverageAnalysisResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_csm_serverless_coverage_analysis,

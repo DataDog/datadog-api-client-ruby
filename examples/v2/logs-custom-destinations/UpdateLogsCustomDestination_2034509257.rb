@@ -1,6 +1,9 @@
 # Update a Splunk custom destination's destination preserves the null sourcetype returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::LogsCustomDestinationsAPI.new
 
 # there is a valid "custom_destination_splunk_with_null_sourcetype" in the system

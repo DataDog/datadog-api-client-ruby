@@ -1,6 +1,9 @@
 # Create a new Action Connection returns "Successfully created Action Connection" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::ActionConnectionAPI.new
 
 body = DatadogAPIClient::V2::CreateActionConnectionRequest.new({

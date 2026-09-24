@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMAnalyticsAggregateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :aggregate_rum_events,
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMApplicationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_rum_application,
@@ -202,7 +202,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_rum_application,
@@ -323,7 +323,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SourcemapsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_sourcemaps,
@@ -389,7 +389,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMApplicationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_rum_application,
@@ -449,7 +449,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMApplicationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_rum_applications,
@@ -522,7 +522,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ServiceRepositoryInfoResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_service_repository_info,
@@ -607,7 +607,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SourcemapFileResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_sourcemaps,
@@ -691,7 +691,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMEventsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_rum_events,
@@ -824,7 +824,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListSourcemapsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_sourcemaps,
@@ -946,7 +946,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SourcemapsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :restore_sourcemaps,
@@ -1019,7 +1019,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMEventsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :search_rum_events,
@@ -1112,7 +1112,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMApplicationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_rum_application,

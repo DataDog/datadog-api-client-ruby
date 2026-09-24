@@ -76,7 +76,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupMembershipListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :bulk_update_org_group_memberships,
@@ -149,7 +149,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_org_group,
@@ -222,7 +222,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_org_group_policy,
@@ -295,7 +295,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyOverrideResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_org_group_policy_override,
@@ -366,7 +366,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_org_group,
@@ -437,7 +437,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_org_group_policy,
@@ -508,7 +508,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_org_group_policy_override,
@@ -579,7 +579,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_org_group,
@@ -650,7 +650,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupMembershipResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_org_group_membership,
@@ -721,7 +721,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_org_group_policy,
@@ -792,7 +792,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyOverrideResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_org_group_policy_override,
@@ -881,7 +881,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupMembershipListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_org_group_memberships,
@@ -980,7 +980,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_org_group_policies,
@@ -1046,7 +1046,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyConfigListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_org_group_policy_configs,
@@ -1139,7 +1139,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyOverrideListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_org_group_policy_overrides,
@@ -1211,7 +1211,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicySuggestionListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_org_group_policy_suggestions,
@@ -1296,7 +1296,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_org_groups,
@@ -1374,7 +1374,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_org_group,
@@ -1452,7 +1452,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupMembershipResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_org_group_membership,
@@ -1530,7 +1530,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_org_group_policy,
@@ -1608,7 +1608,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OrgGroupPolicyOverrideResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_org_group_policy_override,

@@ -1,6 +1,9 @@
 # Get a Workload Protection agent rule returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new
 
 # there is a valid "agent_rule_rc" in the system

@@ -1,5 +1,8 @@
 # Get AWS on demand task returns "OK." response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new
 p api_instance.get_aws_on_demand_task("63d6b4f5-e5d0-4d90-824a-9580f05f026a")

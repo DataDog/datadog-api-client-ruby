@@ -146,7 +146,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :add_test_to_synthetics_downtime,
@@ -286,7 +286,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_synthetics_downtime,
@@ -479,7 +479,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_synthetics_downtime,
@@ -868,7 +868,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OnDemandConcurrencyCapResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_on_demand_concurrency_cap,
@@ -1007,7 +1007,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_synthetics_downtime,
@@ -1702,7 +1702,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SyntheticsDowntimesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_synthetics_downtimes,
@@ -1939,7 +1939,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GlobalVariableResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :patch_global_variable,
@@ -2154,7 +2154,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :remove_test_from_synthetics_downtime,
@@ -2291,7 +2291,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'OnDemandConcurrencyCapResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :set_on_demand_concurrency_cap,
@@ -2363,7 +2363,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SyntheticsDowntimeResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_synthetics_downtime,

@@ -68,7 +68,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CancelDataDeletionResponseBody'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :cancel_data_deletion_request,
@@ -140,7 +140,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CreateDataDeletionResponseBody'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_data_deletion_request,
@@ -216,7 +216,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GetDataDeletionsResponseBody'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_data_deletion_requests,

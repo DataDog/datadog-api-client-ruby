@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentationAnalyticsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :aggregate_llm_obs_experimentation,
@@ -162,7 +162,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetRecordsMutationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :batch_update_llm_obs_dataset,
@@ -245,7 +245,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :clone_llm_obs_dataset,
@@ -322,7 +322,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_annotation_queue,
@@ -409,7 +409,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueInteractionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_annotation_queue_interactions,
@@ -487,7 +487,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_dataset,
@@ -570,7 +570,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetRecordsMutationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_dataset_records,
@@ -643,7 +643,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_experiment,
@@ -721,7 +721,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_experiment_events,
@@ -809,7 +809,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsIntegrationInferenceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_integration_inference,
@@ -882,7 +882,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsProjectResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_project,
@@ -957,7 +957,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsCreatePromptResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_prompt,
@@ -1037,7 +1037,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptVersionResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_llm_obs_prompt_version,
@@ -1108,7 +1108,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_annotation_queue,
@@ -1186,7 +1186,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_annotation_queue_interactions,
@@ -1264,7 +1264,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDeleteAnnotationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_annotations,
@@ -1335,7 +1335,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_custom_eval_config,
@@ -1418,7 +1418,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_dataset_records,
@@ -1496,7 +1496,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_datasets,
@@ -1569,7 +1569,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_experiments,
@@ -1640,7 +1640,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_patterns_config,
@@ -1713,7 +1713,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_projects,
@@ -1784,7 +1784,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDeletedPromptResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_llm_obs_prompt,
@@ -1871,7 +1871,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'String'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :export_llm_obs_dataset,
@@ -1957,7 +1957,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotatedInteractionResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_annotated_interaction,
@@ -2049,7 +2049,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotatedInteractionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_annotated_interactions,
@@ -2138,7 +2138,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotatedInteractionsByTraceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_annotated_interactions_by_trace_i_ds,
@@ -2210,7 +2210,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueLabelSchemaResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_annotation_queue_label_schema,
@@ -2281,7 +2281,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsCustomEvalConfigResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_custom_eval_config,
@@ -2357,7 +2357,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetDraftStateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_dataset_draft_state,
@@ -2423,7 +2423,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsConfigResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_patterns_config,
@@ -2496,7 +2496,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsRunStatusResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_patterns_run_status,
@@ -2569,7 +2569,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptSDKResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_prompt,
@@ -2648,7 +2648,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptVersionResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_llm_obs_prompt_version,
@@ -2719,7 +2719,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueuesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_annotation_queues,
@@ -2786,7 +2786,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsCustomEvalConfigListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_custom_eval_configs,
@@ -2868,7 +2868,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetRecordsListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_dataset_records,
@@ -2947,7 +2947,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_datasets,
@@ -3023,7 +3023,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetVersionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_dataset_versions,
@@ -3098,7 +3098,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentEventsV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_experiment_events,
@@ -3172,7 +3172,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentSpansResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_experiment_events_v1,
@@ -3246,7 +3246,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentEventsV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_experiment_events_v2,
@@ -3339,7 +3339,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_experiments,
@@ -3415,7 +3415,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Array<LLMObsIntegrationAccount>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_integration_accounts,
@@ -3496,7 +3496,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Array<LLMObsIntegrationModel>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_integration_models,
@@ -3573,7 +3573,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsClusteredPointsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_patterns_clustered_points,
@@ -3639,7 +3639,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsConfigsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_patterns_configs,
@@ -3711,7 +3711,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsRunsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_patterns_runs,
@@ -3786,7 +3786,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsTopicsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_patterns_topics,
@@ -3864,7 +3864,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsTopicsWithClusteredPointsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_patterns_topics_with_clustered_points,
@@ -3938,7 +3938,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsProjectsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_projects,
@@ -4006,7 +4006,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_prompts,
@@ -4077,7 +4077,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptVersionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_prompt_versions,
@@ -4167,7 +4167,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsSpansResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_llm_obs_spans,
@@ -4243,7 +4243,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetDraftStateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :lock_llm_obs_dataset_draft_state,
@@ -4326,7 +4326,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :restore_llm_obs_dataset_version,
@@ -4403,7 +4403,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentationSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :search_llm_obs_experimentation,
@@ -4476,7 +4476,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsSpansResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :search_llm_obs_spans,
@@ -4552,7 +4552,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentationSimpleSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :simple_search_llm_obs_experimentation,
@@ -4625,7 +4625,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsTriggerResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :trigger_llm_obs_patterns,
@@ -4701,7 +4701,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :unlock_llm_obs_dataset_draft_state,
@@ -4781,7 +4781,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_annotation_queue,
@@ -4862,7 +4862,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationQueueLabelSchemaResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_annotation_queue_label_schema,
@@ -4940,7 +4940,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_custom_eval_config,
@@ -5023,7 +5023,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_dataset,
@@ -5106,7 +5106,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsDatasetRecordsMutationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_dataset_records,
@@ -5184,7 +5184,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsExperimentResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_experiment,
@@ -5262,7 +5262,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsProjectResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_project,
@@ -5340,7 +5340,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_prompt,
@@ -5426,7 +5426,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPromptVersionResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_llm_obs_prompt_version,
@@ -5520,7 +5520,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :upload_llm_obs_dataset_records_file,
@@ -5603,7 +5603,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsAnnotationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :upsert_llm_obs_annotations,
@@ -5676,7 +5676,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LLMObsPatternsConfigResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :upsert_llm_obs_patterns_config,

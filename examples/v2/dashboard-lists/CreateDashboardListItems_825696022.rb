@@ -1,6 +1,9 @@
 # Add custom screenboard dashboard to an existing dashboard list returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::DashboardListsAPI.new
 
 # there is a valid "dashboard_list" in the system
