@@ -8,12 +8,13 @@ body = DatadogAPIClient::V2::DemJourneyCreateRequest.new({
     attributes: DatadogAPIClient::V2::DemJourneyCreateAttributes.new({
       description: "Tracks the user checkout flow from cart to confirmation.",
       journey_rum: DatadogAPIClient::V2::DemJourneyRum.new({
-        filter: "env:prod",
+        filter: "@application.id:11111111-2222-3333-4444-555555555555 env:prod",
         rum_steps: [
           DatadogAPIClient::V2::DemRumStep.new({
             nodes: [
               DatadogAPIClient::V2::DemRumNode.new({
-                query: "action.name:'checkout'",
+                app_id: "11111111-2222-3333-4444-555555555555",
+                query: '@action.name:"Checkout"',
               }),
             ],
             type: DatadogAPIClient::V2::DemRumStepType::START,
@@ -21,7 +22,8 @@ body = DatadogAPIClient::V2::DemJourneyCreateRequest.new({
           DatadogAPIClient::V2::DemRumStep.new({
             nodes: [
               DatadogAPIClient::V2::DemRumNode.new({
-                query: "action.name:'confirmation'",
+                app_id: "11111111-2222-3333-4444-555555555555",
+                query: '@view.url_path:"/confirmation"',
               }),
             ],
             type: DatadogAPIClient::V2::DemRumStepType::STOP,
@@ -34,7 +36,8 @@ body = DatadogAPIClient::V2::DemJourneyCreateRequest.new({
               DatadogAPIClient::V2::DemRumStep.new({
                 nodes: [
                   DatadogAPIClient::V2::DemRumNode.new({
-                    query: "action.name:'checkout'",
+                    app_id: "11111111-2222-3333-4444-555555555555",
+                    query: '@action.name:"Checkout"',
                   }),
                 ],
                 type: DatadogAPIClient::V2::DemRumStepType::START,
@@ -42,7 +45,8 @@ body = DatadogAPIClient::V2::DemJourneyCreateRequest.new({
               DatadogAPIClient::V2::DemRumStep.new({
                 nodes: [
                   DatadogAPIClient::V2::DemRumNode.new({
-                    query: "action.name:'confirmation'",
+                    app_id: "11111111-2222-3333-4444-555555555555",
+                    query: '@view.url_path:"/confirmation"',
                   }),
                 ],
                 type: DatadogAPIClient::V2::DemRumStepType::STOP,
@@ -63,7 +67,8 @@ body = DatadogAPIClient::V2::DemJourneyCreateRequest.new({
             DatadogAPIClient::V2::DemRumStep.new({
               nodes: [
                 DatadogAPIClient::V2::DemRumNode.new({
-                  query: "action.name:'checkout'",
+                  app_id: "11111111-2222-3333-4444-555555555555",
+                  query: '@action.name:"Checkout"',
                 }),
               ],
               type: DatadogAPIClient::V2::DemRumStepType::START,
@@ -71,7 +76,8 @@ body = DatadogAPIClient::V2::DemJourneyCreateRequest.new({
             DatadogAPIClient::V2::DemRumStep.new({
               nodes: [
                 DatadogAPIClient::V2::DemRumNode.new({
-                  query: "action.name:'confirmation'",
+                  app_id: "11111111-2222-3333-4444-555555555555",
+                  query: '@view.url_path:"/confirmation"',
                 }),
               ],
               type: DatadogAPIClient::V2::DemRumStepType::STOP,
