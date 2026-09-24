@@ -81,7 +81,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :clone_form,
@@ -154,7 +154,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_and_publish_form,
@@ -227,7 +227,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_form,
@@ -298,7 +298,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DeleteFormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_form,
@@ -371,7 +371,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_form,
@@ -437,7 +437,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_forms,
@@ -515,7 +515,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormPublicationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :publish_form,
@@ -593,7 +593,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_form,
@@ -671,7 +671,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :upsert_and_publish_form_version,
@@ -750,7 +750,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FormVersionResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :upsert_form_version,

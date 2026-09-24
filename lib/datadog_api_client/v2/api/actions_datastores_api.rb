@@ -75,7 +75,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DeleteAppsDatastoreItemResponseArray'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :bulk_delete_datastore_items,
@@ -147,7 +147,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PutAppsDatastoreItemResponseArray'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :bulk_write_datastore_items,
@@ -214,7 +214,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CreateAppsDatastoreResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_datastore,
@@ -279,7 +279,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_datastore,
@@ -351,7 +351,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DeleteAppsDatastoreItemResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_datastore_item,
@@ -416,7 +416,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Datastore'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_datastore,
@@ -500,7 +500,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ItemApiPayloadArray'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_datastore_items,
@@ -560,7 +560,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DatastoreArray'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_datastores,
@@ -632,7 +632,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Datastore'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_datastore,
@@ -704,7 +704,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ItemApiPayload'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_datastore_item,

@@ -77,7 +77,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TeamsOwnershipMappingResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_teams_ownership_mapping,
@@ -154,7 +154,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TeamsOwnershipMappingBatchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_teams_ownership_mappings_batch,
@@ -225,7 +225,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_teams_ownership_mapping,
@@ -296,7 +296,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TeamsOwnershipMappingResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_teams_ownership_mapping,
@@ -370,7 +370,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TeamsOwnershipMappingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_teams_ownership_mappings,
@@ -447,7 +447,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TeamsOwnershipRulesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_teams_ownership_rules,

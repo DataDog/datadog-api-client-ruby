@@ -80,7 +80,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSLogsAsyncResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :check_aws_logs_lambda_async,
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSLogsAsyncResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :check_aws_logs_services_async,
@@ -229,7 +229,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_aws_lambda_arn,
@@ -299,7 +299,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_aws_lambda_arn,
@@ -369,7 +369,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :enable_aws_log_services,
@@ -432,7 +432,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<AWSLogsListResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_aws_logs_integrations,
@@ -495,7 +495,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<AWSLogsListServicesResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_aws_logs_services,

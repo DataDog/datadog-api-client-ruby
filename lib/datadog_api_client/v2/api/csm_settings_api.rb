@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmHostFacetInfoResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_csm_agentless_host_facet_info,
@@ -155,7 +155,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmHostFacetInfoResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_csm_unified_host_facet_info,
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmAgentlessHostFacetsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_csm_agentless_host_facets,
@@ -305,7 +305,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmAgentlessHostsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_csm_agentless_hosts,
@@ -371,7 +371,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmUnifiedHostFacetsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_csm_unified_host_facets,
@@ -455,7 +455,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CsmUnifiedHostsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_csm_unified_hosts,

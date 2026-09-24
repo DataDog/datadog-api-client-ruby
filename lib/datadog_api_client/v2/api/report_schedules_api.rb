@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_report_schedule,
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_report_schedule,
@@ -211,7 +211,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_report_schedule,
@@ -287,7 +287,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_report_schedules_for_resource,
@@ -354,7 +354,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DatasetReportScheduleListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_dataset_report_schedules,
@@ -435,7 +435,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_report_schedules,
@@ -516,7 +516,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :patch_report_schedule,
@@ -585,7 +585,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PrintReportResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :print_report,
@@ -658,7 +658,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ReportScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :toggle_report_schedule,

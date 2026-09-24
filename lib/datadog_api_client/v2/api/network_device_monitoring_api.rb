@@ -68,7 +68,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GetDeviceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_device,
@@ -136,7 +136,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GetInterfacesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_interfaces,
@@ -204,7 +204,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListDevicesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_devices,
@@ -291,7 +291,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListTagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_device_user_tags,
@@ -356,7 +356,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListInterfaceTagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_interface_user_tags,
@@ -428,7 +428,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListTagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_device_user_tags,
@@ -500,7 +500,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListInterfaceTagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_interface_user_tags,

@@ -77,7 +77,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetDeploymentV2CancelResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :cancel_fleet_deployment_v2,
@@ -160,7 +160,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetDeploymentConfigureV2DryRunResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_fleet_deployment_configure_v2,
@@ -238,7 +238,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetDeploymentV2CreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_fleet_deployment_upgrade_v2,
@@ -320,7 +320,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_fleet_schedule,
@@ -399,7 +399,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_fleet_schedule,
@@ -473,7 +473,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetAgentDetailV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_fleet_agent_detail_v2,
@@ -541,7 +541,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetDeploymentV2DetailResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_fleet_deployment_v2,
@@ -606,7 +606,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetScheduleV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_fleet_schedule_v2,
@@ -691,7 +691,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetAgentsV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_fleet_agents_v2,
@@ -782,7 +782,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetTracersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_fleet_agent_tracers,
@@ -846,7 +846,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetAgentVersionsV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_fleet_agent_versions_v2,
@@ -922,7 +922,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetDeploymentsV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_fleet_deployments_v2,
@@ -985,7 +985,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetSchedulesV2Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_fleet_schedules_v2,
@@ -1075,7 +1075,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetTracersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_fleet_tracers,
@@ -1161,7 +1161,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetDeploymentResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :trigger_fleet_schedule,
@@ -1249,7 +1249,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'FleetScheduleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_fleet_schedule,

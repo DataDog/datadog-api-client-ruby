@@ -1,5 +1,8 @@
 # Generate new external ID returns "AWS External ID object" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
 api_instance = DatadogAPIClient::V2::AWSIntegrationAPI.new
 p api_instance.create_new_aws_external_id()
