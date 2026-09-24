@@ -51,9 +51,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth_type' => :'DatabricksIntegrationAccountPrivateActionRunnerAuthType',
-        :'connection_id' => :'String',
+        :'connection_id' => :'UUID',
         :'secret_path' => :'String',
-        :'user_uuid' => :'String'
+        :'user_uuid' => :'UUID'
       }
     end
 
