@@ -914,6 +914,8 @@ module DatadogAPIClient::V2
     #
     # Create a new prompt (and its first version) in the Agent Observability prompt registry.
     #
+    # > **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
+    #
     # @param body [LLMObsCreatePromptRequest] Create prompt payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LLMObsCreatePromptResponse, Integer, Hash)>] LLMObsCreatePromptResponse data, response status code and response headers
@@ -986,6 +988,8 @@ module DatadogAPIClient::V2
     # Create a new Agent Observability prompt version.
     #
     # Create a new version of an existing Agent Observability prompt.
+    #
+    # > **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
     #
     # @param prompt_id [String] The customer-provided identifier of the Agent Observability prompt.
     # @param body [LLMObsCreatePromptVersionRequest] Create prompt version payload.
