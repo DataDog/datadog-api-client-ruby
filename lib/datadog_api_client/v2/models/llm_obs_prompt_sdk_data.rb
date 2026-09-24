@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LLMObsPromptSDKData
     include BaseGenericModel
 
-    # Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned.
+    # Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
     attr_reader :attributes
 
     # Unique identifier of the prompt.

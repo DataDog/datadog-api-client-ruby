@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned.
+  # Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
   class LLMObsPromptSDKDataAttributes
     include BaseGenericModel
 
     # Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
     attr_accessor :chat_template
+
+    # Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+    attr_accessor :config
 
     # Labels attached to the selected version.
     attr_accessor :labels
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'chat_template' => :'chat_template',
+        :'config' => :'config',
         :'labels' => :'labels',
         :'prompt_id' => :'prompt_id',
         :'prompt_version_uuid' => :'prompt_version_uuid',
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'chat_template' => :'Array<LLMObsPromptChatMessage>',
+        :'config' => :'Hash<String, Object>',
         :'labels' => :'Array<String>',
         :'prompt_id' => :'String',
         :'prompt_version_uuid' => :'String',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'chat_template']).is_a?(Array)
           self.chat_template = value
         end
+      end
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
       end
 
       if attributes.key?(:'labels')
@@ -141,6 +150,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           chat_template == o.chat_template &&
+          config == o.config &&
           labels == o.labels &&
           prompt_id == o.prompt_id &&
           prompt_version_uuid == o.prompt_version_uuid &&
@@ -153,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [chat_template, labels, prompt_id, prompt_version_uuid, template, version, additional_properties].hash
+      [chat_template, config, labels, prompt_id, prompt_version_uuid, template, version, additional_properties].hash
     end
   end
 end
