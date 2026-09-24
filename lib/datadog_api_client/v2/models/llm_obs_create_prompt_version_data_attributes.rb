@@ -17,9 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional.
+  # Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional. If `config` is omitted, the latest version's configuration is carried forward. An explicit empty object clears it. Configuration authoring must be enabled for your organization to supply `config`. Otherwise, supplying it, including an empty object, returns HTTP 403. Omitting `config` still carries forward the latest configuration.
   class LLMObsCreatePromptVersionDataAttributes
     include BaseGenericModel
+
+    # Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+    attr_accessor :config
 
     # Optional description of this version.
     attr_accessor :description
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # Optional labels to attach to this version. Do not use this attribute for new integrations.
     attr_accessor :labels
 
-    # A text template or a list of chat messages.
+    # A text template or a list of chat messages and named message placeholders.
+    # **Preview:** Message placeholders are available in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager.
     attr_reader :template
 
     # Optional user-supplied version identifier for this version.
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'config' => :'config',
         :'description' => :'description',
         :'env_ids' => :'env_ids',
         :'labels' => :'labels',
@@ -54,6 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'config' => :'Hash<String, Object>',
         :'description' => :'String',
         :'env_ids' => :'Array<String>',
         :'labels' => :'Array<LLMObsPromptVersionLabel>',
@@ -79,6 +85,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -149,6 +159,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          config == o.config &&
           description == o.description &&
           env_ids == o.env_ids &&
           labels == o.labels &&
@@ -161,7 +172,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, env_ids, labels, template, user_version, additional_properties].hash
+      [config, description, env_ids, labels, template, user_version, additional_properties].hash
     end
   end
 end
