@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LLMObsPromptVersionData
     include BaseGenericModel
 
-    # Attributes of a specific version of an Agent Observability prompt.
+    # Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
     attr_reader :attributes
 
     # Unique identifier of the prompt version.
