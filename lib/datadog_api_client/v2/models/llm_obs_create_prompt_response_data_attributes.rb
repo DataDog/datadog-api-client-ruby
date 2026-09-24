@@ -17,57 +17,60 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
-  class LLMObsPromptVersionDataAttributes
+  # Attributes returned after creating an Agent Observability prompt and its first version. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
+  class LLMObsCreatePromptResponseDataAttributes
     include BaseGenericModel
 
-    # UUID of the user who authored this version.
+    # UUID of the user who authored the prompt.
     attr_accessor :author
 
     # Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
     attr_accessor :config
 
-    # Timestamp stored on this prompt version.
+    # Timestamp when the prompt was created.
     attr_accessor :created_at
 
-    # Datasets observed in runs associated with this prompt version.
+    # Source that created the prompt, such as `ui-registry`, `sdk-registry`, or `sdk-instrumentation`.
+    attr_reader :created_from
+
+    # Datasets observed in runs associated with this prompt.
     attr_accessor :datasets
 
-    # Description of this version.
+    # Description of the prompt.
     attr_accessor :description
 
-    # Labels attached to this version (for example `development`, `staging`, `production`).
-    attr_accessor :labels
+    # Source prompt from which this prompt was extracted, when applicable.
+    attr_accessor :extracted_from
 
-    # Timestamp of the most recent observed run of this prompt version.
+    # Whether the prompt is a registry entry (as opposed to a code-discovered prompt).
+    attr_reader :in_registry
+
+    # Timestamp of the most recent observed run of this prompt.
     attr_accessor :last_seen_at
+
+    # Timestamp when the most recent version of the prompt was created.
+    attr_accessor :last_version_created_at
 
     # The ML application this prompt is associated with.
     attr_accessor :ml_app
 
-    # ML applications observed running this prompt version.
+    # ML applications observed running this prompt.
     attr_accessor :ml_apps
 
-    # Customer-provided identifier of the parent prompt.
+    # Number of versions of the prompt.
+    attr_reader :num_versions
+
+    # Customer-provided identifier of the prompt.
     attr_reader :prompt_id
 
-    # Unique identifier of the parent prompt.
-    attr_reader :prompt_uuid
+    # Whether the prompt was created from the registry or discovered from observed LLM calls.
+    attr_reader :source
 
-    # Tags observed on runs of this prompt version.
+    # Tags observed on runs of this prompt.
     attr_accessor :tags
 
-    # A text template or a list of chat messages.
-    attr_reader :template
-
-    # User-supplied identifier for this version.
-    attr_accessor :user_version
-
-    # Sequential version number.
-    attr_reader :version
-
-    # Timestamp when this version was created.
-    attr_accessor :version_created_at
+    # Title of the prompt.
+    attr_accessor :title
 
     attr_accessor :additional_properties
 
@@ -78,19 +81,20 @@ module DatadogAPIClient::V2
         :'author' => :'author',
         :'config' => :'config',
         :'created_at' => :'created_at',
+        :'created_from' => :'created_from',
         :'datasets' => :'datasets',
         :'description' => :'description',
-        :'labels' => :'labels',
+        :'extracted_from' => :'extracted_from',
+        :'in_registry' => :'in_registry',
         :'last_seen_at' => :'last_seen_at',
+        :'last_version_created_at' => :'last_version_created_at',
         :'ml_app' => :'ml_app',
         :'ml_apps' => :'ml_apps',
+        :'num_versions' => :'num_versions',
         :'prompt_id' => :'prompt_id',
-        :'prompt_uuid' => :'prompt_uuid',
+        :'source' => :'source',
         :'tags' => :'tags',
-        :'template' => :'template',
-        :'user_version' => :'user_version',
-        :'version' => :'version',
-        :'version_created_at' => :'version_created_at'
+        :'title' => :'title'
       }
     end
 
@@ -101,19 +105,20 @@ module DatadogAPIClient::V2
         :'author' => :'String',
         :'config' => :'Hash<String, Object>',
         :'created_at' => :'Time',
+        :'created_from' => :'String',
         :'datasets' => :'Array<LLMObsPromptDataset>',
         :'description' => :'String',
-        :'labels' => :'Array<String>',
+        :'extracted_from' => :'String',
+        :'in_registry' => :'Boolean',
         :'last_seen_at' => :'Time',
+        :'last_version_created_at' => :'Time',
         :'ml_app' => :'String',
         :'ml_apps' => :'Array<String>',
+        :'num_versions' => :'Integer',
         :'prompt_id' => :'String',
-        :'prompt_uuid' => :'String',
+        :'source' => :'LLMObsPromptResponseSource',
         :'tags' => :'Array<String>',
-        :'template' => :'LLMObsPromptTemplate',
-        :'user_version' => :'String',
-        :'version' => :'Integer',
-        :'version_created_at' => :'Time'
+        :'title' => :'String'
       }
     end
 
@@ -122,7 +127,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPromptVersionDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsCreatePromptResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -147,6 +152,10 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'created_from')
+        self.created_from = attributes[:'created_from']
+      end
+
       if attributes.key?(:'datasets')
         if (value = attributes[:'datasets']).is_a?(Array)
           self.datasets = value
@@ -157,14 +166,20 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'labels')
-        if (value = attributes[:'labels']).is_a?(Array)
-          self.labels = value
-        end
+      if attributes.key?(:'extracted_from')
+        self.extracted_from = attributes[:'extracted_from']
+      end
+
+      if attributes.key?(:'in_registry')
+        self.in_registry = attributes[:'in_registry']
       end
 
       if attributes.key?(:'last_seen_at')
         self.last_seen_at = attributes[:'last_seen_at']
+      end
+
+      if attributes.key?(:'last_version_created_at')
+        self.last_version_created_at = attributes[:'last_version_created_at']
       end
 
       if attributes.key?(:'ml_app')
@@ -177,12 +192,16 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'num_versions')
+        self.num_versions = attributes[:'num_versions']
+      end
+
       if attributes.key?(:'prompt_id')
         self.prompt_id = attributes[:'prompt_id']
       end
 
-      if attributes.key?(:'prompt_uuid')
-        self.prompt_uuid = attributes[:'prompt_uuid']
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'tags')
@@ -191,20 +210,8 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'template')
-        self.template = attributes[:'template']
-      end
-
-      if attributes.key?(:'user_version')
-        self.user_version = attributes[:'user_version']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.key?(:'version_created_at')
-        self.version_created_at = attributes[:'version_created_at']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
     end
 
@@ -212,12 +219,42 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @created_from.nil?
+      return false if @in_registry.nil?
+      return false if @num_versions.nil?
       return false if @prompt_id.nil?
-      return false if @prompt_uuid.nil?
-      return false if @template.nil?
-      return false if @version.nil?
-      return false if @version < 1
+      return false if @source.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param created_from [Object] Object to be assigned
+    # @!visibility private
+    def created_from=(created_from)
+      if created_from.nil?
+        fail ArgumentError, 'invalid value for "created_from", created_from cannot be nil.'
+      end
+      @created_from = created_from
+    end
+
+    # Custom attribute writer method with validation
+    # @param in_registry [Object] Object to be assigned
+    # @!visibility private
+    def in_registry=(in_registry)
+      if in_registry.nil?
+        fail ArgumentError, 'invalid value for "in_registry", in_registry cannot be nil.'
+      end
+      @in_registry = in_registry
+    end
+
+    # Custom attribute writer method with validation
+    # @param num_versions [Object] Object to be assigned
+    # @!visibility private
+    def num_versions=(num_versions)
+      if num_versions.nil?
+        fail ArgumentError, 'invalid value for "num_versions", num_versions cannot be nil.'
+      end
+      @num_versions = num_versions
     end
 
     # Custom attribute writer method with validation
@@ -231,36 +268,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param prompt_uuid [Object] Object to be assigned
+    # @param source [Object] Object to be assigned
     # @!visibility private
-    def prompt_uuid=(prompt_uuid)
-      if prompt_uuid.nil?
-        fail ArgumentError, 'invalid value for "prompt_uuid", prompt_uuid cannot be nil.'
+    def source=(source)
+      if source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
-      @prompt_uuid = prompt_uuid
-    end
-
-    # Custom attribute writer method with validation
-    # @param template [Object] Object to be assigned
-    # @!visibility private
-    def template=(template)
-      if template.nil?
-        fail ArgumentError, 'invalid value for "template", template cannot be nil.'
-      end
-      @template = template
-    end
-
-    # Custom attribute writer method with validation
-    # @param version [Object] Object to be assigned
-    # @!visibility private
-    def version=(version)
-      if version.nil?
-        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
-      end
-      if version < 1
-        fail ArgumentError, 'invalid value for "version", must be greater than or equal to 1.'
-      end
-      @version = version
+      @source = source
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -292,19 +306,20 @@ module DatadogAPIClient::V2
           author == o.author &&
           config == o.config &&
           created_at == o.created_at &&
+          created_from == o.created_from &&
           datasets == o.datasets &&
           description == o.description &&
-          labels == o.labels &&
+          extracted_from == o.extracted_from &&
+          in_registry == o.in_registry &&
           last_seen_at == o.last_seen_at &&
+          last_version_created_at == o.last_version_created_at &&
           ml_app == o.ml_app &&
           ml_apps == o.ml_apps &&
+          num_versions == o.num_versions &&
           prompt_id == o.prompt_id &&
-          prompt_uuid == o.prompt_uuid &&
+          source == o.source &&
           tags == o.tags &&
-          template == o.template &&
-          user_version == o.user_version &&
-          version == o.version &&
-          version_created_at == o.version_created_at &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -312,7 +327,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, config, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
+      [author, config, created_at, created_from, datasets, description, extracted_from, in_registry, last_seen_at, last_version_created_at, ml_app, ml_apps, num_versions, prompt_id, source, tags, title, additional_properties].hash
     end
   end
 end

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for a specific version of an Agent Observability prompt.
-  class LLMObsPromptVersionData
+  # Data object returned after creating an Agent Observability prompt.
+  class LLMObsCreatePromptResponseData
     include BaseGenericModel
 
-    # Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
+    # Attributes returned after creating an Agent Observability prompt and its first version. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
     attr_reader :attributes
 
-    # Unique identifier of the prompt version.
+    # Unique identifier of the prompt.
     attr_reader :id
 
-    # Resource type of an Agent Observability prompt version.
+    # Resource type of an Agent Observability prompt.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'LLMObsPromptVersionDataAttributes',
+        :'attributes' => :'LLMObsCreatePromptResponseDataAttributes',
         :'id' => :'String',
-        :'type' => :'LLMObsPromptVersionType'
+        :'type' => :'LLMObsPromptType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPromptVersionData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsCreatePromptResponseData` initialize method"
       end
 
       self.additional_properties = {}
