@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # PagerDuty notification settings for the team
     attr_accessor :pagerduty
 
+    # ServiceNow notification settings for the team.
+    attr_accessor :servicenow
+
     # Slack notification settings for the team
     attr_accessor :slack
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
         :'email' => :'email',
         :'ms_teams' => :'ms_teams',
         :'pagerduty' => :'pagerduty',
+        :'servicenow' => :'servicenow',
         :'slack' => :'slack'
       }
     end
@@ -53,6 +57,7 @@ module DatadogAPIClient::V2
         :'email' => :'TeamNotificationRuleAttributesEmail',
         :'ms_teams' => :'TeamNotificationRuleAttributesMsTeams',
         :'pagerduty' => :'TeamNotificationRuleAttributesPagerduty',
+        :'servicenow' => :'TeamNotificationRuleAttributesServiceNow',
         :'slack' => :'TeamNotificationRuleAttributesSlack'
       }
     end
@@ -85,6 +90,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'pagerduty')
         self.pagerduty = attributes[:'pagerduty']
+      end
+
+      if attributes.key?(:'servicenow')
+        self.servicenow = attributes[:'servicenow']
       end
 
       if attributes.key?(:'slack')
@@ -121,6 +130,7 @@ module DatadogAPIClient::V2
           email == o.email &&
           ms_teams == o.ms_teams &&
           pagerduty == o.pagerduty &&
+          servicenow == o.servicenow &&
           slack == o.slack &&
           additional_properties == o.additional_properties
     end
@@ -129,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [email, ms_teams, pagerduty, slack, additional_properties].hash
+      [email, ms_teams, pagerduty, servicenow, slack, additional_properties].hash
     end
   end
 end
