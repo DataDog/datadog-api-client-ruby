@@ -17,10 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`; other text, including `{{>...}}` sequences without a version, remains literal. Use an authored chat object when including prompts as chat messages.
-  # **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
-  # Without access, inline references remain literal text and structured includes are unsupported. Previously compiled prompt versions remain available for execution.
-  module LLMObsPromptTemplate
+  # A chat message or a reference to a specific version of another prompt. A chat message must not contain an `include` field; the API rejects items that combine both forms.
+  module LLMObsPromptAuthoringItem
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -28,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'String',
-          :'Array<LLMObsPromptChatMessage>',
-          :'LLMObsPromptAuthoringMessagesTemplate'
+          :'LLMObsPromptChatMessage',
+          :'LLMObsPromptIncludeItem'
         ]
       end
       # Builds the object

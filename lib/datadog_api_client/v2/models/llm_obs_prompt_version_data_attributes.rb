@@ -17,12 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
+  # Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
   class LLMObsPromptVersionDataAttributes
     include BaseGenericModel
 
     # UUID of the user who authored this version.
     attr_accessor :author
+
+    # A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`; other text, including `{{>...}}` sequences without a version, remains literal. Use an authored chat object when including prompts as chat messages.
+    # **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
+    # Without access, inline references remain literal text and structured includes are unsupported. Previously compiled prompt versions remain available for execution.
+    attr_accessor :authoring_template
 
     # Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
     attr_accessor :config
@@ -57,7 +62,9 @@ module DatadogAPIClient::V2
     # Tags observed on runs of this prompt version.
     attr_accessor :tags
 
-    # A text template or a list of chat messages.
+    # A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`; other text, including `{{>...}}` sequences without a version, remains literal. Use an authored chat object when including prompts as chat messages.
+    # **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
+    # Without access, inline references remain literal text and structured includes are unsupported. Previously compiled prompt versions remain available for execution.
     attr_reader :template
 
     # User-supplied identifier for this version.
@@ -76,6 +83,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'author' => :'author',
+        :'authoring_template' => :'authoring_template',
         :'config' => :'config',
         :'created_at' => :'created_at',
         :'datasets' => :'datasets',
@@ -99,6 +107,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'author' => :'String',
+        :'authoring_template' => :'LLMObsPromptTemplate',
         :'config' => :'Hash<String, Object>',
         :'created_at' => :'Time',
         :'datasets' => :'Array<LLMObsPromptDataset>',
@@ -137,6 +146,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'author')
         self.author = attributes[:'author']
+      end
+
+      if attributes.key?(:'authoring_template')
+        self.authoring_template = attributes[:'authoring_template']
       end
 
       if attributes.key?(:'config')
@@ -290,6 +303,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
+          authoring_template == o.authoring_template &&
           config == o.config &&
           created_at == o.created_at &&
           datasets == o.datasets &&
@@ -312,7 +326,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, config, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
+      [author, authoring_template, config, created_at, datasets, description, labels, last_seen_at, ml_app, ml_apps, prompt_id, prompt_uuid, tags, template, user_version, version, version_created_at, additional_properties].hash
     end
   end
 end
