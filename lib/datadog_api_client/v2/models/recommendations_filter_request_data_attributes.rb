@@ -21,6 +21,11 @@ module DatadogAPIClient::V2
   class RecommendationsFilterRequestDataAttributes
     include BaseGenericModel
 
+    # Filter expression applied to the recommendations. When supplied, this attribute overrides
+    # `data.id`, including when empty. When omitted, `data.id` is used. If the resulting filter
+    # is empty, it defaults to `*`. Scope, view, and pagination still apply.
+    attr_accessor :filter
+
     # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
     attr_accessor :scope
 
@@ -36,6 +41,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'filter' => :'filter',
         :'scope' => :'scope',
         :'sort' => :'sort',
         :'view' => :'view'
@@ -46,6 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'filter' => :'String',
         :'scope' => :'RecommendationsFilterRequestScope',
         :'sort' => :'Array<RecommendationsFilterRequestSortItems>',
         :'view' => :'String'
@@ -69,6 +76,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'filter')
+        self.filter = attributes[:'filter']
+      end
 
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
@@ -111,6 +122,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          filter == o.filter &&
           scope == o.scope &&
           sort == o.sort &&
           view == o.view &&
@@ -121,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [scope, sort, view, additional_properties].hash
+      [filter, scope, sort, view, additional_properties].hash
     end
   end
 end

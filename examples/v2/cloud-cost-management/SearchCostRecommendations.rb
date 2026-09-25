@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::RecommendationsFilterRequest.new({
       scope: DatadogAPIClient::V2::RecommendationsFilterRequestScope::CCM,
       sort: [
         DatadogAPIClient::V2::RecommendationsFilterRequestSortItems.new({
-          expression: "potential_daily_savings.amount",
+          expression: "@potential_daily_savings",
           order: "DESC",
         }),
       ],
