@@ -3704,6 +3704,19 @@ ScenariosModelMappings = {
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
+    "v2.ListTerraformBackendSyncConfigs" => {
+            "account_id" => "String",
+    },
+    "v2.CreateTerraformBackendSyncConfig" => {
+            "body" => "TerraformBackendCreateRequest",
+    },
+    "v2.DeleteTerraformBackendSyncConfig" => {
+            "id" => "String",
+    },
+    "v2.UpdateTerraformBackendSyncConfig" => {
+            "id" => "String",
+            "body" => "TerraformBackendUpdateRequest",
+    },
     "v2.UpdateIdentityProvider" => {
             "idp_id" => "String",
             "body" => "IdentityProviderUpdateRequest",
