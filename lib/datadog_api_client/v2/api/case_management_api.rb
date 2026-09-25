@@ -799,10 +799,10 @@ module DatadogAPIClient::V2
 
     # Create investigation notebook for case.
     #
-    # Create a new investigation notebook and link it to a case
+    # Create a new investigation notebook and link it to a case.
     #
     # @param case_id [String] Case's UUID or key
-    # @param body [NotebookCreateRequest] Notebook creation request
+    # @param body [CaseInvestigationNotebookCreateRequest] Case investigation notebook creation request.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def create_case_notebook_with_http_info(case_id, body, opts = {})
