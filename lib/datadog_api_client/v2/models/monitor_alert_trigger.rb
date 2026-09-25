@@ -17,26 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The trigger definition for starting an investigation.
-  class TriggerAttributes
+  # A trigger created from a monitor alert.
+  class MonitorAlertTrigger
     include BaseGenericModel
 
-    # Attributes for a general investigation, not tied to a specific monitor alert.
-    attr_accessor :general_investigation
-
     # Attributes for a monitor alert trigger.
-    attr_accessor :monitor_alert_trigger
+    attr_reader :monitor_alert_trigger
 
-    # The type of trigger for the investigation.
-    attr_accessor :type
-
-    attr_accessor :additional_properties
+    # The type of monitor alert trigger.
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'general_investigation' => :'general_investigation',
         :'monitor_alert_trigger' => :'monitor_alert_trigger',
         :'type' => :'type'
       }
@@ -46,9 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'general_investigation' => :'GeneralInvestigationAttributes',
         :'monitor_alert_trigger' => :'MonitorAlertTriggerAttributes',
-        :'type' => :'TriggerType'
+        :'type' => :'MonitorAlertTriggerType'
       }
     end
 
@@ -57,22 +50,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorAlertTrigger` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MonitorAlertTrigger`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
-
-      if attributes.key?(:'general_investigation')
-        self.general_investigation = attributes[:'general_investigation']
-      end
 
       if attributes.key?(:'monitor_alert_trigger')
         self.monitor_alert_trigger = attributes[:'monitor_alert_trigger']
@@ -83,24 +70,33 @@ module DatadogAPIClient::V2
       end
     end
 
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
     # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
+    def valid?
+      return false if @monitor_alert_trigger.nil?
+      return false if @type.nil?
+      true
+    end
 
-        hash[param] = _to_hash(value)
+    # Custom attribute writer method with validation
+    # @param monitor_alert_trigger [Object] Object to be assigned
+    # @!visibility private
+    def monitor_alert_trigger=(monitor_alert_trigger)
+      if monitor_alert_trigger.nil?
+        fail ArgumentError, 'invalid value for "monitor_alert_trigger", monitor_alert_trigger cannot be nil.'
       end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
+      @monitor_alert_trigger = monitor_alert_trigger
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      hash
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -109,17 +105,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          general_investigation == o.general_investigation &&
           monitor_alert_trigger == o.monitor_alert_trigger &&
-          type == o.type &&
-          additional_properties == o.additional_properties
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [general_investigation, monitor_alert_trigger, type, additional_properties].hash
+      [monitor_alert_trigger, type].hash
     end
   end
 end
