@@ -17,29 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a RUM operation strong link response.
+  # Attributes of a RUM operation link response.
   class RUMOperationStrongLinkResponseAttributes
     include BaseGenericModel
 
-    # The timestamp when the strong link was created.
+    # The timestamp when the link was created.
     attr_accessor :created_at
 
-    # A description of the strong link.
+    # A description of the link.
     attr_accessor :description
 
-    # The unique identifier of the linked feature.
+    # The unique identifier of the linked journey.
     attr_reader :feature_id
 
     # The unique identifier of the linked RUM operation.
     attr_reader :operation_id
 
-    # The status of a RUM operation strong link.
+    # The status of a RUM operation link.
     attr_reader :status
 
-    # A list of tags associated with the strong link.
+    # A list of tags associated with the link.
     attr_accessor :tags
 
-    # The timestamp when the strong link was last updated.
+    # The timestamp when the link was last updated.
     attr_accessor :updated_at
 
     attr_accessor :additional_properties

@@ -1,4 +1,4 @@
-# Delete a RUM operation strong link returns "No Content" response
+# Delete a RUM operation link returns "No Content" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

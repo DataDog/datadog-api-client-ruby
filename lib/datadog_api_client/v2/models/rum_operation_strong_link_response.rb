@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The response for a single RUM operation strong link.
+  # The response for a single RUM operation link.
   class RUMOperationStrongLinkResponse
     include BaseGenericModel
 
-    # The data object in a RUM operation strong link response.
+    # The data object in a RUM operation link response.
     attr_reader :data
 
     attr_accessor :additional_properties
