@@ -381,11 +381,11 @@ Given(/^new "([^"]+)" request$/) do |name|
   @api_method = generated_operation_method(@api_instance, name)
 end
 
-Given('the request uses {string} compression') do |_compression|
-  # The generated replay server validates the Content-Encoding header and compressed body.
+Given('the request and response use {string} compression') do |_compression|
+  # The generated replay server validates the request and compresses the recorded response.
 end
 
-Given('the user selects {string} compression') do |_compression|
+Given('the client selects {string} compression') do |_compression|
   # The generated request plan passes the selected compression to the client call.
 end
 
