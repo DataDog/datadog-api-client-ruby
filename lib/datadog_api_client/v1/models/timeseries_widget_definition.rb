@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class TimeseriesWidgetDefinition
     include BaseGenericModel
 
+    # Anomaly detection configuration for a timeseries widget.
+    attr_accessor :anomaly_detection
+
     # List of custom links.
     attr_accessor :custom_links
 
@@ -75,6 +78,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'anomaly_detection' => :'anomaly_detection',
         :'custom_links' => :'custom_links',
         :'description' => :'description',
         :'events' => :'events',
@@ -98,6 +102,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'anomaly_detection' => :'TimeseriesWidgetAnomalyDetection',
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'description' => :'String',
         :'events' => :'Array<WidgetEvent>',
@@ -134,6 +139,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'anomaly_detection')
+        self.anomaly_detection = attributes[:'anomaly_detection']
+      end
 
       if attributes.key?(:'custom_links')
         if (value = attributes[:'custom_links']).is_a?(Array)
@@ -269,6 +278,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          anomaly_detection == o.anomaly_detection &&
           custom_links == o.custom_links &&
           description == o.description &&
           events == o.events &&
@@ -292,7 +302,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, description, events, legend_columns, legend_layout, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis, additional_properties].hash
+      [anomaly_detection, custom_links, description, events, legend_columns, legend_layout, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis, additional_properties].hash
     end
   end
 end
