@@ -37258,6 +37258,14 @@ components:
       required:
         - data
       type: object
+    DueDateRuleReorderResponse:
+      description: The response of the due date rule reorder request.
+      properties:
+        data:
+          $ref: "#/components/schemas/DueDateRuleReorderData"
+      required:
+        - data
+      type: object
     DueDateRuleResponse:
       description: A single due date rule response.
       properties:
@@ -73548,6 +73556,14 @@ components:
       type: object
     MuteRuleReorderRequest:
       description: The body of the mute rule reorder request.
+      properties:
+        data:
+          $ref: "#/components/schemas/MuteRuleReorderData"
+      required:
+        - data
+      type: object
+    MuteRuleReorderResponse:
+      description: The response of the mute rule reorder request.
       properties:
         data:
           $ref: "#/components/schemas/MuteRuleReorderData"
@@ -123572,6 +123588,14 @@ components:
       type: object
     TicketCreationRuleReorderRequest:
       description: The body of the ticket creation rule reorder request.
+      properties:
+        data:
+          $ref: "#/components/schemas/TicketCreationRuleReorderData"
+      required:
+        - data
+      type: object
+    TicketCreationRuleReorderResponse:
+      description: The response of the ticket creation rule reorder request.
       properties:
         data:
           $ref: "#/components/schemas/TicketCreationRuleReorderData"
@@ -205001,7 +205025,7 @@ paths:
                       - id: "11111111-1111-1111-1111-111111111111"
                         type: due_date_rules
               schema:
-                $ref: "#/components/schemas/DueDateRuleReorderRequest"
+                $ref: "#/components/schemas/DueDateRuleReorderResponse"
           description: Successfully reordered the due date rules
         "400":
           content:
@@ -205885,7 +205909,7 @@ paths:
                       - id: "11111111-1111-1111-1111-111111111111"
                         type: mute_rules
               schema:
-                $ref: "#/components/schemas/MuteRuleReorderRequest"
+                $ref: "#/components/schemas/MuteRuleReorderResponse"
           description: Successfully reordered the mute rules
         "400":
           content:
@@ -206775,7 +206799,7 @@ paths:
                       - id: "11111111-1111-1111-1111-111111111111"
                         type: ticket_creation_rules
               schema:
-                $ref: "#/components/schemas/TicketCreationRuleReorderRequest"
+                $ref: "#/components/schemas/TicketCreationRuleReorderResponse"
           description: Successfully reordered the ticket creation rules
         "400":
           content:
