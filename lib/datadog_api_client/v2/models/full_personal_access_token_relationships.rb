@@ -17,14 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resources related to the access token entry in the mixed list response.
-  class AccessTokenListItemRelationships
+  # Resources related to the access token.
+  class FullPersonalAccessTokenRelationships
     include BaseGenericModel
 
-    # Relationship to the leak the access token was found in. `data` is null when the access token has not been detected as leaked.
-    attr_accessor :leak_information
-
-    # Relationship to the access token's owner.
+    # Relationship to user.
     attr_accessor :owned_by
 
     attr_accessor :additional_properties
@@ -33,7 +30,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'leak_information' => :'leak_information',
         :'owned_by' => :'owned_by'
       }
     end
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'leak_information' => :'RelationshipToLeakedKey',
-        :'owned_by' => :'RelationshipToAccessTokenOwner'
+        :'owned_by' => :'RelationshipToUser'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AccessTokenListItemRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FullPersonalAccessTokenRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -64,10 +59,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'leak_information')
-        self.leak_information = attributes[:'leak_information']
-      end
 
       if attributes.key?(:'owned_by')
         self.owned_by = attributes[:'owned_by']
@@ -100,7 +91,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          leak_information == o.leak_information &&
           owned_by == o.owned_by &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [leak_information, owned_by, additional_properties].hash
+      [owned_by, additional_properties].hash
     end
   end
 end

@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'FullPersonalAccessTokenAttributes',
         :'id' => :'String',
-        :'relationships' => :'PersonalAccessTokenRelationships',
+        :'relationships' => :'FullPersonalAccessTokenRelationships',
         :'type' => :'PersonalAccessTokensType'
       }
     end

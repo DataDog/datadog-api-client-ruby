@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Array of access tokens.
     attr_accessor :data
 
+    # Array of objects related to the access tokens.
+    attr_accessor :included
+
     # Additional information related to the access token response.
     attr_accessor :meta
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
+        :'included' => :'included',
         :'meta' => :'meta'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<ServiceAccessToken>',
+        :'included' => :'Array<AccessTokenResponseIncludedItem>',
         :'meta' => :'ServiceAccessTokenResponseMeta'
       }
     end
@@ -68,6 +73,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         if (value = attributes[:'data']).is_a?(Array)
           self.data = value
+        end
+      end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
         end
       end
 
@@ -103,6 +114,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          included == o.included &&
           meta == o.meta &&
           additional_properties == o.additional_properties
     end
@@ -111,7 +123,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [data, included, meta, additional_properties].hash
     end
   end
 end
