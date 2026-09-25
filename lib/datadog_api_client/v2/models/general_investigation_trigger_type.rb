@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of trigger for the investigation.
-  class TriggerType
+  # The type of general investigation trigger.
+  class GeneralInvestigationTriggerType
     include BaseEnumModel
 
-    MONITOR_ALERT_TRIGGER = "monitor_alert_trigger".freeze
     GENERAL_INVESTIGATION = "general_investigation".freeze
   end
 end
