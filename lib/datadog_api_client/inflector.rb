@@ -8514,6 +8514,7 @@ module DatadogAPIClient
           "v2.team_notification_rule_attributes_email" => "TeamNotificationRuleAttributesEmail",
           "v2.team_notification_rule_attributes_ms_teams" => "TeamNotificationRuleAttributesMsTeams",
           "v2.team_notification_rule_attributes_pagerduty" => "TeamNotificationRuleAttributesPagerduty",
+          "v2.team_notification_rule_attributes_service_now" => "TeamNotificationRuleAttributesServiceNow",
           "v2.team_notification_rule_attributes_slack" => "TeamNotificationRuleAttributesSlack",
           "v2.team_notification_rule_request" => "TeamNotificationRuleRequest",
           "v2.team_notification_rule_response" => "TeamNotificationRuleResponse",
