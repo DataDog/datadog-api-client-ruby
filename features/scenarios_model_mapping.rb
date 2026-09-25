@@ -1482,6 +1482,8 @@ ScenariosModelMappings = {
             "sort" => "PersonalAccessTokensSort",
             "filter" => "String",
             "filter_owned_by" => "Array<String>",
+            "filter_leaked" => "Boolean",
+            "include" => "Array<PersonalAccessTokensIncludeQueryParameterItem>",
     },
     "v2.CreatePersonalAccessToken" => {
             "body" => "PersonalAccessTokenCreateRequest",
@@ -1491,6 +1493,7 @@ ScenariosModelMappings = {
     },
     "v2.GetPersonalAccessToken" => {
             "token_id" => "String",
+            "include" => "Array<PersonalAccessTokensIncludeQueryParameterItem>",
     },
     "v2.UpdatePersonalAccessToken" => {
             "token_id" => "String",
@@ -6040,6 +6043,8 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "sort" => "PersonalAccessTokensSort",
             "filter" => "String",
+            "filter_leaked" => "Boolean",
+            "include" => "Array<PersonalAccessTokensIncludeQueryParameterItem>",
     },
     "v2.CreateServiceAccountAccessToken" => {
             "service_account_id" => "String",
@@ -6052,6 +6057,7 @@ ScenariosModelMappings = {
     "v2.GetServiceAccountAccessToken" => {
             "service_account_id" => "String",
             "token_id" => "String",
+            "include" => "Array<PersonalAccessTokensIncludeQueryParameterItem>",
     },
     "v2.UpdateServiceAccountAccessToken" => {
             "service_account_id" => "String",

@@ -319,6 +319,7 @@ module DatadogAPIClient::V2
     # @param service_account_id [String] The ID of the service account.
     # @param token_id [String] The ID of the access token.
     # @param opts [Hash] the optional parameters
+    # @option opts [Array<PersonalAccessTokensIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response.
     # @return [Array<(ServiceAccessTokenResponse, Integer, Hash)>] ServiceAccessTokenResponse data, response status code and response headers
     def get_service_account_access_token_with_http_info(service_account_id, token_id, opts = {})
 
@@ -338,6 +339,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -462,6 +464,8 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [PersonalAccessTokensSort] :sort Access token attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter access tokens by the specified string.
+    # @option opts [Boolean] :filter_leaked When true, only return access tokens that have been detected as leaked. Has no effect when false.
+    # @option opts [Array<PersonalAccessTokensIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response.
     # @return [Array<(ListServiceAccessTokensResponse, Integer, Hash)>] ListServiceAccessTokensResponse data, response status code and response headers
     def list_service_account_access_tokens_with_http_info(service_account_id, opts = {})
 
@@ -472,7 +476,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_access_tokens"
       end
-      allowable_values = ['name', '-name', 'created_at', '-created_at', 'expires_at', '-expires_at', 'last_used_at', '-last_used_at']
+      allowable_values = ['name', '-name', 'created_at', '-created_at', 'expires_at', '-expires_at', 'last_used_at', '-last_used_at', 'leaked', '-leaked']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -485,6 +489,8 @@ module DatadogAPIClient::V2
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'filter[leaked]'] = opts[:'filter_leaked'] if !opts[:'filter_leaked'].nil?
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -688,7 +694,7 @@ module DatadogAPIClient::V2
     # @param token_id [String] The ID of the access token.
     # @param body [ServiceAccountAccessTokenUpdateRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(ServiceAccessTokenResponse, Integer, Hash)>] ServiceAccessTokenResponse data, response status code and response headers
+    # @return [Array<(UpdatedServiceAccessTokenResponse, Integer, Hash)>] UpdatedServiceAccessTokenResponse data, response status code and response headers
     def update_service_account_access_token_with_http_info(service_account_id, token_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -726,7 +732,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ServiceAccessTokenResponse'
+      return_type = opts[:debug_return_type] || 'UpdatedServiceAccessTokenResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
