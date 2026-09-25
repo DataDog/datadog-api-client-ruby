@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Display name of the user.
     attr_accessor :name
 
+    # just testing generation
+    attr_accessor :test
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +45,8 @@ module DatadogAPIClient::V2
         :'handle' => :'handle',
         :'id' => :'id',
         :'is_disabled' => :'is_disabled',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'test' => :'test'
       }
     end
 
@@ -53,7 +57,8 @@ module DatadogAPIClient::V2
         :'handle' => :'String',
         :'id' => :'String',
         :'is_disabled' => :'Boolean',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'test' => :'Boolean'
       }
     end
 
@@ -90,6 +95,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'test')
+        self.test = attributes[:'test']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -122,6 +131,7 @@ module DatadogAPIClient::V2
           id == o.id &&
           is_disabled == o.is_disabled &&
           name == o.name &&
+          test == o.test &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [handle, id, is_disabled, name, additional_properties].hash
+      [handle, id, is_disabled, name, test, additional_properties].hash
     end
   end
 end
