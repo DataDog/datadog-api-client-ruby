@@ -57,8 +57,14 @@ module DatadogAPIClient::V2
     # Options on new value detection method.
     attr_accessor :new_value_options
 
+    # Fields used to identify related signals.
+    attr_accessor :related_signals_fields
+
     # Options on sequence detection method.
     attr_accessor :sequence_detection_options
+
+    # A template for the signal title.
+    attr_accessor :signal_title_template
 
     # Options on third party detection method.
     attr_accessor :third_party_rule_options
@@ -79,7 +85,9 @@ module DatadogAPIClient::V2
         :'keep_alive' => :'keepAlive',
         :'max_signal_duration' => :'maxSignalDuration',
         :'new_value_options' => :'newValueOptions',
+        :'related_signals_fields' => :'relatedSignalsFields',
         :'sequence_detection_options' => :'sequenceDetectionOptions',
+        :'signal_title_template' => :'signalTitleTemplate',
         :'third_party_rule_options' => :'thirdPartyRuleOptions'
       }
     end
@@ -98,7 +106,9 @@ module DatadogAPIClient::V2
         :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
         :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
         :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions',
+        :'related_signals_fields' => :'Array<String>',
         :'sequence_detection_options' => :'SecurityMonitoringRuleSequenceDetectionOptions',
+        :'signal_title_template' => :'String',
         :'third_party_rule_options' => :'SecurityMonitoringRuleThirdPartyOptions'
       }
     end
@@ -161,8 +171,18 @@ module DatadogAPIClient::V2
         self.new_value_options = attributes[:'new_value_options']
       end
 
+      if attributes.key?(:'related_signals_fields')
+        if (value = attributes[:'related_signals_fields']).is_a?(Array)
+          self.related_signals_fields = value
+        end
+      end
+
       if attributes.key?(:'sequence_detection_options')
         self.sequence_detection_options = attributes[:'sequence_detection_options']
+      end
+
+      if attributes.key?(:'signal_title_template')
+        self.signal_title_template = attributes[:'signal_title_template']
       end
 
       if attributes.key?(:'third_party_rule_options')
@@ -206,7 +226,9 @@ module DatadogAPIClient::V2
           keep_alive == o.keep_alive &&
           max_signal_duration == o.max_signal_duration &&
           new_value_options == o.new_value_options &&
+          related_signals_fields == o.related_signals_fields &&
           sequence_detection_options == o.sequence_detection_options &&
+          signal_title_template == o.signal_title_template &&
           third_party_rule_options == o.third_party_rule_options &&
           additional_properties == o.additional_properties
     end
@@ -215,7 +237,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [anomaly_detection_options, compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, sequence_detection_options, third_party_rule_options, additional_properties].hash
+      [anomaly_detection_options, compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, related_signals_fields, sequence_detection_options, signal_title_template, third_party_rule_options, additional_properties].hash
     end
   end
 end

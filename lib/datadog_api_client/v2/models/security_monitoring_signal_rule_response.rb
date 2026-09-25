@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalRuleResponse
     include BaseGenericModel
 
+    # Whether the rule blocks attackers.
+    attr_accessor :blocking
+
     # Cases for generating signals.
     attr_accessor :cases
 
@@ -30,11 +33,20 @@ module DatadogAPIClient::V2
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
 
+    # The user who created or last updated the rule.
+    attr_accessor :creator
+
     # Custom/Overridden message for generated signals (used in case of Default rule update).
     attr_accessor :custom_message
 
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
+
+    # The ID of the corresponding default rule.
+    attr_accessor :default_rule_id
+
+    # Default tags for default rules, included in tags.
+    attr_accessor :default_tags
 
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
@@ -48,17 +60,29 @@ module DatadogAPIClient::V2
     # The ID of the rule.
     attr_accessor :id
 
+    # Whether the rule is in beta.
+    attr_accessor :is_beta
+
     # Whether the rule is included by default.
     attr_accessor :is_default
 
     # Whether the rule has been deleted.
     attr_accessor :is_deleted
 
+    # Whether the rule is deprecated.
+    attr_accessor :is_deprecated
+
     # Whether the rule is enabled.
     attr_accessor :is_enabled
 
+    # Whether the rule is provided by a partner.
+    attr_accessor :is_partner
+
     # Message for generated signals.
     attr_accessor :message
+
+    # Metadata associated with the rule.
+    attr_accessor :metadata
 
     # The name of the rule.
     attr_accessor :name
@@ -78,6 +102,12 @@ module DatadogAPIClient::V2
     # User ID of the user who updated the rule.
     attr_accessor :update_author_id
 
+    # The date the rule was last updated, in milliseconds.
+    attr_accessor :updated_at
+
+    # The user who created or last updated the rule.
+    attr_accessor :updater
+
     # The version of the rule.
     attr_accessor :version
 
@@ -87,25 +117,35 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'blocking' => :'blocking',
         :'cases' => :'cases',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
+        :'creator' => :'creator',
         :'custom_message' => :'customMessage',
         :'custom_name' => :'customName',
+        :'default_rule_id' => :'defaultRuleId',
+        :'default_tags' => :'defaultTags',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
         :'id' => :'id',
+        :'is_beta' => :'isBeta',
         :'is_default' => :'isDefault',
         :'is_deleted' => :'isDeleted',
+        :'is_deprecated' => :'isDeprecated',
         :'is_enabled' => :'isEnabled',
+        :'is_partner' => :'isPartner',
         :'message' => :'message',
+        :'metadata' => :'metadata',
         :'name' => :'name',
         :'options' => :'options',
         :'queries' => :'queries',
         :'tags' => :'tags',
         :'type' => :'type',
         :'update_author_id' => :'updateAuthorId',
+        :'updated_at' => :'updatedAt',
+        :'updater' => :'updater',
         :'version' => :'version'
       }
     end
@@ -114,25 +154,35 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'blocking' => :'Boolean',
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
+        :'creator' => :'SecurityMonitoringRuleUser',
         :'custom_message' => :'String',
         :'custom_name' => :'String',
+        :'default_rule_id' => :'String',
+        :'default_tags' => :'Array<String>',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
         :'id' => :'String',
+        :'is_beta' => :'Boolean',
         :'is_default' => :'Boolean',
         :'is_deleted' => :'Boolean',
+        :'is_deprecated' => :'Boolean',
         :'is_enabled' => :'Boolean',
+        :'is_partner' => :'Boolean',
         :'message' => :'String',
+        :'metadata' => :'SecurityMonitoringRuleMetadata',
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringSignalRuleResponseQuery>',
         :'tags' => :'Array<String>',
         :'type' => :'SecurityMonitoringSignalRuleType',
         :'update_author_id' => :'Integer',
+        :'updated_at' => :'Integer',
+        :'updater' => :'SecurityMonitoringRuleUser',
         :'version' => :'Integer'
       }
     end
@@ -155,6 +205,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'blocking')
+        self.blocking = attributes[:'blocking']
+      end
+
       if attributes.key?(:'cases')
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
@@ -169,12 +223,26 @@ module DatadogAPIClient::V2
         self.creation_author_id = attributes[:'creation_author_id']
       end
 
+      if attributes.key?(:'creator')
+        self.creator = attributes[:'creator']
+      end
+
       if attributes.key?(:'custom_message')
         self.custom_message = attributes[:'custom_message']
       end
 
       if attributes.key?(:'custom_name')
         self.custom_name = attributes[:'custom_name']
+      end
+
+      if attributes.key?(:'default_rule_id')
+        self.default_rule_id = attributes[:'default_rule_id']
+      end
+
+      if attributes.key?(:'default_tags')
+        if (value = attributes[:'default_tags']).is_a?(Array)
+          self.default_tags = value
+        end
       end
 
       if attributes.key?(:'deprecation_date')
@@ -195,6 +263,10 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'is_beta')
+        self.is_beta = attributes[:'is_beta']
+      end
+
       if attributes.key?(:'is_default')
         self.is_default = attributes[:'is_default']
       end
@@ -203,12 +275,24 @@ module DatadogAPIClient::V2
         self.is_deleted = attributes[:'is_deleted']
       end
 
+      if attributes.key?(:'is_deprecated')
+        self.is_deprecated = attributes[:'is_deprecated']
+      end
+
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
       end
 
+      if attributes.key?(:'is_partner')
+        self.is_partner = attributes[:'is_partner']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
       end
 
       if attributes.key?(:'name')
@@ -237,6 +321,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'update_author_id')
         self.update_author_id = attributes[:'update_author_id']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'updater')
+        self.updater = attributes[:'updater']
       end
 
       if attributes.key?(:'version')
@@ -270,25 +362,35 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          blocking == o.blocking &&
           cases == o.cases &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
+          creator == o.creator &&
           custom_message == o.custom_message &&
           custom_name == o.custom_name &&
+          default_rule_id == o.default_rule_id &&
+          default_tags == o.default_tags &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
           id == o.id &&
+          is_beta == o.is_beta &&
           is_default == o.is_default &&
           is_deleted == o.is_deleted &&
+          is_deprecated == o.is_deprecated &&
           is_enabled == o.is_enabled &&
+          is_partner == o.is_partner &&
           message == o.message &&
+          metadata == o.metadata &&
           name == o.name &&
           options == o.options &&
           queries == o.queries &&
           tags == o.tags &&
           type == o.type &&
           update_author_id == o.update_author_id &&
+          updated_at == o.updated_at &&
+          updater == o.updater &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -297,7 +399,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, created_at, creation_author_id, custom_message, custom_name, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version, additional_properties].hash
+      [blocking, cases, created_at, creation_author_id, creator, custom_message, custom_name, default_rule_id, default_tags, deprecation_date, filters, has_extended_title, id, is_beta, is_default, is_deleted, is_deprecated, is_enabled, is_partner, message, metadata, name, options, queries, tags, type, update_author_id, updated_at, updater, version, additional_properties].hash
     end
   end
 end
