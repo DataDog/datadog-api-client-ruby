@@ -17,19 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Sorting options
-  class PersonalAccessTokensSort
+  # Relationship object that should be included in the response.
+  class PersonalAccessTokensIncludeQueryParameterItem
     include BaseEnumModel
 
-    NAME_ASCENDING = "name".freeze
-    NAME_DESCENDING = "-name".freeze
-    CREATED_AT_ASCENDING = "created_at".freeze
-    CREATED_AT_DESCENDING = "-created_at".freeze
-    EXPIRES_AT_ASCENDING = "expires_at".freeze
-    EXPIRES_AT_DESCENDING = "-expires_at".freeze
-    LAST_USED_AT_ASCENDING = "last_used_at".freeze
-    LAST_USED_AT_DESCENDING = "-last_used_at".freeze
-    LEAKED_ASCENDING = "leaked".freeze
-    LEAKED_DESCENDING = "-leaked".freeze
+    LEAK_INFORMATION = "leak_information".freeze
   end
 end

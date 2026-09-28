@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'FullServiceAccessTokenAttributes',
         :'id' => :'String',
-        :'relationships' => :'ServiceAccessTokenRelationships',
+        :'relationships' => :'FullServiceAccessTokenRelationships',
         :'type' => :'ServiceAccessTokensType'
       }
     end
