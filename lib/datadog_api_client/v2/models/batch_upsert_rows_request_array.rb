@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class BatchUpsertRowsRequestArray
     include BaseGenericModel
 
-    # List of row resources to create or update in the reference table.
+    # List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @data.nil?
-      return false if @data.length > 200
+      return false if @data.length > 20971
       true
     end
 
@@ -83,8 +83,8 @@ module DatadogAPIClient::V2
       if data.nil?
         fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      if data.length > 200
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 200.'
+      if data.length > 20971
+        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 20971.'
       end
       @data = data
     end
