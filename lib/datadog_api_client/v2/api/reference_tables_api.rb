@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Batch rows query.
     #
-    # Batch query reference table rows by their primary key values.  Returns only found rows in the included array.
+    # Batch query reference table rows by their primary key values. Returns only found rows in the included array.
     #
     # @param body [BatchRowsQueryRequest] 
     # @param opts [Hash] the optional parameters
