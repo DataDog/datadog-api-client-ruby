@@ -381,6 +381,21 @@ Given(/^new "([^"]+)" request$/) do |name|
   @api_method = generated_operation_method(@api_instance, name)
 end
 
+Then('the request uses {string} compression') do |compression|
+  next unless test_server_enabled?
+
+  result = test_server_request(
+    :get,
+    "/__openapi_transformer__/sessions/#{@test_server_session}/last-request"
+  )
+  actual = result.fetch('request').fetch('headers')['content-encoding']
+  raise "Expected Content-Encoding #{compression.inspect}, got #{actual.inspect}" unless actual == compression.downcase
+end
+
+Given('the client selects {string} compression') do |_compression|
+  # The generated request plan passes the selected compression to the client call.
+end
+
 When('the request is sent') do
   prepare_test_runner_request if test_runner_enabled?
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
