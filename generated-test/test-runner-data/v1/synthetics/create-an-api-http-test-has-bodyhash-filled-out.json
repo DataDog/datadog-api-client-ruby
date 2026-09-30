@@ -126,7 +126,6 @@
         "options": {
           "accept_self_signed": false,
           "allow_insecure": true,
-          "bits_ai_auto_investigate": true,
           "follow_redirects": true,
           "httpVersion": "http2",
           "min_failure_duration": 10,

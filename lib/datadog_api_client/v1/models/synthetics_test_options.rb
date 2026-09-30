@@ -28,9 +28,6 @@ module DatadogAPIClient::V1
     # Allows loading insecure content for an HTTP request in an API test.
     attr_accessor :allow_insecure
 
-    # Whether Bits AI automatically investigates alerts from the test monitor.
-    attr_accessor :bits_ai_auto_investigate
-
     # Array of URL patterns to block.
     attr_accessor :blocked_request_patterns
 
@@ -129,7 +126,6 @@ module DatadogAPIClient::V1
       {
         :'accept_self_signed' => :'accept_self_signed',
         :'allow_insecure' => :'allow_insecure',
-        :'bits_ai_auto_investigate' => :'bits_ai_auto_investigate',
         :'blocked_request_patterns' => :'blockedRequestPatterns',
         :'capture_network_payloads' => :'captureNetworkPayloads',
         :'check_certificate_revocation' => :'checkCertificateRevocation',
@@ -165,7 +161,6 @@ module DatadogAPIClient::V1
       {
         :'accept_self_signed' => :'Boolean',
         :'allow_insecure' => :'Boolean',
-        :'bits_ai_auto_investigate' => :'Boolean',
         :'blocked_request_patterns' => :'Array<String>',
         :'capture_network_payloads' => :'Boolean',
         :'check_certificate_revocation' => :'Boolean',
@@ -219,10 +214,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'allow_insecure')
         self.allow_insecure = attributes[:'allow_insecure']
-      end
-
-      if attributes.key?(:'bits_ai_auto_investigate')
-        self.bits_ai_auto_investigate = attributes[:'bits_ai_auto_investigate']
       end
 
       if attributes.key?(:'blocked_request_patterns')
@@ -401,7 +392,6 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           accept_self_signed == o.accept_self_signed &&
           allow_insecure == o.allow_insecure &&
-          bits_ai_auto_investigate == o.bits_ai_auto_investigate &&
           blocked_request_patterns == o.blocked_request_patterns &&
           capture_network_payloads == o.capture_network_payloads &&
           check_certificate_revocation == o.check_certificate_revocation &&
@@ -435,7 +425,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, bits_ai_auto_investigate, blocked_request_patterns, capture_network_payloads, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, ignore_certificate_validation, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
+      [accept_self_signed, allow_insecure, blocked_request_patterns, capture_network_payloads, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, ignore_certificate_validation, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
     end
   end
 end
