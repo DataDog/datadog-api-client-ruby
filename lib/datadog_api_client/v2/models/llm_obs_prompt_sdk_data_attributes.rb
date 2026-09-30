@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class LLMObsPromptSDKDataAttributes
     include BaseGenericModel
 
-    # Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
+    # Chat template for this prompt version, as a list of messages and named message placeholders. Omitted for text templates.
+    # **Preview:** Message placeholders are available in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager.
     attr_accessor :chat_template
 
     # Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
@@ -62,7 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'chat_template' => :'Array<LLMObsPromptChatMessage>',
+        :'chat_template' => :'Array<LLMObsPromptChatTemplateItem>',
         :'config' => :'Hash<String, Object>',
         :'labels' => :'Array<String>',
         :'prompt_id' => :'String',
