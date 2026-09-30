@@ -5081,6 +5081,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :query A free-text query (for example, an email address or principal ID) used to filter the entities returned.
+    # @option opts [EntityContextEntityType] :entity_type The type of entity to retrieve. Only `siem_entity_identity` is currently supported. Defaults to `siem_entity_identity`.
     # @option opts [String] :from The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`). Defaults to `now-7d`. Ignored when `as_of` is set.
     # @option opts [String] :to The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`). Defaults to `now`. Ignored when `as_of` is set.
     # @option opts [String] :as_of A point in time at which to query the entity revisions, as an RFC3339 timestamp, a Unix timestamp (in seconds), or a relative time (for example, `now-1d`). When set, `from` and `to` are ignored. Cannot be combined with custom `from` / `to` values.
@@ -5098,12 +5099,17 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_entity_context ...'
       end
+      allowable_values = ['siem_entity_identity']
+      if @api_client.config.client_side_validation && opts[:'entity_type'] && !allowable_values.include?(opts[:'entity_type'])
+        fail ArgumentError, "invalid value for \"entity_type\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/security_monitoring/entity_context'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'entity_type'] = opts[:'entity_type'] if !opts[:'entity_type'].nil?
       query_params[:'from'] = opts[:'from'] if !opts[:'from'].nil?
       query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
       query_params[:'as_of'] = opts[:'as_of'] if !opts[:'as_of'].nil?
@@ -5141,6 +5147,100 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_entity_context\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get recently updated entity context.
+    #
+    # @see #get_entity_context_recently_updated_with_http_info
+    def get_entity_context_recently_updated(opts = {})
+      data, _status_code, _headers = get_entity_context_recently_updated_with_http_info(opts)
+      data
+    end
+
+    # Get recently updated entity context.
+    #
+    # Get the entities with the most recent updates in the Cloud SIEM entity context store. Entities are ranked
+    # by the time of their most recent revision in the requested time range, and the top `limit` entities are
+    # returned in that order. This endpoint is not paginated.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query A free-text query (for example, an email address or principal ID) used to filter the entities returned.
+    # @option opts [EntityContextEntityType] :entity_type The type of entity to retrieve. Only `siem_entity_identity` is currently supported. Defaults to `siem_entity_identity`.
+    # @option opts [String] :from The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`). Defaults to `now-7d`.
+    # @option opts [String] :to The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`). Defaults to `now`. Entities are ranked by their most recent revision within `[from, to]`.
+    # @option opts [Integer] :limit The number of entities to return. Must be between 1 and 100.
+    # @option opts [EntityContextRevisionsMode] :revisions Which revisions to return for each entity: `latest` returns only the latest revision of each entity as of `to`, and `all` returns every revision in the requested time range.
+    # @return [Array<(RecentlyUpdatedEntitiesResponse, Integer, Hash)>] RecentlyUpdatedEntitiesResponse data, response status code and response headers
+    def get_entity_context_recently_updated_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_entity_context_recently_updated".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_entity_context_recently_updated")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_entity_context_recently_updated"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_entity_context_recently_updated ...'
+      end
+      allowable_values = ['siem_entity_identity']
+      if @api_client.config.client_side_validation && opts[:'entity_type'] && !allowable_values.include?(opts[:'entity_type'])
+        fail ArgumentError, "invalid value for \"entity_type\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SecurityMonitoringAPI.get_entity_context_recently_updated, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SecurityMonitoringAPI.get_entity_context_recently_updated, must be greater than or equal to 1.'
+      end
+      allowable_values = ['latest', 'all']
+      if @api_client.config.client_side_validation && opts[:'revisions'] && !allowable_values.include?(opts[:'revisions'])
+        fail ArgumentError, "invalid value for \"revisions\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/entity_context/recently_updated'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'entity_type'] = opts[:'entity_type'] if !opts[:'entity_type'].nil?
+      query_params[:'from'] = opts[:'from'] if !opts[:'from'].nil?
+      query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'revisions'] = opts[:'revisions'] if !opts[:'revisions'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RecentlyUpdatedEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_entity_context_recently_updated,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_entity_context_recently_updated\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -7309,6 +7409,7 @@ module DatadogAPIClient::V2
     #
     # @param id [String] The unique identifier of the entity to retrieve.
     # @param opts [Hash] the optional parameters
+    # @option opts [EntityContextEntityType] :entity_type The type of entity to retrieve. Only `siem_entity_identity` is currently supported. Defaults to `siem_entity_identity`.
     # @option opts [String] :from The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`). Defaults to `now-7d`. Ignored when `as_of` is set.
     # @option opts [String] :to The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`). Defaults to `now`. Ignored when `as_of` is set.
     # @option opts [String] :as_of A point in time at which to query the entity revisions, as an RFC3339 timestamp, a Unix timestamp (in seconds), or a relative time (for example, `now-1d`). When set, `from` and `to` are ignored. Cannot be combined with custom `from` / `to` values.
@@ -7328,11 +7429,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling SecurityMonitoringAPI.get_single_entity_context"
       end
+      allowable_values = ['siem_entity_identity']
+      if @api_client.config.client_side_validation && opts[:'entity_type'] && !allowable_values.include?(opts[:'entity_type'])
+        fail ArgumentError, "invalid value for \"entity_type\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/security_monitoring/entity_context/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'entity_type'] = opts[:'entity_type'] if !opts[:'entity_type'].nil?
       query_params[:'from'] = opts[:'from'] if !opts[:'from'].nil?
       query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
       query_params[:'as_of'] = opts[:'as_of'] if !opts[:'as_of'].nil?
