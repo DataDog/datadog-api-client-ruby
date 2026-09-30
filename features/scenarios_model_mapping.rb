@@ -901,6 +901,9 @@ ScenariosModelMappings = {
     "v2.GetFleetScheduleV2" => {
             "id" => "String",
     },
+    "v2.GetFleetConfigFileSchemaV2" => {
+            "file_path" => "String",
+    },
     "v2.DeleteLLMObsCustomEvalConfig" => {
             "eval_name" => "String",
     },
