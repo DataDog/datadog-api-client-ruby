@@ -15,4 +15,4 @@ body = DatadogAPIClient::V2::RUMOperationStrongLinkUpdateRequest.new({
     type: DatadogAPIClient::V2::RUMOperationStrongLinkType::STRONG_LINKS,
   }),
 })
-p api_instance.update_rum_operation_strong_link("rum_operation_id", "feature_id", body)
+p api_instance.update_rum_operation_strong_link("rum_operation_id", "journey_id", body)
