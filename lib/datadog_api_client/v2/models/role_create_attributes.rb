@@ -24,6 +24,11 @@ module DatadogAPIClient::V2
     # Creation time of the role.
     attr_accessor :created_at
 
+    # Whether to exclude restricted default permissions from this role.
+    # Restricted default permissions are automatically assigned to every role by default. Set this field to `true` to exclude them.
+    # Some of these permissions can only be excluded after Minimal Access Roles is enabled for the organization.
+    attr_accessor :default_permissions_opt_out
+
     # Time of last role modification.
     attr_accessor :modified_at
 
@@ -42,6 +47,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'created_at' => :'created_at',
+        :'default_permissions_opt_out' => :'default_permissions_opt_out',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'receives_permissions_from' => :'receives_permissions_from'
@@ -53,6 +59,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_at' => :'Time',
+        :'default_permissions_opt_out' => :'Boolean',
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'receives_permissions_from' => :'Array<String>'
@@ -79,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'default_permissions_opt_out')
+        self.default_permissions_opt_out = attributes[:'default_permissions_opt_out']
       end
 
       if attributes.key?(:'modified_at')
@@ -141,6 +152,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           created_at == o.created_at &&
+          default_permissions_opt_out == o.default_permissions_opt_out &&
           modified_at == o.modified_at &&
           name == o.name &&
           receives_permissions_from == o.receives_permissions_from &&
@@ -151,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, modified_at, name, receives_permissions_from, additional_properties].hash
+      [created_at, default_permissions_opt_out, modified_at, name, receives_permissions_from, additional_properties].hash
     end
   end
 end
