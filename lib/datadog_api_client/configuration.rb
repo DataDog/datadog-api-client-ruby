@@ -341,6 +341,7 @@ module DatadogAPIClient
             "v2.export_security_monitoring_terraform_resource": false,
             "v2.get_content_packs_states": false,
             "v2.get_entity_context": false,
+            "v2.get_entity_context_recently_updated": false,
             "v2.get_entra_id_azure_app_registrations": false,
             "v2.get_finding": false,
             "v2.get_historical_job": false,
