@@ -5816,11 +5816,11 @@ ScenariosModelMappings = {
     },
     "v2.DeleteRUMOperationStrongLink" => {
             "rum_operation_id" => "String",
-            "feature_id" => "String",
+            "journey_id" => "String",
     },
     "v2.UpdateRUMOperationStrongLink" => {
             "rum_operation_id" => "String",
-            "feature_id" => "String",
+            "journey_id" => "String",
             "body" => "RUMOperationStrongLinkUpdateRequest",
     },
     "v2.DeleteRUMOperation" => {

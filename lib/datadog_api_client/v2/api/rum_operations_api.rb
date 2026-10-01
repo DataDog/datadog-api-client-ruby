@@ -245,8 +245,8 @@ module DatadogAPIClient::V2
     # Delete a RUM operation strong link.
     #
     # @see #delete_rum_operation_strong_link_with_http_info
-    def delete_rum_operation_strong_link(rum_operation_id, feature_id, opts = {})
-      delete_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, opts)
+    def delete_rum_operation_strong_link(rum_operation_id, journey_id, opts = {})
+      delete_rum_operation_strong_link_with_http_info(rum_operation_id, journey_id, opts)
       nil
     end
 
@@ -255,10 +255,10 @@ module DatadogAPIClient::V2
     # Delete the strong link between a RUM operation and a feature.
     #
     # @param rum_operation_id [String] The unique identifier of the RUM operation.
-    # @param feature_id [String] The unique identifier of the feature.
+    # @param journey_id [String] The unique identifier of the journey.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, opts = {})
+    def delete_rum_operation_strong_link_with_http_info(rum_operation_id, journey_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_rum_operation_strong_link".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_rum_operation_strong_link")
@@ -273,12 +273,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && rum_operation_id.nil?
         fail ArgumentError, "Missing the required parameter 'rum_operation_id' when calling RUMOperationsAPI.delete_rum_operation_strong_link"
       end
-      # verify the required parameter 'feature_id' is set
-      if @api_client.config.client_side_validation && feature_id.nil?
-        fail ArgumentError, "Missing the required parameter 'feature_id' when calling RUMOperationsAPI.delete_rum_operation_strong_link"
+      # verify the required parameter 'journey_id' is set
+      if @api_client.config.client_side_validation && journey_id.nil?
+        fail ArgumentError, "Missing the required parameter 'journey_id' when calling RUMOperationsAPI.delete_rum_operation_strong_link"
       end
       # resource path
-      local_var_path = '/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}'.sub('{rum_operation_id}', CGI.escape(rum_operation_id.to_s).gsub('%2F', '/')).sub('{feature_id}', CGI.escape(feature_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}'.sub('{rum_operation_id}', CGI.escape(rum_operation_id.to_s).gsub('%2F', '/')).sub('{journey_id}', CGI.escape(journey_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -710,8 +710,8 @@ module DatadogAPIClient::V2
     # Update a RUM operation strong link.
     #
     # @see #update_rum_operation_strong_link_with_http_info
-    def update_rum_operation_strong_link(rum_operation_id, feature_id, body, opts = {})
-      data, _status_code, _headers = update_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, body, opts)
+    def update_rum_operation_strong_link(rum_operation_id, journey_id, body, opts = {})
+      data, _status_code, _headers = update_rum_operation_strong_link_with_http_info(rum_operation_id, journey_id, body, opts)
       data
     end
 
@@ -720,11 +720,11 @@ module DatadogAPIClient::V2
     # Update the status of a strong link between a RUM operation and a feature.
     #
     # @param rum_operation_id [String] The unique identifier of the RUM operation.
-    # @param feature_id [String] The unique identifier of the feature.
+    # @param journey_id [String] The unique identifier of the journey.
     # @param body [RUMOperationStrongLinkUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationStrongLinkResponse, Integer, Hash)>] RUMOperationStrongLinkResponse data, response status code and response headers
-    def update_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, body, opts = {})
+    def update_rum_operation_strong_link_with_http_info(rum_operation_id, journey_id, body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.update_rum_operation_strong_link".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_rum_operation_strong_link")
@@ -739,16 +739,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && rum_operation_id.nil?
         fail ArgumentError, "Missing the required parameter 'rum_operation_id' when calling RUMOperationsAPI.update_rum_operation_strong_link"
       end
-      # verify the required parameter 'feature_id' is set
-      if @api_client.config.client_side_validation && feature_id.nil?
-        fail ArgumentError, "Missing the required parameter 'feature_id' when calling RUMOperationsAPI.update_rum_operation_strong_link"
+      # verify the required parameter 'journey_id' is set
+      if @api_client.config.client_side_validation && journey_id.nil?
+        fail ArgumentError, "Missing the required parameter 'journey_id' when calling RUMOperationsAPI.update_rum_operation_strong_link"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling RUMOperationsAPI.update_rum_operation_strong_link"
       end
       # resource path
-      local_var_path = '/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}'.sub('{rum_operation_id}', CGI.escape(rum_operation_id.to_s).gsub('%2F', '/')).sub('{feature_id}', CGI.escape(feature_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}'.sub('{rum_operation_id}', CGI.escape(rum_operation_id.to_s).gsub('%2F', '/')).sub('{journey_id}', CGI.escape(journey_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
