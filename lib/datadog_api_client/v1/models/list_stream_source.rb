@@ -38,5 +38,6 @@ module DatadogAPIClient::V1
     SECURITY_RUNTIME_STREAM = "security_runtime_stream".freeze
     SECURITY_SIGNALS_STREAM = "security_signals_stream".freeze
     INCIDENTS_STREAM = "incidents_stream".freeze
+    CASE_STREAM = "case_stream".freeze
   end
 end

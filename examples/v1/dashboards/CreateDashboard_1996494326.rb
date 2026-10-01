@@ -1,0 +1,39 @@
+# Create a new dashboard with case_stream list_stream widget
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V1::DashboardsAPI.new
+
+body = DatadogAPIClient::V1::Dashboard.new({
+  layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
+  title: "Example-Dashboard with case_stream list_stream widget",
+  widgets: [
+    DatadogAPIClient::V1::Widget.new({
+      definition: DatadogAPIClient::V1::ListStreamWidgetDefinition.new({
+        type: DatadogAPIClient::V1::ListStreamWidgetDefinitionType::LIST_STREAM,
+        requests: [
+          DatadogAPIClient::V1::ListStreamWidgetRequest.new({
+            columns: [
+              DatadogAPIClient::V1::ListStreamColumn.new({
+                width: DatadogAPIClient::V1::ListStreamColumnWidth::AUTO,
+                field: "created_at",
+              }),
+            ],
+            query: DatadogAPIClient::V1::ListStreamQuery.new({
+              data_source: DatadogAPIClient::V1::ListStreamSource::CASE_STREAM,
+              query_string: "*",
+              sort: DatadogAPIClient::V1::WidgetFieldSort.new({
+                column: "created_at",
+                order: DatadogAPIClient::V1::WidgetSort::DESCENDING,
+              }),
+            }),
+            response_format: DatadogAPIClient::V1::ListStreamResponseFormat::EVENT_LIST,
+          }),
+        ],
+      }),
+    }),
+  ],
+})
+p api_instance.create_dashboard(body)
