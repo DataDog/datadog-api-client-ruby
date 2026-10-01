@@ -17,8 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A processor for the pipeline.
-  module ObservabilityPipelineConfigProcessorItem
+  # Specifies the source of the key value used for metric enrichment table lookups.
+  # The lookup key can be either the metric name or a metric tag.
+  module ObservabilityPipelineMetricEnrichmentTableLookupSource
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,34 +27,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineFilterProcessor',
-          :'ObservabilityPipelineAddEnvVarsProcessor',
-          :'ObservabilityPipelineAddFieldsProcessor',
-          :'ObservabilityPipelineAddHostnameProcessor',
-          :'ObservabilityPipelineCustomProcessor',
-          :'ObservabilityPipelineDatadogTagsProcessor',
-          :'ObservabilityPipelineDedupeProcessor',
-          :'ObservabilityPipelineEnrichmentTableProcessor',
-          :'ObservabilityPipelineGenerateMetricsProcessor',
-          :'ObservabilityPipelineGenerateMetricsV2Processor',
-          :'ObservabilityPipelineOcsfMapperProcessor',
-          :'ObservabilityPipelineParseGrokProcessor',
-          :'ObservabilityPipelineParseJSONProcessor',
-          :'ObservabilityPipelineParseXMLProcessor',
-          :'ObservabilityPipelineQuotaProcessor',
-          :'ObservabilityPipelineReduceProcessor',
-          :'ObservabilityPipelineRemoveFieldsProcessor',
-          :'ObservabilityPipelineRenameFieldsProcessor',
-          :'ObservabilityPipelineSampleProcessor',
-          :'ObservabilityPipelineSensitiveDataScannerProcessor',
-          :'ObservabilityPipelineSplitArrayProcessor',
-          :'ObservabilityPipelineThrottleProcessor',
-          :'ObservabilityPipelineAddMetricTagsProcessor',
-          :'ObservabilityPipelineAggregateProcessor',
-          :'ObservabilityPipelineMetricEnrichmentTableProcessor',
-          :'ObservabilityPipelineMetricTagsProcessor',
-          :'ObservabilityPipelineRenameMetricTagsProcessor',
-          :'ObservabilityPipelineTagCardinalityLimitProcessor'
+          :'ObservabilityPipelineMetricEnrichmentTableMetricNameLookup',
+          :'ObservabilityPipelineMetricEnrichmentTableTagLookup'
         ]
       end
       # Builds the object
