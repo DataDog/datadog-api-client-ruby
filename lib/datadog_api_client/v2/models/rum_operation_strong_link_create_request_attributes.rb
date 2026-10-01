@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating a RUM operation strong link.
+  # Attributes for creating a RUM operation link.
   class RUMOperationStrongLinkCreateRequestAttributes
     include BaseGenericModel
 
     # The RUM application ID used when creating a stub operation from `operation_name`.
     attr_accessor :application_id
 
-    # A description of the strong link.
+    # A description of the link.
     attr_accessor :description
 
-    # The unique identifier of the feature to link.
+    # The unique identifier of the journey to link.
     attr_reader :feature_id
 
     # The unique identifier of the RUM operation to link. Either `operation_id` or
@@ -38,10 +38,10 @@ module DatadogAPIClient::V2
     # required. If no operation with this name exists, a stub operation is created.
     attr_accessor :operation_name
 
-    # The status of a RUM operation strong link.
+    # The status of a RUM operation link.
     attr_accessor :status
 
-    # A list of tags associated with the strong link.
+    # A list of tags associated with the link.
     attr_accessor :tags
 
     attr_accessor :additional_properties

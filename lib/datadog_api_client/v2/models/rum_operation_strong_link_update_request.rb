@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for updating a RUM operation strong link.
+  # The request body for updating a RUM operation link.
   class RUMOperationStrongLinkUpdateRequest
     include BaseGenericModel
 
-    # The data object for updating a RUM operation strong link.
+    # The data object for updating a RUM operation link.
     attr_reader :data
 
     attr_accessor :additional_properties
