@@ -27,9 +27,6 @@ module DatadogAPIClient::V1
     # Array of bindings used for the mobile test.
     attr_accessor :bindings
 
-    # Whether Bits AI automatically investigates alerts from the test monitor.
-    attr_accessor :bits_ai_auto_investigate
-
     # CI/CD options for a Synthetic test.
     attr_accessor :ci
 
@@ -84,7 +81,6 @@ module DatadogAPIClient::V1
       {
         :'allow_application_crash' => :'allowApplicationCrash',
         :'bindings' => :'bindings',
-        :'bits_ai_auto_investigate' => :'bits_ai_auto_investigate',
         :'ci' => :'ci',
         :'default_step_timeout' => :'defaultStepTimeout',
         :'device_ids' => :'device_ids',
@@ -109,7 +105,6 @@ module DatadogAPIClient::V1
       {
         :'allow_application_crash' => :'Boolean',
         :'bindings' => :'Array<SyntheticsTestRestrictionPolicyBinding>',
-        :'bits_ai_auto_investigate' => :'Boolean',
         :'ci' => :'SyntheticsTestCiOptions',
         :'default_step_timeout' => :'Integer',
         :'device_ids' => :'Array<String>',
@@ -154,10 +149,6 @@ module DatadogAPIClient::V1
         if (value = attributes[:'bindings']).is_a?(Array)
           self.bindings = value
         end
-      end
-
-      if attributes.key?(:'bits_ai_auto_investigate')
-        self.bits_ai_auto_investigate = attributes[:'bits_ai_auto_investigate']
       end
 
       if attributes.key?(:'ci')
@@ -361,7 +352,6 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           allow_application_crash == o.allow_application_crash &&
           bindings == o.bindings &&
-          bits_ai_auto_investigate == o.bits_ai_auto_investigate &&
           ci == o.ci &&
           default_step_timeout == o.default_step_timeout &&
           device_ids == o.device_ids &&
@@ -384,7 +374,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_application_crash, bindings, bits_ai_auto_investigate, ci, default_step_timeout, device_ids, disable_auto_accept_alert, min_failure_duration, mobile_application, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, scheduling, tick_every, verbosity, additional_properties].hash
+      [allow_application_crash, bindings, ci, default_step_timeout, device_ids, disable_auto_accept_alert, min_failure_duration, mobile_application, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, scheduling, tick_every, verbosity, additional_properties].hash
     end
   end
 end
