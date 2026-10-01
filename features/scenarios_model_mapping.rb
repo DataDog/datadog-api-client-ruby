@@ -4542,6 +4542,12 @@ ScenariosModelMappings = {
     "v2.ListLogs" => {
             "body" => "LogsListRequest",
     },
+    "v2.CreateArchiveSearch" => {
+            "body" => "ArchiveSearchCreateRequest",
+    },
+    "v2.GetArchiveSearch" => {
+            "archive_search_id" => "String",
+    },
     "v2.UpdateLogsArchiveOrder" => {
             "body" => "LogsArchiveOrder",
     },
