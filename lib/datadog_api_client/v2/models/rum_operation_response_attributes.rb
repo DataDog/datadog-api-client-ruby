@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # A human-readable display name for the RUM operation.
     attr_accessor :display_name
 
-    # The list of feature IDs associated with the RUM operation.
+    # The list of journey IDs associated with the RUM operation.
     attr_accessor :feature_ids
 
     # The definition of a RUM operation's journey, used to detect it from RUM events.

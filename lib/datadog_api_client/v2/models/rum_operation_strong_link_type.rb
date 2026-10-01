@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The JSON:API type for RUM operation strong link resources.
+  # The JSON:API type for RUM operation link resources.
   class RUMOperationStrongLinkType
     include BaseEnumModel
 

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The data object for creating a RUM operation strong link.
+  # The data object for creating a RUM operation link.
   class RUMOperationStrongLinkCreateRequestData
     include BaseGenericModel
 
-    # Attributes for creating a RUM operation strong link.
+    # Attributes for creating a RUM operation link.
     attr_reader :attributes
 
-    # The JSON:API type for RUM operation strong link resources.
+    # The JSON:API type for RUM operation link resources.
     attr_reader :type
 
     attr_accessor :additional_properties

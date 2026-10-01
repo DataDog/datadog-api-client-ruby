@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The response for a list of RUM operation strong links.
+  # The response for a list of RUM operation links.
   class RUMOperationStrongLinksListResponse
     include BaseGenericModel
 
     #
     attr_reader :data
 
-    # Metadata for a list of RUM operation strong links.
+    # Metadata for a list of RUM operation links.
     attr_accessor :meta
 
     attr_accessor :additional_properties
