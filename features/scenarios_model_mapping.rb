@@ -2069,6 +2069,24 @@ ScenariosModelMappings = {
     "v2.GetAWSCloudAuthPersonaMapping" => {
             "persona_mapping_id" => "String",
     },
+    "v2.CreateGitHubCloudAuthIntakeMapping" => {
+            "body" => "GitHubCloudAuthIntakeMappingCreateRequest",
+    },
+    "v2.DeleteGitHubCloudAuthIntakeMapping" => {
+            "intake_mapping_id" => "String",
+    },
+    "v2.GetGitHubCloudAuthIntakeMapping" => {
+            "intake_mapping_id" => "String",
+    },
+    "v2.CreateGitHubCloudAuthPersonaMapping" => {
+            "body" => "GitHubCloudAuthPersonaMappingCreateRequest",
+    },
+    "v2.DeleteGitHubCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
+    "v2.GetGitHubCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
     "v2.CreateCustomFramework" => {
             "body" => "CreateCustomFrameworkRequest",
     },

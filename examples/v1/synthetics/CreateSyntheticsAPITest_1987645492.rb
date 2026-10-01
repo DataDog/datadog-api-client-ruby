@@ -120,6 +120,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: false,
     allow_insecure: true,
+    bits_ai_auto_investigate: true,
     follow_redirects: true,
     min_failure_duration: 10,
     min_location_failed: 1,
