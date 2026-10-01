@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # List of rows from a reference table query, along with metadata about rows that were requested but not found.
-  class TableRowResourceArray
+  # Metadata about the rows requested, including which ones were not found.
+  class TableRowResourceArrayMeta
     include BaseGenericModel
 
-    # The rows.
-    attr_reader :data
+    # Number of requested rows that were found and returned in `data`.
+    attr_reader :found_count
 
-    # Metadata about the rows requested, including which ones were not found.
-    attr_accessor :meta
+    # Row IDs from the request that do not exist in the reference table. Empty when every requested row was found.
+    attr_reader :not_found
+
+    # Number of row IDs supplied in the `row_id` query parameter.
+    attr_reader :requested_count
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'found_count' => :'found_count',
+        :'not_found' => :'not_found',
+        :'requested_count' => :'requested_count'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<TableRowResourceData>',
-        :'meta' => :'TableRowResourceArrayMeta'
+        :'found_count' => :'Integer',
+        :'not_found' => :'Array<String>',
+        :'requested_count' => :'Integer'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TableRowResourceArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TableRowResourceArrayMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +70,18 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+      if attributes.key?(:'found_count')
+        self.found_count = attributes[:'found_count']
+      end
+
+      if attributes.key?(:'not_found')
+        if (value = attributes[:'not_found']).is_a?(Array)
+          self.not_found = value
         end
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'requested_count')
+        self.requested_count = attributes[:'requested_count']
       end
     end
 
@@ -80,18 +89,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @found_count.nil?
+      return false if @not_found.nil?
+      return false if @requested_count.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param found_count [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def found_count=(found_count)
+      if found_count.nil?
+        fail ArgumentError, 'invalid value for "found_count", found_count cannot be nil.'
       end
-      @data = data
+      @found_count = found_count
+    end
+
+    # Custom attribute writer method with validation
+    # @param not_found [Object] Object to be assigned
+    # @!visibility private
+    def not_found=(not_found)
+      if not_found.nil?
+        fail ArgumentError, 'invalid value for "not_found", not_found cannot be nil.'
+      end
+      @not_found = not_found
+    end
+
+    # Custom attribute writer method with validation
+    # @param requested_count [Object] Object to be assigned
+    # @!visibility private
+    def requested_count=(requested_count)
+      if requested_count.nil?
+        fail ArgumentError, 'invalid value for "requested_count", requested_count cannot be nil.'
+      end
+      @requested_count = requested_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,8 +151,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          found_count == o.found_count &&
+          not_found == o.not_found &&
+          requested_count == o.requested_count &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [found_count, not_found, requested_count, additional_properties].hash
     end
   end
 end
