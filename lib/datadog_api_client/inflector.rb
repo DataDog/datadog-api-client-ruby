@@ -89,6 +89,7 @@ module DatadogAPIClient
           "v1.dashboard_bulk_delete_request" => "DashboardBulkDeleteRequest",
           "v1.dashboard_default_timeframe_setting" => "DashboardDefaultTimeframeSetting",
           "v1.dashboard_delete_response" => "DashboardDeleteResponse",
+          "v1.dashboard_experience_type" => "DashboardExperienceType",
           "v1.dashboard_fixed_timeframe" => "DashboardFixedTimeframe",
           "v1.dashboard_fixed_timeframe_type" => "DashboardFixedTimeframeType",
           "v1.dashboard_global_time" => "DashboardGlobalTime",

@@ -37,6 +37,9 @@ module DatadogAPIClient::V1
     # Description of the dashboard.
     attr_accessor :description
 
+    # The experience type of the dashboard.
+    attr_accessor :experience_type
+
     # ID of the dashboard.
     attr_accessor :id
 
@@ -94,6 +97,7 @@ module DatadogAPIClient::V1
         :'created_at' => :'created_at',
         :'default_timeframe' => :'default_timeframe',
         :'description' => :'description',
+        :'experience_type' => :'experience_type',
         :'id' => :'id',
         :'is_read_only' => :'is_read_only',
         :'layout_type' => :'layout_type',
@@ -120,6 +124,7 @@ module DatadogAPIClient::V1
         :'created_at' => :'Time',
         :'default_timeframe' => :'DashboardDefaultTimeframeSetting',
         :'description' => :'String',
+        :'experience_type' => :'DashboardExperienceType',
         :'id' => :'String',
         :'is_read_only' => :'Boolean',
         :'layout_type' => :'DashboardLayoutType',
@@ -187,6 +192,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'experience_type')
+        self.experience_type = attributes[:'experience_type']
       end
 
       if attributes.key?(:'id')
@@ -353,6 +362,7 @@ module DatadogAPIClient::V1
           created_at == o.created_at &&
           default_timeframe == o.default_timeframe &&
           description == o.description &&
+          experience_type == o.experience_type &&
           id == o.id &&
           is_read_only == o.is_read_only &&
           layout_type == o.layout_type &&
@@ -374,7 +384,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author_handle, author_name, created_at, default_timeframe, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
+      [author_handle, author_name, created_at, default_timeframe, description, experience_type, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
     end
   end
 end
