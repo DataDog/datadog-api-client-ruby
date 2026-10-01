@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Query for creating a data deletion request.
     attr_reader :query
 
+    # The source of the deletion request.
+    attr_accessor :source
+
     # Starting time of the process to delete the requested data.
     attr_reader :starting_at
 
@@ -86,6 +89,7 @@ module DatadogAPIClient::V2
         :'org_id' => :'org_id',
         :'product' => :'product',
         :'query' => :'query',
+        :'source' => :'source',
         :'starting_at' => :'starting_at',
         :'status' => :'status',
         :'to_time' => :'to_time',
@@ -109,6 +113,7 @@ module DatadogAPIClient::V2
         :'org_id' => :'Integer',
         :'product' => :'String',
         :'query' => :'String',
+        :'source' => :'String',
         :'starting_at' => :'String',
         :'status' => :'String',
         :'to_time' => :'Integer',
@@ -179,6 +184,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'starting_at')
@@ -389,6 +398,7 @@ module DatadogAPIClient::V2
           org_id == o.org_id &&
           product == o.product &&
           query == o.query &&
+          source == o.source &&
           starting_at == o.starting_at &&
           status == o.status &&
           to_time == o.to_time &&
@@ -401,7 +411,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, customer_message, displayed_total, error_category, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
+      [created_at, created_by, customer_message, displayed_total, error_category, from_time, indexes, is_created, org_id, product, query, source, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
     end
   end
 end
