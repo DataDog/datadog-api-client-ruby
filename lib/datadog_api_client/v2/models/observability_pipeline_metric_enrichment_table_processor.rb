@@ -17,8 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A processor for the pipeline.
-  module ObservabilityPipelineConfigProcessorItem
+  # The `enrichment_table` processor enriches metrics with tags from a static CSV file or a Datadog reference table.
+  # It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a
+  # metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `reference_table` must be
+  # configured.
+  # 
+  # **Supported pipeline types:** metrics
+  module ObservabilityPipelineMetricEnrichmentTableProcessor
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,34 +31,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineFilterProcessor',
-          :'ObservabilityPipelineAddEnvVarsProcessor',
-          :'ObservabilityPipelineAddFieldsProcessor',
-          :'ObservabilityPipelineAddHostnameProcessor',
-          :'ObservabilityPipelineCustomProcessor',
-          :'ObservabilityPipelineDatadogTagsProcessor',
-          :'ObservabilityPipelineDedupeProcessor',
-          :'ObservabilityPipelineEnrichmentTableProcessor',
-          :'ObservabilityPipelineGenerateMetricsProcessor',
-          :'ObservabilityPipelineGenerateMetricsV2Processor',
-          :'ObservabilityPipelineOcsfMapperProcessor',
-          :'ObservabilityPipelineParseGrokProcessor',
-          :'ObservabilityPipelineParseJSONProcessor',
-          :'ObservabilityPipelineParseXMLProcessor',
-          :'ObservabilityPipelineQuotaProcessor',
-          :'ObservabilityPipelineReduceProcessor',
-          :'ObservabilityPipelineRemoveFieldsProcessor',
-          :'ObservabilityPipelineRenameFieldsProcessor',
-          :'ObservabilityPipelineSampleProcessor',
-          :'ObservabilityPipelineSensitiveDataScannerProcessor',
-          :'ObservabilityPipelineSplitArrayProcessor',
-          :'ObservabilityPipelineThrottleProcessor',
-          :'ObservabilityPipelineAddMetricTagsProcessor',
-          :'ObservabilityPipelineAggregateProcessor',
-          :'ObservabilityPipelineMetricEnrichmentTableProcessor',
-          :'ObservabilityPipelineMetricTagsProcessor',
-          :'ObservabilityPipelineRenameMetricTagsProcessor',
-          :'ObservabilityPipelineTagCardinalityLimitProcessor'
+          :'ObservabilityPipelineMetricEnrichmentTableFileProcessor',
+          :'ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor'
         ]
       end
       # Builds the object
