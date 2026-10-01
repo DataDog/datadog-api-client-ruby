@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The data object for a ticket creation rule create or update request.
+  # The data object for a ticket creation rule create request.
   class TicketCreationRuleDataCreate
     include BaseGenericModel
 

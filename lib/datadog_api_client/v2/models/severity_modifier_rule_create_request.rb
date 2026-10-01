@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SeverityModifierRuleCreateRequest
     include BaseGenericModel
 
-    # The data object for a severity modifier rule create or update request.
+    # The data object for a severity modifier rule create request.
     attr_reader :data
 
     attr_accessor :additional_properties

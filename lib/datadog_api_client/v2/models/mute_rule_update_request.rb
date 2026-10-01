@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MuteRuleUpdateRequest
     include BaseGenericModel
 
-    # The data object for a mute rule create or update request.
+    # The data object for a mute rule update request. The `id` must match the `rule_id` path parameter.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'MuteRuleDataCreate'
+        :'data' => :'MuteRuleDataUpdate'
       }
     end
 

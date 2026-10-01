@@ -11,7 +11,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 VALID_MUTE_RULE_DATA_ID = ENV["VALID_MUTE_RULE_DATA_ID"]
 
 body = DatadogAPIClient::V2::MuteRuleUpdateRequest.new({
-  data: DatadogAPIClient::V2::MuteRuleDataCreate.new({
+  data: DatadogAPIClient::V2::MuteRuleDataUpdate.new({
     attributes: DatadogAPIClient::V2::MuteRuleAttributesCreate.new({
       action: DatadogAPIClient::V2::MuteRuleAction.new({
         reason: DatadogAPIClient::V2::MuteReason::FALSE_POSITIVE,
@@ -25,6 +25,7 @@ body = DatadogAPIClient::V2::MuteRuleUpdateRequest.new({
         query: "env:staging",
       }),
     }),
+    id: VALID_MUTE_RULE_DATA_ID,
     type: DatadogAPIClient::V2::MuteRuleType::MUTE_RULES,
   }),
 })

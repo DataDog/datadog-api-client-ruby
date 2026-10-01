@@ -11,7 +11,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 VALID_SEVERITY_MODIFIER_RULE_DATA_ID = ENV["VALID_SEVERITY_MODIFIER_RULE_DATA_ID"]
 
 body = DatadogAPIClient::V2::SeverityModifierRuleUpdateRequest.new({
-  data: DatadogAPIClient::V2::SeverityModifierRuleDataCreate.new({
+  data: DatadogAPIClient::V2::SeverityModifierRuleDataUpdate.new({
     attributes: DatadogAPIClient::V2::SeverityModifierRuleAttributesCreate.new({
       action: DatadogAPIClient::V2::SeverityModifierRuleSetAction.new({
         description: "Lower severity for dev environment noise",
@@ -27,6 +27,7 @@ body = DatadogAPIClient::V2::SeverityModifierRuleUpdateRequest.new({
         query: "env:prod team:platform",
       }),
     }),
+    id: VALID_SEVERITY_MODIFIER_RULE_DATA_ID,
     type: DatadogAPIClient::V2::SeverityModifierRuleType::SEVERITY_MODIFIER_RULES,
   }),
 })

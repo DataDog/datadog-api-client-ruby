@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of the due date rule reorder request.
+  # The body of a due date rule reorder request.
   class DueDateRuleReorderRequest
     include BaseGenericModel
 
