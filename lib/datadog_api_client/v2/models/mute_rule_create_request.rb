@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MuteRuleCreateRequest
     include BaseGenericModel
 
-    # The data object for a mute rule create or update request.
+    # The data object for a mute rule create request.
     attr_reader :data
 
     attr_accessor :additional_properties

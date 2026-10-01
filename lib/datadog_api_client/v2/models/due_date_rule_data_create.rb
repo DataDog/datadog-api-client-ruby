@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The data object for a due date rule create or update request.
+  # The data object for a due date rule create request.
   class DueDateRuleDataCreate
     include BaseGenericModel
 

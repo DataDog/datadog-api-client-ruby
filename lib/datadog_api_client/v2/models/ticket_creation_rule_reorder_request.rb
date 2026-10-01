@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of the ticket creation rule reorder request.
+  # The body of a ticket creation rule reorder request.
   class TicketCreationRuleReorderRequest
     include BaseGenericModel
 

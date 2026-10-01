@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class TicketCreationRuleUpdateRequest
     include BaseGenericModel
 
-    # The data object for a ticket creation rule create or update request.
+    # The data object for a ticket creation rule update request. The `id` must match the `rule_id` path parameter.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TicketCreationRuleDataCreate'
+        :'data' => :'TicketCreationRuleDataUpdate'
       }
     end
 

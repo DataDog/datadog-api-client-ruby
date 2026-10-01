@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of a due date rule create request.
-  class DueDateRuleCreateRequest
+  # The response of a ticket creation rule reorder request.
+  class TicketCreationRuleReorderResponse
     include BaseGenericModel
 
-    # The data object for a due date rule create request.
+    # The ordered list of all ticket creation rules. Every rule must be included.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'DueDateRuleDataCreate'
+        :'data' => :'Array<TicketCreationRuleReorderItem>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DueDateRuleCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TicketCreationRuleReorderResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,7 +61,9 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
     end
 

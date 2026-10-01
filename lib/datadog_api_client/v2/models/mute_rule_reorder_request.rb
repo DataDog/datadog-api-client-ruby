@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The body of the mute rule reorder request.
+  # The body of a mute rule reorder request.
   class MuteRuleReorderRequest
     include BaseGenericModel
 

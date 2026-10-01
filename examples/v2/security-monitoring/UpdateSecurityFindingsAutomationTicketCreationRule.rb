@@ -11,7 +11,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 VALID_TICKET_CREATION_RULE_DATA_ID = ENV["VALID_TICKET_CREATION_RULE_DATA_ID"]
 
 body = DatadogAPIClient::V2::TicketCreationRuleUpdateRequest.new({
-  data: DatadogAPIClient::V2::TicketCreationRuleDataCreate.new({
+  data: DatadogAPIClient::V2::TicketCreationRuleDataUpdate.new({
     attributes: DatadogAPIClient::V2::TicketCreationRuleAttributesCreate.new({
       action: DatadogAPIClient::V2::TicketCreationRuleAction.new({
         max_tickets_per_day: 5,
@@ -27,6 +27,7 @@ body = DatadogAPIClient::V2::TicketCreationRuleUpdateRequest.new({
         query: "env:staging",
       }),
     }),
+    id: VALID_TICKET_CREATION_RULE_DATA_ID,
     type: DatadogAPIClient::V2::TicketCreationRuleType::TICKET_CREATION_RULES,
   }),
 })

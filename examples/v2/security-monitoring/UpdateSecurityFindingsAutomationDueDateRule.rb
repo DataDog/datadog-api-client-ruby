@@ -11,7 +11,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 VALID_DUE_DATE_RULE_DATA_ID = ENV["VALID_DUE_DATE_RULE_DATA_ID"]
 
 body = DatadogAPIClient::V2::DueDateRuleUpdateRequest.new({
-  data: DatadogAPIClient::V2::DueDateRuleDataCreate.new({
+  data: DatadogAPIClient::V2::DueDateRuleDataUpdate.new({
     attributes: DatadogAPIClient::V2::DueDateRuleAttributesCreate.new({
       action: DatadogAPIClient::V2::DueDateRuleAction.new({
         due_days_per_severity: [
@@ -31,6 +31,7 @@ body = DatadogAPIClient::V2::DueDateRuleUpdateRequest.new({
         query: "env:staging",
       }),
     }),
+    id: VALID_DUE_DATE_RULE_DATA_ID,
     type: DatadogAPIClient::V2::DueDateRuleType::DUE_DATE_RULES,
   }),
 })
