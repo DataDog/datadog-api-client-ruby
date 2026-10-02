@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A dependency found in the repository, including its identity, location, and reachability metadata.
+  # A dependency found in the repository, including its identity, location, and `reachability metadata`.
   class ScaRequestDataAttributesDependenciesItems
     include BaseGenericModel
 
