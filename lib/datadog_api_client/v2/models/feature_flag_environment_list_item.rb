@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Indicates whether the environment is production.
     attr_accessor :is_production
 
+    # Indicates whether feature flag evaluation events include original targeting identifiers and full evaluation context.
+    attr_accessor :observe_full_evaluation_data
+
     # The allocation key used for the override variant.
     attr_accessor :override_allocation_key
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
         :'environment_name' => :'environment_name',
         :'environment_queries' => :'environment_queries',
         :'is_production' => :'is_production',
+        :'observe_full_evaluation_data' => :'observe_full_evaluation_data',
         :'override_allocation_key' => :'override_allocation_key',
         :'override_variant_id' => :'override_variant_id',
         :'pending_suggestion_id' => :'pending_suggestion_id',
@@ -84,6 +88,7 @@ module DatadogAPIClient::V2
         :'environment_name' => :'String',
         :'environment_queries' => :'Array<String>',
         :'is_production' => :'Boolean',
+        :'observe_full_evaluation_data' => :'Boolean',
         :'override_allocation_key' => :'String',
         :'override_variant_id' => :'String',
         :'pending_suggestion_id' => :'String',
@@ -144,6 +149,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'is_production')
         self.is_production = attributes[:'is_production']
+      end
+
+      if attributes.key?(:'observe_full_evaluation_data')
+        self.observe_full_evaluation_data = attributes[:'observe_full_evaluation_data']
       end
 
       if attributes.key?(:'override_allocation_key')
@@ -228,6 +237,7 @@ module DatadogAPIClient::V2
           environment_name == o.environment_name &&
           environment_queries == o.environment_queries &&
           is_production == o.is_production &&
+          observe_full_evaluation_data == o.observe_full_evaluation_data &&
           override_allocation_key == o.override_allocation_key &&
           override_variant_id == o.override_variant_id &&
           pending_suggestion_id == o.pending_suggestion_id &&
@@ -240,7 +250,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, additional_properties].hash
+      [default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, observe_full_evaluation_data, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, additional_properties].hash
     end
   end
 end
