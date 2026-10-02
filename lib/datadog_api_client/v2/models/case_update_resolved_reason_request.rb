@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for updating the resolution reason on a closed security case.
+  # Request payload for updating the resolution reason on a closed security work item.
   class CaseUpdateResolvedReasonRequest
     include BaseGenericModel
 
-    # Data object for updating a case's resolved reason.
+    # Data object for updating a work item's resolved reason.
     attr_reader :data
 
     attr_accessor :additional_properties

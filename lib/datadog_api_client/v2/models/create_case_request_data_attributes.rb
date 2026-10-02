@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Description of the case. If not provided, the description will be automatically generated.
     attr_accessor :description
 
-    # Case priority
+    # Work item priority
     attr_accessor :priority
 
     # Title of the case. If not provided, the title will be automatically generated.

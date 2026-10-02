@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The case event that activates the automation rule.
+  # The work item event that activates the automation rule.
   class AutomationRuleTriggerType
     include BaseEnumModel
 

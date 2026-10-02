@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A maintenance window that defines a scheduled time period during which case-related notifications and automation rules are suppressed. Each maintenance window applies to cases matching a specified query.
+  # A maintenance window that defines a scheduled time period during which notifications and automation rules related to work items are suppressed. Each maintenance window applies to work items matching a specified query.
   class MaintenanceWindow
     include BaseGenericModel
 
-    # Attributes of a maintenance window, including its schedule and the query that determines which cases are affected.
+    # Attributes of a maintenance window, including its schedule and the query that determines which work items are affected.
     attr_reader :attributes
 
     # The maintenance window's identifier.

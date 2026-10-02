@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing the list of users watching a case.
+  # Response containing the list of users watching a work item.
   class CaseWatchersResponse
     include BaseGenericModel
 
-    # List of case watchers.
+    # List of work item watchers.
     attr_reader :data
 
     attr_accessor :additional_properties

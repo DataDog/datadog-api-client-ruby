@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The type of AI agent to assign. Required when the action type is `ASSIGN_AGENT`.
     attr_accessor :agent_type
 
-    # The identifier of the AI agent to assign to the case. Required when the action type is `ASSIGN_AGENT`.
+    # The identifier of the AI agent to assign to the work item. Required when the action type is `ASSIGN_AGENT`.
     attr_accessor :assigned_agent_id
 
     # The handle of the Datadog workflow to execute. Required when the action type is `EXECUTE_WORKFLOW`.

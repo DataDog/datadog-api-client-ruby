@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # A description explaining the purpose and expected values for this custom attribute.
     attr_accessor :description
 
-    # The human-readable label shown in the Case Management UI for this custom attribute.
+    # The human-readable label shown in the Work Management UI for this custom attribute.
     attr_accessor :display_name
 
     # An external field identifier to auto-populate this attribute from (used for integrations with external systems).

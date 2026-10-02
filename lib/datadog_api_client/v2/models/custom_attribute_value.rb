@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A typed value for a custom attribute on a specific case.
+  # A typed value for a custom attribute on a specific work item.
   class CustomAttributeValue
     include BaseGenericModel
 

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes required to create an automation rule.
     attr_reader :attributes
 
-    # JSON:API resource type for case automation rules.
+    # JSON:API resource type for work item automation rules.
     attr_reader :type
 
     attr_accessor :additional_properties

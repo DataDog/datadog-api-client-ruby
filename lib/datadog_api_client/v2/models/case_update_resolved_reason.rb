@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for updating a case's resolved reason.
+  # Data object for updating a work item's resolved reason.
   class CaseUpdateResolvedReason
     include BaseGenericModel
 
-    # Attributes for setting the resolution reason on a security case.
+    # Attributes for setting the resolution reason on a security work item.
     attr_reader :attributes
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties

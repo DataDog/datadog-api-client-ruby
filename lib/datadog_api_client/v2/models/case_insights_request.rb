@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for adding or removing case insights.
+  # Request payload for adding or removing work item insights.
   class CaseInsightsRequest
     include BaseGenericModel
 

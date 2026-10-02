@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ProjectCreateAttributes
     include BaseGenericModel
 
-    # List of enabled custom case type IDs.
+    # List of enabled custom work item type IDs.
     attr_accessor :enabled_custom_case_types
 
     # Project's key. Cannot be "CASE".

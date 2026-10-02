@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Aggregated groups.
     attr_reader :groups
 
-    # Total count of aggregated cases.
+    # Total count of aggregated work items.
     attr_reader :total
 
     attr_accessor :additional_properties

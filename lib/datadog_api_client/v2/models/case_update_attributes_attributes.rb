@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case update attributes attributes
+  # Work item update attributes.
   class CaseUpdateAttributesAttributes
     include BaseGenericModel
 
-    # Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
+    # Key-value pairs of work item attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
     attr_reader :attributes
 
     attr_accessor :additional_properties

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case type
+  # Work item type
   #
   # @deprecated This model is deprecated.
   class CaseType
