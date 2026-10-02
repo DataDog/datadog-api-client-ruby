@@ -5842,9 +5842,6 @@ ScenariosModelMappings = {
     "v2.QueryAggregatedLongTasks" => {
             "body" => "AggregatedLongTasksRequest",
     },
-    "v2.QueryAggregatedSignalsProblems" => {
-            "body" => "AggregatedSignalsProblemsRequest",
-    },
     "v2.QueryAggregatedWaterfall" => {
             "body" => "AggregatedWaterfallRequest",
     },
