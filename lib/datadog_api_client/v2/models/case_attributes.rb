@@ -17,59 +17,59 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case resource attributes
+  # Work item resource attributes
   class CaseAttributes
     include BaseGenericModel
 
-    # Timestamp of when the case was archived
+    # Timestamp of when the work item was archived
     attr_accessor :archived_at
 
-    # Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
+    # Key-value pairs of work item attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
     attr_accessor :attributes
 
-    # Timestamp of when the case was closed
+    # Timestamp of when the work item was closed
     attr_accessor :closed_at
 
-    # Timestamp of when the case was created
+    # Timestamp of when the work item was created
     attr_accessor :created_at
 
-    # Case custom attributes
+    # Work item custom attributes
     attr_accessor :custom_attributes
 
     # Description
     attr_accessor :description
 
-    # Jira issue attached to case
+    # Jira issue attached to work item
     attr_accessor :jira_issue
 
     # Key
     attr_accessor :key
 
-    # Timestamp of when the case was last modified
+    # Timestamp of when the work item was last modified
     attr_accessor :modified_at
 
-    # Case priority
+    # Work item priority
     attr_accessor :priority
 
-    # ServiceNow ticket attached to case
+    # ServiceNow ticket attached to work item
     attr_accessor :service_now_ticket
 
-    # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+    # Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
     attr_accessor :status
 
-    # Status group of the case.
+    # Status group of the work item.
     attr_accessor :status_group
 
-    # Status of the case. Must be one of the existing statuses for the case's type.
+    # Status of the work item. Must be one of the existing statuses for the work item's type.
     attr_accessor :status_name
 
     # Title
     attr_accessor :title
 
-    # Case type
+    # Work item type
     attr_accessor :type
 
-    # Case type UUID
+    # Work item type UUID
     attr_accessor :type_id
 
     attr_accessor :additional_properties

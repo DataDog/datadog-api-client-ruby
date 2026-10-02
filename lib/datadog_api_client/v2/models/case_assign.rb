@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case assign
+  # Work item assign
   class CaseAssign
     include BaseGenericModel
 
-    # Case assign attributes
+    # Work item assign attributes
     attr_reader :attributes
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties

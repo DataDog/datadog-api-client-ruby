@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case update status attributes
+  # Work item update status attributes
   class CaseUpdateStatusAttributes
     include BaseGenericModel
 
-    # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+    # Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
     attr_accessor :status
 
-    # Status of the case. Must be one of the existing statuses for the case's type.
+    # Status of the work item. Must be one of the existing statuses for the work item's type.
     attr_accessor :status_name
 
     attr_accessor :additional_properties

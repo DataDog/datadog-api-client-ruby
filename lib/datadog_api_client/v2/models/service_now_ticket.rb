@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # ServiceNow ticket attached to case
+  # ServiceNow ticket attached to work item
   class ServiceNowTicket
     include BaseGenericModel
 
     # ServiceNow ticket information
     attr_accessor :result
 
-    # Case status
+    # Work item status
     attr_accessor :status
 
     attr_accessor :additional_properties

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A notification rule for case management
+  # A notification rule for Work Management
   class CaseNotificationRule
     include BaseGenericModel
 

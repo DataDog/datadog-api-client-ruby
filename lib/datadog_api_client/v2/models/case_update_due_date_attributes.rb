@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for setting or clearing a case's due date.
+  # Attributes for setting or clearing a work item's due date.
   class CaseUpdateDueDateAttributes
     include BaseGenericModel
 
-    # The target resolution date for the case, in `YYYY-MM-DD` format. Set to `null` to clear the due date.
+    # The target resolution date for the work item, in `YYYY-MM-DD` format. Set to `null` to clear the due date.
     attr_reader :due_date
 
     attr_accessor :additional_properties

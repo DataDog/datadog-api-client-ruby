@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of case types.
+  # Response containing a list of work item types.
   class CaseTypesResponse
     include BaseGenericModel
 
-    # List of case types
+    # List of work item types
     attr_accessor :data
 
     attr_accessor :additional_properties

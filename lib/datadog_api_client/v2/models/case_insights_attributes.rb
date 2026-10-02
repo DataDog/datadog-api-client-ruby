@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for adding or removing insights from a case.
+  # Attributes for adding or removing insights from a work item.
   class CaseInsightsAttributes
     include BaseGenericModel
 
-    # Array of insights to add to or remove from a case.
+    # Array of insights to add to or remove from a work item.
     attr_reader :insights
 
     attr_accessor :additional_properties

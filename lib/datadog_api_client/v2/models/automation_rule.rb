@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An automation rule that executes an action (such as running a Datadog workflow or assigning an AI agent) when a specified case event occurs within a project.
+  # An automation rule that executes an action (such as running a Datadog workflow or assigning an AI agent) when a specified work item event occurs within a project.
   class AutomationRule
     include BaseGenericModel
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Related resources for the automation rule, including the users who created and last modified it.
     attr_accessor :relationships
 
-    # JSON:API resource type for case automation rules.
+    # JSON:API resource type for work item automation rules.
     attr_reader :type
 
     attr_accessor :additional_properties

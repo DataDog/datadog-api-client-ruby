@@ -33,9 +33,9 @@ module DatadogAPIClient::V2
 
     # Create custom attribute config for a case type.
     #
-    # Create custom attribute config for a case type
+    # Create a custom attribute configuration for a work item type.
     #
-    # @param case_type_id [String] The UUID of the case type.
+    # @param case_type_id [String] The UUID of the work item type.
     # @param body [CustomAttributeConfigCreateRequest] Custom attribute config payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomAttributeConfigResponse, Integer, Hash)>] CustomAttributeConfigResponse data, response status code and response headers
@@ -107,8 +107,8 @@ module DatadogAPIClient::V2
     #
     # Delete custom attribute config
     #
-    # @param case_type_id [String] The UUID of the case type.
-    # @param custom_attribute_id [String] Case Custom attribute's UUID
+    # @param case_type_id [String] The UUID of the work item type.
+    # @param custom_attribute_id [String] Work item custom attribute's UUID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_custom_attribute_config_with_http_info(case_type_id, custom_attribute_id, opts = {})
@@ -175,9 +175,9 @@ module DatadogAPIClient::V2
 
     # Get all custom attributes config of case type.
     #
-    # Get all custom attribute config of case type
+    # Get custom attribute configurations for a work item type.
     #
-    # @param case_type_id [String] The UUID of the case type.
+    # @param case_type_id [String] The UUID of the work item type.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomAttributeConfigsResponse, Integer, Hash)>] CustomAttributeConfigsResponse data, response status code and response headers
     def get_all_custom_attribute_configs_by_case_type_with_http_info(case_type_id, opts = {})
@@ -300,10 +300,10 @@ module DatadogAPIClient::V2
 
     # Update custom attribute config.
     #
-    # Updates the display name, description, type, or options of an existing custom attribute configuration for a case type.
+    # Updates the display name, description, type, or options of an existing custom attribute configuration for a work item type.
     #
-    # @param case_type_id [String] The UUID of the case type.
-    # @param custom_attribute_id [String] Case Custom attribute's UUID
+    # @param case_type_id [String] The UUID of the work item type.
+    # @param custom_attribute_id [String] Work item custom attribute's UUID.
     # @param body [CustomAttributeConfigUpdateRequest] Custom attribute config payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomAttributeConfigResponse, Integer, Hash)>] CustomAttributeConfigResponse data, response status code and response headers

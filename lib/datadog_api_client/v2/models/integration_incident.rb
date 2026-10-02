@@ -30,13 +30,13 @@ module DatadogAPIClient::V2
     # Whether incident integration is enabled.
     attr_accessor :enabled
 
-    # List of mappings between incident fields and case fields.
+    # List of mappings between incident fields and work item fields.
     attr_accessor :field_mappings
 
     # Incident type.
     attr_accessor :incident_type
 
-    # Severity configuration for mapping incident priorities to case priorities.
+    # Severity configuration for mapping incident priorities to work item priorities.
     attr_accessor :severity_config
 
     attr_accessor :additional_properties

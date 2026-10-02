@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes describing a directional relationship between two entities (cases, incidents, or pages).
+  # Attributes describing a directional relationship between two entities (work items, incidents, or pages).
   class CaseLinkAttributes
     include BaseGenericModel
 

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for updating a case view.
+  # Request payload for updating a work item view.
   class CaseViewUpdateRequest
     include BaseGenericModel
 
-    # Data object for updating a case view.
+    # Data object for updating a work item view.
     attr_reader :data
 
     attr_accessor :additional_properties

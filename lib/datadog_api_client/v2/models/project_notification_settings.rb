@@ -27,25 +27,25 @@ module DatadogAPIClient::V2
     # Whether notifications are enabled.
     attr_accessor :enabled
 
-    # Whether to send a notification when a case is assigned.
+    # Whether to send a notification when a work item is assigned.
     attr_accessor :notify_on_case_assignment
 
-    # Whether to send a notification when a case is closed.
+    # Whether to send a notification when a work item is closed.
     attr_accessor :notify_on_case_closed
 
-    # Whether to send a notification when a comment is added to a case.
+    # Whether to send a notification when a comment is added to a work item.
     attr_accessor :notify_on_case_comment
 
-    # Whether to send a notification when a user is mentioned in a case comment.
+    # Whether to send a notification when a user is mentioned in a work item comment.
     attr_accessor :notify_on_case_comment_mention
 
-    # Whether to send a notification when a case's priority changes.
+    # Whether to send a notification when a work item's priority changes.
     attr_accessor :notify_on_case_priority_change
 
-    # Whether to send a notification when a case's status changes.
+    # Whether to send a notification when a work item's status changes.
     attr_accessor :notify_on_case_status_change
 
-    # Whether to send a notification when a case is unassigned.
+    # Whether to send a notification when a work item is unassigned.
     attr_accessor :notify_on_case_unassignment
 
     attr_accessor :additional_properties

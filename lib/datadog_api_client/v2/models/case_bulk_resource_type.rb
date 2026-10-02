@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for bulk case operations.
+  # JSON:API resource type for bulk work item operations.
   class CaseBulkResourceType
     include BaseEnumModel
 

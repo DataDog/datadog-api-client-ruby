@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Auto-creation settings for Jira issues from cases.
+  # Auto-creation settings for Jira issues from work items.
   class IntegrationJiraAutoCreation
     include BaseGenericModel
 

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Whether the notification rule is enabled
     attr_accessor :is_enabled
 
-    # Query to filter cases for this notification rule
+    # Query to filter work items for this notification rule
     attr_accessor :query
 
     # List of notification recipients
