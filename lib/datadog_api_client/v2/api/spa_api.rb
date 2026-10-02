@@ -96,6 +96,87 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get SPA recommendations v2.
+    #
+    # @see #get_spa_recommendations_v2_with_http_info
+    def get_spa_recommendations_v2(service, body, opts = {})
+      data, _status_code, _headers = get_spa_recommendations_v2_with_http_info(service, body, opts)
+      data
+    end
+
+    # Get SPA recommendations v2.
+    #
+    # This endpoint is experimental and restricted to Datadog internal use only.
+    # Retrieve resource recommendations for a Spark job. The caller (Spark Gateway) provides
+    # a service name and the job's raw arguments. SPA determines which arguments are relevant
+    # for the service and returns structured recommendations for driver and executor resources.
+    #
+    # @param service [String] The service name for a Spark job
+    # @param body [RecommendationV2RequestBody] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RecommendationDocument, Integer, Hash)>] RecommendationDocument data, response status code and response headers
+    def get_spa_recommendations_v2_with_http_info(service, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_spa_recommendations_v2".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_spa_recommendations_v2")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_spa_recommendations_v2"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SpaAPI.get_spa_recommendations_v2 ...'
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling SpaAPI.get_spa_recommendations_v2"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SpaAPI.get_spa_recommendations_v2"
+      end
+      # resource path
+      local_var_path = '/api/v2/spa/recommendations-v2/{service}'.sub('{service}', CGI.escape(service.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RecommendationDocument'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_spa_recommendations_v2,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SpaAPI#get_spa_recommendations_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get SPA Recommendations with a shard parameter.
     #
     # @see #get_spa_recommendations_with_shard_with_http_info
