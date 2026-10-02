@@ -352,7 +352,7 @@ module DatadogAPIClient
         end
       else
         # models (e.g. Pet) or oneOf
-        klass = DatadogAPIClient.const_get(api_version).const_get(return_type)
+        klass = DatadogAPIClient.const_get(api_version).model_class(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end
     end
@@ -369,7 +369,8 @@ module DatadogAPIClient
     def build_request_url(path, opts = {})
       # Add leading and trailing slashes to path
       path = "/#{path}".gsub(/\/+/, '/')
-      @config.base_url("#{opts[:api_version].respond_to?(:downcase) ? opts[:api_version].downcase : opts[:api_version]}.#{opts[:operation]}") + path
+      path_version = opts[:path_version] || opts[:api_version]
+      @config.base_url("#{path_version.respond_to?(:downcase) ? path_version.downcase : path_version}.#{opts[:operation]}") + path
     end
 
     # Update header and query params based on authentication settings.
@@ -526,7 +527,7 @@ module DatadogAPIClient
         else
           obj = obj.send(attr)
         end
-        builder = DatadogAPIClient.const_get(api_version).const_get(builder.openapi_types[attr.to_sym]) if i > 0
+        builder = DatadogAPIClient.const_get(api_version).model_class(builder.openapi_types[attr.to_sym]) if i > 0
         obj = builder.new if obj.nil?
         i += 1
       end
