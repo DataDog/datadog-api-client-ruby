@@ -767,7 +767,6 @@ module DatadogAPIClient
             "v2.update_rum_operation": false,
             "v2.update_rum_operation_strong_link": false,
             "v2.query_aggregated_long_tasks": false,
-            "v2.query_aggregated_signals_problems": false,
             "v2.query_aggregated_waterfall": false,
             "v2.create_scorecard_outcomes_batch": false,
             "v2.get_entity_risk_score": false,
