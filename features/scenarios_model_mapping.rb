@@ -3497,6 +3497,207 @@ ScenariosModelMappings = {
     "v2.GetEvent" => {
             "event_id" => "String",
     },
+    "v2.ListExperiments" => {
+            "concluded_since" => "Time",
+            "created_since" => "Time",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "protocol_id" => "Array<UUID>",
+            "results_updated_before" => "Time",
+            "results_updated_since" => "Time",
+            "search" => "String",
+            "sort" => "String",
+            "status" => "Array<String>",
+            "tags" => "Array<String>",
+    },
+    "v2.CreateExperiment" => {
+            "body" => "ExperimentsCreateExperimentV2Request",
+    },
+    "v2.ListExposureSQLModels" => {
+            "include" => "Array<String>",
+            "include_archived" => "Boolean",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "search" => "String",
+            "sort" => "String",
+    },
+    "v2.CreateExposureSQLModel" => {
+            "body" => "ExperimentsCreateExposureSQLModelV2Request",
+    },
+    "v2.GetExposureSQLModel" => {
+            "exposure_sql_model_id" => "UUID",
+            "include" => "Array<String>",
+    },
+    "v2.UpdateExposureSQLModel" => {
+            "exposure_sql_model_id" => "UUID",
+            "include" => "Array<String>",
+            "body" => "ExperimentsCreateExposureSQLModelV2Request",
+    },
+    "v2.ArchiveExposureSQLModel" => {
+            "exposure_sql_model_id" => "UUID",
+    },
+    "v2.UnarchiveExposureSQLModel" => {
+            "exposure_sql_model_id" => "UUID",
+    },
+    "v2.ListMetricCollections" => {
+            "include" => "Array<String>",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "search" => "String",
+            "sort" => "String",
+    },
+    "v2.CreateMetricCollection" => {
+            "body" => "ExperimentsCreateMetricCollectionV2Request",
+    },
+    "v2.DeleteMetricCollection" => {
+            "metric_collection_id" => "UUID",
+    },
+    "v2.GetMetricCollection" => {
+            "metric_collection_id" => "UUID",
+    },
+    "v2.UpdateMetricCollection" => {
+            "metric_collection_id" => "UUID",
+            "body" => "ExperimentsPatchMetricCollectionV2Request",
+    },
+    "v2.ListMetricSQLModels" => {
+            "include" => "Array<String>",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "sort" => "String",
+    },
+    "v2.CreateMetricSQLModel" => {
+            "body" => "ExperimentsCreateMetricSQLModelV2Request",
+    },
+    "v2.GetMetricSQLModel" => {
+            "include" => "Array<String>",
+            "metric_sql_model_id" => "UUID",
+    },
+    "v2.UpdateMetricSQLModel" => {
+            "metric_sql_model_id" => "UUID",
+            "body" => "ExperimentsCreateMetricSQLModelV2Request",
+    },
+    "v2.ListMetrics" => {
+            "include" => "Array<String>",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "search" => "String",
+            "sort" => "String",
+    },
+    "v2.CreateMetric" => {
+            "body" => "ExperimentsCreateMetricV2Request",
+    },
+    "v2.DeleteMetric" => {
+            "metric_id" => "UUID",
+    },
+    "v2.GetMetric" => {
+            "include" => "Array<String>",
+            "metric_id" => "UUID",
+    },
+    "v2.UpdateMetric" => {
+            "metric_id" => "UUID",
+            "body" => "ExperimentsUpdateMetricV2Request",
+    },
+    "v2.ListExperimentProtocols" => {
+            "filter_status" => "Array<ExperimentsPublicProtocolResponseDataAttributesStatus>",
+            "filter_primary_metric_id" => "UUID",
+            "filter_query" => "String",
+            "filter_subject_type_id" => "UUID",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "sort" => "String",
+    },
+    "v2.GetExperimentProtocol" => {
+            "protocol_id" => "UUID",
+    },
+    "v2.RefreshExperimentResultsForOrg" => {
+            "full_refresh" => "Boolean",
+    },
+    "v2.ListSubjectTypes" => {
+            "include" => "String",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "search" => "String",
+            "sort" => "String",
+    },
+    "v2.CreateSubjectType" => {
+            "body" => "ExperimentsCreateSubjectTypeV2Request",
+    },
+    "v2.DeleteSubjectType" => {
+            "subject_type_id" => "UUID",
+    },
+    "v2.GetSubjectType" => {
+            "include" => "String",
+            "subject_type_id" => "UUID",
+    },
+    "v2.PatchSubjectType" => {
+            "subject_type_id" => "UUID",
+            "body" => "ExperimentsPatchSubjectTypeV2Request",
+    },
+    "v2.SetDefaultSubjectType" => {
+            "subject_type_id" => "UUID",
+    },
+    "v2.DeleteExperiment" => {
+            "experiment_id" => "UUID",
+    },
+    "v2.GetExperiment" => {
+            "experiment_id" => "UUID",
+    },
+    "v2.PatchExperiment" => {
+            "experiment_id" => "UUID",
+            "body" => "ExperimentsPatchExperimentV2Request",
+    },
+    "v2.GetExperimentAnalysisPlan" => {
+            "experiment_id" => "UUID",
+    },
+    "v2.UpdateExperimentAnalysisPlanAttributes" => {
+            "experiment_id" => "UUID",
+            "body" => "ExperimentsAnalysisPlanWriteV2Request",
+    },
+    "v2.CancelExperiment" => {
+            "experiment_id" => "UUID",
+            "body" => "ExperimentsCancelExperimentV2Request",
+    },
+    "v2.ConcludeExperiment" => {
+            "experiment_id" => "UUID",
+            "body" => "ExperimentsConcludeExperimentV2Request",
+    },
+    "v2.GetExperimentDiagnostics" => {
+            "experiment_id" => "UUID",
+    },
+    "v2.ListExperimentMetricGroups" => {
+            "experiment_id" => "UUID",
+    },
+    "v2.CreateExperimentMetricGroup" => {
+            "experiment_id" => "UUID",
+            "body" => "ExperimentsCreateExperimentMetricGroupV2Request",
+    },
+    "v2.CreateExperimentMetricGroupFromCollection" => {
+            "experiment_id" => "UUID",
+            "metric_collection_id" => "UUID",
+    },
+    "v2.DeleteExperimentMetricGroup" => {
+            "experiment_id" => "UUID",
+            "metric_group_id" => "UUID",
+    },
+    "v2.UpdateExperimentMetricGroup" => {
+            "experiment_id" => "UUID",
+            "metric_group_id" => "UUID",
+            "body" => "ExperimentsPatchExperimentMetricGroupV2Request",
+    },
+    "v2.GetExperimentResults" => {
+            "experiment_id" => "UUID",
+    },
+    "v2.RefreshExperimentResults" => {
+            "experiment_id" => "UUID",
+            "full_refresh" => "Boolean",
+    },
+    "v2.StartExperiment" => {
+            "experiment_id" => "UUID",
+            "body" => "ExperimentsStartExperimentV2Request",
+    },
+    "v2.GetExperimentTrafficSummary" => {
+            "experiment_id" => "UUID",
+    },
     "v2.ListFeatureFlags" => {
             "key" => "String",
             "is_archived" => "Boolean",
