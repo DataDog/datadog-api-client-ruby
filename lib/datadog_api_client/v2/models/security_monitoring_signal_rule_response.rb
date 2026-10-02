@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_accessor :cases
 
+    # The version of the rule at which its detection logic last changed. Updates that only change the name, message, tags, or notifications do not change this value.
+    attr_accessor :compatible_version
+
     # When the rule was created, timestamp in milliseconds.
     attr_accessor :created_at
 
@@ -88,6 +91,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cases' => :'cases',
+        :'compatible_version' => :'compatibleVersion',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
         :'custom_message' => :'customMessage',
@@ -115,6 +119,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
+        :'compatible_version' => :'Integer',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
         :'custom_message' => :'String',
@@ -159,6 +164,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
         end
+      end
+
+      if attributes.key?(:'compatible_version')
+        self.compatible_version = attributes[:'compatible_version']
       end
 
       if attributes.key?(:'created_at')
@@ -271,6 +280,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cases == o.cases &&
+          compatible_version == o.compatible_version &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
           custom_message == o.custom_message &&
@@ -297,7 +307,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, created_at, creation_author_id, custom_message, custom_name, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version, additional_properties].hash
+      [cases, compatible_version, created_at, creation_author_id, custom_message, custom_name, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version, additional_properties].hash
     end
   end
 end

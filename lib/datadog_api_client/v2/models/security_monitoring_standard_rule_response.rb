@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_accessor :cases
 
+    # The version of the rule at which its detection logic last changed. Updates that only change the name, message, tags, or notifications do not change this value.
+    attr_accessor :compatible_version
+
     # How to generate compliance signals. Useful for cloud_configuration rules only.
     attr_accessor :compliance_signal_options
 
@@ -113,6 +116,7 @@ module DatadogAPIClient::V2
       {
         :'calculated_fields' => :'calculatedFields',
         :'cases' => :'cases',
+        :'compatible_version' => :'compatibleVersion',
         :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
@@ -148,6 +152,7 @@ module DatadogAPIClient::V2
       {
         :'calculated_fields' => :'Array<CalculatedField>',
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
+        :'compatible_version' => :'Integer',
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
@@ -213,6 +218,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
         end
+      end
+
+      if attributes.key?(:'compatible_version')
+        self.compatible_version = attributes[:'compatible_version']
       end
 
       if attributes.key?(:'compliance_signal_options')
@@ -362,6 +371,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           calculated_fields == o.calculated_fields &&
           cases == o.cases &&
+          compatible_version == o.compatible_version &&
           compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
@@ -395,7 +405,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculated_fields, cases, compliance_signal_options, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, scheduling_options, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
+      [calculated_fields, cases, compatible_version, compliance_signal_options, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, scheduling_options, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
     end
   end
 end
