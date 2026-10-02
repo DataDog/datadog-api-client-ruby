@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Email notification settings for the team
-  class TeamNotificationRuleAttributesEmail
+  # ServiceNow notification settings for the team.
+  class TeamNotificationRuleAttributesServiceNow
     include BaseGenericModel
 
-    # Flag indicating email notification
-    attr_accessor :enabled
-
-    # Email address to notify. When omitted and email notifications are enabled, notifications are sent to all team members.
-    attr_accessor :recipient_email
+    # ServiceNow template handle names to use for notifications.
+    attr_accessor :templates
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'enabled' => :'enabled',
-        :'recipient_email' => :'recipient_email'
+        :'templates' => :'templates'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'enabled' => :'Boolean',
-        :'recipient_email' => :'String'
+        :'templates' => :'Array<String>'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamNotificationRuleAttributesEmail` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamNotificationRuleAttributesServiceNow` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +60,10 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
-      end
-
-      if attributes.key?(:'recipient_email')
-        self.recipient_email = attributes[:'recipient_email']
+      if attributes.key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
       end
     end
 
@@ -100,8 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          enabled == o.enabled &&
-          recipient_email == o.recipient_email &&
+          templates == o.templates &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, recipient_email, additional_properties].hash
+      [templates, additional_properties].hash
     end
   end
 end
