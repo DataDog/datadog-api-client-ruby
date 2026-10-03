@@ -13,10 +13,8 @@ body = DatadogAPIClient::V2::UsageQuotasCreateRequest.new({
     DatadogAPIClient::V2::UsageQuotaCreateData.new({
       attributes: DatadogAPIClient::V2::UsageQuotaCreateAttributes.new({
         enforced: true,
-        scope: {
-          user_handle: "jane@example.com",
-        },
-        usage_limit: 100000,
+        pending_usage_limit: 100000,
+        usage_limit: 600000,
       }),
       type: DatadogAPIClient::V2::UsageQuotaType::QUOTAS,
     }),
