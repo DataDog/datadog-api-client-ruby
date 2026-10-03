@@ -2060,6 +2060,10 @@ ScenariosModelMappings = {
     "v2.SearchCIAppTestEvents" => {
             "body" => "CIAppTestEventsRequest",
     },
+    "v2.SubmitCILog" => {
+            "content_encoding" => "CILogContentEncoding",
+            "body" => "Array<CILogItem>",
+    },
     "v2.CreateAWSCloudAuthPersonaMapping" => {
             "body" => "AWSCloudAuthPersonaMappingCreateRequest",
     },
