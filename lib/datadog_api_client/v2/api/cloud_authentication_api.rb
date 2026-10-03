@@ -96,6 +96,152 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a GitHub cloud auth intake mapping.
+    #
+    # @see #create_git_hub_cloud_auth_intake_mapping_with_http_info
+    def create_git_hub_cloud_auth_intake_mapping(body, opts = {})
+      data, _status_code, _headers = create_git_hub_cloud_auth_intake_mapping_with_http_info(body, opts)
+      data
+    end
+
+    # Create a GitHub cloud auth intake mapping.
+    #
+    # Create a GitHub cloud authentication intake mapping. This endpoint entitles a matching GitHub Actions OIDC principal to request Datadog API keys.
+    #
+    # @param body [GitHubCloudAuthIntakeMappingCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GitHubCloudAuthIntakeMappingResponse, Integer, Hash)>] GitHubCloudAuthIntakeMappingResponse data, response status code and response headers
+    def create_git_hub_cloud_auth_intake_mapping_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_git_hub_cloud_auth_intake_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_git_hub_cloud_auth_intake_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_git_hub_cloud_auth_intake_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.create_git_hub_cloud_auth_intake_mapping ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_git_hub_cloud_auth_intake_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/intake_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GitHubCloudAuthIntakeMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_git_hub_cloud_auth_intake_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#create_git_hub_cloud_auth_intake_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a GitHub cloud auth persona mapping.
+    #
+    # @see #create_git_hub_cloud_auth_persona_mapping_with_http_info
+    def create_git_hub_cloud_auth_persona_mapping(body, opts = {})
+      data, _status_code, _headers = create_git_hub_cloud_auth_persona_mapping_with_http_info(body, opts)
+      data
+    end
+
+    # Create a GitHub cloud auth persona mapping.
+    #
+    # Create a GitHub cloud authentication persona mapping. This endpoint associates a GitHub Actions OIDC principal with a Datadog user. The mapped principal can request an impersonation token.
+    #
+    # @param body [GitHubCloudAuthPersonaMappingCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GitHubCloudAuthPersonaMappingResponse, Integer, Hash)>] GitHubCloudAuthPersonaMappingResponse data, response status code and response headers
+    def create_git_hub_cloud_auth_persona_mapping_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_git_hub_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_git_hub_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_git_hub_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.create_git_hub_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_git_hub_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/persona_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GitHubCloudAuthPersonaMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_git_hub_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#create_git_hub_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an AWS cloud authentication persona mapping.
     #
     # @see #delete_aws_cloud_auth_persona_mapping_with_http_info
@@ -163,6 +309,148 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_aws_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a GitHub cloud auth intake mapping.
+    #
+    # @see #delete_git_hub_cloud_auth_intake_mapping_with_http_info
+    def delete_git_hub_cloud_auth_intake_mapping(intake_mapping_id, opts = {})
+      delete_git_hub_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts)
+      nil
+    end
+
+    # Delete a GitHub cloud auth intake mapping.
+    #
+    # Delete a GitHub cloud authentication intake mapping by ID. This removes a GitHub Actions OIDC principal's entitlement to request Datadog API keys.
+    #
+    # @param intake_mapping_id [String] The ID of the intake mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_git_hub_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_git_hub_cloud_auth_intake_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_git_hub_cloud_auth_intake_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_git_hub_cloud_auth_intake_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.delete_git_hub_cloud_auth_intake_mapping ...'
+      end
+      # verify the required parameter 'intake_mapping_id' is set
+      if @api_client.config.client_side_validation && intake_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'intake_mapping_id' when calling CloudAuthenticationAPI.delete_git_hub_cloud_auth_intake_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_git_hub_cloud_auth_intake_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_git_hub_cloud_auth_intake_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a GitHub cloud auth persona mapping.
+    #
+    # @see #delete_git_hub_cloud_auth_persona_mapping_with_http_info
+    def delete_git_hub_cloud_auth_persona_mapping(persona_mapping_id, opts = {})
+      delete_git_hub_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts)
+      nil
+    end
+
+    # Delete a GitHub cloud auth persona mapping.
+    #
+    # Delete a GitHub cloud authentication persona mapping by ID. This removes the association between a GitHub Actions OIDC principal and a Datadog user.
+    #
+    # @param persona_mapping_id [String] The ID of the persona mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_git_hub_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_git_hub_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_git_hub_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_git_hub_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.delete_git_hub_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'persona_mapping_id' is set
+      if @api_client.config.client_side_validation && persona_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.delete_git_hub_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_git_hub_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_git_hub_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -238,6 +526,148 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a GitHub cloud authentication intake mapping.
+    #
+    # @see #get_git_hub_cloud_auth_intake_mapping_with_http_info
+    def get_git_hub_cloud_auth_intake_mapping(intake_mapping_id, opts = {})
+      data, _status_code, _headers = get_git_hub_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts)
+      data
+    end
+
+    # Get a GitHub cloud authentication intake mapping.
+    #
+    # Get a specific GitHub cloud authentication intake mapping by ID. This endpoint retrieves a single configured intake mapping that entitles a matching GitHub Actions OIDC principal to request Datadog API keys.
+    #
+    # @param intake_mapping_id [String] The ID of the intake mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GitHubCloudAuthIntakeMappingResponse, Integer, Hash)>] GitHubCloudAuthIntakeMappingResponse data, response status code and response headers
+    def get_git_hub_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_git_hub_cloud_auth_intake_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_git_hub_cloud_auth_intake_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_git_hub_cloud_auth_intake_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.get_git_hub_cloud_auth_intake_mapping ...'
+      end
+      # verify the required parameter 'intake_mapping_id' is set
+      if @api_client.config.client_side_validation && intake_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'intake_mapping_id' when calling CloudAuthenticationAPI.get_git_hub_cloud_auth_intake_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GitHubCloudAuthIntakeMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_git_hub_cloud_auth_intake_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#get_git_hub_cloud_auth_intake_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a GitHub cloud authentication persona mapping.
+    #
+    # @see #get_git_hub_cloud_auth_persona_mapping_with_http_info
+    def get_git_hub_cloud_auth_persona_mapping(persona_mapping_id, opts = {})
+      data, _status_code, _headers = get_git_hub_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts)
+      data
+    end
+
+    # Get a GitHub cloud authentication persona mapping.
+    #
+    # Get a specific GitHub cloud authentication persona mapping by ID. This endpoint retrieves a single configured persona mapping that associates a GitHub Actions OIDC principal with a Datadog user. The mapped principal can request an impersonation token.
+    #
+    # @param persona_mapping_id [String] The ID of the persona mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GitHubCloudAuthPersonaMappingResponse, Integer, Hash)>] GitHubCloudAuthPersonaMappingResponse data, response status code and response headers
+    def get_git_hub_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_git_hub_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_git_hub_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_git_hub_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.get_git_hub_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'persona_mapping_id' is set
+      if @api_client.config.client_side_validation && persona_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.get_git_hub_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GitHubCloudAuthPersonaMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_git_hub_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#get_git_hub_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List AWS cloud authentication persona mappings.
     #
     # @see #list_aws_cloud_auth_persona_mappings_with_http_info
@@ -300,6 +730,138 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAuthenticationAPI#list_aws_cloud_auth_persona_mappings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List GitHub cloud authentication intake mappings.
+    #
+    # @see #list_git_hub_cloud_auth_intake_mappings_with_http_info
+    def list_git_hub_cloud_auth_intake_mappings(opts = {})
+      data, _status_code, _headers = list_git_hub_cloud_auth_intake_mappings_with_http_info(opts)
+      data
+    end
+
+    # List GitHub cloud authentication intake mappings.
+    #
+    # List all GitHub cloud authentication intake mappings. This endpoint retrieves all configured intake mappings that entitle matching GitHub Actions OIDC principals to request Datadog API keys.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GitHubCloudAuthIntakeMappingsResponse, Integer, Hash)>] GitHubCloudAuthIntakeMappingsResponse data, response status code and response headers
+    def list_git_hub_cloud_auth_intake_mappings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_git_hub_cloud_auth_intake_mappings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_git_hub_cloud_auth_intake_mappings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_git_hub_cloud_auth_intake_mappings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_git_hub_cloud_auth_intake_mappings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/intake_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GitHubCloudAuthIntakeMappingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_git_hub_cloud_auth_intake_mappings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#list_git_hub_cloud_auth_intake_mappings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List GitHub cloud authentication persona mappings.
+    #
+    # @see #list_git_hub_cloud_auth_persona_mappings_with_http_info
+    def list_git_hub_cloud_auth_persona_mappings(opts = {})
+      data, _status_code, _headers = list_git_hub_cloud_auth_persona_mappings_with_http_info(opts)
+      data
+    end
+
+    # List GitHub cloud authentication persona mappings.
+    #
+    # List all GitHub cloud authentication persona mappings. This endpoint retrieves all configured persona mappings that associate GitHub Actions OpenID Connect (OIDC) principals with Datadog users. Mapped principals can request impersonation tokens.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GitHubCloudAuthPersonaMappingsResponse, Integer, Hash)>] GitHubCloudAuthPersonaMappingsResponse data, response status code and response headers
+    def list_git_hub_cloud_auth_persona_mappings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_git_hub_cloud_auth_persona_mappings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_git_hub_cloud_auth_persona_mappings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_git_hub_cloud_auth_persona_mappings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_git_hub_cloud_auth_persona_mappings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/github/persona_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GitHubCloudAuthPersonaMappingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_git_hub_cloud_auth_persona_mappings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#list_git_hub_cloud_auth_persona_mappings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
