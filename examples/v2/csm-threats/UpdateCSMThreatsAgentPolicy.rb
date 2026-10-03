@@ -6,14 +6,14 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new
 
-# there is a valid "policy_rc" in the system
-POLICY_DATA_ID = ENV["POLICY_DATA_ID"]
+# there is a valid "policy_rc_disabled" in the system
+POLICY_DISABLED_DATA_ID = ENV["POLICY_DISABLED_DATA_ID"]
 
 body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateRequest.new({
   data: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateData.new({
     attributes: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateAttributes.new({
       description: "Updated agent policy",
-      enabled: true,
+      enabled: false,
       host_tags_lists: [
         [
           "env:test",
@@ -21,8 +21,8 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateRequest.new({
       ],
       name: "updated_agent_policy",
     }),
-    id: POLICY_DATA_ID,
+    id: POLICY_DISABLED_DATA_ID,
     type: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyType::POLICY,
   }),
 })
-p api_instance.update_csm_threats_agent_policy(POLICY_DATA_ID, body)
+p api_instance.update_csm_threats_agent_policy(POLICY_DISABLED_DATA_ID, body)
