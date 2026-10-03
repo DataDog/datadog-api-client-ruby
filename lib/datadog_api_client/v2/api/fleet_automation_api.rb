@@ -493,6 +493,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a configuration file's schema by path.
+    #
+    # @see #get_fleet_config_file_schema_v2_with_http_info
+    def get_fleet_config_file_schema_v2(file_path, opts = {})
+      data, _status_code, _headers = get_fleet_config_file_schema_v2_with_http_info(file_path, opts)
+      data
+    end
+
+    # Get a configuration file's schema by path.
+    #
+    # Retrieve the schema for a configuration file, identified by the file
+    # path reported by the Datadog Agent. A schema describes the structure
+    # and options of a configuration file. Works for both integration
+    # configuration files and core Agent configuration files.
+    #
+    # The schema defines which fields can be edited remotely from Fleet
+    # Automation using `POST /api/v2/fleet/deployments/configure`.
+    #
+    # @param file_path [String] The configuration file path reported by the Datadog Agent (for example, `conf.d/postgres.d/conf.yaml` or `datadog.yaml`).
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetConfigFileSchemaV2Response, Integer, Hash)>] FleetConfigFileSchemaV2Response data, response status code and response headers
+    def get_fleet_config_file_schema_v2_with_http_info(file_path, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_config_file_schema_v2 ...'
+      end
+      # verify the required parameter 'file_path' is set
+      if @api_client.config.client_side_validation && file_path.nil?
+        fail ArgumentError, "Missing the required parameter 'file_path' when calling FleetAutomationAPI.get_fleet_config_file_schema_v2"
+      end
+      # resource path
+      local_var_path = '/api/v2/fleet/schemas/config-file'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'file_path'] = file_path
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetConfigFileSchemaV2Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_fleet_config_file_schema_v2,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_config_file_schema_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a deployment by ID.
     #
     # @see #get_fleet_deployment_v2_with_http_info
