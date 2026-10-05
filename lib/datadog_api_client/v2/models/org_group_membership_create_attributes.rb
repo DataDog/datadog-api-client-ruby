@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for bulk updating org group memberships.
-  class OrgGroupMembershipBulkUpdateAttributes
+  # Attributes for adding organizations to an org group.
+  class OrgGroupMembershipCreateAttributes
     include BaseGenericModel
 
-    # List of organizations to move. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
+    # List of organizations to add. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
     attr_reader :orgs
 
     attr_accessor :additional_properties
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgGroupMembershipBulkUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgGroupMembershipCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}

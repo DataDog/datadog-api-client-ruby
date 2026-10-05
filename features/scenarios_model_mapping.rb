@@ -5344,8 +5344,19 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "sort" => "OrgGroupMembershipSortOption",
     },
+    "v2.CreateOrgGroupMemberships" => {
+            "body" => "OrgGroupMembershipCreateRequest",
+    },
     "v2.BulkUpdateOrgGroupMemberships" => {
             "body" => "OrgGroupMembershipBulkUpdateRequest",
+    },
+    "v2.BulkDeleteOrgGroupMemberships" => {
+            "filter_org_group_id" => "UUID",
+            "body" => "OrgGroupMembershipBulkDeleteRequest",
+    },
+    "v2.DeleteOrgGroupMembership" => {
+            "org_group_membership_id" => "UUID",
+            "filter_org_group_id" => "UUID",
     },
     "v2.GetOrgGroupMembership" => {
             "org_group_membership_id" => "UUID",

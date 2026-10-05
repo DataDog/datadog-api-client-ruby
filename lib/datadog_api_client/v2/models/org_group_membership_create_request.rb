@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for bulk updating org group memberships.
-  class OrgGroupMembershipBulkUpdateAttributes
+  # Request to add organizations to an org group.
+  class OrgGroupMembershipCreateRequest
     include BaseGenericModel
 
-    # List of organizations to move. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
-    attr_reader :orgs
+    # Data for adding organizations to an org group.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'orgs' => :'orgs'
+        :'data' => :'data'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'orgs' => :'Array<GlobalOrgIdentifier>'
+        :'data' => :'OrgGroupMembershipCreateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgGroupMembershipBulkUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgGroupMembershipCreateRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'orgs')
-        if (value = attributes[:'orgs']).is_a?(Array)
-          self.orgs = value
-        end
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -71,26 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @orgs.nil?
-      return false if @orgs.length > 100
-      return false if @orgs.length < 1
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param orgs [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def orgs=(orgs)
-      if orgs.nil?
-        fail ArgumentError, 'invalid value for "orgs", orgs cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      if orgs.length > 100
-        fail ArgumentError, 'invalid value for "orgs", number of items must be less than or equal to 100.'
-      end
-      if orgs.length < 1
-        fail ArgumentError, 'invalid value for "orgs", number of items must be greater than or equal to 1.'
-      end
-      @orgs = orgs
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -119,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          orgs == o.orgs &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [orgs, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
