@@ -840,6 +840,12 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v1_20270101.ListDashboards" => {
+            "filter_shared" => "Boolean",
+            "filter_deleted" => "Boolean",
+            "count" => "Integer",
+            "start" => "Integer",
+    },
     "v2.ListFleetAgentTracers" => {
             "agent_key" => "String",
             "page_number" => "Integer",
