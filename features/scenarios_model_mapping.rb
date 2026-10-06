@@ -2892,6 +2892,9 @@ ScenariosModelMappings = {
     "v2.GetCustomForecast" => {
             "budget_id" => "String",
     },
+    "v2.ListCostCloudAccountsV2" => {
+            "filter_cloud" => "String",
+    },
     "v2.GetCommitmentsCommitmentList" => {
             "provider" => "CommitmentsProvider",
             "product" => "String",
