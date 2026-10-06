@@ -1,9 +1,8 @@
-# Patch a deployment event by version returns "Accepted" response
+# Mark a deployment as failed by version returns "Accepted" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
-  config.unstable_operations["v2.patch_dora_deployment_by_version".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
 

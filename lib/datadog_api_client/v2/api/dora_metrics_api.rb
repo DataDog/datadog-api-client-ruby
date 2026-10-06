@@ -704,7 +704,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Patch a deployment event by version.
+    # Mark a deployment as failed by version.
     #
     # @see #patch_dora_deployment_by_version_with_http_info
     def patch_dora_deployment_by_version(body, opts = {})
@@ -712,7 +712,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Patch a deployment event by version.
+    # Mark a deployment as failed by version.
     #
     # Update a deployment's change failure status, identifying the deployment by its service, environment, and version instead of its ID. Use this to mark a deployment as a change failure or back to stable. You can optionally include remediation details to enable failed deployment recovery time calculation. If multiple deployments match the given service, environment, and version, the most recently finished one is updated.
     #
@@ -720,12 +720,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def patch_dora_deployment_by_version_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.patch_dora_deployment_by_version".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.patch_dora_deployment_by_version")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.patch_dora_deployment_by_version"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.patch_dora_deployment_by_version ...'
