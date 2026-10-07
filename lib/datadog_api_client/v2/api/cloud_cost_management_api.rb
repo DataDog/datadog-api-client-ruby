@@ -3177,6 +3177,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List Cloud Cost Management cloud accounts.
+    #
+    # @see #list_cost_cloud_accounts_v2_with_http_info
+    def list_cost_cloud_accounts_v2(opts = {})
+      data, _status_code, _headers = list_cost_cloud_accounts_v2_with_http_info(opts)
+      data
+    end
+
+    # List Cloud Cost Management cloud accounts.
+    #
+    # List the OCI and AWS CUR 2.0 cloud accounts for your organization, including account IDs, status, and validation errors.
+    # Use `filter[cloud]=oci` or `filter[cloud]=aws_cur2` to return a single cloud. When omitted or empty, both clouds are returned.
+    # AWS CUR 1.0, Azure, and GCP accounts are available through their dedicated configuration endpoints.
+    # Archived accounts are excluded. The response contains all matching accounts and is not paginated.
+    #
+    # This endpoint replaces `GET /api/v2/cost/oci_config`. To migrate, use `filter[cloud]=oci` and update clients to accept
+    # the `cloud_account` resource type instead of `oci_config`. Account IDs and the existing attributes are preserved;
+    # each account also includes the `cloud` attribute.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_cloud Filter by cloud, either `oci` or `aws_cur2` (case insensitive). Omit or leave empty to return both.
+    # @return [Array<(CloudCostAccountsResponse, Integer, Hash)>] CloudCostAccountsResponse data, response status code and response headers
+    def list_cost_cloud_accounts_v2_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_cloud_accounts_v2 ...'
+      end
+      pattern = Regexp.new("^([oO][cC][iI]|[aA][wW][sS]_[cC][uU][rR]2)?(?![\s\S])")
+      if @api_client.config.client_side_validation && !opts[:'filter_cloud'].nil? && opts[:'filter_cloud'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"filter_cloud\"]' when calling CloudCostManagementAPI.list_cost_cloud_accounts_v2, must conform to the pattern #{pattern}."
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/cloud_accounts'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[cloud]'] = opts[:'filter_cloud'] if !opts[:'filter_cloud'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CloudCostAccountsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_cloud_accounts_v2,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_cloud_accounts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Google Cloud Usage Cost configs.
     #
     # @see #list_cost_gcp_usage_cost_configs_with_http_info
@@ -3247,7 +3320,9 @@ module DatadogAPIClient::V2
 
     # List Cloud Cost Management OCI configs.
     #
-    # **Note**: This endpoint is deprecated. View OCI accounts in Cloud Cost Settings in the Datadog web application instead.
+    # **Note**: This endpoint is deprecated. Use [List Cloud Cost Management cloud accounts](https://docs.datadoghq.com/api/latest/cloud-cost-management/#list-cloud-cost-management-cloud-accounts)
+    # with `filter[cloud]=oci` instead. Update clients to accept the `cloud_account` resource type instead of `oci_config`.
+    # Account IDs and the existing attributes are preserved; each account also includes the `cloud` attribute.
     #
     # List the OCI configs.
     #
