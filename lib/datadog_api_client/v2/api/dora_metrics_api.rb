@@ -632,7 +632,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Patch a deployment event.
+    # Mark a deployment as failed by ID.
     #
     # @see #patch_dora_deployment_with_http_info
     def patch_dora_deployment(deployment_id, body, opts = {})
@@ -640,7 +640,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Patch a deployment event.
+    # Mark a deployment as failed by ID.
     #
     # Update a deployment's change failure status. Use this to mark a deployment as a change failure or back to stable. You can optionally include remediation details to enable failed deployment recovery time calculation.
     #

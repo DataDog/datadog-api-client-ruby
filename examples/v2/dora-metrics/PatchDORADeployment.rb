@@ -1,4 +1,4 @@
-# Patch a deployment event returns "Accepted" response
+# Mark a deployment as failed by ID returns "Accepted" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
