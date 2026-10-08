@@ -94,6 +94,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get automatic investigation settings for a monitor.
+    #
+    # @see #get_monitor_automation_with_http_info
+    def get_monitor_automation(monitor_id, opts = {})
+      data, _status_code, _headers = get_monitor_automation_with_http_info(monitor_id, opts)
+      data
+    end
+
+    # Get automatic investigation settings for a monitor.
+    #
+    # Manage the Bits automatic investigation setting independently of the monitor definition. Requires access to the monitor and the specified permissions. A newly created monitor and updated settings can take time to appear in reads.
+    #
+    # @param monitor_id [Integer] The monitor ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorAutomationResponse, Integer, Hash)>] MonitorAutomationResponse data, response status code and response headers
+    def get_monitor_automation_with_http_info(monitor_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_monitor_automation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monitor_automation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monitor_automation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsAIAPI.get_monitor_automation ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling BitsAIAPI.get_monitor_automation"
+      end
+      if @api_client.config.client_side_validation && monitor_id < 1
+        fail ArgumentError, 'invalid value for "monitor_id" when calling BitsAIAPI.get_monitor_automation, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/bits-ai/monitors/{monitor_id}/automation'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorAutomationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_monitor_automation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsAIAPI#get_monitor_automation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Bits AI investigations.
     #
     # @see #list_investigations_with_http_info
@@ -260,6 +334,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BitsAIAPI#trigger_investigation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update monitor automatic investigation settings.
+    #
+    # @see #update_monitor_automation_with_http_info
+    def update_monitor_automation(monitor_id, body, opts = {})
+      data, _status_code, _headers = update_monitor_automation_with_http_info(monitor_id, body, opts)
+      data
+    end
+
+    # Update monitor automatic investigation settings.
+    #
+    # Manage the Bits automatic investigation setting independently of the monitor definition. Requires access to the monitor and the specified permissions. A newly created monitor and updated settings can take time to appear in reads. The enabled attribute is required; false disables automatic investigations. Repeated requests set the same desired state. This operation does not create or delete the monitor.
+    #
+    # @param monitor_id [Integer] The monitor ID.
+    # @param body [MonitorAutomationRequest] Automatic investigation settings to apply.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorAutomationResponse, Integer, Hash)>] MonitorAutomationResponse data, response status code and response headers
+    def update_monitor_automation_with_http_info(monitor_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_monitor_automation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_monitor_automation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_monitor_automation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsAIAPI.update_monitor_automation ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling BitsAIAPI.update_monitor_automation"
+      end
+      if @api_client.config.client_side_validation && monitor_id < 1
+        fail ArgumentError, 'invalid value for "monitor_id" when calling BitsAIAPI.update_monitor_automation, must be greater than or equal to 1.'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling BitsAIAPI.update_monitor_automation"
+      end
+      # resource path
+      local_var_path = '/api/v2/bits-ai/monitors/{monitor_id}/automation'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorAutomationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_monitor_automation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsAIAPI#update_monitor_automation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

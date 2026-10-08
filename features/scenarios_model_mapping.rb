@@ -1677,6 +1677,13 @@ ScenariosModelMappings = {
     "v2.GetInvestigation" => {
             "id" => "String",
     },
+    "v2.GetMonitorAutomation" => {
+            "monitor_id" => "Integer",
+    },
+    "v2.UpdateMonitorAutomation" => {
+            "monitor_id" => "Integer",
+            "body" => "MonitorAutomationRequest",
+    },
     "v2.SearchCases" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
