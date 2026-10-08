@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Attributes for requesting SPA recommendations by forwarding a Spark job's raw arguments
-    # instead of a precomputed shard.
+    # instead of a pre-computed shard.
     attr_reader :attributes
 
     # JSON:API resource type for the SPA v2 recommendation request.

@@ -30,6 +30,10 @@ module DatadogAPIClient::V2
     # Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
     attr_reader :executor
 
+    # Only returned by the v2 endpoint. The job parameters whose values the recommendation was matched on, as `parameter=value` pairs joined by `|`.
+    # An empty string means the service-wide (coarse) recommendation was used.
+    attr_accessor :matched_params
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
       {
         :'confidence_level' => :'confidence_level',
         :'driver' => :'driver',
-        :'executor' => :'executor'
+        :'executor' => :'executor',
+        :'matched_params' => :'matched_params'
       }
     end
 
@@ -48,7 +53,8 @@ module DatadogAPIClient::V2
       {
         :'confidence_level' => :'Float',
         :'driver' => :'ComponentRecommendation',
-        :'executor' => :'ComponentRecommendation'
+        :'executor' => :'ComponentRecommendation',
+        :'matched_params' => :'String'
       }
     end
 
@@ -80,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'executor')
         self.executor = attributes[:'executor']
+      end
+
+      if attributes.key?(:'matched_params')
+        self.matched_params = attributes[:'matched_params']
       end
     end
 
@@ -141,6 +151,7 @@ module DatadogAPIClient::V2
           confidence_level == o.confidence_level &&
           driver == o.driver &&
           executor == o.executor &&
+          matched_params == o.matched_params &&
           additional_properties == o.additional_properties
     end
 
@@ -148,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [confidence_level, driver, executor, additional_properties].hash
+      [confidence_level, driver, executor, matched_params, additional_properties].hash
     end
   end
 end
