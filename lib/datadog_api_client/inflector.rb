@@ -9533,7 +9533,6 @@ module DatadogAPIClient
         "v2.actions_datastores_api" => "ActionsDatastoresAPI",
         "v2.agent_observability_api" => "AgentObservabilityAPI",
         "v2.agentless_scanning_api" => "AgentlessScanningAPI",
-        "v2.ai_impact_api" => "AIImpactAPI",
         "v2.annotations_api" => "AnnotationsAPI",
         "v2.api_management_api" => "APIManagementAPI",
         "v2.apm_api" => "APMAPI",
