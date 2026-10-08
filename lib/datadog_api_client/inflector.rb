@@ -7191,6 +7191,8 @@ module DatadogAPIClient
           "v2.routing_rule_relationships_policy" => "RoutingRuleRelationshipsPolicy",
           "v2.routing_rule_relationships_policy_data" => "RoutingRuleRelationshipsPolicyData",
           "v2.routing_rule_relationships_policy_data_type" => "RoutingRuleRelationshipsPolicyDataType",
+          "v2.routing_rule_reroute_to_team_action" => "RoutingRuleRerouteToTeamAction",
+          "v2.routing_rule_reroute_to_team_action_type" => "RoutingRuleRerouteToTeamActionType",
           "v2.routing_rule_type" => "RoutingRuleType",
           "v2.rule_attributes" => "RuleAttributes",
           "v2.rule_attributes_request" => "RuleAttributesRequest",
