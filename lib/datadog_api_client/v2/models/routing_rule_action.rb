@@ -29,7 +29,8 @@ module DatadogAPIClient::V2
           :'SendSlackMessageAction',
           :'SendTeamsMessageAction',
           :'TriggerWorkflowAutomationAction',
-          :'RoutingRuleEscalationPolicyAction'
+          :'RoutingRuleEscalationPolicyAction',
+          :'RoutingRuleRerouteToTeamAction'
         ]
       end
       # Builds the object
