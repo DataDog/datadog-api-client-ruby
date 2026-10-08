@@ -36,10 +36,13 @@ module DatadogAPIClient::V2
     # Create a new Salesforce incident template for your organization. Template
     # names must be unique within an organization.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [SalesforceIncidentsTemplateCreateRequest] Salesforce incident template payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SalesforceIncidentsTemplateResponse, Integer, Hash)>] SalesforceIncidentsTemplateResponse data, response status code and response headers
     def create_incident_template_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateIncidentTemplate` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SalesforceIntegrationAPI.create_incident_template ...'
@@ -103,10 +106,13 @@ module DatadogAPIClient::V2
     #
     # Delete a single Salesforce incident template from your organization.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_template_id [String] The ID of the Salesforce incident template.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_template_with_http_info(incident_template_id, opts = {})
+      warn "[DEPRECATION] `DeleteIncidentTemplate` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SalesforceIntegrationAPI.delete_incident_template ...'
@@ -169,10 +175,13 @@ module DatadogAPIClient::V2
     # Disconnect a Salesforce organization from your Datadog organization.
     # This also deletes any incident templates referencing the organization.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param salesforce_org_id [String] The Datadog-assigned ID of the connected Salesforce organization.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_salesforce_organization_with_http_info(salesforce_org_id, opts = {})
+      warn "[DEPRECATION] `DeleteSalesforceOrganization` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SalesforceIntegrationAPI.delete_salesforce_organization ...'
@@ -234,9 +243,12 @@ module DatadogAPIClient::V2
     #
     # Get all Salesforce incident templates configured for your organization.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SalesforceIncidentsTemplatesResponse, Integer, Hash)>] SalesforceIncidentsTemplatesResponse data, response status code and response headers
     def get_incident_templates_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetIncidentTemplates` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SalesforceIntegrationAPI.get_incident_templates ...'
@@ -296,9 +308,12 @@ module DatadogAPIClient::V2
     # through the Salesforce integration. Salesforce organizations are connected
     # through the OAuth setup flow in the Datadog Salesforce integration page.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SalesforceIncidentsOrganizationsResponse, Integer, Hash)>] SalesforceIncidentsOrganizationsResponse data, response status code and response headers
     def get_salesforce_organizations_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetSalesforceOrganizations` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SalesforceIntegrationAPI.get_salesforce_organizations ...'
@@ -356,11 +371,14 @@ module DatadogAPIClient::V2
     #
     # Update a single Salesforce incident template in your organization.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_template_id [String] The ID of the Salesforce incident template.
     # @param body [SalesforceIncidentsTemplateUpdateRequest] Salesforce incident template payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SalesforceIncidentsTemplateResponse, Integer, Hash)>] SalesforceIncidentsTemplateResponse data, response status code and response headers
     def update_incident_template_with_http_info(incident_template_id, body, opts = {})
+      warn "[DEPRECATION] `UpdateIncidentTemplate` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SalesforceIntegrationAPI.update_incident_template ...'
