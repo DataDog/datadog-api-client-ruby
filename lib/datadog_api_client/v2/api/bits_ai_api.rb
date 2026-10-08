@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GetInvestigationResponse, Integer, Hash)>] GetInvestigationResponse data, response status code and response headers
     def get_investigation_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_investigation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_investigation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_investigation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BitsAIAPI.get_investigation ...'
@@ -112,12 +106,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :filter_monitor_id Filter investigations by monitor ID.
     # @return [Array<(ListInvestigationsResponse, Integer, Hash)>] ListInvestigationsResponse data, response status code and response headers
     def list_investigations_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_investigations".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_investigations")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_investigations"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BitsAIAPI.list_investigations ...'
@@ -201,18 +189,13 @@ module DatadogAPIClient::V2
     # Trigger a Bits AI investigation.
     #
     # Trigger a Bits AI investigation from a monitor alert or a general investigation.
-    # The `monitors_read` permission is required when the trigger type is `monitor_alert_trigger`.
+    # This endpoint requires the `bits_investigations_write` permission. When the trigger type is
+    # `monitor_alert_trigger`, the `monitors_read` permission is also required.
     #
     # @param body [TriggerInvestigationRequest] Trigger investigation request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(TriggerInvestigationResponse, Integer, Hash)>] TriggerInvestigationResponse data, response status code and response headers
     def trigger_investigation_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.trigger_investigation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.trigger_investigation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.trigger_investigation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BitsAIAPI.trigger_investigation ...'
