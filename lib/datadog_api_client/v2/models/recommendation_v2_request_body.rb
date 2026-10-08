@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Request body for retrieving SPA recommendations by forwarding a Spark job's raw arguments
-  # instead of a precomputed shard.
+  # instead of a pre-computed shard.
   class RecommendationV2RequestBody
     include BaseGenericModel
 
