@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides basic user information for a schedule, including a name and email address.
-  class ScheduleUserAttributes
+  # Data for creating an on-call schedule override.
+  class CreateOverrideRequestData
     include BaseGenericModel
 
-    # The user's on-call color, as a hex code (for example, `#FF0000`). Included only when `user.color` is requested in the `include` parameter.
-    attr_accessor :color
+    # Attributes for creating an on-call schedule override.
+    attr_reader :attributes
 
-    # The user's email address.
-    attr_accessor :email
+    # Relationships to set when creating an on-call schedule override.
+    attr_accessor :relationships
 
-    # The user's name.
-    attr_accessor :name
-
-    # The user's status.
-    attr_accessor :status
+    # Indicates that the resource is of type 'overrides'.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'color' => :'color',
-        :'email' => :'email',
-        :'name' => :'name',
-        :'status' => :'status'
+        :'attributes' => :'attributes',
+        :'relationships' => :'relationships',
+        :'type' => :'type'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'color' => :'String',
-        :'email' => :'String',
-        :'name' => :'String',
-        :'status' => :'UserAttributesStatus'
+        :'attributes' => :'CreateOverrideRequestAttributes',
+        :'relationships' => :'CreateOverrideRequestRelationships',
+        :'type' => :'OverrideDataType'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleUserAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateOverrideRequestData` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,21 +70,46 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,10 +138,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          color == o.color &&
-          email == o.email &&
-          name == o.name &&
-          status == o.status &&
+          attributes == o.attributes &&
+          relationships == o.relationships &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, email, name, status, additional_properties].hash
+      [attributes, relationships, type, additional_properties].hash
     end
   end
 end

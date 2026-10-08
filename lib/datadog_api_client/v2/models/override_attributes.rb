@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides basic user information for a schedule, including a name and email address.
-  class ScheduleUserAttributes
+  # Attributes for an on-call schedule override.
+  class OverrideAttributes
     include BaseGenericModel
 
-    # The user's on-call color, as a hex code (for example, `#FF0000`). Included only when `user.color` is requested in the `include` parameter.
-    attr_accessor :color
+    # The end time of the override.
+    attr_accessor :_end
 
-    # The user's email address.
-    attr_accessor :email
+    # Whether the override is inactive (for example, because its time range has ended).
+    attr_accessor :inactive
 
-    # The user's name.
-    attr_accessor :name
-
-    # The user's status.
-    attr_accessor :status
+    # The start time of the override.
+    attr_accessor :start
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'color' => :'color',
-        :'email' => :'email',
-        :'name' => :'name',
-        :'status' => :'status'
+        :'_end' => :'end',
+        :'inactive' => :'inactive',
+        :'start' => :'start'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'color' => :'String',
-        :'email' => :'String',
-        :'name' => :'String',
-        :'status' => :'UserAttributesStatus'
+        :'_end' => :'Time',
+        :'inactive' => :'Boolean',
+        :'start' => :'Time'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleUserAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OverrideAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
+      if attributes.key?(:'_end')
+        self._end = attributes[:'_end']
       end
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'inactive')
+        self.inactive = attributes[:'inactive']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'start')
+        self.start = attributes[:'start']
       end
     end
 
@@ -118,10 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          color == o.color &&
-          email == o.email &&
-          name == o.name &&
-          status == o.status &&
+          _end == o._end &&
+          inactive == o.inactive &&
+          start == o.start &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, email, name, status, additional_properties].hash
+      [_end, inactive, start, additional_properties].hash
     end
   end
 end

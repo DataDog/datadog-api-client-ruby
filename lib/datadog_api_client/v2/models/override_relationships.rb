@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides basic user information for a schedule, including a name and email address.
-  class ScheduleUserAttributes
+  # Relationships for an on-call schedule override.
+  class OverrideRelationships
     include BaseGenericModel
 
-    # The user's on-call color, as a hex code (for example, `#FF0000`). Included only when `user.color` is requested in the `include` parameter.
-    attr_accessor :color
+    # Defines the relationship between an override and one of its associated users.
+    attr_accessor :overridden_user
 
-    # The user's email address.
-    attr_accessor :email
+    # Defines the relationship between an override and the schedule it belongs to.
+    attr_accessor :schedule
 
-    # The user's name.
-    attr_accessor :name
-
-    # The user's status.
-    attr_accessor :status
+    # Defines the relationship between an override and one of its associated users.
+    attr_accessor :user
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'color' => :'color',
-        :'email' => :'email',
-        :'name' => :'name',
-        :'status' => :'status'
+        :'overridden_user' => :'overridden_user',
+        :'schedule' => :'schedule',
+        :'user' => :'user'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'color' => :'String',
-        :'email' => :'String',
-        :'name' => :'String',
-        :'status' => :'UserAttributesStatus'
+        :'overridden_user' => :'OverrideRelationshipsUser',
+        :'schedule' => :'OverrideRelationshipsSchedule',
+        :'user' => :'OverrideRelationshipsUser'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleUserAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OverrideRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
+      if attributes.key?(:'overridden_user')
+        self.overridden_user = attributes[:'overridden_user']
       end
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'schedule')
+        self.schedule = attributes[:'schedule']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'user')
+        self.user = attributes[:'user']
       end
     end
 
@@ -118,10 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          color == o.color &&
-          email == o.email &&
-          name == o.name &&
-          status == o.status &&
+          overridden_user == o.overridden_user &&
+          schedule == o.schedule &&
+          user == o.user &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, email, name, status, additional_properties].hash
+      [overridden_user, schedule, user, additional_properties].hash
     end
   end
 end

@@ -5219,6 +5219,23 @@ ScenariosModelMappings = {
             "schedule_id" => "String",
             "filter_at_ts" => "String",
     },
+    "v2.ListScheduleOverrides" => {
+            "schedule_id" => "String",
+            "filter_start" => "Time",
+            "filter_end" => "Time",
+            "include" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateScheduleOverrides" => {
+            "schedule_id" => "String",
+            "include" => "String",
+            "body" => "CreateOverridesRequest",
+    },
+    "v2.DeleteScheduleOverride" => {
+            "schedule_id" => "String",
+            "override_id" => "String",
+    },
     "v2.GetScheduleOnCallResponders" => {
             "include" => "String",
             "schedule_id" => "String",
