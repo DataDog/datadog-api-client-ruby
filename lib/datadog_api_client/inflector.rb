@@ -5861,6 +5861,8 @@ module DatadogAPIClient
           "v2.observability_pipeline_add_metric_tags_processor" => "ObservabilityPipelineAddMetricTagsProcessor",
           "v2.observability_pipeline_add_metric_tags_processor_type" => "ObservabilityPipelineAddMetricTagsProcessorType",
           "v2.observability_pipeline_aggregate_processor" => "ObservabilityPipelineAggregateProcessor",
+          "v2.observability_pipeline_aggregate_processor_aggregation_timing" => "ObservabilityPipelineAggregateProcessorAggregationTiming",
+          "v2.observability_pipeline_aggregate_processor_aggregation_timing_type" => "ObservabilityPipelineAggregateProcessorAggregationTimingType",
           "v2.observability_pipeline_aggregate_processor_mode" => "ObservabilityPipelineAggregateProcessorMode",
           "v2.observability_pipeline_aggregate_processor_type" => "ObservabilityPipelineAggregateProcessorType",
           "v2.observability_pipeline_amazon_data_firehose_source" => "ObservabilityPipelineAmazonDataFirehoseSource",
