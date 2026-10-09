@@ -2291,6 +2291,9 @@ ScenariosModelMappings = {
     "v2.CreateServiceNowTickets" => {
             "body" => "CreateServiceNowTicketRequestArray",
     },
+    "v2.UpdateFindingsSeverity" => {
+            "body" => "SeverityOverrideRequest",
+    },
     "v2.ListAssetsSBOMs" => {
             "page_token" => "String",
             "page_number" => "Integer",
