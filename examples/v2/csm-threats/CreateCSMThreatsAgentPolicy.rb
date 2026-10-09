@@ -1,4 +1,4 @@
-# Create a Workload Protection policy returns "OK" response
+# Create a Workload Protection policy returns "Created" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyCreateRequest.new({
   data: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyCreateData.new({
     attributes: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyCreateAttributes.new({
       description: "My agent policy",
-      enabled: true,
+      enabled: false,
       host_tags_lists: [
         [
           "env:test",
