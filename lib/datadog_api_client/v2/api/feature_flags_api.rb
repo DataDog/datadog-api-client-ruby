@@ -1361,6 +1361,11 @@ module DatadogAPIClient::V2
     # Updates an existing feature flag's metadata such as
     #  name and description. Does not modify targeting rules or allocations.
     #
+    # To change the owning team, update `tags` and include a tag of the form
+    # `team:<team-handle>` in the array. `tags` is a full replacement of the
+    # existing tag set (including any `team:` tag), so include every tag you
+    # want to keep, not just the ones you're adding.
+    #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param body [UpdateFeatureFlagRequest] 
     # @param opts [Hash] the optional parameters
