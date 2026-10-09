@@ -742,14 +742,86 @@ module DatadogAPIClient::V2
 
     # List source maps.
     #
-    # Retrieves a paginated list of source maps matching the specified filter criteria.
+    # Retrieves a paginated list of source maps. Send filters as query parameters,
+    # not in a JSON request body. `mapkind` defaults to `js`.
+    #
+    # For JavaScript source maps, choose one of these searches:
+    #
+    # - **Service and version:** provide both `filter[service]` and `filter[version]`.
+    #   This searches source maps indexed by service and version.
+    # - **One debug ID:** provide `filter[debug_id]` with a UUID to look up the single
+    #   source map with that debug ID. Service and version are not required for this
+    #   JavaScript search.
+    # - **Browse debug IDs:** set `search_by=debug_id` to list source maps indexed by
+    #   debug ID without specifying an ID. Do not send service, version, or filename
+    #   filters in this mode.
+    #
+    # **Pagination:** for JavaScript listings, omit `page[after]` and `page[number]`
+    # to start at the first page. Copy `meta.page.next_cursor` into `page[after]` on
+    # the next request, keeping the same search mode and filters. Continue until
+    # `meta.page.has_more_results` is `false`. Do not decode or modify the cursor.
+    # Debug-ID browsing requires cursor pagination; `page[number]` is not supported.
+    # A specific `filter[debug_id]` lookup without `search_by=debug_id` does not support
+    # `page[after]`. Other map kinds use `page[number]`, starting at 1.
+    #
+    # **Examples:** the following commands use the US1 API host. Replace the host with
+    # the API host for your site, and the service, version, debug ID, and cursor with
+    # values from your organization. Use `--get` so curl sends the filters in the query
+    # string; `-X GET` with `--data-urlencode` sends them in the request body instead.
+    #
+    # **List by service and version**
+    #
+    # ```bash
+    # curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+    #   -H "Accept: application/json" \
+    #   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+    #   --data-urlencode "mapkind=js" \
+    #   --data-urlencode "filter[service]=my-web-service" \
+    #   --data-urlencode "filter[version]=1.0.0" \
+    #   --data-urlencode "page[size]=10"
+    # ```
+    #
+    # **Find a specific JavaScript debug ID**
+    #
+    # ```bash
+    # curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+    #   -H "Accept: application/json" \
+    #   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+    #   --data-urlencode "mapkind=js" \
+    #   --data-urlencode "filter[debug_id]=00000000-0000-4000-8000-000000000001"
+    # ```
+    #
+    # **Browse debug-ID source maps from the first page**
+    #
+    # ```bash
+    # curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+    #   -H "Accept: application/json" \
+    #   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+    #   --data-urlencode "mapkind=js" \
+    #   --data-urlencode "search_by=debug_id" \
+    #   --data-urlencode "page[size]=10"
+    # ```
+    #
+    # **Get the next page of debug-ID source maps**
+    #
+    # ```bash
+    # curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+    #   -H "Accept: application/json" \
+    #   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+    #   --data-urlencode "mapkind=js" \
+    #   --data-urlencode "search_by=debug_id" \
+    #   --data-urlencode "page[size]=10" \
+    #   --data-urlencode "page[after]=<meta.page.next_cursor>"
+    # ```
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [SourcemapSearchBy] :search_by Set to `debug_id` to browse JavaScript source maps indexed by debug ID. Only supported for `mapkind=js`. Omit for service/version searches or a specific `filter[debug_id]` lookup. In debug-ID browse mode, service, version, and filename filters are not supported.
     # @option opts [SourcemapMapKind] :mapkind The type of source map. Defaults to `js`.
-    # @option opts [Integer] :page_size The number of results to return per page. Must be at least 1.
-    # @option opts [Integer] :page_number The page number to retrieve, starting from 1.
-    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
-    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [String] :page_after Cursor for the next page of a JavaScript listing. Use the value from `meta.page.next_cursor` and keep the same search mode and filters. Omit on the first request. Not supported for other map kinds or for a specific `filter[debug_id]` lookup without `search_by=debug_id`.
+    # @option opts [Integer] :page_size The number of results per page. Defaults to 100. Must be at least 1; values above 1000 are capped at 1000.
+    # @option opts [Integer] :page_number Legacy page number, starting from 1. Prefer `page[after]` for JavaScript listings. Not supported with `search_by=debug_id`. Other map kinds default to page 1 when pagination parameters are omitted.
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
     # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
@@ -762,7 +834,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
     # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
-    # @option opts [String] :filter_debug_id Filter by debug ID (single value). Supported for `react`.
+    # @option opts [UUID] :filter_debug_id Filter by a single debug ID in UUID format. Supported for `js` and `react`. For `js`, a debug ID identifies exactly one source map, so the lookup returns at most one result and does not require service/version filters. For `react`, a debug ID can match multiple files, and service/version filters remain required.
     # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
     # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
     # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
@@ -778,16 +850,28 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.list_sourcemaps ...'
       end
+      allowable_values = ['debug_id']
+      if @api_client.config.client_side_validation && opts[:'search_by'] && !allowable_values.include?(opts[:'search_by'])
+        fail ArgumentError, "invalid value for \"search_by\", must be one of #{allowable_values}"
+      end
       allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
       if @api_client.config.client_side_validation && opts[:'mapkind'] && !allowable_values.include?(opts[:'mapkind'])
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling RUMAPI.list_sourcemaps, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling RUMAPI.list_sourcemaps, must be greater than or equal to 1.'
       end
       # resource path
       local_var_path = '/api/v2/sourcemaps/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'search_by'] = opts[:'search_by'] if !opts[:'search_by'].nil?
       query_params[:'mapkind'] = opts[:'mapkind'] if !opts[:'mapkind'].nil?
+      query_params[:'page[after]'] = opts[:'page_after'] if !opts[:'page_after'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
