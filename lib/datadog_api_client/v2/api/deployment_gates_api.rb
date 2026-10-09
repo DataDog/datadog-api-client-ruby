@@ -614,6 +614,126 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List deployment gate evaluations.
+    #
+    # @see #list_deployment_gate_evaluations_with_http_info
+    def list_deployment_gate_evaluations(opts = {})
+      data, _status_code, _headers = list_deployment_gate_evaluations_with_http_info(opts)
+      data
+    end
+
+    # List deployment gate evaluations.
+    #
+    # Returns deployment gate evaluations started in a maximum 30-day window (the default is the previous 24 hours).
+    # Results are ordered by start time, newest first.
+    # In-progress state is near-real-time and mutable. Finished state is eventually consistent.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :filter_from Inclusive evaluation start time. Defaults to 24 hours before the request. Together with `filter[to]`, the window may span no more than 30 days.
+    # @option opts [Time] :filter_to Exclusive evaluation start time. Defaults to the request time. Must be after `filter[from]`; the window may span no more than 30 days.
+    # @option opts [Array<String>] :filter_service Service values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<String>] :filter_env Environment values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<String>] :filter_identifier Gate identifier values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>] :filter_status Gate outcomes. Repeated or comma-separated values are combined with OR.
+    # @option opts [Boolean] :filter_dry_run Gate-level dry-run state.
+    # @option opts [UUID] :filter_evaluation_id Gate evaluation UUID. No match returns an empty list.
+    # @option opts [UUID] :filter_gate_id Configured gate UUID. Just-in-time evaluations have no gate ID.
+    # @option opts [Array<String>] :filter_version Deployment version values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Integer] :page_size Maximum evaluations returned.
+    # @option opts [String] :page_cursor Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
+    # @return [Array<(DeploymentGateEvaluationsResponse, Integer, Hash)>] DeploymentGateEvaluationsResponse data, response status code and response headers
+    def list_deployment_gate_evaluations_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_deployment_gate_evaluations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_deployment_gate_evaluations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_deployment_gate_evaluations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.list_deployment_gate_evaluations ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling DeploymentGatesAPI.list_deployment_gate_evaluations, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling DeploymentGatesAPI.list_deployment_gate_evaluations, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/deployment_gates/evaluations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
+      query_params[:'filter[env]'] = @api_client.build_collection_param(opts[:'filter_env'], :multi) if !opts[:'filter_env'].nil?
+      query_params[:'filter[identifier]'] = @api_client.build_collection_param(opts[:'filter_identifier'], :multi) if !opts[:'filter_identifier'].nil?
+      query_params[:'filter[status]'] = @api_client.build_collection_param(opts[:'filter_status'], :multi) if !opts[:'filter_status'].nil?
+      query_params[:'filter[dry_run]'] = opts[:'filter_dry_run'] if !opts[:'filter_dry_run'].nil?
+      query_params[:'filter[evaluation_id]'] = opts[:'filter_evaluation_id'] if !opts[:'filter_evaluation_id'].nil?
+      query_params[:'filter[gate_id]'] = opts[:'filter_gate_id'] if !opts[:'filter_gate_id'].nil?
+      query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentGateEvaluationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_deployment_gate_evaluations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentGatesAPI#list_deployment_gate_evaluations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List deployment gate evaluations.
+    #
+    # Provide a paginated version of {#list_deployment_gate_evaluations}, returning all items.
+    #
+    # To use it you need to use a block: list_deployment_gate_evaluations_with_pagination { |item| p item }
+    #
+    # @yield [DeploymentGateEvaluationData] Paginated items
+    def list_deployment_gate_evaluations_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 20)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        while true do
+            response = list_deployment_gate_evaluations(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+        end
+    end
+
     # Get all deployment gates.
     #
     # @see #list_deployment_gates_with_http_info
@@ -628,7 +748,11 @@ module DatadogAPIClient::V2
     # Use `page[cursor]` and `page[size]` query parameters to paginate through results.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :page_cursor Cursor for pagination. Use the `meta.page.next_cursor` value from the previous response.
+    # @option opts [String] :filter_service Service name.
+    # @option opts [String] :filter_env Environment name.
+    # @option opts [String] :filter_identifier Gate identifier.
+    # @option opts [Boolean] :filter_dry_run Dry-run state.
+    # @option opts [String] :page_cursor Cursor for pagination. Use the `meta.page.next_cursor` value from the previous response. Invalid cursors return 400.
     # @option opts [Integer] :page_size Number of results per page. Defaults to 50. Must be between 1 and 1000.
     # @return [Array<(DeploymentGatesListResponse, Integer, Hash)>] DeploymentGatesListResponse data, response status code and response headers
     def list_deployment_gates_with_http_info(opts = {})
@@ -653,6 +777,10 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'filter[service]'] = opts[:'filter_service'] if !opts[:'filter_service'].nil?
+      query_params[:'filter[env]'] = opts[:'filter_env'] if !opts[:'filter_env'].nil?
+      query_params[:'filter[identifier]'] = opts[:'filter_identifier'] if !opts[:'filter_identifier'].nil?
+      query_params[:'filter[dry_run]'] = opts[:'filter_dry_run'] if !opts[:'filter_dry_run'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 
@@ -689,6 +817,139 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: DeploymentGatesAPI#list_deployment_gates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # List deployment gate rule evaluations.
+    #
+    # @see #list_deployment_rule_evaluations_with_http_info
+    def list_deployment_rule_evaluations(opts = {})
+      data, _status_code, _headers = list_deployment_rule_evaluations_with_http_info(opts)
+      data
+    end
+
+    # List deployment gate rule evaluations.
+    #
+    # Returns rule evaluations whose gate evaluation started in a maximum 30-day window (the default is the previous 24 hours).
+    # Filter by gate, rule, gate evaluation, or rule evaluation ID; omit IDs for cross-evaluation searches.
+    # Results are ordered by start time, newest first.
+    # In-progress state is near-real-time and mutable. Finished state is eventually consistent.
+    # Gate-level and rule-level dry-run states are independent.
+    # Pagination is deterministic but not snapshot isolated; clients should deduplicate by rule evaluation ID.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :filter_from Inclusive gate evaluation start time. Defaults to 24 hours before the request. Together with `filter[to]`, the window may span no more than 30 days.
+    # @option opts [Time] :filter_to Exclusive gate evaluation start time. Defaults to the request time. Must be after `filter[from]`; the window may span no more than 30 days.
+    # @option opts [UUID] :filter_gate_evaluation_id Gate evaluation UUID. No match returns an empty list.
+    # @option opts [UUID] :filter_evaluation_id Rule evaluation UUID. No match returns an empty list.
+    # @option opts [UUID] :filter_gate_id Configured gate UUID. Just-in-time evaluations have no gate ID.
+    # @option opts [UUID] :filter_rule_id Configured rule UUID. Just-in-time rules have no rule ID.
+    # @option opts [Array<String>] :filter_service Evaluated service values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<String>] :filter_env Evaluated environment values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<String>] :filter_identifier Gate identifier values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<String>] :filter_version Evaluated deployment version values. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>] :filter_status Rule statuses. Repeated or comma-separated values are combined with OR.
+    # @option opts [Array<DeploymentGateRuleEvaluationType>] :filter_type Rule types. Repeated or comma-separated values are combined with OR. Defaults to all rule types.
+    # @option opts [Boolean] :filter_dry_run Rule-level dry-run state. A failed dry-run rule is ignored when computing the gate outcome.
+    # @option opts [Boolean] :filter_gate_dry_run Gate-level dry-run state. A failed dry-run gate blocks but does not stop deployment.
+    # @option opts [Array<String>] :filter_name Rule names. Repeated or comma-separated values are combined with OR.
+    # @option opts [Integer] :page_size Maximum rule evaluations returned.
+    # @option opts [String] :page_cursor Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
+    # @return [Array<(DeploymentGateRuleEvaluationsResponse, Integer, Hash)>] DeploymentGateRuleEvaluationsResponse data, response status code and response headers
+    def list_deployment_rule_evaluations_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_deployment_rule_evaluations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_deployment_rule_evaluations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_deployment_rule_evaluations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.list_deployment_rule_evaluations ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling DeploymentGatesAPI.list_deployment_rule_evaluations, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling DeploymentGatesAPI.list_deployment_rule_evaluations, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/deployment_gates/evaluations/rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'filter[gate_evaluation_id]'] = opts[:'filter_gate_evaluation_id'] if !opts[:'filter_gate_evaluation_id'].nil?
+      query_params[:'filter[evaluation_id]'] = opts[:'filter_evaluation_id'] if !opts[:'filter_evaluation_id'].nil?
+      query_params[:'filter[gate_id]'] = opts[:'filter_gate_id'] if !opts[:'filter_gate_id'].nil?
+      query_params[:'filter[rule_id]'] = opts[:'filter_rule_id'] if !opts[:'filter_rule_id'].nil?
+      query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
+      query_params[:'filter[env]'] = @api_client.build_collection_param(opts[:'filter_env'], :multi) if !opts[:'filter_env'].nil?
+      query_params[:'filter[identifier]'] = @api_client.build_collection_param(opts[:'filter_identifier'], :multi) if !opts[:'filter_identifier'].nil?
+      query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
+      query_params[:'filter[status]'] = @api_client.build_collection_param(opts[:'filter_status'], :multi) if !opts[:'filter_status'].nil?
+      query_params[:'filter[type]'] = @api_client.build_collection_param(opts[:'filter_type'], :multi) if !opts[:'filter_type'].nil?
+      query_params[:'filter[dry_run]'] = opts[:'filter_dry_run'] if !opts[:'filter_dry_run'].nil?
+      query_params[:'filter[gate_dry_run]'] = opts[:'filter_gate_dry_run'] if !opts[:'filter_gate_dry_run'].nil?
+      query_params[:'filter[name]'] = @api_client.build_collection_param(opts[:'filter_name'], :multi) if !opts[:'filter_name'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentGateRuleEvaluationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_deployment_rule_evaluations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentGatesAPI#list_deployment_rule_evaluations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List deployment gate rule evaluations.
+    #
+    # Provide a paginated version of {#list_deployment_rule_evaluations}, returning all items.
+    #
+    # To use it you need to use a block: list_deployment_rule_evaluations_with_pagination { |item| p item }
+    #
+    # @yield [DeploymentGateRuleEvaluationData] Paginated items
+    def list_deployment_rule_evaluations_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        while true do
+            response = list_deployment_rule_evaluations(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+        end
     end
 
     # Trigger a deployment gate evaluation.
