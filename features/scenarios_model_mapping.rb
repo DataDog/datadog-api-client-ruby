@@ -1339,6 +1339,40 @@ ScenariosModelMappings = {
     "v2.CreateAIImpactUserActivity" => {
             "body" => "AIImpactUserActivityRequest",
     },
+    "v2.CreateDORADeployment" => {
+            "body" => "DORADeploymentRequest",
+    },
+    "v2.DeleteDORADeployment" => {
+            "deployment_id" => "String",
+    },
+    "v2.PatchDORADeploymentByVersion" => {
+            "body" => "DORADeploymentPatchByVersionRequest",
+    },
+    "v2.ListDORADeployments" => {
+            "body" => "DORAListDeploymentsRequest",
+    },
+    "v2.GetDORADeployment" => {
+            "deployment_id" => "String",
+    },
+    "v2.PatchDORADeployment" => {
+            "deployment_id" => "String",
+            "body" => "DORADeploymentPatchRequest",
+    },
+    "v2.CreateDORAFailure" => {
+            "body" => "DORAFailureRequest",
+    },
+    "v2.DeleteDORAFailure" => {
+            "failure_id" => "String",
+    },
+    "v2.ListDORAFailures" => {
+            "body" => "DORAListFailuresRequest",
+    },
+    "v2.GetDORAFailure" => {
+            "failure_id" => "String",
+    },
+    "v2.CreateDORAIncident" => {
+            "body" => "DORAFailureRequest",
+    },
     "v2.ListAnnotations" => {
             "page_id" => "String",
             "start_time" => "Integer",
@@ -3431,40 +3465,6 @@ ScenariosModelMappings = {
     },
     "v2.PatchDomainAllowlist" => {
             "body" => "DomainAllowlistRequest",
-    },
-    "v2.CreateDORADeployment" => {
-            "body" => "DORADeploymentRequest",
-    },
-    "v2.DeleteDORADeployment" => {
-            "deployment_id" => "String",
-    },
-    "v2.PatchDORADeploymentByVersion" => {
-            "body" => "DORADeploymentPatchByVersionRequest",
-    },
-    "v2.ListDORADeployments" => {
-            "body" => "DORAListDeploymentsRequest",
-    },
-    "v2.GetDORADeployment" => {
-            "deployment_id" => "String",
-    },
-    "v2.PatchDORADeployment" => {
-            "deployment_id" => "String",
-            "body" => "DORADeploymentPatchRequest",
-    },
-    "v2.CreateDORAFailure" => {
-            "body" => "DORAFailureRequest",
-    },
-    "v2.DeleteDORAFailure" => {
-            "failure_id" => "String",
-    },
-    "v2.ListDORAFailures" => {
-            "body" => "DORAListFailuresRequest",
-    },
-    "v2.GetDORAFailure" => {
-            "failure_id" => "String",
-    },
-    "v2.CreateDORAIncident" => {
-            "body" => "DORAFailureRequest",
     },
     "v2.ListDowntimes" => {
             "current_only" => "Boolean",
