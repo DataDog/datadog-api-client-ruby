@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides basic user information for a schedule, including a name and email address.
-  class ScheduleUserAttributes
+  # The on-call schedule overrides that were created, and any related included resources (such as users).
+  class OverrideCreateResponse
     include BaseGenericModel
 
-    # The user's on-call color, as a hex code (for example, `#FF0000`). Included only when `user.color` is requested in the `include` parameter.
-    attr_accessor :color
+    # The on-call schedule overrides that were created.
+    attr_reader :data
 
-    # The user's email address.
-    attr_accessor :email
-
-    # The user's name.
-    attr_accessor :name
-
-    # The user's status.
-    attr_accessor :status
+    # Related resources referenced in the overrides' relationships, such as users.
+    attr_accessor :included
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'color' => :'color',
-        :'email' => :'email',
-        :'name' => :'name',
-        :'status' => :'status'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'color' => :'String',
-        :'email' => :'String',
-        :'name' => :'String',
-        :'status' => :'UserAttributesStatus'
+        :'data' => :'Array<OverrideData>',
+        :'included' => :'Array<OverrideIncluded>'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleUserAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OverrideCreateResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,21 +65,35 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
       end
+    end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,10 +122,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          color == o.color &&
-          email == o.email &&
-          name == o.name &&
-          status == o.status &&
+          data == o.data &&
+          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, email, name, status, additional_properties].hash
+      [data, included, additional_properties].hash
     end
   end
 end
