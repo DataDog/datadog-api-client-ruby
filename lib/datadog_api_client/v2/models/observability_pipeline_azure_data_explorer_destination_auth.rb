@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A destination for the pipeline.
-  module ObservabilityPipelineConfigDestinationItem
+  # Authentication configuration for Azure Data Explorer. The `azure_credential_kind` field selects the credential type.
+  module ObservabilityPipelineAzureDataExplorerDestinationAuth
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,36 +26,12 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineElasticsearchDestination',
-          :'ObservabilityPipelineHttpClientDestination',
-          :'ObservabilityPipelineAmazonOpenSearchDestination',
-          :'ObservabilityPipelineAmazonS3Destination',
-          :'ObservabilityPipelineAmazonS3GenericDestination',
-          :'ObservabilityPipelineAmazonSecurityLakeDestination',
-          :'AzureStorageDestination',
-          :'ObservabilityPipelineAzureDataExplorerDestination',
-          :'ObservabilityPipelineClickhouseDestination',
-          :'ObservabilityPipelineCloudPremDestination',
-          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
-          :'ObservabilityPipelineDatadogLogsDestination',
-          :'ObservabilityPipelineGoogleChronicleDestination',
-          :'ObservabilityPipelineGoogleCloudStorageDestination',
-          :'ObservabilityPipelineGooglePubSubDestination',
-          :'ObservabilityPipelineKafkaDestination',
-          :'MicrosoftSentinelDestination',
-          :'ObservabilityPipelineNewRelicDestination',
-          :'ObservabilityPipelineOpenSearchDestination',
-          :'ObservabilityPipelineRsyslogDestination',
-          :'ObservabilityPipelineSentinelOneDestination',
-          :'ObservabilityPipelineSocketDestination',
-          :'ObservabilityPipelineSplunkHecDestination',
-          :'ObservabilityPipelineSumoLogicDestination',
-          :'ObservabilityPipelineSyslogNgDestination',
-          :'ObservabilityPipelineDatabricksZerobusDestination',
-          :'ObservabilityPipelineDatadogMetricsDestination',
-          :'ObservabilityPipelineOpentelemetryMetricsDestination',
-          :'ObservabilityPipelinePrometheusRemoteWriteDestination',
-          :'ObservabilityPipelineSplunkHecMetricsDestination'
+          :'ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli',
+          :'ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret',
+          :'ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate',
+          :'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity',
+          :'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion',
+          :'ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity'
         ]
       end
       # Builds the object
