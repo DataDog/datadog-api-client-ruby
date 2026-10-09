@@ -23,6 +23,85 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Bulk delete org group memberships.
+    #
+    # @see #bulk_delete_org_group_memberships_with_http_info
+    def bulk_delete_org_group_memberships(filter_org_group_id, body, opts = {})
+      bulk_delete_org_group_memberships_with_http_info(filter_org_group_id, body, opts)
+      nil
+    end
+
+    # Bulk delete org group memberships.
+    #
+    # Delete a batch of memberships from an org group. The memberships to delete are provided as membership resource identifiers, and the org group they belong to must be provided with `filter[org_group_id]`. Between 1 and 100 unique membership IDs may be provided per request, and the requesting organization must own the org group. Membership IDs that were already deleted, do not exist, or do not belong to the org group do not cause the request to fail.
+    #
+    # @param filter_org_group_id [UUID] The ID of the org group the memberships belong to.
+    # @param body [OrgGroupMembershipBulkDeleteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def bulk_delete_org_group_memberships_with_http_info(filter_org_group_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.bulk_delete_org_group_memberships".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.bulk_delete_org_group_memberships")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.bulk_delete_org_group_memberships"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgGroupsAPI.bulk_delete_org_group_memberships ...'
+      end
+      # verify the required parameter 'filter_org_group_id' is set
+      if @api_client.config.client_side_validation && filter_org_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_org_group_id' when calling OrgGroupsAPI.bulk_delete_org_group_memberships"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrgGroupsAPI.bulk_delete_org_group_memberships"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_group_memberships/bulk_delete'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[org_group_id]'] = filter_org_group_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_delete_org_group_memberships,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgGroupsAPI#bulk_delete_org_group_memberships\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk update org group memberships.
     #
     # @see #bulk_update_org_group_memberships_with_http_info
@@ -33,7 +112,7 @@ module DatadogAPIClient::V2
 
     # Bulk update org group memberships.
     #
-    # Move a batch of organizations from one org group to another. This is an atomic operation. Maximum 100 orgs per request.
+    # Move a batch of organizations from one org group to another. This is an atomic operation. Between 1 and 100 organizations may be provided per request. Each organization must be identified by a unique `org_uuid` and `org_site` pair, and must be in the same site as the requesting organization.
     #
     # @param body [OrgGroupMembershipBulkUpdateRequest] 
     # @param opts [Hash] the optional parameters
@@ -165,6 +244,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgGroupsAPI#create_org_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create org group memberships.
+    #
+    # @see #create_org_group_memberships_with_http_info
+    def create_org_group_memberships(body, opts = {})
+      create_org_group_memberships_with_http_info(body, opts)
+      nil
+    end
+
+    # Create org group memberships.
+    #
+    # Add a batch of organizations to an existing org group. This is an atomic operation: either all organizations are added or none are. Between 1 and 100 organizations may be provided per request. Each organization must be identified by a unique `org_uuid` and `org_site` pair, and must be in the same site as the requesting organization. The requesting organization must own the org group.
+    #
+    # @param body [OrgGroupMembershipCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_org_group_memberships_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_org_group_memberships".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_org_group_memberships")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_org_group_memberships"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgGroupsAPI.create_org_group_memberships ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrgGroupsAPI.create_org_group_memberships"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_group_memberships'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_org_group_memberships,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgGroupsAPI#create_org_group_memberships\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -382,6 +534,83 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgGroupsAPI#delete_org_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an org group membership.
+    #
+    # @see #delete_org_group_membership_with_http_info
+    def delete_org_group_membership(org_group_membership_id, filter_org_group_id, opts = {})
+      delete_org_group_membership_with_http_info(org_group_membership_id, filter_org_group_id, opts)
+      nil
+    end
+
+    # Delete an org group membership.
+    #
+    # Remove an organization from an org group by deleting its membership. The org group the membership belongs to must be provided with `filter[org_group_id]`, and the requesting organization must own that org group. Returns `404` if the membership does not exist, was already removed, or does not belong to the org group.
+    #
+    # @param org_group_membership_id [UUID] The ID of the org group membership.
+    # @param filter_org_group_id [UUID] The ID of the org group the memberships belong to.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_org_group_membership_with_http_info(org_group_membership_id, filter_org_group_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_org_group_membership".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_org_group_membership")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_org_group_membership"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgGroupsAPI.delete_org_group_membership ...'
+      end
+      # verify the required parameter 'org_group_membership_id' is set
+      if @api_client.config.client_side_validation && org_group_membership_id.nil?
+        fail ArgumentError, "Missing the required parameter 'org_group_membership_id' when calling OrgGroupsAPI.delete_org_group_membership"
+      end
+      # verify the required parameter 'filter_org_group_id' is set
+      if @api_client.config.client_side_validation && filter_org_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_org_group_id' when calling OrgGroupsAPI.delete_org_group_membership"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_group_memberships/{org_group_membership_id}'.sub('{org_group_membership_id}', CGI.escape(org_group_membership_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[org_group_id]'] = filter_org_group_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_org_group_membership,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgGroupsAPI#delete_org_group_membership\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
