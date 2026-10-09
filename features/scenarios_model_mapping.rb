@@ -5144,10 +5144,6 @@ ScenariosModelMappings = {
             "interface_id" => "String",
             "body" => "ListInterfaceTagsResponse",
     },
-    "v2.ListNetworkHealthInsights" => {
-            "from" => "String",
-            "to" => "String",
-    },
     "v2.GetAggregatedConnections" => {
             "from" => "Integer",
             "to" => "Integer",
