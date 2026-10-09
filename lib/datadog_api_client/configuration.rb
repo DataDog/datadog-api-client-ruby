@@ -434,6 +434,7 @@ module DatadogAPIClient
             "v2.search_cost_recommendations": false,
             "v2.update_unit_cost": false,
             "v2.create_quotas": false,
+            "v2.delete_pending_quota": false,
             "v2.delete_quota": false,
             "v2.list_quotas": false,
             "v2.update_quota": false,

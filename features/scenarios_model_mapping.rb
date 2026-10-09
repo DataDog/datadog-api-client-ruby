@@ -3186,6 +3186,10 @@ ScenariosModelMappings = {
             "id" => "String",
             "body" => "UsageQuotaUpdateRequest",
     },
+    "v2.DeletePendingQuota" => {
+            "quota_namespace" => "String",
+            "id" => "String",
+    },
     "v2.ListAllCSMAgents" => {
             "page" => "Integer",
             "size" => "Integer",
