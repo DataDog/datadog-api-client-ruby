@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for updating a comment on a case timeline.
+  # Request payload for updating a comment on a work item timeline.
   class CaseUpdateCommentRequest
     include BaseGenericModel
 
-    # Data object for updating a case comment.
+    # Data object for updating a work item comment.
     attr_reader :data
 
     attr_accessor :additional_properties

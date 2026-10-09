@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseLinkCreateRequest
     include BaseGenericModel
 
-    # Data object for creating a case link.
+    # Data object for creating a work item link.
     attr_reader :data
 
     attr_accessor :additional_properties

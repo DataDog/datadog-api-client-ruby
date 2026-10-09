@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for connecting a case management project to a Jira project.
+  # Metadata for connecting a Work Management project to a Jira project.
   class IntegrationJiraMetadata
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The Jira issue type identifier to use when creating issues.
     attr_accessor :issue_type_id
 
-    # The Jira project identifier to associate with this case project.
+    # The Jira project identifier to associate with this Work Management project.
     attr_accessor :project_id
 
     attr_accessor :additional_properties

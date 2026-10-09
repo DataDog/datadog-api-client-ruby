@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A case type that defines a classification category for cases. Each case type can have its own custom attributes, statuses, and automation rules.
+  # A work item type that defines a classification category for work items. Each work item type can have its own custom attributes, statuses, and automation rules.
   class CaseTypeResource
     include BaseGenericModel
 
-    # Attributes of a case type, which define a classification category for cases. Organizations use case types to model different workflows (for example, Security Incident, Bug Report, Change Request).
+    # Attributes of a work item type, which define a classification category for work items. Organizations use work item types to model different workflows (for example, Security Incident, Bug Report, Change Request).
     attr_accessor :attributes
 
-    # Case type's identifier
+    # Work item type's identifier
     attr_accessor :id
 
-    # JSON:API resource type for case types.
+    # JSON:API resource type for work item types.
     attr_accessor :type
 
     attr_accessor :additional_properties

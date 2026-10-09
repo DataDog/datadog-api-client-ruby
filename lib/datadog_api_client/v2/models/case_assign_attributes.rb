@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case assign attributes
+  # Work item assign attributes
   class CaseAssignAttributes
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case field that can be sorted on
+  # Work item field that can be sorted on
   class CaseSortableField
     include BaseEnumModel
 

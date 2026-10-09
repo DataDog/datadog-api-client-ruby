@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for creating a case view.
+  # Request payload for creating a work item view.
   class CaseViewCreateRequest
     include BaseGenericModel
 
-    # Data object for creating a case view.
+    # Data object for creating a work item view.
     attr_reader :data
 
     attr_accessor :additional_properties

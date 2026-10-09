@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A saved case view that provides a filtered, reusable list of cases matching a specific query. Views act as persistent dashboards for monitoring case subsets.
+  # A saved work item view that provides a filtered, reusable list of work items matching a specific query. Views act as persistent dashboards for monitoring work item subsets.
   class CaseView
     include BaseGenericModel
 
-    # Attributes of a case view, including the filter query and optional notification rule.
+    # Attributes of a work item view, including the filter query and optional notification rule.
     attr_reader :attributes
 
     # The view's identifier.
     attr_reader :id
 
-    # Related resources for the case view, including the creator, last modifier, and associated project.
+    # Related resources for the work item view, including the creator, last modifier, and associated project.
     attr_accessor :relationships
 
-    # JSON:API resource type for case views.
+    # JSON:API resource type for work item views.
     attr_reader :type
 
     attr_accessor :additional_properties

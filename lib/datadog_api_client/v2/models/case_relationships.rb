@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Resources related to a case
+  # Resources related to a work item
   class CaseRelationships
     include BaseGenericModel
 

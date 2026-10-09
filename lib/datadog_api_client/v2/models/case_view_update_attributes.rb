@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes that can be updated on a case view. All fields are optional; only provided fields are changed.
+  # Attributes that can be updated on a work item view. All fields are optional; only provided fields are changed.
   class CaseViewUpdateAttributes
     include BaseGenericModel
 
     # The name of the view.
     attr_accessor :name
 
-    # The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching cases.
+    # The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching work items.
     attr_accessor :np_rule_id
 
-    # The query used to filter cases in this view.
+    # The query used to filter work items in this view.
     attr_accessor :query
 
     attr_accessor :additional_properties

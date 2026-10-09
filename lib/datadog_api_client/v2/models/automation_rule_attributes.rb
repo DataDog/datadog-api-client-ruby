@@ -33,10 +33,10 @@ module DatadogAPIClient::V2
     # A human-readable name for the automation rule, used to identify the rule in the UI and API responses.
     attr_reader :name
 
-    # Whether the automation rule is active. Enabled rules trigger on matching case events; disabled rules are inactive but preserve their configuration.
+    # Whether the automation rule is active. Enabled rules trigger on matching work item events; disabled rules are inactive but preserve their configuration.
     attr_reader :state
 
-    # Defines when the rule activates. Combines a trigger type (the case event to listen for) with optional trigger data (conditions that narrow when the trigger fires).
+    # Defines when the rule activates. Combines a trigger type (the work item event to listen for) with optional trigger data (conditions that narrow when the trigger fires).
     attr_reader :trigger
 
     attr_accessor :additional_properties

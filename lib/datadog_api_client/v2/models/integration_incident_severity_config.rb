@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Severity configuration for mapping incident priorities to case priorities.
+  # Severity configuration for mapping incident priorities to work item priorities.
   class IntegrationIncidentSeverityConfig
     include BaseGenericModel
 
-    # Mapping of incident severity values to case priority values.
+    # Mapping of incident severity values to work item priority values.
     attr_accessor :priority_mapping
 
     attr_accessor :additional_properties

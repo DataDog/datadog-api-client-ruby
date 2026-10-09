@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case empty request data
+  # Work item empty request data
   class CaseEmpty
     include BaseGenericModel
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties

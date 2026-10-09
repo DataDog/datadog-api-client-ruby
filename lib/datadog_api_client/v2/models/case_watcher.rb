@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents a user who is subscribed to notifications for a case. Watchers receive updates when the case's status, priority, assignee, or comments change.
+  # Represents a user who is subscribed to notifications for a work item. Watchers receive updates when the work item's status, priority, assignee, or comments change.
   class CaseWatcher
     include BaseGenericModel
 
-    # The primary identifier of the case watcher.
+    # The primary identifier of the work item watcher.
     attr_reader :id
 
-    # Relationships for a case watcher, linking to the underlying user resource.
+    # Relationships for a work item watcher, linking to the underlying user resource.
     attr_reader :relationships
 
-    # JSON:API resource type for case watchers.
+    # JSON:API resource type for work item watchers.
     attr_reader :type
 
     attr_accessor :additional_properties

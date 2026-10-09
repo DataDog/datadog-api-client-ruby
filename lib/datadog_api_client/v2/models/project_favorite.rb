@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents a case project that the current user has bookmarked for quick access. Favorited projects appear prominently in the Case Management UI.
+  # Represents a Work Management project that the current user has bookmarked for quick access. Favorited projects appear prominently in the Work Management UI.
   class ProjectFavorite
     include BaseGenericModel
 

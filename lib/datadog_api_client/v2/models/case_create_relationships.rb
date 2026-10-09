@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships formed with the case on creation
+  # Relationships formed with the work item on creation
   class CaseCreateRelationships
     include BaseGenericModel
 

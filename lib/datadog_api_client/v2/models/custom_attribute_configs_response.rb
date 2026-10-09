@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CustomAttributeConfigsResponse
     include BaseGenericModel
 
-    # List of custom attribute configs of case type
+    # List of custom attribute configs of work item type
     attr_accessor :data
 
     attr_accessor :additional_properties

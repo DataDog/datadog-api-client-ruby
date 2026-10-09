@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines when the rule activates. Combines a trigger type (the case event to listen for) with optional trigger data (conditions that narrow when the trigger fires).
+  # Defines when the rule activates. Combines a trigger type (the work item event to listen for) with optional trigger data (conditions that narrow when the trigger fires).
   class AutomationRuleTrigger
     include BaseGenericModel
 
     # Additional configuration for the trigger, dependent on the trigger type. For `STATUS_TRANSITIONED` triggers, specify `from_status_name` and `to_status_name`. For `ATTRIBUTE_VALUE_CHANGED` triggers, specify `field` and `change_type`.
     attr_accessor :data
 
-    # The case event that activates the automation rule.
+    # The work item event that activates the automation rule.
     attr_reader :type
 
     attr_accessor :additional_properties

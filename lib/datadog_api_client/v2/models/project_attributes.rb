@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Project columns configuration.
     attr_accessor :columns_config
 
-    # List of enabled custom case type IDs.
+    # List of enabled custom work item type IDs.
     attr_accessor :enabled_custom_case_types
 
     # The project's key.
