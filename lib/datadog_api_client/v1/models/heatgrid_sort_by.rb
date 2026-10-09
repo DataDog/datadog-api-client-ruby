@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
-  module WidgetDefinition
+  # Sort rows by aggregated value or group label.
+  module HeatgridSortBy
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,49 +26,8 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'AlertGraphWidgetDefinition',
-          :'AlertValueWidgetDefinition',
-          :'BarChartWidgetDefinition',
-          :'ChangeWidgetDefinition',
-          :'CheckStatusWidgetDefinition',
-          :'CohortWidgetDefinition',
-          :'DistributionWidgetDefinition',
-          :'EmbeddedAppWidgetDefinition',
-          :'EventStreamWidgetDefinition',
-          :'EventTimelineWidgetDefinition',
-          :'FreeTextWidgetDefinition',
-          :'FunnelWidgetDefinition',
-          :'ProductAnalyticsFunnelWidgetDefinition',
-          :'GeomapWidgetDefinition',
-          :'GroupWidgetDefinition',
-          :'HeatgridWidgetDefinition',
-          :'HeatMapWidgetDefinition',
-          :'HostMapWidgetDefinition',
-          :'IFrameWidgetDefinition',
-          :'ImageWidgetDefinition',
-          :'ListStreamWidgetDefinition',
-          :'LogStreamWidgetDefinition',
-          :'MonitorSummaryWidgetDefinition',
-          :'NoteWidgetDefinition',
-          :'PowerpackWidgetDefinition',
-          :'PointPlotWidgetDefinition',
-          :'QueryValueWidgetDefinition',
-          :'RetentionCurveWidgetDefinition',
-          :'RunWorkflowWidgetDefinition',
-          :'SLOListWidgetDefinition',
-          :'SLOWidgetDefinition',
-          :'ScatterPlotWidgetDefinition',
-          :'SankeyWidgetDefinition',
-          :'ServiceMapWidgetDefinition',
-          :'ServiceSummaryWidgetDefinition',
-          :'SplitGraphWidgetDefinition',
-          :'SunburstWidgetDefinition',
-          :'TableWidgetDefinition',
-          :'TimeseriesWidgetDefinition',
-          :'ToplistWidgetDefinition',
-          :'TopologyMapWidgetDefinition',
-          :'TreeMapWidgetDefinition',
-          :'WildcardWidgetDefinition'
+          :'HeatgridSortByValue',
+          :'HeatgridSortByLabel'
         ]
       end
       # Builds the object

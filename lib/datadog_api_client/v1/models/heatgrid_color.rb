@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
-  module WidgetDefinition
+  # A color string, or two color strings for the light and dark themes, in that order.
+  module HeatgridColor
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,49 +26,8 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'AlertGraphWidgetDefinition',
-          :'AlertValueWidgetDefinition',
-          :'BarChartWidgetDefinition',
-          :'ChangeWidgetDefinition',
-          :'CheckStatusWidgetDefinition',
-          :'CohortWidgetDefinition',
-          :'DistributionWidgetDefinition',
-          :'EmbeddedAppWidgetDefinition',
-          :'EventStreamWidgetDefinition',
-          :'EventTimelineWidgetDefinition',
-          :'FreeTextWidgetDefinition',
-          :'FunnelWidgetDefinition',
-          :'ProductAnalyticsFunnelWidgetDefinition',
-          :'GeomapWidgetDefinition',
-          :'GroupWidgetDefinition',
-          :'HeatgridWidgetDefinition',
-          :'HeatMapWidgetDefinition',
-          :'HostMapWidgetDefinition',
-          :'IFrameWidgetDefinition',
-          :'ImageWidgetDefinition',
-          :'ListStreamWidgetDefinition',
-          :'LogStreamWidgetDefinition',
-          :'MonitorSummaryWidgetDefinition',
-          :'NoteWidgetDefinition',
-          :'PowerpackWidgetDefinition',
-          :'PointPlotWidgetDefinition',
-          :'QueryValueWidgetDefinition',
-          :'RetentionCurveWidgetDefinition',
-          :'RunWorkflowWidgetDefinition',
-          :'SLOListWidgetDefinition',
-          :'SLOWidgetDefinition',
-          :'ScatterPlotWidgetDefinition',
-          :'SankeyWidgetDefinition',
-          :'ServiceMapWidgetDefinition',
-          :'ServiceSummaryWidgetDefinition',
-          :'SplitGraphWidgetDefinition',
-          :'SunburstWidgetDefinition',
-          :'TableWidgetDefinition',
-          :'TimeseriesWidgetDefinition',
-          :'ToplistWidgetDefinition',
-          :'TopologyMapWidgetDefinition',
-          :'TreeMapWidgetDefinition',
-          :'WildcardWidgetDefinition'
+          :'String',
+          :'Array<String>'
         ]
       end
       # Builds the object
