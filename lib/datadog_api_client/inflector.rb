@@ -8329,6 +8329,7 @@ module DatadogAPIClient
           "v2.sourcemap_file_response" => "SourcemapFileResponse",
           "v2.sourcemap_item" => "SourcemapItem",
           "v2.sourcemap_map_kind" => "SourcemapMapKind",
+          "v2.sourcemap_search_by" => "SourcemapSearchBy",
           "v2.sourcemaps_list_meta" => "SourcemapsListMeta",
           "v2.sourcemaps_list_meta_page" => "SourcemapsListMetaPage",
           "v2.sourcemaps_response" => "SourcemapsResponse",

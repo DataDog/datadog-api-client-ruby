@@ -24,7 +24,14 @@ module DatadogAPIClient::V2
     # Whether there are more results available beyond the current page.
     attr_reader :has_more_results
 
-    # Total number of source maps matching the filter criteria.
+    # Cursor for the next page of a JavaScript cursor-based listing. Pass
+    # this value as `page[after]` with the same search mode and filters.
+    # Only returned when another page is available.
+    attr_accessor :next_cursor
+
+    # Total number of matching source maps for legacy page-number pagination.
+    # Cursor-based listings do not compute a total; this field may be zero
+    # even when records are returned. Use `has_more_results` to continue.
     attr_reader :total_filtered_count
 
     attr_accessor :additional_properties
@@ -34,6 +41,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'has_more_results' => :'has_more_results',
+        :'next_cursor' => :'next_cursor',
         :'total_filtered_count' => :'total_filtered_count'
       }
     end
@@ -43,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'has_more_results' => :'Boolean',
+        :'next_cursor' => :'String',
         :'total_filtered_count' => :'Integer'
       }
     end
@@ -67,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'has_more_results')
         self.has_more_results = attributes[:'has_more_results']
+      end
+
+      if attributes.key?(:'next_cursor')
+        self.next_cursor = attributes[:'next_cursor']
       end
 
       if attributes.key?(:'total_filtered_count')
@@ -130,6 +143,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           has_more_results == o.has_more_results &&
+          next_cursor == o.next_cursor &&
           total_filtered_count == o.total_filtered_count &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +152,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [has_more_results, total_filtered_count, additional_properties].hash
+      [has_more_results, next_cursor, total_filtered_count, additional_properties].hash
     end
   end
 end
