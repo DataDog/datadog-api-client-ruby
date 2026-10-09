@@ -30,6 +30,12 @@ module DatadogAPIClient::V2
     # Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
     attr_accessor :data_source
 
+    # IDs of the datasets queried by the rule. Only used when `queryLanguage` is `sql`.
+    attr_accessor :dataset_ids
+
+    # Version of each dataset used by the rule, keyed by dataset ID. Only used when `queryLanguage` is `sql`.
+    attr_accessor :dataset_versions
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
 
@@ -59,6 +65,9 @@ module DatadogAPIClient::V2
     # Query to run on logs.
     attr_accessor :query
 
+    # Language of the query. Use `sql` for SQL-based rules over datasets. Defaults to `event_query`.
+    attr_accessor :query_language
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -68,6 +77,8 @@ module DatadogAPIClient::V2
         :'aggregation' => :'aggregation',
         :'custom_query_extension' => :'customQueryExtension',
         :'data_source' => :'dataSource',
+        :'dataset_ids' => :'datasetIds',
+        :'dataset_versions' => :'datasetVersions',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
@@ -76,7 +87,8 @@ module DatadogAPIClient::V2
         :'metric' => :'metric',
         :'metrics' => :'metrics',
         :'name' => :'name',
-        :'query' => :'query'
+        :'query' => :'query',
+        :'query_language' => :'queryLanguage'
       }
     end
 
@@ -87,6 +99,8 @@ module DatadogAPIClient::V2
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
         :'custom_query_extension' => :'String',
         :'data_source' => :'SecurityMonitoringStandardDataSource',
+        :'dataset_ids' => :'Array<String>',
+        :'dataset_versions' => :'Hash<String, Integer>',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'has_optional_group_by_fields' => :'Boolean',
@@ -95,7 +109,8 @@ module DatadogAPIClient::V2
         :'metric' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
-        :'query' => :'String'
+        :'query' => :'String',
+        :'query_language' => :'String'
       }
     end
 
@@ -127,6 +142,16 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
+      end
+
+      if attributes.key?(:'dataset_ids')
+        if (value = attributes[:'dataset_ids']).is_a?(Array)
+          self.dataset_ids = value
+        end
+      end
+
+      if attributes.key?(:'dataset_versions')
+        self.dataset_versions = attributes[:'dataset_versions']
       end
 
       if attributes.key?(:'distinct_fields')
@@ -172,6 +197,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
+
+      if attributes.key?(:'query_language')
+        self.query_language = attributes[:'query_language']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -203,6 +232,8 @@ module DatadogAPIClient::V2
           aggregation == o.aggregation &&
           custom_query_extension == o.custom_query_extension &&
           data_source == o.data_source &&
+          dataset_ids == o.dataset_ids &&
+          dataset_versions == o.dataset_versions &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           has_optional_group_by_fields == o.has_optional_group_by_fields &&
@@ -212,6 +243,7 @@ module DatadogAPIClient::V2
           metrics == o.metrics &&
           name == o.name &&
           query == o.query &&
+          query_language == o.query_language &&
           additional_properties == o.additional_properties
     end
 
@@ -219,7 +251,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, custom_query_extension, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, index, indexes, metric, metrics, name, query, additional_properties].hash
+      [aggregation, custom_query_extension, data_source, dataset_ids, dataset_versions, distinct_fields, group_by_fields, has_optional_group_by_fields, index, indexes, metric, metrics, name, query, query_language, additional_properties].hash
     end
   end
 end
