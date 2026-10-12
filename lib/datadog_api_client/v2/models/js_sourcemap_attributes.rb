@@ -33,6 +33,10 @@ module DatadogAPIClient::V2
     # The timestamp when the source map was created.
     attr_reader :created_at
 
+    # The debug identifier (UUID format) that uniquely identifies this
+    # JavaScript source map. Returned for source maps indexed by debug ID.
+    attr_accessor :debug_id
+
     # The domain associated with the source map.
     attr_accessor :domain
 
@@ -67,6 +71,7 @@ module DatadogAPIClient::V2
         :'blob_storage_sourcemap_path' => :'blob_storage_sourcemap_path',
         :'build_id' => :'build_id',
         :'created_at' => :'created_at',
+        :'debug_id' => :'debug_id',
         :'domain' => :'domain',
         :'file_name' => :'file_name',
         :'mapkind' => :'mapkind',
@@ -86,6 +91,7 @@ module DatadogAPIClient::V2
         :'blob_storage_sourcemap_path' => :'String',
         :'build_id' => :'String',
         :'created_at' => :'Time',
+        :'debug_id' => :'String',
         :'domain' => :'String',
         :'file_name' => :'String',
         :'mapkind' => :'String',
@@ -129,6 +135,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'debug_id')
+        self.debug_id = attributes[:'debug_id']
       end
 
       if attributes.key?(:'domain')
@@ -234,6 +244,7 @@ module DatadogAPIClient::V2
           blob_storage_sourcemap_path == o.blob_storage_sourcemap_path &&
           build_id == o.build_id &&
           created_at == o.created_at &&
+          debug_id == o.debug_id &&
           domain == o.domain &&
           file_name == o.file_name &&
           mapkind == o.mapkind &&
@@ -249,7 +260,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [absolute_path, blob_storage_sourcemap_path, build_id, created_at, domain, file_name, mapkind, service, size, variant, version, version_code, additional_properties].hash
+      [absolute_path, blob_storage_sourcemap_path, build_id, created_at, debug_id, domain, file_name, mapkind, service, size, variant, version, version_code, additional_properties].hash
     end
   end
 end
