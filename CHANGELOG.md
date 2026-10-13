@@ -1,5 +1,64 @@
 # CHANGELOG
 
+## 2.61.0/2026-10-13
+
+### Added
+* Clarify JavaScript source map listing and pagination [#3927](https://github.com/DataDog/datadog-api-client-ruby/pull/3927)
+* Document public Deployment Gate and rule evaluation endpoints [#3926](https://github.com/DataDog/datadog-api-client-ruby/pull/3926)
+* Add Heatgrid dashboard widget support [#3923](https://github.com/DataDog/datadog-api-client-ruby/pull/3923)
+* Mark Bits Investigation endpoints as stable [#3922](https://github.com/DataDog/datadog-api-client-ruby/pull/3922)
+* Add endpoint to override the severity of security findings [#3919](https://github.com/DataDog/datadog-api-client-ruby/pull/3919)
+* Include the matched shard in the SPA v2 response [#3918](https://github.com/DataDog/datadog-api-client-ruby/pull/3918)
+* Add reroute_to_team action to On-Call team routing rules [#3917](https://github.com/DataDog/datadog-api-client-ruby/pull/3917)
+* Add aggregate event-time configuration to Observability Pipelines [#3911](https://github.com/DataDog/datadog-api-client-ruby/pull/3911)
+* Publish Cloud Cost Management cloud account listing [#3910](https://github.com/DataDog/datadog-api-client-ruby/pull/3910)
+* Add AI Impact user activity endpoint [#3902](https://github.com/DataDog/datadog-api-client-ruby/pull/3902)
+* Rename Patch a deployment event to Mark a deployment as failed by ID [#3901](https://github.com/DataDog/datadog-api-client-ruby/pull/3901)
+* Promote Mark a deployment as failed by version endpoint to GA [#3900](https://github.com/DataDog/datadog-api-client-ruby/pull/3900)
+* Document Supply Chain Firewall reports API [#3899](https://github.com/DataDog/datadog-api-client-ruby/pull/3899)
+* Add compatibleVersion to security monitoring rule responses [#3897](https://github.com/DataDog/datadog-api-client-ruby/pull/3897)
+* Add CI job logs intake API [#3895](https://github.com/DataDog/datadog-api-client-ruby/pull/3895)
+* Add Archive Search endpoints to the public API [#3893](https://github.com/DataDog/datadog-api-client-ruby/pull/3893)
+* Add SPA recommendations v2 endpoint [#3891](https://github.com/DataDog/datadog-api-client-ruby/pull/3891)
+* Add dashboard experience type to API responses [#3890](https://github.com/DataDog/datadog-api-client-ruby/pull/3890)
+* Extend Cloud Auth Config endpoints to support new GitHub provider [#3889](https://github.com/DataDog/datadog-api-client-ruby/pull/3889)
+* Add case_stream to dashboard list stream sources [#3884](https://github.com/DataDog/datadog-api-client-ruby/pull/3884)
+* Add metrics enrichment table processor to Observability Pipelines [#3883](https://github.com/DataDog/datadog-api-client-ruby/pull/3883)
+* Add bits_ai_auto_investigate to synthetics test options [#3880](https://github.com/DataDog/datadog-api-client-ruby/pull/3880)
+* Document `source` field in DataDeletionResponseItemAttributes [#3879](https://github.com/DataDog/datadog-api-client-ruby/pull/3879)
+* Document Flink as a Confluent Cloud resource type [#3875](https://github.com/DataDog/datadog-api-client-ruby/pull/3875)
+* Document recently updated entities endpoint and entity_type parameter [#3874](https://github.com/DataDog/datadog-api-client-ruby/pull/3874)
+* Publish stable Experiments v2 APIs [#3871](https://github.com/DataDog/datadog-api-client-ruby/pull/3871)
+* Document leak information on personal and service access tokens [#3868](https://github.com/DataDog/datadog-api-client-ruby/pull/3868)
+* Increase Reference Tables Upsert/DeleteRows payload limit to 1 MiB [#3858](https://github.com/DataDog/datadog-api-client-ruby/pull/3858)
+* add recipient_email and servicenow to team notification rule [#3855](https://github.com/DataDog/datadog-api-client-ruby/pull/3855)
+* Document the meta object returned by Reference Tables Get rows by id [#3837](https://github.com/DataDog/datadog-api-client-ruby/pull/3837)
+* Add support for general investigations to Bits Investigations trigger API [#3830](https://github.com/DataDog/datadog-api-client-ruby/pull/3830)
+* Document managed prompt message placeholders [#3805](https://github.com/DataDog/datadog-api-client-ruby/pull/3805)
+
+### Changed
+* Document AI Impact user activity endpoint under DORA Metrics [#3921](https://github.com/DataDog/datadog-api-client-ruby/pull/3921)
+* Document dashboard quality scores in usage APIs [#3908](https://github.com/DataDog/datadog-api-client-ruby/pull/3908)
+* Update signalsDetected description to reflect risk-contributing signals [#3824](https://github.com/DataDog/datadog-api-client-ruby/pull/3824)
+
+### Fixed
+* Allow null default_value in governance control parameter definitions [#3920](https://github.com/DataDog/datadog-api-client-ruby/pull/3920)
+* Remove bearer token auth from the CreateEvent intake endpoint [#3916](https://github.com/DataDog/datadog-api-client-ruby/pull/3916)
+* Clarify the Archive Search tag description [#3903](https://github.com/DataDog/datadog-api-client-ruby/pull/3903)
+* Fix Workload Protection policy creation success response to 201 Created [#3896](https://github.com/DataDog/datadog-api-client-ruby/pull/3896)
+* Document DDSQL query permissions and OAuth scope [#3873](https://github.com/DataDog/datadog-api-client-ruby/pull/3873)
+* Specify UUID format for Databricks Private Action Runner connection fields [#3860](https://github.com/DataDog/datadog-api-client-ruby/pull/3860)
+* CCM Recommendations API - Re-add filter request attribute and fix sort examples [#3843](https://github.com/DataDog/datadog-api-client-ruby/pull/3843)
+* Automation pipelines require ID in updates and use different request/response schemas [#3778](https://github.com/DataDog/datadog-api-client-ruby/pull/3778)
+* RUM Rename feature to journey strong link to link in comments and desc [#3747](https://github.com/DataDog/datadog-api-client-ruby/pull/3747)
+* Document missing limitations and 409 response for org disable endpoint [#3601](https://github.com/DataDog/datadog-api-client-ruby/pull/3601)
+
+### Deprecated
+* Deprecate Salesforce Incidents API endpoints [#3913](https://github.com/DataDog/datadog-api-client-ruby/pull/3913)
+
+### Removed
+* Retire the RUM aggregated signals and problems endpoint [#3876](https://github.com/DataDog/datadog-api-client-ruby/pull/3876)
+
 ## 2.60.0/2026-09-24
 
 ### Added
