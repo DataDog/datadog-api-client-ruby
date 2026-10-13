@@ -161,6 +161,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create On-Call schedule overrides.
+    #
+    # @see #create_schedule_overrides_with_http_info
+    def create_schedule_overrides(schedule_id, body, opts = {})
+      data, _status_code, _headers = create_schedule_overrides_with_http_info(schedule_id, body, opts)
+      data
+    end
+
+    # Create On-Call schedule overrides.
+    #
+    # Create one or more overrides for the specified On-Call schedule.
+    #
+    # @param schedule_id [String] The ID of the schedule.
+    # @param body [CreateOverridesRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `user`, `overridden_user`, `user.color`.
+    # @return [Array<(OverrideCreateResponse, Integer, Hash)>] OverrideCreateResponse data, response status code and response headers
+    def create_schedule_overrides_with_http_info(schedule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.create_schedule_overrides ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.create_schedule_overrides"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OnCallAPI.create_schedule_overrides"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/overrides'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OverrideCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_schedule_overrides,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#create_schedule_overrides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an On-Call notification channel for a user.
     #
     # @see #create_user_notification_channel_with_http_info
@@ -431,6 +505,76 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#delete_on_call_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete On-Call schedule override.
+    #
+    # @see #delete_schedule_override_with_http_info
+    def delete_schedule_override(schedule_id, override_id, opts = {})
+      delete_schedule_override_with_http_info(schedule_id, override_id, opts)
+      nil
+    end
+
+    # Delete On-Call schedule override.
+    #
+    # Delete an override from the specified On-Call schedule.
+    #
+    # @param schedule_id [String] The ID of the schedule.
+    # @param override_id [String] The ID of the override.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_schedule_override_with_http_info(schedule_id, override_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.delete_schedule_override ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.delete_schedule_override"
+      end
+      # verify the required parameter 'override_id' is set
+      if @api_client.config.client_side_validation && override_id.nil?
+        fail ArgumentError, "Missing the required parameter 'override_id' when calling OnCallAPI.delete_schedule_override"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/overrides/{override_id}'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/')).sub('{override_id}', CGI.escape(override_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_schedule_override,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#delete_schedule_override\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -792,7 +936,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `schedule`, `responders`, `responders.shifts`, `responders.shifts.user`.
     # @option opts [String] :filter_position Comma-separated list of positions to retrieve. Allowed values: `previous`, `current`, `next`. Defaults to `current` if omitted.
-    # @option opts [String] :filter_at_ts Retrieves the on-call responders at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
+    # @option opts [String] :filter_at_ts Retrieves the on-call responders at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`. Defaults to the current time if omitted.
     # @return [Array<(ScheduleOnCallResponders, Integer, Hash)>] ScheduleOnCallResponders data, response status code and response headers
     def get_schedule_on_call_responders_with_http_info(schedule_id, opts = {})
 
@@ -864,7 +1008,7 @@ module DatadogAPIClient::V2
     # @param schedule_id [String] The ID of the schedule.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Specifies related resources to include in the response as a comma-separated list. Allowed value: `user`.
-    # @option opts [String] :filter_at_ts Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
+    # @option opts [String] :filter_at_ts Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`. Defaults to the current time if omitted.
     # @return [Array<(Shift, Integer, Hash)>] Shift data, response status code and response headers
     def get_schedule_on_call_user_with_http_info(schedule_id, opts = {})
       warn "[DEPRECATION] `GetScheduleOnCallUser` is deprecated."
@@ -1210,6 +1354,114 @@ module DatadogAPIClient::V2
         @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
         while true do
             response = list_on_call_schedules(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
+    # List On-Call schedule overrides.
+    #
+    # @see #list_schedule_overrides_with_http_info
+    def list_schedule_overrides(schedule_id, filter_start, filter_end, opts = {})
+      data, _status_code, _headers = list_schedule_overrides_with_http_info(schedule_id, filter_start, filter_end, opts)
+      data
+    end
+
+    # List On-Call schedule overrides.
+    #
+    # Retrieve a list of overrides for the specified On-Call schedule within a given time range.
+    #
+    # @param schedule_id [String] The ID of the schedule.
+    # @param filter_start [Time] Start of the time range to retrieve overrides for, in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`.
+    # @param filter_end [Time] End of the time range to retrieve overrides for, in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`. The time range cannot exceed 45 days.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response. Allowed values: `user`, `overridden_user`, `user.color`.
+    # @option opts [Integer] :page_size Number of overrides to return per page. The maximum allowed value is 50.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(Overrides, Integer, Hash)>] Overrides data, response status code and response headers
+    def list_schedule_overrides_with_http_info(schedule_id, filter_start, filter_end, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_schedule_overrides ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.list_schedule_overrides"
+      end
+      # verify the required parameter 'filter_start' is set
+      if @api_client.config.client_side_validation && filter_start.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_start' when calling OnCallAPI.list_schedule_overrides"
+      end
+      # verify the required parameter 'filter_end' is set
+      if @api_client.config.client_side_validation && filter_end.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_end' when calling OnCallAPI.list_schedule_overrides"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 50
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling OnCallAPI.list_schedule_overrides, must be smaller than or equal to 50.'
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/overrides'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[start]'] = filter_start
+      query_params[:'filter[end]'] = filter_end
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Overrides'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_schedule_overrides,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_schedule_overrides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List On-Call schedule overrides.
+    #
+    # Provide a paginated version of {#list_schedule_overrides}, returning all items.
+    #
+    # To use it you need to use a block: list_schedule_overrides_with_pagination { |item| p item }
+    #
+    # @yield [OverrideData] Paginated items
+    def list_schedule_overrides_with_pagination(schedule_id, filter_start, filter_end, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_schedule_overrides(schedule_id, filter_start, filter_end, opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
