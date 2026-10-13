@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateRequest.new({
   data: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateData.new({
     attributes: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyUpdateAttributes.new({
       description: "Updated agent policy",
-      enabled: true,
+      enabled: false,
       host_tags_lists: [
         [
           "env:test",
