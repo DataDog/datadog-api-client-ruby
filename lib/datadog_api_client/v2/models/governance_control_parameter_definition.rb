@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class GovernanceControlParameterDefinition
     include BaseGenericModel
 
-    # The default value of the parameter. The JSON type depends on the parameter's `type`.
-    attr_reader :default_value
+    # The default value of the parameter. The JSON type depends on the parameter's `type`. `null` when the parameter has no default.
+    attr_accessor :default_value
 
     # A human-readable description of the parameter.
     attr_reader :description
@@ -76,6 +76,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'default_value',
         :'supported_values',
       ])
     end
@@ -133,23 +134,12 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @default_value.nil?
       return false if @description.nil?
       return false if @display_name.nil?
       return false if @name.nil?
       return false if @required.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param default_value [Object] Object to be assigned
-    # @!visibility private
-    def default_value=(default_value)
-      if default_value.nil?
-        fail ArgumentError, 'invalid value for "default_value", default_value cannot be nil.'
-      end
-      @default_value = default_value
     end
 
     # Custom attribute writer method with validation
