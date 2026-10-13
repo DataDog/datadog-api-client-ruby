@@ -387,6 +387,7 @@ module DatadogAPIClient::V2
     # Update the tags for a device.
     #
     # Update the tags for a device.
+    # A device supports up to 20 user tags by default. To request a higher limit for your organization, [contact Support](https://docs.datadoghq.com/help/).
     #
     # @param device_id [String] The id of the device to update tags for.
     # @param body [ListTagsResponse] 
