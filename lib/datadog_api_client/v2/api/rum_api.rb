@@ -545,22 +545,54 @@ module DatadogAPIClient::V2
     # Get a JavaScript source map.
     #
     # @see #get_sourcemaps_with_http_info
-    def get_sourcemaps(filename, service, version, opts = {})
-      data, _status_code, _headers = get_sourcemaps_with_http_info(filename, service, version, opts)
+    def get_sourcemaps(opts = {})
+      data, _status_code, _headers = get_sourcemaps_with_http_info(opts)
       data
     end
 
     # Get a JavaScript source map.
     #
-    # Retrieves the content of a specific JavaScript source map file by its
-    # filename, service name, and version.
+    # Retrieves the content of a specific JavaScript source map file. Provide either
+    # `debug_id` with a UUID, or all three of `filename`, `service`, and `version`.
+    # When `debug_id` is provided, filename, service, and version are not required
+    # and are ignored.
     #
-    # @param filename [String] The path to the source map file.
-    # @param service [String] The service name associated with the source map.
-    # @param version [String] The version of the service associated with the source map.
+    # **Examples:** the following commands use the US1 API host. Replace the host
+    # with the API host for your site, and the filename, service, version, and
+    # debug ID with values from your organization. Use `--get` so curl sends the
+    # parameters in the query string.
+    #
+    # **1. Retrieve a source map by debug ID**
+    #
+    # Provide `debug_id` with a UUID. No filename, service, or version is required.
+    #
+    # ```bash
+    # curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps" \
+    #   -H "Accept: application/json" \
+    #   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+    #   --data-urlencode "debug_id=00000000-0000-4000-8000-000000000001"
+    # ```
+    #
+    # **2. Retrieve a source map by service and version**
+    #
+    # Provide `filename` together with `service` and `version`.
+    #
+    # ```bash
+    # curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps" \
+    #   -H "Accept: application/json" \
+    #   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+    #   --data-urlencode "filename=js/bundle.min.js.map" \
+    #   --data-urlencode "service=my-web-service" \
+    #   --data-urlencode "version=1.0.0"
+    # ```
+    #
     # @param opts [Hash] the optional parameters
+    # @option opts [UUID] :debug_id The debug ID of the JavaScript source map, in UUID format. When provided, filename, service, and version are not required and are ignored.
+    # @option opts [String] :filename The path to the source map file. Required when `debug_id` is omitted.
+    # @option opts [String] :service The service name associated with the source map. Required when `debug_id` is omitted.
+    # @option opts [String] :version The version of the service associated with the source map. Required when `debug_id` is omitted.
     # @return [Array<(SourcemapFileResponse, Integer, Hash)>] SourcemapFileResponse data, response status code and response headers
-    def get_sourcemaps_with_http_info(filename, service, version, opts = {})
+    def get_sourcemaps_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_sourcemaps".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_sourcemaps")
@@ -571,26 +603,15 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.get_sourcemaps ...'
       end
-      # verify the required parameter 'filename' is set
-      if @api_client.config.client_side_validation && filename.nil?
-        fail ArgumentError, "Missing the required parameter 'filename' when calling RUMAPI.get_sourcemaps"
-      end
-      # verify the required parameter 'service' is set
-      if @api_client.config.client_side_validation && service.nil?
-        fail ArgumentError, "Missing the required parameter 'service' when calling RUMAPI.get_sourcemaps"
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RUMAPI.get_sourcemaps"
-      end
       # resource path
       local_var_path = '/api/v2/sourcemaps'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'filename'] = filename
-      query_params[:'service'] = service
-      query_params[:'version'] = version
+      query_params[:'debug_id'] = opts[:'debug_id'] if !opts[:'debug_id'].nil?
+      query_params[:'filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      query_params[:'service'] = opts[:'service'] if !opts[:'service'].nil?
+      query_params[:'version'] = opts[:'version'] if !opts[:'version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
