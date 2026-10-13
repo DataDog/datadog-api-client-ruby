@@ -1,7 +1,7 @@
 # Send AI tool user activity returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::AIImpactAPI.new
+api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
 
 body = DatadogAPIClient::V2::AIImpactUserActivityRequest.new({
   data: [
