@@ -23,6 +23,73 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Archive experiment protocol.
+    #
+    # @see #archive_experiment_protocol_with_http_info
+    def archive_experiment_protocol(protocol_id, opts = {})
+      data, _status_code, _headers = archive_experiment_protocol_with_http_info(protocol_id, opts)
+      data
+    end
+
+    # Archive experiment protocol.
+    #
+    # Archive a draft or published protocol. Archived protocols cannot be edited or used to create new experiments. Existing experiments keep their settings. Archiving an already archived protocol returns 409.
+    #
+    # @param protocol_id [UUID] The UUID of the protocol.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :expected_updated_at The updated_at value from the last read. Include the full timestamp, with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip this check.
+    # @return [Array<(ExperimentsPublicProtocolResponse, Integer, Hash)>] ExperimentsPublicProtocolResponse data, response status code and response headers
+    def archive_experiment_protocol_with_http_info(protocol_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.archive_experiment_protocol ...'
+      end
+      # verify the required parameter 'protocol_id' is set
+      if @api_client.config.client_side_validation && protocol_id.nil?
+        fail ArgumentError, "Missing the required parameter 'protocol_id' when calling ExperimentsAPI.archive_experiment_protocol"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/protocols/{protocol_id}/archive'.sub('{protocol_id}', CGI.escape(protocol_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'expected_updated_at'] = opts[:'expected_updated_at'] if !opts[:'expected_updated_at'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsPublicProtocolResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :archive_experiment_protocol,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#archive_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Archive exposure SQL model.
     #
     # @see #archive_exposure_sql_model_with_http_info
@@ -443,6 +510,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#create_experiment_metric_group_from_collection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create experiment protocol.
+    #
+    # @see #create_experiment_protocol_with_http_info
+    def create_experiment_protocol(body, opts = {})
+      data, _status_code, _headers = create_experiment_protocol_with_http_info(body, opts)
+      data
+    end
+
+    # Create experiment protocol.
+    #
+    # Create a draft protocol with a name and optional description and migration metadata. The organization's default subject type is selected. Use PATCH to configure the draft, then publish it before creating experiments from it.
+    #
+    # @param body [ExperimentsCreateExperimentProtocolRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsPublicProtocolResponse, Integer, Hash)>] ExperimentsPublicProtocolResponse data, response status code and response headers
+    def create_experiment_protocol_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_experiment_protocol ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExperimentsAPI.create_experiment_protocol"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/protocols'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsPublicProtocolResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_experiment_protocol,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#create_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -913,6 +1047,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#delete_experiment_metric_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete experiment protocol.
+    #
+    # @see #delete_experiment_protocol_with_http_info
+    def delete_experiment_protocol(protocol_id, opts = {})
+      delete_experiment_protocol_with_http_info(protocol_id, opts)
+      nil
+    end
+
+    # Delete experiment protocol.
+    #
+    # Delete a protocol with no linked experiments. Draft, published, and archived protocols can be deleted. Returns 204 with no response body.
+    #
+    # @param protocol_id [UUID] The UUID of the protocol.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :expected_updated_at The updated_at value from the last read. Include the full timestamp, with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip this check.
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_experiment_protocol_with_http_info(protocol_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_experiment_protocol ...'
+      end
+      # verify the required parameter 'protocol_id' is set
+      if @api_client.config.client_side_validation && protocol_id.nil?
+        fail ArgumentError, "Missing the required parameter 'protocol_id' when calling ExperimentsAPI.delete_experiment_protocol"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/protocols/{protocol_id}'.sub('{protocol_id}', CGI.escape(protocol_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'expected_updated_at'] = opts[:'expected_updated_at'] if !opts[:'expected_updated_at'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_experiment_protocol,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#delete_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2543,6 +2744,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update experiment protocol.
+    #
+    # @see #patch_experiment_protocol_with_http_info
+    def patch_experiment_protocol(protocol_id, body, opts = {})
+      data, _status_code, _headers = patch_experiment_protocol_with_http_info(protocol_id, body, opts)
+      data
+    end
+
+    # Update experiment protocol.
+    #
+    # Update the supplied fields of a draft protocol. Published protocols accept only name, description, and migration_metadata changes through PATCH. Use PUT to replace their settings. Archived protocols cannot be edited.
+    #
+    # Omitted fields keep their current values, including fields inside analysis_plan, exposure_schedule, and enforcement. Arrays replace the stored arrays. Supported null values clear fields; see the request schema. Use primary_metric_id to select the primary metric and default_duration_days to set the experiment analysis duration. Nested metric is_primary and analysis_plan.target_duration_days fields are rejected.
+    #
+    # @param protocol_id [UUID] The UUID of the protocol.
+    # @param body [ExperimentsPatchExperimentProtocolRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsPublicProtocolResponse, Integer, Hash)>] ExperimentsPublicProtocolResponse data, response status code and response headers
+    def patch_experiment_protocol_with_http_info(protocol_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.patch_experiment_protocol ...'
+      end
+      # verify the required parameter 'protocol_id' is set
+      if @api_client.config.client_side_validation && protocol_id.nil?
+        fail ArgumentError, "Missing the required parameter 'protocol_id' when calling ExperimentsAPI.patch_experiment_protocol"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExperimentsAPI.patch_experiment_protocol"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/protocols/{protocol_id}'.sub('{protocol_id}', CGI.escape(protocol_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsPublicProtocolResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :patch_experiment_protocol,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#patch_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patch subject type.
     #
     # @see #patch_subject_type_with_http_info
@@ -2611,6 +2886,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#patch_subject_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Publish experiment protocol.
+    #
+    # @see #publish_experiment_protocol_with_http_info
+    def publish_experiment_protocol(protocol_id, opts = {})
+      data, _status_code, _headers = publish_experiment_protocol_with_http_info(protocol_id, opts)
+      data
+    end
+
+    # Publish experiment protocol.
+    #
+    # Publish a valid draft protocol. The protocol must have a name and subject type. Supplied references and settings must be valid. An exposure schedule or targeting rules require an environment. Enabled limits require their values. Configurable template fields must have a value before they can be locked.
+    #
+    # Independent configuration errors are returned together in the JSON:API errors array with source.pointer values that identify the fields. Earlier request and reference checks can stop on the first error. A failed request leaves the protocol unchanged.
+    #
+    # @param protocol_id [UUID] The UUID of the protocol.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsPublicProtocolResponse, Integer, Hash)>] ExperimentsPublicProtocolResponse data, response status code and response headers
+    def publish_experiment_protocol_with_http_info(protocol_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.publish_experiment_protocol ...'
+      end
+      # verify the required parameter 'protocol_id' is set
+      if @api_client.config.client_side_validation && protocol_id.nil?
+        fail ArgumentError, "Missing the required parameter 'protocol_id' when calling ExperimentsAPI.publish_experiment_protocol"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/protocols/{protocol_id}/publish'.sub('{protocol_id}', CGI.escape(protocol_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsPublicProtocolResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :publish_experiment_protocol,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#publish_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2740,6 +3082,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#refresh_experiment_results_for_org\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace experiment protocol.
+    #
+    # @see #replace_experiment_protocol_with_http_info
+    def replace_experiment_protocol(protocol_id, body, opts = {})
+      data, _status_code, _headers = replace_experiment_protocol_with_http_info(protocol_id, body, opts)
+      data
+    end
+
+    # Replace experiment protocol.
+    #
+    # Replace the template of a published protocol. Draft and archived protocols return 409. Send subject_type_id, all four required boolean settings, and metric_groups. Omitted optional template fields are cleared. Omitted enforcement keeps the existing locks.
+    #
+    # Use primary_metric_id to select the primary metric. Use default_duration_days to set target_duration_days on experiments created from the protocol. The nested metric is_primary and analysis_plan.target_duration_days fields are rejected. An unchanged GET response can be sent as the request body. Response-only fields are ignored.
+    #
+    # Independent configuration errors are returned together in the JSON:API errors array. Each error identifies the field in source.pointer. Earlier request and reference checks can stop on the first error. A failed request leaves the protocol unchanged. Changes apply to future experiments; existing experiments keep their settings.
+    #
+    # @param protocol_id [UUID] The UUID of the protocol.
+    # @param body [ExperimentsReplaceExperimentProtocolRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :expected_updated_at The updated_at value from the last read. Include the full timestamp, with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip this check.
+    # @return [Array<(ExperimentsPublicProtocolResponse, Integer, Hash)>] ExperimentsPublicProtocolResponse data, response status code and response headers
+    def replace_experiment_protocol_with_http_info(protocol_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.replace_experiment_protocol ...'
+      end
+      # verify the required parameter 'protocol_id' is set
+      if @api_client.config.client_side_validation && protocol_id.nil?
+        fail ArgumentError, "Missing the required parameter 'protocol_id' when calling ExperimentsAPI.replace_experiment_protocol"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExperimentsAPI.replace_experiment_protocol"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/protocols/{protocol_id}'.sub('{protocol_id}', CGI.escape(protocol_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'expected_updated_at'] = opts[:'expected_updated_at'] if !opts[:'expected_updated_at'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsPublicProtocolResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :replace_experiment_protocol,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#replace_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
