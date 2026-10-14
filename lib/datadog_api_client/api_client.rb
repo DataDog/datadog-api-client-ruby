@@ -25,6 +25,69 @@ rescue LoadError
 end
 
 module DatadogAPIClient
+  QUERY_STRING_NORMALIZER = proc do |query|
+    Array(query).sort_by { |a| a[0].to_s }.map do |key, value|
+      if value.nil?
+        key.to_s
+      elsif value.respond_to?(:to_ary)
+        value.to_ary.map { |v| "#{key}=#{ERB::Util.url_encode(v.to_s)}" }
+      else
+        HashConversions.to_params(key => value)
+      end
+    end.flatten.join('&')
+  end
+
+  # Encodes hashes into url-encoded query strings, using rails-style brackets for nested keys.
+  # @!visibility private
+  module HashConversions
+    def self.to_params(hash)
+      hash.to_hash.map { |k, v| normalize_param(k, v) }.join.chop
+    end
+
+    def self.normalize_param(key, value)
+      normalized_keys = normalize_keys(key, value)
+
+      normalized_keys.flatten.each_slice(2).inject(''.dup) do |string, (k, v)|
+        string << "#{ERB::Util.url_encode(k)}=#{ERB::Util.url_encode(v.to_s)}&"
+      end
+    end
+
+    def self.normalize_keys(key, value)
+      stack = []
+      normalized_keys = []
+
+      if value.respond_to?(:to_ary)
+        if value.empty?
+          normalized_keys << ["#{key}[]", '']
+        else
+          normalized_keys = value.to_ary.flat_map do |element|
+            normalize_keys("#{key}[]", element)
+          end
+        end
+      elsif value.respond_to?(:to_hash)
+        stack << [key, value.to_hash]
+      else
+        normalized_keys << [key.to_s, value]
+      end
+
+      stack.each do |parent, hash|
+        hash.each do |child_key, child_value|
+          if child_value.respond_to?(:to_hash)
+            stack << ["#{parent}[#{child_key}]", child_value.to_hash]
+          elsif child_value.respond_to?(:to_ary)
+            child_value.to_ary.each do |v|
+              normalized_keys << normalize_keys("#{parent}[#{child_key}][]", v).flatten
+            end
+          else
+            normalized_keys << normalize_keys("#{parent}[#{child_key}]", child_value).flatten
+          end
+        end
+      end
+
+      normalized_keys
+    end
+  end
+
   class APIClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -152,16 +215,16 @@ module DatadogAPIClient
       sleep_time
     end
 
-    #Redact api key, app key, and Authorization (Bearer) header in the request log
+    # Redact api key, app key, and Authorization (Bearer) header in the request log
     def sanitize_request_header(request_header)
-      sanitized_headers= request_header.dup
+      sanitized_headers = request_header.dup
       keys_to_redact = ["DD-API-KEY", "DD-APPLICATION-KEY", "Authorization"]
       keys_to_redact.each do |key_to_redact|
         if sanitized_headers.key?(key_to_redact)
           sanitized_headers[key_to_redact] = "REDACTED"
         end
       end
-      return sanitized_headers
+      sanitized_headers
     end
 
     # Build the HTTP request
@@ -200,7 +263,7 @@ module DatadogAPIClient
 
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
       req_opts[:pem_password] = File.read(@config.key_file) if @config.key_file
-      req_opts[:query_string_normalizer] = opts[:query_string_normalizer] if opts[:query_string_normalizer] 
+      req_opts[:query_string_normalizer] = opts[:query_string_normalizer] if opts[:query_string_normalizer]
 
       opts[:stream_body] = true if opts[:return_type] == 'File'
 
@@ -494,7 +557,7 @@ module DatadogAPIClient
     # @param [Object] default The default value, if not found
     # @return [Object] The value found, or default
     # @!visibility private
-    def get_attribute_from_path(obj, attribute_path, default=nil)
+    def get_attribute_from_path(obj, attribute_path, default = nil)
       for attr in attribute_path.split(".") do
         case obj
         when Hash

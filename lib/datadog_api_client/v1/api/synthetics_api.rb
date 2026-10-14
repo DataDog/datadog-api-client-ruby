@@ -39,7 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def create_global_variable_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_global_variable ...'
       end
@@ -106,7 +105,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocationCreationResponse, Integer, Hash)>] SyntheticsPrivateLocationCreationResponse data, response status code and response headers
     def create_private_location_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_private_location ...'
       end
@@ -173,7 +171,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def create_synthetics_api_test_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_api_test ...'
       end
@@ -240,7 +237,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def create_synthetics_browser_test_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_browser_test ...'
       end
@@ -307,7 +303,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsMobileTest, Integer, Hash)>] SyntheticsMobileTest data, response status code and response headers
     def create_synthetics_mobile_test_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_mobile_test ...'
       end
@@ -374,7 +369,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_global_variable_with_http_info(variable_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_global_variable ...'
       end
@@ -439,7 +433,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_private_location_with_http_info(location_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_private_location ...'
       end
@@ -504,7 +497,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDeleteTestsResponse, Integer, Hash)>] SyntheticsDeleteTestsResponse data, response status code and response headers
     def delete_tests_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_tests ...'
       end
@@ -572,7 +564,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def edit_global_variable_with_http_info(variable_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.edit_global_variable ...'
       end
@@ -643,7 +634,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<SyntheticsTestUptime>, Integer, Hash)>] Array<SyntheticsTestUptime> data, response status code and response headers
     def fetch_uptimes_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.fetch_uptimes ...'
       end
@@ -711,7 +701,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def get_api_test_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_test ...'
       end
@@ -779,7 +768,6 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetAPITestLatestResultsResponse, Integer, Hash)>] SyntheticsGetAPITestLatestResultsResponse data, response status code and response headers
     def get_api_test_latest_results_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_test_latest_results ...'
       end
@@ -823,7 +811,7 @@ module DatadogAPIClient::V1
         :return_type => return_type,
         :api_version => "V1"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -849,7 +837,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITestResultFull, Integer, Hash)>] SyntheticsAPITestResultFull data, response status code and response headers
     def get_api_test_result_with_http_info(public_id, result_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_test_result ...'
       end
@@ -919,7 +906,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def get_browser_test_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_browser_test ...'
       end
@@ -987,7 +973,6 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetBrowserTestLatestResultsResponse, Integer, Hash)>] SyntheticsGetBrowserTestLatestResultsResponse data, response status code and response headers
     def get_browser_test_latest_results_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_browser_test_latest_results ...'
       end
@@ -1031,7 +1016,7 @@ module DatadogAPIClient::V1
         :return_type => return_type,
         :api_version => "V1"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1057,7 +1042,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTestResultFull, Integer, Hash)>] SyntheticsBrowserTestResultFull data, response status code and response headers
     def get_browser_test_result_with_http_info(public_id, result_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_browser_test_result ...'
       end
@@ -1126,7 +1110,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def get_global_variable_with_http_info(variable_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_global_variable ...'
       end
@@ -1192,7 +1175,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsMobileTest, Integer, Hash)>] SyntheticsMobileTest data, response status code and response headers
     def get_mobile_test_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_mobile_test ...'
       end
@@ -1257,7 +1239,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
     def get_private_location_with_http_info(location_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_private_location ...'
       end
@@ -1322,7 +1303,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBatchDetails, Integer, Hash)>] SyntheticsBatchDetails data, response status code and response headers
     def get_synthetics_ci_batch_with_http_info(batch_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_ci_batch ...'
       end
@@ -1386,7 +1366,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<String>, Integer, Hash)>] Array<String> data, response status code and response headers
     def get_synthetics_default_locations_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_default_locations ...'
       end
@@ -1447,7 +1426,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestDetailsWithoutSteps, Integer, Hash)>] SyntheticsTestDetailsWithoutSteps data, response status code and response headers
     def get_test_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test ...'
       end
@@ -1511,7 +1489,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListGlobalVariablesResponse, Integer, Hash)>] SyntheticsListGlobalVariablesResponse data, response status code and response headers
     def list_global_variables_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_global_variables ...'
       end
@@ -1572,7 +1549,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsLocations, Integer, Hash)>] SyntheticsLocations data, response status code and response headers
     def list_locations_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_locations ...'
       end
@@ -1634,7 +1610,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page_number Used for pagination. Which page you want to retrieve. Starts at zero.
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_tests ...'
       end
@@ -1689,18 +1664,18 @@ module DatadogAPIClient::V1
     #
     # @yield [SyntheticsTestDetailsWithoutSteps] Paginated items
     def list_tests_with_pagination(opts = {})
-        api_version = "V1"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
-        while true do
-            response = list_tests(opts)
-            @api_client.get_attribute_from_path(response, "tests").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "tests").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      api_version = "V1"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+      while true do
+        response = list_tests(opts)
+        @api_client.get_attribute_from_path(response, "tests").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "tests").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      end
     end
 
     # Patch a Synthetic test.
@@ -1720,7 +1695,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def patch_test_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.patch_test ...'
       end
@@ -1796,7 +1770,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :sort The sort order for the results (e.g., `name,asc` or `name,desc`).
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def search_tests_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.search_tests ...'
       end
@@ -1863,7 +1836,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_ci_tests_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.trigger_ci_tests ...'
       end
@@ -1930,7 +1902,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_tests_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.trigger_tests ...'
       end
@@ -1998,7 +1969,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def update_api_test_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_api_test ...'
       end
@@ -2070,7 +2040,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def update_browser_test_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_browser_test ...'
       end
@@ -2142,7 +2111,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsMobileTest, Integer, Hash)>] SyntheticsMobileTest data, response status code and response headers
     def update_mobile_test_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_mobile_test ...'
       end
@@ -2214,7 +2182,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
     def update_private_location_with_http_info(location_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_private_location ...'
       end
@@ -2286,7 +2253,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Boolean, Integer, Hash)>] Boolean data, response status code and response headers
     def update_test_pause_status_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_test_pause_status ...'
       end

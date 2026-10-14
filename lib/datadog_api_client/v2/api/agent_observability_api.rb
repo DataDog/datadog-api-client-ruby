@@ -1985,17 +1985,17 @@ module DatadogAPIClient::V2
     #
     # @yield [LLMObsAnnotatedInteractionEvent] Paginated items
     def get_llm_obs_annotated_interaction_with_pagination(queue_id, interaction_id, opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "limit", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
-        while true do
-            response = get_llm_obs_annotated_interaction(queue_id, interaction_id, opts)
-            @api_client.get_attribute_from_path(response, "data.attributes.events").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data.attributes.events").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "cursor", String, @api_client.get_attribute_from_path(response, "data.attributes.next_cursor"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "limit", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
+      while true do
+        response = get_llm_obs_annotated_interaction(queue_id, interaction_id, opts)
+        @api_client.get_attribute_from_path(response, "data.attributes.events").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data.attributes.events").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "cursor", String, @api_client.get_attribute_from_path(response, "data.attributes.next_cursor"))
+      end
     end
 
     # Get annotated queue interactions.
@@ -2150,7 +2150,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2731,7 +2731,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -5532,7 +5532,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging

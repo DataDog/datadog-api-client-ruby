@@ -186,11 +186,10 @@ module DatadogAPIClient::V2
     # You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
     #
     # @param case_id [String] Unique identifier of the case to attach security findings to
-    # @param body [AttachCaseRequest] 
+    # @param body [AttachCaseRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_case_with_http_info(case_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_case ...'
       end
@@ -258,11 +257,10 @@ module DatadogAPIClient::V2
     # Attach security findings to a Jira issue by providing the Jira issue URL.
     # You can attach up to 50 security findings per Jira issue. If the Jira issue is not linked to any case, this operation will create a case for the security findings and link the Jira issue to the newly created case. To configure the Jira integration, see [Bidirectional ticket syncing with Jira](https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira). Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the specified Jira issue.
     #
-    # @param body [AttachJiraIssueRequest] 
+    # @param body [AttachJiraIssueRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_jira_issue_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_jira_issue ...'
       end
@@ -326,11 +324,10 @@ module DatadogAPIClient::V2
     # Attach security findings to a Linear issue by providing the Linear issue URL.
     # You can attach up to 50 security findings per Linear issue. If the Linear issue is not linked to any case, this operation will create a case for the security findings and link the Linear issue to the newly created case. Security findings that are already attached to another Linear issue will be detached from their previous Linear issue and attached to the specified Linear issue.
     #
-    # @param body [AttachLinearIssueRequest] 
+    # @param body [AttachLinearIssueRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_linear_issue_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_linear_issue ...'
       end
@@ -394,11 +391,10 @@ module DatadogAPIClient::V2
     # Attach security findings to a ServiceNow ticket by providing the ServiceNow ticket URL.
     # You can attach up to 50 security findings per ServiceNow ticket. If the ServiceNow ticket is not linked to any case, this operation will create a case for the security findings and link the ServiceNow ticket to the newly created case. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the specified ServiceNow ticket.
     #
-    # @param body [AttachServiceNowTicketRequest] 
+    # @param body [AttachServiceNowTicketRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_service_now_ticket_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_service_now_ticket ...'
       end
@@ -462,7 +458,7 @@ module DatadogAPIClient::V2
     # Return, for each of the requested datasets, the list of detection rules that depend
     # on it. Useful for understanding the impact of updating or deleting a dataset.
     #
-    # @param body [SecurityMonitoringDatasetDependenciesRequest] 
+    # @param body [SecurityMonitoringDatasetDependenciesRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringDatasetDependenciesResponse, Integer, Hash)>] SecurityMonitoringDatasetDependenciesResponse data, response status code and response headers
     def batch_get_security_monitoring_dataset_dependencies_with_http_info(body, opts = {})
@@ -540,11 +536,10 @@ module DatadogAPIClient::V2
     # - Cloud SIEM (log detection and signal correlation)
     # - Workload Protection
     #
-    # @param body [SecurityMonitoringRuleConvertBulkPayload] 
+    # @param body [SecurityMonitoringRuleConvertBulkPayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def bulk_convert_existing_security_monitoring_rules_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_convert_existing_security_monitoring_rules ...'
       end
@@ -686,11 +681,10 @@ module DatadogAPIClient::V2
     #
     # Delete multiple security monitoring rules in a single request. Default rules cannot be deleted.
     #
-    # @param body [SecurityMonitoringRuleBulkDeletePayload] 
+    # @param body [SecurityMonitoringRuleBulkDeletePayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleBulkDeleteResponse, Integer, Hash)>] SecurityMonitoringRuleBulkDeleteResponse data, response status code and response headers
     def bulk_delete_security_monitoring_rules_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_delete_security_monitoring_rules ...'
       end
@@ -758,7 +752,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalsBulkTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalsBulkTriageUpdateResponse data, response status code and response headers
     def bulk_edit_security_monitoring_signals_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_edit_security_monitoring_signals ...'
       end
@@ -826,7 +819,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalsBulkTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalsBulkTriageUpdateResponse data, response status code and response headers
     def bulk_edit_security_monitoring_signals_assignee_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_edit_security_monitoring_signals_assignee ...'
       end
@@ -894,7 +886,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalsBulkTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalsBulkTriageUpdateResponse data, response status code and response headers
     def bulk_edit_security_monitoring_signals_state_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_edit_security_monitoring_signals_state ...'
       end
@@ -959,11 +950,10 @@ module DatadogAPIClient::V2
     # The endpoint accepts a list of rule IDs and returns a ZIP archive where each rule is
     # saved as a separate JSON file named after the rule.
     #
-    # @param body [SecurityMonitoringRuleBulkExportPayload] 
+    # @param body [SecurityMonitoringRuleBulkExportPayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def bulk_export_security_monitoring_rules_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_export_security_monitoring_rules ...'
       end
@@ -1194,7 +1184,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleConvertResponse, Integer, Hash)>] SecurityMonitoringRuleConvertResponse data, response status code and response headers
     def convert_existing_security_monitoring_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_existing_security_monitoring_rule ...'
       end
@@ -1255,7 +1244,7 @@ module DatadogAPIClient::V2
     #
     # Convert a job result to a signal.
     #
-    # @param body [ConvertJobResultsToSignalsRequest] 
+    # @param body [ConvertJobResultsToSignalsRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def convert_job_result_to_signal_with_http_info(body, opts = {})
@@ -1334,11 +1323,10 @@ module DatadogAPIClient::V2
     #
     # You can convert Cloud Security configuration rules using Terraform's [Datadog Cloud Configuration Rule resource](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/cloud_configuration_rule).
     #
-    # @param body [SecurityMonitoringRuleConvertPayload] 
+    # @param body [SecurityMonitoringRuleConvertPayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleConvertResponse, Integer, Hash)>] SecurityMonitoringRuleConvertResponse data, response status code and response headers
     def convert_security_monitoring_rule_from_json_to_terraform_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_security_monitoring_rule_from_json_to_terraform ...'
       end
@@ -1487,11 +1475,10 @@ module DatadogAPIClient::V2
     # Create cases for security findings.
     # You can create up to 50 cases per request and associate up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the newly created case.
     #
-    # @param body [CreateCaseRequestArray] 
+    # @param body [CreateCaseRequestArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_cases_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_cases ...'
       end
@@ -1554,11 +1541,10 @@ module DatadogAPIClient::V2
     #
     # Create a custom framework.
     #
-    # @param body [CreateCustomFrameworkRequest] 
+    # @param body [CreateCustomFrameworkRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(CreateCustomFrameworkResponse, Integer, Hash)>] CreateCustomFrameworkResponse data, response status code and response headers
     def create_custom_framework_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_custom_framework ...'
       end
@@ -1696,11 +1682,10 @@ module DatadogAPIClient::V2
     # Create Jira issues for security findings.
     # This operation creates a case in Datadog and a Jira issue linked to that case for bidirectional sync between Datadog and Jira. To configure the Jira integration, see [Bidirectional ticket syncing with Jira](https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira). You can create up to 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the newly created Jira issue.
     #
-    # @param body [CreateJiraIssueRequestArray] 
+    # @param body [CreateJiraIssueRequestArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_jira_issues_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_jira_issues ...'
       end
@@ -1764,11 +1749,10 @@ module DatadogAPIClient::V2
     # Create Linear issues for security findings.
     # This operation creates a case in Datadog and a Linear issue linked to that case for bidirectional sync between Datadog and Linear. You can create up to 50 Linear issues per request and associate up to 50 security findings per Linear issue. Security findings that are already attached to another Linear issue will be detached from their previous Linear issue and attached to the newly created Linear issue.
     #
-    # @param body [CreateLinearIssueRequestArray] 
+    # @param body [CreateLinearIssueRequestArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_linear_issues_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_linear_issues ...'
       end
@@ -1917,7 +1901,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def create_security_filter_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_filter ...'
       end
@@ -1980,7 +1963,7 @@ module DatadogAPIClient::V2
     #
     # Create a due date rule for the current organization.
     #
-    # @param body [DueDateRuleCreateRequest] 
+    # @param body [DueDateRuleCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DueDateRuleResponse, Integer, Hash)>] DueDateRuleResponse data, response status code and response headers
     def create_security_findings_automation_due_date_rule_with_http_info(body, opts = {})
@@ -2053,7 +2036,7 @@ module DatadogAPIClient::V2
     #
     # Create an inbox rule for the current organization.
     #
-    # @param body [InboxRuleCreateRequest] 
+    # @param body [InboxRuleCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
     def create_security_findings_automation_inbox_rule_with_http_info(body, opts = {})
@@ -2126,7 +2109,7 @@ module DatadogAPIClient::V2
     #
     # Create a mute rule for the current organization.
     #
-    # @param body [MuteRuleCreateRequest] 
+    # @param body [MuteRuleCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(MuteRuleResponse, Integer, Hash)>] MuteRuleResponse data, response status code and response headers
     def create_security_findings_automation_mute_rule_with_http_info(body, opts = {})
@@ -2199,7 +2182,7 @@ module DatadogAPIClient::V2
     #
     # Create a severity modifier rule for the current organization.
     #
-    # @param body [SeverityModifierRuleCreateRequest] 
+    # @param body [SeverityModifierRuleCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SeverityModifierRuleResponse, Integer, Hash)>] SeverityModifierRuleResponse data, response status code and response headers
     def create_security_findings_automation_severity_modifier_rule_with_http_info(body, opts = {})
@@ -2272,7 +2255,7 @@ module DatadogAPIClient::V2
     #
     # Create a ticket creation rule for the current organization.
     #
-    # @param body [TicketCreationRuleCreateRequest] 
+    # @param body [TicketCreationRuleCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TicketCreationRuleResponse, Integer, Hash)>] TicketCreationRuleResponse data, response status code and response headers
     def create_security_findings_automation_ticket_creation_rule_with_http_info(body, opts = {})
@@ -2349,7 +2332,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringCriticalAssetResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetResponse data, response status code and response headers
     def create_security_monitoring_critical_asset_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_critical_asset ...'
       end
@@ -2413,7 +2395,7 @@ module DatadogAPIClient::V2
     # Create a new Cloud SIEM dataset. A dataset bundles a data source, a set of
     # indexes, and a search query that can be referenced from detection rules.
     #
-    # @param body [SecurityMonitoringDatasetCreateRequest] 
+    # @param body [SecurityMonitoringDatasetCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringDatasetCreateResponse, Integer, Hash)>] SecurityMonitoringDatasetCreateResponse data, response status code and response headers
     def create_security_monitoring_dataset_with_http_info(body, opts = {})
@@ -2561,11 +2543,10 @@ module DatadogAPIClient::V2
     #
     # Create a detection rule.
     #
-    # @param body [SecurityMonitoringRuleCreatePayload] 
+    # @param body [SecurityMonitoringRuleCreatePayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def create_security_monitoring_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_rule ...'
       end
@@ -2632,7 +2613,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSuppressionResponse, Integer, Hash)>] SecurityMonitoringSuppressionResponse data, response status code and response headers
     def create_security_monitoring_suppression_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_suppression ...'
       end
@@ -2696,11 +2676,10 @@ module DatadogAPIClient::V2
     # Create ServiceNow tickets for security findings.
     # This operation creates a case in Datadog and a ServiceNow ticket linked to that case for bidirectional sync between Datadog and ServiceNow. You can create up to 50 ServiceNow tickets per request and associate up to 50 security findings per ServiceNow ticket. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the newly created ServiceNow ticket.
     #
-    # @param body [CreateServiceNowTicketRequestArray] 
+    # @param body [CreateServiceNowTicketRequestArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_service_now_tickets_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_service_now_tickets ...'
       end
@@ -2767,7 +2746,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def create_signal_notification_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_signal_notification_rule ...'
       end
@@ -2830,7 +2808,7 @@ module DatadogAPIClient::V2
     #
     # Parse source code into an abstract syntax tree (AST) for the specified language.
     #
-    # @param body [GetAstRequest] 
+    # @param body [GetAstRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GetAstResponse, Integer, Hash)>] GetAstResponse data, response status code and response headers
     def create_static_analysis_ast_with_http_info(body, opts = {})
@@ -2903,7 +2881,7 @@ module DatadogAPIClient::V2
     #
     # Run static analysis rules against a source code file and return violations found.
     #
-    # @param body [AnalysisRequest] 
+    # @param body [AnalysisRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AnalysisResponse, Integer, Hash)>] AnalysisResponse data, response status code and response headers
     def create_static_analysis_server_analysis_with_http_info(body, opts = {})
@@ -2980,7 +2958,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def create_vulnerability_notification_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_vulnerability_notification_rule ...'
       end
@@ -3191,7 +3168,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeleteCustomFrameworkResponse, Integer, Hash)>] DeleteCustomFrameworkResponse data, response status code and response headers
     def delete_custom_framework_with_http_info(handle, version, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_custom_framework ...'
       end
@@ -3407,7 +3383,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_filter_with_http_info(security_filter_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_filter ...'
       end
@@ -3827,7 +3802,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_monitoring_critical_asset_with_http_info(critical_asset_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_critical_asset ...'
       end
@@ -4036,7 +4010,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_monitoring_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_rule ...'
       end
@@ -4101,7 +4074,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_monitoring_suppression_with_http_info(suppression_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_suppression ...'
       end
@@ -4166,7 +4138,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_signal_notification_rule_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_signal_notification_rule ...'
       end
@@ -4231,7 +4202,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_vulnerability_notification_rule_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_vulnerability_notification_rule ...'
       end
@@ -4293,11 +4263,10 @@ module DatadogAPIClient::V2
     # Detach security findings from their case.
     # This operation dissociates security findings from their associated cases without deleting the cases themselves. You can detach security findings from multiple different cases in a single request, with a limit of 50 security findings per request. Security findings that are not currently attached to any case will be ignored.
     #
-    # @param body [DetachCaseRequest] 
+    # @param body [DetachCaseRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def detach_case_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.detach_case ...'
       end
@@ -4436,7 +4405,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_with_http_info(signal_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal ...'
       end
@@ -4508,7 +4476,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_assignee_with_http_info(signal_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_assignee ...'
       end
@@ -4580,7 +4547,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_incidents_with_http_info(signal_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_incidents ...'
       end
@@ -4652,7 +4618,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_state_with_http_info(signal_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_state ...'
       end
@@ -4945,7 +4910,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringCriticalAssetsResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetsResponse data, response status code and response headers
     def get_critical_assets_affecting_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_critical_assets_affecting_rule ...'
       end
@@ -5011,7 +4975,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GetCustomFrameworkResponse, Integer, Hash)>] GetCustomFrameworkResponse data, response status code and response headers
     def get_custom_framework_with_http_info(handle, version, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_custom_framework ...'
       end
@@ -5564,7 +5527,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalSuggestedActionsResponse, Integer, Hash)>] SecurityMonitoringSignalSuggestedActionsResponse data, response status code and response headers
     def get_investigation_log_queries_matching_signal_with_http_info(signal_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_investigation_log_queries_matching_signal ...'
       end
@@ -5708,7 +5670,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :skip_cache Skip cache for resource filters.
     # @return [Array<(GetResourceEvaluationFiltersResponse, Integer, Hash)>] GetResourceEvaluationFiltersResponse data, response status code and response headers
     def get_resource_evaluation_filters_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_resource_evaluation_filters ...'
       end
@@ -5850,7 +5811,6 @@ module DatadogAPIClient::V2
     # @option opts [SBOMFormat] :ext_format The standard of the SBOM.
     # @return [Array<(GetSBOMResponse, Integer, Hash)>] GetSBOMResponse data, response status code and response headers
     def get_sbom_with_http_info(asset_type, filter_asset_name, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_sbom ...'
       end
@@ -6000,7 +5960,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def get_security_filter_with_http_info(security_filter_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_filter ...'
       end
@@ -6493,7 +6452,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringCriticalAssetResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetResponse data, response status code and response headers
     def get_security_monitoring_critical_asset_with_http_info(critical_asset_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_critical_asset ...'
       end
@@ -7012,7 +6970,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def get_security_monitoring_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_rule ...'
       end
@@ -7077,7 +7034,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalResponse, Integer, Hash)>] SecurityMonitoringSignalResponse data, response status code and response headers
     def get_security_monitoring_signal_with_http_info(signal_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_signal ...'
       end
@@ -7142,7 +7098,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSuppressionResponse, Integer, Hash)>] SecurityMonitoringSuppressionResponse data, response status code and response headers
     def get_security_monitoring_suppression_with_http_info(suppression_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_suppression ...'
       end
@@ -7283,7 +7238,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def get_signal_notification_rule_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_signal_notification_rule ...'
       end
@@ -7347,7 +7301,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRulesListResponse, Integer, Hash)>] NotificationRulesListResponse data, response status code and response headers
     def get_signal_notification_rules_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_signal_notification_rules ...'
       end
@@ -7782,7 +7735,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalSuggestedActionsResponse, Integer, Hash)>] SecurityMonitoringSignalSuggestedActionsResponse data, response status code and response headers
     def get_suggested_actions_matching_signal_with_http_info(signal_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_suggested_actions_matching_signal ...'
       end
@@ -7843,11 +7795,10 @@ module DatadogAPIClient::V2
     #
     # Get the list of suppressions that would affect a rule.
     #
-    # @param body [SecurityMonitoringRuleCreatePayload] 
+    # @param body [SecurityMonitoringRuleCreatePayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSuppressionsResponse, Integer, Hash)>] SecurityMonitoringSuppressionsResponse data, response status code and response headers
     def get_suppressions_affecting_future_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_suppressions_affecting_future_rule ...'
       end
@@ -7914,7 +7865,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSuppressionsResponse, Integer, Hash)>] SecurityMonitoringSuppressionsResponse data, response status code and response headers
     def get_suppressions_affecting_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_suppressions_affecting_rule ...'
       end
@@ -7981,7 +7931,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(GetSuppressionVersionHistoryResponse, Integer, Hash)>] GetSuppressionVersionHistoryResponse data, response status code and response headers
     def get_suppression_version_history_with_http_info(suppression_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_suppression_version_history ...'
       end
@@ -8048,7 +7997,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def get_vulnerability_notification_rule_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_vulnerability_notification_rule ...'
       end
@@ -8112,7 +8060,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRulesListResponse, Integer, Hash)>] NotificationRulesListResponse data, response status code and response headers
     def get_vulnerability_notification_rules_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_vulnerability_notification_rules ...'
       end
@@ -8184,7 +8131,7 @@ module DatadogAPIClient::V2
     #   and at least one `affects` entry.
     # - Each `affects[].ref` must match a `bom-ref` value in `components`.
     #
-    # @param body [CycloneDXBom] 
+    # @param body [CycloneDXBom]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def import_security_vulnerabilities_with_http_info(body, opts = {})
@@ -8285,7 +8232,6 @@ module DatadogAPIClient::V2
     # @option opts [SBOMComponentLicenseType] :filter_license_type The software license type of the component that is a dependency of an asset.
     # @return [Array<(ListAssetsSBOMsResponse, Integer, Hash)>] ListAssetsSBOMsResponse data, response status code and response headers
     def list_assets_sbo_ms_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_assets_sbo_ms ...'
       end
@@ -8497,7 +8443,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -8514,17 +8460,17 @@ module DatadogAPIClient::V2
     #
     # @yield [Finding] Paginated items
     def list_findings_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
-        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
-        while true do
-            response = list_findings(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.cursor"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+      @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+      while true do
+        response = list_findings(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.cursor"))
+      end
     end
 
     # List historical jobs.
@@ -8705,7 +8651,7 @@ module DatadogAPIClient::V2
     #
     # Get rules for multiple rulesets in batch.
     #
-    # @param body [GetMultipleRulesetsRequest] 
+    # @param body [GetMultipleRulesetsRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GetMultipleRulesetsResponse, Integer, Hash)>] GetMultipleRulesetsResponse data, response status code and response headers
     def list_multiple_rulesets_with_http_info(body, opts = {})
@@ -8991,7 +8937,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFiltersResponse, Integer, Hash)>] SecurityFiltersResponse data, response status code and response headers
     def list_security_filters_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_filters ...'
       end
@@ -9053,7 +8998,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterVersionsResponse, Integer, Hash)>] SecurityFilterVersionsResponse data, response status code and response headers
     def list_security_filter_versions_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_filter_versions ...'
       end
@@ -9123,7 +9067,6 @@ module DatadogAPIClient::V2
     # @option opts [SecurityFindingsSort] :sort Sorts by @detection_changed_at.
     # @return [Array<(ListSecurityFindingsResponse, Integer, Hash)>] ListSecurityFindingsResponse data, response status code and response headers
     def list_security_findings_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_findings ...'
       end
@@ -9190,17 +9133,17 @@ module DatadogAPIClient::V2
     #
     # @yield [SecurityFindingsData] Paginated items
     def list_security_findings_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
-        while true do
-            response = list_security_findings(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+      while true do
+        response = list_security_findings(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      end
     end
 
     # Get all default inbox rules.
@@ -9681,7 +9624,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringCriticalAssetsResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetsResponse data, response status code and response headers
     def list_security_monitoring_critical_assets_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_critical_assets ...'
       end
@@ -9979,7 +9921,6 @@ module DatadogAPIClient::V2
     # @option opts [SecurityMonitoringRuleSort] :sort Attribute used to sort rules. Prefix with `-` to sort in descending order.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_rules ...'
       end
@@ -10055,7 +9996,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit The maximum number of security signals in the response.
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def list_security_monitoring_signals_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_signals ...'
       end
@@ -10121,17 +10061,17 @@ module DatadogAPIClient::V2
     #
     # @yield [SecurityMonitoringSignal] Paginated items
     def list_security_monitoring_signals_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
-        while true do
-            response = list_security_monitoring_signals(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+      while true do
+        response = list_security_monitoring_signals(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      end
     end
 
     # Get all suppression rules.
@@ -10153,7 +10093,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(SecurityMonitoringPaginatedSuppressionsResponse, Integer, Hash)>] SecurityMonitoringPaginatedSuppressionsResponse data, response status code and response headers
     def list_security_monitoring_suppressions_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_suppressions ...'
       end
@@ -10702,11 +10641,10 @@ module DatadogAPIClient::V2
     #   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `OTHER`, `NO_FIX`, `DUPLICATE`, `RISK_ACCEPTED`.
     #   - To unmute a finding: `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.
     #
-    # @param body [MuteFindingsRequest] 
+    # @param body [MuteFindingsRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(MuteFindingsResponse, Integer, Hash)>] MuteFindingsResponse data, response status code and response headers
     def mute_security_findings_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.mute_security_findings ...'
       end
@@ -10770,11 +10708,10 @@ module DatadogAPIClient::V2
     # Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
     #
     # @param id [String] ID of the notification rule.
-    # @param body [PatchNotificationRuleParameters] 
+    # @param body [PatchNotificationRuleParameters]
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def patch_signal_notification_rule_with_http_info(id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.patch_signal_notification_rule ...'
       end
@@ -10842,11 +10779,10 @@ module DatadogAPIClient::V2
     # Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
     #
     # @param id [String] ID of the notification rule.
-    # @param body [PatchNotificationRuleParameters] 
+    # @param body [PatchNotificationRuleParameters]
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def patch_vulnerability_notification_rule_with_http_info(id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.patch_vulnerability_notification_rule ...'
       end
@@ -10913,7 +10849,7 @@ module DatadogAPIClient::V2
     #
     # Reorder the list of due date rules for the current organization.
     #
-    # @param body [DueDateRuleReorderRequest] 
+    # @param body [DueDateRuleReorderRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DueDateRuleReorderResponse, Integer, Hash)>] DueDateRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_due_date_rules_with_http_info(body, opts = {})
@@ -10986,7 +10922,7 @@ module DatadogAPIClient::V2
     #
     # Reorder the list of inbox rules for the current organization.
     #
-    # @param body [InboxRuleReorderRequest] 
+    # @param body [InboxRuleReorderRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(InboxRuleReorderResponse, Integer, Hash)>] InboxRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_inbox_rules_with_http_info(body, opts = {})
@@ -11059,7 +10995,7 @@ module DatadogAPIClient::V2
     #
     # Reorder the list of mute rules for the current organization.
     #
-    # @param body [MuteRuleReorderRequest] 
+    # @param body [MuteRuleReorderRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(MuteRuleReorderResponse, Integer, Hash)>] MuteRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_mute_rules_with_http_info(body, opts = {})
@@ -11132,7 +11068,7 @@ module DatadogAPIClient::V2
     #
     # Reorder the list of severity modifier rules for the current organization.
     #
-    # @param body [SeverityModifierRuleReorderRequest] 
+    # @param body [SeverityModifierRuleReorderRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SeverityModifierRuleReorderResponse, Integer, Hash)>] SeverityModifierRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_severity_modifier_rules_with_http_info(body, opts = {})
@@ -11205,7 +11141,7 @@ module DatadogAPIClient::V2
     #
     # Reorder the list of ticket creation rules for the current organization.
     #
-    # @param body [TicketCreationRuleReorderRequest] 
+    # @param body [TicketCreationRuleReorderRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TicketCreationRuleReorderResponse, Integer, Hash)>] TicketCreationRuleReorderResponse data, response status code and response headers
     def reorder_security_findings_automation_ticket_creation_rules_with_http_info(body, opts = {})
@@ -11356,7 +11292,7 @@ module DatadogAPIClient::V2
     #
     # Run a historical job.
     #
-    # @param body [RunHistoricalJobRequest] 
+    # @param body [RunHistoricalJobRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(JobCreateResponse, Integer, Hash)>] JobCreateResponse data, response status code and response headers
     def run_historical_job_with_http_info(body, opts = {})
@@ -11435,11 +11371,10 @@ module DatadogAPIClient::V2
     #
     # Example: `@severity:(critical OR high) @status:open team:platform`
     #
-    # @param body [SecurityFindingsSearchRequest] 
+    # @param body [SecurityFindingsSearchRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ListSecurityFindingsResponse, Integer, Hash)>] ListSecurityFindingsResponse data, response status code and response headers
     def search_security_findings_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_findings ...'
       end
@@ -11498,17 +11433,17 @@ module DatadogAPIClient::V2
     #
     # @yield [SecurityFindingsData] Paginated items
     def search_security_findings_with_pagination(body, opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(body, "data.attributes.page.limit", 10)
-        @api_client.set_attribute_from_path(api_version, body, "data.attributes.page.limit", SecurityFindingsSearchRequestData, page_size)
-        while true do
-            response = search_security_findings(body, opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, body, "data.attributes.page.cursor", SecurityFindingsSearchRequestData, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(body, "data.attributes.page.limit", 10)
+      @api_client.set_attribute_from_path(api_version, body, "data.attributes.page.limit", SecurityFindingsSearchRequestData, page_size)
+      while true do
+        response = search_security_findings(body, opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, body, "data.attributes.page.cursor", SecurityFindingsSearchRequestData, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      end
     end
 
     # Search hist signals.
@@ -11524,7 +11459,7 @@ module DatadogAPIClient::V2
     # Search hist signals.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [SecurityMonitoringSignalListRequest] :body 
+    # @option opts [SecurityMonitoringSignalListRequest] :body
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def search_security_monitoring_histsignals_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.search_security_monitoring_histsignals".to_sym]
@@ -11595,10 +11530,9 @@ module DatadogAPIClient::V2
     # security signals.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [SecurityMonitoringSignalListRequest] :body 
+    # @option opts [SecurityMonitoringSignalListRequest] :body
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def search_security_monitoring_signals_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_monitoring_signals ...'
       end
@@ -11653,17 +11587,17 @@ module DatadogAPIClient::V2
     #
     # @yield [SecurityMonitoringSignal] Paginated items
     def search_security_monitoring_signals_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", SecurityMonitoringSignalListRequest, page_size)
-        while true do
-            response = search_security_monitoring_signals(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", SecurityMonitoringSignalListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", SecurityMonitoringSignalListRequest, page_size)
+      while true do
+        response = search_security_monitoring_signals(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", SecurityMonitoringSignalListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      end
     end
 
     # Test a notification rule.
@@ -11678,11 +11612,10 @@ module DatadogAPIClient::V2
     #
     # Send a notification preview to test that a notification rule's targets are properly configured.
     #
-    # @param body [CreateNotificationRuleParameters] 
+    # @param body [CreateNotificationRuleParameters]
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRulePreviewResponse, Integer, Hash)>] NotificationRulePreviewResponse data, response status code and response headers
     def send_security_monitoring_notification_preview_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.send_security_monitoring_notification_preview ...'
       end
@@ -11746,11 +11679,10 @@ module DatadogAPIClient::V2
     # Test an existing rule.
     #
     # @param rule_id [String] The ID of the rule.
-    # @param body [SecurityMonitoringRuleTestRequest] 
+    # @param body [SecurityMonitoringRuleTestRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleTestResponse, Integer, Hash)>] SecurityMonitoringRuleTestResponse data, response status code and response headers
     def test_existing_security_monitoring_rule_with_http_info(rule_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.test_existing_security_monitoring_rule ...'
       end
@@ -11817,11 +11749,10 @@ module DatadogAPIClient::V2
     #
     # Test a rule.
     #
-    # @param body [SecurityMonitoringRuleTestRequest] 
+    # @param body [SecurityMonitoringRuleTestRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleTestResponse, Integer, Hash)>] SecurityMonitoringRuleTestResponse data, response status code and response headers
     def test_security_monitoring_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.test_security_monitoring_rule ...'
       end
@@ -11886,11 +11817,10 @@ module DatadogAPIClient::V2
     #
     # @param handle [String] The framework handle
     # @param version [String] The framework version
-    # @param body [UpdateCustomFrameworkRequest] 
+    # @param body [UpdateCustomFrameworkRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdateCustomFrameworkResponse, Integer, Hash)>] UpdateCustomFrameworkResponse data, response status code and response headers
     def update_custom_framework_with_http_info(handle, version, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_custom_framework ...'
       end
@@ -11962,7 +11892,7 @@ module DatadogAPIClient::V2
     # Assign or unassign security findings.
     # You can assign up to 100 security findings per request. Set `assignee_id` to the unique identifier of the Datadog user you want to assign the findings to. Omit `assignee_id` (or set it to `null`) to unassign the findings. Per-finding warnings and failures are returned in the response `meta` object.
     #
-    # @param body [AssigneeRequest] 
+    # @param body [AssigneeRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AssigneeResponse, Integer, Hash)>] AssigneeResponse data, response status code and response headers
     def update_findings_assignee_with_http_info(body, opts = {})
@@ -12049,7 +11979,7 @@ module DatadogAPIClient::V2
     # Findings that cannot be found are skipped without a warning.
     # The request fails with a `404` error only if none of the findings can be found.
     #
-    # @param body [SeverityOverrideRequest] 
+    # @param body [SeverityOverrideRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SeverityOverrideResponse, Integer, Hash)>] SeverityOverrideResponse data, response status code and response headers
     def update_findings_severity_with_http_info(body, opts = {})
@@ -12122,11 +12052,10 @@ module DatadogAPIClient::V2
     #
     # Update resource filters.
     #
-    # @param body [UpdateResourceEvaluationFiltersRequest] 
+    # @param body [UpdateResourceEvaluationFiltersRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdateResourceEvaluationFiltersResponse, Integer, Hash)>] UpdateResourceEvaluationFiltersResponse data, response status code and response headers
     def update_resource_evaluation_filters_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_resource_evaluation_filters ...'
       end
@@ -12195,7 +12124,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def update_security_filter_with_http_info(security_filter_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_filter ...'
       end
@@ -12263,7 +12191,7 @@ module DatadogAPIClient::V2
     # Update a due date rule by ID.
     #
     # @param rule_id [UUID] The ID of the due date rule.
-    # @param body [DueDateRuleUpdateRequest] 
+    # @param body [DueDateRuleUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DueDateRuleResponse, Integer, Hash)>] DueDateRuleResponse data, response status code and response headers
     def update_security_findings_automation_due_date_rule_with_http_info(rule_id, body, opts = {})
@@ -12341,7 +12269,7 @@ module DatadogAPIClient::V2
     # Update an inbox rule by ID.
     #
     # @param rule_id [UUID] The ID of the inbox rule.
-    # @param body [InboxRuleUpdateRequest] 
+    # @param body [InboxRuleUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
     def update_security_findings_automation_inbox_rule_with_http_info(rule_id, body, opts = {})
@@ -12419,7 +12347,7 @@ module DatadogAPIClient::V2
     # Update a mute rule by ID.
     #
     # @param rule_id [UUID] The ID of the mute rule.
-    # @param body [MuteRuleUpdateRequest] 
+    # @param body [MuteRuleUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(MuteRuleResponse, Integer, Hash)>] MuteRuleResponse data, response status code and response headers
     def update_security_findings_automation_mute_rule_with_http_info(rule_id, body, opts = {})
@@ -12497,7 +12425,7 @@ module DatadogAPIClient::V2
     # Update a severity modifier rule by ID.
     #
     # @param rule_id [UUID] The ID of the severity modifier rule.
-    # @param body [SeverityModifierRuleUpdateRequest] 
+    # @param body [SeverityModifierRuleUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SeverityModifierRuleResponse, Integer, Hash)>] SeverityModifierRuleResponse data, response status code and response headers
     def update_security_findings_automation_severity_modifier_rule_with_http_info(rule_id, body, opts = {})
@@ -12575,7 +12503,7 @@ module DatadogAPIClient::V2
     # Update a ticket creation rule by ID.
     #
     # @param rule_id [UUID] The ID of the ticket creation rule.
-    # @param body [TicketCreationRuleUpdateRequest] 
+    # @param body [TicketCreationRuleUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TicketCreationRuleResponse, Integer, Hash)>] TicketCreationRuleResponse data, response status code and response headers
     def update_security_findings_automation_ticket_creation_rule_with_http_info(rule_id, body, opts = {})
@@ -12657,7 +12585,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringCriticalAssetResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetResponse data, response status code and response headers
     def update_security_monitoring_critical_asset_with_http_info(critical_asset_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_critical_asset ...'
       end
@@ -12726,7 +12653,7 @@ module DatadogAPIClient::V2
     # provided to detect concurrent modifications.
     #
     # @param dataset_id [String] The UUID of the dataset.
-    # @param body [SecurityMonitoringDatasetUpdateRequest] 
+    # @param body [SecurityMonitoringDatasetUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_security_monitoring_dataset_with_http_info(dataset_id, body, opts = {})
@@ -12885,11 +12812,10 @@ module DatadogAPIClient::V2
     # the tags (default tags cannot be removed).
     #
     # @param rule_id [String] The ID of the rule.
-    # @param body [SecurityMonitoringRuleUpdatePayload] 
+    # @param body [SecurityMonitoringRuleUpdatePayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def update_security_monitoring_rule_with_http_info(rule_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_rule ...'
       end
@@ -12961,7 +12887,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSuppressionResponse, Integer, Hash)>] SecurityMonitoringSuppressionResponse data, response status code and response headers
     def update_security_monitoring_suppression_with_http_info(suppression_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_suppression ...'
       end
@@ -13174,11 +13099,10 @@ module DatadogAPIClient::V2
     #
     # Validate a detection rule.
     #
-    # @param body [SecurityMonitoringRuleValidatePayload] 
+    # @param body [SecurityMonitoringRuleValidatePayload]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def validate_security_monitoring_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.validate_security_monitoring_rule ...'
       end
@@ -13241,11 +13165,10 @@ module DatadogAPIClient::V2
     #
     # Validate a suppression rule.
     #
-    # @param body [SecurityMonitoringSuppressionCreateRequest] 
+    # @param body [SecurityMonitoringSuppressionCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def validate_security_monitoring_suppression_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.validate_security_monitoring_suppression ...'
       end
