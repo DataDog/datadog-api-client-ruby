@@ -1,7 +1,7 @@
 # Send a deployment event returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
+api_instance = DatadogAPIClient::V2::DeliveryPerformanceAPI.new
 
 body = DatadogAPIClient::V2::DORADeploymentRequest.new({
   data: DatadogAPIClient::V2::DORADeploymentRequestData.new({

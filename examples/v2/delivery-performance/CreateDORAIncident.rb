@@ -1,7 +1,7 @@
-# Send an incident event returns "OK" response
+# Send an incident event (legacy) returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
+api_instance = DatadogAPIClient::V2::DeliveryPerformanceAPI.new
 
 body = DatadogAPIClient::V2::DORAFailureRequest.new({
   data: DatadogAPIClient::V2::DORAFailureRequestData.new({
@@ -27,4 +27,4 @@ body = DatadogAPIClient::V2::DORAFailureRequest.new({
     }),
   }),
 })
-p api_instance.create_dora_failure(body)
+p api_instance.create_dora_incident(body)
