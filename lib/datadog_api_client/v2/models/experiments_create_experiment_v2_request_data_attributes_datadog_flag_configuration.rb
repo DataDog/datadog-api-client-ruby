@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
         :'environment_id' => :'UUID',
         :'feature_flag_id' => :'UUID',
         :'reset_on_feature_flag_change' => :'Boolean',
-        :'targeting_rules' => :'Array<ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>'
+        :'targeting_rules' => :'Array<ExperimentsTargetingRule>'
       }
     end
 

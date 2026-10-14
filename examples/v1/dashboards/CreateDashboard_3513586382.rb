@@ -45,10 +45,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 field: "classic",
                 width: DatadogAPIClient::V1::ListStreamColumnWidth::AUTO,
               }),
-              DatadogAPIClient::V1::ListStreamColumn.new({
-                field: "",
-                width: DatadogAPIClient::V1::ListStreamColumnWidth::AUTO,
-              }),
             ],
           }),
         ],

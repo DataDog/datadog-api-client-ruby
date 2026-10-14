@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Lower and upper bounds of the reported statistical interval.
-  class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
+  class ExperimentsConfidenceInterval
     include BaseGenericModel
 
     # Lower bound of the reported interval.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ExperimentsConfidenceInterval` initialize method"
       end
 
       self.additional_properties = {}

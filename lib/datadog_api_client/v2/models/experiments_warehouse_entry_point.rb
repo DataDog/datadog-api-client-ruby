@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Reference to a measure defined in a warehouse metric SQL model.
-  class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
+  # Optional Warehouse measure that scopes analyzed subjects.
+  class ExperimentsWarehouseEntryPoint
     include BaseGenericModel
 
-    # Identifier of the warehouse metric measure.
-    attr_reader :id
+    # Complete ordered Warehouse entry-point filter set.
+    attr_reader :filters
+
+    # Warehouse measure UUID.
+    attr_reader :measure_id
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'filters' => :'filters',
+        :'measure_id' => :'measure_id'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'UUID'
+        :'filters' => :'Array<ExperimentsWarehouseExposureFilter>',
+        :'measure_id' => :'String'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ExperimentsWarehouseEntryPoint` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'filters')
+        if (value = attributes[:'filters']).is_a?(Array)
+          self.filters = value
+        end
+      end
+
+      if attributes.key?(:'measure_id')
+        self.measure_id = attributes[:'measure_id']
       end
     end
 
@@ -69,18 +80,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
+      return false if @filters.nil?
+      return false if @measure_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param filters [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def filters=(filters)
+      if filters.nil?
+        fail ArgumentError, 'invalid value for "filters", filters cannot be nil.'
       end
-      @id = id
+      @filters = filters
+    end
+
+    # Custom attribute writer method with validation
+    # @param measure_id [Object] Object to be assigned
+    # @!visibility private
+    def measure_id=(measure_id)
+      if measure_id.nil?
+        fail ArgumentError, 'invalid value for "measure_id", measure_id cannot be nil.'
+      end
+      @measure_id = measure_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          filters == o.filters &&
+          measure_id == o.measure_id &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, additional_properties].hash
+      [filters, measure_id, additional_properties].hash
     end
   end
 end

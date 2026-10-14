@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'entry_point' => :'ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint',
+        :'entry_point' => :'ExperimentsWarehouseEntryPoint',
         :'experiment_key' => :'String',
         :'exposure_sql_model_id' => :'String'
       }

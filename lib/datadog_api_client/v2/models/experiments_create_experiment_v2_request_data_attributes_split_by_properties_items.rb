@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'column_name' => :'String',
-        :'column_type' => :'ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType',
+        :'column_type' => :'ExperimentsDatadogEntryPointFilterColumnType',
         :'name' => :'String'
       }
     end
