@@ -33,9 +33,9 @@ module DatadogAPIClient::V2
 
     # Create a case type.
     #
-    # Create a Case Type
+    # Create a work item type.
     #
-    # @param body [CaseTypeCreateRequest] Case type payload
+    # @param body [CaseTypeCreateRequest] Work item type payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseTypeResponse, Integer, Hash)>] CaseTypeResponse data, response status code and response headers
     def create_case_type_with_http_info(body, opts = {})
@@ -100,9 +100,9 @@ module DatadogAPIClient::V2
 
     # Delete a case type.
     #
-    # Delete a case type
+    # Delete a work item type
     #
-    # @param case_type_id [String] The UUID of the case type.
+    # @param case_type_id [String] The UUID of the work item type.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_type_with_http_info(case_type_id, opts = {})
@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
 
     # Get all case types.
     #
-    # Get all case types
+    # Get all work item types
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseTypesResponse, Integer, Hash)>] CaseTypesResponse data, response status code and response headers
@@ -225,10 +225,10 @@ module DatadogAPIClient::V2
 
     # Update a case type.
     #
-    # Updates the name, emoji, or description of an existing case type.
+    # Updates the name, emoji, or description of an existing work item type.
     #
-    # @param case_type_id [String] The UUID of the case type.
-    # @param body [CaseTypeUpdateRequest] Case type payload.
+    # @param case_type_id [String] The UUID of the work item type.
+    # @param body [CaseTypeUpdateRequest] Work item type payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseTypeResponse, Integer, Hash)>] CaseTypeResponse data, response status code and response headers
     def update_case_type_with_http_info(case_type_id, body, opts = {})

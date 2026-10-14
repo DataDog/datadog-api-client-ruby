@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Jira issue attached to case
+  # Jira issue attached to work item
   class JiraIssue
     include BaseGenericModel
 
     # Jira issue information
     attr_accessor :result
 
-    # Case status
+    # Work item status
     attr_accessor :status
 
     attr_accessor :additional_properties

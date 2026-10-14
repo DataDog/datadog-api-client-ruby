@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single case view.
+  # Response containing a single work item view.
   class CaseViewResponse
     include BaseGenericModel
 
-    # A saved case view that provides a filtered, reusable list of cases matching a specific query. Views act as persistent dashboards for monitoring case subsets.
+    # A saved work item view that provides a filtered, reusable list of work items matching a specific query. Views act as persistent dashboards for monitoring work item subsets.
     attr_reader :data
 
     attr_accessor :additional_properties

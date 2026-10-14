@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case update priority request
+  # Work item update priority request
   class CaseUpdatePriorityRequest
     include BaseGenericModel
 
-    # Case priority status
+    # Work item priority status
     attr_reader :data
 
     attr_accessor :additional_properties

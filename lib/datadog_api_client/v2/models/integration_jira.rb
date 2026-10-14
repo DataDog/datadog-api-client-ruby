@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class IntegrationJira
     include BaseGenericModel
 
-    # Auto-creation settings for Jira issues from cases.
+    # Auto-creation settings for Jira issues from work items.
     attr_accessor :auto_creation
 
     # Whether Jira integration is enabled.
     attr_accessor :enabled
 
-    # Metadata for connecting a case management project to a Jira project.
+    # Metadata for connecting a Work Management project to a Jira project.
     attr_accessor :metadata
 
     # Synchronization configuration for Jira integration.

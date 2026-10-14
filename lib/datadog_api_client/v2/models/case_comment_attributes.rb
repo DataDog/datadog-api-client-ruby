@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case comment attributes
+  # Work item comment attributes
   class CaseCommentAttributes
     include BaseGenericModel
 

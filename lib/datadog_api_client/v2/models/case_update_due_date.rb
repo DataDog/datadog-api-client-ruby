@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for updating a case's due date.
+  # Data object for updating a work item's due date.
   class CaseUpdateDueDate
     include BaseGenericModel
 
-    # Attributes for setting or clearing a case's due date.
+    # Attributes for setting or clearing a work item's due date.
     attr_reader :attributes
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties

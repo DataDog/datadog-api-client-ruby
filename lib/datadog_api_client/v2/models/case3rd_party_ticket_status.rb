@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case status
+  # Work item status
   class Case3rdPartyTicketStatus
     include BaseEnumModel
 

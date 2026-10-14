@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to cases of a given type.
+  # Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to work items of a given type.
   class CustomAttributeConfigResourceAttributes
     include BaseGenericModel
 
-    # The UUID of the case type this custom attribute belongs to.
+    # The UUID of the work item type this custom attribute belongs to.
     attr_reader :case_type_id
 
     # A description explaining the purpose and expected values for this custom attribute.
     attr_accessor :description
 
-    # The human-readable label shown in the Case Management UI for this custom attribute.
+    # The human-readable label shown in the Work Management UI for this custom attribute.
     attr_reader :display_name
 
     # If `true`, this attribute accepts an array of values. If `false`, only a single value is allowed.

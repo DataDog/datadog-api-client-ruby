@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The value of the field being grouped on (for example, `OPEN` when grouping by status).
     attr_reader :group
 
-    # The count of cases in this group.
+    # The count of work items in this group.
     attr_reader :value
 
     attr_accessor :additional_properties

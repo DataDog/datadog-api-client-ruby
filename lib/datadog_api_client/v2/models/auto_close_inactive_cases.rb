@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Auto-close inactive cases settings.
+  # Auto-close inactive work items settings.
   class AutoCloseInactiveCases
     include BaseGenericModel
 

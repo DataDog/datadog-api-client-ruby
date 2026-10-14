@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for case aggregation requests.
+  # JSON:API resource type for work item aggregation requests.
   class CaseAggregateResourceType
     include BaseEnumModel
 

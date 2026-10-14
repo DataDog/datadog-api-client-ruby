@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for updating a case view.
+  # Data object for updating a work item view.
   class CaseViewUpdate
     include BaseGenericModel
 
-    # Attributes that can be updated on a case view. All fields are optional; only provided fields are changed.
+    # Attributes that can be updated on a work item view. All fields are optional; only provided fields are changed.
     attr_accessor :attributes
 
-    # JSON:API resource type for case views.
+    # JSON:API resource type for work item views.
     attr_reader :type
 
     attr_accessor :additional_properties

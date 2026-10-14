@@ -54,10 +54,10 @@ module DatadogAPIClient::V2
     # Timestamp of when the case was last modified.
     attr_accessor :modified_at
 
-    # Case priority
+    # Work item priority
     attr_accessor :priority
 
-    # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+    # Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
     attr_accessor :status
 
     # Title of the case.

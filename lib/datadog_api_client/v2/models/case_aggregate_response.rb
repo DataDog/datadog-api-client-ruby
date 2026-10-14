@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing aggregated case counts grouped by the requested fields.
+  # Response containing aggregated work item counts grouped by the requested fields.
   class CaseAggregateResponse
     include BaseGenericModel
 

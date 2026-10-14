@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for setting the resolution reason on a security case.
+  # Attributes for setting the resolution reason on a security work item.
   class CaseUpdateResolvedReasonAttributes
     include BaseGenericModel
 
-    # The reason the security case was resolved (for example, `FALSE_POSITIVE`, `TRUE_POSITIVE`, `BENIGN_POSITIVE`).
+    # The reason the security work item was resolved (for example, `FALSE_POSITIVE`, `TRUE_POSITIVE`, `BENIGN_POSITIVE`).
     attr_reader :security_resolved_reason
 
     attr_accessor :additional_properties

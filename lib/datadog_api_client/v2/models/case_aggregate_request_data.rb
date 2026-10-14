@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes for the aggregation request, including the search query and grouping configuration.
     attr_reader :attributes
 
-    # JSON:API resource type for case aggregation requests.
+    # JSON:API resource type for work item aggregation requests.
     attr_reader :type
 
     attr_accessor :additional_properties

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing the total number of cases matching a query, optionally grouped by specified fields.
+  # Response containing the total number of work items matching a query, optionally grouped by specified fields.
   class CaseCountResponse
     include BaseGenericModel
 

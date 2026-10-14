@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Cases response metadata
+  # Work items response metadata
   class CasesResponseMeta
     include BaseGenericModel
 

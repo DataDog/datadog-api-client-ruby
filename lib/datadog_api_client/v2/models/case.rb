@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A case
+  # A work item
   class Case
     include BaseGenericModel
 
-    # Case resource attributes
+    # Work item resource attributes
     attr_reader :attributes
 
-    # Case's identifier
+    # Work item's identifier
     attr_reader :id
 
-    # Resources related to a case
+    # Resources related to a work item
     attr_accessor :relationships
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties

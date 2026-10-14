@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class ProjectSettings
     include BaseGenericModel
 
-    # Auto-close inactive cases settings.
+    # Auto-close inactive work items settings.
     attr_accessor :auto_close_inactive_cases
 
-    # Auto-transition assigned cases settings.
+    # Auto-transition assigned work items settings.
     attr_accessor :auto_transition_assigned_cases
 
     # Incident integration settings.

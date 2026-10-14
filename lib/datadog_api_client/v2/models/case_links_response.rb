@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of case links.
+  # Response containing a list of work item links.
   class CaseLinksResponse
     include BaseGenericModel
 
-    # A list of case links.
+    # A list of work item links.
     attr_reader :data
 
     attr_accessor :additional_properties

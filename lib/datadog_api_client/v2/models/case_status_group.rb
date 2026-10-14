@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Status group of the case.
+  # Status group of the work item.
   class CaseStatusGroup
     include BaseEnumModel
 

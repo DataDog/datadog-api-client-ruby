@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case creation attributes
+  # Work item creation attributes
   class CaseCreateAttributes
     include BaseGenericModel
 
-    # Case custom attributes
+    # Work item custom attributes
     attr_accessor :custom_attributes
 
     # Description
     attr_accessor :description
 
-    # Case priority
+    # Work item priority
     attr_accessor :priority
 
-    # Status of the case. Must be one of the existing statuses for the case's type.
+    # Status of the work item. Must be one of the existing statuses for the work item's type.
     attr_accessor :status_name
 
     # Title
     attr_reader :title
 
-    # Case type UUID
+    # Work item type UUID
     attr_reader :type_id
 
     attr_accessor :additional_properties

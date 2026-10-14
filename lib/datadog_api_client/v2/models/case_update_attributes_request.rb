@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case update attributes request
+  # Work item update attributes request
   class CaseUpdateAttributesRequest
     include BaseGenericModel
 
-    # Case update attributes
+    # Work item update attributes
     attr_reader :data
 
     attr_accessor :additional_properties

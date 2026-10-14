@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Assignment group.
     attr_accessor :assignment_group
 
-    # Auto-creation settings for ServiceNow incidents from cases.
+    # Auto-creation settings for ServiceNow incidents from work items.
     attr_accessor :auto_creation
 
     # Whether ServiceNow integration is enabled.

@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class CaseInsightsData
     include BaseGenericModel
 
-    # Attributes for adding or removing insights from a case.
+    # Attributes for adding or removing insights from a work item.
     attr_reader :attributes
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties
