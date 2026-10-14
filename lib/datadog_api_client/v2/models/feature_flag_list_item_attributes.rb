@@ -60,8 +60,11 @@ module DatadogAPIClient::V2
     # The feature flag's current staleness state and suggested actions.
     attr_accessor :staleness_details
 
-    # Indicates the staleness status of the feature flag.
+    # Legacy status retained for compatibility. This field is always `ACTIVE`; use `staleness_details.staleness_status` for the computed status.
     attr_accessor :staleness_status
+
+    # An explicit staleness status override. Omitted when no override is set.
+    attr_accessor :staleness_status_override
 
     # Tags associated with the feature flag.
     attr_accessor :tags
@@ -95,6 +98,7 @@ module DatadogAPIClient::V2
         :'require_approval' => :'require_approval',
         :'staleness_details' => :'staleness_details',
         :'staleness_status' => :'staleness_status',
+        :'staleness_status_override' => :'staleness_status_override',
         :'tags' => :'tags',
         :'updated_at' => :'updated_at',
         :'value_type' => :'value_type',
@@ -120,6 +124,7 @@ module DatadogAPIClient::V2
         :'require_approval' => :'Boolean',
         :'staleness_details' => :'FeatureFlagStalenessDetails',
         :'staleness_status' => :'String',
+        :'staleness_status_override' => :'FeatureFlagStalenessStatusOverride',
         :'tags' => :'Array<String>',
         :'updated_at' => :'Time',
         :'value_type' => :'ValueType',
@@ -210,6 +215,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'staleness_status')
         self.staleness_status = attributes[:'staleness_status']
+      end
+
+      if attributes.key?(:'staleness_status_override')
+        self.staleness_status_override = attributes[:'staleness_status_override']
       end
 
       if attributes.key?(:'tags')
@@ -335,6 +344,7 @@ module DatadogAPIClient::V2
           require_approval == o.require_approval &&
           staleness_details == o.staleness_details &&
           staleness_status == o.staleness_status &&
+          staleness_status_override == o.staleness_status_override &&
           tags == o.tags &&
           updated_at == o.updated_at &&
           value_type == o.value_type &&
@@ -346,7 +356,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, is_favorite, json_schema, key, last_updated_by, name, require_approval, staleness_details, staleness_status, tags, updated_at, value_type, variants, additional_properties].hash
+      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, is_favorite, json_schema, key, last_updated_by, name, require_approval, staleness_details, staleness_status, staleness_status_override, tags, updated_at, value_type, variants, additional_properties].hash
     end
   end
 end

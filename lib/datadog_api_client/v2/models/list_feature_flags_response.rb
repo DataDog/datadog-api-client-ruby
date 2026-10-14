@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # List of feature flags.
     attr_reader :data
 
+    # Pagination links. Follow `next` with the same authentication to retrieve the next page. Links use `page[limit]` and `page[offset]` and preserve the filters. Navigation links are omitted when not applicable.
+    attr_accessor :links
+
     # Pagination metadata for feature flags.
     attr_accessor :meta
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
+        :'links' => :'links',
         :'meta' => :'meta'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<FeatureFlagListItem>',
+        :'links' => :'FeatureFlagsPaginationLinks',
         :'meta' => :'FeatureFlagsPaginationMeta'
       }
     end
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'data']).is_a?(Array)
           self.data = value
         end
+      end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
       end
 
       if attributes.key?(:'meta')
@@ -121,6 +130,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          links == o.links &&
           meta == o.meta &&
           additional_properties == o.additional_properties
     end
@@ -129,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [data, links, meta, additional_properties].hash
     end
   end
 end

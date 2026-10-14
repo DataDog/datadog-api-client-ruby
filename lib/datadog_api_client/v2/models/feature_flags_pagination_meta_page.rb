@@ -21,11 +21,35 @@ module DatadogAPIClient::V2
   class FeatureFlagsPaginationMetaPage
     include BaseGenericModel
 
-    # Total number of items.
+    # Offset of the first page.
+    attr_accessor :first_offset
+
+    # Offset of the last page.
+    attr_accessor :last_offset
+
+    # Maximum number of flags returned on this page.
+    attr_accessor :limit
+
+    # Offset of the next page, or null when there is no next page.
+    attr_accessor :next_offset
+
+    # Number of matching flags skipped before this page.
+    attr_accessor :offset
+
+    # Offset of the previous page, or null when there is no previous page.
+    attr_accessor :prev_offset
+
+    # Total number of flags matching the filters, independent of the page size.
+    attr_accessor :total
+
+    # Legacy count field. Use `total` for the number of matching flags.
     attr_accessor :total_count
 
-    # Total number of items matching the filter.
+    # Legacy filtered count field. Use `total` for the number of matching flags.
     attr_accessor :total_filtered_count
+
+    # The pagination method. Always `offset_limit`.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -33,8 +57,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'first_offset' => :'first_offset',
+        :'last_offset' => :'last_offset',
+        :'limit' => :'limit',
+        :'next_offset' => :'next_offset',
+        :'offset' => :'offset',
+        :'prev_offset' => :'prev_offset',
+        :'total' => :'total',
         :'total_count' => :'total_count',
-        :'total_filtered_count' => :'total_filtered_count'
+        :'total_filtered_count' => :'total_filtered_count',
+        :'type' => :'type'
       }
     end
 
@@ -42,9 +74,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'first_offset' => :'Integer',
+        :'last_offset' => :'Integer',
+        :'limit' => :'Integer',
+        :'next_offset' => :'Integer',
+        :'offset' => :'Integer',
+        :'prev_offset' => :'Integer',
+        :'total' => :'Integer',
         :'total_count' => :'Integer',
-        :'total_filtered_count' => :'Integer'
+        :'total_filtered_count' => :'Integer',
+        :'type' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'last_offset',
+        :'next_offset',
+        :'prev_offset',
+      ])
     end
 
     # Initializes the object
@@ -65,12 +115,44 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'first_offset')
+        self.first_offset = attributes[:'first_offset']
+      end
+
+      if attributes.key?(:'last_offset')
+        self.last_offset = attributes[:'last_offset']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'next_offset')
+        self.next_offset = attributes[:'next_offset']
+      end
+
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
+      if attributes.key?(:'prev_offset')
+        self.prev_offset = attributes[:'prev_offset']
+      end
+
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
+      end
+
       if attributes.key?(:'total_count')
         self.total_count = attributes[:'total_count']
       end
 
       if attributes.key?(:'total_filtered_count')
         self.total_filtered_count = attributes[:'total_filtered_count']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -100,8 +182,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          first_offset == o.first_offset &&
+          last_offset == o.last_offset &&
+          limit == o.limit &&
+          next_offset == o.next_offset &&
+          offset == o.offset &&
+          prev_offset == o.prev_offset &&
+          total == o.total &&
           total_count == o.total_count &&
           total_filtered_count == o.total_filtered_count &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_count, total_filtered_count, additional_properties].hash
+      [first_offset, last_offset, limit, next_offset, offset, prev_offset, total, total_count, total_filtered_count, type, additional_properties].hash
     end
   end
 end

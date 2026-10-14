@@ -796,14 +796,28 @@ module DatadogAPIClient::V2
 
     # List feature flags.
     #
-    # Returns a list of feature flags for the organization.
-    # Supports filtering by key and archived status.
+    # Returns a paginated list of feature flags for the organization.
+    # Supports filtering by key, tags, teams, SDK availability, production status, and other flag properties.
+    # Use `page[limit]` and `page[offset]` to paginate, or follow the `next` link in the response.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :key Filter feature flags by key (partial matching).
-    # @option opts [Boolean] :is_archived Filter by archived status.
-    # @option opts [Integer] :limit Maximum number of results to return.
-    # @option opts [Integer] :offset Number of results to skip.
+    # @option opts [String] :key Filter feature flags by an exact, case-sensitive key. Use `search` for partial matching.
+    # @option opts [Boolean] :is_archived Filter by archived status. If `true`, return only archived flags. If `false`, return only flags that are not archived. If omitted, return both.
+    # @option opts [Integer] :limit Deprecated alias for `page[limit]`. Use `page[limit]` for new requests. Used only when `page[limit]` is absent. When both parameters are omitted, the server defaults to `25`. Values that exceed `50` are set to `50`; non-positive or empty values use the server default.
+    # @option opts [Integer] :offset Deprecated alias for `page[offset]`. Used only when `page[offset]` is absent. Defaults to `0`. Negative or empty values are set to `0`.
+    # @option opts [Array<String>] :tags Filter by exact tag values using repeated parameters, such as `tags=env:prod&tags=purpose:sitemap`. A flag must have all ordinary tags. Values of the form `team:<handle>` match any selected team and are combined with `teams` into one set. The result must match all ordinary tags, any selected team, and all other filters. Empty values are ignored.
+    # @option opts [Array<String>] :teams Filter by team handles without the `team:` prefix. Use repeated parameters to filter by multiple team handles, such as `teams=checkout&teams=payments`. A flag must belong to at least one selected team. Team handles from `teams` and `team:<handle>` values from tags are treated as a single set and combined with ordinary tags and other filters using AND logic. Duplicate handles do not duplicate results. Unknown handles do not match any flags. Empty handles, surrounding white space, or using the `team:` prefix return a bad request error. Response tags are unchanged.
+    # @option opts [Array<FeatureFlagProductionStatus>] :production_status Filter by status across production environments. Use repeated parameters to match any selected status. `ENABLED` matches at least one enabled production environment without a variant override. `OVERRIDDEN` matches at least one enabled production environment with a variant override. `DISABLED` matches flags whose associated production environments are all disabled. A flag can match both `ENABLED` and `OVERRIDDEN` in different environments. Flags without associated production environments do not match. This does not filter by a specific environment. Unknown values do not match any status.
+    # @option opts [FeatureFlagDistributionChannel] :distribution_channel Filter by SDK availability. `CLIENT` returns flags with channel `CLIENT` or `ALL`. `SERVER` returns flags with channel `SERVER` or `ALL`. `ALL`, an empty value, or omission applies no channel restriction; it does not select only flags whose channel is `ALL`. Values are case-insensitive and surrounding white space is ignored. Invalid values return a bad request error.
+    # @option opts [String] :search Case-insensitive substring search on flag names, keys, and tag names. Combined with all other filters. An empty value applies no search restriction.
+    # @option opts [Array<ValueType>] :value_type Filter by variant value types using repeated parameters. A flag must match at least one selected type. Empty values are ignored. Invalid types return a bad request error.
+    # @option opts [Array<UUID>] :created_by Filter by creator UUIDs using repeated parameters. A flag must match at least one creator. Empty values are ignored. Invalid UUIDs return a bad request error.
+    # @option opts [Array<UUID>] :flag_ids Filter by feature flag UUIDs using repeated parameters. A flag must match at least one ID and all other filters. Duplicate IDs return each flag once. Unknown IDs and IDs from other organizations do not match any flags. Empty or invalid UUIDs return a bad request error. Pagination still applies.
+    # @option opts [FeatureFlagStalenessStatus] :staleness_status Filter by the computed staleness status: `ACTIVE`, `STALE`, or `PERMANENT`. Values are case-insensitive and surrounding white space is ignored. An empty value or omission applies no restriction. Invalid values return a bad request error. Read the computed result from `staleness_details.staleness_status`, not the legacy `staleness_status` response field.
+    # @option opts [UUID] :saved_filter_id Filter to flags that reference this saved filter in their targeting conditions. An empty value or omission applies no restriction. An invalid UUID returns a bad request error.
+    # @option opts [String] :sort Sort by `name`, `updated_at`, `created_at`, or `evaluations`. Use a comma-separated list for multiple sort fields and prefix a field with `-` for descending order. The default is `updated_at` descending. When favorites are enabled, the authenticated user's favorite flags take precedence over the selected ordering. Unknown fields return a bad request error.
+    # @option opts [Integer] :page_limit Maximum number of flags to return. Defaults to `25` and is capped at `50`. Values that exceed `50` are set to `50`. Non-positive or empty values use the default. A non-integer value returns a bad request error. Takes precedence over `limit` when both are present. Pagination applies even when no pagination parameters are supplied.
+    # @option opts [Integer] :page_offset Number of matching flags to skip before returning results. Defaults to `0`. Negative or empty values are set to `0`. A non-integer value returns a bad request error. Takes precedence over `offset` when both are present.
     # @return [Array<(ListFeatureFlagsResponse, Integer, Hash)>] ListFeatureFlagsResponse data, response status code and response headers
     def list_feature_flags_with_http_info(opts = {})
 
@@ -819,6 +833,23 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 0.'
       end
+      allowable_values = ['ALL', 'CLIENT', 'SERVER']
+      if @api_client.config.client_side_validation && opts[:'distribution_channel'] && !allowable_values.include?(opts[:'distribution_channel'])
+        fail ArgumentError, "invalid value for \"distribution_channel\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['ACTIVE', 'STALE', 'PERMANENT']
+      if @api_client.config.client_side_validation && opts[:'staleness_status'] && !allowable_values.include?(opts[:'staleness_status'])
+        fail ArgumentError, "invalid value for \"staleness_status\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 50
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling FeatureFlagsAPI.list_feature_flags, must be smaller than or equal to 50.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling FeatureFlagsAPI.list_feature_flags, must be greater than or equal to 0.'
+      end
       # resource path
       local_var_path = '/api/v2/feature-flags'
 
@@ -828,6 +859,19 @@ module DatadogAPIClient::V2
       query_params[:'is_archived'] = opts[:'is_archived'] if !opts[:'is_archived'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'tags'] = @api_client.build_collection_param(opts[:'tags'], :multi) if !opts[:'tags'].nil?
+      query_params[:'teams'] = @api_client.build_collection_param(opts[:'teams'], :multi) if !opts[:'teams'].nil?
+      query_params[:'production_status'] = @api_client.build_collection_param(opts[:'production_status'], :multi) if !opts[:'production_status'].nil?
+      query_params[:'distribution_channel'] = opts[:'distribution_channel'] if !opts[:'distribution_channel'].nil?
+      query_params[:'search'] = opts[:'search'] if !opts[:'search'].nil?
+      query_params[:'value_type'] = @api_client.build_collection_param(opts[:'value_type'], :multi) if !opts[:'value_type'].nil?
+      query_params[:'created_by'] = @api_client.build_collection_param(opts[:'created_by'], :multi) if !opts[:'created_by'].nil?
+      query_params[:'flag_ids'] = @api_client.build_collection_param(opts[:'flag_ids'], :multi) if !opts[:'flag_ids'].nil?
+      query_params[:'staleness_status'] = opts[:'staleness_status'] if !opts[:'staleness_status'].nil?
+      query_params[:'saved_filter_id'] = opts[:'saved_filter_id'] if !opts[:'saved_filter_id'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -856,6 +900,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
