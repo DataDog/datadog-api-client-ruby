@@ -6,6 +6,11 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::FeatureFlagsAPI.new
 opts = {
-  limit: 10,
+  tags: [
+    "list-test:example-feature-flag",
+  ],
+  page_limit: 1,
+  page_offset: 0,
+  sort: "name",
 }
 p api_instance.list_feature_flags(opts)
