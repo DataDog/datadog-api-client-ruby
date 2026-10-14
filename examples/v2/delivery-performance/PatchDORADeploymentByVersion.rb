@@ -1,0 +1,24 @@
+# Mark a deployment as failed by version returns "Accepted" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V2::DeliveryPerformanceAPI.new
+
+body = DatadogAPIClient::V2::DORADeploymentPatchByVersionRequest.new({
+  data: DatadogAPIClient::V2::DORADeploymentPatchByVersionRequestData.new({
+    attributes: DatadogAPIClient::V2::DORADeploymentPatchByVersionRequestAttributes.new({
+      change_failure: true,
+      env: "production",
+      remediation: DatadogAPIClient::V2::DORADeploymentPatchByVersionRemediationByVersion.new({
+        type: DatadogAPIClient::V2::DORADeploymentPatchRemediationType::ROLLBACK,
+        version: "v1.2.2",
+      }),
+      service: "my-service",
+      version: "v1.2.3",
+    }),
+    type: DatadogAPIClient::V2::DORADeploymentPatchRequestDataType::DORA_DEPLOYMENT_PATCH_REQUEST,
+  }),
+})
+p api_instance.patch_dora_deployment_by_version(body)

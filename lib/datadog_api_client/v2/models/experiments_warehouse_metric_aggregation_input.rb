@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
         :'timeframe_end_value' => :'Float',
         :'timeframe_start_value' => :'Float',
         :'timeframe_unit' => :'String',
-        :'warehouse_metric_measure' => :'ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure',
+        :'warehouse_metric_measure' => :'ExperimentsWarehouseMetricMeasure',
         :'winsor_lower_fixed_value' => :'Float',
         :'winsor_lower_percentile' => :'Float',
         :'winsor_upper_fixed_value' => :'Float',
