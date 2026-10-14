@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The Azure credential kind. The value should always be `managed_identity_client_assertion`.
-  class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+  class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
     include BaseEnumModel
 
     MANAGED_IDENTITY_CLIENT_ASSERTION = "managed_identity_client_assertion".freeze

@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret',
           :'ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate',
           :'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity',
-          :'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion',
+          :'ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion',
           :'ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity'
         ]
       end
