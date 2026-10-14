@@ -123,9 +123,9 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}$')
       return false if !@charge_period_end.nil? && @charge_period_end !~ pattern
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}$')
       return false if !@charge_period_start.nil? && @charge_period_start !~ pattern
       true
     end
@@ -134,7 +134,7 @@ module DatadogAPIClient::V2
     # @param charge_period_end [Object] Object to be assigned
     # @!visibility private
     def charge_period_end=(charge_period_end)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}$')
       if !charge_period_end.nil? && charge_period_end !~ pattern
         fail ArgumentError, "invalid value for \"charge_period_end\", must conform to the pattern #{pattern}."
       end
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
     # @param charge_period_start [Object] Object to be assigned
     # @!visibility private
     def charge_period_start=(charge_period_start)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}$')
       if !charge_period_start.nil? && charge_period_start !~ pattern
         fail ArgumentError, "invalid value for \"charge_period_start\", must conform to the pattern #{pattern}."
       end

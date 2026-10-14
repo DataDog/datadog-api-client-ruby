@@ -207,7 +207,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @account_id.nil?
       return false if @client_id.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{6}$')
       return false if !@created_at.nil? && @created_at !~ pattern
       return false if @dataset_type.nil?
       return false if @export_name.nil?
@@ -215,11 +215,11 @@ module DatadogAPIClient::V2
       return false if !@months.nil? && @months > 36
       return false if @scope.nil?
       return false if @status.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{6}$')
       return false if !@status_updated_at.nil? && @status_updated_at !~ pattern
       return false if @storage_account.nil?
       return false if @storage_container.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{6}$')
       return false if !@updated_at.nil? && @updated_at !~ pattern
       true
     end
@@ -248,7 +248,7 @@ module DatadogAPIClient::V2
     # @param created_at [Object] Object to be assigned
     # @!visibility private
     def created_at=(created_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{6}$')
       if !created_at.nil? && created_at !~ pattern
         fail ArgumentError, "invalid value for \"created_at\", must conform to the pattern #{pattern}."
       end
@@ -319,7 +319,7 @@ module DatadogAPIClient::V2
     # @param status_updated_at [Object] Object to be assigned
     # @!visibility private
     def status_updated_at=(status_updated_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{6}$')
       if !status_updated_at.nil? && status_updated_at !~ pattern
         fail ArgumentError, "invalid value for \"status_updated_at\", must conform to the pattern #{pattern}."
       end
@@ -350,7 +350,7 @@ module DatadogAPIClient::V2
     # @param updated_at [Object] Object to be assigned
     # @!visibility private
     def updated_at=(updated_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{6}$')
       if !updated_at.nil? && updated_at !~ pattern
         fail ArgumentError, "invalid value for \"updated_at\", must conform to the pattern #{pattern}."
       end

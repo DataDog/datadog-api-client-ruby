@@ -111,13 +111,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @day.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}$')
       return false if @day !~ pattern
       return false if @is_active.nil?
       return false if @tools.nil?
       return false if @tools.length < 1
       return false if @user_email.nil?
-      pattern = Regexp.new(/^[^@]+@[^@.]+(?:\.[^@.]+)+$/)
+      pattern = Regexp.new('^[^@]+@[^@.]+(?:\\.[^@.]+)+$')
       return false if @user_email !~ pattern
       true
     end
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
       if day.nil?
         fail ArgumentError, 'invalid value for "day", day cannot be nil.'
       end
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}$/)
+      pattern = Regexp.new('^\\d{4}-\\d{2}-\\d{2}$')
       if day !~ pattern
         fail ArgumentError, "invalid value for \"day\", must conform to the pattern #{pattern}."
       end
@@ -166,7 +166,7 @@ module DatadogAPIClient::V2
       if user_email.nil?
         fail ArgumentError, 'invalid value for "user_email", user_email cannot be nil.'
       end
-      pattern = Regexp.new(/^[^@]+@[^@.]+(?:\.[^@.]+)+$/)
+      pattern = Regexp.new('^[^@]+@[^@.]+(?:\\.[^@.]+)+$')
       if user_email !~ pattern
         fail ArgumentError, "invalid value for \"user_email\", must conform to the pattern #{pattern}."
       end

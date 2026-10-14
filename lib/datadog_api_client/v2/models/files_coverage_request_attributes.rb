@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      pattern = Regexp.new(/^[a-fA-F0-9]{40}$/)
+      pattern = Regexp.new('^[a-fA-F0-9]{40}$')
       return false if !@commit_sha.nil? && @commit_sha !~ pattern
       return false if !@pr_number.nil? && @pr_number < 1
       return false if !@repository_id.nil? && @repository_id.to_s.length < 1
@@ -153,7 +153,7 @@ module DatadogAPIClient::V2
     # @param commit_sha [Object] Object to be assigned
     # @!visibility private
     def commit_sha=(commit_sha)
-      pattern = Regexp.new(/^[a-fA-F0-9]{40}$/)
+      pattern = Regexp.new('^[a-fA-F0-9]{40}$')
       if !commit_sha.nil? && commit_sha !~ pattern
         fail ArgumentError, "invalid value for \"commit_sha\", must conform to the pattern #{pattern}."
       end
