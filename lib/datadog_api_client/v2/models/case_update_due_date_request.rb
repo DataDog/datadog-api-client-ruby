@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for updating a case's due date.
+  # Request payload for updating a work item's due date.
   class CaseUpdateDueDateRequest
     include BaseGenericModel
 
-    # Data object for updating a case's due date.
+    # Data object for updating a work item's due date.
     attr_reader :data
 
     attr_accessor :additional_properties

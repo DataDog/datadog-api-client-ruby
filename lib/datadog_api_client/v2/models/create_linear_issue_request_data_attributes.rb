@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Unique identifier of the Linear project to pin the issue to. If not provided, the issue is not associated with a Linear project.
     attr_accessor :linear_project_id
 
-    # Case priority
+    # Work item priority
     attr_accessor :priority
 
     # Title of the Linear issue. If not provided, the title will be automatically generated.

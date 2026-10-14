@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case creation data
+  # Work item creation data
   class CaseCreate
     include BaseGenericModel
 
-    # Case creation attributes
+    # Work item creation attributes
     attr_reader :attributes
 
-    # Relationships formed with the case on creation
+    # Relationships formed with the work item on creation
     attr_accessor :relationships
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties

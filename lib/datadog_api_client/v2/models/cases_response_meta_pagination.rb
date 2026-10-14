@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Current page number
     attr_accessor :current
 
-    # Number of cases in current page
+    # Number of work items in current page
     attr_accessor :size
 
     # Total number of pages

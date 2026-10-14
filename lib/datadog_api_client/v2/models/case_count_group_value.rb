@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single value within a count group, representing the number of cases with that specific field value.
+  # A single value within a count group, representing the number of work items with that specific field value.
   class CaseCountGroupValue
     include BaseGenericModel
 
-    # Count of cases for this value.
+    # Count of work items for this value.
     attr_reader :count
 
     # The group value.

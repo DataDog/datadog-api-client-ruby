@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Whether auto-resolve is enabled.
     attr_accessor :auto_resolve_enabled
 
-    # Case type ID for monitor integration.
+    # Work item type ID for monitor integration.
     attr_accessor :case_type_id
 
     # Whether monitor integration is enabled.

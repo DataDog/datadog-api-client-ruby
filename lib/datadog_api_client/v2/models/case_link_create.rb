@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object for creating a case link.
+  # Data object for creating a work item link.
   class CaseLinkCreate
     include BaseGenericModel
 
-    # Attributes describing a directional relationship between two entities (cases, incidents, or pages).
+    # Attributes describing a directional relationship between two entities (work items, incidents, or pages).
     attr_reader :attributes
 
-    # JSON:API resource type for case links.
+    # JSON:API resource type for work item links.
     attr_reader :type
 
     attr_accessor :additional_properties

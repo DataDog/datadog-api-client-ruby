@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single case link.
+  # Response containing a single work item link.
   class CaseLinkResponse
     include BaseGenericModel
 
-    # A directional link representing a relationship between two entities. At least one entity must be a case.
+    # A directional link representing a relationship between two entities. At least one entity must be a work item.
     attr_reader :data
 
     attr_accessor :additional_properties

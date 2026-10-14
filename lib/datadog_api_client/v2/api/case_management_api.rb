@@ -33,10 +33,10 @@ module DatadogAPIClient::V2
 
     # Add insights to a case.
     #
-    # Adds one or more insights to a case. Insights are references to related Datadog resources (such as monitors, security signals, incidents, or error tracking issues) that provide investigative context. Up to 100 insights can be added per request. Each insight requires a type (see `CaseInsightType` for allowed values), a ref (URL path to the resource), and a resource_id.
+    # Adds one or more insights to a work item. Insights are references to related Datadog resources (such as monitors, security signals, incidents, or error tracking issues) that provide investigative context. Up to 100 insights can be added per request. Each insight requires a type (see `CaseInsightType` for allowed values), a ref (URL path to the resource), and a resource_id.
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseInsightsRequest] Case insights request.
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseInsightsRequest] Work item insights request.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def add_case_insights_with_http_info(case_id, body, opts = {})
@@ -105,9 +105,9 @@ module DatadogAPIClient::V2
 
     # Aggregate cases.
     #
-    # Performs an aggregation query over cases, grouping results by specified fields and returning counts per group along with a total. Useful for dashboards and analytics.
+    # Performs an aggregation query over work items, grouping results by specified fields and returning counts per group along with a total. Useful for dashboards and analytics.
     #
-    # @param body [CaseAggregateRequest] Case aggregate request payload.
+    # @param body [CaseAggregateRequest] Work item aggregate request payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseAggregateResponse, Integer, Hash)>] CaseAggregateResponse data, response status code and response headers
     def aggregate_cases_with_http_info(body, opts = {})
@@ -172,10 +172,10 @@ module DatadogAPIClient::V2
 
     # Archive case.
     #
-    # Archive case
+    # Archive work item
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseEmptyRequest] Archive case payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseEmptyRequest] Archive work item payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def archive_case_with_http_info(case_id, body, opts = {})
@@ -244,10 +244,10 @@ module DatadogAPIClient::V2
 
     # Assign case.
     #
-    # Assign case to a user
+    # Assign work item to a user
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseAssignRequest] Assign case payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseAssignRequest] Assign work item payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def assign_case_with_http_info(case_id, body, opts = {})
@@ -316,9 +316,9 @@ module DatadogAPIClient::V2
 
     # Bulk update cases.
     #
-    # Applies a single action (such as changing priority, status, assignment, or archiving) to multiple cases at once. The list of case IDs and the action type with its payload are specified in the request body.
+    # Applies a single action (such as changing priority, status, assignment, or archiving) to multiple work items at once. The list of work item IDs and the action type with its payload are specified in the request body.
     #
-    # @param body [CaseBulkUpdateRequest] Case bulk update request payload.
+    # @param body [CaseBulkUpdateRequest] Work item bulk update request payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def bulk_update_cases_with_http_info(body, opts = {})
@@ -383,10 +383,10 @@ module DatadogAPIClient::V2
 
     # Comment case.
     #
-    # Comment case
+    # Add a comment to a work item.
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseCommentRequest] Case comment payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseCommentRequest] Work item comment payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(TimelineResponse, Integer, Hash)>] TimelineResponse data, response status code and response headers
     def comment_case_with_http_info(case_id, body, opts = {})
@@ -455,10 +455,10 @@ module DatadogAPIClient::V2
 
     # Count cases.
     #
-    # Returns case counts, optionally grouped by one or more fields (for example, status, priority). Supports a query filter to narrow the scope.
+    # Returns work item counts, optionally grouped by one or more fields (for example, status, priority). Supports a query filter to narrow the scope.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :query_filter Filter query for cases.
+    # @option opts [String] :query_filter Filter query for work items.
     # @option opts [String] :group_bys Comma-separated fields to group by.
     # @option opts [Integer] :limit Maximum facet values to return.
     # @return [Array<(CaseCountResponse, Integer, Hash)>] CaseCountResponse data, response status code and response headers
@@ -521,9 +521,9 @@ module DatadogAPIClient::V2
 
     # Create a case.
     #
-    # Create a Case
+    # Create a work item
     #
-    # @param body [CaseCreateRequest] Case payload
+    # @param body [CaseCreateRequest] Work item payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def create_case_with_http_info(body, opts = {})
@@ -588,7 +588,7 @@ module DatadogAPIClient::V2
 
     # Create an automation rule.
     #
-    # Creates an automation rule for a project. The rule defines a trigger event (for example, case created, status transitioned) and an action to execute.
+    # Creates an automation rule for a project. The rule defines a trigger event (for example, work item created, status transitioned) and an action to execute.
     #
     # @param project_id [String] The UUID of the project that owns the automation rules.
     # @param body [AutomationRuleCreateRequest] Automation rule payload.
@@ -660,9 +660,9 @@ module DatadogAPIClient::V2
 
     # Create Jira issue for case.
     #
-    # Create a new Jira issue and link it to a case
+    # Create a new Jira issue and link it to a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param body [JiraIssueCreateRequest] Jira issue creation request
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -732,9 +732,9 @@ module DatadogAPIClient::V2
 
     # Create a case link.
     #
-    # Creates a directional link between two cases (for example, case A blocks case B). The parent and child cases and their relationship type must be specified.
+    # Creates a directional link between two work items (for example, work item A blocks work item B). The parent and child work items and their relationship type must be specified.
     #
-    # @param body [CaseLinkCreateRequest] Case link create request.
+    # @param body [CaseLinkCreateRequest] Work item link create request.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseLinkResponse, Integer, Hash)>] CaseLinkResponse data, response status code and response headers
     def create_case_link_with_http_info(body, opts = {})
@@ -799,9 +799,9 @@ module DatadogAPIClient::V2
 
     # Create investigation notebook for case.
     #
-    # Create a new investigation notebook and link it to a case
+    # Create a new investigation notebook and link it to a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param body [NotebookCreateRequest] Notebook creation request
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -871,9 +871,9 @@ module DatadogAPIClient::V2
 
     # Create ServiceNow ticket for case.
     #
-    # Create a new ServiceNow incident ticket and link it to a case
+    # Create a new ServiceNow incident ticket and link it to a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param body [ServiceNowTicketCreateRequest] ServiceNow ticket creation request
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -943,9 +943,9 @@ module DatadogAPIClient::V2
 
     # Create a case view.
     #
-    # Creates a new saved case view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
+    # Creates a new saved work item view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
     #
-    # @param body [CaseViewCreateRequest] Case view payload.
+    # @param body [CaseViewCreateRequest] Work item view payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
     def create_case_view_with_http_info(body, opts = {})
@@ -1010,7 +1010,7 @@ module DatadogAPIClient::V2
 
     # Create a maintenance window.
     #
-    # Creates a maintenance window for event management cases with a name, case filter query, and time range (start and end).
+    # Creates a maintenance window for event management work items with a name, work item filter query, and time range (start and end).
     #
     # @param body [MaintenanceWindowCreateRequest] Maintenance window payload.
     # @param opts [Hash] the optional parameters
@@ -1286,9 +1286,9 @@ module DatadogAPIClient::V2
 
     # Delete case comment.
     #
-    # Delete case comment
+    # Delete work item comment
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param cell_id [String] The UUID of the timeline cell (comment) to update.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -1356,10 +1356,10 @@ module DatadogAPIClient::V2
 
     # Delete custom attribute from case.
     #
-    # Delete custom attribute from case
+    # Delete custom attribute from work item
     #
-    # @param case_id [String] Case's UUID or key
-    # @param custom_attribute_key [String] Case Custom attribute's key
+    # @param case_id [String] Work item's UUID or key
+    # @param custom_attribute_key [String] Work item custom attribute's key.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def delete_case_custom_attribute_with_http_info(case_id, custom_attribute_key, opts = {})
@@ -1426,9 +1426,9 @@ module DatadogAPIClient::V2
 
     # Delete a case link.
     #
-    # Deletes an existing link between cases by link ID.
+    # Deletes an existing link between work items by link ID.
     #
-    # @param link_id [String] The UUID of the case link.
+    # @param link_id [String] The UUID of the work item link.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_link_with_http_info(link_id, opts = {})
@@ -1491,9 +1491,9 @@ module DatadogAPIClient::V2
 
     # Delete a case view.
     #
-    # Permanently deletes a saved case view.
+    # Permanently deletes a saved work item view.
     #
-    # @param view_id [String] The UUID of the case view.
+    # @param view_id [String] The UUID of the work item view.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_case_view_with_http_info(view_id, opts = {})
@@ -1756,7 +1756,7 @@ module DatadogAPIClient::V2
 
     # Disable an automation rule.
     #
-    # Disables an automation rule so it no longer triggers on case events. The rule configuration is preserved.
+    # Disables an automation rule so it no longer triggers on work item events. The rule configuration is preserved.
     #
     # @param project_id [String] The UUID of the project that owns the automation rules.
     # @param rule_id [String] The UUID of the automation rule.
@@ -1826,7 +1826,7 @@ module DatadogAPIClient::V2
 
     # Enable an automation rule.
     #
-    # Enables a previously disabled automation rule so it triggers on matching case events.
+    # Enables a previously disabled automation rule so it triggers on matching work item events.
     #
     # @param project_id [String] The UUID of the project that owns the automation rules.
     # @param rule_id [String] The UUID of the automation rule.
@@ -1896,7 +1896,7 @@ module DatadogAPIClient::V2
 
     # Favorite a project.
     #
-    # Marks a case project as a favorite for the current authenticated user.
+    # Marks a Work Management project as a favorite for the current authenticated user.
     #
     # @param project_id [String] Project UUID.
     # @param opts [Hash] the optional parameters
@@ -1961,9 +1961,9 @@ module DatadogAPIClient::V2
 
     # Get the details of a case.
     #
-    # Get the details of case by `case_id`
+    # Get the details of a work item by `case_id`.
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def get_case_with_http_info(case_id, opts = {})
@@ -2096,9 +2096,9 @@ module DatadogAPIClient::V2
 
     # Get a case view.
     #
-    # Returns a single saved case view identified by its UUID, including its query, associated project, and timestamps.
+    # Returns a single saved work item view identified by its UUID, including its query, associated project, and timestamps.
     #
-    # @param view_id [String] The UUID of the case view.
+    # @param view_id [String] The UUID of the work item view.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
     def get_case_view_with_http_info(view_id, opts = {})
@@ -2351,9 +2351,9 @@ module DatadogAPIClient::V2
 
     # Link incident to case.
     #
-    # Link an incident to a case
+    # Link an incident to a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param body [RelationshipToIncidentRequest] Incident link request
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
@@ -2423,9 +2423,9 @@ module DatadogAPIClient::V2
 
     # Link existing Jira issue to case.
     #
-    # Link an existing Jira issue to a case
+    # Link an existing Jira issue to a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param body [JiraIssueLinkRequest] Jira issue link request
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -2495,7 +2495,7 @@ module DatadogAPIClient::V2
 
     # List automation rules.
     #
-    # Returns all automation rules configured for a project. Automation rules allow automatic actions to be triggered by case events like creation, status transitions, or attribute changes.
+    # Returns all automation rules configured for a project. Automation rules allow automatic actions to be triggered by work item events like creation, status transitions, or attribute changes.
     #
     # @param project_id [String] The UUID of the project that owns the automation rules.
     # @param opts [Hash] the optional parameters
@@ -2560,9 +2560,9 @@ module DatadogAPIClient::V2
 
     # List case links.
     #
-    # Returns all links associated with a case. Links define relationships (for example, BLOCKS) between cases. Requires entity_type and entity_id query parameters.
+    # Returns all links associated with a work item. Links define relationships (for example, BLOCKS) between work items. Requires entity_type and entity_id query parameters.
     #
-    # @param entity_type [String] The entity type to look up links for. Use `CASE` to find links for a specific case.
+    # @param entity_type [String] The entity type to look up links for. Use `CASE` to find links for a specific work item.
     # @param entity_id [String] The UUID of the entity to look up links for.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :relationship Optional filter to only return links of a specific relationship type (for example, `BLOCKS` or `CAUSES`).
@@ -2634,9 +2634,9 @@ module DatadogAPIClient::V2
 
     # Get case timeline.
     #
-    # Returns the timeline of events for a case, including comments, status changes, and other activity. Supports pagination and sort order.
+    # Returns the timeline of events for a work item, including comments, status changes, and other activity. Supports pagination and sort order.
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Number of timeline cells to return per page.
     # @option opts [Integer] :page_number Zero-based page number for pagination.
@@ -2705,7 +2705,7 @@ module DatadogAPIClient::V2
 
     # List case views.
     #
-    # Returns all saved case views for a given project. Views are saved search queries that allow quick access to filtered lists of cases.
+    # Returns all saved work item views for a given project. Views are saved search queries that allow quick access to filtered lists of work items.
     #
     # @param project_id [String] Filter views by project identifier.
     # @param opts [Hash] the optional parameters
@@ -2771,9 +2771,9 @@ module DatadogAPIClient::V2
 
     # List case watchers.
     #
-    # Returns the list of users who are watching a case. Watchers receive notifications about updates to the case.
+    # Returns the list of users who are watching a work item. Watchers receive notifications about updates to the work item.
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseWatchersResponse, Integer, Hash)>] CaseWatchersResponse data, response status code and response headers
     def list_case_watchers_with_http_info(case_id, opts = {})
@@ -2836,7 +2836,7 @@ module DatadogAPIClient::V2
 
     # List maintenance windows.
     #
-    # Returns all configured maintenance windows for event management cases. Maintenance windows define time periods during which case notifications and automation rules are suppressed for cases matching a given query.
+    # Returns all configured maintenance windows for event management work items. Maintenance windows define time periods during which work item notifications and automation rules are suppressed for work items matching a given query.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(MaintenanceWindowsResponse, Integer, Hash)>] MaintenanceWindowsResponse data, response status code and response headers
@@ -2896,7 +2896,7 @@ module DatadogAPIClient::V2
 
     # List project favorites.
     #
-    # Returns the list of case projects that the current authenticated user has marked as favorites.
+    # Returns the list of Work Management projects that the current authenticated user has marked as favorites.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ProjectFavoritesResponse, Integer, Hash)>] ProjectFavoritesResponse data, response status code and response headers
@@ -2956,9 +2956,9 @@ module DatadogAPIClient::V2
 
     # Update case project.
     #
-    # Update the project associated with a case
+    # Update the project associated with a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param body [ProjectRelationship] Project update request
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
@@ -3028,10 +3028,10 @@ module DatadogAPIClient::V2
 
     # Remove insights from a case.
     #
-    # Removes one or more previously added insights from a case by specifying their type and resource identifier in the request body.
+    # Removes one or more previously added insights from a work item by specifying their type and resource identifier in the request body.
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseInsightsRequest] Case insights request.
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseInsightsRequest] Work item insights request.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def remove_case_insights_with_http_info(case_id, body, opts = {})
@@ -3100,7 +3100,7 @@ module DatadogAPIClient::V2
 
     # Search cases.
     #
-    # Search cases.
+    # Search work items.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
@@ -3196,10 +3196,10 @@ module DatadogAPIClient::V2
 
     # Unarchive case.
     #
-    # Unarchive case
+    # Unarchive work item
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseEmptyRequest] Unarchive case payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseEmptyRequest] Unarchive work item payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def unarchive_case_with_http_info(case_id, body, opts = {})
@@ -3268,10 +3268,10 @@ module DatadogAPIClient::V2
 
     # Unassign case.
     #
-    # Unassign case
+    # Unassign work item
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseEmptyRequest] Unassign case payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseEmptyRequest] Unassign work item payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def unassign_case_with_http_info(case_id, body, opts = {})
@@ -3340,7 +3340,7 @@ module DatadogAPIClient::V2
 
     # Unfavorite a project.
     #
-    # Removes a case project from the current user's favorites list.
+    # Removes a Work Management project from the current user's favorites list.
     #
     # @param project_id [String] Project UUID.
     # @param opts [Hash] the optional parameters
@@ -3405,9 +3405,9 @@ module DatadogAPIClient::V2
 
     # Remove Jira issue link from case.
     #
-    # Remove the link between a Jira issue and a case
+    # Remove the link between a Jira issue and a work item
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def unlink_jira_issue_with_http_info(case_id, opts = {})
@@ -3470,9 +3470,9 @@ module DatadogAPIClient::V2
 
     # Unwatch a case.
     #
-    # Removes a user from the watchers list of a case. The user no longer receives notifications about updates to the case.
+    # Removes a user from the watchers list of a work item. The user no longer receives notifications about updates to the work item.
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param user_uuid [String] The UUID of the user to add or remove as a watcher.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -3540,10 +3540,10 @@ module DatadogAPIClient::V2
 
     # Update case attributes.
     #
-    # Update case attributes
+    # Update work item attributes
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdateAttributesRequest] Case attributes update payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdateAttributesRequest] Work item attributes update payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_attributes_with_http_info(case_id, body, opts = {})
@@ -3689,11 +3689,11 @@ module DatadogAPIClient::V2
 
     # Update case comment.
     #
-    # Updates the text content of an existing comment on a case timeline. The comment is identified by its cell ID.
+    # Updates the text content of an existing comment on a work item timeline. The comment is identified by its cell ID.
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param cell_id [String] The UUID of the timeline cell (comment) to update.
-    # @param body [CaseUpdateCommentRequest] Case update comment payload.
+    # @param body [CaseUpdateCommentRequest] Work item update comment payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_case_comment_with_http_info(case_id, cell_id, body, opts = {})
@@ -3766,11 +3766,11 @@ module DatadogAPIClient::V2
 
     # Update case custom attribute.
     #
-    # Update case custom attribute
+    # Update work item custom attribute
     #
-    # @param case_id [String] Case's UUID or key
-    # @param custom_attribute_key [String] Case Custom attribute's key
-    # @param body [CaseUpdateCustomAttributeRequest] Update case custom attribute payload
+    # @param case_id [String] Work item's UUID or key
+    # @param custom_attribute_key [String] Work item custom attribute's key.
+    # @param body [CaseUpdateCustomAttributeRequest] Update work item custom attribute payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_custom_attribute_with_http_info(case_id, custom_attribute_key, body, opts = {})
@@ -3843,10 +3843,10 @@ module DatadogAPIClient::V2
 
     # Update case description.
     #
-    # Update case description
+    # Update work item description
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdateDescriptionRequest] Case description update payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdateDescriptionRequest] Work item description update payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_description_with_http_info(case_id, body, opts = {})
@@ -3915,10 +3915,10 @@ module DatadogAPIClient::V2
 
     # Update case due date.
     #
-    # Sets or updates the due date for a case. The due date is a calendar date (without a time component) indicating when the case should be resolved.
+    # Sets or updates the due date for a work item. The due date is a calendar date (without a time component) indicating when the work item should be resolved.
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdateDueDateRequest] Case due date update payload.
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdateDueDateRequest] Work item due date update payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_due_date_with_http_info(case_id, body, opts = {})
@@ -3987,10 +3987,10 @@ module DatadogAPIClient::V2
 
     # Update case resolved reason.
     #
-    # Sets the resolved reason for a security case (for example, FALSE_POSITIVE, TRUE_POSITIVE). Applicable to security-type cases.
+    # Sets the resolved reason for a security work item (for example, FALSE_POSITIVE, TRUE_POSITIVE). Applicable to security-type work items.
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdateResolvedReasonRequest] Case resolved reason update payload.
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdateResolvedReasonRequest] Work item resolved reason update payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_resolved_reason_with_http_info(case_id, body, opts = {})
@@ -4059,10 +4059,10 @@ module DatadogAPIClient::V2
 
     # Update case title.
     #
-    # Update case title
+    # Update work item title
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdateTitleRequest] Case title update payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdateTitleRequest] Work item title update payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_case_title_with_http_info(case_id, body, opts = {})
@@ -4131,10 +4131,10 @@ module DatadogAPIClient::V2
 
     # Update a case view.
     #
-    # Updates the name, query, or notification rule of an existing case view.
+    # Updates the name, query, or notification rule of an existing work item view.
     #
-    # @param view_id [String] The UUID of the case view.
-    # @param body [CaseViewUpdateRequest] Case view payload.
+    # @param view_id [String] The UUID of the work item view.
+    # @param body [CaseViewUpdateRequest] Work item view payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseViewResponse, Integer, Hash)>] CaseViewResponse data, response status code and response headers
     def update_case_view_with_http_info(view_id, body, opts = {})
@@ -4275,10 +4275,10 @@ module DatadogAPIClient::V2
 
     # Update case priority.
     #
-    # Update case priority
+    # Update work item priority
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdatePriorityRequest] Case priority update payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdatePriorityRequest] Work item priority update payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_priority_with_http_info(case_id, body, opts = {})
@@ -4496,10 +4496,10 @@ module DatadogAPIClient::V2
 
     # Update case status.
     #
-    # Update case status
+    # Update work item status
     #
-    # @param case_id [String] Case's UUID or key
-    # @param body [CaseUpdateStatusRequest] Case status update payload
+    # @param case_id [String] Work item's UUID or key
+    # @param body [CaseUpdateStatusRequest] Work item status update payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
     def update_status_with_http_info(case_id, body, opts = {})
@@ -4568,9 +4568,9 @@ module DatadogAPIClient::V2
 
     # Watch a case.
     #
-    # Adds a user (identified by their UUID) as a watcher of a case. The user receives notifications about subsequent updates to the case.
+    # Adds a user (identified by their UUID) as a watcher of a work item. The user receives notifications about subsequent updates to the work item.
     #
-    # @param case_id [String] Case's UUID or key
+    # @param case_id [String] Work item's UUID or key
     # @param user_uuid [String] The UUID of the user to add or remove as a watcher.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

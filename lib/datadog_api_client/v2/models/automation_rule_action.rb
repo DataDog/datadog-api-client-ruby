@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Configuration for the action to execute, dependent on the action type.
     attr_reader :data
 
-    # The type of automated action to perform when the rule triggers. `EXECUTE_WORKFLOW` runs a Datadog workflow; `ASSIGN_AGENT` assigns an AI agent to the case.
+    # The type of automated action to perform when the rule triggers. `EXECUTE_WORKFLOW` runs a Datadog workflow; `ASSIGN_AGENT` assigns an AI agent to the work item.
     attr_reader :type
 
     attr_accessor :additional_properties

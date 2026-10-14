@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for grouping aggregated results by one or more case fields.
+  # Configuration for grouping aggregated results by one or more work item fields.
   class CaseAggregateGroupBy
     include BaseGenericModel
 

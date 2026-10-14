@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The name of the maintenance window.
     attr_accessor :name
 
-    # The query to filter event management cases for this maintenance window.
+    # The query to filter event management work items for this maintenance window.
     attr_accessor :query
 
     # The start time of the maintenance window.

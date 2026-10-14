@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseNotificationRuleResponse
     include BaseGenericModel
 
-    # A notification rule for case management
+    # A notification rule for Work Management
     attr_accessor :data
 
     attr_accessor :additional_properties

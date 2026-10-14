@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships for a case watcher, linking to the underlying user resource.
+  # Relationships for a work item watcher, linking to the underlying user resource.
   class CaseWatcherRelationships
     include BaseGenericModel
 
-    # The user relationship for a case watcher.
+    # The user relationship for a work item watcher.
     attr_reader :user
 
     attr_accessor :additional_properties

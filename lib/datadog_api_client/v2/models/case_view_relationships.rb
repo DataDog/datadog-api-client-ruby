@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Related resources for the case view, including the creator, last modifier, and associated project.
+  # Related resources for the work item view, including the creator, last modifier, and associated project.
   class CaseViewRelationships
     include BaseGenericModel
 

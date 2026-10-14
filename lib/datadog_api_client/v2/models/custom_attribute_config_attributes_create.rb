@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # A description explaining the purpose and expected values for this custom attribute.
     attr_accessor :description
 
-    # The human-readable label shown in the Case Management UI for this custom attribute.
+    # The human-readable label shown in the Work Management UI for this custom attribute.
     attr_reader :display_name
 
     # If `true`, this attribute accepts an array of values. If `false`, only a single value is allowed.

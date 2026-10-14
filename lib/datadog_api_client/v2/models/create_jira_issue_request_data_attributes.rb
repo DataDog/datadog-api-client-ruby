@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Custom fields of the Jira issue to create. For the list of available fields, see [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
     attr_accessor :fields
 
-    # Case priority
+    # Work item priority
     attr_accessor :priority
 
     # Title of the Jira issue. If not provided, the title will be automatically generated.

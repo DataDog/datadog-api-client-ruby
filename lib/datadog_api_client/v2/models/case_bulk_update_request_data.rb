@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class CaseBulkUpdateRequestData
     include BaseGenericModel
 
-    # Attributes for the bulk update, specifying which cases to update and the action to apply.
+    # Attributes for the bulk update, specifying which work items to update and the action to apply.
     attr_reader :attributes
 
-    # JSON:API resource type for bulk case operations.
+    # JSON:API resource type for bulk work item operations.
     attr_reader :type
 
     attr_accessor :additional_properties

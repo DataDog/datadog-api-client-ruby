@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A reference to an external Datadog resource that provides investigative context for a case, such as a security signal, monitor alert, error tracking issue, or incident.
+  # A reference to an external Datadog resource that provides investigative context for a work item, such as a security signal, monitor alert, error tracking issue, or incident.
   class CaseInsight
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The unique identifier of the referenced Datadog resource (for example, a monitor ID, incident ID, or signal ID).
     attr_reader :resource_id
 
-    # The type of Datadog resource linked to the case as contextual evidence. Each type corresponds to a different Datadog product signal (for example, a security finding, a monitor alert, or an incident).
+    # The type of Datadog resource linked to the work item as contextual evidence. Each type corresponds to a different Datadog product signal (for example, a security finding, a monitor alert, or an incident).
     attr_reader :type
 
     attr_accessor :additional_properties

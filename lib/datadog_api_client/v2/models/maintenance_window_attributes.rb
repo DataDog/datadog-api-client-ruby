@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a maintenance window, including its schedule and the query that determines which cases are affected.
+  # Attributes of a maintenance window, including its schedule and the query that determines which work items are affected.
   class MaintenanceWindowAttributes
     include BaseGenericModel
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # A human-readable name for the maintenance window (for example, `Database migration - Dec 15`).
     attr_reader :name
 
-    # A case search query that determines which cases are affected during the maintenance window. Uses the same syntax as the Case Management search bar.
+    # A work item search query that determines which work items are affected during the maintenance window. Uses the same syntax as the Work Management search bar.
     attr_reader :query
 
     # The ISO 8601 timestamp when the maintenance window begins and notifications start being suppressed.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for the bulk update, specifying which cases to update and the action to apply.
+  # Attributes for the bulk update, specifying which work items to update and the action to apply.
   class CaseBulkUpdateRequestAttributes
     include BaseGenericModel
 
-    # An array of case identifiers to apply the bulk action to.
+    # An array of work item identifiers to apply the bulk action to.
     attr_reader :case_ids
 
     # A key-value map of action-specific parameters. The required keys depend on the action type (for example, `priority` for the priority action, `assignee_id` for assign).

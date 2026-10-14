@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a list of case views.
+  # Response containing a list of work item views.
   class CaseViewsResponse
     include BaseGenericModel
 
-    # A list of case views.
+    # A list of work item views.
     attr_reader :data
 
     attr_accessor :additional_properties

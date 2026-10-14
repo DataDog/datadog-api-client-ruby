@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AutomationRuleResponse
     include BaseGenericModel
 
-    # An automation rule that executes an action (such as running a Datadog workflow or assigning an AI agent) when a specified case event occurs within a project.
+    # An automation rule that executes an action (such as running a Datadog workflow or assigning an AI agent) when a specified work item event occurs within a project.
     attr_reader :data
 
     attr_accessor :additional_properties

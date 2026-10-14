@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Auto-creation settings for ServiceNow incidents from cases.
+  # Auto-creation settings for ServiceNow incidents from work items.
   class IntegrationServiceNowAutoCreation
     include BaseGenericModel
 

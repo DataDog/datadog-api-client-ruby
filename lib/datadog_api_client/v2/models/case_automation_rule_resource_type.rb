@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for case automation rules.
+  # JSON:API resource type for work item automation rules.
   class CaseAutomationRuleResourceType
     include BaseEnumModel
 

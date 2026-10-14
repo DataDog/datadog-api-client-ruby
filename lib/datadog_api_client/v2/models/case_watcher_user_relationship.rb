@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The user relationship for a case watcher.
+  # The user relationship for a work item watcher.
   class CaseWatcherUserRelationship
     include BaseGenericModel
 

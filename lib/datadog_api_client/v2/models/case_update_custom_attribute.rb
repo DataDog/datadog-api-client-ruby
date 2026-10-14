@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case update custom attribute
+  # Work item update custom attribute
   class CaseUpdateCustomAttribute
     include BaseGenericModel
 
-    # A typed value for a custom attribute on a specific case.
+    # A typed value for a custom attribute on a specific work item.
     attr_reader :attributes
 
-    # JSON:API resource type for cases.
+    # JSON:API resource type for work items.
     attr_reader :type
 
     attr_accessor :additional_properties
