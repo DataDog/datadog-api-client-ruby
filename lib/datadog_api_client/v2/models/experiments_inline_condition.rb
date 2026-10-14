@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attribute' => :'String',
-        :'operator' => :'ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator',
+        :'operator' => :'ExperimentsTargetingRuleOperator',
         :'value' => :'Array<String>'
       }
     end

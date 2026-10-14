@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
         :'datadog_metric_measure' => :'ExperimentsNullableDatadogPercentileMeasureInput',
         :'percentile' => :'Float',
         :'property_filters' => :'Array<Array<ExperimentsPropertyFilterInput>>',
-        :'warehouse_metric_measure' => :'ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure'
+        :'warehouse_metric_measure' => :'ExperimentsWarehouseMetricMeasure'
       }
     end
 

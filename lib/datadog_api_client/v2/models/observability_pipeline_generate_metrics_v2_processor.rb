@@ -32,6 +32,9 @@ module DatadogAPIClient::V2
     # Indicates whether the processor is enabled.
     attr_reader :enabled
 
+    # [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `worker_uuid` tag before being sent to the metric destination.
+    attr_accessor :enabled_metric_aggregation
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline.
     attr_reader :id
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
       {
         :'display_name' => :'display_name',
         :'enabled' => :'enabled',
+        :'enabled_metric_aggregation' => :'enabled_metric_aggregation',
         :'id' => :'id',
         :'include' => :'include',
         :'metrics' => :'metrics',
@@ -65,6 +69,7 @@ module DatadogAPIClient::V2
       {
         :'display_name' => :'String',
         :'enabled' => :'Boolean',
+        :'enabled_metric_aggregation' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
         :'metrics' => :'Array<ObservabilityPipelineGeneratedMetric>',
@@ -96,6 +101,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'enabled_metric_aggregation')
+        self.enabled_metric_aggregation = attributes[:'enabled_metric_aggregation']
       end
 
       if attributes.key?(:'id')
@@ -185,6 +194,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           display_name == o.display_name &&
           enabled == o.enabled &&
+          enabled_metric_aggregation == o.enabled_metric_aggregation &&
           id == o.id &&
           include == o.include &&
           metrics == o.metrics &&
@@ -196,7 +206,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, id, include, metrics, type, additional_properties].hash
+      [display_name, enabled, enabled_metric_aggregation, id, include, metrics, type, additional_properties].hash
     end
   end
 end
