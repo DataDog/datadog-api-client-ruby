@@ -3,7 +3,6 @@
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
-  config.unstable_operations["v2.delete_rum_operation_strong_link".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::RUMOperationsAPI.new
 api_instance.delete_rum_operation_strong_link("rum_operation_id", "feature_id")
