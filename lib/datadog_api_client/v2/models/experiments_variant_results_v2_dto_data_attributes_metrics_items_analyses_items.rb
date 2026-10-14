@@ -118,7 +118,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'confidence_interval' => :'ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval',
+        :'confidence_interval' => :'ExperimentsConfidenceInterval',
         :'confidence_level' => :'Float',
         :'evsi' => :'Float',
         :'expectation_above_zero' => :'Float',

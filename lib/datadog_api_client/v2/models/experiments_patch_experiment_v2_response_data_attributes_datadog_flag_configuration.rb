@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
         :'entry_point' => :'ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint',
         :'environment_id' => :'String',
         :'feature_flag_id' => :'String',
-        :'targeting_rules' => :'Array<ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>'
+        :'targeting_rules' => :'Array<ExperimentsTargetingRule>'
       }
     end
 

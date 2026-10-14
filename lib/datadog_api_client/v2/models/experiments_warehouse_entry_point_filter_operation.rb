@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Comparison applied by the warehouse entry-point filter.
-  class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation
+  class ExperimentsWarehouseEntryPointFilterOperation
     include BaseEnumModel
 
     IS = "IS".freeze

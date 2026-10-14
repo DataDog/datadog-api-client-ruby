@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Comparison applied by the Datadog entry-point filter.
-  class ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation
+  # Data type of the column evaluated by the entry-point filter.
+  class ExperimentsDatadogEntryPointFilterColumnType
     include BaseEnumModel
 
-    EQ = "eq".freeze
-    IN = "in".freeze
-    NEQ = "neq".freeze
-    NOT_IN = "not_in".freeze
-    GTE = "gte".freeze
-    LTE = "lte".freeze
-    GT = "gt".freeze
-    LT = "lt".freeze
+    VARCHAR = "varchar".freeze
+    INT = "int".freeze
+    DOUBLE = "double".freeze
+    BOOLEAN = "boolean".freeze
+    VARCHAR_ARRAY = "varchar_array".freeze
+    INT_ARRAY = "int_array".freeze
+    DOUBLE_ARRAY = "double_array".freeze
+    RAW = "raw".freeze
   end
 end

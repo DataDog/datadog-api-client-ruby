@@ -51,7 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'measure_id' => :'String',
-        :'operation' => :'ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation',
+        :'operation' => :'ExperimentsWarehouseEntryPointFilterOperation',
         :'property_id' => :'UUID',
         :'values' => :'Array<String>'
       }

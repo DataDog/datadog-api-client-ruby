@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Required with attribute and value for an inline condition; omit when saved_filter_id is set.
-  class ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator
+  class ExperimentsTargetingRuleOperator
     include BaseEnumModel
 
     LT = "LT".freeze

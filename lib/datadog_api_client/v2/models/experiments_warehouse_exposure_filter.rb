@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'operation' => :'ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation',
+        :'operation' => :'ExperimentsWarehouseEntryPointFilterOperation',
         :'property_id' => :'String',
         :'values' => :'Array<String>'
       }
