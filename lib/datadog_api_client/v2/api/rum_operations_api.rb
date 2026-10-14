@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationResponse, Integer, Hash)>] RUMOperationResponse data, response status code and response headers
     def create_rum_operation_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_rum_operation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_rum_operation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_rum_operation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.create_rum_operation ...'
@@ -114,12 +108,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationStrongLinkResponse, Integer, Hash)>] RUMOperationStrongLinkResponse data, response status code and response headers
     def create_rum_operation_strong_link_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_rum_operation_strong_link".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_rum_operation_strong_link")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_rum_operation_strong_link"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.create_rum_operation_strong_link ...'
@@ -187,12 +175,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_rum_operation_with_http_info(rum_operation_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_rum_operation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_rum_operation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_rum_operation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.delete_rum_operation ...'
@@ -259,12 +241,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_rum_operation_strong_link".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_rum_operation_strong_link")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_rum_operation_strong_link"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.delete_rum_operation_strong_link ...'
@@ -334,12 +310,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationResponse, Integer, Hash)>] RUMOperationResponse data, response status code and response headers
     def get_rum_operation_with_http_info(rum_operation_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_rum_operation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_rum_operation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_rum_operation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.get_rum_operation ...'
@@ -405,12 +375,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationResponse, Integer, Hash)>] RUMOperationResponse data, response status code and response headers
     def get_rum_operation_by_name_with_http_info(name, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_rum_operation_by_name".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_rum_operation_by_name")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_rum_operation_by_name"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.get_rum_operation_by_name ...'
@@ -483,12 +447,6 @@ module DatadogAPIClient::V2
     # @option opts [UUID] :application_id Filter operations by RUM application ID.
     # @return [Array<(RUMOperationsListResponse, Integer, Hash)>] RUMOperationsListResponse data, response status code and response headers
     def list_rum_operations_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_rum_operations".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_rum_operations")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_rum_operations"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.list_rum_operations ...'
@@ -647,12 +605,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationResponse, Integer, Hash)>] RUMOperationResponse data, response status code and response headers
     def update_rum_operation_with_http_info(rum_operation_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_rum_operation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_rum_operation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_rum_operation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.update_rum_operation ...'
@@ -726,12 +678,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMOperationStrongLinkResponse, Integer, Hash)>] RUMOperationStrongLinkResponse data, response status code and response headers
     def update_rum_operation_strong_link_with_http_info(rum_operation_id, feature_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_rum_operation_strong_link".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_rum_operation_strong_link")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_rum_operation_strong_link"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMOperationsAPI.update_rum_operation_strong_link ...'
