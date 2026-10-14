@@ -5918,6 +5918,7 @@ ScenariosModelMappings = {
             "filter_file_hash" => "String",
     },
     "v2.GetSourcemaps" => {
+            "debug_id" => "UUID",
             "filename" => "String",
             "service" => "String",
             "version" => "String",
