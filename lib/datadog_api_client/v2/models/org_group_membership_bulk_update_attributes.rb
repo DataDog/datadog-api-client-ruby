@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class OrgGroupMembershipBulkUpdateAttributes
     include BaseGenericModel
 
-    # List of organizations to move. Maximum 100 per request.
+    # List of organizations to move. Each request must include between 1 and 100 organizations. Each `org_uuid` and `org_site` pair must be unique.
     attr_reader :orgs
 
     attr_accessor :additional_properties
@@ -72,6 +72,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @orgs.nil?
+      return false if @orgs.length > 100
+      return false if @orgs.length < 1
       true
     end
 
@@ -81,6 +83,12 @@ module DatadogAPIClient::V2
     def orgs=(orgs)
       if orgs.nil?
         fail ArgumentError, 'invalid value for "orgs", orgs cannot be nil.'
+      end
+      if orgs.length > 100
+        fail ArgumentError, 'invalid value for "orgs", number of items must be less than or equal to 100.'
+      end
+      if orgs.length < 1
+        fail ArgumentError, 'invalid value for "orgs", number of items must be greater than or equal to 1.'
       end
       @orgs = orgs
     end
