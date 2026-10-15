@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Available attributes of the requested team.
-  class TeamHierarchyMemberTeamAttributes
+  # Attributes of a list of Agent Observability patterns templates.
+  class LLMObsPatternsTemplatesResponseAttributes
     include BaseGenericModel
 
-    # Handle of the team.
-    attr_accessor :handle
-
-    # Name of the team.
-    attr_accessor :name
+    # List of patterns templates.
+    attr_reader :templates
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'handle' => :'handle',
-        :'name' => :'name'
+        :'templates' => :'templates'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'handle' => :'String',
-        :'name' => :'String'
+        :'templates' => :'Array<LLMObsPatternsTemplateItem>'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyMemberTeamAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPatternsTemplatesResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,29 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'handle')
-        self.handle = attributes[:'handle']
+      if attributes.key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
       end
+    end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @templates.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param templates [Object] Object to be assigned
+    # @!visibility private
+    def templates=(templates)
+      if templates.nil?
+        fail ArgumentError, 'invalid value for "templates", templates cannot be nil.'
       end
+      @templates = templates
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +111,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          handle == o.handle &&
-          name == o.name &&
+          templates == o.templates &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [handle, name, additional_properties].hash
+      [templates, additional_properties].hash
     end
   end
 end

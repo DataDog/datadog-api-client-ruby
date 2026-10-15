@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A user included in the hierarchy members response.
-  class TeamHierarchyMemberUser
+  # Data object of a list of Agent Observability patterns templates.
+  class LLMObsPatternsTemplatesResponseData
     include BaseGenericModel
 
-    # Attributes of user object returned by the API.
+    # Attributes of a list of Agent Observability patterns templates.
     attr_reader :attributes
 
-    # UUID of the user.
+    # Identifier of the list response.
     attr_reader :id
 
-    # Users resource type.
+    # Resource type of a list of Agent Observability patterns templates.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'UserAttributes',
-        :'id' => :'UUID',
-        :'type' => :'UsersType'
+        :'attributes' => :'LLMObsPatternsTemplatesResponseAttributes',
+        :'id' => :'String',
+        :'type' => :'LLMObsPatternsTemplatesListType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyMemberUser` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPatternsTemplatesResponseData` initialize method"
       end
 
       self.additional_properties = {}

@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Requested team resource type.
-  class TeamHierarchyMemberTeamType
+  # Resource type of a list of Agent Observability patterns templates.
+  class LLMObsPatternsTemplatesListType
     include BaseEnumModel
 
-    TEAMS = "teams".freeze
+    LIST_TOPIC_DISCOVERY_TEMPLATES_RESPONSE = "list_topic_discovery_templates_response".freeze
   end
 end
