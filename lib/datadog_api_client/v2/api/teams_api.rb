@@ -995,6 +995,119 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get team hierarchy members.
+    #
+    # @see #get_team_hierarchy_members_with_http_info
+    def get_team_hierarchy_members(team_id, opts = {})
+      data, _status_code, _headers = get_team_hierarchy_members_with_http_info(team_id, opts)
+      data
+    end
+
+    # Get team hierarchy members.
+    #
+    # List the direct and inherited members of a team, deduplicated by user.
+    # Members of descendant teams are included unless `filter[is_direct_only]` is true.
+    # Datadog support users are always excluded.
+    #
+    # Use `page[number]` and `page[size]` to paginate through the results.
+    # Invalid query parameters return a JSON:API error with status 400.
+    # Invalid or unknown team UUIDs return status 404.
+    #
+    # @param team_id [String] UUID of the requested root team.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :filter_is_direct_only Return only direct members. By default, members inherited from descendant teams are also returned.
+    # @option opts [Boolean] :filter_include_service_accounts Include service accounts. Datadog support users are always excluded.
+    # @option opts [String] :filter_keyword Filter by a case-insensitive substring of the user name, handle, or email.
+    # @option opts [String] :include Comma-separated resources to include: `user` and `team`. The included team is the requested team.
+    # @option opts [String] :sort Comma-separated sort fields: `name`, `handle`, `is_direct`, and `provisioned_by`. Fields are applied in order, each optionally prefixed with `-` for descending order. By default, team admins come first, followed by other direct members, then inherited members, sorted by name within each group.
+    # @option opts [Integer] :page_number Zero-based page number. Negative values become 0. Defaults to 0.
+    # @option opts [Integer] :page_size Members per page, from 1 to 100. Values outside this range use the default of 100.
+    # @return [Array<(TeamHierarchyMembersResponse, Integer, Hash)>] TeamHierarchyMembersResponse data, response status code and response headers
+    def get_team_hierarchy_members_with_http_info(team_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_team_hierarchy_members".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_team_hierarchy_members")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_team_hierarchy_members"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_hierarchy_members ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.get_team_hierarchy_members"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/members'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[is_direct_only]'] = opts[:'filter_is_direct_only'] if !opts[:'filter_is_direct_only'].nil?
+      query_params[:'filter[include_service_accounts]'] = opts[:'filter_include_service_accounts'] if !opts[:'filter_include_service_accounts'].nil?
+      query_params[:'filter[keyword]'] = opts[:'filter_keyword'] if !opts[:'filter_keyword'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamHierarchyMembersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_team_hierarchy_members,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#get_team_hierarchy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get team hierarchy members.
+    #
+    # Provide a paginated version of {#get_team_hierarchy_members}, returning all items.
+    #
+    # To use it you need to use a block: get_team_hierarchy_members_with_pagination { |item| p item }
+    #
+    # @yield [TeamHierarchyMember] Paginated items
+    def get_team_hierarchy_members_with_pagination(team_id, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = get_team_hierarchy_members(team_id, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # Get a team link.
     #
     # @see #get_team_link_with_http_info
