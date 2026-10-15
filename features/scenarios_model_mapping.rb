@@ -3820,6 +3820,9 @@ ScenariosModelMappings = {
     "v2.StopExposureSchedule" => {
             "exposure_schedule_id" => "UUID",
     },
+    "v2.GetSavedFilter" => {
+            "saved_filter_id" => "UUID",
+    },
     "v2.GetFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },

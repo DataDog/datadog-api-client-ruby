@@ -786,6 +786,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a saved filter.
+    #
+    # @see #get_saved_filter_with_http_info
+    def get_saved_filter(saved_filter_id, opts = {})
+      data, _status_code, _headers = get_saved_filter_with_http_info(saved_filter_id, opts)
+      data
+    end
+
+    # Get a saved filter.
+    #
+    # Returns a saved filter by ID, including its full targeting rules, conditions, and values.
+    # Supports both saved lists and saved rules. Targeting rules are combined with OR,
+    # and conditions within each rule are combined with AND.
+    # Returns the stored filter definition rather than evaluating it against users or organizations.
+    # Archived filters can be retrieved. Filters that are deleted or belong to another organization return a not found error.
+    #
+    # @param saved_filter_id [UUID] The ID of the saved filter.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SavedFilterResponse, Integer, Hash)>] SavedFilterResponse data, response status code and response headers
+    def get_saved_filter_with_http_info(saved_filter_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.get_saved_filter ...'
+      end
+      # verify the required parameter 'saved_filter_id' is set
+      if @api_client.config.client_side_validation && saved_filter_id.nil?
+        fail ArgumentError, "Missing the required parameter 'saved_filter_id' when calling FeatureFlagsAPI.get_saved_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/saved-filters/{saved_filter_id}'.sub('{saved_filter_id}', CGI.escape(saved_filter_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SavedFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_saved_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#get_saved_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List feature flags.
     #
     # @see #list_feature_flags_with_http_info
