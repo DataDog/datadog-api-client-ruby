@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
-  class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
     include BaseGenericModel
 
     # The Azure credential kind. The value should always be `managed_identity_client_assertion`.
@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'azure_credential_kind' => :'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind',
+        :'azure_credential_kind' => :'ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind',
         :'client_assertion_client_id' => :'String',
         :'client_assertion_tenant_id' => :'String',
         :'user_assigned_managed_identity_id' => :'String',
@@ -75,7 +75,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion` initialize method"
       end
 
       self.additional_properties = {}
