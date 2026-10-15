@@ -24,6 +24,7 @@ module DatadogAPIClient::V1
     LOGS = "logs".freeze
     SPANS = "spans".freeze
     NETWORK = "network".freeze
+    NETWORK_DEVICE_FLOWS = "network_device_flows".freeze
     RUM = "rum".freeze
     SECURITY_SIGNALS = "security_signals".freeze
     PROFILES = "profiles".freeze
