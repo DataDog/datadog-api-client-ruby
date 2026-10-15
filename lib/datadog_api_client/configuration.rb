@@ -814,7 +814,6 @@ module DatadogAPIClient
             "v2.update_ai_custom_ruleset": false,
             "v2.update_custom_ruleset": false,
             "v2.add_member_team": false,
-            "v2.get_team_hierarchy_members": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
             "v2.create_timeseries_anomaly_investigation": false,

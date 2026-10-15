@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for scores response.
+  # Pagination metadata.
   class PaginatedResponseMeta
     include BaseGenericModel
 
-    # Number of entities in this response.
+    # Number of results in this response.
     attr_reader :count
 
     # Pagination limit.
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Pagination offset.
     attr_reader :offset
 
-    # Total number of entities available.
+    # Total number of results matching the filters.
     attr_reader :total
 
     attr_accessor :additional_properties
