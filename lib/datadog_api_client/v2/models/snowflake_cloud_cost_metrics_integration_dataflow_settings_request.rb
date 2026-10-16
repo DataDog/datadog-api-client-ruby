@@ -65,7 +65,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      pattern = Regexp.new(/^([a-zA-Z0-9_.-]+(,[a-zA-Z0-9_.-]+)*)?$/)
+      pattern = Regexp.new('^([a-zA-Z0-9_.-]+(,[a-zA-Z0-9_.-]+)*)?$')
       return false if !@query_tags.nil? && @query_tags !~ pattern
       true
     end
@@ -74,7 +74,7 @@ module DatadogAPIClient::V2
     # @param query_tags [Object] Object to be assigned
     # @!visibility private
     def query_tags=(query_tags)
-      pattern = Regexp.new(/^([a-zA-Z0-9_.-]+(,[a-zA-Z0-9_.-]+)*)?$/)
+      pattern = Regexp.new('^([a-zA-Z0-9_.-]+(,[a-zA-Z0-9_.-]+)*)?$')
       if !query_tags.nil? && query_tags !~ pattern
         fail ArgumentError, "invalid value for \"query_tags\", must conform to the pattern #{pattern}."
       end

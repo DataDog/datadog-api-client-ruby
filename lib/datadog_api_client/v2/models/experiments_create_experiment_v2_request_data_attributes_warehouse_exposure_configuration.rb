@@ -98,7 +98,7 @@ module DatadogAPIClient::V2
       return false if @experiment_key.nil?
       return false if @experiment_key.to_s.length > 255
       return false if @experiment_key.to_s.length < 1
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       return false if @experiment_key !~ pattern
       return false if @exposure_sql_model_id.nil?
       true
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
       if experiment_key.to_s.length < 1
         fail ArgumentError, 'invalid value for "experiment_key", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       if experiment_key !~ pattern
         fail ArgumentError, "invalid value for \"experiment_key\", must conform to the pattern #{pattern}."
       end

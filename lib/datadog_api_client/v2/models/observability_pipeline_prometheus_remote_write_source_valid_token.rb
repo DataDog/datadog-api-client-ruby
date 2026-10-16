@@ -90,7 +90,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @token_key.nil?
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       return false if @token_key !~ pattern
       true
     end
@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
       if token_key.nil?
         fail ArgumentError, 'invalid value for "token_key", token_key cannot be nil.'
       end
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       if token_key !~ pattern
         fail ArgumentError, "invalid value for \"token_key\", must conform to the pattern #{pattern}."
       end

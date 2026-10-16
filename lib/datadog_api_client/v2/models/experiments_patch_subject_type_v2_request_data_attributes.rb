@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if !@name.nil? && @name.to_s.length > 40
       return false if !@name.nil? && @name.to_s.length < 3
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       return false if !@name.nil? && @name !~ pattern
       true
     end
@@ -115,7 +115,7 @@ module DatadogAPIClient::V2
       if !name.nil? && name.to_s.length < 3
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 3.'
       end
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       if !name.nil? && name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end
