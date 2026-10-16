@@ -1172,6 +1172,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Cancel a batch migration.
+    #
+    # @see #cancel_security_monitoring_batch_migration_with_http_info
+    def cancel_security_monitoring_batch_migration(batch_id, opts = {})
+      cancel_security_monitoring_batch_migration_with_http_info(batch_id, opts)
+      nil
+    end
+
+    # Cancel a batch migration.
+    #
+    # Cancel an `in_progress` batch migration. Resources that are `pending` or `in_progress`
+    # become `canceled`. Resources that are already `completed` or `failed` keep their status
+    # and output, so completed resources can still be published. Canceling a `canceled` batch
+    # migration succeeds, so the request can be safely retried. Returns `409 Conflict` if the
+    # batch migration is `draft` or `completed`.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def cancel_security_monitoring_batch_migration_with_http_info(batch_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_security_monitoring_batch_migration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_security_monitoring_batch_migration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_security_monitoring_batch_migration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.cancel_security_monitoring_batch_migration ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.cancel_security_monitoring_batch_migration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/cancel'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :cancel_security_monitoring_batch_migration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#cancel_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Convert an existing rule from JSON to Terraform.
     #
     # @see #convert_existing_security_monitoring_rule_with_http_info
@@ -2329,6 +2404,163 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_findings_automation_ticket_creation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a batch migration.
+    #
+    # @see #create_security_monitoring_batch_migration_with_http_info
+    def create_security_monitoring_batch_migration(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_batch_migration_with_http_info(body, opts)
+      data
+    end
+
+    # Create a batch migration.
+    #
+    # Create a batch migration in the `draft` status, together with 1 to 100 initial
+    # resources. Each resource holds one source rule to translate into a Cloud SIEM detection
+    # rule. To load more rules, add them with the add resources endpoint before starting the
+    # batch migration. A batch migration can hold up to 1000 resources. The response does not
+    # include the created resources: list the resources of the batch migration to retrieve them.
+    #
+    # @param body [SecurityMonitoringBatchMigrationCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringBatchMigrationResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationResponse data, response status code and response headers
+    def create_security_monitoring_batch_migration_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_monitoring_batch_migration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_monitoring_batch_migration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_monitoring_batch_migration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_batch_migration ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_batch_migration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_batch_migration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add resources to a batch migration.
+    #
+    # @see #create_security_monitoring_batch_migration_resources_with_http_info
+    def create_security_monitoring_batch_migration_resources(batch_id, body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_batch_migration_resources_with_http_info(batch_id, body, opts)
+      data
+    end
+
+    # Add resources to a batch migration.
+    #
+    # Add 1 to 1000 resources to a `draft` batch migration. Returns `409 Conflict` if the
+    # batch migration is not `draft`, and `400 Bad Request` if the batch migration would
+    # contain more than 1000 resources.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param body [SecurityMonitoringBatchMigrationResourcesCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringBatchMigrationResourcesCreateResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationResourcesCreateResponse data, response status code and response headers
+    def create_security_monitoring_batch_migration_resources_with_http_info(batch_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_monitoring_batch_migration_resources".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_monitoring_batch_migration_resources")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_monitoring_batch_migration_resources"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_batch_migration_resources ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.create_security_monitoring_batch_migration_resources"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_batch_migration_resources"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/resources'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationResourcesCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_batch_migration_resources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_batch_migration_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3807,6 +4039,161 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_findings_automation_ticket_creation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a batch migration.
+    #
+    # @see #delete_security_monitoring_batch_migration_with_http_info
+    def delete_security_monitoring_batch_migration(batch_id, opts = {})
+      delete_security_monitoring_batch_migration_with_http_info(batch_id, opts)
+      nil
+    end
+
+    # Delete a batch migration.
+    #
+    # Delete a batch migration and its resources. Detection rules that were already
+    # published are not deleted. Returns `409 Conflict` while any resource is `in_progress`
+    # or `publishing`: cancel the batch migration, or wait for publishing to finish, and
+    # then try again.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_batch_migration_with_http_info(batch_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_security_monitoring_batch_migration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_security_monitoring_batch_migration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_security_monitoring_batch_migration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_batch_migration ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.delete_security_monitoring_batch_migration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_batch_migration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete resources from a batch migration.
+    #
+    # @see #delete_security_monitoring_batch_migration_resources_with_http_info
+    def delete_security_monitoring_batch_migration_resources(batch_id, body, opts = {})
+      delete_security_monitoring_batch_migration_resources_with_http_info(batch_id, body, opts)
+      nil
+    end
+
+    # Delete resources from a batch migration.
+    #
+    # Delete resources from a batch migration. The request is all-or-nothing: it returns
+    # `404 Not Found` if any resource does not exist, and `409 Conflict` if any resource is
+    # `in_progress` or `publishing`. In both cases nothing is deleted. Duplicate resource IDs
+    # are ignored. Detection rules already published from the deleted resources are not deleted.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param body [SecurityMonitoringBatchMigrationResourcesDeleteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_batch_migration_resources_with_http_info(batch_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_security_monitoring_batch_migration_resources".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_security_monitoring_batch_migration_resources")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_security_monitoring_batch_migration_resources"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_batch_migration_resources ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.delete_security_monitoring_batch_migration_resources"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.delete_security_monitoring_batch_migration_resources"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/resources'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_batch_migration_resources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_batch_migration_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -9666,6 +10053,178 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List batch migration resources.
+    #
+    # @see #list_security_monitoring_batch_migration_resources_with_http_info
+    def list_security_monitoring_batch_migration_resources(batch_id, opts = {})
+      data, _status_code, _headers = list_security_monitoring_batch_migration_resources_with_http_info(batch_id, opts)
+      data
+    end
+
+    # List batch migration resources.
+    #
+    # List the resources of a batch migration, including the input of each source rule and,
+    # once translated, the proposed Cloud SIEM detection rule in `output`.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 500.
+    # @option opts [Integer] :page_number Specific page number to return, starting at 1.
+    # @option opts [String] :filter_query A search query in Datadog search syntax to filter resources, such as `status:completed`. Filterable attributes are `id`, `name`, `description`, `inputType`, `status`, `input`, `createdBy`, and `lastUpdatedBy`. Free text matches the resource name.
+    # @return [Array<(SecurityMonitoringBatchMigrationResourcesListResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationResourcesListResponse data, response status code and response headers
+    def list_security_monitoring_batch_migration_resources_with_http_info(batch_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_monitoring_batch_migration_resources".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_monitoring_batch_migration_resources")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_monitoring_batch_migration_resources"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_batch_migration_resources ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.list_security_monitoring_batch_migration_resources"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_monitoring_batch_migration_resources, must be smaller than or equal to 500.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_monitoring_batch_migration_resources, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_security_monitoring_batch_migration_resources, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/resources'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationResourcesListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_batch_migration_resources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_batch_migration_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List batch migrations.
+    #
+    # @see #list_security_monitoring_batch_migrations_with_http_info
+    def list_security_monitoring_batch_migrations(opts = {})
+      data, _status_code, _headers = list_security_monitoring_batch_migrations_with_http_info(opts)
+      data
+    end
+
+    # List batch migrations.
+    #
+    # List the batch migrations of your organization. A batch migration groups detection
+    # rules from another SIEM that the Datadog Detection Agent translates into Cloud SIEM
+    # detection rules. To retrieve a single batch migration, filter by its ID with
+    # `filter[query]=id:<batch_id>`. Poll this endpoint to follow the progress of a batch
+    # migration through its `status` and `resourceStatusCounts`.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 500.
+    # @option opts [Integer] :page_number Specific page number to return, starting at 1.
+    # @option opts [String] :filter_query A search query in Datadog search syntax to filter batch migrations, such as `status:completed`. Filterable attributes are `id`, `name`, `description`, `status`, `createdBy`, and `lastUpdatedBy`. Free text matches the batch migration name.
+    # @return [Array<(SecurityMonitoringBatchMigrationsListResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationsListResponse data, response status code and response headers
+    def list_security_monitoring_batch_migrations_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_monitoring_batch_migrations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_monitoring_batch_migrations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_monitoring_batch_migrations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_batch_migrations ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_monitoring_batch_migrations, must be smaller than or equal to 500.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.list_security_monitoring_batch_migrations, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_security_monitoring_batch_migrations, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_batch_migrations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_batch_migrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all critical assets.
     #
     # @see #list_security_monitoring_critical_assets_with_http_info
@@ -10901,6 +11460,96 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Publish a batch migration.
+    #
+    # @see #publish_security_monitoring_batch_migration_with_http_info
+    def publish_security_monitoring_batch_migration(batch_id, body, opts = {})
+      data, _status_code, _headers = publish_security_monitoring_batch_migration_with_http_info(batch_id, body, opts)
+      data
+    end
+
+    # Publish a batch migration.
+    #
+    # Create a Cloud SIEM detection rule from the `output` of each selected `completed`
+    # resource of a batch migration. Completed resources can be published while the rest of
+    # the batch migration is still being translated. When `resourceIds` is omitted or empty,
+    # every `completed` resource is published. Published rules are created disabled.
+    #
+    # Every requested resource must be publishable: `completed`, or left in `publishing` for
+    # more than one minute after an uncertain result. Otherwise, the request returns
+    # `409 Conflict` and nothing is published. Already published resources are not publishable.
+    #
+    # The response reports the outcome of each resource, and some resources can be published
+    # while others fail. A `failed` result that contains a `ruleId` means the rule was created:
+    # do not retry that resource. Publishing a rule with a `block_ip` or `block_user` action
+    # requires the `appsec_protect_write` permission.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param body [SecurityMonitoringBatchMigrationPublishRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringBatchMigrationPublishResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationPublishResponse data, response status code and response headers
+    def publish_security_monitoring_batch_migration_with_http_info(batch_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.publish_security_monitoring_batch_migration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.publish_security_monitoring_batch_migration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.publish_security_monitoring_batch_migration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.publish_security_monitoring_batch_migration ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.publish_security_monitoring_batch_migration"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.publish_security_monitoring_batch_migration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/publish'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationPublishResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :publish_security_monitoring_batch_migration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#publish_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Reorder due date rules.
     #
     # @see #reorder_security_findings_automation_due_date_rules_with_http_info
@@ -11729,6 +12378,89 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#send_security_monitoring_notification_preview\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Start a batch migration.
+    #
+    # @see #start_security_monitoring_batch_migration_with_http_info
+    def start_security_monitoring_batch_migration(batch_id, opts = {})
+      start_security_monitoring_batch_migration_with_http_info(batch_id, opts)
+      nil
+    end
+
+    # Start a batch migration.
+    #
+    # Start translating the `pending` resources of a `draft` batch migration into Cloud SIEM
+    # detection rules. The batch migration moves to `in_progress`, and its resources are
+    # translated asynchronously. Once no resource is `pending` or `in_progress`, the batch
+    # migration moves to `completed`. Starting an `in_progress` batch migration again does not
+    # queue duplicate work, so the request can be safely retried, including after a timeout or
+    # a `5xx` error. Returns `409 Conflict` if the batch migration is `completed` or `canceled`.
+    #
+    # An organization can translate up to 2000 resources in total across all of its batch
+    # migrations. Resources that were already processed count toward this limit even after
+    # they are deleted, and `pending` resources of `in_progress` batch migrations reserve
+    # capacity. Returns `409 Conflict` if starting the batch migration would exceed this limit.
+    # To request a higher limit for your organization, contact
+    # [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def start_security_monitoring_batch_migration_with_http_info(batch_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.start_security_monitoring_batch_migration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.start_security_monitoring_batch_migration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.start_security_monitoring_batch_migration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.start_security_monitoring_batch_migration ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.start_security_monitoring_batch_migration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/start'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :start_security_monitoring_batch_migration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#start_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -12636,6 +13368,172 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_findings_automation_ticket_creation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a batch migration.
+    #
+    # @see #update_security_monitoring_batch_migration_with_http_info
+    def update_security_monitoring_batch_migration(batch_id, body, opts = {})
+      data, _status_code, _headers = update_security_monitoring_batch_migration_with_http_info(batch_id, body, opts)
+      data
+    end
+
+    # Update a batch migration.
+    #
+    # Update the name, description, or tags of a batch migration, in any status. At least
+    # one of these attributes must be provided. Omitted attributes are left unchanged, and
+    # `tags` replaces the full list of tags.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param body [SecurityMonitoringBatchMigrationUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringBatchMigrationResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationResponse data, response status code and response headers
+    def update_security_monitoring_batch_migration_with_http_info(batch_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_monitoring_batch_migration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_monitoring_batch_migration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_monitoring_batch_migration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_batch_migration ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.update_security_monitoring_batch_migration"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_batch_migration"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_monitoring_batch_migration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a batch migration resource.
+    #
+    # @see #update_security_monitoring_batch_migration_resource_with_http_info
+    def update_security_monitoring_batch_migration_resource(batch_id, resource_id, body, opts = {})
+      data, _status_code, _headers = update_security_monitoring_batch_migration_resource_with_http_info(batch_id, resource_id, body, opts)
+      data
+    end
+
+    # Update a batch migration resource.
+    #
+    # Update a resource of a batch migration. At least one of `name`, `description`,
+    # `inputType`, or `input` must be provided. `name` and `description` can be updated at
+    # any time. `inputType` and `input` can only be updated while the resource is `pending`;
+    # otherwise, the request returns `409 Conflict`. The translated `output` cannot be edited.
+    #
+    # @param batch_id [UUID] The UUID of the batch migration.
+    # @param resource_id [UUID] The UUID of the batch migration resource.
+    # @param body [SecurityMonitoringBatchMigrationResourceUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringBatchMigrationResourceResponse, Integer, Hash)>] SecurityMonitoringBatchMigrationResourceResponse data, response status code and response headers
+    def update_security_monitoring_batch_migration_resource_with_http_info(batch_id, resource_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_monitoring_batch_migration_resource".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_monitoring_batch_migration_resource")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_monitoring_batch_migration_resource"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_batch_migration_resource ...'
+      end
+      # verify the required parameter 'batch_id' is set
+      if @api_client.config.client_side_validation && batch_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling SecurityMonitoringAPI.update_security_monitoring_batch_migration_resource"
+      end
+      # verify the required parameter 'resource_id' is set
+      if @api_client.config.client_side_validation && resource_id.nil?
+        fail ArgumentError, "Missing the required parameter 'resource_id' when calling SecurityMonitoringAPI.update_security_monitoring_batch_migration_resource"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_batch_migration_resource"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/batch-migrations/{batch_id}/resources/{resource_id}'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/')).sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringBatchMigrationResourceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_monitoring_batch_migration_resource,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_batch_migration_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
