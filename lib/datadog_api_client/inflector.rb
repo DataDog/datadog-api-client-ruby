@@ -6362,6 +6362,8 @@ module DatadogAPIClient
           "v2.on_call_page_target_type" => "OnCallPageTargetType",
           "v2.on_call_phone_notification_rule_method" => "OnCallPhoneNotificationRuleMethod",
           "v2.on_call_phone_notification_rule_settings" => "OnCallPhoneNotificationRuleSettings",
+          "v2.on_call_shift_change_trigger" => "OnCallShiftChangeTrigger",
+          "v2.on_call_shift_change_trigger_wrapper" => "OnCallShiftChangeTriggerWrapper",
           "v2.on_call_trigger" => "OnCallTrigger",
           "v2.on_call_trigger_wrapper" => "OnCallTriggerWrapper",
           "v2.on_demand_concurrency_cap" => "OnDemandConcurrencyCap",

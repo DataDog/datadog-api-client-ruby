@@ -46,6 +46,7 @@ module DatadogAPIClient::V2
           :'IncidentTriggerWrapper',
           :'MonitorTriggerWrapper',
           :'NotebookTriggerWrapper',
+          :'OnCallShiftChangeTriggerWrapper',
           :'OnCallTriggerWrapper',
           :'ScheduleTriggerWrapper',
           :'SecurityTriggerWrapper',
