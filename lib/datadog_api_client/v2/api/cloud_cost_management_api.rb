@@ -35,11 +35,10 @@ module DatadogAPIClient::V2
     #
     # Create a Cloud Cost Management account for an AWS CUR config.
     #
-    # @param body [AwsCURConfigPostRequest] 
+    # @param body [AwsCURConfigPostRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AwsCurConfigResponse, Integer, Hash)>] AwsCurConfigResponse data, response status code and response headers
     def create_cost_awscur_config_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_cost_awscur_config ...'
       end
@@ -102,11 +101,10 @@ module DatadogAPIClient::V2
     #
     # Create a Cloud Cost Management account for an Azure config.
     #
-    # @param body [AzureUCConfigPostRequest] 
+    # @param body [AzureUCConfigPostRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AzureUCConfigPairsResponse, Integer, Hash)>] AzureUCConfigPairsResponse data, response status code and response headers
     def create_cost_azure_uc_configs_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_cost_azure_uc_configs ...'
       end
@@ -169,11 +167,10 @@ module DatadogAPIClient::V2
     #
     # Create a Cloud Cost Management account for an Google Cloud Usage Cost config.
     #
-    # @param body [GCPUsageCostConfigPostRequest] 
+    # @param body [GCPUsageCostConfigPostRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GCPUsageCostConfigResponse, Integer, Hash)>] GCPUsageCostConfigResponse data, response status code and response headers
     def create_cost_gcp_usage_cost_config_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_cost_gcp_usage_cost_config ...'
       end
@@ -248,11 +245,10 @@ module DatadogAPIClient::V2
     #
     # **Supported operators**: is, is not, contains, in, not in, =, !=, like, not like
     #
-    # @param body [ArbitraryCostUpsertRequest] 
+    # @param body [ArbitraryCostUpsertRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
     def create_custom_allocation_rule_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_custom_allocation_rule ...'
       end
@@ -315,11 +311,10 @@ module DatadogAPIClient::V2
     #
     # Create a new tag pipeline ruleset with the specified rules and configuration
     #
-    # @param body [CreateRulesetRequest] 
+    # @param body [CreateRulesetRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
     def create_tag_pipelines_ruleset_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_tag_pipelines_ruleset ...'
       end
@@ -382,7 +377,7 @@ module DatadogAPIClient::V2
     #
     # Create an ROI metric (unit cost) using the given numerator and denominator queries.
     #
-    # @param body [UnitCostCreateRequest] 
+    # @param body [UnitCostCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UnitCostResponse, Integer, Hash)>] UnitCostResponse data, response status code and response headers
     def create_unit_cost_with_http_info(body, opts = {})
@@ -459,7 +454,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_budget_with_http_info(budget_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_budget ...'
       end
@@ -524,7 +518,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_awscur_config_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_awscur_config ...'
       end
@@ -589,7 +582,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_azure_uc_config_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_azure_uc_config ...'
       end
@@ -654,7 +646,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_gcp_usage_cost_config ...'
       end
@@ -720,7 +711,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :cloud Cloud provider to scope the deletion to (for example, `aws`). Omit to delete every description for the tag key.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_tag_description_by_key_with_http_info(tag_key, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_tag_description_by_key ...'
       end
@@ -786,7 +776,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_custom_allocation_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_allocation_rule ...'
       end
@@ -851,7 +840,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_custom_costs_file_with_http_info(file_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_costs_file ...'
       end
@@ -916,7 +904,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_custom_forecast_with_http_info(budget_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_forecast ...'
       end
@@ -981,7 +968,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_tag_pipelines_ruleset_with_http_info(ruleset_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_tag_pipelines_ruleset ...'
       end
@@ -1117,7 +1103,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GenerateCostTagDescriptionResponse, Integer, Hash)>] GenerateCostTagDescriptionResponse data, response status code and response headers
     def generate_cost_tag_description_by_key_with_http_info(tag_key, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.generate_cost_tag_description_by_key ...'
       end
@@ -1186,7 +1171,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :_end End of the cost window in milliseconds since epoch. Must be used together with `start`.
     # @return [Array<(BudgetWithEntries, Integer, Hash)>] BudgetWithEntries data, response status code and response headers
     def get_budget_with_http_info(budget_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_budget ...'
       end
@@ -2049,7 +2033,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AccountFiltersResponse, Integer, Hash)>] AccountFiltersResponse data, response status code and response headers
     def get_cost_account_filters_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_account_filters ...'
       end
@@ -2185,7 +2168,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AwsCurConfigResponse, Integer, Hash)>] AwsCurConfigResponse data, response status code and response headers
     def get_cost_awscur_config_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_awscur_config ...'
       end
@@ -2250,7 +2232,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UCConfigPair, Integer, Hash)>] UCConfigPair data, response status code and response headers
     def get_cost_azure_uc_config_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_azure_uc_config ...'
       end
@@ -2315,7 +2296,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GcpUcConfigResponse, Integer, Hash)>] GcpUcConfigResponse data, response status code and response headers
     def get_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_gcp_usage_cost_config ...'
       end
@@ -2381,7 +2361,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_cloud Cloud provider to scope the lookup to (for example, `aws`). Omit to use the resolved fallback.
     # @return [Array<(CostTagDescriptionResponse, Integer, Hash)>] CostTagDescriptionResponse data, response status code and response headers
     def get_cost_tag_description_by_key_with_http_info(tag_key, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_tag_description_by_key ...'
       end
@@ -2449,7 +2428,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Controls the size of the internal tag value search scope. This does **not** restrict the number of example tag values returned in the response. Defaults to 50, maximum 10000.
     # @return [Array<(CostTagKeyResponse, Integer, Hash)>] CostTagKeyResponse data, response status code and response headers
     def get_cost_tag_key_with_http_info(tag_key, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_tag_key ...'
       end
@@ -2593,7 +2571,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
     def get_custom_allocation_rule_with_http_info(rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_custom_allocation_rule ...'
       end
@@ -2658,7 +2635,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomCostsFileGetResponse, Integer, Hash)>] CustomCostsFileGetResponse data, response status code and response headers
     def get_custom_costs_file_with_http_info(file_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_custom_costs_file ...'
       end
@@ -2723,7 +2699,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomForecastResponse, Integer, Hash)>] CustomForecastResponse data, response status code and response headers
     def get_custom_forecast_with_http_info(budget_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_custom_forecast ...'
       end
@@ -2788,7 +2763,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
     def get_tag_pipelines_ruleset_with_http_info(ruleset_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_tag_pipelines_ruleset ...'
       end
@@ -2923,7 +2897,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(BudgetArray, Integer, Hash)>] BudgetArray data, response status code and response headers
     def list_budgets_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_budgets ...'
       end
@@ -3048,7 +3021,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -3072,7 +3045,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AwsCURConfigsResponse, Integer, Hash)>] AwsCURConfigsResponse data, response status code and response headers
     def list_cost_awscur_configs_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_awscur_configs ...'
       end
@@ -3132,7 +3104,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AzureUCConfigsResponse, Integer, Hash)>] AzureUCConfigsResponse data, response status code and response headers
     def list_cost_azure_uc_configs_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_azure_uc_configs ...'
       end
@@ -3200,7 +3171,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_cloud Filter by cloud, either `oci` or `aws_cur2` (case insensitive). Omit or leave empty to return both.
     # @return [Array<(CloudCostAccountsResponse, Integer, Hash)>] CloudCostAccountsResponse data, response status code and response headers
     def list_cost_cloud_accounts_v2_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_cloud_accounts_v2 ...'
       end
@@ -3265,7 +3235,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GCPUsageCostConfigsResponse, Integer, Hash)>] GCPUsageCostConfigsResponse data, response status code and response headers
     def list_cost_gcp_usage_cost_configs_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_gcp_usage_cost_configs ...'
       end
@@ -3393,7 +3362,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_cloud Filter descriptions to a specific cloud provider (for example, `aws`). Omit to return descriptions across all clouds.
     # @return [Array<(CostTagDescriptionsResponse, Integer, Hash)>] CostTagDescriptionsResponse data, response status code and response headers
     def list_cost_tag_descriptions_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_descriptions ...'
       end
@@ -3456,7 +3424,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_tags Filter to return only tag keys that appear with the given `key:value` tag values. For example, `filter[tags]=providername:aws` returns tag keys found on the same cost data, such as `is_aws_ec2_compute` and `aws_instance_type`.
     # @return [Array<(CostTagKeysResponse, Integer, Hash)>] CostTagKeysResponse data, response status code and response headers
     def list_cost_tag_keys_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tag_keys ...'
       end
@@ -3495,7 +3462,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -3905,7 +3872,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Controls the size of the internal tag search scope. This does **not** restrict the number of tags returned in the response. Defaults to 50, maximum 10000.
     # @return [Array<(CostTagsResponse, Integer, Hash)>] CostTagsResponse data, response status code and response headers
     def list_cost_tags_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_tags ...'
       end
@@ -3950,7 +3916,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -3974,7 +3940,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ArbitraryRuleResponseArray, Integer, Hash)>] ArbitraryRuleResponseArray data, response status code and response headers
     def list_custom_allocation_rules_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_custom_allocation_rules ...'
       end
@@ -4034,7 +3999,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ArbitraryRuleStatusResponseArray, Integer, Hash)>] ArbitraryRuleStatusResponseArray data, response status code and response headers
     def list_custom_allocation_rules_status_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_custom_allocation_rules_status ...'
       end
@@ -4100,7 +4064,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort key with optional descending prefix
     # @return [Array<(CustomCostsFileListResponse, Integer, Hash)>] CustomCostsFileListResponse data, response status code and response headers
     def list_custom_costs_files_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_custom_costs_files ...'
       end
@@ -4143,7 +4106,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -4167,7 +4130,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetRespArray, Integer, Hash)>] RulesetRespArray data, response status code and response headers
     def list_tag_pipelines_rulesets_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_tag_pipelines_rulesets ...'
       end
@@ -4227,7 +4189,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetStatusRespArray, Integer, Hash)>] RulesetStatusRespArray data, response status code and response headers
     def list_tag_pipelines_rulesets_status_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_tag_pipelines_rulesets_status ...'
       end
@@ -4356,11 +4317,10 @@ module DatadogAPIClient::V2
     #
     # **Example**: If you have rules with IDs [123, 456, 789] and want to change order from 123→456→789 to 456→123→789, send: [{"id": "456"}, {"id": "123"}, {"id": "789"}]
     #
-    # @param body [ReorderRuleResourceArray] 
+    # @param body [ReorderRuleResourceArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def reorder_custom_allocation_rules_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_custom_allocation_rules ...'
       end
@@ -4423,11 +4383,10 @@ module DatadogAPIClient::V2
     #
     # Reorder tag pipeline rulesets - Change the execution order of tag pipeline rulesets
     #
-    # @param body [ReorderRulesetResourceArray] 
+    # @param body [ReorderRulesetResourceArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def reorder_tag_pipelines_rulesets_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_tag_pipelines_rulesets ...'
       end
@@ -4490,7 +4449,7 @@ module DatadogAPIClient::V2
     #
     # List cost recommendations matching a filter, with pagination and sorting.
     #
-    # @param body [RecommendationsFilterRequest] 
+    # @param body [RecommendationsFilterRequest]
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_size Number of results per page (1–10000).
     # @option opts [String] :page_token Pagination token from a previous response.
@@ -4568,11 +4527,10 @@ module DatadogAPIClient::V2
     # Update the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
     #
     # @param cloud_account_id [Integer] Cloud Account id.
-    # @param body [AccountFiltersPatchRequest] 
+    # @param body [AccountFiltersPatchRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AccountFiltersResponse, Integer, Hash)>] AccountFiltersResponse data, response status code and response headers
     def update_cost_account_filters_with_http_info(cloud_account_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_account_filters ...'
       end
@@ -4640,11 +4598,10 @@ module DatadogAPIClient::V2
     # Update the status (active/archived) and/or account filtering configuration of an AWS CUR config.
     #
     # @param cloud_account_id [Integer] Cloud Account id.
-    # @param body [AwsCURConfigPatchRequest] 
+    # @param body [AwsCURConfigPatchRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AwsCURConfigsResponse, Integer, Hash)>] AwsCURConfigsResponse data, response status code and response headers
     def update_cost_awscur_config_with_http_info(cloud_account_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_awscur_config ...'
       end
@@ -4712,11 +4669,10 @@ module DatadogAPIClient::V2
     # Update the status of an  Azure config (active/archived).
     #
     # @param cloud_account_id [Integer] Cloud Account id.
-    # @param body [AzureUCConfigPatchRequest] 
+    # @param body [AzureUCConfigPatchRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(AzureUCConfigPairsResponse, Integer, Hash)>] AzureUCConfigPairsResponse data, response status code and response headers
     def update_cost_azure_uc_configs_with_http_info(cloud_account_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_azure_uc_configs ...'
       end
@@ -4784,11 +4740,10 @@ module DatadogAPIClient::V2
     # Update the status of an Google Cloud Usage Cost config (active/archived).
     #
     # @param cloud_account_id [Integer] Cloud Account id.
-    # @param body [GCPUsageCostConfigPatchRequest] 
+    # @param body [GCPUsageCostConfigPatchRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GCPUsageCostConfigResponse, Integer, Hash)>] GCPUsageCostConfigResponse data, response status code and response headers
     def update_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_gcp_usage_cost_config ...'
       end
@@ -4869,11 +4824,10 @@ module DatadogAPIClient::V2
     # **Supported operators**: is, is not, contains, in, not in, =, !=, like, not like
     #
     # @param rule_id [Integer] The unique identifier of the custom allocation rule
-    # @param body [ArbitraryCostUpsertRequest] 
+    # @param body [ArbitraryCostUpsertRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
     def update_custom_allocation_rule_with_http_info(rule_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_custom_allocation_rule ...'
       end
@@ -4941,11 +4895,10 @@ module DatadogAPIClient::V2
     # Update a tag pipeline ruleset - Update an existing tag pipeline ruleset with new rules and configuration
     #
     # @param ruleset_id [String] The unique identifier of the ruleset
-    # @param body [UpdateRulesetRequest] 
+    # @param body [UpdateRulesetRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
     def update_tag_pipelines_ruleset_with_http_info(ruleset_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_tag_pipelines_ruleset ...'
       end
@@ -5013,7 +4966,7 @@ module DatadogAPIClient::V2
     # Replace an ROI metric (unit cost) with a new set of attributes.
     #
     # @param unit_cost_id [UUID] The UUID of the unit cost.
-    # @param body [UnitCostUpdateRequest] 
+    # @param body [UnitCostUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UnitCostResponse, Integer, Hash)>] UnitCostResponse data, response status code and response headers
     def update_unit_cost_with_http_info(unit_cost_id, body, opts = {})
@@ -5090,11 +5043,10 @@ module DatadogAPIClient::V2
     #
     # Upload a Custom Costs file.
     #
-    # @param body [Array<CustomCostsFileLineItem>] 
+    # @param body [Array<CustomCostsFileLineItem>]
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomCostsFileUploadResponse, Integer, Hash)>] CustomCostsFileUploadResponse data, response status code and response headers
     def upload_custom_costs_file_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upload_custom_costs_file ...'
       end
@@ -5157,11 +5109,10 @@ module DatadogAPIClient::V2
     #
     # Create a new budget or update an existing one.
     #
-    # @param body [BudgetWithEntries] 
+    # @param body [BudgetWithEntries]
     # @param opts [Hash] the optional parameters
     # @return [Array<(BudgetWithEntries, Integer, Hash)>] BudgetWithEntries data, response status code and response headers
     def upsert_budget_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_budget ...'
       end
@@ -5225,11 +5176,10 @@ module DatadogAPIClient::V2
     # Create or update a Cloud Cost Management tag key description. The new description and optional cloud scoping are supplied in the request body. Omit `cloud` to set a cross-cloud default for the tag key.
     #
     # @param tag_key [String] The tag key whose description is being upserted.
-    # @param body [CostTagDescriptionUpsertRequest] 
+    # @param body [CostTagDescriptionUpsertRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upsert_cost_tag_description_by_key_with_http_info(tag_key, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_cost_tag_description_by_key ...'
       end
@@ -5297,11 +5247,10 @@ module DatadogAPIClient::V2
     # Create or replace the custom forecast for an existing budget.
     # Pass an empty `entries` list to delete the custom forecast for the budget.
     #
-    # @param body [CustomForecastUpsertRequest] 
+    # @param body [CustomForecastUpsertRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(CustomForecastResponse, Integer, Hash)>] CustomForecastResponse data, response status code and response headers
     def upsert_custom_forecast_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_custom_forecast ...'
       end
@@ -5364,11 +5313,10 @@ module DatadogAPIClient::V2
     #
     # Validate a budget configuration without creating or modifying it
     #
-    # @param body [BudgetValidationRequest] 
+    # @param body [BudgetValidationRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(BudgetValidationResponse, Integer, Hash)>] BudgetValidationResponse data, response status code and response headers
     def validate_budget_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.validate_budget ...'
       end
@@ -5431,7 +5379,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ValidationResponse, Integer, Hash)>] ValidationResponse data, response status code and response headers
     def validate_csv_budget_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.validate_csv_budget ...'
       end
@@ -5488,11 +5435,10 @@ module DatadogAPIClient::V2
     #
     # Validate a tag pipeline query - Validate the syntax and structure of a tag pipeline query
     #
-    # @param body [RulesValidateQueryRequest] 
+    # @param body [RulesValidateQueryRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesValidateQueryResponse, Integer, Hash)>] RulesValidateQueryResponse data, response status code and response headers
     def validate_query_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.validate_query ...'
       end
