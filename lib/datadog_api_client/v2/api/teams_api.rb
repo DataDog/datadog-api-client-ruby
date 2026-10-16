@@ -1849,7 +1849,7 @@ module DatadogAPIClient::V2
         end
     end
 
-    # Get all teams.
+    # List all teams.
     #
     # @see #list_teams_with_http_info
     def list_teams(opts = {})
@@ -1857,7 +1857,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get all teams.
+    # List all teams.
     #
     # Get all teams.
     # Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
@@ -1929,7 +1929,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all teams.
+    # List all teams.
     #
     # Provide a paginated version of {#list_teams}, returning all items.
     #
