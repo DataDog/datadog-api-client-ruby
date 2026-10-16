@@ -4948,6 +4948,19 @@ ScenariosModelMappings = {
     "v2.CreateBulkTagsMetricsConfiguration" => {
             "body" => "MetricBulkTagConfigCreateRequest",
     },
+    "v2.CreateDerivedMetric" => {
+            "body" => "DerivedMetricCreateRequest",
+    },
+    "v2.DeleteDerivedMetric" => {
+            "metric_name" => "String",
+    },
+    "v2.GetDerivedMetric" => {
+            "metric_name" => "String",
+    },
+    "v2.UpdateDerivedMetric" => {
+            "metric_name" => "String",
+            "body" => "DerivedMetricCreateRequest",
+    },
     "v2.CreateHistoricalMetricsConfiguration" => {
             "body" => "HistoricalMetricsConfigurationCreateRequest",
     },
