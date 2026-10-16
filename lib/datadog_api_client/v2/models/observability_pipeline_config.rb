@@ -24,6 +24,10 @@ module DatadogAPIClient::V2
     # A list of destination components where processed logs are sent.
     attr_reader :destinations
 
+    # Enables end-to-end event delivery confirmation. Without a disk buffer, sources acknowledge events after delivery to all final destinations; when a disk buffer provides the acknowledgment boundary, they acknowledge after durable persistence.
+    # Defaults to `false` when omitted. Requires Observability Pipelines Worker 2.14 or later. All configured sources must support this behavior.
+    attr_accessor :end_to_end_acknowledgements
+
     # The type of data being ingested. Defaults to `logs` if not specified.
     attr_accessor :pipeline_type
 
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'destinations' => :'destinations',
+        :'end_to_end_acknowledgements' => :'end_to_end_acknowledgements',
         :'pipeline_type' => :'pipeline_type',
         :'processor_groups' => :'processor_groups',
         :'processors' => :'processors',
@@ -65,6 +70,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
+        :'end_to_end_acknowledgements' => :'Boolean',
         :'pipeline_type' => :'ObservabilityPipelineConfigPipelineType',
         :'processor_groups' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'processors' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
@@ -95,6 +101,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'destinations']).is_a?(Array)
           self.destinations = value
         end
+      end
+
+      if attributes.key?(:'end_to_end_acknowledgements')
+        self.end_to_end_acknowledgements = attributes[:'end_to_end_acknowledgements']
       end
 
       if attributes.key?(:'pipeline_type')
@@ -180,6 +190,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           destinations == o.destinations &&
+          end_to_end_acknowledgements == o.end_to_end_acknowledgements &&
           pipeline_type == o.pipeline_type &&
           processor_groups == o.processor_groups &&
           processors == o.processors &&
@@ -192,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, pipeline_type, processor_groups, processors, sources, use_legacy_search_syntax, additional_properties].hash
+      [destinations, end_to_end_acknowledgements, pipeline_type, processor_groups, processors, sources, use_legacy_search_syntax, additional_properties].hash
     end
   end
 end
