@@ -27,11 +27,25 @@ module DatadogAPIClient::V2
     # Handle of the user who created the exemption.
     attr_accessor :created_by_handle
 
+    # Estimated change in indexed cardinality or points if the exemption is removed and the matching tag indexing
+    # rule applies to the metric. A negative value indicates a reduction in indexed volume, a positive value
+    # indicates an increase, and zero indicates no change. A `null` value indicates that the estimate is unavailable.
+    attr_accessor :estimated_change_in_volume
+
     # Discriminates between an explicit exemption (`exemption`) and a pre-existing legacy tag configuration acting as an implicit exclusion (`legacy_tag_configuration`).
     attr_accessor :kind
 
+    # Tag keys used to query this metric in monitors, dashboards, notebooks, and SLOs that the matching rule would
+    # remove or not include if the exemption is removed.
+    attr_accessor :missing_indexed_tags
+
     # The reason the metric is exempt from tag indexing rules.
     attr_accessor :reason
+
+    # Indicates whether `estimated_change_in_volume` is available and, if not, why. `ok` indicates a fresh estimate.
+    # `unindexed_tags` indicates that the matching rule uses tags that are not indexed for the metric.
+    # `unavailable` indicates that the estimate is stale, was not computed, or could not be retrieved.
+    attr_accessor :volume_status
 
     attr_accessor :additional_properties
 
@@ -41,8 +55,11 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'created_at',
         :'created_by_handle' => :'created_by_handle',
+        :'estimated_change_in_volume' => :'estimated_change_in_volume',
         :'kind' => :'kind',
-        :'reason' => :'reason'
+        :'missing_indexed_tags' => :'missing_indexed_tags',
+        :'reason' => :'reason',
+        :'volume_status' => :'volume_status'
       }
     end
 
@@ -52,9 +69,20 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'Time',
         :'created_by_handle' => :'String',
+        :'estimated_change_in_volume' => :'Integer',
         :'kind' => :'String',
-        :'reason' => :'String'
+        :'missing_indexed_tags' => :'Array<String>',
+        :'reason' => :'String',
+        :'volume_status' => :'TagIndexingRuleExemptionVolumeStatus'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'estimated_change_in_volume',
+      ])
     end
 
     # Initializes the object
@@ -83,12 +111,26 @@ module DatadogAPIClient::V2
         self.created_by_handle = attributes[:'created_by_handle']
       end
 
+      if attributes.key?(:'estimated_change_in_volume')
+        self.estimated_change_in_volume = attributes[:'estimated_change_in_volume']
+      end
+
       if attributes.key?(:'kind')
         self.kind = attributes[:'kind']
       end
 
+      if attributes.key?(:'missing_indexed_tags')
+        if (value = attributes[:'missing_indexed_tags']).is_a?(Array)
+          self.missing_indexed_tags = value
+        end
+      end
+
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
+      end
+
+      if attributes.key?(:'volume_status')
+        self.volume_status = attributes[:'volume_status']
       end
     end
 
@@ -120,8 +162,11 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           created_at == o.created_at &&
           created_by_handle == o.created_by_handle &&
+          estimated_change_in_volume == o.estimated_change_in_volume &&
           kind == o.kind &&
+          missing_indexed_tags == o.missing_indexed_tags &&
           reason == o.reason &&
+          volume_status == o.volume_status &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +174,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by_handle, kind, reason, additional_properties].hash
+      [created_at, created_by_handle, estimated_change_in_volume, kind, missing_indexed_tags, reason, volume_status, additional_properties].hash
     end
   end
 end
