@@ -30,7 +30,6 @@ body = DatadogAPIClient::V2::TagIndexingRuleUpdateRequest.new({
         }),
         version: 1,
       }),
-      rule_order: 2,
       tags: [
         "env",
         "service",
