@@ -27,6 +27,14 @@ module DatadogAPIClient::V2
     # The public ID of the organization that owns the quota.
     attr_reader :org_public_id
 
+    # The future UTC month when the scheduled limit takes effect, formatted as `YYYY-MM`, starting at 00:00 UTC on its first day. Present only together with `pending_usage_limit` and omitted when no change is scheduled.
+    attr_reader :pending_effective_from
+
+    # The usage limit scheduled for the organization-wide quota in the usage units defined by the quota namespace.
+    # A value of `0` is valid. At the start of the effective month, this value becomes `usage_limit` and both pending
+    # fields are omitted. Omitted when no change is scheduled.
+    attr_accessor :pending_usage_limit
+
     # A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A value of `"*"` identifies the default quota applied to entities without a specific quota. This field is omitted for an organization-wide quota.
     attr_accessor :scope
 
@@ -41,6 +49,8 @@ module DatadogAPIClient::V2
       {
         :'enforced' => :'enforced',
         :'org_public_id' => :'org_public_id',
+        :'pending_effective_from' => :'pending_effective_from',
+        :'pending_usage_limit' => :'pending_usage_limit',
         :'scope' => :'scope',
         :'usage_limit' => :'usage_limit'
       }
@@ -52,6 +62,8 @@ module DatadogAPIClient::V2
       {
         :'enforced' => :'Boolean',
         :'org_public_id' => :'String',
+        :'pending_effective_from' => :'String',
+        :'pending_usage_limit' => :'Float',
         :'scope' => :'Hash<String, String>',
         :'usage_limit' => :'Float'
       }
@@ -83,6 +95,14 @@ module DatadogAPIClient::V2
         self.org_public_id = attributes[:'org_public_id']
       end
 
+      if attributes.key?(:'pending_effective_from')
+        self.pending_effective_from = attributes[:'pending_effective_from']
+      end
+
+      if attributes.key?(:'pending_usage_limit')
+        self.pending_usage_limit = attributes[:'pending_usage_limit']
+      end
+
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
       end
@@ -98,6 +118,8 @@ module DatadogAPIClient::V2
     def valid?
       return false if @enforced.nil?
       return false if @org_public_id.nil?
+      pattern = Regexp.new(/^\d{4}-\d{2}$/)
+      return false if !@pending_effective_from.nil? && @pending_effective_from !~ pattern
       return false if @usage_limit.nil?
       true
     end
@@ -120,6 +142,17 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "org_public_id", org_public_id cannot be nil.'
       end
       @org_public_id = org_public_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param pending_effective_from [Object] Object to be assigned
+    # @!visibility private
+    def pending_effective_from=(pending_effective_from)
+      pattern = Regexp.new(/^\d{4}-\d{2}$/)
+      if !pending_effective_from.nil? && pending_effective_from !~ pattern
+        fail ArgumentError, "invalid value for \"pending_effective_from\", must conform to the pattern #{pattern}."
+      end
+      @pending_effective_from = pending_effective_from
     end
 
     # Custom attribute writer method with validation
@@ -160,6 +193,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           enforced == o.enforced &&
           org_public_id == o.org_public_id &&
+          pending_effective_from == o.pending_effective_from &&
+          pending_usage_limit == o.pending_usage_limit &&
           scope == o.scope &&
           usage_limit == o.usage_limit &&
           additional_properties == o.additional_properties
@@ -169,7 +204,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enforced, org_public_id, scope, usage_limit, additional_properties].hash
+      [enforced, org_public_id, pending_effective_from, pending_usage_limit, scope, usage_limit, additional_properties].hash
     end
   end
 end

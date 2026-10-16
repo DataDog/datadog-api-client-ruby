@@ -33,7 +33,11 @@ module DatadogAPIClient::V2
 
     # Create or update usage quotas.
     #
-    # Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated; otherwise, a new quota is created. Requires the `billing_edit` permission.
+    # Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated.
+    # Otherwise, a quota is created only when `usage_limit` and `enforced` are provided.
+    # For the organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period and can
+    # accompany an immediate limit or update an existing quota by itself.
+    # Scheduled changes follow `include_descendants` like the other fields. Requires the `billing_edit` permission.
     #
     # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
     # @param body [UsageQuotasCreateRequest] The usage quotas to create or update.
@@ -99,6 +103,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsageMeteringAPI#create_quotas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Cancel a scheduled usage quota limit.
+    #
+    # @see #delete_pending_quota_with_http_info
+    def delete_pending_quota(quota_namespace, id, opts = {})
+      delete_pending_quota_with_http_info(quota_namespace, id, opts)
+      nil
+    end
+
+    # Cancel a scheduled usage quota limit.
+    #
+    # Cancels the limit change scheduled to take effect at the start of the next usage period, leaving the usage quota and its current limit unchanged. Returns `404` when the quota does not exist, has no scheduled change, or its scheduled change has already taken effect; in every case the quota is left unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
+    #
+    # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
+    # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_pending_quota_with_http_info(quota_namespace, id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_pending_quota".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_pending_quota")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_pending_quota"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.delete_pending_quota ...'
+      end
+      # verify the required parameter 'quota_namespace' is set
+      if @api_client.config.client_side_validation && quota_namespace.nil?
+        fail ArgumentError, "Missing the required parameter 'quota_namespace' when calling UsageMeteringAPI.delete_pending_quota"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UsageMeteringAPI.delete_pending_quota"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/quotas/{quota_namespace}/{id}/pending'.sub('{quota_namespace}', CGI.escape(quota_namespace.to_s).gsub('%2F', '/')).sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_pending_quota,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#delete_pending_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1292,7 +1372,7 @@ module DatadogAPIClient::V2
 
     # Update a usage quota.
     #
-    # Updates the supplied fields on a usage quota and leaves omitted fields unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
+    # Updates the supplied fields on a usage quota and leaves omitted fields unchanged. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
     #
     # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
     # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
