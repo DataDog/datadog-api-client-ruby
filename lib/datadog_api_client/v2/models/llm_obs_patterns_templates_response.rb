@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A user relationship to the requested team.
-  class TeamHierarchyMember
+  # Response containing a list of Agent Observability patterns templates.
+  class LLMObsPatternsTemplatesResponse
     include BaseGenericModel
 
-    # Membership attributes relative to the requested team.
-    attr_reader :attributes
-
-    # Relationship identifier containing the team UUID and user UUID.
-    attr_reader :id
-
-    # User and requested team linkage.
-    attr_reader :relationships
-
-    # Team hierarchy membership resource type.
-    attr_reader :type
+    # Data object of a list of Agent Observability patterns templates.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'data' => :'data'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'TeamHierarchyMemberAttributes',
-        :'id' => :'String',
-        :'relationships' => :'TeamHierarchyMemberRelationships',
-        :'type' => :'TeamHierarchyMemberType'
+        :'data' => :'LLMObsPatternsTemplatesResponseData'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyMember` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LLMObsPatternsTemplatesResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -96,51 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @relationships.nil?
-      return false if @type.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param relationships [Object] Object to be assigned
-    # @!visibility private
-    def relationships=(relationships)
-      if relationships.nil?
-        fail ArgumentError, 'invalid value for "relationships", relationships cannot be nil.'
-      end
-      @relationships = relationships
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -169,10 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          relationships == o.relationships &&
-          type == o.type &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
