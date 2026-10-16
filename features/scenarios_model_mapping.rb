@@ -2465,6 +2465,50 @@ ScenariosModelMappings = {
             "filter_operating_system_name" => "String",
             "filter_operating_system_version" => "String",
     },
+    "v2.ListSecurityMonitoringBatchMigrations" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_query" => "String",
+    },
+    "v2.CreateSecurityMonitoringBatchMigration" => {
+            "body" => "SecurityMonitoringBatchMigrationCreateRequest",
+    },
+    "v2.DeleteSecurityMonitoringBatchMigration" => {
+            "batch_id" => "UUID",
+    },
+    "v2.UpdateSecurityMonitoringBatchMigration" => {
+            "batch_id" => "UUID",
+            "body" => "SecurityMonitoringBatchMigrationUpdateRequest",
+    },
+    "v2.CancelSecurityMonitoringBatchMigration" => {
+            "batch_id" => "UUID",
+    },
+    "v2.PublishSecurityMonitoringBatchMigration" => {
+            "batch_id" => "UUID",
+            "body" => "SecurityMonitoringBatchMigrationPublishRequest",
+    },
+    "v2.DeleteSecurityMonitoringBatchMigrationResources" => {
+            "batch_id" => "UUID",
+            "body" => "SecurityMonitoringBatchMigrationResourcesDeleteRequest",
+    },
+    "v2.ListSecurityMonitoringBatchMigrationResources" => {
+            "batch_id" => "UUID",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_query" => "String",
+    },
+    "v2.CreateSecurityMonitoringBatchMigrationResources" => {
+            "batch_id" => "UUID",
+            "body" => "SecurityMonitoringBatchMigrationResourcesCreateRequest",
+    },
+    "v2.UpdateSecurityMonitoringBatchMigrationResource" => {
+            "batch_id" => "UUID",
+            "resource_id" => "UUID",
+            "body" => "SecurityMonitoringBatchMigrationResourceUpdateRequest",
+    },
+    "v2.StartSecurityMonitoringBatchMigration" => {
+            "batch_id" => "UUID",
+    },
     "v2.CreateSecurityMonitoringCriticalAsset" => {
             "body" => "SecurityMonitoringCriticalAssetCreateRequest",
     },
