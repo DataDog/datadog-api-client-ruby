@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Array of campaigns.
     attr_reader :data
 
-    # Metadata for scores response.
+    # Pagination metadata.
     attr_reader :meta
 
     attr_accessor :additional_properties
