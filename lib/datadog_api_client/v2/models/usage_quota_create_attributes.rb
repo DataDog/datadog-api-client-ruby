@@ -17,17 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for creating or updating a usage quota by scope.
+  # Attributes for creating or updating a usage quota by scope. Each item must provide `usage_limit`, `pending_usage_limit`, or both. Providing only `pending_usage_limit` updates an existing organization-wide quota, never creates one, requires `enforced` to be omitted, and fails if the quota does not exist.
   class UsageQuotaCreateAttributes
     include BaseGenericModel
 
-    # Whether to actively block usage above the limit instead of only tracking or alerting on it.
-    attr_reader :enforced
+    # Whether to actively block usage above `usage_limit` instead of only tracking or alerting on it. Required when `usage_limit` is provided and must be omitted when only `pending_usage_limit` is provided.
+    attr_accessor :enforced
+
+    # The non-negative, whole-number limit to schedule for the organization-wide quota in the usage units defined by the quota namespace. It is not checked against current usage. Each write schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any previously scheduled change; the server computes `pending_effective_from`. Omit this field to leave any scheduled change unchanged, including when raising `usage_limit`. Cancel a scheduled change only by deleting the quota's `/pending` sub-resource.
+    attr_reader :pending_usage_limit
 
     # A namespace-specific key and value identifying what the quota applies to within an organization. The object must contain exactly one entry. Use `"*"` as the value for the default quota applied to entities without a specific quota, or omit the scope for an organization-wide quota. A specific value must identify an existing user handle in the caller's organization when `include_descendants` is false. When `include_descendants` is true, the handle must exist in the caller's organization or in at least one targeted descendant organization; the quota is then applied only to the organizations where that handle exists, and the request fails only if the handle exists in none of them.
     attr_accessor :scope
 
-    # The quota limit to set in the usage units defined by the quota namespace. For an organization-wide quota (scope omitted), the limit must be greater than the usage already recorded in the current period.
+    # The non-negative, whole-number quota limit to set in the usage units defined by the quota namespace. For an organization-wide quota (scope omitted), the limit must be greater than usage already recorded in the current period. When this field is provided, `enforced` is required.
     attr_reader :usage_limit
 
     attr_accessor :additional_properties
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enforced' => :'enforced',
+        :'pending_usage_limit' => :'pending_usage_limit',
         :'scope' => :'scope',
         :'usage_limit' => :'usage_limit'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enforced' => :'Boolean',
+        :'pending_usage_limit' => :'Integer',
         :'scope' => :'Hash<String, String>',
         :'usage_limit' => :'Integer'
       }
@@ -74,6 +79,10 @@ module DatadogAPIClient::V2
         self.enforced = attributes[:'enforced']
       end
 
+      if attributes.key?(:'pending_usage_limit')
+        self.pending_usage_limit = attributes[:'pending_usage_limit']
+      end
+
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
       end
@@ -87,30 +96,26 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @enforced.nil?
-      return false if @usage_limit.nil?
-      return false if @usage_limit < 0
+      return false if !@pending_usage_limit.nil? && @pending_usage_limit < 0
+      return false if !@usage_limit.nil? && @usage_limit < 0
       true
     end
 
     # Custom attribute writer method with validation
-    # @param enforced [Object] Object to be assigned
+    # @param pending_usage_limit [Object] Object to be assigned
     # @!visibility private
-    def enforced=(enforced)
-      if enforced.nil?
-        fail ArgumentError, 'invalid value for "enforced", enforced cannot be nil.'
+    def pending_usage_limit=(pending_usage_limit)
+      if !pending_usage_limit.nil? && pending_usage_limit < 0
+        fail ArgumentError, 'invalid value for "pending_usage_limit", must be greater than or equal to 0.'
       end
-      @enforced = enforced
+      @pending_usage_limit = pending_usage_limit
     end
 
     # Custom attribute writer method with validation
     # @param usage_limit [Object] Object to be assigned
     # @!visibility private
     def usage_limit=(usage_limit)
-      if usage_limit.nil?
-        fail ArgumentError, 'invalid value for "usage_limit", usage_limit cannot be nil.'
-      end
-      if usage_limit < 0
+      if !usage_limit.nil? && usage_limit < 0
         fail ArgumentError, 'invalid value for "usage_limit", must be greater than or equal to 0.'
       end
       @usage_limit = usage_limit
@@ -143,6 +148,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enforced == o.enforced &&
+          pending_usage_limit == o.pending_usage_limit &&
           scope == o.scope &&
           usage_limit == o.usage_limit &&
           additional_properties == o.additional_properties
@@ -152,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enforced, scope, usage_limit, additional_properties].hash
+      [enforced, pending_usage_limit, scope, usage_limit, additional_properties].hash
     end
   end
 end

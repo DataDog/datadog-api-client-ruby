@@ -6,4 +6,4 @@ DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.delete_quota".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::UsageMeteringAPI.new
-api_instance.delete_quota("ai_credits", "MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f")
+api_instance.delete_quota("ai_credits", "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18")

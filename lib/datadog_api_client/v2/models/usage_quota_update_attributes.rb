@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes to update on a usage quota. Omitting a property leaves its current value unchanged.
+  # Attributes to update on a usage quota. At least one of `usage_limit`, `enforced`, or `pending_usage_limit` must be provided. Omitting a property leaves its current value unchanged.
   class UsageQuotaUpdateAttributes
     include BaseGenericModel
 
     # Whether to actively block usage above the limit. Omit this field to leave the current enforcement setting unchanged.
     attr_accessor :enforced
+
+    # The non-negative, whole-number limit to schedule for the organization-wide quota in the usage units defined by the quota namespace. It is not checked against current usage. Each write schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any previously scheduled change; the server computes `pending_effective_from`. Omit this field to leave any scheduled change unchanged, including when raising `usage_limit`; use `DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending` to cancel one.
+    attr_reader :pending_usage_limit
 
     # The new quota limit in the usage units defined by the quota namespace. For an organization-wide quota (empty scope), the limit must be greater than the usage already recorded in the current period. Omit this field to leave the current limit unchanged.
     attr_reader :usage_limit
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enforced' => :'enforced',
+        :'pending_usage_limit' => :'pending_usage_limit',
         :'usage_limit' => :'usage_limit'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enforced' => :'Boolean',
+        :'pending_usage_limit' => :'Integer',
         :'usage_limit' => :'Integer'
       }
     end
@@ -52,6 +57,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'enforced',
+        :'pending_usage_limit',
         :'usage_limit',
       ])
     end
@@ -78,6 +84,10 @@ module DatadogAPIClient::V2
         self.enforced = attributes[:'enforced']
       end
 
+      if attributes.key?(:'pending_usage_limit')
+        self.pending_usage_limit = attributes[:'pending_usage_limit']
+      end
+
       if attributes.key?(:'usage_limit')
         self.usage_limit = attributes[:'usage_limit']
       end
@@ -87,8 +97,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@pending_usage_limit.nil? && @pending_usage_limit < 0
       return false if !@usage_limit.nil? && @usage_limit < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param pending_usage_limit [Object] Object to be assigned
+    # @!visibility private
+    def pending_usage_limit=(pending_usage_limit)
+      if !pending_usage_limit.nil? && pending_usage_limit < 0
+        fail ArgumentError, 'invalid value for "pending_usage_limit", must be greater than or equal to 0.'
+      end
+      @pending_usage_limit = pending_usage_limit
     end
 
     # Custom attribute writer method with validation
@@ -128,6 +149,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enforced == o.enforced &&
+          pending_usage_limit == o.pending_usage_limit &&
           usage_limit == o.usage_limit &&
           additional_properties == o.additional_properties
     end
@@ -136,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enforced, usage_limit, additional_properties].hash
+      [enforced, pending_usage_limit, usage_limit, additional_properties].hash
     end
   end
 end

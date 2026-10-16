@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class UsageQuotaCreateData
     include BaseGenericModel
 
-    # Attributes for creating or updating a usage quota by scope.
+    # Attributes for creating or updating a usage quota by scope. Each item must provide `usage_limit`, `pending_usage_limit`, or both. Providing only `pending_usage_limit` updates an existing organization-wide quota, never creates one, requires `enforced` to be omitted, and fails if the quota does not exist.
     attr_reader :attributes
 
     # The JSON:API resource type for a usage quota.
