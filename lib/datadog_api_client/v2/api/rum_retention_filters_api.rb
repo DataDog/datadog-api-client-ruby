@@ -41,12 +41,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumExclusionFilterResponse, Integer, Hash)>] RumExclusionFilterResponse data, response status code and response headers
     def create_exclusion_filter_with_http_info(app_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_exclusion_filter".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_exclusion_filter")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_exclusion_filter"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.create_exclusion_filter ...'
@@ -194,12 +188,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_exclusion_filter_with_http_info(app_id, ef_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_exclusion_filter".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_exclusion_filter")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_exclusion_filter"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.delete_exclusion_filter ...'
@@ -340,12 +328,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumExclusionFilterResponse, Integer, Hash)>] RumExclusionFilterResponse data, response status code and response headers
     def get_exclusion_filter_with_http_info(app_id, ef_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_exclusion_filter".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_exclusion_filter")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_exclusion_filter"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.get_exclusion_filter ...'
@@ -561,12 +543,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumExclusionFiltersResponse, Integer, Hash)>] RumExclusionFiltersResponse data, response status code and response headers
     def list_exclusion_filters_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_exclusion_filters".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_exclusion_filters")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_exclusion_filters"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.list_exclusion_filters ...'
@@ -842,12 +818,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumExclusionFilterResponse, Integer, Hash)>] RumExclusionFilterResponse data, response status code and response headers
     def update_exclusion_filter_with_http_info(app_id, ef_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_exclusion_filter".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_exclusion_filter")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_exclusion_filter"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumRetentionFiltersAPI.update_exclusion_filter ...'
