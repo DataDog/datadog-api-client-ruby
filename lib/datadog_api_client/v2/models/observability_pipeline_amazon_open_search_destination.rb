@@ -25,13 +25,20 @@ module DatadogAPIClient::V2
 
     # Authentication settings for the Amazon OpenSearch destination.
     # The `strategy` field determines whether basic or AWS-based authentication is used.
-    attr_reader :auth
+    # When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
+    attr_accessor :auth
 
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
     # The index to write logs to.
     attr_accessor :bulk_index
+
+    # Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+    attr_accessor :data_stream
+
+    # Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+    attr_accessor :endpoint_url_key
 
     # The unique identifier for this component.
     attr_reader :id
@@ -51,6 +58,8 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'buffer' => :'buffer',
         :'bulk_index' => :'bulk_index',
+        :'data_stream' => :'data_stream',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'type' => :'type'
@@ -64,6 +73,8 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineAmazonOpenSearchDestinationAuth',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'bulk_index' => :'String',
+        :'data_stream' => :'ObservabilityPipelineOpenSearchDestinationDataStream',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'type' => :'ObservabilityPipelineAmazonOpenSearchDestinationType'
@@ -100,6 +111,14 @@ module DatadogAPIClient::V2
         self.bulk_index = attributes[:'bulk_index']
       end
 
+      if attributes.key?(:'data_stream')
+        self.data_stream = attributes[:'data_stream']
+      end
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -119,21 +138,10 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @auth.nil?
       return false if @id.nil?
       return false if @inputs.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param auth [Object] Object to be assigned
-    # @!visibility private
-    def auth=(auth)
-      if auth.nil?
-        fail ArgumentError, 'invalid value for "auth", auth cannot be nil.'
-      end
-      @auth = auth
     end
 
     # Custom attribute writer method with validation
@@ -195,6 +203,8 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           buffer == o.buffer &&
           bulk_index == o.bulk_index &&
+          data_stream == o.data_stream &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           type == o.type &&
@@ -205,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, buffer, bulk_index, id, inputs, type, additional_properties].hash
+      [auth, buffer, bulk_index, data_stream, endpoint_url_key, id, inputs, type, additional_properties].hash
     end
   end
 end
