@@ -24,8 +24,15 @@ module DatadogAPIClient::V2
     # Process command line.
     attr_accessor :cmdline
 
+    # Path to the process executable.
+    attr_accessor :executable
+
     # Host running the process.
     attr_accessor :host
+
+    # Tags that uniquely identify the process: a host identity tag (`host`, `task_arn`,
+    # or `eks_fargate_node`) and a `pid` tag. Omitted if either tag is unavailable.
+    attr_accessor :identifying_tags
 
     # Process ID.
     attr_accessor :pid
@@ -52,7 +59,9 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cmdline' => :'cmdline',
+        :'executable' => :'executable',
         :'host' => :'host',
+        :'identifying_tags' => :'identifying_tags',
         :'pid' => :'pid',
         :'ppid' => :'ppid',
         :'start' => :'start',
@@ -67,7 +76,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cmdline' => :'String',
+        :'executable' => :'String',
         :'host' => :'String',
+        :'identifying_tags' => :'Array<String>',
         :'pid' => :'Integer',
         :'ppid' => :'Integer',
         :'start' => :'String',
@@ -99,8 +110,18 @@ module DatadogAPIClient::V2
         self.cmdline = attributes[:'cmdline']
       end
 
+      if attributes.key?(:'executable')
+        self.executable = attributes[:'executable']
+      end
+
       if attributes.key?(:'host')
         self.host = attributes[:'host']
+      end
+
+      if attributes.key?(:'identifying_tags')
+        if (value = attributes[:'identifying_tags']).is_a?(Array)
+          self.identifying_tags = value
+        end
       end
 
       if attributes.key?(:'pid')
@@ -157,7 +178,9 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cmdline == o.cmdline &&
+          executable == o.executable &&
           host == o.host &&
+          identifying_tags == o.identifying_tags &&
           pid == o.pid &&
           ppid == o.ppid &&
           start == o.start &&
@@ -171,7 +194,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cmdline, host, pid, ppid, start, tags, timestamp, user, additional_properties].hash
+      [cmdline, executable, host, identifying_tags, pid, ppid, start, tags, timestamp, user, additional_properties].hash
     end
   end
 end
