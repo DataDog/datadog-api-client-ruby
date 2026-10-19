@@ -101,6 +101,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a derived metric.
+    #
+    # @see #create_derived_metric_with_http_info
+    def create_derived_metric(body, opts = {})
+      data, _status_code, _headers = create_derived_metric_with_http_info(body, opts)
+      data
+    end
+
+    # Create a derived metric.
+    #
+    # Create a derived metric for the org. The metric name is supplied as the resource `id`,
+    # and the `definition` sets the formula and the queries the formula is computed from.
+    # Requires the `Manage Tags for Metrics` permission.
+    #
+    # @param body [DerivedMetricCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DerivedMetricResponse, Integer, Hash)>] DerivedMetricResponse data, response status code and response headers
+    def create_derived_metric_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.create_derived_metric ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.create_derived_metric"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/derived-metrics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DerivedMetricResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_derived_metric,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#create_derived_metric\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Enable historical metrics ingestion.
     #
     # @see #create_historical_metrics_configuration_with_http_info
@@ -482,6 +551,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a derived metric.
+    #
+    # @see #delete_derived_metric_with_http_info
+    def delete_derived_metric(metric_name, opts = {})
+      delete_derived_metric_with_http_info(metric_name, opts)
+      nil
+    end
+
+    # Delete a derived metric.
+    #
+    # Delete a derived metric by name. Idempotent: returns 204 regardless of whether the derived
+    # metric existed. Requires the `Manage Tags for Metrics` permission.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_derived_metric_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_derived_metric ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.delete_derived_metric"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/derived-metrics/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_derived_metric,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#delete_derived_metric\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a historical metrics configuration.
     #
     # @see #delete_historical_metrics_configuration_with_http_info
@@ -853,6 +988,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsAPI#estimate_metrics_output_series\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a derived metric.
+    #
+    # @see #get_derived_metric_with_http_info
+    def get_derived_metric(metric_name, opts = {})
+      data, _status_code, _headers = get_derived_metric_with_http_info(metric_name, opts)
+      data
+    end
+
+    # Get a derived metric.
+    #
+    # Get the definition of a derived metric by name.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DerivedMetricResponse, Integer, Hash)>] DerivedMetricResponse data, response status code and response headers
+    def get_derived_metric_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.get_derived_metric ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.get_derived_metric"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/derived-metrics/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DerivedMetricResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_derived_metric,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#get_derived_metric\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2066,6 +2266,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsAPI#submit_metrics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a derived metric.
+    #
+    # @see #update_derived_metric_with_http_info
+    def update_derived_metric(metric_name, body, opts = {})
+      data, _status_code, _headers = update_derived_metric_with_http_info(metric_name, body, opts)
+      data
+    end
+
+    # Update a derived metric.
+    #
+    # Update the definition of an existing derived metric. The `id` in the request body
+    # must match the `metric_name` path parameter. Requires the `Manage Tags for Metrics` permission.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param body [DerivedMetricCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DerivedMetricResponse, Integer, Hash)>] DerivedMetricResponse data, response status code and response headers
+    def update_derived_metric_with_http_info(metric_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.update_derived_metric ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.update_derived_metric"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.update_derived_metric"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/derived-metrics/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DerivedMetricResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_derived_metric,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#update_derived_metric\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
