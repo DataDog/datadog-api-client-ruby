@@ -33,7 +33,9 @@ module DatadogAPIClient::V2
           :'FlutterSourcemapData',
           :'ELFSourcemapData',
           :'NDKSourcemapData',
-          :'IL2CPPSourcemapData'
+          :'IL2CPPSourcemapData',
+          :'WASMSourcemapData',
+          :'PortablePdbSourcemapData'
         ]
       end
       # Builds the object

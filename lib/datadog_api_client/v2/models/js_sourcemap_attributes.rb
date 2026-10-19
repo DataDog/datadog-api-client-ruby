@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     # The file name of the minified JavaScript file.
     attr_accessor :file_name
 
-    # The type of source map.
+    # The type of source map. Always `js` for JavaScript source maps.
     attr_reader :mapkind
 
     # The service name associated with the source map.
@@ -94,7 +94,7 @@ module DatadogAPIClient::V2
         :'debug_id' => :'String',
         :'domain' => :'String',
         :'file_name' => :'String',
-        :'mapkind' => :'String',
+        :'mapkind' => :'JSSourcemapMapKind',
         :'service' => :'String',
         :'size' => :'Integer',
         :'variant' => :'String',

@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # The debug identifier (UUID format).
     attr_accessor :debug_id
 
-    # The type of source map.
+    # The type of source map. Always `react` for React Native source maps.
     attr_reader :mapkind
 
     # The platform the source map was built for (e.g., `ios`, `android`).
@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
         :'bundle_version' => :'String',
         :'created_at' => :'Time',
         :'debug_id' => :'String',
-        :'mapkind' => :'String',
+        :'mapkind' => :'ReactNativeSourcemapMapKind',
         :'platform' => :'String',
         :'service' => :'String',
         :'size' => :'Integer',

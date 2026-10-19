@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The timestamp when the source map was created.
     attr_reader :created_at
 
-    # The type of source map.
+    # The type of source map. Always `ios` for iOS dSYM source maps.
     attr_reader :mapkind
 
     # The size of the dSYM file in bytes.
@@ -51,7 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_at' => :'Time',
-        :'mapkind' => :'String',
+        :'mapkind' => :'IOSSourcemapMapKind',
         :'size' => :'Integer',
         :'uuids' => :'String'
       }

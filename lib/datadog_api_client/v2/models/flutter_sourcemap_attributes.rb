@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The timestamp when the symbol file was created.
     attr_reader :created_at
 
-    # The type of source map.
+    # The type of source map. Always `flutter` for Flutter source maps.
     attr_reader :mapkind
 
     # The service name associated with the symbol file.
@@ -64,7 +64,7 @@ module DatadogAPIClient::V2
       {
         :'arch' => :'String',
         :'created_at' => :'Time',
-        :'mapkind' => :'String',
+        :'mapkind' => :'FlutterSourcemapMapKind',
         :'service' => :'String',
         :'size' => :'Integer',
         :'variant' => :'String',

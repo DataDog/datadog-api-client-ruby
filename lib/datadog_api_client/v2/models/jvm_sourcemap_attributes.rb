@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The timestamp when the mapping file was created.
     attr_reader :created_at
 
-    # The type of source map.
+    # The type of source map. Always `jvm` for JVM source maps.
     attr_reader :mapkind
 
     # The service name associated with the mapping file.
@@ -68,7 +68,7 @@ module DatadogAPIClient::V2
       {
         :'build_id' => :'String',
         :'created_at' => :'Time',
-        :'mapkind' => :'String',
+        :'mapkind' => :'JVMSourcemapMapKind',
         :'service' => :'String',
         :'size' => :'Integer',
         :'variant' => :'String',
