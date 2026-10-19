@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes for appending records to an Agent Observability dataset.
     attr_reader :attributes
 
-    # Resource type of Agent Observability dataset records.
+    # Resource type of an Agent Observability dataset.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'LLMObsDatasetRecordsDataAttributesRequest',
-        :'type' => :'LLMObsRecordType'
+        :'type' => :'LLMObsDatasetType'
       }
     end
 

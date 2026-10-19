@@ -44,7 +44,7 @@ body = DatadogAPIClient::V2::LLMObsExperimentEventsRequest.new({
         }),
       ],
     }),
-    type: DatadogAPIClient::V2::LLMObsEventType::EVENTS,
+    type: DatadogAPIClient::V2::LLMObsExperimentType::EXPERIMENTS,
   }),
 })
 p api_instance.create_llm_obs_experiment_events("experiment_id", body)
