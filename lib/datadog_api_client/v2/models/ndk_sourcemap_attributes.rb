@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # The NDK library file name.
     attr_accessor :file_name
 
-    # The type of source map.
+    # The type of source map. Always `ndk` for Android NDK source maps.
     attr_reader :mapkind
 
     # The size of the symbol file in bytes.
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
         :'build_id' => :'String',
         :'created_at' => :'Time',
         :'file_name' => :'String',
-        :'mapkind' => :'String',
+        :'mapkind' => :'NDKSourcemapMapKind',
         :'size' => :'Integer'
       }
     end

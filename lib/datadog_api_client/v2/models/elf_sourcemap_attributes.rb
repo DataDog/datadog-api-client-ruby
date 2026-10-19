@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # The Go build ID (UUID format).
     attr_accessor :go_build_id
 
-    # The type of source map.
+    # The type of source map. Always `elf` for ELF source maps.
     attr_reader :mapkind
 
     # The origin of the ELF file.
@@ -84,7 +84,7 @@ module DatadogAPIClient::V2
         :'file_name' => :'String',
         :'gnu_build_id' => :'String',
         :'go_build_id' => :'String',
-        :'mapkind' => :'String',
+        :'mapkind' => :'ELFSourcemapMapKind',
         :'origin' => :'String',
         :'origin_version' => :'String',
         :'size' => :'Integer',

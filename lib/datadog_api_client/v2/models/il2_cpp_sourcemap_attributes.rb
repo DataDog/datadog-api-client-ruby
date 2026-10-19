@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The timestamp when the mapping file was created.
     attr_reader :created_at
 
-    # The type of source map.
+    # The type of source map. Always `il2cpp` for IL2CPP source maps.
     attr_reader :mapkind
 
     # The size of the mapping file in bytes.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
       {
         :'build_id' => :'String',
         :'created_at' => :'Time',
-        :'mapkind' => :'String',
+        :'mapkind' => :'IL2CPPSourcemapMapKind',
         :'size' => :'Integer'
       }
     end
