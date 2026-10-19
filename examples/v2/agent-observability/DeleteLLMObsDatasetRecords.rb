@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::LLMObsDeleteDatasetRecordsRequest.new({
         "rec-7c3f5a1b-9e2d-4f8a-b1c6-3d7e9f0a2b4c",
       ],
     }),
-    type: DatadogAPIClient::V2::LLMObsRecordType::RECORDS,
+    type: DatadogAPIClient::V2::LLMObsDatasetType::DATASETS,
   }),
 })
 api_instance.delete_llm_obs_dataset_records("project_id", "dataset_id", body)

@@ -18,7 +18,7 @@ body = DatadogAPIClient::V2::LLMObsDatasetRecordsUpdateRequest.new({
         }),
       ],
     }),
-    type: DatadogAPIClient::V2::LLMObsRecordType::RECORDS,
+    type: DatadogAPIClient::V2::LLMObsDatasetType::DATASETS,
   }),
 })
 p api_instance.update_llm_obs_dataset_records("project_id", "dataset_id", body)

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes for pushing experiment events including spans and metrics.
     attr_reader :attributes
 
-    # Resource type for Agent Observability experiment events.
+    # Resource type of an Agent Observability experiment.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'LLMObsExperimentEventsDataAttributesRequest',
-        :'type' => :'LLMObsEventType'
+        :'type' => :'LLMObsExperimentType'
       }
     end
 
