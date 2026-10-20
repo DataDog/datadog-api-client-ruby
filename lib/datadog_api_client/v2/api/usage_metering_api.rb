@@ -1362,6 +1362,649 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Cancel your temporary grant request.
+    #
+    # @see #public_cancel_temporary_grant_request_with_http_info
+    def public_cancel_temporary_grant_request(request_id, opts = {})
+      public_cancel_temporary_grant_request_with_http_info(request_id, opts)
+      nil
+    end
+
+    # Cancel your temporary grant request.
+    #
+    # Cancel an owned pending request. Retains request history and does not create or revoke a grant. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param request_id [UUID] The temporary grant request UUID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def public_cancel_temporary_grant_request_with_http_info(request_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_cancel_temporary_grant_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_cancel_temporary_grant_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_cancel_temporary_grant_request"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_cancel_temporary_grant_request ...'
+      end
+      # verify the required parameter 'request_id' is set
+      if @api_client.config.client_side_validation && request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'request_id' when calling UsageMeteringAPI.public_cancel_temporary_grant_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/temporary-grant-requests/{request_id}'.sub('{request_id}', CGI.escape(request_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_cancel_temporary_grant_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_cancel_temporary_grant_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a temporary grant request.
+    #
+    # @see #public_create_temporary_grant_request_with_http_info
+    def public_create_temporary_grant_request(body, opts = {})
+      data, _status_code, _headers = public_create_temporary_grant_request_with_http_info(body, opts)
+      data
+    end
+
+    # Create a temporary grant request.
+    #
+    # Submit a request for the authenticated human user with a target monthly limit in positive whole AI credits, justification, and optional expiry. Fractional credits are not accepted. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param body [TemporaryGrantRequestCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TemporaryGrantRequestResponse, Integer, Hash)>] TemporaryGrantRequestResponse data, response status code and response headers
+    def public_create_temporary_grant_request_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_create_temporary_grant_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_create_temporary_grant_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_create_temporary_grant_request"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_create_temporary_grant_request ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UsageMeteringAPI.public_create_temporary_grant_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/temporary-grant-requests'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemporaryGrantRequestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_create_temporary_grant_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_create_temporary_grant_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Decide a temporary grant request.
+    #
+    # @see #public_decide_temporary_grant_request_with_http_info
+    def public_decide_temporary_grant_request(request_id, body, opts = {})
+      data, _status_code, _headers = public_decide_temporary_grant_request_with_http_info(request_id, body, opts)
+      data
+    end
+
+    # Decide a temporary grant request.
+    #
+    # Approve or deny the immutable submitted terms. Approval atomically writes the grant, audit, and request decision. An expired request cannot be approved. Requires Billing Edit. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param request_id [UUID] The temporary grant request UUID.
+    # @param body [TemporaryGrantRequestDecisionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TemporaryGrantRequestResponse, Integer, Hash)>] TemporaryGrantRequestResponse data, response status code and response headers
+    def public_decide_temporary_grant_request_with_http_info(request_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_decide_temporary_grant_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_decide_temporary_grant_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_decide_temporary_grant_request"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_decide_temporary_grant_request ...'
+      end
+      # verify the required parameter 'request_id' is set
+      if @api_client.config.client_side_validation && request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'request_id' when calling UsageMeteringAPI.public_decide_temporary_grant_request"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UsageMeteringAPI.public_decide_temporary_grant_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/admin/temporary-grant-requests/{request_id}/decision'.sub('{request_id}', CGI.escape(request_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemporaryGrantRequestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_decide_temporary_grant_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_decide_temporary_grant_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get your temporary grant request.
+    #
+    # @see #public_get_my_temporary_grant_request_with_http_info
+    def public_get_my_temporary_grant_request(request_id, opts = {})
+      data, _status_code, _headers = public_get_my_temporary_grant_request_with_http_info(request_id, opts)
+      data
+    end
+
+    # Get your temporary grant request.
+    #
+    # Read an owned request, its decision, and its linked grant state. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param request_id [UUID] The temporary grant request UUID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TemporaryGrantRequestResponse, Integer, Hash)>] TemporaryGrantRequestResponse data, response status code and response headers
+    def public_get_my_temporary_grant_request_with_http_info(request_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_get_my_temporary_grant_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_get_my_temporary_grant_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_get_my_temporary_grant_request"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_get_my_temporary_grant_request ...'
+      end
+      # verify the required parameter 'request_id' is set
+      if @api_client.config.client_side_validation && request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'request_id' when calling UsageMeteringAPI.public_get_my_temporary_grant_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/temporary-grant-requests/{request_id}'.sub('{request_id}', CGI.escape(request_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemporaryGrantRequestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_get_my_temporary_grant_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_get_my_temporary_grant_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an organization temporary grant request.
+    #
+    # @see #public_get_temporary_grant_request_with_http_info
+    def public_get_temporary_grant_request(request_id, opts = {})
+      data, _status_code, _headers = public_get_temporary_grant_request_with_http_info(request_id, opts)
+      data
+    end
+
+    # Get an organization temporary grant request.
+    #
+    # Read an organization request, justification, decision, and linked grant state. Requires Billing Edit. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param request_id [UUID] The temporary grant request UUID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TemporaryGrantRequestResponse, Integer, Hash)>] TemporaryGrantRequestResponse data, response status code and response headers
+    def public_get_temporary_grant_request_with_http_info(request_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_get_temporary_grant_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_get_temporary_grant_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_get_temporary_grant_request"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_get_temporary_grant_request ...'
+      end
+      # verify the required parameter 'request_id' is set
+      if @api_client.config.client_side_validation && request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'request_id' when calling UsageMeteringAPI.public_get_temporary_grant_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/admin/temporary-grant-requests/{request_id}'.sub('{request_id}', CGI.escape(request_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemporaryGrantRequestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_get_temporary_grant_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_get_temporary_grant_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List your temporary grant requests.
+    #
+    # @see #public_list_my_temporary_grant_requests_with_http_info
+    def public_list_my_temporary_grant_requests(opts = {})
+      data, _status_code, _headers = public_list_my_temporary_grant_requests_with_http_info(opts)
+      data
+    end
+
+    # List your temporary grant requests.
+    #
+    # List the authenticated user's own requests, including decided requests. Other users' requests are never included. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [TemporaryGrantRequestStatus] :filter_status Optional status; defaults to all statuses.
+    # @option opts [Integer] :page_limit Page size, from 1 to 100.
+    # @option opts [UUID] :page_cursor UUID cursor from meta.page.next_cursor.
+    # @return [Array<(TemporaryGrantRequestListResponse, Integer, Hash)>] TemporaryGrantRequestListResponse data, response status code and response headers
+    def public_list_my_temporary_grant_requests_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_list_my_temporary_grant_requests".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_list_my_temporary_grant_requests")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_list_my_temporary_grant_requests"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_list_my_temporary_grant_requests ...'
+      end
+      allowable_values = ['pending', 'approved', 'denied', 'cancelled']
+      if @api_client.config.client_side_validation && opts[:'filter_status'] && !allowable_values.include?(opts[:'filter_status'])
+        fail ArgumentError, "invalid value for \"filter_status\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.public_list_my_temporary_grant_requests, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.public_list_my_temporary_grant_requests, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/temporary-grant-requests'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemporaryGrantRequestListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_list_my_temporary_grant_requests,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_list_my_temporary_grant_requests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List your temporary grant requests.
+    #
+    # Provide a paginated version of {#public_list_my_temporary_grant_requests}, returning all items.
+    #
+    # To use it you need to use a block: public_list_my_temporary_grant_requests_with_pagination { |item| p item }
+    #
+    # @yield [TemporaryGrantRequestData] Paginated items
+    def public_list_my_temporary_grant_requests_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = public_list_my_temporary_grant_requests(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", UUID, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+        end
+    end
+
+    # List organization temporary grant requests.
+    #
+    # @see #public_list_temporary_grant_requests_with_http_info
+    def public_list_temporary_grant_requests(opts = {})
+      data, _status_code, _headers = public_list_temporary_grant_requests_with_http_info(opts)
+      data
+    end
+
+    # List organization temporary grant requests.
+    #
+    # List all request statuses within the authenticated organization. Filter by pending status for the review queue. Requires Billing Edit, including for reads. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [TemporaryGrantRequestStatus] :filter_status Optional status; defaults to all statuses.
+    # @option opts [Integer] :page_limit Page size, from 1 to 100.
+    # @option opts [UUID] :page_cursor UUID cursor from meta.page.next_cursor.
+    # @option opts [UUID] :filter_requested_by_user_id Filter by requester UUID within the authenticated organization.
+    # @return [Array<(TemporaryGrantRequestListResponse, Integer, Hash)>] TemporaryGrantRequestListResponse data, response status code and response headers
+    def public_list_temporary_grant_requests_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_list_temporary_grant_requests".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_list_temporary_grant_requests")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_list_temporary_grant_requests"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_list_temporary_grant_requests ...'
+      end
+      allowable_values = ['pending', 'approved', 'denied', 'cancelled']
+      if @api_client.config.client_side_validation && opts[:'filter_status'] && !allowable_values.include?(opts[:'filter_status'])
+        fail ArgumentError, "invalid value for \"filter_status\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.public_list_temporary_grant_requests, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.public_list_temporary_grant_requests, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/admin/temporary-grant-requests'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'filter[requested_by_user_id]'] = opts[:'filter_requested_by_user_id'] if !opts[:'filter_requested_by_user_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemporaryGrantRequestListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_list_temporary_grant_requests,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_list_temporary_grant_requests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List organization temporary grant requests.
+    #
+    # Provide a paginated version of {#public_list_temporary_grant_requests}, returning all items.
+    #
+    # To use it you need to use a block: public_list_temporary_grant_requests_with_pagination { |item| p item }
+    #
+    # @yield [TemporaryGrantRequestData] Paginated items
+    def public_list_temporary_grant_requests_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = public_list_temporary_grant_requests(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", UUID, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+        end
+    end
+
+    # Revoke a requested temporary grant.
+    #
+    # @see #public_revoke_requested_temporary_grant_with_http_info
+    def public_revoke_requested_temporary_grant(request_id, opts = {})
+      public_revoke_requested_temporary_grant_with_http_info(request_id, opts)
+      nil
+    end
+
+    # Revoke a requested temporary grant.
+    #
+    # Revoke only the grant still associated with this approved request. Request and audit history remain. A stale request cannot revoke a replacement grant. Requires Billing Edit. Requires an authenticated human user and the temporary-grants feature enabled for the organization. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+    #
+    # @param request_id [UUID] The temporary grant request UUID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def public_revoke_requested_temporary_grant_with_http_info(request_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.public_revoke_requested_temporary_grant".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.public_revoke_requested_temporary_grant")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.public_revoke_requested_temporary_grant"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.public_revoke_requested_temporary_grant ...'
+      end
+      # verify the required parameter 'request_id' is set
+      if @api_client.config.client_side_validation && request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'request_id' when calling UsageMeteringAPI.public_revoke_requested_temporary_grant"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/admin/temporary-grant-requests/{request_id}/grant'.sub('{request_id}', CGI.escape(request_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :public_revoke_requested_temporary_grant,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#public_revoke_requested_temporary_grant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a usage quota.
     #
     # @see #update_quota_with_http_info
