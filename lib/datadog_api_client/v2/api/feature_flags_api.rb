@@ -1608,6 +1608,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Patch a saved filter.
+    #
+    # @see #update_saved_filter_attributes_with_http_info
+    def update_saved_filter_attributes(saved_filter_id, body, opts = {})
+      data, _status_code, _headers = update_saved_filter_attributes_with_http_info(saved_filter_id, body, opts)
+      data
+    end
+
+    # Patch a saved filter.
+    #
+    # Partially updates a saved filter. Supports both `LIST` and `RULES` filters.
+    # Supply at least one of `name`, `description`, or `targeting_rules`. Omitted or null fields
+    # are preserved. Supplying `targeting_rules` replaces the entire collection and propagates
+    # changes to every feature flag that references the saved filter.
+    # Metadata-only updates do not require edit permission or approval on those feature flags.
+    # Rule updates require edit permission on all consumer flags and are rejected when approval
+    # is required, unless the caller has the `feature_flag_approvals_override` permission.
+    # The optional `last_updated_at` field detects stale updates. It does not set the update time.
+    #
+    # @param saved_filter_id [UUID] The ID of the saved filter.
+    # @param body [PatchSavedFilterRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SavedFilterResponse, Integer, Hash)>] SavedFilterResponse data, response status code and response headers
+    def update_saved_filter_attributes_with_http_info(saved_filter_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.update_saved_filter_attributes ...'
+      end
+      # verify the required parameter 'saved_filter_id' is set
+      if @api_client.config.client_side_validation && saved_filter_id.nil?
+        fail ArgumentError, "Missing the required parameter 'saved_filter_id' when calling FeatureFlagsAPI.update_saved_filter_attributes"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.update_saved_filter_attributes"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/saved-filters/{saved_filter_id}'.sub('{saved_filter_id}', CGI.escape(saved_filter_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SavedFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_saved_filter_attributes,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#update_saved_filter_attributes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a variant.
     #
     # @see #update_variant_for_feature_flag_with_http_info
