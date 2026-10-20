@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<DemSearchInferredJourneysResponseDataItem>'
+        :'data' => :'Array<DemInferredJourneyItem>'
       }
     end
 

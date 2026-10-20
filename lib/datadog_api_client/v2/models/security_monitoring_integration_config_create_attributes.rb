@@ -21,6 +21,7 @@ module DatadogAPIClient::V2
   module SecurityMonitoringIntegrationConfigCreateAttributes
     class << self
       include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
@@ -32,18 +33,33 @@ module DatadogAPIClient::V2
           :'SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes'
         ]
       end
-      # Discriminator's property name (OpenAPI v3)
-      def openapi_discriminator_name
-        :'integration_type'
-      end
-      
       # Builds the object
       # @param data [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
       def build(data)
-        discriminator_value = data[openapi_discriminator_name]
-        return nil unless discriminator_value
-      
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
+        end
+
+        if openapi_one_of.include?(:AnyType)
+          data
+        else
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
+        end
       end
     end
   end

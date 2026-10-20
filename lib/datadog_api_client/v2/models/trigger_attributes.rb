@@ -18,108 +18,46 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The trigger definition for starting an investigation.
-  class TriggerAttributes
-    include BaseGenericModel
+  module TriggerAttributes
+    class << self
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
-    # Attributes for a general investigation, not tied to a specific monitor alert.
-    attr_accessor :general_investigation
-
-    # Attributes for a monitor alert trigger.
-    attr_accessor :monitor_alert_trigger
-
-    # The type of trigger for the investigation.
-    attr_accessor :type
-
-    attr_accessor :additional_properties
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'general_investigation' => :'general_investigation',
-        :'monitor_alert_trigger' => :'monitor_alert_trigger',
-        :'type' => :'type'
-      }
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'general_investigation' => :'GeneralInvestigationAttributes',
-        :'monitor_alert_trigger' => :'MonitorAlertTriggerAttributes',
-        :'type' => :'TriggerType'
-      }
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TriggerAttributes` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'MonitorAlertTrigger',
+          :'GeneralInvestigationTrigger'
+        ]
       end
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
+        end
 
-      self.additional_properties = {}
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
+        if openapi_one_of.include?(:AnyType)
+          data
         else
-          h[k.to_sym] = v
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
         end
-      }
-
-      if attributes.key?(:'general_investigation')
-        self.general_investigation = attributes[:'general_investigation']
       end
-
-      if attributes.key?(:'monitor_alert_trigger')
-        self.monitor_alert_trigger = attributes[:'monitor_alert_trigger']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          general_investigation == o.general_investigation &&
-          monitor_alert_trigger == o.monitor_alert_trigger &&
-          type == o.type &&
-          additional_properties == o.additional_properties
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [general_investigation, monitor_alert_trigger, type, additional_properties].hash
     end
   end
 end
