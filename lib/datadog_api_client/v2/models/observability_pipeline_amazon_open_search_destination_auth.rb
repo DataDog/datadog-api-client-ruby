@@ -19,6 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Authentication settings for the Amazon OpenSearch destination.
   # The `strategy` field determines whether basic or AWS-based authentication is used.
+  # When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
   class ObservabilityPipelineAmazonOpenSearchDestinationAuth
     include BaseGenericModel
 
@@ -31,11 +32,17 @@ module DatadogAPIClient::V2
     # External ID for the assumed role (used with `aws` strategy).
     attr_accessor :external_id
 
+    # Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+    attr_accessor :password_key
+
     # Session name for the assumed role (used with `aws` strategy).
     attr_accessor :session_name
 
     # The authentication strategy to use.
     attr_reader :strategy
+
+    # Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+    attr_accessor :username_key
 
     attr_accessor :additional_properties
 
@@ -46,8 +53,10 @@ module DatadogAPIClient::V2
         :'assume_role' => :'assume_role',
         :'aws_region' => :'aws_region',
         :'external_id' => :'external_id',
+        :'password_key' => :'password_key',
         :'session_name' => :'session_name',
-        :'strategy' => :'strategy'
+        :'strategy' => :'strategy',
+        :'username_key' => :'username_key'
       }
     end
 
@@ -58,8 +67,10 @@ module DatadogAPIClient::V2
         :'assume_role' => :'String',
         :'aws_region' => :'String',
         :'external_id' => :'String',
+        :'password_key' => :'String',
         :'session_name' => :'String',
-        :'strategy' => :'ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy'
+        :'strategy' => :'ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy',
+        :'username_key' => :'String'
       }
     end
 
@@ -93,12 +104,20 @@ module DatadogAPIClient::V2
         self.external_id = attributes[:'external_id']
       end
 
+      if attributes.key?(:'password_key')
+        self.password_key = attributes[:'password_key']
+      end
+
       if attributes.key?(:'session_name')
         self.session_name = attributes[:'session_name']
       end
 
       if attributes.key?(:'strategy')
         self.strategy = attributes[:'strategy']
+      end
+
+      if attributes.key?(:'username_key')
+        self.username_key = attributes[:'username_key']
       end
     end
 
@@ -149,8 +168,10 @@ module DatadogAPIClient::V2
           assume_role == o.assume_role &&
           aws_region == o.aws_region &&
           external_id == o.external_id &&
+          password_key == o.password_key &&
           session_name == o.session_name &&
           strategy == o.strategy &&
+          username_key == o.username_key &&
           additional_properties == o.additional_properties
     end
 
@@ -158,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assume_role, aws_region, external_id, session_name, strategy, additional_properties].hash
+      [assume_role, aws_region, external_id, password_key, session_name, strategy, username_key, additional_properties].hash
     end
   end
 end
