@@ -3875,6 +3875,10 @@ ScenariosModelMappings = {
     "v2.GetSavedFilter" => {
             "saved_filter_id" => "UUID",
     },
+    "v2.UpdateSavedFilterAttributes" => {
+            "saved_filter_id" => "UUID",
+            "body" => "PatchSavedFilterRequest",
+    },
     "v2.GetFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },
