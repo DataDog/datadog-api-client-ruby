@@ -1291,6 +1291,10 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "body" => "ExecutionPolicyUpdateRequest",
     },
+    "v2.ListAgentHealthHostIssues" => {
+            "resource_id" => "String",
+            "agent_type" => "AgentHealthAgentType",
+    },
     "v2.CreateAwsScanOptions" => {
             "body" => "AwsScanOptionsCreateRequest",
     },
