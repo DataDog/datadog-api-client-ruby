@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     TEXT = "text".freeze
     JSON = "json".freeze
     IMAGE = "image".freeze
-    WIDGET = "widget".freeze
+    UNIVIZ = "univiz".freeze
     LLMOBS_TRACE = "llmobs_trace".freeze
     FRONTEND = "frontend".freeze
   end
