@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # UUID of the User or Service Account who provisioned this team membership, or null if provisioned via SAML mapping.
     attr_accessor :provisioned_by_id
 
-    # The user's role within the team
+    # The user's role within the team. A value of `null` represents a regular member.
     attr_accessor :role
 
     attr_accessor :additional_properties

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The user's role within the team
+  # The user's role within the team. A value of `null` represents a regular member.
   class UserTeamRole
     include BaseEnumModel
 
