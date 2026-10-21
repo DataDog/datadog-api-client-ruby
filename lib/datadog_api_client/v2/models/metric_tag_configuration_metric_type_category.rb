@@ -23,5 +23,7 @@ module DatadogAPIClient::V2
 
     NON_DISTRIBUTION = "non_distribution".freeze
     DISTRIBUTION = "distribution".freeze
+    EXPONENTIAL_HISTOGRAM = "exponential_histogram".freeze
+    EXPLICIT_HISTOGRAM = "explicit_histogram".freeze
   end
 end
