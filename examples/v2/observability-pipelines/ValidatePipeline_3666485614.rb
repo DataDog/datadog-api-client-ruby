@@ -1,0 +1,56 @@
+# Validate an observability pipeline with spike protection processor returns "OK" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V2::ObservabilityPipelinesAPI.new
+
+body = DatadogAPIClient::V2::ObservabilityPipelineSpec.new({
+  data: DatadogAPIClient::V2::ObservabilityPipelineSpecData.new({
+    attributes: DatadogAPIClient::V2::ObservabilityPipelineDataAttributes.new({
+      config: DatadogAPIClient::V2::ObservabilityPipelineConfig.new({
+        destinations: [
+          DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestination.new({
+            id: "datadog-logs-destination",
+            inputs: [
+              "my-processor-group",
+            ],
+            type: DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestinationType::DATADOG_LOGS,
+          }),
+        ],
+        processor_groups: [
+          DatadogAPIClient::V2::ObservabilityPipelineConfigProcessorGroup.new({
+            enabled: true,
+            id: "my-processor-group",
+            include: "service:my-service",
+            inputs: [
+              "datadog-agent-source",
+            ],
+            processors: [
+              DatadogAPIClient::V2::ObservabilityPipelineSpikeProtectionProcessor.new({
+                enabled: true,
+                id: "spike-protection-processor",
+                include: "*",
+                type: DatadogAPIClient::V2::ObservabilityPipelineSpikeProtectionProcessorType::SPIKE_PROTECTION,
+                name: "MySpikeProtection",
+                spike_action: DatadogAPIClient::V2::ObservabilityPipelineSpikeProtectionProcessorSpikeAction::DROP,
+                spike_threshold: 5,
+                minimal_threshold: 107374182400,
+              }),
+            ],
+          }),
+        ],
+        sources: [
+          DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource.new({
+            id: "datadog-agent-source",
+            type: DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSourceType::DATADOG_AGENT,
+          }),
+        ],
+      }),
+      name: "Pipeline with Spike Protection",
+    }),
+    type: "pipelines",
+  }),
+})
+p api_instance.validate_pipeline(body)
