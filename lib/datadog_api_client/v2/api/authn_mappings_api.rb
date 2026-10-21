@@ -230,7 +230,7 @@ module DatadogAPIClient::V2
 
     # List all AuthN Mappings.
     #
-    # List all AuthN Mappings in the org.
+    # List all AuthN Mappings in the organization.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
