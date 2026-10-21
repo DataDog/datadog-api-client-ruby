@@ -21,6 +21,10 @@ module DatadogAPIClient::V2
   class ScheduleDataAttributes
     include BaseGenericModel
 
+    # Maximum number of users who can be on call at the same time.
+    # The value is between 1 and the number of layers, and no greater than 10.
+    attr_reader :max_responders
+
     # A short name for the schedule.
     attr_accessor :name
 
@@ -36,6 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'max_responders' => :'max_responders',
         :'name' => :'name',
         :'tags' => :'tags',
         :'time_zone' => :'time_zone'
@@ -46,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'max_responders' => :'Integer',
         :'name' => :'String',
         :'tags' => :'Array<String>',
         :'time_zone' => :'String'
@@ -70,6 +76,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'max_responders')
+        self.max_responders = attributes[:'max_responders']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -83,6 +93,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'time_zone')
         self.time_zone = attributes[:'time_zone']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@max_responders.nil? && @max_responders > 10
+      return false if !@max_responders.nil? && @max_responders < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param max_responders [Object] Object to be assigned
+    # @!visibility private
+    def max_responders=(max_responders)
+      if !max_responders.nil? && max_responders > 10
+        fail ArgumentError, 'invalid value for "max_responders", must be smaller than or equal to 10.'
+      end
+      if !max_responders.nil? && max_responders < 1
+        fail ArgumentError, 'invalid value for "max_responders", must be greater than or equal to 1.'
+      end
+      @max_responders = max_responders
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,6 +143,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          max_responders == o.max_responders &&
           name == o.name &&
           tags == o.tags &&
           time_zone == o.time_zone &&
@@ -121,7 +154,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, tags, time_zone, additional_properties].hash
+      [max_responders, name, tags, time_zone, additional_properties].hash
     end
   end
 end

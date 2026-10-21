@@ -24,6 +24,10 @@ module DatadogAPIClient::V2
     # The layers of On-Call coverage that define rotation intervals and restrictions.
     attr_reader :layers
 
+    # Maximum number of users who can be on call at the same time.
+    # The value must be between 1 and the number of layers, and no greater than 10.
+    attr_reader :max_responders
+
     # A human-readable name for the new schedule.
     attr_reader :name
 
@@ -37,6 +41,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'layers' => :'layers',
+        :'max_responders' => :'max_responders',
         :'name' => :'name',
         :'time_zone' => :'time_zone'
       }
@@ -47,6 +52,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'layers' => :'Array<ScheduleCreateRequestDataAttributesLayersItems>',
+        :'max_responders' => :'Integer',
         :'name' => :'String',
         :'time_zone' => :'String'
       }
@@ -76,6 +82,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'max_responders')
+        self.max_responders = attributes[:'max_responders']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -90,6 +100,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @layers.nil?
+      return false if !@max_responders.nil? && @max_responders > 10
+      return false if !@max_responders.nil? && @max_responders < 1
       return false if @name.nil?
       return false if @time_zone.nil?
       true
@@ -103,6 +115,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "layers", layers cannot be nil.'
       end
       @layers = layers
+    end
+
+    # Custom attribute writer method with validation
+    # @param max_responders [Object] Object to be assigned
+    # @!visibility private
+    def max_responders=(max_responders)
+      if !max_responders.nil? && max_responders > 10
+        fail ArgumentError, 'invalid value for "max_responders", must be smaller than or equal to 10.'
+      end
+      if !max_responders.nil? && max_responders < 1
+        fail ArgumentError, 'invalid value for "max_responders", must be greater than or equal to 1.'
+      end
+      @max_responders = max_responders
     end
 
     # Custom attribute writer method with validation
@@ -152,6 +177,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           layers == o.layers &&
+          max_responders == o.max_responders &&
           name == o.name &&
           time_zone == o.time_zone &&
           additional_properties == o.additional_properties
@@ -161,7 +187,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [layers, name, time_zone, additional_properties].hash
+      [layers, max_responders, name, time_zone, additional_properties].hash
     end
   end
 end
