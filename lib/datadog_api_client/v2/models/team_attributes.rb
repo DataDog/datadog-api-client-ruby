@@ -36,11 +36,17 @@ module DatadogAPIClient::V2
     # The team's identifier
     attr_reader :handle
 
+    # Collection of handles associated with the team.
+    attr_accessor :handles
+
     # Collection of hidden modules for the team
     attr_accessor :hidden_modules
 
     # Whether the team is managed from an external source
     attr_accessor :is_managed
+
+    # Whether any user can join the team without an invitation.
+    attr_accessor :is_open_membership
 
     # The number of links belonging to the team
     attr_reader :link_count
@@ -50,6 +56,10 @@ module DatadogAPIClient::V2
 
     # The name of the team
     attr_reader :name
+
+    # The mechanism that created the team, such as `teams_api`, `teams_terraform`, or `teams_ui`.
+    # Omitted when unknown.
+    attr_accessor :provisioned_by
 
     # A brief summary of the team, derived from the `description`
     attr_reader :summary
@@ -71,11 +81,14 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'description' => :'description',
         :'handle' => :'handle',
+        :'handles' => :'handles',
         :'hidden_modules' => :'hidden_modules',
         :'is_managed' => :'is_managed',
+        :'is_open_membership' => :'is_open_membership',
         :'link_count' => :'link_count',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
+        :'provisioned_by' => :'provisioned_by',
         :'summary' => :'summary',
         :'user_count' => :'user_count',
         :'visible_modules' => :'visible_modules'
@@ -91,11 +104,14 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'description' => :'String',
         :'handle' => :'String',
+        :'handles' => :'Array<String>',
         :'hidden_modules' => :'Array<String>',
         :'is_managed' => :'Boolean',
+        :'is_open_membership' => :'Boolean',
         :'link_count' => :'Integer',
         :'modified_at' => :'Time',
         :'name' => :'String',
+        :'provisioned_by' => :'String',
         :'summary' => :'String',
         :'user_count' => :'Integer',
         :'visible_modules' => :'Array<String>'
@@ -109,6 +125,7 @@ module DatadogAPIClient::V2
         :'avatar',
         :'banner',
         :'description',
+        :'handles',
         :'hidden_modules',
         :'summary',
         :'visible_modules',
@@ -153,6 +170,12 @@ module DatadogAPIClient::V2
         self.handle = attributes[:'handle']
       end
 
+      if attributes.key?(:'handles')
+        if (value = attributes[:'handles']).is_a?(Array)
+          self.handles = value
+        end
+      end
+
       if attributes.key?(:'hidden_modules')
         if (value = attributes[:'hidden_modules']).is_a?(Array)
           self.hidden_modules = value
@@ -161,6 +184,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'is_managed')
         self.is_managed = attributes[:'is_managed']
+      end
+
+      if attributes.key?(:'is_open_membership')
+        self.is_open_membership = attributes[:'is_open_membership']
       end
 
       if attributes.key?(:'link_count')
@@ -173,6 +200,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'provisioned_by')
+        self.provisioned_by = attributes[:'provisioned_by']
       end
 
       if attributes.key?(:'summary')
@@ -291,11 +322,14 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           description == o.description &&
           handle == o.handle &&
+          handles == o.handles &&
           hidden_modules == o.hidden_modules &&
           is_managed == o.is_managed &&
+          is_open_membership == o.is_open_membership &&
           link_count == o.link_count &&
           modified_at == o.modified_at &&
           name == o.name &&
+          provisioned_by == o.provisioned_by &&
           summary == o.summary &&
           user_count == o.user_count &&
           visible_modules == o.visible_modules &&
@@ -306,7 +340,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, created_at, description, handle, hidden_modules, is_managed, link_count, modified_at, name, summary, user_count, visible_modules, additional_properties].hash
+      [avatar, banner, created_at, description, handle, handles, hidden_modules, is_managed, is_open_membership, link_count, modified_at, name, provisioned_by, summary, user_count, visible_modules, additional_properties].hash
     end
   end
 end

@@ -1876,7 +1876,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.list_teams ...'
       end
-      allowable_values = ['name', '-name', 'user_count', '-user_count']
+      allowable_values = ['name', '-name', 'user_count', '-user_count', 'link_count', '-link_count']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

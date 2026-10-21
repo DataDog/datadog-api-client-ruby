@@ -25,5 +25,7 @@ module DatadogAPIClient::V2
     _NAME = "-name".freeze
     USER_COUNT = "user_count".freeze
     _USER_COUNT = "-user_count".freeze
+    LINK_COUNT = "link_count".freeze
+    _LINK_COUNT = "-link_count".freeze
   end
 end
