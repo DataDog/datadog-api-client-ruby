@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The external source platform for team synchronization. Only "github" is supported.
+  # The external source platform for team synchronization.
   class TeamSyncAttributesSource
     include BaseEnumModel
 
     GITHUB = "github".freeze
+    SERVICENOW = "servicenow".freeze
   end
 end
