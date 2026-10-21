@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Enable custom metrics collection. Defaults to `false`.
     attr_accessor :collect_custom_metrics
 
+    # Enable Service Quotas collection. Defaults to `false`.
+    attr_accessor :collect_service_quotas
+
     # Enable AWS metrics collection. Defaults to `true`.
     attr_accessor :enabled
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
         :'automute_enabled' => :'automute_enabled',
         :'collect_cloudwatch_alarms' => :'collect_cloudwatch_alarms',
         :'collect_custom_metrics' => :'collect_custom_metrics',
+        :'collect_service_quotas' => :'collect_service_quotas',
         :'enabled' => :'enabled',
         :'metric_name_filters' => :'metric_name_filters',
         :'namespace_filters' => :'namespace_filters',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
         :'automute_enabled' => :'Boolean',
         :'collect_cloudwatch_alarms' => :'Boolean',
         :'collect_custom_metrics' => :'Boolean',
+        :'collect_service_quotas' => :'Boolean',
         :'enabled' => :'Boolean',
         :'metric_name_filters' => :'Array<AWSMetricNameFilters>',
         :'namespace_filters' => :'AWSNamespaceFilters',
@@ -101,6 +106,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'collect_custom_metrics')
         self.collect_custom_metrics = attributes[:'collect_custom_metrics']
+      end
+
+      if attributes.key?(:'collect_service_quotas')
+        self.collect_service_quotas = attributes[:'collect_service_quotas']
       end
 
       if attributes.key?(:'enabled')
@@ -153,6 +162,7 @@ module DatadogAPIClient::V2
           automute_enabled == o.automute_enabled &&
           collect_cloudwatch_alarms == o.collect_cloudwatch_alarms &&
           collect_custom_metrics == o.collect_custom_metrics &&
+          collect_service_quotas == o.collect_service_quotas &&
           enabled == o.enabled &&
           metric_name_filters == o.metric_name_filters &&
           namespace_filters == o.namespace_filters &&
@@ -164,7 +174,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, enabled, metric_name_filters, namespace_filters, tag_filters, additional_properties].hash
+      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, collect_service_quotas, enabled, metric_name_filters, namespace_filters, tag_filters, additional_properties].hash
     end
   end
 end
