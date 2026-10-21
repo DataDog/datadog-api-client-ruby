@@ -195,16 +195,16 @@ module DatadogAPIClient::V1
     # The error tracking events usage by tag(s).
     attr_accessor :error_tracking_usage
 
-    # The percentage of estimated indexed spans usage by tag(s).
+    # The percentage of estimated indexed spans usage by tag(s) (To be deprecated on February 1st, 2027).
     attr_accessor :estimated_indexed_spans_percentage
 
-    # The estimated indexed spans usage by tag(s).
+    # The estimated indexed spans usage by tag(s) (To be deprecated on February 1st, 2027).
     attr_accessor :estimated_indexed_spans_usage
 
-    # The percentage of estimated ingested spans usage by tag(s).
+    # The percentage of estimated ingested spans usage by tag(s) (To be deprecated on February 1st, 2027).
     attr_accessor :estimated_ingested_spans_percentage
 
-    # The estimated ingested spans usage by tag(s).
+    # The estimated ingested spans usage by tag(s) (To be deprecated on February 1st, 2027).
     attr_accessor :estimated_ingested_spans_usage
 
     # The percentage of Fargate usage by tags.
