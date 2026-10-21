@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     # items and their subtrees.
     attr_accessor :selection_state
 
-    # The external source platform for team synchronization. Only "github" is supported.
+    # The external source platform for team synchronization.
     attr_reader :source
 
     # Whether to sync members from the external team to the Datadog team. Defaults to `false` when not provided.

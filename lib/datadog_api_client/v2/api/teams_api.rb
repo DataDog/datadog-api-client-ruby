@@ -1434,7 +1434,7 @@ module DatadogAPIClient::V2
     # Get team sync configurations.
     #
     # Get all team synchronization configurations.
-    # Returns a list of configurations used for linking or provisioning teams with external sources like GitHub.
+    # Returns a list of configurations used for linking or provisioning teams with external sources like GitHub or ServiceNow.
     #
     # @param filter_source [TeamSyncAttributesSource] Filter by the external source platform for team synchronization
     # @param opts [Hash] the optional parameters
@@ -1449,7 +1449,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'filter_source' when calling TeamsAPI.get_team_sync"
       end
       # verify enum value
-      allowable_values = ['github']
+      allowable_values = ['github', 'servicenow']
       if @api_client.config.client_side_validation && !allowable_values.include?(filter_source)
         fail ArgumentError, "invalid value for \"filter_source\", must be one of #{allowable_values}"
       end
@@ -1680,7 +1680,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Number of items to return per page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [Array<String>] :filter_sources Filter team connections by external source systems.
+    # @option opts [Array<String>] :filter_sources Filter team connections by external source systems, such as `github` or `servicenow`.
     # @option opts [Array<String>] :filter_team_ids Filter team connections by Datadog team IDs.
     # @option opts [Array<String>] :filter_connected_team_ids Filter team connections by connected team IDs from external systems.
     # @option opts [Array<String>] :filter_connection_ids Filter team connections by connection IDs.
@@ -2097,7 +2097,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Link Teams with GitHub Teams.
+    # Link teams with external teams.
     #
     # @see #sync_teams_with_http_info
     def sync_teams(body, opts = {})
@@ -2105,23 +2105,28 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Link Teams with GitHub Teams.
+    # Link teams with external teams.
     #
-    # This endpoint configures synchronization between your existing Datadog teams and GitHub teams by matching their names.
-    # It evaluates all current Datadog teams and compares them against teams in the GitHub organization
-    # connected to your Datadog account, based on Datadog Team handle and GitHub Team slug
-    # (lowercased and kebab-cased).
+    # This endpoint configures synchronization between your existing Datadog teams and teams from
+    # GitHub or ServiceNow by matching team names.
+    # It evaluates all current Datadog teams and compares them against teams in the external source
+    # connected to your Datadog account.
     #
-    # This operation is read-only on the GitHub side, no teams will be modified or created.
+    # This operation is read-only on the external source side, no teams will be modified or created there.
+    # This only creates new teams in Datadog when type is set to `provision`.
     #
     # Optionally, provide `selection_state` to limit synchronization
     # to specific teams or organizations and their subtrees, instead
     # of syncing all teams.
     #
-    # [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
+    # **GitHub**: [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
     # and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
-    # using a normalized exact match; case is ignored and spaces are removed. No modifications are made
-    # to teams in GitHub. This only creates new teams in Datadog when type is set to `provision`.
+    # (lowercased and kebab-cased) using a normalized exact match; case is ignored and spaces are removed.
+    #
+    # **ServiceNow**: [The ServiceNow integration must be configured for your Datadog account](https://docs.datadoghq.com/integrations/servicenow/).
+    # Active assignment groups from every configured ServiceNow instance are synchronized, and the ServiceNow
+    # group hierarchy is preserved. When `sync_membership` is enabled, group members are matched to Datadog
+    # users by email address.
     #
     # @param body [TeamSyncRequest] 
     # @param opts [Hash] the optional parameters

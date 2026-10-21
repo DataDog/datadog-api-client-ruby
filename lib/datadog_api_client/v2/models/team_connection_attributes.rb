@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The entity that manages this team connection.
     attr_accessor :managed_by
 
-    # The name of the external source.
+    # The name of the external source, such as `github` or `servicenow`.
     attr_accessor :source
 
     attr_accessor :additional_properties

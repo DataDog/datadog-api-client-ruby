@@ -22,5 +22,6 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     GITHUB_TEAM = "github_team".freeze
+    SERVICENOW_TEAM = "servicenow_team".freeze
   end
 end

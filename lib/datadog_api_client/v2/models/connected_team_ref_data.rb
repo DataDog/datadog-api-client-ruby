@@ -22,6 +22,8 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The connected team ID as it is referenced throughout the Datadog ecosystem.
+    # For GitHub teams, this is `@<organization>/<team-slug>`.
+    # For ServiceNow groups, this is `<instance_name>/<sys_id>`.
     attr_reader :id
 
     # External team resource type.
