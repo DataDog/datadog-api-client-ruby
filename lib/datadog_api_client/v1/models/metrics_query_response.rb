@@ -39,14 +39,25 @@ module DatadogAPIClient::V1
     # Type of response.
     attr_accessor :res_type
 
+    # Version of the response format.
+    attr_accessor :resp_version
+
     # List of timeseries queried.
     attr_accessor :series
 
     # Status of the query.
     attr_accessor :status
 
+    # Legacy field, always returned as an empty list. Timestamps are returned
+    # in the `pointlist` of each entry of `series`.
+    attr_accessor :times
+
     # End of requested time window, milliseconds since Unix epoch.
     attr_accessor :to_date
+
+    # Legacy field, always returned as an empty list. Timeseries values are
+    # returned in the `pointlist` of each entry of `series`.
+    attr_accessor :values
 
     attr_accessor :additional_properties
 
@@ -60,9 +71,12 @@ module DatadogAPIClient::V1
         :'message' => :'message',
         :'query' => :'query',
         :'res_type' => :'res_type',
+        :'resp_version' => :'resp_version',
         :'series' => :'series',
         :'status' => :'status',
-        :'to_date' => :'to_date'
+        :'times' => :'times',
+        :'to_date' => :'to_date',
+        :'values' => :'values'
       }
     end
 
@@ -76,9 +90,12 @@ module DatadogAPIClient::V1
         :'message' => :'String',
         :'query' => :'String',
         :'res_type' => :'String',
+        :'resp_version' => :'Integer',
         :'series' => :'Array<MetricsQueryMetadata>',
         :'status' => :'String',
-        :'to_date' => :'Integer'
+        :'times' => :'Array<Object>',
+        :'to_date' => :'Integer',
+        :'values' => :'Array<Object>'
       }
     end
 
@@ -126,6 +143,10 @@ module DatadogAPIClient::V1
         self.res_type = attributes[:'res_type']
       end
 
+      if attributes.key?(:'resp_version')
+        self.resp_version = attributes[:'resp_version']
+      end
+
       if attributes.key?(:'series')
         if (value = attributes[:'series']).is_a?(Array)
           self.series = value
@@ -136,8 +157,20 @@ module DatadogAPIClient::V1
         self.status = attributes[:'status']
       end
 
+      if attributes.key?(:'times')
+        if (value = attributes[:'times']).is_a?(Array)
+          self.times = value
+        end
+      end
+
       if attributes.key?(:'to_date')
         self.to_date = attributes[:'to_date']
+      end
+
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
+        end
       end
     end
 
@@ -173,9 +206,12 @@ module DatadogAPIClient::V1
           message == o.message &&
           query == o.query &&
           res_type == o.res_type &&
+          resp_version == o.resp_version &&
           series == o.series &&
           status == o.status &&
+          times == o.times &&
           to_date == o.to_date &&
+          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error, from_date, group_by, message, query, res_type, series, status, to_date, additional_properties].hash
+      [error, from_date, group_by, message, query, res_type, resp_version, series, status, times, to_date, values, additional_properties].hash
     end
   end
 end
