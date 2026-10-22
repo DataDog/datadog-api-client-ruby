@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 500. Defaults to 50.
     # @option opts [Integer] :page_number Specific page number to return. Defaults to 0.
-    # @option opts [String] :sort The field to sort the devices by. Defaults to `name`.
+    # @option opts [String] :sort The field to sort devices by. Defaults to `name`. Prefix the field with `-` to sort in descending order, for example, `-name`.
     # @option opts [String] :filter_tag Filter devices by tag.
     # @return [Array<(ListDevicesResponse, Integer, Hash)>] ListDevicesResponse data, response status code and response headers
     def list_devices_with_http_info(opts = {})
