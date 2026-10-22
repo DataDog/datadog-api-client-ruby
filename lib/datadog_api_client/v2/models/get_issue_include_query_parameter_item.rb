@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     ASSIGNEE = "assignee".freeze
     CASE = "case".freeze
     TEAM_OWNERS = "team_owners".freeze
+    SAMPLES = "samples".freeze
   end
 end
