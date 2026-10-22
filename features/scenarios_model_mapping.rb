@@ -5315,6 +5315,17 @@ ScenariosModelMappings = {
             "pipeline_id" => "String",
             "body" => "ObservabilityPipeline",
     },
+    "v2.ListOnCallEscalationPolicies" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_query" => "String",
+            "filter_team_id" => "String",
+            "filter_user_id" => "String",
+            "filter_schedule_id" => "String",
+            "filter_tags" => "String",
+            "filter_tags_any" => "String",
+            "include" => "String",
+    },
     "v2.CreateOnCallEscalationPolicy" => {
             "include" => "String",
             "body" => "EscalationPolicyCreateRequest",

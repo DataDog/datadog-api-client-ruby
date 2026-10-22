@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class EscalationPolicyUserAttributes
     include BaseGenericModel
 
+    # The user's on-call color, as a hex code (for example, `#FF0000`). Included only when `user.color` is requested in the `include` parameter.
+    attr_accessor :color
+
     # The user's email address.
     attr_accessor :email
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'color' => :'color',
         :'email' => :'email',
         :'name' => :'name',
         :'status' => :'status'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'color' => :'String',
         :'email' => :'String',
         :'name' => :'String',
         :'status' => :'UserAttributesStatus'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'color')
+        self.color = attributes[:'color']
+      end
 
       if attributes.key?(:'email')
         self.email = attributes[:'email']
@@ -109,6 +118,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          color == o.color &&
           email == o.email &&
           name == o.name &&
           status == o.status &&
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [email, name, status, additional_properties].hash
+      [color, email, name, status, additional_properties].hash
     end
   end
 end

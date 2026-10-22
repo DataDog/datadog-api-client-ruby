@@ -1272,6 +1272,109 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List On-Call escalation policies.
+    #
+    # @see #list_on_call_escalation_policies_with_http_info
+    def list_on_call_escalation_policies(opts = {})
+      data, _status_code, _headers = list_on_call_escalation_policies_with_http_info(opts)
+      data
+    end
+
+    # List On-Call escalation policies.
+    #
+    # Retrieve a paginated list of On-Call escalation policies, sorted by name.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Number of escalation policies to return per page. The maximum allowed value is 50.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :filter_query Search query to filter escalation policies. Supports free-text search on the policy name (case-insensitive) and structured filters on `team.id` and `tags`. When set, `filter[team_id]`, `filter[user_id]`, and `filter[schedule_id]` are ignored. Can't be combined with `filter[tags]` or `filter[tags_any]`.
+    # @option opts [String] :filter_team_id Comma-separated list of team IDs. Returns escalation policies that belong to any of these teams or have a step targeting any of them.
+    # @option opts [String] :filter_user_id Comma-separated list of user IDs. Returns escalation policies with a step targeting any of these users.
+    # @option opts [String] :filter_schedule_id Comma-separated list of schedule IDs. Returns escalation policies with a step targeting any of these schedules.
+    # @option opts [String] :filter_tags Comma-separated list of `key:value` tags. Returns escalation policies that have all of these tags.
+    # @option opts [String] :filter_tags_any Comma-separated list of `key:value` tags. Returns escalation policies that have at least one of these tags.
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`, `steps.targets.schedule`, `user.color`. `user.color` populates the `color` attribute of users included through `steps.targets`.
+    # @return [Array<(EscalationPolicies, Integer, Hash)>] EscalationPolicies data, response status code and response headers
+    def list_on_call_escalation_policies_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_on_call_escalation_policies ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 50
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling OnCallAPI.list_on_call_escalation_policies, must be smaller than or equal to 50.'
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/escalation-policies'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'filter[team_id]'] = opts[:'filter_team_id'] if !opts[:'filter_team_id'].nil?
+      query_params[:'filter[user_id]'] = opts[:'filter_user_id'] if !opts[:'filter_user_id'].nil?
+      query_params[:'filter[schedule_id]'] = opts[:'filter_schedule_id'] if !opts[:'filter_schedule_id'].nil?
+      query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
+      query_params[:'filter[tags_any]'] = opts[:'filter_tags_any'] if !opts[:'filter_tags_any'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EscalationPolicies'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_on_call_escalation_policies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_on_call_escalation_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List On-Call escalation policies.
+    #
+    # Provide a paginated version of {#list_on_call_escalation_policies}, returning all items.
+    #
+    # To use it you need to use a block: list_on_call_escalation_policies_with_pagination { |item| p item }
+    #
+    # @yield [EscalationPolicyListItem] Paginated items
+    def list_on_call_escalation_policies_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 20)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_on_call_escalation_policies(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # List On-Call schedules.
     #
     # @see #list_on_call_schedules_with_http_info
