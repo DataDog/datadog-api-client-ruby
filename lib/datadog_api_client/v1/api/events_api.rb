@@ -33,13 +33,18 @@ module DatadogAPIClient::V1
 
     # Post an event.
     #
+    # This endpoint is deprecated and is available only to organizations that have previously used it. Use the V2 endpoint instead.
+    #
     # This endpoint allows you to post events to the stream.
     # Tag them, set priority and event aggregate them with other events.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param body [EventCreateRequest] Event request object
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponse, Integer, Hash)>] EventCreateResponse data, response status code and response headers
     def create_event_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateEvent` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsAPI.create_event ...'
