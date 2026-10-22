@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Aggregation type.
     attr_accessor :aggr
 
+    # Additional read-only attributes returned for the series.
+    attr_accessor :attributes
+
     # Display name of the metric.
     attr_accessor :display_name
 
@@ -70,6 +73,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'aggr' => :'aggr',
+        :'attributes' => :'attributes',
         :'display_name' => :'display_name',
         :'_end' => :'end',
         :'expression' => :'expression',
@@ -90,6 +94,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'aggr' => :'String',
+        :'attributes' => :'Hash<String, Object>',
         :'display_name' => :'String',
         :'_end' => :'Integer',
         :'expression' => :'String',
@@ -133,6 +138,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'aggr')
         self.aggr = attributes[:'aggr']
+      end
+
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
       if attributes.key?(:'display_name')
@@ -239,6 +248,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           aggr == o.aggr &&
+          attributes == o.attributes &&
           display_name == o.display_name &&
           _end == o._end &&
           expression == o.expression &&
@@ -258,7 +268,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggr, display_name, _end, expression, interval, length, metric, pointlist, query_index, scope, start, tag_set, unit, additional_properties].hash
+      [aggr, attributes, display_name, _end, expression, interval, length, metric, pointlist, query_index, scope, start, tag_set, unit, additional_properties].hash
     end
   end
 end

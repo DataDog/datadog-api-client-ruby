@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Unit family, allows for conversion between units of the same family, for scaling.
     attr_accessor :family
 
+    # Unit identifier.
+    attr_accessor :id
+
     # Unit name
     attr_accessor :name
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'family' => :'family',
+        :'id' => :'id',
         :'name' => :'name',
         :'plural' => :'plural',
         :'scale_factor' => :'scale_factor',
@@ -55,6 +59,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'family' => :'String',
+        :'id' => :'Integer',
         :'name' => :'String',
         :'plural' => :'String',
         :'scale_factor' => :'Float',
@@ -82,6 +87,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'family')
         self.family = attributes[:'family']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'name')
@@ -128,6 +137,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           family == o.family &&
+          id == o.id &&
           name == o.name &&
           plural == o.plural &&
           scale_factor == o.scale_factor &&
@@ -139,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [family, name, plural, scale_factor, short_name, additional_properties].hash
+      [family, id, name, plural, scale_factor, short_name, additional_properties].hash
     end
   end
 end
