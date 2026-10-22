@@ -236,14 +236,14 @@ module DatadogAPIClient::V2
     # dry-run mode to preview which source maps would be deleted without
     # performing the actual deletion.
     #
-    # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+    # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`, `wasm`, `portable_pdb`.
     # @param dry_run [Boolean] When set to `true`, returns the source maps that would be deleted without performing the actual deletion. When set to `false`, performs the deletion.
     # @param opts [Hash] the optional parameters
     # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
     # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
-    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
     # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
     # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
     # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
@@ -252,7 +252,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_symbol_source Filter by symbol source values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
-    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, `ndk`, `wasm`, and `portable_pdb`.
     # @option opts [String] :filter_debug_id Filter by debug ID (single value). Supported for `react`.
     # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
     # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
@@ -274,7 +274,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'mapkind' when calling RUMAPI.delete_sourcemaps"
       end
       # verify enum value
-      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
+      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp', 'wasm', 'portable_pdb']
       if @api_client.config.client_side_validation && !allowable_values.include?(mapkind)
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
       end
@@ -856,7 +856,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
-    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
     # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
     # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
     # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
@@ -865,7 +865,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_symbol_source Filter by symbol source values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
-    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, `ndk`, `wasm`, and `portable_pdb`.
     # @option opts [UUID] :filter_debug_id Filter by a single debug ID in UUID format. Supported for `js` and `react`. For `js`, the lookup returns at most one result and does not require service/version filters. For `react`, service/version filters remain required.
     # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
     # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
@@ -886,7 +886,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'search_by'] && !allowable_values.include?(opts[:'search_by'])
         fail ArgumentError, "invalid value for \"search_by\", must be one of #{allowable_values}"
       end
-      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
+      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp', 'wasm', 'portable_pdb']
       if @api_client.config.client_side_validation && opts[:'mapkind'] && !allowable_values.include?(opts[:'mapkind'])
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
       end
@@ -975,14 +975,14 @@ module DatadogAPIClient::V2
     # criteria. Supports dry-run mode to preview which source maps would be
     # restored without performing the actual restoration.
     #
-    # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+    # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`, `wasm`, `portable_pdb`.
     # @param dry_run [Boolean] When set to `true`, returns the source maps that would be restored without performing the actual restoration. When set to `false`, performs the restoration.
     # @param opts [Hash] the optional parameters
     # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
     # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
-    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
     # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
     # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
     # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
@@ -991,7 +991,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_symbol_source Filter by symbol source values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin Filter by origin values (multiple values allowed). Supported for `elf`.
     # @option opts [Array<String>] :filter_origin_version Filter by origin version values (multiple values allowed). Supported for `elf`.
-    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+    # @option opts [String] :filter_filename Filter by filename (single value). Supported for `js`, `elf`, `ndk`, `wasm`, and `portable_pdb`.
     # @option opts [String] :filter_debug_id Filter by debug ID (single value). Supported for `react`.
     # @option opts [String] :filter_gnu_build_id Filter by GNU build ID (single value). Supported for `elf`.
     # @option opts [String] :filter_go_build_id Filter by Go build ID (single value). Supported for `elf`.
@@ -1013,7 +1013,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'mapkind' when calling RUMAPI.restore_sourcemaps"
       end
       # verify enum value
-      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp']
+      allowable_values = ['js', 'jvm', 'ios', 'react', 'flutter', 'elf', 'ndk', 'il2cpp', 'wasm', 'portable_pdb']
       if @api_client.config.client_side_validation && !allowable_values.include?(mapkind)
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
       end

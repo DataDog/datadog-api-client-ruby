@@ -29,5 +29,7 @@ module DatadogAPIClient::V2
     ELF = "elf".freeze
     NDK = "ndk".freeze
     IL2CPP = "il2cpp".freeze
+    WASM = "wasm".freeze
+    PORTABLE_PDB = "portable_pdb".freeze
   end
 end
