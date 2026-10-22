@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
     # This parameter is used for the pagination feature.
     attr_accessor :next_log_id
 
+    # Unique identifier of the request.
+    attr_accessor :request_id
+
     # Status of the response.
     attr_accessor :status
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V1
       {
         :'logs' => :'logs',
         :'next_log_id' => :'nextLogId',
+        :'request_id' => :'requestId',
         :'status' => :'status'
       }
     end
@@ -49,6 +53,7 @@ module DatadogAPIClient::V1
       {
         :'logs' => :'Array<Log>',
         :'next_log_id' => :'String',
+        :'request_id' => :'String',
         :'status' => :'String'
       }
     end
@@ -89,6 +94,10 @@ module DatadogAPIClient::V1
         self.next_log_id = attributes[:'next_log_id']
       end
 
+      if attributes.key?(:'request_id')
+        self.request_id = attributes[:'request_id']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -122,6 +131,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           logs == o.logs &&
           next_log_id == o.next_log_id &&
+          request_id == o.request_id &&
           status == o.status &&
           additional_properties == o.additional_properties
     end
@@ -130,7 +140,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [logs, next_log_id, status, additional_properties].hash
+      [logs, next_log_id, request_id, status, additional_properties].hash
     end
   end
 end
