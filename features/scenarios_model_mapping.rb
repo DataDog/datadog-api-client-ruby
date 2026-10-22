@@ -1417,6 +1417,7 @@ ScenariosModelMappings = {
             "sort_dir" => "QuerySortOrder",
             "filter" => "String",
             "filter_status" => "String",
+            "filter_handle" => "String",
     },
     "v2.CreateUser" => {
             "body" => "UserCreateRequest",
