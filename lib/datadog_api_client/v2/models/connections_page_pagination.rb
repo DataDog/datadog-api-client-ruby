@@ -24,17 +24,35 @@ module DatadogAPIClient::V2
     # The first page number.
     attr_accessor :first_number
 
+    # The first offset.
+    attr_accessor :first_offset
+
     # The last page number.
     attr_accessor :last_number
+
+    # The last offset.
+    attr_accessor :last_offset
+
+    # The page limit, when offset pagination is used.
+    attr_accessor :limit
 
     # The next page number.
     attr_accessor :next_number
 
+    # The next offset.
+    attr_accessor :next_offset
+
     # The current page number.
     attr_accessor :number
 
+    # The current offset, when offset pagination is used.
+    attr_accessor :offset
+
     # The previous page number.
     attr_accessor :prev_number
+
+    # The previous offset.
+    attr_accessor :prev_offset
 
     # The page size.
     attr_accessor :size
@@ -52,10 +70,16 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'first_number' => :'first_number',
+        :'first_offset' => :'first_offset',
         :'last_number' => :'last_number',
+        :'last_offset' => :'last_offset',
+        :'limit' => :'limit',
         :'next_number' => :'next_number',
+        :'next_offset' => :'next_offset',
         :'number' => :'number',
+        :'offset' => :'offset',
         :'prev_number' => :'prev_number',
+        :'prev_offset' => :'prev_offset',
         :'size' => :'size',
         :'total' => :'total',
         :'type' => :'type'
@@ -67,10 +91,16 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'first_number' => :'Integer',
+        :'first_offset' => :'Integer',
         :'last_number' => :'Integer',
+        :'last_offset' => :'Integer',
+        :'limit' => :'Integer',
         :'next_number' => :'Integer',
+        :'next_offset' => :'Integer',
         :'number' => :'Integer',
+        :'offset' => :'Integer',
         :'prev_number' => :'Integer',
+        :'prev_offset' => :'Integer',
         :'size' => :'Integer',
         :'total' => :'Integer',
         :'type' => :'String'
@@ -81,8 +111,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'last_offset',
         :'next_number',
+        :'next_offset',
         :'prev_number',
+        :'prev_offset',
       ])
     end
 
@@ -108,20 +141,44 @@ module DatadogAPIClient::V2
         self.first_number = attributes[:'first_number']
       end
 
+      if attributes.key?(:'first_offset')
+        self.first_offset = attributes[:'first_offset']
+      end
+
       if attributes.key?(:'last_number')
         self.last_number = attributes[:'last_number']
+      end
+
+      if attributes.key?(:'last_offset')
+        self.last_offset = attributes[:'last_offset']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
       if attributes.key?(:'next_number')
         self.next_number = attributes[:'next_number']
       end
 
+      if attributes.key?(:'next_offset')
+        self.next_offset = attributes[:'next_offset']
+      end
+
       if attributes.key?(:'number')
         self.number = attributes[:'number']
       end
 
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
       if attributes.key?(:'prev_number')
         self.prev_number = attributes[:'prev_number']
+      end
+
+      if attributes.key?(:'prev_offset')
+        self.prev_offset = attributes[:'prev_offset']
       end
 
       if attributes.key?(:'size')
@@ -164,10 +221,16 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           first_number == o.first_number &&
+          first_offset == o.first_offset &&
           last_number == o.last_number &&
+          last_offset == o.last_offset &&
+          limit == o.limit &&
           next_number == o.next_number &&
+          next_offset == o.next_offset &&
           number == o.number &&
+          offset == o.offset &&
           prev_number == o.prev_number &&
+          prev_offset == o.prev_offset &&
           size == o.size &&
           total == o.total &&
           type == o.type &&
@@ -178,7 +241,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first_number, last_number, next_number, number, prev_number, size, total, type, additional_properties].hash
+      [first_number, first_offset, last_number, last_offset, limit, next_number, next_offset, number, offset, prev_number, prev_offset, size, total, type, additional_properties].hash
     end
   end
 end

@@ -36,5 +36,7 @@ module DatadogAPIClient::V2
     LINK_COUNT = "link_count".freeze
     TEAM_LINKS = "team_links".freeze
     USER_TEAM_PERMISSIONS = "user_team_permissions".freeze
+    IS_MANAGED = "is_managed".freeze
+    PROVISIONED_BY = "provisioned_by".freeze
   end
 end
