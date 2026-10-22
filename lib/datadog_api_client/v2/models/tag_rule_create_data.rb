@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes that can be supplied when creating a tag rule.
     attr_reader :attributes
 
-    # JSON:API resource type for a tag rule.
+    # JSON:API resource type for a tag rule. Responses use the legacy `tag_policy` value.
     attr_reader :type
 
     attr_accessor :additional_properties
