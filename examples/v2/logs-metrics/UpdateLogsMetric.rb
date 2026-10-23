@@ -15,7 +15,7 @@ body = DatadogAPIClient::V2::LogsMetricUpdateRequest.new({
     type: DatadogAPIClient::V2::LogsMetricType::LOGS_METRICS,
     attributes: DatadogAPIClient::V2::LogsMetricUpdateAttributes.new({
       filter: DatadogAPIClient::V2::LogsMetricFilter.new({
-        query: "service:web* AND @http.status_code:[200 TO 299]-updated",
+        query: "service:web-api AND @http.status_code:[200 TO 299]-updated",
       }),
     }),
   }),

@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::LogsListRequest.new({
       "main",
       "web",
     ],
-    query: "service:web* AND @http.status_code:[200 TO 299]",
+    query: "service:web-api AND @http.status_code:[200 TO 299]",
     storage_tier: DatadogAPIClient::V2::LogsStorageTier::INDEXES,
     to: "now",
   }),

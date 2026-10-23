@@ -229,8 +229,8 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogsAPI.list_logs_get, must be smaller than or equal to 1000.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogsAPI.list_logs_get, must be smaller than or equal to 5000.'
       end
       # resource path
       local_var_path = '/api/v2/logs/events'
