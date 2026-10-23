@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A query for host-level process metrics such as CPU and memory usage.
+  # Per-process metrics from Live Processes over time, such as CPU and memory usage. To scope to one
+  # process, set `tag_filters` to its `identifying_tags` from `GET /api/v2/processes`.
   class ProcessTimeseriesQuery
     include BaseGenericModel
 
@@ -30,10 +31,12 @@ module DatadogAPIClient::V2
     # Whether CPU metrics should be normalized by core count.
     attr_accessor :is_normalized_cpu
 
-    # Maximum number of results to return.
+    # Maximum number of processes or groups to return. Large values can fail with an `Unprocessable
+    # Content` error. If so, retry with a smaller limit.
     attr_accessor :limit
 
-    # The process metric to query.
+    # The process metric to query, such as `process.stat.cpu.total_pct`, `process.stat.memory.rss`, or
+    # `process.stat.memory.vms`.
     attr_reader :metric
 
     # The variable name for use in formulas.
@@ -42,7 +45,8 @@ module DatadogAPIClient::V2
     # Direction of sort.
     attr_accessor :sort
 
-    # Tag filters to narrow down processes.
+    # Tags to narrow down processes. To scope to one process, use its `identifying_tags` from
+    # `GET /api/v2/processes`, for example `host:web-01` and `pid:1234`.
     attr_accessor :tag_filters
 
     # A full-text search filter to match process names or commands.
