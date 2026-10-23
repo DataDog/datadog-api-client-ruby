@@ -5,4 +5,13 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
 api_instance = DatadogAPIClient::V2::ExperimentsAPI.new
-p api_instance.list_experiment_protocols()
+
+# there is a valid "experiment_protocol" in the system
+EXPERIMENT_PROTOCOL_DATA_ATTRIBUTES_NAME = ENV["EXPERIMENT_PROTOCOL_DATA_ATTRIBUTES_NAME"]
+opts = {
+  filter_status: [
+    ExperimentsPublicProtocolResponseDataAttributesStatus::DRAFT,
+  ],
+  filter_query: EXPERIMENT_PROTOCOL_DATA_ATTRIBUTES_NAME,
+}
+p api_instance.list_experiment_protocols(opts)

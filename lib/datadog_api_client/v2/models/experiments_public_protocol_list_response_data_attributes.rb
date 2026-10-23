@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Text that explains the protocol.
     attr_accessor :description
 
+    # Number of experiments in the organization that use this protocol, excluding deleted experiments.
+    attr_reader :experiment_count
+
     # Display name of the protocol.
     attr_reader :name
 
@@ -42,7 +45,8 @@ module DatadogAPIClient::V2
     # ID of the subject type used by this configuration.
     attr_accessor :subject_type_id
 
-    # RFC3339 update time. Preserve all fractional seconds when passing this value as expected_updated_at.
+    # RFC3339 update time. Preserve all fractional seconds when passing this value as
+    # `expected_updated_at`.
     attr_reader :updated_at
 
     attr_accessor :additional_properties
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'description' => :'description',
+        :'experiment_count' => :'experiment_count',
         :'name' => :'name',
         :'primary_metric' => :'primary_metric',
         :'primary_metric_id' => :'primary_metric_id',
@@ -67,6 +72,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'description' => :'String',
+        :'experiment_count' => :'Integer',
         :'name' => :'String',
         :'primary_metric' => :'ExperimentsPublicProtocolResponseDataAttributesSubjectType',
         :'primary_metric_id' => :'String',
@@ -97,6 +103,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'experiment_count')
+        self.experiment_count = attributes[:'experiment_count']
       end
 
       if attributes.key?(:'name')
@@ -132,10 +142,25 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @experiment_count.nil?
+      return false if @experiment_count < 0
       return false if @name.nil?
       return false if @status.nil?
       return false if @updated_at.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param experiment_count [Object] Object to be assigned
+    # @!visibility private
+    def experiment_count=(experiment_count)
+      if experiment_count.nil?
+        fail ArgumentError, 'invalid value for "experiment_count", experiment_count cannot be nil.'
+      end
+      if experiment_count < 0
+        fail ArgumentError, 'invalid value for "experiment_count", must be greater than or equal to 0.'
+      end
+      @experiment_count = experiment_count
     end
 
     # Custom attribute writer method with validation
@@ -195,6 +220,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
+          experiment_count == o.experiment_count &&
           name == o.name &&
           primary_metric == o.primary_metric &&
           primary_metric_id == o.primary_metric_id &&
@@ -209,7 +235,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, name, primary_metric, primary_metric_id, status, subject_type, subject_type_id, updated_at, additional_properties].hash
+      [description, experiment_count, name, primary_metric, primary_metric_id, status, subject_type, subject_type_id, updated_at, additional_properties].hash
     end
   end
 end
