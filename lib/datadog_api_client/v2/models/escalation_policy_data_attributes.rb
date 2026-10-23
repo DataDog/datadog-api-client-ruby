@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Specifies how many times the escalation sequence is retried if there is no response.
     attr_reader :retries
 
+    # A list of tags attached to the escalation policy, in `key:value` format.
+    attr_accessor :tags
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'name' => :'name',
         :'resolve_page_on_policy_end' => :'resolve_page_on_policy_end',
-        :'retries' => :'retries'
+        :'retries' => :'retries',
+        :'tags' => :'tags'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'name' => :'String',
         :'resolve_page_on_policy_end' => :'Boolean',
-        :'retries' => :'Integer'
+        :'retries' => :'Integer',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -80,6 +85,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'retries')
         self.retries = attributes[:'retries']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -149,6 +160,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           resolve_page_on_policy_end == o.resolve_page_on_policy_end &&
           retries == o.retries &&
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -156,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, resolve_page_on_policy_end, retries, additional_properties].hash
+      [name, resolve_page_on_policy_end, retries, tags, additional_properties].hash
     end
   end
 end
