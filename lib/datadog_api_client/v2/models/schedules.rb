@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Any additional resources related to the schedules, such as teams.
     attr_accessor :included
 
-    # Metadata that is included in the response when listing schedules.
+    # Metadata that is included in the response when listing On-Call resources.
     attr_accessor :meta
 
     attr_accessor :additional_properties

@@ -786,6 +786,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get On-Call page.
+    #
+    # @see #get_on_call_page_with_http_info
+    def get_on_call_page(page_id, opts = {})
+      data, _status_code, _headers = get_on_call_page_with_http_info(page_id, opts)
+      data
+    end
+
+    # Get On-Call page.
+    #
+    # Get the details of an On-Call page.
+    #
+    # @param page_id [String] The ID of the page, or its key.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OnCallPageResponse, Integer, Hash)>] OnCallPageResponse data, response status code and response headers
+    def get_on_call_page_with_http_info(page_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.get_on_call_page ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling OnCallAPI.get_on_call_page"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/pages/{page_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OnCallPageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_on_call_page,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#get_on_call_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get On-Call schedule.
     #
     # @see #get_on_call_schedule_with_http_info
@@ -1367,6 +1432,106 @@ module DatadogAPIClient::V2
         @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
         while true do
             response = list_on_call_escalation_policies(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
+    # List On-Call pages.
+    #
+    # @see #list_on_call_pages_with_http_info
+    def list_on_call_pages(opts = {})
+      data, _status_code, _headers = list_on_call_pages_with_http_info(opts)
+      data
+    end
+
+    # List On-Call pages.
+    #
+    # Retrieve a paginated list of On-Call pages, optionally filtered by a search query and sorted.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Number of On-Call Pages to return per page of results. The maximum allowed value is 1000.
+    # @option opts [Integer] :page_number Page of results to return, starting at 0. `page[number]` multiplied by `page[size]` must be less than 50000.
+    # @option opts [String] :filter_query Search query to filter pages. Supports filters such as `status`, `urgency`, `team`, `service`, and `tags`, for example `status:triggered`.
+    # @option opts [OnCallPagesSort] :sort Sort pages by the given field. Only one field is allowed.
+    # @return [Array<(OnCallPagesResponse, Integer, Hash)>] OnCallPagesResponse data, response status code and response headers
+    def list_on_call_pages_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_on_call_pages ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling OnCallAPI.list_on_call_pages, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling OnCallAPI.list_on_call_pages, must be greater than or equal to 0.'
+      end
+      allowable_values = ['created_at', '-created_at', 'modified_at', '-modified_at', 'status', '-status', 'priority', '-priority']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/pages'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OnCallPagesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_on_call_pages,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_on_call_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List On-Call pages.
+    #
+    # Provide a paginated version of {#list_on_call_pages}, returning all items.
+    #
+    # To use it you need to use a block: list_on_call_pages_with_pagination { |item| p item }
+    #
+    # @yield [OnCallPageData] Paginated items
+    def list_on_call_pages_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_on_call_pages(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break

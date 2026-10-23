@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata that is included in the response when listing schedules.
+  # Metadata that is included in the response when listing On-Call resources.
   class SchedulesResponseMeta
     include BaseGenericModel
 
-    # Metadata related to paging information that is included in the response when listing schedules.
+    # Metadata related to pagination information that is included in the response when listing On-Call resources.
     attr_accessor :page
 
     attr_accessor :additional_properties

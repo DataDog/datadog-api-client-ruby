@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Relationships for an on-call shift.
     attr_accessor :relationships
 
-    # Indicates that the resource is of type 'shifts'.
+    # Indicates that the resource is of type `shifts`.
     attr_reader :type
 
     attr_accessor :additional_properties
