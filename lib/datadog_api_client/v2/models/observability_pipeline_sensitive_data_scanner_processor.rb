@@ -17,9 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+  # The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log or trace events.
   # 
-  # **Supported pipeline types:** logs
+  # **Supported pipeline types:** logs, traces
   class ObservabilityPipelineSensitiveDataScannerProcessor
     include BaseGenericModel
 
@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # A Datadog search query used to determine which logs this processor targets.
+    # A Datadog search query used to determine which events this processor targets.
     attr_reader :include
 
     # A list of rules for identifying and acting on sensitive data patterns.

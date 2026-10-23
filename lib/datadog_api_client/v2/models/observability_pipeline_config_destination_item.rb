@@ -53,9 +53,10 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSyslogNgDestination',
           :'ObservabilityPipelineDatabricksZerobusDestination',
           :'ObservabilityPipelineDatadogMetricsDestination',
-          :'ObservabilityPipelineOpentelemetryMetricsDestination',
           :'ObservabilityPipelinePrometheusRemoteWriteDestination',
-          :'ObservabilityPipelineSplunkHecMetricsDestination'
+          :'ObservabilityPipelineSplunkHecMetricsDestination',
+          :'ObservabilityPipelineOpentelemetryDestination',
+          :'ObservabilityPipelineDatadogTracesDestination'
         ]
       end
       # Builds the object

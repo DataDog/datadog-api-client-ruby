@@ -17,28 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+  # The `datadog_traces` destination forwards traces to Datadog.
   # 
-  # **Supported pipeline types:** metrics
-  class ObservabilityPipelineOpentelemetryMetricsDestination
+  # **Supported pipeline types:** traces
+  class ObservabilityPipelineDatadogTracesDestination
     include BaseGenericModel
 
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
-    # Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
-    attr_accessor :http_client_uri_key
-
-    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
+    # The unique identifier for this component.
     attr_reader :id
 
-    # A list of component IDs whose output is used as the `input` for this component.
+    # A list of component IDs whose output is used as the input for this component.
     attr_reader :inputs
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
-
-    # The destination type. Always `opentelemetry`.
+    # The destination type. The value should always be `datadog_traces`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -48,10 +42,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'buffer' => :'buffer',
-        :'http_client_uri_key' => :'http_client_uri_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
-        :'tls' => :'tls',
         :'type' => :'type'
       }
     end
@@ -61,11 +53,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'buffer' => :'ObservabilityPipelineBufferOptions',
-        :'http_client_uri_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineOpentelemetryMetricsDestinationType'
+        :'type' => :'ObservabilityPipelineDatadogTracesDestinationType'
       }
     end
 
@@ -74,7 +64,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpentelemetryMetricsDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogTracesDestination` initialize method"
       end
 
       self.additional_properties = {}
@@ -91,10 +81,6 @@ module DatadogAPIClient::V2
         self.buffer = attributes[:'buffer']
       end
 
-      if attributes.key?(:'http_client_uri_key')
-        self.http_client_uri_key = attributes[:'http_client_uri_key']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -103,10 +89,6 @@ module DatadogAPIClient::V2
         if (value = attributes[:'inputs']).is_a?(Array)
           self.inputs = value
         end
-      end
-
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
       end
 
       if attributes.key?(:'type')
@@ -181,10 +163,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           buffer == o.buffer &&
-          http_client_uri_key == o.http_client_uri_key &&
           id == o.id &&
           inputs == o.inputs &&
-          tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -193,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, http_client_uri_key, id, inputs, tls, type, additional_properties].hash
+      [buffer, id, inputs, type, additional_properties].hash
     end
   end
 end
