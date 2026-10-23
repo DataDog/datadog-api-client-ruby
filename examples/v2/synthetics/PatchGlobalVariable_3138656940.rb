@@ -1,0 +1,26 @@
+# Patch a persistent email global variable preserves its address and type
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V2::SyntheticsAPI.new
+
+# there is a valid "synthetics_email_global_variable" in the system
+SYNTHETICS_EMAIL_GLOBAL_VARIABLE_ID = ENV["SYNTHETICS_EMAIL_GLOBAL_VARIABLE_ID"]
+
+body = DatadogAPIClient::V2::GlobalVariableJsonPatchRequest.new({
+  data: DatadogAPIClient::V2::GlobalVariableJsonPatchRequestData.new({
+    type: DatadogAPIClient::V2::GlobalVariableJsonPatchType::GLOBAL_VARIABLES_JSON_PATCH,
+    attributes: DatadogAPIClient::V2::GlobalVariableJsonPatchRequestDataAttributes.new({
+      json_patch: [
+        DatadogAPIClient::V2::JsonPatchOperation.new({
+          op: DatadogAPIClient::V2::JsonPatchOperationOp::REPLACE,
+          path: "/description",
+          value: "Updated persistent email variable",
+        }),
+      ],
+    }),
+  }),
+})
+p api_instance.patch_global_variable(SYNTHETICS_EMAIL_GLOBAL_VARIABLE_ID, body)
