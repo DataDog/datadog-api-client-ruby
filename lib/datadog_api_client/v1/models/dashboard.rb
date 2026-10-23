@@ -68,7 +68,7 @@ module DatadogAPIClient::V1
     # List of tabs for organizing dashboard widgets into groups.
     attr_reader :tabs
 
-    # List of team names representing ownership of a dashboard.
+    # Tags associated with the dashboard. Supports up to five team tags and two AI tags.
     attr_reader :tags
 
     # Array of template variables saved views.
@@ -275,7 +275,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if @layout_type.nil?
       return false if !@tabs.nil? && @tabs.length > 100
-      return false if !@tags.nil? && @tags.length > 5
+      return false if !@tags.nil? && @tags.length > 7
       return false if @title.nil?
       return false if @widgets.nil?
       true
@@ -305,8 +305,8 @@ module DatadogAPIClient::V1
     # @param tags [Object] Object to be assigned
     # @!visibility private
     def tags=(tags)
-      if !tags.nil? && tags.length > 5
-        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 5.'
+      if !tags.nil? && tags.length > 7
+        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 7.'
       end
       @tags = tags
     end
