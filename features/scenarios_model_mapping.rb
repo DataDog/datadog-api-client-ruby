@@ -7086,6 +7086,16 @@ ScenariosModelMappings = {
             "link_id" => "String",
             "body" => "TeamLinkCreateRequest",
     },
+    "v2.ListTeamHierarchyMembers" => {
+            "team_id" => "String",
+            "filter_is_direct_only" => "Boolean",
+            "filter_include_service_accounts" => "Boolean",
+            "filter_keyword" => "String",
+            "include" => "String",
+            "sort" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
     "v2.GetTeamMemberships" => {
             "team_id" => "String",
             "page_size" => "Integer",
