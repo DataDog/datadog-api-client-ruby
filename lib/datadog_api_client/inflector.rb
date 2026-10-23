@@ -6000,6 +6000,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_azure_data_explorer_destination_auth_workload_identity" => "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity",
           "v2.observability_pipeline_azure_data_explorer_destination_auth_workload_identity_kind" => "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentityKind",
           "v2.observability_pipeline_azure_data_explorer_destination_batch" => "ObservabilityPipelineAzureDataExplorerDestinationBatch",
+          "v2.observability_pipeline_azure_data_explorer_destination_ingestion_mode" => "ObservabilityPipelineAzureDataExplorerDestinationIngestionMode",
           "v2.observability_pipeline_azure_data_explorer_destination_managed_identity_id_type" => "ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType",
           "v2.observability_pipeline_azure_data_explorer_destination_type" => "ObservabilityPipelineAzureDataExplorerDestinationType",
           "v2.observability_pipeline_azure_data_explorer_managed_identity_client_assertion" => "ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion",
