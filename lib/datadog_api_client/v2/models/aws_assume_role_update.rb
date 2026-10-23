@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      pattern = Regexp.new(/^\d{12}$/)
+      pattern = Regexp.new('^\\d{12}$')
       return false if !@account_id.nil? && @account_id !~ pattern
       return false if @type.nil?
       true
@@ -106,7 +106,7 @@ module DatadogAPIClient::V2
     # @param account_id [Object] Object to be assigned
     # @!visibility private
     def account_id=(account_id)
-      pattern = Regexp.new(/^\d{12}$/)
+      pattern = Regexp.new('^\\d{12}$')
       if !account_id.nil? && account_id !~ pattern
         fail ArgumentError, "invalid value for \"account_id\", must conform to the pattern #{pattern}."
       end
