@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Relationship between the issue and case.
     attr_accessor :_case
 
+    # Relationship between the issue and its curated error samples.
+    attr_accessor :samples
+
     # Relationship between the issue and teams.
     attr_accessor :team_owners
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'assignee' => :'assignee',
         :'_case' => :'case',
+        :'samples' => :'samples',
         :'team_owners' => :'team_owners'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'assignee' => :'IssueAssigneeRelationship',
         :'_case' => :'IssueCaseRelationship',
+        :'samples' => :'IssueSamplesRelationship',
         :'team_owners' => :'IssueTeamOwnersRelationship'
       }
     end
@@ -76,6 +81,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'_case')
         self._case = attributes[:'_case']
+      end
+
+      if attributes.key?(:'samples')
+        self.samples = attributes[:'samples']
       end
 
       if attributes.key?(:'team_owners')
@@ -111,6 +120,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           assignee == o.assignee &&
           _case == o._case &&
+          samples == o.samples &&
           team_owners == o.team_owners &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignee, _case, team_owners, additional_properties].hash
+      [assignee, _case, samples, team_owners, additional_properties].hash
     end
   end
 end

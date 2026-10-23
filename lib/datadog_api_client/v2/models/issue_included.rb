@@ -28,7 +28,8 @@ module DatadogAPIClient::V2
         [
           :'IssueCase',
           :'IssueUser',
-          :'IssueTeam'
+          :'IssueTeam',
+          :'IssueSample'
         ]
       end
       # Builds the object
