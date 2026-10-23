@@ -40,6 +40,9 @@ module DatadogAPIClient::V2
     # If empty or not specified, the role does not automatically inherit permissions from any managed role.
     attr_accessor :receives_permissions_from
 
+    # Number of teams with that role.
+    attr_accessor :team_count
+
     # The user count.
     attr_reader :user_count
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'receives_permissions_from' => :'receives_permissions_from',
+        :'team_count' => :'team_count',
         :'user_count' => :'user_count'
       }
     end
@@ -67,6 +71,7 @@ module DatadogAPIClient::V2
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'receives_permissions_from' => :'Array<String>',
+        :'team_count' => :'Integer',
         :'user_count' => :'Integer'
       }
     end
@@ -109,6 +114,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'receives_permissions_from']).is_a?(Array)
           self.receives_permissions_from = value
         end
+      end
+
+      if attributes.key?(:'team_count')
+        self.team_count = attributes[:'team_count']
       end
 
       if attributes.key?(:'user_count')
@@ -165,6 +174,7 @@ module DatadogAPIClient::V2
           modified_at == o.modified_at &&
           name == o.name &&
           receives_permissions_from == o.receives_permissions_from &&
+          team_count == o.team_count &&
           user_count == o.user_count &&
           additional_properties == o.additional_properties
     end
@@ -173,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, default_permissions_opt_out, modified_at, name, receives_permissions_from, user_count, additional_properties].hash
+      [created_at, default_permissions_opt_out, modified_at, name, receives_permissions_from, team_count, user_count, additional_properties].hash
     end
   end
 end
