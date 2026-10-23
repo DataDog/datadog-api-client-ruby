@@ -33,13 +33,19 @@ module DatadogAPIClient::V2
 
     # Get all processes.
     #
-    # Get all processes for your organization.
+    # Get processes collected by Live Processes for your organization. One request covers a window of
+    # at most 1 hour that starts within the past 36 hours. To cover a longer period, make one request
+    # per hour. Older data is not available from this endpoint.
+    #
+    # When a process includes `identifying_tags`, pass them as `tag_filters` in a `process` data source
+    # query to `/api/v2/query/scalar` or `/api/v2/query/timeseries` to get CPU or memory metrics for that
+    # one process. If absent, don't substitute an empty filter, which would query all processes.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :search String to search processes by.
-    # @option opts [String] :tags Comma-separated list of tags to filter processes by.
-    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
-    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the `from` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
+    # @option opts [String] :search Free-text search over process fields such as the executable and user. When it contains several words, a process must match all of them. Use `tags` for exact values such as host.
+    # @option opts [String] :tags Comma-separated `key:value` tags. A process must match every tag. Wildcards, negation (`-key:value`), spaces, and `IN (...)` are not supported. To cover several hosts, make one request per host.
+    # @option opts [Integer] :from Start of the query window, in Unix seconds. Must be within the past 36 hours and at most 1 hour before `to`. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` is provided, the query window is `[now - 15m, now]`.
+    # @option opts [Integer] :to End of the query window, in Unix seconds. Must be at most 1 hour after `from`. If not provided, the end of the query window is 15 minutes after the `from` timestamp. If neither `from` nor `to` is provided, the query window is `[now - 15m, now]`.
     # @option opts [Integer] :page_limit Maximum number of results returned.
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
     # @return [Array<(ProcessSummariesResponse, Integer, Hash)>] ProcessSummariesResponse data, response status code and response headers
