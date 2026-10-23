@@ -87,7 +87,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@max_bytes.nil? && @max_bytes > 4000000
+      return false if !@max_bytes.nil? && @max_bytes > 1000000000
       return false if !@max_bytes.nil? && @max_bytes < 1
       return false if !@max_events.nil? && @max_events < 1
       return false if !@timeout_secs.nil? && @timeout_secs < 1
@@ -98,8 +98,8 @@ module DatadogAPIClient::V2
     # @param max_bytes [Object] Object to be assigned
     # @!visibility private
     def max_bytes=(max_bytes)
-      if !max_bytes.nil? && max_bytes > 4000000
-        fail ArgumentError, 'invalid value for "max_bytes", must be smaller than or equal to 4000000.'
+      if !max_bytes.nil? && max_bytes > 1000000000
+        fail ArgumentError, 'invalid value for "max_bytes", must be smaller than or equal to 1000000000.'
       end
       if !max_bytes.nil? && max_bytes < 1
         fail ArgumentError, 'invalid value for "max_bytes", must be greater than or equal to 1.'
