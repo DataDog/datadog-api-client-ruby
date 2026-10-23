@@ -1,0 +1,17 @@
+# Search logs (GET) with a page limit of 5000 returns "OK" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V2::LogsAPI.new
+opts = {
+  filter_query: "datadog-agent",
+  filter_indexes: [
+    "main",
+  ],
+  filter_from: "2020-09-17T11:48:36+01:00",
+  filter_to: "2020-09-17T12:48:36+01:00",
+  page_limit: 5000,
+}
+p api_instance.list_logs_get(opts)

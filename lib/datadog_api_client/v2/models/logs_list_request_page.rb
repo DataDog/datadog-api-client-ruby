@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # List following results with a cursor provided in the previous query.
     attr_accessor :cursor
 
-    # Maximum number of logs in the response.
+    # Requested maximum number of logs in the response.
     attr_reader :limit
 
     attr_accessor :additional_properties
@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@limit.nil? && @limit > 1000
+      return false if !@limit.nil? && @limit > 5000
       true
     end
 
@@ -86,8 +86,8 @@ module DatadogAPIClient::V2
     # @param limit [Object] Object to be assigned
     # @!visibility private
     def limit=(limit)
-      if !limit.nil? && limit > 1000
-        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 1000.'
+      if !limit.nil? && limit > 5000
+        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 5000.'
       end
       @limit = limit
     end
