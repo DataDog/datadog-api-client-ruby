@@ -36,6 +36,12 @@ module DatadogAPIClient::V2
     # Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
     attr_reader :priority
 
+    # Object describing suppressions for a rule, or the recommended suppression lists published by a standard pattern.
+    # There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+    # Rules based on the Datadog library can use recommended or custom suppressions. Custom rules can only use custom suppressions.
+    # Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.
+    attr_accessor :suppressions
+
     # List of tags.
     attr_accessor :tags
 
@@ -50,6 +56,7 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'pattern' => :'pattern',
         :'priority' => :'priority',
+        :'suppressions' => :'suppressions',
         :'tags' => :'tags'
       }
     end
@@ -63,6 +70,7 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'pattern' => :'String',
         :'priority' => :'Integer',
+        :'suppressions' => :'SensitiveDataScannerSuppressions',
         :'tags' => :'Array<String>'
       }
     end
@@ -105,6 +113,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
+      end
+
+      if attributes.key?(:'suppressions')
+        self.suppressions = attributes[:'suppressions']
       end
 
       if attributes.key?(:'tags')
@@ -167,6 +179,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           pattern == o.pattern &&
           priority == o.priority &&
+          suppressions == o.suppressions &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -175,7 +188,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, included_keywords, name, pattern, priority, tags, additional_properties].hash
+      [description, included_keywords, name, pattern, priority, suppressions, tags, additional_properties].hash
     end
   end
 end

@@ -17,7 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object describing the suppressions for a rule. There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+  # Object describing suppressions for a rule, or the recommended suppression lists published by a standard pattern.
+  # There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+  # Rules based on the Datadog library can use recommended or custom suppressions. Custom rules can only use custom suppressions.
   # Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.
   class SensitiveDataScannerSuppressions
     include BaseGenericModel
@@ -31,6 +33,10 @@ module DatadogAPIClient::V2
     # List of strings to use for suppression of matches starting with these strings.
     attr_accessor :starts_with
 
+    # Should the rule use the underlying standard pattern suppression configuration. If set to `true`, the rule must be tied
+    # to a standard pattern. If set to `false`, the specified suppressions are applied.
+    attr_accessor :use_recommended_suppressions
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -39,7 +45,8 @@ module DatadogAPIClient::V2
       {
         :'ends_with' => :'ends_with',
         :'exact_match' => :'exact_match',
-        :'starts_with' => :'starts_with'
+        :'starts_with' => :'starts_with',
+        :'use_recommended_suppressions' => :'use_recommended_suppressions'
       }
     end
 
@@ -49,7 +56,8 @@ module DatadogAPIClient::V2
       {
         :'ends_with' => :'Array<String>',
         :'exact_match' => :'Array<String>',
-        :'starts_with' => :'Array<String>'
+        :'starts_with' => :'Array<String>',
+        :'use_recommended_suppressions' => :'Boolean'
       }
     end
 
@@ -88,6 +96,10 @@ module DatadogAPIClient::V2
           self.starts_with = value
         end
       end
+
+      if attributes.key?(:'use_recommended_suppressions')
+        self.use_recommended_suppressions = attributes[:'use_recommended_suppressions']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -119,6 +131,7 @@ module DatadogAPIClient::V2
           ends_with == o.ends_with &&
           exact_match == o.exact_match &&
           starts_with == o.starts_with &&
+          use_recommended_suppressions == o.use_recommended_suppressions &&
           additional_properties == o.additional_properties
     end
 
@@ -126,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ends_with, exact_match, starts_with, additional_properties].hash
+      [ends_with, exact_match, starts_with, use_recommended_suppressions, additional_properties].hash
     end
   end
 end
