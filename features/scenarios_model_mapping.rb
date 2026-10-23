@@ -3726,7 +3726,30 @@ ScenariosModelMappings = {
             "page_offset" => "Integer",
             "sort" => "String",
     },
+    "v2.CreateExperimentProtocol" => {
+            "body" => "ExperimentsCreateExperimentProtocolRequest",
+    },
+    "v2.DeleteExperimentProtocol" => {
+            "protocol_id" => "UUID",
+            "expected_updated_at" => "String",
+    },
     "v2.GetExperimentProtocol" => {
+            "protocol_id" => "UUID",
+    },
+    "v2.PatchExperimentProtocol" => {
+            "protocol_id" => "UUID",
+            "body" => "ExperimentsPatchExperimentProtocolRequest",
+    },
+    "v2.ReplaceExperimentProtocol" => {
+            "protocol_id" => "UUID",
+            "expected_updated_at" => "String",
+            "body" => "ExperimentsReplaceExperimentProtocolRequest",
+    },
+    "v2.ArchiveExperimentProtocol" => {
+            "protocol_id" => "UUID",
+            "expected_updated_at" => "String",
+    },
+    "v2.PublishExperimentProtocol" => {
             "protocol_id" => "UUID",
     },
     "v2.RefreshExperimentResultsForOrg" => {

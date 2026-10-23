@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ExperimentsPublicProtocolResponseDataAttributesEnforcement
     include BaseGenericModel
 
-    # LOCKED prevents changes to confidence interval method. EDITABLE permits changes.
+    # Always LOCKED. The server keeps this setting locked regardless of the supplied value.
     attr_accessor :confidence_interval_method
 
     # LOCKED prevents changes to confidence level. EDITABLE permits changes.
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # LOCKED prevents changes to environment. EDITABLE permits changes.
     attr_accessor :environment
 
-    # LOCKED prevents changes to feature flag source. EDITABLE permits changes.
+    # Always LOCKED. The server keeps this setting locked regardless of the supplied value.
     attr_accessor :flag_source
 
     # LOCKED prevents changes to multiple testing correction. EDITABLE permits changes.
@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
     # LOCKED prevents changes to result exploration dimensions. EDITABLE permits changes.
     attr_accessor :split_by_exploration_dimensions
 
-    # LOCKED prevents changes to subject type. EDITABLE permits changes.
+    # Always LOCKED. The server keeps this setting locked regardless of the supplied value.
     attr_accessor :subject_type
 
     # LOCKED prevents changes to targeting rules. EDITABLE permits changes.

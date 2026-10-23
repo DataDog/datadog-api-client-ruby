@@ -24,11 +24,17 @@ module DatadogAPIClient::V2
     # Default statistical settings supplied by the protocol.
     attr_accessor :analysis_plan
 
+    # Time when the protocol was archived. Omitted if it has not been archived.
+    attr_accessor :archived_at
+
     # Default properties supplied by the protocol's assignment source.
     attr_accessor :assignment_source_default_properties
 
     # ID of the assignment source selected by the protocol.
     attr_accessor :assignment_source_id
+
+    # Time when the protocol was created.
+    attr_reader :created_at
 
     # Default experiment duration supplied by the protocol, in days.
     attr_accessor :default_duration_days
@@ -41,6 +47,9 @@ module DatadogAPIClient::V2
 
     # ID of the feature flag environment used by the experiment.
     attr_accessor :environment_id
+
+    # Number of experiments in the organization that use this protocol, excluding deleted experiments. Omitted if the count cannot be retrieved. An omitted count does not mean zero.
+    attr_reader :experiment_count
 
     # Schedule that controls traffic exposure for experiments created from the protocol.
     attr_accessor :exposure_schedule
@@ -96,7 +105,8 @@ module DatadogAPIClient::V2
     # Rules that select subjects for the experiment.
     attr_accessor :targeting_rules
 
-    # RFC3339 update time. Preserve all fractional seconds when passing this value as expected_updated_at.
+    # RFC3339 update time. Preserve all fractional seconds when passing this value as
+    # `expected_updated_at`.
     attr_reader :updated_at
 
     attr_accessor :additional_properties
@@ -106,12 +116,15 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'analysis_plan' => :'analysis_plan',
+        :'archived_at' => :'archived_at',
         :'assignment_source_default_properties' => :'assignment_source_default_properties',
         :'assignment_source_id' => :'assignment_source_id',
+        :'created_at' => :'created_at',
         :'default_duration_days' => :'default_duration_days',
         :'description' => :'description',
         :'enforcement' => :'enforcement',
         :'environment_id' => :'environment_id',
+        :'experiment_count' => :'experiment_count',
         :'exposure_schedule' => :'exposure_schedule',
         :'is_duration_required_to_start' => :'is_duration_required_to_start',
         :'is_equal_split_enforced' => :'is_equal_split_enforced',
@@ -139,12 +152,15 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'analysis_plan' => :'ExperimentsPublicProtocolResponseDataAttributesAnalysisPlan',
+        :'archived_at' => :'Time',
         :'assignment_source_default_properties' => :'Array<ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems>',
         :'assignment_source_id' => :'String',
+        :'created_at' => :'Time',
         :'default_duration_days' => :'Integer',
         :'description' => :'String',
         :'enforcement' => :'ExperimentsPublicProtocolResponseDataAttributesEnforcement',
         :'environment_id' => :'String',
+        :'experiment_count' => :'Integer',
         :'exposure_schedule' => :'ExperimentsPublicProtocolResponseDataAttributesExposureSchedule',
         :'is_duration_required_to_start' => :'Boolean',
         :'is_equal_split_enforced' => :'Boolean',
@@ -189,6 +205,10 @@ module DatadogAPIClient::V2
         self.analysis_plan = attributes[:'analysis_plan']
       end
 
+      if attributes.key?(:'archived_at')
+        self.archived_at = attributes[:'archived_at']
+      end
+
       if attributes.key?(:'assignment_source_default_properties')
         if (value = attributes[:'assignment_source_default_properties']).is_a?(Array)
           self.assignment_source_default_properties = value
@@ -197,6 +217,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'assignment_source_id')
         self.assignment_source_id = attributes[:'assignment_source_id']
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
       if attributes.key?(:'default_duration_days')
@@ -213,6 +237,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'environment_id')
         self.environment_id = attributes[:'environment_id']
+      end
+
+      if attributes.key?(:'experiment_count')
+        self.experiment_count = attributes[:'experiment_count']
       end
 
       if attributes.key?(:'exposure_schedule')
@@ -300,6 +328,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @created_at.nil?
+      return false if !@experiment_count.nil? && @experiment_count < 0
       return false if @is_duration_required_to_start.nil?
       return false if @is_equal_split_enforced.nil?
       return false if @is_metric_limit_enabled.nil?
@@ -309,6 +339,26 @@ module DatadogAPIClient::V2
       return false if @status.nil?
       return false if @updated_at.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param created_at [Object] Object to be assigned
+    # @!visibility private
+    def created_at=(created_at)
+      if created_at.nil?
+        fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
+      end
+      @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param experiment_count [Object] Object to be assigned
+    # @!visibility private
+    def experiment_count=(experiment_count)
+      if !experiment_count.nil? && experiment_count < 0
+        fail ArgumentError, 'invalid value for "experiment_count", must be greater than or equal to 0.'
+      end
+      @experiment_count = experiment_count
     end
 
     # Custom attribute writer method with validation
@@ -418,12 +468,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           analysis_plan == o.analysis_plan &&
+          archived_at == o.archived_at &&
           assignment_source_default_properties == o.assignment_source_default_properties &&
           assignment_source_id == o.assignment_source_id &&
+          created_at == o.created_at &&
           default_duration_days == o.default_duration_days &&
           description == o.description &&
           enforcement == o.enforcement &&
           environment_id == o.environment_id &&
+          experiment_count == o.experiment_count &&
           exposure_schedule == o.exposure_schedule &&
           is_duration_required_to_start == o.is_duration_required_to_start &&
           is_equal_split_enforced == o.is_equal_split_enforced &&
@@ -450,7 +503,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [analysis_plan, assignment_source_default_properties, assignment_source_id, default_duration_days, description, enforcement, environment_id, exposure_schedule, is_duration_required_to_start, is_equal_split_enforced, is_metric_limit_enabled, is_minimum_duration_enabled, metric_groups, metric_limit, migration_metadata, minimum_duration_unit, minimum_duration_value, name, primary_metric, primary_metric_id, published_at, status, subject_type, subject_type_id, targeting_rules, updated_at, additional_properties].hash
+      [analysis_plan, archived_at, assignment_source_default_properties, assignment_source_id, created_at, default_duration_days, description, enforcement, environment_id, experiment_count, exposure_schedule, is_duration_required_to_start, is_equal_split_enforced, is_metric_limit_enabled, is_minimum_duration_enabled, metric_groups, metric_limit, migration_metadata, minimum_duration_unit, minimum_duration_value, name, primary_metric, primary_metric_id, published_at, status, subject_type, subject_type_id, targeting_rules, updated_at, additional_properties].hash
     end
   end
 end
