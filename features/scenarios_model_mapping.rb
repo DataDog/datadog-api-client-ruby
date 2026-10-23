@@ -4473,6 +4473,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "SnowflakeIntegrationAccountUpdateRequest",
     },
+    "v2.CreateTemporalCloudOpenMetricsIntegrationAccount" => {
+            "body" => "TemporalCloudOpenMetricsIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteTemporalCloudOpenMetricsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetTemporalCloudOpenMetricsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateTemporalCloudOpenMetricsIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "TemporalCloudOpenMetricsIntegrationAccountUpdateRequest",
+    },
     "v2.CreateTwilioIntegrationAccount" => {
             "body" => "TwilioIntegrationAccountCreateRequest",
     },
