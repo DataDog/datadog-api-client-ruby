@@ -17,12 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Links attributes.
+  # Pagination links for rule outcomes.
   class OutcomesResponseLinks
     include BaseGenericModel
 
+    # Link for the first set of results.
+    attr_accessor :first
+
+    # Link for the last set of results.
+    attr_accessor :last
+
     # Link for the next set of results.
     attr_accessor :_next
+
+    # Link for the previous set of results.
+    attr_accessor :previous
+
+    # Link for the current set of results.
+    attr_accessor :_self
 
     attr_accessor :additional_properties
 
@@ -30,7 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'_next' => :'next'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'previous' => :'previous',
+        :'_self' => :'self'
       }
     end
 
@@ -38,7 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'_next' => :'String'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'previous' => :'String',
+        :'_self' => :'String'
       }
     end
 
@@ -60,8 +80,24 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
+      end
+
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
+      end
+
       if attributes.key?(:'_next')
         self._next = attributes[:'_next']
+      end
+
+      if attributes.key?(:'previous')
+        self.previous = attributes[:'previous']
+      end
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -91,7 +127,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          first == o.first &&
+          last == o.last &&
           _next == o._next &&
+          previous == o.previous &&
+          _self == o._self &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_next, additional_properties].hash
+      [first, last, _next, previous, _self, additional_properties].hash
     end
   end
 end

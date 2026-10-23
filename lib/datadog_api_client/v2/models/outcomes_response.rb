@@ -27,8 +27,11 @@ module DatadogAPIClient::V2
     # Array of rule details.
     attr_accessor :included
 
-    # Links attributes.
+    # Pagination links for rule outcomes.
     attr_accessor :links
+
+    # Metadata for scores response.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'data' => :'data',
         :'included' => :'included',
-        :'links' => :'links'
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<OutcomesResponseDataItem>',
         :'included' => :'Array<OutcomesResponseIncludedItem>',
-        :'links' => :'OutcomesResponseLinks'
+        :'links' => :'OutcomesResponseLinks',
+        :'meta' => :'PaginatedResponseMeta'
       }
     end
 
@@ -85,6 +90,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'links')
         self.links = attributes[:'links']
       end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -116,6 +125,7 @@ module DatadogAPIClient::V2
           data == o.data &&
           included == o.included &&
           links == o.links &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, links, additional_properties].hash
+      [data, included, links, meta, additional_properties].hash
     end
   end
 end
