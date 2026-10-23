@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The destination type. Always `opentelemetry`.
-  class ObservabilityPipelineOpentelemetryMetricsDestinationType
+  # The destination type. The value should always be `datadog_traces`.
+  class ObservabilityPipelineDatadogTracesDestinationType
     include BaseEnumModel
 
-    OPENTELEMETRY = "opentelemetry".freeze
+    DATADOG_TRACES = "datadog_traces".freeze
   end
 end

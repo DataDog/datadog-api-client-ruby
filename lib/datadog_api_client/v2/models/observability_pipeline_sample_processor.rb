@@ -17,9 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+  # The `sample` processor allows probabilistic sampling of logs or traces at a fixed rate.
   # 
-  # **Supported pipeline types:** logs
+  # **Supported pipeline types:** logs, traces
   class ObservabilityPipelineSampleProcessor
     include BaseGenericModel
 
@@ -35,10 +35,10 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # A Datadog search query used to determine which logs this processor targets.
+    # A Datadog search query used to determine which events this processor targets.
     attr_reader :include
 
-    # The percentage of logs to sample.
+    # The percentage of events to sample.
     attr_reader :percentage
 
     # The processor type. The value should always be `sample`.

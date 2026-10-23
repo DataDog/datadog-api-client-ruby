@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines a log-based custom metric, including its name, type, filter, value computation strategy,
+  # Defines a custom metric generated from logs or traces, including its name, type, filter, value computation strategy,
   # and optional grouping fields.
   class ObservabilityPipelineGeneratedMetric
     include BaseGenericModel
@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     # Optional fields used to group the metric series.
     attr_accessor :group_by
 
-    # Datadog filter query to match logs for metric generation.
+    # Datadog filter query to match events for metric generation.
     attr_reader :include
 
     # Type of metric to create.

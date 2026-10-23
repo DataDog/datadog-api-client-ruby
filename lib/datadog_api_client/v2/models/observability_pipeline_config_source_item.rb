@@ -27,6 +27,7 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ObservabilityPipelineDatadogAgentSource',
+          :'ObservabilityPipelineOpentelemetrySource',
           :'ObservabilityPipelineAmazonDataFirehoseSource',
           :'ObservabilityPipelineAmazonS3Source',
           :'ObservabilityPipelineFluentBitSource',
@@ -43,7 +44,6 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSumoLogicSource',
           :'ObservabilityPipelineSyslogNgSource',
           :'ObservabilityPipelineWebsocketSource',
-          :'ObservabilityPipelineOpentelemetrySource',
           :'ObservabilityPipelinePrometheusRemoteWriteSource'
         ]
       end
