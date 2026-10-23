@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the related resource is of type 'users'.
+  # Indicates that the related resource is of type `users`.
   class ShiftDataRelationshipsUserDataType
     include BaseEnumModel
 

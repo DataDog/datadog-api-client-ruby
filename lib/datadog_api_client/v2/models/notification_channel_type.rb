@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the resource is of type 'notification_channels'.
+  # Indicates that the resource is of type `notification_channels`.
   class NotificationChannelType
     include BaseEnumModel
 

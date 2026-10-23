@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Relationship object for creating a notification rule
     attr_accessor :relationships
 
-    # Indicates that the resource is of type 'notification_rules'.
+    # Indicates that the resource is of type `notification_rules`.
     attr_reader :type
 
     attr_accessor :additional_properties

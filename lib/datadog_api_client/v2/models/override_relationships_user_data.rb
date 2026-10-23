@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The unique identifier of the user.
     attr_reader :id
 
-    # Indicates that the related resource is of type 'users'.
+    # Indicates that the related resource is of type `users`.
     attr_reader :type
 
     attr_accessor :additional_properties

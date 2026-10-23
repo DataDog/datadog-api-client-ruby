@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Specifies the unique identifier for the related routing rule.
     attr_reader :id
 
-    # Indicates that the resource is of type 'team_routing_rules'.
+    # Indicates that the resource is of type `team_routing_rules`.
     attr_reader :type
 
     attr_accessor :additional_properties
