@@ -46,6 +46,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineRenameFieldsProcessor',
           :'ObservabilityPipelineSampleProcessor',
           :'ObservabilityPipelineSensitiveDataScannerProcessor',
+          :'ObservabilityPipelineSpikeProtectionProcessor',
           :'ObservabilityPipelineSplitArrayProcessor',
           :'ObservabilityPipelineThrottleProcessor',
           :'ObservabilityPipelineAddMetricTagsProcessor',
