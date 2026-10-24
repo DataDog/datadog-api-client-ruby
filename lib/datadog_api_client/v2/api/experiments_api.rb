@@ -39,7 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def archive_exposure_sql_model_with_http_info(exposure_sql_model_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.archive_exposure_sql_model ...'
       end
@@ -107,11 +106,10 @@ module DatadogAPIClient::V2
     # cancellation made by someone else.
     #
     # @param experiment_id [UUID] The UUID of the experiment.
-    # @param body [ExperimentsCancelExperimentV2Request] 
+    # @param body [ExperimentsCancelExperimentV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_experiment_with_http_info(experiment_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.cancel_experiment ...'
       end
@@ -179,11 +177,10 @@ module DatadogAPIClient::V2
     # Conclude an experiment on a winning variant. The experiment moves to DECISION_MADE status, the outcome is recorded in its conclusion, and for a flag-backed experiment the winning variant is rolled out to 100% of the linked feature flag allocation. `decision_variant_key` must match a variant in the experiment. Only an experiment that is currently running or ready for a decision can be concluded. Concluding is not reversible and is not idempotent: concluding an already-concluded experiment returns 409.
     #
     # @param experiment_id [UUID] The UUID of the experiment.
-    # @param body [ExperimentsConcludeExperimentV2Request] 
+    # @param body [ExperimentsConcludeExperimentV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def conclude_experiment_with_http_info(experiment_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.conclude_experiment ...'
       end
@@ -250,11 +247,10 @@ module DatadogAPIClient::V2
     #
     # Create a draft experiment. `name` is required. `structured_metadata` identifies each metadata field by `field_key`; use `freetext_value` for free-text fields and `enum_values` for enum fields. When this attribute is present, the request must include a value for every required metadata field. When `protocol_id` is present, the published protocol supplies the subject type, decision metrics, analysis-plan defaults, and configuration and enforcement baselines. The request may also include hypothesis, tags, teams, related links, and assignment or event date overrides that satisfy the protocol's duration rules; omit subject_type_id, decision_metrics, variants, warehouse_exposure_configuration, datadog_flag_configuration, traffic_exposure, split_by_properties, and structured_metadata. The protocol association cannot be changed after creation. Without `protocol_id`, a complete Warehouse or Datadog configuration saves the experiment and its configuration in one transaction. For Datadog flag configuration, send `name`, `subject_type_id`, `decision_metrics`, `variants`, `traffic_exposure`, `assignments_start_date`, `assignments_end_date`, `events_start_date`, and `events_end_date`. The four date fields can be null. Inside `datadog_flag_configuration`, send `feature_flag_id`, `environment_id`, `targeting_rules`, and `entry_point`. Use `targeting_rules: []` and `entry_point: null` when unused. This creates one saved draft allocation that does not serve traffic. Omit all configuration fields to create an experiment without an allocation. This endpoint is not idempotent.
     #
-    # @param body [ExperimentsCreateExperimentV2Request] 
+    # @param body [ExperimentsCreateExperimentV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentV2DTO, Integer, Hash)>] ExperimentsExperimentV2DTO data, response status code and response headers
     def create_experiment_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_experiment ...'
       end
@@ -318,11 +314,10 @@ module DatadogAPIClient::V2
     # Create a non-decision metric group. The optional metrics array is ordered. Decision groups remain managed through decision_metrics on the experiment resource. This operation does not synchronously recompute results.
     #
     # @param experiment_id [UUID] The UUID of the experiment.
-    # @param body [ExperimentsCreateExperimentMetricGroupV2Request] 
+    # @param body [ExperimentsCreateExperimentMetricGroupV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentMetricGroupMutationV2, Integer, Hash)>] ExperimentsExperimentMetricGroupMutationV2 data, response status code and response headers
     def create_experiment_metric_group_with_http_info(experiment_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_experiment_metric_group ...'
       end
@@ -394,7 +389,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentMetricGroupMutationV2, Integer, Hash)>] ExperimentsExperimentMetricGroupMutationV2 data, response status code and response headers
     def create_experiment_metric_group_from_collection_with_http_info(experiment_id, metric_collection_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_experiment_metric_group_from_collection ...'
       end
@@ -459,11 +453,10 @@ module DatadogAPIClient::V2
     #
     # Create an exposure SQL model. Requires at least one subject type. The warehouse connection is resolved from the organization, which has exactly one.
     #
-    # @param body [ExperimentsCreateExposureSQLModelV2Request] 
+    # @param body [ExperimentsCreateExposureSQLModelV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExposureSQLModelV2DTO, Integer, Hash)>] ExperimentsExposureSQLModelV2DTO data, response status code and response headers
     def create_exposure_sql_model_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_exposure_sql_model ...'
       end
@@ -526,11 +519,10 @@ module DatadogAPIClient::V2
     #
     # Create a metric. The metric's type is derived from the aggregation shape: a numerator alone is SIMPLE, a numerator with a denominator is RATIO, and a percentile aggregation is PERCENTILE. Warehouse aggregations reference measures by UUID. Property filters use property_id or measure_id UUIDs returned by the same metric SQL model; every reference must belong to the aggregation's data source. The is_certified attribute is rejected. Certification cannot be changed through this endpoint.
     #
-    # @param body [ExperimentsCreateMetricV2Request] 
+    # @param body [ExperimentsCreateMetricV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsMetricV2DTO, Integer, Hash)>] ExperimentsMetricV2DTO data, response status code and response headers
     def create_metric_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_metric ...'
       end
@@ -593,11 +585,10 @@ module DatadogAPIClient::V2
     #
     # Create metric collection.
     #
-    # @param body [ExperimentsCreateMetricCollectionV2Request] 
+    # @param body [ExperimentsCreateMetricCollectionV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsMetricCollectionV2DTO, Integer, Hash)>] ExperimentsMetricCollectionV2DTO data, response status code and response headers
     def create_metric_collection_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_metric_collection ...'
       end
@@ -660,11 +651,10 @@ module DatadogAPIClient::V2
     #
     # Create a metric SQL model. Requires at least one subject type, whose subject_type_id must already exist for the organization (list them with GET /api/v2/experiments/subject-types). The model is created against the organization's warehouse connection, which is resolved server-side. Only customer-defined measures belong in measures. The response provides unique_subject_count_measure_id for each subject type and event_count_measure_id for use in metric aggregations. column_type is required for every measure and property. Certification is read-only and cannot be changed through this endpoint.
     #
-    # @param body [ExperimentsCreateMetricSQLModelV2Request] 
+    # @param body [ExperimentsCreateMetricSQLModelV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsMetricSQLModelV2DTO, Integer, Hash)>] ExperimentsMetricSQLModelV2DTO data, response status code and response headers
     def create_metric_sql_model_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_metric_sql_model ...'
       end
@@ -727,11 +717,10 @@ module DatadogAPIClient::V2
     #
     # Create a subject type for the organization.
     #
-    # @param body [ExperimentsCreateSubjectTypeV2Request] 
+    # @param body [ExperimentsCreateSubjectTypeV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsSubjectTypeV2DTO, Integer, Hash)>] ExperimentsSubjectTypeV2DTO data, response status code and response headers
     def create_subject_type_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_subject_type ...'
       end
@@ -798,7 +787,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_experiment_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_experiment ...'
       end
@@ -864,7 +852,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_experiment_metric_group_with_http_info(experiment_id, metric_group_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_experiment_metric_group ...'
       end
@@ -933,7 +920,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_metric_with_http_info(metric_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_metric ...'
       end
@@ -998,7 +984,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_metric_collection_with_http_info(metric_collection_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_metric_collection ...'
       end
@@ -1063,7 +1048,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_subject_type_with_http_info(subject_type_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_subject_type ...'
       end
@@ -1128,7 +1112,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentV2DTO, Integer, Hash)>] ExperimentsExperimentV2DTO data, response status code and response headers
     def get_experiment_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_experiment ...'
       end
@@ -1193,7 +1176,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsAnalysisPlanV2DTO, Integer, Hash)>] ExperimentsAnalysisPlanV2DTO data, response status code and response headers
     def get_experiment_analysis_plan_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_experiment_analysis_plan ...'
       end
@@ -1258,7 +1240,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentDiagnosticsV2DTO, Integer, Hash)>] ExperimentsExperimentDiagnosticsV2DTO data, response status code and response headers
     def get_experiment_diagnostics_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_experiment_diagnostics ...'
       end
@@ -1323,7 +1304,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsPublicProtocolResponse, Integer, Hash)>] ExperimentsPublicProtocolResponse data, response status code and response headers
     def get_experiment_protocol_with_http_info(protocol_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_experiment_protocol ...'
       end
@@ -1388,7 +1368,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsVariantResultsV2DTOArray, Integer, Hash)>] ExperimentsVariantResultsV2DTOArray data, response status code and response headers
     def get_experiment_results_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_experiment_results ...'
       end
@@ -1453,7 +1432,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsTrafficSummaryV2DTO, Integer, Hash)>] ExperimentsTrafficSummaryV2DTO data, response status code and response headers
     def get_experiment_traffic_summary_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_experiment_traffic_summary ...'
       end
@@ -1519,7 +1497,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :include Optional fields to include. Repeat this parameter to request several fields. `counts` adds experiment_count.
     # @return [Array<(ExperimentsExposureSQLModelV2DTO, Integer, Hash)>] ExperimentsExposureSQLModelV2DTO data, response status code and response headers
     def get_exposure_sql_model_with_http_info(exposure_sql_model_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_exposure_sql_model ...'
       end
@@ -1561,7 +1538,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1587,7 +1564,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :include Optional fields to include. Repeat this parameter to request several fields. `counts` adds experiment_count: how many experiments currently reference this metric.
     # @return [Array<(ExperimentsMetricV2DTO, Integer, Hash)>] ExperimentsMetricV2DTO data, response status code and response headers
     def get_metric_with_http_info(metric_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_metric ...'
       end
@@ -1629,7 +1605,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1654,7 +1630,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsMetricCollectionV2DTO, Integer, Hash)>] ExperimentsMetricCollectionV2DTO data, response status code and response headers
     def get_metric_collection_with_http_info(metric_collection_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_metric_collection ...'
       end
@@ -1720,7 +1695,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :include Optional fields to include. Repeat this parameter to request several fields. `counts` adds metric_count and experiment_count.
     # @return [Array<(ExperimentsMetricSQLModelV2DTO, Integer, Hash)>] ExperimentsMetricSQLModelV2DTO data, response status code and response headers
     def get_metric_sql_model_with_http_info(metric_sql_model_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_metric_sql_model ...'
       end
@@ -1762,7 +1736,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1788,7 +1762,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Set to `counts` to add experiment_count, exposure_source_count, metric_sql_model_count and protocol_count.
     # @return [Array<(ExperimentsSubjectTypeV2DTO, Integer, Hash)>] ExperimentsSubjectTypeV2DTO data, response status code and response headers
     def get_subject_type_with_http_info(subject_type_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_subject_type ...'
       end
@@ -1854,7 +1827,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentMetricGroupV2DTOArray, Integer, Hash)>] ExperimentsExperimentMetricGroupV2DTOArray data, response status code and response headers
     def list_experiment_metric_groups_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_experiment_metric_groups ...'
       end
@@ -1925,7 +1897,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort by `name`, `subject_type_name`, `primary_metric_name`, or `updated_at`. Prefix with `-` for descending order. The default is `-updated_at`.
     # @return [Array<(ExperimentsPublicProtocolListResponseArray, Integer, Hash)>] ExperimentsPublicProtocolListResponseArray data, response status code and response headers
     def list_experiment_protocols_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_experiment_protocols ...'
       end
@@ -1969,7 +1940,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2004,7 +1975,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :tags Filter by tag name. Repeat this parameter to supply several tags. An experiment matches if it has at least one listed tag.
     # @return [Array<(ExperimentsExperimentV2ListDTOArray, Integer, Hash)>] ExperimentsExperimentV2ListDTOArray data, response status code and response headers
     def list_experiments_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_experiments ...'
       end
@@ -2052,7 +2022,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2082,7 +2052,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort field: name, created_at, or updated_at. Prefix with `-` for descending (for example, `-created_at`). Defaults to created_at descending.
     # @return [Array<(ExperimentsExposureSQLModelV2DTOArray, Integer, Hash)>] ExperimentsExposureSQLModelV2DTOArray data, response status code and response headers
     def list_exposure_sql_models_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_exposure_sql_models ...'
       end
@@ -2125,7 +2094,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2154,7 +2123,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort by one field: `name`, `created_at`, or `updated_at`. Prefix with `-` for descending order. The default is `-created_at`.
     # @return [Array<(ExperimentsMetricCollectionV2DTOArray, Integer, Hash)>] ExperimentsMetricCollectionV2DTOArray data, response status code and response headers
     def list_metric_collections_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_metric_collections ...'
       end
@@ -2196,7 +2164,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2225,7 +2193,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort field: name, created_at, or updated_at. Prefix with `-` for descending (for example, `-created_at`). A single field only; a comma-separated list is rejected. Defaults to created_at descending.
     # @return [Array<(ExperimentsMetricV2DTOArray, Integer, Hash)>] ExperimentsMetricV2DTOArray data, response status code and response headers
     def list_metrics_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_metrics ...'
       end
@@ -2267,7 +2234,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2295,7 +2262,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort field: name, created_at, updated_at, metric_count, or experiment_count. A single field only; a comma-separated list is rejected. Prefix with `-` for descending (for example, `-created_at`). Defaults to created_at descending.
     # @return [Array<(ExperimentsMetricSQLModelV2DTOArray, Integer, Hash)>] ExperimentsMetricSQLModelV2DTOArray data, response status code and response headers
     def list_metric_sql_models_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_metric_sql_models ...'
       end
@@ -2336,7 +2302,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2365,7 +2331,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :sort Sort fields: name, created_at, or updated_at. Use a comma-separated list in priority order, for example name,-created_at. Prefix each field with `-` for descending. Defaults to created_at descending.
     # @return [Array<(ExperimentsSubjectTypeV2DTOArray, Integer, Hash)>] ExperimentsSubjectTypeV2DTOArray data, response status code and response headers
     def list_subject_types_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_subject_types ...'
       end
@@ -2484,11 +2449,10 @@ module DatadogAPIClient::V2
     # convert hybrid experiments.
     #
     # @param experiment_id [UUID] The UUID of the experiment.
-    # @param body [ExperimentsPatchExperimentV2Request] 
+    # @param body [ExperimentsPatchExperimentV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsPatchExperimentV2Response, Integer, Hash)>] ExperimentsPatchExperimentV2Response data, response status code and response headers
     def patch_experiment_with_http_info(experiment_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.patch_experiment ...'
       end
@@ -2556,11 +2520,10 @@ module DatadogAPIClient::V2
     # Update mutable fields on a subject type. Only the fields present in the body are changed. Any subject type can be updated, including the organization's default one, but the is_default flag itself is read-only here: which subject type is the default cannot be changed through this endpoint.
     #
     # @param subject_type_id [UUID] The UUID of the subject type.
-    # @param body [ExperimentsPatchSubjectTypeV2Request] 
+    # @param body [ExperimentsPatchSubjectTypeV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsSubjectTypeV2DTO, Integer, Hash)>] ExperimentsSubjectTypeV2DTO data, response status code and response headers
     def patch_subject_type_with_http_info(subject_type_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.patch_subject_type ...'
       end
@@ -2632,7 +2595,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :full_refresh Force a full warehouse rebuild. Defaults to false when omitted.
     # @return [Array<(ExperimentsRefreshExperimentResultsV2DTO, Integer, Hash)>] ExperimentsRefreshExperimentResultsV2DTO data, response status code and response headers
     def refresh_experiment_results_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.refresh_experiment_results ...'
       end
@@ -2698,7 +2660,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :full_refresh Force a full warehouse rebuild. Defaults to false when omitted.
     # @return [Array<(ExperimentsRefreshExperimentResultsV2DTOArray, Integer, Hash)>] ExperimentsRefreshExperimentResultsV2DTOArray data, response status code and response headers
     def refresh_experiment_results_for_org_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.refresh_experiment_results_for_org ...'
       end
@@ -2760,7 +2721,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def set_default_subject_type_with_http_info(subject_type_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.set_default_subject_type ...'
       end
@@ -2823,10 +2783,9 @@ module DatadogAPIClient::V2
     #
     # @param experiment_id [UUID] The UUID of the experiment.
     # @param opts [Hash] the optional parameters
-    # @option opts [ExperimentsStartExperimentV2Request] :body 
+    # @option opts [ExperimentsStartExperimentV2Request] :body
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def start_experiment_with_http_info(experiment_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.start_experiment ...'
       end
@@ -2893,7 +2852,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def unarchive_exposure_sql_model_with_http_info(exposure_sql_model_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.unarchive_exposure_sql_model ...'
       end
@@ -2955,11 +2913,10 @@ module DatadogAPIClient::V2
     # Update selected statistical analysis settings. Omitted attributes remain unchanged and nullable attributes can be cleared with null. Protocol-locked settings cannot be changed.
     #
     # @param experiment_id [UUID] The UUID of the experiment.
-    # @param body [ExperimentsAnalysisPlanWriteV2Request] 
+    # @param body [ExperimentsAnalysisPlanWriteV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsAnalysisPlanV2MutationResponse, Integer, Hash)>] ExperimentsAnalysisPlanV2MutationResponse data, response status code and response headers
     def update_experiment_analysis_plan_attributes_with_http_info(experiment_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.update_experiment_analysis_plan_attributes ...'
       end
@@ -3028,11 +2985,10 @@ module DatadogAPIClient::V2
     #
     # @param experiment_id [UUID] The UUID of the experiment.
     # @param metric_group_id [UUID] The UUID of the metric group.
-    # @param body [ExperimentsPatchExperimentMetricGroupV2Request] 
+    # @param body [ExperimentsPatchExperimentMetricGroupV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsExperimentMetricGroupMutationV2, Integer, Hash)>] ExperimentsExperimentMetricGroupMutationV2 data, response status code and response headers
     def update_experiment_metric_group_with_http_info(experiment_id, metric_group_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.update_experiment_metric_group ...'
       end
@@ -3104,12 +3060,11 @@ module DatadogAPIClient::V2
     # Replace an exposure SQL model. This is a full replacement and is destructive: any subject type or property not present in the body is deleted, and properties are matched on name, column_name and column_type together, so changing one of those replaces the property rather than editing it. Send the complete set you want to keep. Anything removed is listed under meta.removed_subject_type_ids and meta.removed_property_names in the response. The warehouse connection is not settable and is left as stored.
     #
     # @param exposure_sql_model_id [UUID] The UUID of the exposure SQL model.
-    # @param body [ExperimentsCreateExposureSQLModelV2Request] 
+    # @param body [ExperimentsCreateExposureSQLModelV2Request]
     # @param opts [Hash] the optional parameters
     # @option opts [Array<String>] :include Optional fields to include. Repeat this parameter to request several fields. `counts` adds experiment_count to the updated model.
     # @return [Array<(ExperimentsUpdateExposureSQLModelV2Response, Integer, Hash)>] ExperimentsUpdateExposureSQLModelV2Response data, response status code and response headers
     def update_exposure_sql_model_with_http_info(exposure_sql_model_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.update_exposure_sql_model ...'
       end
@@ -3157,7 +3112,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
@@ -3179,11 +3134,10 @@ module DatadogAPIClient::V2
     # Update a metric. Certified metrics are read-only through this endpoint. This is a partial update: every attribute is optional and an omitted attribute keeps its stored value, so a body carrying only the fields being changed is enough. `guardrail_cutoff_threshold` is nullable -- send null to clear it, omit it to leave it alone. Omitting the aggregation leaves the metric's definition untouched; supplying one replaces it wholesale, and the metric's type is re-derived from the shape supplied. Property filters use property_id or measure_id UUIDs from the aggregation's data source. Attributes that are computed rather than stored (short_id, metric_type, certified_at, experiment_count, created_at, updated_at) are rejected rather than ignored, so a body copied from GET must have them removed. The is_certified attribute is rejected. Certification cannot be changed through this endpoint.
     #
     # @param metric_id [UUID] The UUID of the metric.
-    # @param body [ExperimentsUpdateMetricV2Request] 
+    # @param body [ExperimentsUpdateMetricV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsMetricV2DTO, Integer, Hash)>] ExperimentsMetricV2DTO data, response status code and response headers
     def update_metric_with_http_info(metric_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.update_metric ...'
       end
@@ -3251,11 +3205,10 @@ module DatadogAPIClient::V2
     # Update metric collection.
     #
     # @param metric_collection_id [UUID] The UUID of the metric collection.
-    # @param body [ExperimentsPatchMetricCollectionV2Request] 
+    # @param body [ExperimentsPatchMetricCollectionV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsMetricCollectionV2DTO, Integer, Hash)>] ExperimentsMetricCollectionV2DTO data, response status code and response headers
     def update_metric_collection_with_http_info(metric_collection_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.update_metric_collection ...'
       end
@@ -3323,11 +3276,10 @@ module DatadogAPIClient::V2
     # Replace a metric SQL model. This is a destructive full replace: subject types, customer-defined measures, and properties absent from the body are deleted, so send the complete set. Properties are matched by name; changing a property's column, type, or description preserves its ID. column_type is required for every measure and property. Removing a measure or property that an active metric references returns 409 Conflict. Server-generated IDs returned by GET are read-only and can be left in a replayed body. The response reports removals in meta.deleted_subject_types, meta.deleted_measures, and meta.deleted_properties. Certification is read-only. Certified models cannot be replaced through this endpoint.
     #
     # @param metric_sql_model_id [UUID] The UUID of the metric SQL model.
-    # @param body [ExperimentsCreateMetricSQLModelV2Request] 
+    # @param body [ExperimentsCreateMetricSQLModelV2Request]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ExperimentsUpdateMetricSQLModelV2Response, Integer, Hash)>] ExperimentsUpdateMetricSQLModelV2Response data, response status code and response headers
     def update_metric_sql_model_with_http_info(metric_sql_model_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExperimentsAPI.update_metric_sql_model ...'
       end

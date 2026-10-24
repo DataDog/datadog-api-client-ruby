@@ -141,7 +141,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
     # @return [Array<(HourlyUsageAttributionResponse, Integer, Hash)>] HourlyUsageAttributionResponse data, response status code and response headers
     def get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_hourly_usage_attribution ...'
       end
@@ -469,7 +468,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
     # @return [Array<(MonthlyUsageAttributionResponse, Integer, Hash)>] MonthlyUsageAttributionResponse data, response status code and response headers
     def get_monthly_usage_attribution_with_http_info(start_month, fields, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_usage_attribution ...'
       end
@@ -846,7 +844,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
     def get_usage_billable_summary_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_billable_summary ...'
       end
@@ -1631,7 +1628,6 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :index_name Comma-separated list of log index names.
     # @return [Array<(UsageLogsByIndexResponse, Integer, Hash)>] UsageLogsByIndexResponse data, response status code and response headers
     def get_usage_logs_by_index_with_http_info(start_hr, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs_by_index ...'
       end
@@ -1675,7 +1671,7 @@ module DatadogAPIClient::V1
         :return_type => return_type,
         :api_version => "V1"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2362,7 +2358,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
     # @return [Array<(UsageSummaryResponse, Integer, Hash)>] UsageSummaryResponse data, response status code and response headers
     def get_usage_summary_with_http_info(start_month, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_summary ...'
       end
@@ -2723,7 +2718,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
     def get_usage_top_avg_metrics_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_top_avg_metrics ...'
       end
@@ -2771,7 +2765,7 @@ module DatadogAPIClient::V1
         :return_type => return_type,
         :api_version => "V1"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging

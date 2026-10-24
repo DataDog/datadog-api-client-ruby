@@ -35,11 +35,10 @@ module DatadogAPIClient::V2
     #
     # Batch query reference table rows by their primary key values. Returns only found rows in the included array.
     #
-    # @param body [BatchRowsQueryRequest] 
+    # @param body [BatchRowsQueryRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(BatchRowsQueryResponse, Integer, Hash)>] BatchRowsQueryResponse data, response status code and response headers
     def batch_rows_query_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.batch_rows_query ...'
       end
@@ -106,11 +105,10 @@ module DatadogAPIClient::V2
     #    POST endpoint with `upload_id` in `file_metadata`.
     # 2. Provide `access_details` in `file_metadata` pointing to a CSV file in cloud storage.
     #
-    # @param body [CreateTableRequest] 
+    # @param body [CreateTableRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TableResultV2, Integer, Hash)>] TableResultV2 data, response status code and response headers
     def create_reference_table_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.create_reference_table ...'
       end
@@ -173,11 +171,10 @@ module DatadogAPIClient::V2
     #
     # Create a reference table upload for bulk data ingestion
     #
-    # @param body [CreateUploadRequest] 
+    # @param body [CreateUploadRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(CreateUploadResponse, Integer, Hash)>] CreateUploadResponse data, response status code and response headers
     def create_reference_table_upload_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.create_reference_table_upload ...'
       end
@@ -241,11 +238,10 @@ module DatadogAPIClient::V2
     # Delete multiple rows from a Reference Table by their primary key values.
     #
     # @param id [String] Unique identifier of the reference table to delete rows from
-    # @param body [BatchDeleteRowsRequestArray] 
+    # @param body [BatchDeleteRowsRequestArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_rows_with_http_info(id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.delete_rows ...'
       end
@@ -316,7 +312,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_table_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.delete_table ...'
       end
@@ -382,7 +377,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TableRowResourceArray, Integer, Hash)>] TableRowResourceArray data, response status code and response headers
     def get_rows_by_id_with_http_info(id, row_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.get_rows_by_id ...'
       end
@@ -428,7 +422,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -453,7 +447,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TableResultV2, Integer, Hash)>] TableResultV2 data, response status code and response headers
     def get_table_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.get_table ...'
       end
@@ -520,7 +513,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_continuation_token Opaque cursor from the previous response's next link. Pass this to retrieve the next page on the same consistent snapshot.
     # @return [Array<(ListRowsResponse, Integer, Hash)>] ListRowsResponse data, response status code and response headers
     def list_reference_table_rows_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.list_reference_table_rows ...'
       end
@@ -598,7 +590,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_table_name_contains Filter by table name containing substring.
     # @return [Array<(TableResultV2Array, Integer, Hash)>] TableResultV2Array data, response status code and response headers
     def list_tables_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.list_tables ...'
       end
@@ -675,11 +666,10 @@ module DatadogAPIClient::V2
     # Update a reference table by ID. You can update the table's data, description, and tags. Note: The source type cannot be changed after table creation. For data updates: For existing tables of type `source:LOCAL_FILE`, call POST api/v2/reference-tables/uploads first to get an upload ID, then PUT chunks of CSV data to each provided URL, and finally call this PATCH endpoint with the upload_id in file_metadata. For existing tables with `source:` types of `S3`, `GCS`, or `AZURE`, provide updated access_details in file_metadata pointing to a CSV file in the same type of cloud storage.
     #
     # @param id [String] Unique identifier of the reference table to update
-    # @param body [PatchTableRequest] 
+    # @param body [PatchTableRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_reference_table_with_http_info(id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.update_reference_table ...'
       end
@@ -747,11 +737,10 @@ module DatadogAPIClient::V2
     # Create or update rows in a Reference Table by their primary key values. If a row with the specified primary key exists, it is updated; otherwise, a new row is created.
     #
     # @param id [String] Unique identifier of the reference table to upsert rows into
-    # @param body [BatchUpsertRowsRequestArray] 
+    # @param body [BatchUpsertRowsRequestArray]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upsert_rows_with_http_info(id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.upsert_rows ...'
       end
