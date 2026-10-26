@@ -5049,6 +5049,14 @@ ScenariosModelMappings = {
     "v2.GetHistoricalMetricsConfiguration" => {
             "metric_name" => "String",
     },
+    "v2.ListTagIndexingRuleExemptions" => {
+            "filter_metric_prefix" => "String",
+            "filter_safe" => "Boolean",
+            "filter_tag_indexing_rule_id" => "UUID",
+            "sort" => "TagIndexingRuleExemptionSort",
+            "page_size" => "Integer",
+            "page_cursor" => "String",
+    },
     "v2.ListTagIndexingRules" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",

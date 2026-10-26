@@ -8961,6 +8961,8 @@ module DatadogAPIClient
           "v2.tag_indexing_rule_exemption_create_request" => "TagIndexingRuleExemptionCreateRequest",
           "v2.tag_indexing_rule_exemption_data" => "TagIndexingRuleExemptionData",
           "v2.tag_indexing_rule_exemption_response" => "TagIndexingRuleExemptionResponse",
+          "v2.tag_indexing_rule_exemption_sort" => "TagIndexingRuleExemptionSort",
+          "v2.tag_indexing_rule_exemptions_response" => "TagIndexingRuleExemptionsResponse",
           "v2.tag_indexing_rule_exemption_type" => "TagIndexingRuleExemptionType",
           "v2.tag_indexing_rule_exemption_volume_status" => "TagIndexingRuleExemptionVolumeStatus",
           "v2.tag_indexing_rule_metric_match" => "TagIndexingRuleMetricMatch",
