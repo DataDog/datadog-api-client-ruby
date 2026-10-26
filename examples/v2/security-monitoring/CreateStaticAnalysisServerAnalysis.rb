@@ -14,6 +14,10 @@ body = DatadogAPIClient::V2::AnalysisRequest.new({
       file_encoding: "utf-8",
       filename: "test.py",
       language: "python",
+      options: DatadogAPIClient::V2::AnalysisRequestOptions.new({
+        log_output: true,
+        use_tree_sitter: true,
+      }),
       rules: [
         DatadogAPIClient::V2::AnalysisRequestRule.new({
           arguments: [

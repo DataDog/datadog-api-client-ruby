@@ -30,8 +30,8 @@ module DatadogAPIClient::V2
     # Rule identifier, which is the same as the rule name.
     attr_reader :id
 
-    # A revision of a custom static analysis rule as embedded in a rule or ruleset response.
-    attr_reader :last_revision
+    # The most recent revision of the rule, or null when the rule has no revisions.
+    attr_accessor :last_revision
 
     # Rule name
     attr_reader :name
@@ -61,7 +61,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'created_by' => :'String',
         :'id' => :'String',
-        :'last_revision' => :'CustomRuleRevisionEmbedded',
+        :'last_revision' => :'CustomRuleNullableRevisionEmbedded',
         :'name' => :'String',
         :'revisions' => :'Array<CustomRuleRevisionEmbedded>'
       }
@@ -71,6 +71,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'last_revision',
         :'revisions',
       ])
     end
@@ -127,7 +128,6 @@ module DatadogAPIClient::V2
       return false if @created_at.nil?
       return false if @created_by.nil?
       return false if @id.nil?
-      return false if @last_revision.nil?
       return false if @name.nil?
       true
     end
@@ -160,16 +160,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param last_revision [Object] Object to be assigned
-    # @!visibility private
-    def last_revision=(last_revision)
-      if last_revision.nil?
-        fail ArgumentError, 'invalid value for "last_revision", last_revision cannot be nil.'
-      end
-      @last_revision = last_revision
     end
 
     # Custom attribute writer method with validation
