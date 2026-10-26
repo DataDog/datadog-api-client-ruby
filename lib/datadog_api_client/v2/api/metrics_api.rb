@@ -1674,6 +1674,117 @@ module DatadogAPIClient::V2
         end
     end
 
+    # List tag indexing rule exemptions.
+    #
+    # @see #list_tag_indexing_rule_exemptions_with_http_info
+    def list_tag_indexing_rule_exemptions(opts = {})
+      data, _status_code, _headers = list_tag_indexing_rule_exemptions_with_http_info(opts)
+      data
+    end
+
+    # List tag indexing rule exemptions.
+    #
+    # Returns explicit exemptions and legacy tag configurations that exclude metrics from tag indexing rules.
+    # You can filter results by metric name prefix, whether an exemption is safe to remove, or the UUID of a matching
+    # tag indexing rule. You can sort results by metric name or by estimated change in indexed volume.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_metric_prefix Filter exemptions to metrics whose names start with this literal prefix. Matching is case-sensitive. Wildcard characters are treated literally.
+    # @option opts [Boolean] :filter_safe Filter exemptions by whether they are safe to remove. An exemption is considered safe when a fresh, usable estimate indicates that removing it would not increase indexed volume and would not drop tags used to query the metric in monitors, dashboards, notebooks, or SLOs. Set to `true` to return safe-to-remove exemptions, or `false` to return all other exemptions, including those with unavailable or stale estimates.
+    # @option opts [UUID] :filter_tag_indexing_rule_id Filter exemptions to metrics matched by the tag indexing rule with this UUID.
+    # @option opts [TagIndexingRuleExemptionSort] :sort Sort field. Prefix the field with `-` for descending order. The default is `estimated_change_in_volume` in ascending order, with the largest reductions (most negative values) first.
+    # @option opts [Integer] :page_size Maximum number of results per page. Defaults to 10000; accepts values from 1 to 10000. If `meta.pagination.next_cursor` is non-null, request the next page by passing that value as `page[cursor]`. Continue until `next_cursor` is null.
+    # @option opts [String] :page_cursor Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
+    # @return [Array<(TagIndexingRuleExemptionsResponse, Integer, Hash)>] TagIndexingRuleExemptionsResponse data, response status code and response headers
+    def list_tag_indexing_rule_exemptions_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_tag_indexing_rule_exemptions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_tag_indexing_rule_exemptions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_tag_indexing_rule_exemptions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_indexing_rule_exemptions ...'
+      end
+      allowable_values = ['name', '-name', 'estimated_change_in_volume', '-estimated_change_in_volume']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_indexing_rule_exemptions, must be smaller than or equal to 10000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_indexing_rule_exemptions, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/list-tag-indexing-rule-exemptions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[metric_prefix]'] = opts[:'filter_metric_prefix'] if !opts[:'filter_metric_prefix'].nil?
+      query_params[:'filter[safe]'] = opts[:'filter_safe'] if !opts[:'filter_safe'].nil?
+      query_params[:'filter[tag_indexing_rule_id]'] = opts[:'filter_tag_indexing_rule_id'] if !opts[:'filter_tag_indexing_rule_id'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TagIndexingRuleExemptionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_tag_indexing_rule_exemptions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#list_tag_indexing_rule_exemptions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List tag indexing rule exemptions.
+    #
+    # Provide a paginated version of {#list_tag_indexing_rule_exemptions}, returning all items.
+    #
+    # To use it you need to use a block: list_tag_indexing_rule_exemptions_with_pagination { |item| p item }
+    #
+    # @yield [TagIndexingRuleExemptionData] Paginated items
+    def list_tag_indexing_rule_exemptions_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10000)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        while true do
+            response = list_tag_indexing_rule_exemptions(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length == 0
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.pagination.next_cursor"))
+        end
+    end
+
     # List tag indexing rules.
     #
     # @see #list_tag_indexing_rules_with_http_info

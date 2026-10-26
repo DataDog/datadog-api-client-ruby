@@ -673,6 +673,7 @@ module DatadogAPIClient
             "v2.get_historical_metrics_configuration": false,
             "v2.get_tag_indexing_rule": false,
             "v2.get_tag_indexing_rule_exemption": false,
+            "v2.list_tag_indexing_rule_exemptions": false,
             "v2.list_tag_indexing_rules": false,
             "v2.list_tag_indexing_rules_for_metric": false,
             "v2.reorder_tag_indexing_rules": false,
