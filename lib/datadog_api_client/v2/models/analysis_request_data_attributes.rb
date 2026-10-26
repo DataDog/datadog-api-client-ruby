@@ -33,6 +33,10 @@ module DatadogAPIClient::V2
     # The programming language of the source code.
     attr_reader :language
 
+    # Analyzer options sent by browser-based clients. Accepted but ignored: the API always runs
+    # the analysis with tree-sitter enabled and rule output logged.
+    attr_accessor :options
+
     # The list of static analysis rules to apply during analysis.
     attr_reader :rules
 
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
         :'file_encoding' => :'file_encoding',
         :'filename' => :'filename',
         :'language' => :'language',
+        :'options' => :'options',
         :'rules' => :'rules'
       }
     end
@@ -58,6 +63,7 @@ module DatadogAPIClient::V2
         :'file_encoding' => :'String',
         :'filename' => :'String',
         :'language' => :'String',
+        :'options' => :'AnalysisRequestOptions',
         :'rules' => :'Array<AnalysisRequestRule>'
       }
     end
@@ -94,6 +100,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'language')
         self.language = attributes[:'language']
+      end
+
+      if attributes.key?(:'options')
+        self.options = attributes[:'options']
       end
 
       if attributes.key?(:'rules')
@@ -195,6 +205,7 @@ module DatadogAPIClient::V2
           file_encoding == o.file_encoding &&
           filename == o.filename &&
           language == o.language &&
+          options == o.options &&
           rules == o.rules &&
           additional_properties == o.additional_properties
     end
@@ -203,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [code, file_encoding, filename, language, rules, additional_properties].hash
+      [code, file_encoding, filename, language, options, rules, additional_properties].hash
     end
   end
 end

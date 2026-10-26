@@ -27,8 +27,8 @@ module DatadogAPIClient::V2
     # Creator identifier
     attr_reader :created_by
 
-    # A revision of a custom static analysis rule as embedded in a rule or ruleset response.
-    attr_reader :last_revision
+    # The most recent revision of the rule, or null when the rule has no revisions.
+    attr_accessor :last_revision
 
     # Rule name
     attr_reader :name
@@ -56,7 +56,7 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'Time',
         :'created_by' => :'String',
-        :'last_revision' => :'CustomRuleRevisionEmbedded',
+        :'last_revision' => :'CustomRuleNullableRevisionEmbedded',
         :'name' => :'String',
         :'revisions' => :'Array<CustomRuleRevisionEmbedded>'
       }
@@ -66,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'last_revision',
         :'revisions',
       ])
     end
@@ -117,7 +118,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @created_at.nil?
       return false if @created_by.nil?
-      return false if @last_revision.nil?
       return false if @name.nil?
       true
     end
@@ -140,16 +140,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "created_by", created_by cannot be nil.'
       end
       @created_by = created_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param last_revision [Object] Object to be assigned
-    # @!visibility private
-    def last_revision=(last_revision)
-      if last_revision.nil?
-        fail ArgumentError, 'invalid value for "last_revision", last_revision cannot be nil.'
-      end
-      @last_revision = last_revision
     end
 
     # Custom attribute writer method with validation
