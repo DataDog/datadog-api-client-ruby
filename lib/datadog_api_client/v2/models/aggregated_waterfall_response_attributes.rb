@@ -30,8 +30,8 @@ module DatadogAPIClient::V2
     # Start of the analyzed time range as a Unix timestamp in seconds.
     attr_reader :from
 
-    # Network resources in chronological waterfall order.
-    attr_reader :resources
+    # Network resources in chronological waterfall order, or null when the sampled views have no resources in their initial load window.
+    attr_accessor :resources
 
     # List of RUM view IDs sampled for this aggregation, capped at 50.
     attr_reader :sampled_view_ids
@@ -87,6 +87,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'criteria',
+        :'resources',
       ])
     end
 
@@ -155,7 +156,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @application_id.nil?
       return false if @from.nil?
-      return false if @resources.nil?
       return false if @sampled_view_ids.nil?
       return false if @to.nil?
       return false if @total_cache_hit_rate_pct.nil?
@@ -183,16 +183,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "from", from cannot be nil.'
       end
       @from = from
-    end
-
-    # Custom attribute writer method with validation
-    # @param resources [Object] Object to be assigned
-    # @!visibility private
-    def resources=(resources)
-      if resources.nil?
-        fail ArgumentError, 'invalid value for "resources", resources cannot be nil.'
-      end
-      @resources = resources
     end
 
     # Custom attribute writer method with validation
