@@ -36,9 +36,11 @@ module DatadogAPIClient::V2
     # Retrieve a pruned, hierarchical view of an APM trace by its trace ID.
     # The trace is summarized as a tree of spans rooted at the trace root and reduced in size
     # to keep rendering large traces in the UI practical.
+    # A `400 Bad Request` response means the trace ID is malformed. A `404 Not Found` response means
+    # no trace with this ID is available, such as when the trace is outside the retention period.
     # This endpoint is rate limited to `60` requests per minute per organization.
     #
-    # @param trace_id [String] The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits.
+    # @param trace_id [String] The trace ID. Accepts either a hexadecimal string of up to 32 characters (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are case-insensitive, and shorter values are left-padded with zeros. Use the `trace_id` attribute of a span returned by the Search spans or Get a list of spans endpoints. Values in any other format, such as UUIDs, return `400 Bad Request`. A well-formed ID with no matching trace returns `404 Not Found`.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :expand_span_id Span ID to expand and preserve in the pruned tree even when its branch would normally be summarized.
     # @option opts [Integer] :time_hint Optional Unix time hint, in seconds, used to optimize the lookup of the trace in long-term storage.
@@ -62,6 +64,10 @@ module DatadogAPIClient::V2
       # verify the required parameter 'trace_id' is set
       if @api_client.config.client_side_validation && trace_id.nil?
         fail ArgumentError, "Missing the required parameter 'trace_id' when calling APMTraceAPI.get_pruned_trace_by_id"
+      end
+      pattern = Regexp.new("^([0-9a-fA-F]{1,32}|[0-9]{1,39})$")
+      if @api_client.config.client_side_validation && trace_id !~ pattern
+        fail ArgumentError, "invalid value for 'trace_id' when calling APMTraceAPI.get_pruned_trace_by_id, must conform to the pattern #{pattern}."
       end
       if @api_client.config.client_side_validation && !opts[:'time_hint'].nil? && opts[:'time_hint'] > 2147483647
         fail ArgumentError, 'invalid value for "opts[:"time_hint"]" when calling APMTraceAPI.get_pruned_trace_by_id, must be smaller than or equal to 2147483647.'
@@ -127,9 +133,11 @@ module DatadogAPIClient::V2
     #
     # Retrieve a full APM trace by its trace ID, including every span in the trace.
     # Traces are returned from live storage when available and fall back to longer-term storage.
+    # A `400 Bad Request` response means the trace ID is malformed. A `404 Not Found` response means
+    # no trace with this ID is available, such as when the trace is outside the retention period.
     # This endpoint is rate limited to `60` requests per minute per organization.
     #
-    # @param trace_id [String] The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits.
+    # @param trace_id [String] The trace ID. Accepts either a hexadecimal string of up to 32 characters (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are case-insensitive, and shorter values are left-padded with zeros. Use the `trace_id` attribute of a span returned by the Search spans or Get a list of spans endpoints. Values in any other format, such as UUIDs, return `400 Bad Request`. A well-formed ID with no matching trace returns `404 Not Found`.
     # @param opts [Hash] the optional parameters
     # @option opts [Array<String>] :include_fields List of span fields to include in the response. When omitted, every available field is returned. Values may be passed as repeated query parameters or as a single comma-separated value.
     # @return [Array<(TraceResponse, Integer, Hash)>] TraceResponse data, response status code and response headers
@@ -147,6 +155,10 @@ module DatadogAPIClient::V2
       # verify the required parameter 'trace_id' is set
       if @api_client.config.client_side_validation && trace_id.nil?
         fail ArgumentError, "Missing the required parameter 'trace_id' when calling APMTraceAPI.get_trace_by_id"
+      end
+      pattern = Regexp.new("^([0-9a-fA-F]{1,32}|[0-9]{1,39})$")
+      if @api_client.config.client_side_validation && trace_id !~ pattern
+        fail ArgumentError, "invalid value for 'trace_id' when calling APMTraceAPI.get_trace_by_id, must conform to the pattern #{pattern}."
       end
       # resource path
       local_var_path = '/api/v2/trace/{trace_id}'.sub('{trace_id}', CGI.escape(trace_id.to_s).gsub('%2F', '/'))
