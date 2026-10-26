@@ -102,7 +102,8 @@ module DatadogAPIClient::V2
     #
     # @param issue_id [String] The identifier of the issue.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<GetIssueIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `case`, and `team_owners`.
+    # @option opts [Array<GetIssueIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `case`, `team_owners`, and `samples`.
+    # @option opts [Array<IssueSampleBias>] :filter_samples_biases Comma-separated list of biases used to pick the samples returned with `include=samples`. Requires `include=samples`. Defaults to all biases.
     # @return [Array<(IssueResponse, Integer, Hash)>] IssueResponse data, response status code and response headers
     def get_issue_with_http_info(issue_id, opts = {})
 
@@ -119,6 +120,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
+      query_params[:'filter[samples.biases]'] = @api_client.build_collection_param(opts[:'filter_samples_biases'], :csv) if !opts[:'filter_samples_biases'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

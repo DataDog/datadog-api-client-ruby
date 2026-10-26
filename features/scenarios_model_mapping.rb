@@ -3588,6 +3588,7 @@ ScenariosModelMappings = {
     "v2.GetIssue" => {
             "issue_id" => "String",
             "include" => "Array<GetIssueIncludeQueryParameterItem>",
+            "filter_samples_biases" => "Array<IssueSampleBias>",
     },
     "v2.DeleteIssueAssignee" => {
             "issue_id" => "String",
