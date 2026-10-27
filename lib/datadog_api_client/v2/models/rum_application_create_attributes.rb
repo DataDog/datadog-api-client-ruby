@@ -21,6 +21,11 @@ module DatadogAPIClient::V2
   class RUMApplicationCreateAttributes
     include BaseGenericModel
 
+    # Whether to create the default retention filters when the application is created: `Sessions with errors` and `Sessions`, each with a 100% retention rate.
+    # Set to `false` to create the application without them, for example when you add your own retention filters right after creating it. Until you add retention filters, the application only retains sessions matched by its [permanent retention filters](https://docs.datadoghq.com/real_user_monitoring/rum_without_limits/retention_filters/#permanent-retention-filters).
+    # This setting doesn't affect permanent retention filters (sessions with forced replays, Synthetics sessions and RUM-APM flat sampling).
+    attr_accessor :create_default_retention_filters
+
     # Name of the RUM application.
     attr_reader :name
 
@@ -39,6 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'create_default_retention_filters' => :'create_default_retention_filters',
         :'name' => :'name',
         :'product_analytics_retention_state' => :'product_analytics_retention_state',
         :'rum_event_processing_state' => :'rum_event_processing_state',
@@ -50,6 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'create_default_retention_filters' => :'Boolean',
         :'name' => :'String',
         :'product_analytics_retention_state' => :'RUMProductAnalyticsRetentionState',
         :'rum_event_processing_state' => :'RUMEventProcessingState',
@@ -74,6 +81,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'create_default_retention_filters')
+        self.create_default_retention_filters = attributes[:'create_default_retention_filters']
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -136,6 +147,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          create_default_retention_filters == o.create_default_retention_filters &&
           name == o.name &&
           product_analytics_retention_state == o.product_analytics_retention_state &&
           rum_event_processing_state == o.rum_event_processing_state &&
@@ -147,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, product_analytics_retention_state, rum_event_processing_state, type, additional_properties].hash
+      [create_default_retention_filters, name, product_analytics_retention_state, rum_event_processing_state, type, additional_properties].hash
     end
   end
 end
