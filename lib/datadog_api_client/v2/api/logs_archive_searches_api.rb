@@ -23,6 +23,78 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Cancel an Archive Search.
+    #
+    # @see #cancel_archive_search_with_http_info
+    def cancel_archive_search(archive_search_id, opts = {})
+      data, _status_code, _headers = cancel_archive_search_with_http_info(archive_search_id, opts)
+      data
+    end
+
+    # Cancel an Archive Search.
+    #
+    # Cancel a running Archive Search. Cancelling an Archive Search that has already finished is a
+    # no-op: it returns the resource unchanged instead of returning an error.
+    #
+    # @param archive_search_id [String] Unique identifier of the Archive Search.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArchiveSearchResponse, Integer, Hash)>] ArchiveSearchResponse data, response status code and response headers
+    def cancel_archive_search_with_http_info(archive_search_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_archive_search".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_archive_search")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_archive_search"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsArchiveSearchesAPI.cancel_archive_search ...'
+      end
+      # verify the required parameter 'archive_search_id' is set
+      if @api_client.config.client_side_validation && archive_search_id.nil?
+        fail ArgumentError, "Missing the required parameter 'archive_search_id' when calling LogsArchiveSearchesAPI.cancel_archive_search"
+      end
+      # resource path
+      local_var_path = '/api/v2/logs/archive_searches/{archive_search_id}/cancel'.sub('{archive_search_id}', CGI.escape(archive_search_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArchiveSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :cancel_archive_search,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LogsArchiveSearchesAPI#cancel_archive_search\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an Archive Search.
     #
     # @see #create_archive_search_with_http_info
@@ -167,6 +239,153 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: LogsArchiveSearchesAPI#get_archive_search\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Archive Searches.
+    #
+    # @see #list_archive_searches_with_http_info
+    def list_archive_searches(opts = {})
+      data, _status_code, _headers = list_archive_searches_with_http_info(opts)
+      data
+    end
+
+    # List Archive Searches.
+    #
+    # List the organization's Archive Searches that haven't expired, up to 5,000. When more
+    # exist, `meta.truncated` is `true`.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArchiveSearchListResponse, Integer, Hash)>] ArchiveSearchListResponse data, response status code and response headers
+    def list_archive_searches_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_archive_searches".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_archive_searches")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_archive_searches"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsArchiveSearchesAPI.list_archive_searches ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/logs/archive_searches'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArchiveSearchListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_archive_searches,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LogsArchiveSearchesAPI#list_archive_searches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rehydrate an Archive Search.
+    #
+    # @see #rehydrate_archive_search_with_http_info
+    def rehydrate_archive_search(archive_search_id, body, opts = {})
+      data, _status_code, _headers = rehydrate_archive_search_with_http_info(archive_search_id, body, opts)
+      data
+    end
+
+    # Rehydrate an Archive Search.
+    #
+    # Turn a plain Archive Search into a Search & Rehydration by indexing the matched logs into a
+    # retained historical view. Rehydration is the only thing this endpoint can change, and it only
+    # applies to a search that has already finished scanning.
+    #
+    # @param archive_search_id [String] Unique identifier of the Archive Search.
+    # @param body [ArchiveSearchRehydrateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArchiveSearchResponse, Integer, Hash)>] ArchiveSearchResponse data, response status code and response headers
+    def rehydrate_archive_search_with_http_info(archive_search_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.rehydrate_archive_search".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.rehydrate_archive_search")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.rehydrate_archive_search"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsArchiveSearchesAPI.rehydrate_archive_search ...'
+      end
+      # verify the required parameter 'archive_search_id' is set
+      if @api_client.config.client_side_validation && archive_search_id.nil?
+        fail ArgumentError, "Missing the required parameter 'archive_search_id' when calling LogsArchiveSearchesAPI.rehydrate_archive_search"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsArchiveSearchesAPI.rehydrate_archive_search"
+      end
+      # resource path
+      local_var_path = '/api/v2/logs/archive_searches/{archive_search_id}'.sub('{archive_search_id}', CGI.escape(archive_search_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArchiveSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :rehydrate_archive_search,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LogsArchiveSearchesAPI#rehydrate_archive_search\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
