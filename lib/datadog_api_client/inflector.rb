@@ -4393,6 +4393,8 @@ module DatadogAPIClient
           "v2.hamr_org_connection_status" => "HamrOrgConnectionStatus",
           "v2.hamr_org_connection_type" => "HamrOrgConnectionType",
           "v2.historical_job_data_type" => "HistoricalJobDataType",
+          "v2.historical_job_failure" => "HistoricalJobFailure",
+          "v2.historical_job_failure_reason" => "HistoricalJobFailureReason",
           "v2.historical_job_list_meta" => "HistoricalJobListMeta",
           "v2.historical_job_options" => "HistoricalJobOptions",
           "v2.historical_job_query" => "HistoricalJobQuery",

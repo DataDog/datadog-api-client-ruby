@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # ID of the rule used to create the job (if it is created from a rule).
     attr_accessor :created_from_rule_id
 
+    # Details about why the job failed. Only present when the job has failed and won't be retried.
+    attr_accessor :failure
+
     # Definition of a historical job.
     attr_accessor :job_definition
 
@@ -61,6 +64,7 @@ module DatadogAPIClient::V2
         :'created_by_handle' => :'createdByHandle',
         :'created_by_name' => :'createdByName',
         :'created_from_rule_id' => :'createdFromRuleId',
+        :'failure' => :'failure',
         :'job_definition' => :'jobDefinition',
         :'job_name' => :'jobName',
         :'job_status' => :'jobStatus',
@@ -78,6 +82,7 @@ module DatadogAPIClient::V2
         :'created_by_handle' => :'String',
         :'created_by_name' => :'String',
         :'created_from_rule_id' => :'String',
+        :'failure' => :'HistoricalJobFailure',
         :'job_definition' => :'JobDefinition',
         :'job_name' => :'String',
         :'job_status' => :'String',
@@ -119,6 +124,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_from_rule_id')
         self.created_from_rule_id = attributes[:'created_from_rule_id']
+      end
+
+      if attributes.key?(:'failure')
+        self.failure = attributes[:'failure']
       end
 
       if attributes.key?(:'job_definition')
@@ -176,6 +185,7 @@ module DatadogAPIClient::V2
           created_by_handle == o.created_by_handle &&
           created_by_name == o.created_by_name &&
           created_from_rule_id == o.created_from_rule_id &&
+          failure == o.failure &&
           job_definition == o.job_definition &&
           job_name == o.job_name &&
           job_status == o.job_status &&
@@ -189,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by_handle, created_by_name, created_from_rule_id, job_definition, job_name, job_status, modified_at, progress_rate, signal_output, additional_properties].hash
+      [created_at, created_by_handle, created_by_name, created_from_rule_id, failure, job_definition, job_name, job_status, modified_at, progress_rate, signal_output, additional_properties].hash
     end
   end
 end
