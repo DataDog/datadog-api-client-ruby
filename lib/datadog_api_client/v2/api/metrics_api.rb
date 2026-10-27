@@ -2609,5 +2609,85 @@ module DatadogAPIClient::V2
       end
       return data, status_code, headers
     end
+
+    # Update a tag indexing rule exemption.
+    #
+    # @see #update_tag_indexing_rule_exemption_with_http_info
+    def update_tag_indexing_rule_exemption(metric_name, body, opts = {})
+      data, _status_code, _headers = update_tag_indexing_rule_exemption_with_http_info(metric_name, body, opts)
+      data
+    end
+
+    # Update a tag indexing rule exemption.
+    #
+    # Update the reason for an explicit tag indexing rule exemption. The exemption's `created_at` and
+    # `created_by_handle` values remain unchanged. Returns 404 when the metric has no explicit exemption or has
+    # only a legacy tag configuration. Requires the `Manage Tags for Metrics` permission.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param body [TagIndexingRuleExemptionUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TagIndexingRuleExemptionResponse, Integer, Hash)>] TagIndexingRuleExemptionResponse data, response status code and response headers
+    def update_tag_indexing_rule_exemption_with_http_info(metric_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_tag_indexing_rule_exemption".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_tag_indexing_rule_exemption")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_tag_indexing_rule_exemption"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.update_tag_indexing_rule_exemption ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.update_tag_indexing_rule_exemption"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.update_tag_indexing_rule_exemption"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TagIndexingRuleExemptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_tag_indexing_rule_exemption,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#update_tag_indexing_rule_exemption\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

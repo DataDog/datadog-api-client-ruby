@@ -5117,6 +5117,10 @@ ScenariosModelMappings = {
             "metric_name" => "String",
             "body" => "TagIndexingRuleExemptionCreateRequest",
     },
+    "v2.UpdateTagIndexingRuleExemption" => {
+            "metric_name" => "String",
+            "body" => "TagIndexingRuleExemptionUpdateRequest",
+    },
     "v2.ListTagIndexingRulesForMetric" => {
             "metric_name" => "String",
     },
