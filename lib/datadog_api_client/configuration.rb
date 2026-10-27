@@ -681,6 +681,7 @@ module DatadogAPIClient
             "v2.list_tag_indexing_rules_for_metric": false,
             "v2.reorder_tag_indexing_rules": false,
             "v2.update_tag_indexing_rule": false,
+            "v2.update_tag_indexing_rule_exemption": false,
             "v2.delete_model_lab_run": false,
             "v2.get_model_lab_artifact_content": false,
             "v2.get_model_lab_project": false,
