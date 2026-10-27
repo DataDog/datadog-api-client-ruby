@@ -21,6 +21,15 @@ module DatadogAPIClient::V2
   class RUMApplicationListAttributes
     include BaseGenericModel
 
+    # ID of the API key associated with the application.
+    attr_reader :api_key_id
+
+    # Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled.
+    attr_accessor :apm_rum_flat_sampling_replay_enabled
+
+    # Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled.
+    attr_accessor :apm_rum_flat_sampling_replay_sample_rate
+
     # ID of the RUM application.
     attr_reader :application_id
 
@@ -29,6 +38,18 @@ module DatadogAPIClient::V2
 
     # Handle of the creator user.
     attr_reader :created_by_handle
+
+    # Timestamp in ms of the date the RUM application was disabled. Only present if the application was disabled.
+    attr_accessor :disabled_at
+
+    # Handle of the user who disabled the RUM application. Only present if the application was disabled.
+    attr_accessor :disabled_by_handle
+
+    # Indicates if Error Tracking exclusion filters are enabled for the application.
+    attr_accessor :error_tracking_exclusion_filter_enabled
+
+    # Non-native ingestion paths the RUM application sends its data through. `otel` means the application sends RUM data through OpenTelemetry instead of the Datadog RUM SDK.
+    attr_accessor :external_feeds
 
     # Hash of the RUM application. Optional.
     attr_accessor :_hash
@@ -39,11 +60,29 @@ module DatadogAPIClient::V2
     # Name of the RUM application.
     attr_reader :name
 
+    # Indicates if the out-of-the-box RUM metrics are installed for the application.
+    attr_accessor :ootb_metrics_installed
+
     # Org ID of the RUM application.
     attr_reader :org_id
 
+    # Indicates that the Product Analytics preview is disabled for the application. Only present (and `true`) when the Product Analytics retention state is not preview.
+    attr_accessor :product_analytics_preview_disabled
+
+    # Sample rate (0-100) of Session Replay for Product Analytics sessions.
+    attr_reader :product_analytics_replay_sample_rate
+
     # Product Scales configuration for the RUM application.
     attr_accessor :product_scales
+
+    # ID of the RUM SDK remote configuration for the application, if one exists.
+    attr_accessor :remote_config_id
+
+    # Short name of the RUM application.
+    attr_accessor :short_name
+
+    # List of tags associated with the RUM application.
+    attr_accessor :tags
 
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
     attr_reader :type
@@ -60,14 +99,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'api_key_id' => :'api_key_id',
+        :'apm_rum_flat_sampling_replay_enabled' => :'apm_rum_flat_sampling_replay_enabled',
+        :'apm_rum_flat_sampling_replay_sample_rate' => :'apm_rum_flat_sampling_replay_sample_rate',
         :'application_id' => :'application_id',
         :'created_at' => :'created_at',
         :'created_by_handle' => :'created_by_handle',
+        :'disabled_at' => :'disabled_at',
+        :'disabled_by_handle' => :'disabled_by_handle',
+        :'error_tracking_exclusion_filter_enabled' => :'error_tracking_exclusion_filter_enabled',
+        :'external_feeds' => :'external_feeds',
         :'_hash' => :'hash',
         :'is_active' => :'is_active',
         :'name' => :'name',
+        :'ootb_metrics_installed' => :'ootb_metrics_installed',
         :'org_id' => :'org_id',
+        :'product_analytics_preview_disabled' => :'product_analytics_preview_disabled',
+        :'product_analytics_replay_sample_rate' => :'product_analytics_replay_sample_rate',
         :'product_scales' => :'product_scales',
+        :'remote_config_id' => :'remote_config_id',
+        :'short_name' => :'short_name',
+        :'tags' => :'tags',
         :'type' => :'type',
         :'updated_at' => :'updated_at',
         :'updated_by_handle' => :'updated_by_handle'
@@ -78,14 +130,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'api_key_id' => :'Integer',
+        :'apm_rum_flat_sampling_replay_enabled' => :'Boolean',
+        :'apm_rum_flat_sampling_replay_sample_rate' => :'Float',
         :'application_id' => :'String',
         :'created_at' => :'Integer',
         :'created_by_handle' => :'String',
+        :'disabled_at' => :'Integer',
+        :'disabled_by_handle' => :'String',
+        :'error_tracking_exclusion_filter_enabled' => :'Boolean',
+        :'external_feeds' => :'Array<String>',
         :'_hash' => :'String',
         :'is_active' => :'Boolean',
         :'name' => :'String',
+        :'ootb_metrics_installed' => :'Boolean',
         :'org_id' => :'Integer',
+        :'product_analytics_preview_disabled' => :'Boolean',
+        :'product_analytics_replay_sample_rate' => :'Integer',
         :'product_scales' => :'RUMProductScales',
+        :'remote_config_id' => :'String',
+        :'short_name' => :'String',
+        :'tags' => :'Array<String>',
         :'type' => :'String',
         :'updated_at' => :'Integer',
         :'updated_by_handle' => :'String'
@@ -110,6 +175,18 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'api_key_id')
+        self.api_key_id = attributes[:'api_key_id']
+      end
+
+      if attributes.key?(:'apm_rum_flat_sampling_replay_enabled')
+        self.apm_rum_flat_sampling_replay_enabled = attributes[:'apm_rum_flat_sampling_replay_enabled']
+      end
+
+      if attributes.key?(:'apm_rum_flat_sampling_replay_sample_rate')
+        self.apm_rum_flat_sampling_replay_sample_rate = attributes[:'apm_rum_flat_sampling_replay_sample_rate']
+      end
+
       if attributes.key?(:'application_id')
         self.application_id = attributes[:'application_id']
       end
@@ -120,6 +197,24 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_by_handle')
         self.created_by_handle = attributes[:'created_by_handle']
+      end
+
+      if attributes.key?(:'disabled_at')
+        self.disabled_at = attributes[:'disabled_at']
+      end
+
+      if attributes.key?(:'disabled_by_handle')
+        self.disabled_by_handle = attributes[:'disabled_by_handle']
+      end
+
+      if attributes.key?(:'error_tracking_exclusion_filter_enabled')
+        self.error_tracking_exclusion_filter_enabled = attributes[:'error_tracking_exclusion_filter_enabled']
+      end
+
+      if attributes.key?(:'external_feeds')
+        if (value = attributes[:'external_feeds']).is_a?(Array)
+          self.external_feeds = value
+        end
       end
 
       if attributes.key?(:'_hash')
@@ -134,12 +229,38 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'ootb_metrics_installed')
+        self.ootb_metrics_installed = attributes[:'ootb_metrics_installed']
+      end
+
       if attributes.key?(:'org_id')
         self.org_id = attributes[:'org_id']
       end
 
+      if attributes.key?(:'product_analytics_preview_disabled')
+        self.product_analytics_preview_disabled = attributes[:'product_analytics_preview_disabled']
+      end
+
+      if attributes.key?(:'product_analytics_replay_sample_rate')
+        self.product_analytics_replay_sample_rate = attributes[:'product_analytics_replay_sample_rate']
+      end
+
       if attributes.key?(:'product_scales')
         self.product_scales = attributes[:'product_scales']
+      end
+
+      if attributes.key?(:'remote_config_id')
+        self.remote_config_id = attributes[:'remote_config_id']
+      end
+
+      if attributes.key?(:'short_name')
+        self.short_name = attributes[:'short_name']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'type')
@@ -159,16 +280,28 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@api_key_id.nil? && @api_key_id > 2147483647
       return false if @application_id.nil?
       return false if @created_at.nil?
       return false if @created_by_handle.nil?
       return false if @name.nil?
       return false if @org_id.nil?
       return false if @org_id > 2147483647
+      return false if !@product_analytics_replay_sample_rate.nil? && @product_analytics_replay_sample_rate > 2147483647
       return false if @type.nil?
       return false if @updated_at.nil?
       return false if @updated_by_handle.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param api_key_id [Object] Object to be assigned
+    # @!visibility private
+    def api_key_id=(api_key_id)
+      if !api_key_id.nil? && api_key_id > 2147483647
+        fail ArgumentError, 'invalid value for "api_key_id", must be smaller than or equal to 2147483647.'
+      end
+      @api_key_id = api_key_id
     end
 
     # Custom attribute writer method with validation
@@ -222,6 +355,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "org_id", must be smaller than or equal to 2147483647.'
       end
       @org_id = org_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param product_analytics_replay_sample_rate [Object] Object to be assigned
+    # @!visibility private
+    def product_analytics_replay_sample_rate=(product_analytics_replay_sample_rate)
+      if !product_analytics_replay_sample_rate.nil? && product_analytics_replay_sample_rate > 2147483647
+        fail ArgumentError, 'invalid value for "product_analytics_replay_sample_rate", must be smaller than or equal to 2147483647.'
+      end
+      @product_analytics_replay_sample_rate = product_analytics_replay_sample_rate
     end
 
     # Custom attribute writer method with validation
@@ -280,14 +423,27 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          api_key_id == o.api_key_id &&
+          apm_rum_flat_sampling_replay_enabled == o.apm_rum_flat_sampling_replay_enabled &&
+          apm_rum_flat_sampling_replay_sample_rate == o.apm_rum_flat_sampling_replay_sample_rate &&
           application_id == o.application_id &&
           created_at == o.created_at &&
           created_by_handle == o.created_by_handle &&
+          disabled_at == o.disabled_at &&
+          disabled_by_handle == o.disabled_by_handle &&
+          error_tracking_exclusion_filter_enabled == o.error_tracking_exclusion_filter_enabled &&
+          external_feeds == o.external_feeds &&
           _hash == o._hash &&
           is_active == o.is_active &&
           name == o.name &&
+          ootb_metrics_installed == o.ootb_metrics_installed &&
           org_id == o.org_id &&
+          product_analytics_preview_disabled == o.product_analytics_preview_disabled &&
+          product_analytics_replay_sample_rate == o.product_analytics_replay_sample_rate &&
           product_scales == o.product_scales &&
+          remote_config_id == o.remote_config_id &&
+          short_name == o.short_name &&
+          tags == o.tags &&
           type == o.type &&
           updated_at == o.updated_at &&
           updated_by_handle == o.updated_by_handle &&
@@ -298,7 +454,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, created_at, created_by_handle, _hash, is_active, name, org_id, product_scales, type, updated_at, updated_by_handle, additional_properties].hash
+      [api_key_id, apm_rum_flat_sampling_replay_enabled, apm_rum_flat_sampling_replay_sample_rate, application_id, created_at, created_by_handle, disabled_at, disabled_by_handle, error_tracking_exclusion_filter_enabled, external_feeds, _hash, is_active, name, ootb_metrics_installed, org_id, product_analytics_preview_disabled, product_analytics_replay_sample_rate, product_scales, remote_config_id, short_name, tags, type, updated_at, updated_by_handle, additional_properties].hash
     end
   end
 end
