@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Notebook resource type
-  class NotebookResourceType
+  # Case investigation notebook resource type.
+  class CaseInvestigationNotebookResourceType
     include BaseEnumModel
 
     NOTEBOOK = "notebook".freeze
