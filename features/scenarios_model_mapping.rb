@@ -4913,6 +4913,13 @@ ScenariosModelMappings = {
     "v2.GetArchiveSearch" => {
             "archive_search_id" => "String",
     },
+    "v2.RehydrateArchiveSearch" => {
+            "archive_search_id" => "String",
+            "body" => "ArchiveSearchRehydrateRequest",
+    },
+    "v2.CancelArchiveSearch" => {
+            "archive_search_id" => "String",
+    },
     "v2.UpdateLogsArchiveOrder" => {
             "body" => "LogsArchiveOrder",
     },
