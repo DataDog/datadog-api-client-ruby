@@ -6560,19 +6560,6 @@ ScenariosModelMappings = {
     "v2.CreateSnapshot" => {
             "body" => "CreateSnapshotRequest",
     },
-    "v2.GetSPARecommendationsV2" => {
-            "service" => "String",
-            "body" => "RecommendationV2RequestBody",
-    },
-    "v2.GetSPARecommendations" => {
-            "bypass_cache" => "String",
-            "service" => "String",
-    },
-    "v2.GetSPARecommendationsWithShard" => {
-            "shard" => "String",
-            "service" => "String",
-            "bypass_cache" => "String",
-    },
     "v2.AggregateSpans" => {
             "body" => "SpansAggregateRequest",
     },
