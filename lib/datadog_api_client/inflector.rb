@@ -7423,6 +7423,7 @@ module DatadogAPIClient
           "v2.rum_application_update_attributes" => "RUMApplicationUpdateAttributes",
           "v2.rum_application_update_request" => "RUMApplicationUpdateRequest",
           "v2.rum_application_update_type" => "RUMApplicationUpdateType",
+          "v2.rum_bucket_group_by_value" => "RUMBucketGroupByValue",
           "v2.rum_bucket_response" => "RUMBucketResponse",
           "v2.rum_compute" => "RUMCompute",
           "v2.rum_compute_type" => "RUMComputeType",

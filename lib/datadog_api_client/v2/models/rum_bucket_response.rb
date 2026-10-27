@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'by' => :'Hash<String, String>',
+        :'by' => :'Hash<String, RUMBucketGroupByValue>',
         :'computes' => :'Hash<String, RUMAggregateBucketValue>'
       }
     end
