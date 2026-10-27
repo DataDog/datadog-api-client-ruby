@@ -1,0 +1,19 @@
+# Create a new RUM application without default retention filters returns "Created" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V2::RUMAPI.new
+
+body = DatadogAPIClient::V2::RUMApplicationCreateRequest.new({
+  data: DatadogAPIClient::V2::RUMApplicationCreate.new({
+    attributes: DatadogAPIClient::V2::RUMApplicationCreateAttributes.new({
+      name: "test-rum-no-default-rf-5c67ebb32077e1d9",
+      type: "browser",
+      create_default_retention_filters: false,
+    }),
+    type: DatadogAPIClient::V2::RUMApplicationCreateType::RUM_APPLICATION_CREATE,
+  }),
+})
+p api_instance.create_rum_application(body)

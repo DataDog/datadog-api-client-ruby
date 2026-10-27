@@ -1,4 +1,4 @@
-# Create a new RUM application with Product Scales returns "OK" response
+# Create a new RUM application with Product Scales returns "Created" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
