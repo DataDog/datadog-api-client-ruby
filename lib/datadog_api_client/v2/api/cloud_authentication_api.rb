@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_aws_cloud_auth_persona_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping'
+      local_var_path = '/api/v2/wif/aws/persona_mapping'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_git_hub_cloud_auth_intake_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/intake_mapping'
+      local_var_path = '/api/v2/wif/github/intake_mapping'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_git_hub_cloud_auth_persona_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/persona_mapping'
+      local_var_path = '/api/v2/wif/github/persona_mapping'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -273,7 +273,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.delete_aws_cloud_auth_persona_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/wif/aws/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -344,7 +344,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'intake_mapping_id' when calling CloudAuthenticationAPI.delete_git_hub_cloud_auth_intake_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/wif/github/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -415,7 +415,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.delete_git_hub_cloud_auth_persona_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/wif/github/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -486,7 +486,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.get_aws_cloud_auth_persona_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/wif/aws/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -557,7 +557,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'intake_mapping_id' when calling CloudAuthenticationAPI.get_git_hub_cloud_auth_intake_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/wif/github/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -628,7 +628,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.get_git_hub_cloud_auth_persona_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/wif/github/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -694,7 +694,7 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_aws_cloud_auth_persona_mappings ...'
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping'
+      local_var_path = '/api/v2/wif/aws/persona_mapping'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -760,7 +760,7 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_git_hub_cloud_auth_intake_mappings ...'
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/intake_mapping'
+      local_var_path = '/api/v2/wif/github/intake_mapping'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -826,7 +826,7 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_git_hub_cloud_auth_persona_mappings ...'
       end
       # resource path
-      local_var_path = '/api/v2/cloud_auth/github/persona_mapping'
+      local_var_path = '/api/v2/wif/github/persona_mapping'
 
       # query parameters
       query_params = opts[:query_params] || {}

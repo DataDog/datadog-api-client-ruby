@@ -2105,33 +2105,6 @@ ScenariosModelMappings = {
             "content_encoding" => "CILogContentEncoding",
             "body" => "Array<CILogItem>",
     },
-    "v2.CreateAWSCloudAuthPersonaMapping" => {
-            "body" => "AWSCloudAuthPersonaMappingCreateRequest",
-    },
-    "v2.DeleteAWSCloudAuthPersonaMapping" => {
-            "persona_mapping_id" => "String",
-    },
-    "v2.GetAWSCloudAuthPersonaMapping" => {
-            "persona_mapping_id" => "String",
-    },
-    "v2.CreateGitHubCloudAuthIntakeMapping" => {
-            "body" => "GitHubCloudAuthIntakeMappingCreateRequest",
-    },
-    "v2.DeleteGitHubCloudAuthIntakeMapping" => {
-            "intake_mapping_id" => "String",
-    },
-    "v2.GetGitHubCloudAuthIntakeMapping" => {
-            "intake_mapping_id" => "String",
-    },
-    "v2.CreateGitHubCloudAuthPersonaMapping" => {
-            "body" => "GitHubCloudAuthPersonaMappingCreateRequest",
-    },
-    "v2.DeleteGitHubCloudAuthPersonaMapping" => {
-            "persona_mapping_id" => "String",
-    },
-    "v2.GetGitHubCloudAuthPersonaMapping" => {
-            "persona_mapping_id" => "String",
-    },
     "v2.CreateCustomFramework" => {
             "body" => "CreateCustomFrameworkRequest",
     },
@@ -7246,6 +7219,33 @@ ScenariosModelMappings = {
             "experience_type" => "WidgetExperienceType",
             "uuid" => "UUID",
             "body" => "CreateOrUpdateWidgetRequest",
+    },
+    "v2.CreateAWSCloudAuthPersonaMapping" => {
+            "body" => "AWSCloudAuthPersonaMappingCreateRequest",
+    },
+    "v2.DeleteAWSCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
+    "v2.GetAWSCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
+    "v2.CreateGitHubCloudAuthIntakeMapping" => {
+            "body" => "GitHubCloudAuthIntakeMappingCreateRequest",
+    },
+    "v2.DeleteGitHubCloudAuthIntakeMapping" => {
+            "intake_mapping_id" => "String",
+    },
+    "v2.GetGitHubCloudAuthIntakeMapping" => {
+            "intake_mapping_id" => "String",
+    },
+    "v2.CreateGitHubCloudAuthPersonaMapping" => {
+            "body" => "GitHubCloudAuthPersonaMappingCreateRequest",
+    },
+    "v2.DeleteGitHubCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
+    "v2.GetGitHubCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
     },
     "v2.ListWorkflows" => {
             "limit" => "Integer",
