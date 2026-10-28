@@ -4667,6 +4667,9 @@ module DatadogAPIClient::V2
     #
     # @param incident_id [String] The UUID of the incident.
     # @param opts [Hash] the optional parameters
+    # @option opts [Array<IncidentResponderRelatedObject>] :include Comma-separated related resource types to include. Supported values are `users` and `role_assignments`.
+    # @option opts [Integer] :page_limit Maximum number of responders to return per page.
+    # @option opts [Integer] :page_offset The offset of the first responder to return.
     # @return [Array<(IncidentRespondersResponse, Integer, Hash)>] IncidentRespondersResponse data, response status code and response headers
     def list_incident_responders_with_http_info(incident_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_responders".to_sym]
@@ -4683,11 +4686,17 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && incident_id.nil?
         fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.list_incident_responders"
       end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling IncidentsAPI.list_incident_responders, must be smaller than or equal to 1000.'
+      end
       # resource path
       local_var_path = '/api/v2/incidents/{incident_id}/responders'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

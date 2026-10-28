@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # Relationship to impacts.
     attr_accessor :impacts
 
+    # Relationship to an incident type.
+    attr_accessor :incident_type
+
     # A relationship reference for multiple integration metadata objects.
     attr_accessor :integrations
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V2
         :'created_by_user' => :'created_by_user',
         :'declared_by_user' => :'declared_by_user',
         :'impacts' => :'impacts',
+        :'incident_type' => :'incident_type',
         :'integrations' => :'integrations',
         :'last_modified_by_user' => :'last_modified_by_user',
         :'responders' => :'responders',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V2
         :'created_by_user' => :'RelationshipToUser',
         :'declared_by_user' => :'RelationshipToUser',
         :'impacts' => :'RelationshipToIncidentImpacts',
+        :'incident_type' => :'RelationshipToIncidentType',
         :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
         :'last_modified_by_user' => :'RelationshipToUser',
         :'responders' => :'RelationshipToIncidentResponders',
@@ -128,6 +133,10 @@ module DatadogAPIClient::V2
         self.impacts = attributes[:'impacts']
       end
 
+      if attributes.key?(:'incident_type')
+        self.incident_type = attributes[:'incident_type']
+      end
+
       if attributes.key?(:'integrations')
         self.integrations = attributes[:'integrations']
       end
@@ -176,6 +185,7 @@ module DatadogAPIClient::V2
           created_by_user == o.created_by_user &&
           declared_by_user == o.declared_by_user &&
           impacts == o.impacts &&
+          incident_type == o.incident_type &&
           integrations == o.integrations &&
           last_modified_by_user == o.last_modified_by_user &&
           responders == o.responders &&
@@ -187,7 +197,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, declared_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields, additional_properties].hash
+      [attachments, commander_user, created_by_user, declared_by_user, impacts, incident_type, integrations, last_modified_by_user, responders, user_defined_fields, additional_properties].hash
     end
   end
 end
