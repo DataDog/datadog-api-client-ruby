@@ -45,6 +45,14 @@ module DatadogAPIClient::V2
     # Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT` (prefixed with `DD_OP_` at runtime).
     attr_accessor :ingestion_endpoint_key
 
+    # The ingestion method used to send data to Azure Data Explorer.
+    #
+    # - `streaming`: Sends events directly to the table using streaming ingestion.
+    # - `queue`: Sends events through queued (batched) ingestion.
+    #
+    # Defaults to `streaming`.
+    attr_accessor :ingestion_mode
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
 
@@ -74,6 +82,7 @@ module DatadogAPIClient::V2
         :'database' => :'database',
         :'id' => :'id',
         :'ingestion_endpoint_key' => :'ingestion_endpoint_key',
+        :'ingestion_mode' => :'ingestion_mode',
         :'inputs' => :'inputs',
         :'mapping_reference' => :'mapping_reference',
         :'table' => :'table',
@@ -93,6 +102,7 @@ module DatadogAPIClient::V2
         :'database' => :'String',
         :'id' => :'String',
         :'ingestion_endpoint_key' => :'String',
+        :'ingestion_mode' => :'ObservabilityPipelineAzureDataExplorerDestinationIngestionMode',
         :'inputs' => :'Array<String>',
         :'mapping_reference' => :'String',
         :'table' => :'String',
@@ -153,6 +163,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'ingestion_endpoint_key')
         self.ingestion_endpoint_key = attributes[:'ingestion_endpoint_key']
+      end
+
+      if attributes.key?(:'ingestion_mode')
+        self.ingestion_mode = attributes[:'ingestion_mode']
       end
 
       if attributes.key?(:'inputs')
@@ -284,6 +298,7 @@ module DatadogAPIClient::V2
           database == o.database &&
           id == o.id &&
           ingestion_endpoint_key == o.ingestion_endpoint_key &&
+          ingestion_mode == o.ingestion_mode &&
           inputs == o.inputs &&
           mapping_reference == o.mapping_reference &&
           table == o.table &&
@@ -296,7 +311,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, batch, buffer, compression, database, id, ingestion_endpoint_key, inputs, mapping_reference, table, token_scope, type, additional_properties].hash
+      [auth, batch, buffer, compression, database, id, ingestion_endpoint_key, ingestion_mode, inputs, mapping_reference, table, token_scope, type, additional_properties].hash
     end
   end
 end

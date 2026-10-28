@@ -22,13 +22,13 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Maximum batch size in bytes.
-    attr_reader :max_bytes
+    attr_accessor :max_bytes
 
     # Maximum number of events per batch before it is flushed.
-    attr_reader :max_events
+    attr_accessor :max_events
 
     # Maximum number of seconds to wait before flushing a partial batch.
-    attr_reader :timeout_secs
+    attr_accessor :timeout_secs
 
     attr_accessor :additional_properties
 
@@ -81,50 +81,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'timeout_secs')
         self.timeout_secs = attributes[:'timeout_secs']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if !@max_bytes.nil? && @max_bytes > 4000000
-      return false if !@max_bytes.nil? && @max_bytes < 1
-      return false if !@max_events.nil? && @max_events < 1
-      return false if !@timeout_secs.nil? && @timeout_secs < 1
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param max_bytes [Object] Object to be assigned
-    # @!visibility private
-    def max_bytes=(max_bytes)
-      if !max_bytes.nil? && max_bytes > 4000000
-        fail ArgumentError, 'invalid value for "max_bytes", must be smaller than or equal to 4000000.'
-      end
-      if !max_bytes.nil? && max_bytes < 1
-        fail ArgumentError, 'invalid value for "max_bytes", must be greater than or equal to 1.'
-      end
-      @max_bytes = max_bytes
-    end
-
-    # Custom attribute writer method with validation
-    # @param max_events [Object] Object to be assigned
-    # @!visibility private
-    def max_events=(max_events)
-      if !max_events.nil? && max_events < 1
-        fail ArgumentError, 'invalid value for "max_events", must be greater than or equal to 1.'
-      end
-      @max_events = max_events
-    end
-
-    # Custom attribute writer method with validation
-    # @param timeout_secs [Object] Object to be assigned
-    # @!visibility private
-    def timeout_secs=(timeout_secs)
-      if !timeout_secs.nil? && timeout_secs < 1
-        fail ArgumentError, 'invalid value for "timeout_secs", must be greater than or equal to 1.'
-      end
-      @timeout_secs = timeout_secs
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
