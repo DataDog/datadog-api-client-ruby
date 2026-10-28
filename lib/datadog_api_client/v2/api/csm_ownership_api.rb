@@ -73,7 +73,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling CSMOwnershipAPI.create_ownership_feedback"
       end
       # resource path
-      local_var_path = '/api/v2/csm/ownership/{resource_id}/{owner_type}/feedback'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/security/ownership/{resource_id}/{owner_type}/feedback'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"owner_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/v2/csm/ownership/{resource_id}/{owner_type}/evidence'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/security/ownership/{resource_id}/{owner_type}/evidence'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -244,7 +244,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"owner_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/v2/csm/ownership/{resource_id}/{owner_type}'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/security/ownership/{resource_id}/{owner_type}'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -456,7 +456,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CSMOwnershipAPI.list_ownership_history, must be greater than or equal to 1.'
       end
       # resource path
-      local_var_path = '/api/v2/csm/ownership/{resource_id}/history'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/security/ownership/{resource_id}/history'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -547,7 +547,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CSMOwnershipAPI.list_ownership_history_by_owner_type, must be greater than or equal to 1.'
       end
       # resource path
-      local_var_path = '/api/v2/csm/ownership/{resource_id}/{owner_type}/history'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/security/ownership/{resource_id}/{owner_type}/history'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/')).sub('{owner_type}', CGI.escape(owner_type.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -620,7 +620,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'resource_id' when calling CSMOwnershipAPI.list_ownership_inferences"
       end
       # resource path
-      local_var_path = '/api/v2/csm/ownership/{resource_id}'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/security/ownership/{resource_id}'.sub('{resource_id}', CGI.escape(resource_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
