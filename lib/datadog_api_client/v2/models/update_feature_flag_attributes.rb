@@ -30,6 +30,12 @@ module DatadogAPIClient::V2
     # The name of the feature flag.
     attr_accessor :name
 
+    # Tags associated with the feature flag. This field replaces the full set of
+    # existing tags; omit it to leave tags unchanged, or pass an empty array to
+    # clear all tags. The owning team is set by including a tag of the form
+    # `team:<team-handle>` in this array.
+    attr_reader :tags
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +44,8 @@ module DatadogAPIClient::V2
       {
         :'description' => :'description',
         :'json_schema' => :'json_schema',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'tags' => :'tags'
       }
     end
 
@@ -48,7 +55,8 @@ module DatadogAPIClient::V2
       {
         :'description' => :'String',
         :'json_schema' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -89,6 +97,30 @@ module DatadogAPIClient::V2
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@tags.nil? && @tags.length > 100
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    # @!visibility private
+    def tags=(tags)
+      if !tags.nil? && tags.length > 100
+        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 100.'
+      end
+      @tags = tags
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,6 +152,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           json_schema == o.json_schema &&
           name == o.name &&
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, json_schema, name, additional_properties].hash
+      [description, json_schema, name, tags, additional_properties].hash
     end
   end
 end
