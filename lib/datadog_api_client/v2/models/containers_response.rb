@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ContainersResponse
     include BaseGenericModel
 
-    # Array of Container objects.
+    # Array of containers or container group objects.
     attr_accessor :data
 
     # Pagination links.
