@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Timestamp in milliseconds when this scale was last modified.
     attr_accessor :last_modified_at
 
-    # Configures which RUM events are processed and stored for the application.
+    # Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
     attr_accessor :state
 
     attr_accessor :additional_properties

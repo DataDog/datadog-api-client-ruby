@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class RUMEventAttributes
     include BaseGenericModel
 
-    # JSON object of attributes from RUM events.
+    # JSON object of attributes from RUM events. Attributes are nested by path: the facet `@view.name` used in queries is returned as `attributes.view.name`.
+    # Common attributes include `type` (the event type: `session`, `view`, `action`, `resource`, `error`, `long_task` or `vital`), `application.id`, `session.id`, `view.id`, `view.name` and `usr.id`. Durations such as `view.time_spent`, `view.loading_time` and `resource.duration` are in nanoseconds.
     attr_accessor :attributes
 
     # The name of the application or service generating RUM events.
@@ -29,10 +30,10 @@ module DatadogAPIClient::V2
     # value when you use both products.
     attr_accessor :service
 
-    # Array of tags associated with your event.
+    # Array of tags associated with your event, in `key:value` format.
     attr_accessor :tags
 
-    # Timestamp of your event.
+    # Timestamp of your event, in ISO 8601 format.
     attr_accessor :timestamp
 
     attr_accessor :additional_properties

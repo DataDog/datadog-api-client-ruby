@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RUMAggregateSort
     include BaseGenericModel
 
-    # An aggregation function.
+    # An aggregation function. `count` counts events and needs no metric. `cardinality` counts the distinct values of the metric. `sum`, `min`, `max`, `avg`, `median` and the percentiles (`pc75` to `pc99`) apply to a numeric metric such as `@view.loading_time`.
     attr_accessor :aggregation
 
     # The metric to sort by (only used for `type=measure`).
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The order to use, ascending or descending.
     attr_accessor :order
 
-    # The type of sorting algorithm.
+    # The type of sorting algorithm. `alphabetical` sorts buckets by the facet value, `measure` sorts them by a computed aggregation.
     attr_accessor :type
 
     attr_accessor :additional_properties
