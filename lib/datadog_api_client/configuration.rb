@@ -1533,6 +1533,77 @@ module DatadogAPIClient
             }
           }
         ],
+        "v2.reroute_on_call_page": [
+          {
+            url: +"https://{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The globally available endpoint for On-Call.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "lava.oncall.datadoghq.com",
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
+                ]
+              }
+            }
+          },
+          {
+            url: +"{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "The full DNS name of the On-Call paging endpoint.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "lava.oncall.datadoghq.com",
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu",
+                  "scarlet.oncall.datadoghq.com"
+                ]
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: +"https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The Datadog site where the On-Call paging endpoint is deployed.",
+                default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "datadoghq.eu"
+                ]
+              },
+              subdomain: {
+                description: "The On-Call paging subdomain.",
+                default_value: "navy.oncall",
+                enum_values: [
+                  "lava.oncall",
+                  "saffron.oncall",
+                  "navy.oncall",
+                  "coral.oncall",
+                  "teal.oncall",
+                  "beige.oncall",
+                  "scarlet.oncall"
+                ]
+              }
+            }
+          }
+        ],
         "v2.resolve_on_call_page": [
           {
             url: +"https://{site}",
