@@ -4425,6 +4425,9 @@ ScenariosModelMappings = {
     },
     "v2.ListIncidentResponders" => {
             "incident_id" => "String",
+            "include" => "Array<IncidentResponderRelatedObject>",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
     },
     "v2.CreateIncidentResponder" => {
             "incident_id" => "String",

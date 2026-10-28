@@ -27,6 +27,12 @@ module DatadogAPIClient::V2
     # Included related resources.
     attr_accessor :included
 
+    # Links to pages of incident responders.
+    attr_accessor :links
+
+    # Pagination metadata for the responder list.
+    attr_accessor :meta
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +40,9 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
-        :'included' => :'included'
+        :'included' => :'included',
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -43,7 +51,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<IncidentResponderDataResponse>',
-        :'included' => :'Array<IncidentUserData>'
+        :'included' => :'Array<IncidentResponderIncludedItem>',
+        :'links' => :'Hash<String, String>',
+        :'meta' => :'IncidentRespondersResponseMeta'
       }
     end
 
@@ -75,6 +85,14 @@ module DatadogAPIClient::V2
         if (value = attributes[:'included']).is_a?(Array)
           self.included = value
         end
+      end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -124,6 +142,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           data == o.data &&
           included == o.included &&
+          links == o.links &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, additional_properties].hash
+      [data, included, links, meta, additional_properties].hash
     end
   end
 end
