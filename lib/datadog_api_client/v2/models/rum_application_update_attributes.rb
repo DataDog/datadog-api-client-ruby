@@ -17,20 +17,43 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # RUM application update attributes.
+  # RUM application update attributes. Only the attributes you provide are changed, omitted attributes keep their current value.
+  # Changing `product_analytics_retention_state` or `product_analytics_replay_sample_rate` requires the `product_analytics_apps_write` permission.
   class RUMApplicationUpdateAttributes
     include BaseGenericModel
 
-    # Name of the RUM application.
+    # Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled.
+    attr_accessor :apm_rum_flat_sampling_replay_enabled
+
+    # Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled.
+    attr_accessor :apm_rum_flat_sampling_replay_sample_rate
+
+    # Indicates if Error Tracking exclusion filters are enabled for the application.
+    attr_accessor :error_tracking_exclusion_filter_enabled
+
+    # Instrumentation type of the RUM application.
+    attr_accessor :instrumentation_type
+
+    # New name of the RUM application.
     attr_accessor :name
 
+    # Sample rate (0-100) of Session Replay for Product Analytics sessions.
+    attr_reader :product_analytics_replay_sample_rate
+
     # Controls the retention policy for Product Analytics data derived from RUM events.
+    # Requests also accept `PREVIEW` (the initial state of a new application, reported as `NONE` in responses). Setting `MAX` requires the `product_analytics_apps_write` permission.
     attr_accessor :product_analytics_retention_state
 
-    # Configures which RUM events are processed and stored for the application.
+    # ID of the RUM SDK remote configuration to associate with the application.
+    attr_accessor :remote_config_id
+
+    # Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
     attr_accessor :rum_event_processing_state
 
-    # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+    # New list of tags of the RUM application, in `key:value` format. Replaces the existing tags.
+    attr_accessor :tags
+
+    # New type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`, `react`, `nextjs`, `angular`, `vuejs`, `nuxt`, `tanstack`, `maui`, `salesforce-lwc`, `shopify`, `cpp`, `rum-cpp`, `unreal`.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -39,9 +62,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'apm_rum_flat_sampling_replay_enabled' => :'apm_rum_flat_sampling_replay_enabled',
+        :'apm_rum_flat_sampling_replay_sample_rate' => :'apm_rum_flat_sampling_replay_sample_rate',
+        :'error_tracking_exclusion_filter_enabled' => :'error_tracking_exclusion_filter_enabled',
+        :'instrumentation_type' => :'instrumentation_type',
         :'name' => :'name',
+        :'product_analytics_replay_sample_rate' => :'product_analytics_replay_sample_rate',
         :'product_analytics_retention_state' => :'product_analytics_retention_state',
+        :'remote_config_id' => :'remote_config_id',
         :'rum_event_processing_state' => :'rum_event_processing_state',
+        :'tags' => :'tags',
         :'type' => :'type'
       }
     end
@@ -50,9 +80,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'apm_rum_flat_sampling_replay_enabled' => :'Boolean',
+        :'apm_rum_flat_sampling_replay_sample_rate' => :'Float',
+        :'error_tracking_exclusion_filter_enabled' => :'Boolean',
+        :'instrumentation_type' => :'String',
         :'name' => :'String',
+        :'product_analytics_replay_sample_rate' => :'Integer',
         :'product_analytics_retention_state' => :'RUMProductAnalyticsRetentionState',
+        :'remote_config_id' => :'String',
         :'rum_event_processing_state' => :'RUMEventProcessingState',
+        :'tags' => :'Array<String>',
         :'type' => :'String'
       }
     end
@@ -75,21 +112,69 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'apm_rum_flat_sampling_replay_enabled')
+        self.apm_rum_flat_sampling_replay_enabled = attributes[:'apm_rum_flat_sampling_replay_enabled']
+      end
+
+      if attributes.key?(:'apm_rum_flat_sampling_replay_sample_rate')
+        self.apm_rum_flat_sampling_replay_sample_rate = attributes[:'apm_rum_flat_sampling_replay_sample_rate']
+      end
+
+      if attributes.key?(:'error_tracking_exclusion_filter_enabled')
+        self.error_tracking_exclusion_filter_enabled = attributes[:'error_tracking_exclusion_filter_enabled']
+      end
+
+      if attributes.key?(:'instrumentation_type')
+        self.instrumentation_type = attributes[:'instrumentation_type']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'product_analytics_replay_sample_rate')
+        self.product_analytics_replay_sample_rate = attributes[:'product_analytics_replay_sample_rate']
       end
 
       if attributes.key?(:'product_analytics_retention_state')
         self.product_analytics_retention_state = attributes[:'product_analytics_retention_state']
       end
 
+      if attributes.key?(:'remote_config_id')
+        self.remote_config_id = attributes[:'remote_config_id']
+      end
+
       if attributes.key?(:'rum_event_processing_state')
         self.rum_event_processing_state = attributes[:'rum_event_processing_state']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@product_analytics_replay_sample_rate.nil? && @product_analytics_replay_sample_rate > 2147483647
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param product_analytics_replay_sample_rate [Object] Object to be assigned
+    # @!visibility private
+    def product_analytics_replay_sample_rate=(product_analytics_replay_sample_rate)
+      if !product_analytics_replay_sample_rate.nil? && product_analytics_replay_sample_rate > 2147483647
+        fail ArgumentError, 'invalid value for "product_analytics_replay_sample_rate", must be smaller than or equal to 2147483647.'
+      end
+      @product_analytics_replay_sample_rate = product_analytics_replay_sample_rate
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,9 +203,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          apm_rum_flat_sampling_replay_enabled == o.apm_rum_flat_sampling_replay_enabled &&
+          apm_rum_flat_sampling_replay_sample_rate == o.apm_rum_flat_sampling_replay_sample_rate &&
+          error_tracking_exclusion_filter_enabled == o.error_tracking_exclusion_filter_enabled &&
+          instrumentation_type == o.instrumentation_type &&
           name == o.name &&
+          product_analytics_replay_sample_rate == o.product_analytics_replay_sample_rate &&
           product_analytics_retention_state == o.product_analytics_retention_state &&
+          remote_config_id == o.remote_config_id &&
           rum_event_processing_state == o.rum_event_processing_state &&
+          tags == o.tags &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -129,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, product_analytics_retention_state, rum_event_processing_state, type, additional_properties].hash
+      [apm_rum_flat_sampling_replay_enabled, apm_rum_flat_sampling_replay_sample_rate, error_tracking_exclusion_filter_enabled, instrumentation_type, name, product_analytics_replay_sample_rate, product_analytics_retention_state, remote_config_id, rum_event_processing_state, tags, type, additional_properties].hash
     end
   end
 end

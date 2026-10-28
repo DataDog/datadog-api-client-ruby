@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The value to use for logs that don't have the facet used to group by.
+  # The value to use for events that don't have the facet used to group by.
   module RUMGroupByMissing
     class << self
       include BaseOneOfModel

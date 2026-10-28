@@ -6020,6 +6020,14 @@ ScenariosModelMappings = {
     "v2.AggregateRUMEvents" => {
             "body" => "RUMAggregateRequest",
     },
+    "v2.GetRUMApplications" => {
+            "filter_rum_enabled" => "Boolean",
+            "filter_product_analytics_enabled" => "Boolean",
+            "filter_error_focused_mode_enabled" => "Boolean",
+            "filter_remote_config_enabled" => "Boolean",
+            "filter_rum_event_processing_state" => "RUMEventProcessingState",
+            "filter_product_analytics_retention_state" => "RUMProductAnalyticsRetentionState",
+    },
     "v2.CreateRUMApplication" => {
             "body" => "RUMApplicationCreateRequest",
     },
@@ -6035,8 +6043,8 @@ ScenariosModelMappings = {
     },
     "v2.ListRUMEvents" => {
             "filter_query" => "String",
-            "filter_from" => "Time",
-            "filter_to" => "Time",
+            "filter_from" => "String",
+            "filter_to" => "String",
             "sort" => "RUMSort",
             "page_cursor" => "String",
             "page_limit" => "Integer",

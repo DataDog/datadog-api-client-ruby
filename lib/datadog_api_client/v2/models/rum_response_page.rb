@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RUMResponsePage
     include BaseGenericModel
 
-    # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of `page[cursor]`.
+    # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of `page[cursor]` (`page.cursor` for the POST endpoint). Absent on the last page.
     attr_accessor :after
 
     attr_accessor :additional_properties
