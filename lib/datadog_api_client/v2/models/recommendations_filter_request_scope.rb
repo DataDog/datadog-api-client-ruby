@@ -18,11 +18,13 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+  # An empty value is treated as `ccm`.
   class RecommendationsFilterRequestScope
     include BaseEnumModel
 
     CCM = "ccm".freeze
     EXPERIMENT = "experiment".freeze
     ALL = "*".freeze
+    EMPTY = "".freeze
   end
 end
