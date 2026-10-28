@@ -2693,6 +2693,12 @@ ScenariosModelMappings = {
     "v2.BulkConvertExistingSecurityMonitoringRules" => {
             "body" => "SecurityMonitoringRuleConvertBulkPayload",
     },
+    "v2.StartSecurityMonitoringRuleProposal" => {
+            "body" => "SecurityMonitoringRuleProposalStartRequest",
+    },
+    "v2.GetSecurityMonitoringRuleProposal" => {
+            "proposal_id" => "UUID",
+    },
     "v2.TestSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleTestRequest",
     },
