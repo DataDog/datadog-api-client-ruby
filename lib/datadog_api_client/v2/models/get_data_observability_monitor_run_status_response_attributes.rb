@@ -24,6 +24,12 @@ module DatadogAPIClient::V2
     # Error message describing why the monitor run failed. Only present when status is error.
     attr_accessor :error_message
 
+    # The number of the monitor's groups in each state, once the run has finished.
+    attr_accessor :group_counts
+
+    # The first 1,000 of the monitor's groups that are not ok, once the run has finished. List the monitor's groups for all of them.
+    attr_reader :groups
+
     # The status of a data observability monitor run.
     attr_reader :status
 
@@ -34,6 +40,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'error_message' => :'error_message',
+        :'group_counts' => :'group_counts',
+        :'groups' => :'groups',
         :'status' => :'status'
       }
     end
@@ -43,6 +51,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'error_message' => :'String',
+        :'group_counts' => :'Hash<String, Integer>',
+        :'groups' => :'Array<DataObservabilityMonitorRunGroup>',
         :'status' => :'DataObservabilityMonitorRunStatus'
       }
     end
@@ -69,6 +79,16 @@ module DatadogAPIClient::V2
         self.error_message = attributes[:'error_message']
       end
 
+      if attributes.key?(:'group_counts')
+        self.group_counts = attributes[:'group_counts']
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
+        end
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -78,8 +98,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@groups.nil? && @groups.length > 1000
       return false if @status.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param groups [Object] Object to be assigned
+    # @!visibility private
+    def groups=(groups)
+      if !groups.nil? && groups.length > 1000
+        fail ArgumentError, 'invalid value for "groups", number of items must be less than or equal to 1000.'
+      end
+      @groups = groups
     end
 
     # Custom attribute writer method with validation
@@ -119,6 +150,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           error_message == o.error_message &&
+          group_counts == o.group_counts &&
+          groups == o.groups &&
           status == o.status &&
           additional_properties == o.additional_properties
     end
@@ -127,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error_message, status, additional_properties].hash
+      [error_message, group_counts, groups, status, additional_properties].hash
     end
   end
 end

@@ -2979,6 +2979,8 @@ module DatadogAPIClient
           "v2.datadog_integration_type" => "DatadogIntegrationType",
           "v2.datadog_integration_update" => "DatadogIntegrationUpdate",
           "v2.data_export_config" => "DataExportConfig",
+          "v2.data_observability_monitor_group_status" => "DataObservabilityMonitorGroupStatus",
+          "v2.data_observability_monitor_run_group" => "DataObservabilityMonitorRunGroup",
           "v2.data_observability_monitor_run_status" => "DataObservabilityMonitorRunStatus",
           "v2.data_observability_monitor_run_type" => "DataObservabilityMonitorRunType",
           "v2.data_relationships_teams" => "DataRelationshipsTeams",
