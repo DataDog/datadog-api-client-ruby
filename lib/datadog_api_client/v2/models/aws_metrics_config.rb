@@ -43,7 +43,11 @@ module DatadogAPIClient::V2
     # AWS Metrics namespace filters. Defaults to `exclude_only`.
     attr_accessor :namespace_filters
 
+    # AWS Metrics collection resource type tag filters list. Defaults to `[]`.
+    attr_accessor :resource_type_tag_filters
+
     # AWS Metrics collection tag filters list. Defaults to `[]`.
+    # Deprecated in favor of `resource_type_tag_filters`. The two fields are mutually exclusive on an account.
     attr_accessor :tag_filters
 
     attr_accessor :additional_properties
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'enabled',
         :'metric_name_filters' => :'metric_name_filters',
         :'namespace_filters' => :'namespace_filters',
+        :'resource_type_tag_filters' => :'resource_type_tag_filters',
         :'tag_filters' => :'tag_filters'
       }
     end
@@ -74,6 +79,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'Boolean',
         :'metric_name_filters' => :'Array<AWSMetricNameFilters>',
         :'namespace_filters' => :'AWSNamespaceFilters',
+        :'resource_type_tag_filters' => :'Array<AWSResourceTypeTagFilter>',
         :'tag_filters' => :'Array<AWSNamespaceTagFilter>'
       }
     end
@@ -126,6 +132,12 @@ module DatadogAPIClient::V2
         self.namespace_filters = attributes[:'namespace_filters']
       end
 
+      if attributes.key?(:'resource_type_tag_filters')
+        if (value = attributes[:'resource_type_tag_filters']).is_a?(Array)
+          self.resource_type_tag_filters = value
+        end
+      end
+
       if attributes.key?(:'tag_filters')
         if (value = attributes[:'tag_filters']).is_a?(Array)
           self.tag_filters = value
@@ -166,6 +178,7 @@ module DatadogAPIClient::V2
           enabled == o.enabled &&
           metric_name_filters == o.metric_name_filters &&
           namespace_filters == o.namespace_filters &&
+          resource_type_tag_filters == o.resource_type_tag_filters &&
           tag_filters == o.tag_filters &&
           additional_properties == o.additional_properties
     end
@@ -174,7 +187,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, collect_service_quotas, enabled, metric_name_filters, namespace_filters, tag_filters, additional_properties].hash
+      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, collect_service_quotas, enabled, metric_name_filters, namespace_filters, resource_type_tag_filters, tag_filters, additional_properties].hash
     end
   end
 end

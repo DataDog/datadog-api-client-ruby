@@ -45,12 +45,13 @@ body = DatadogAPIClient::V2::AWSAccountUpdateRequest.new({
         collect_cloudwatch_alarms: true,
         collect_custom_metrics: true,
         enabled: true,
-        tag_filters: [
-          DatadogAPIClient::V2::AWSNamespaceTagFilter.new({
-            namespace: "AWS/EC2",
-            tags: [
-              "key:value",
+        resource_type_tag_filters: [
+          DatadogAPIClient::V2::AWSResourceTypeTagFilter.new({
+            service: "ec2",
+            resource_types: [
+              "instance",
             ],
+            expression: "env:staging",
           }),
         ],
       }),
