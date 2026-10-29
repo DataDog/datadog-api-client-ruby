@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerReorderGroupsResponse
     include BaseGenericModel
 
-    # Meta response containing information about the API.
+    # Meta response. Always an empty object.
     attr_accessor :meta
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'meta' => :'SensitiveDataScannerMeta'
+        :'meta' => :'Hash<String, Object>'
       }
     end
 

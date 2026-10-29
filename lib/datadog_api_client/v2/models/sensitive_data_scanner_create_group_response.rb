@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Response data related to the creation of a group.
     attr_accessor :data
 
-    # Meta payload containing information about the API.
+    # Meta response. Always an empty object.
     attr_accessor :meta
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'SensitiveDataScannerGroupResponse',
-        :'meta' => :'SensitiveDataScannerMetaVersionOnly'
+        :'meta' => :'Hash<String, Object>'
       }
     end
 
