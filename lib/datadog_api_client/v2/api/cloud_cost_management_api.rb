@@ -4492,7 +4492,7 @@ module DatadogAPIClient::V2
     #
     # @param body [RecommendationsFilterRequest] 
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :page_size Number of results per page (1–10000).
+    # @option opts [Integer] :page_size Number of results per page, from 1 to 5000. Defaults to 50.
     # @option opts [String] :page_token Pagination token from a previous response.
     # @return [Array<(CostRecommendationArray, Integer, Hash)>] CostRecommendationArray data, response status code and response headers
     def search_cost_recommendations_with_http_info(body, opts = {})
@@ -4505,6 +4505,12 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.search_cost_recommendations ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling CloudCostManagementAPI.search_cost_recommendations, must be smaller than or equal to 5000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling CloudCostManagementAPI.search_cost_recommendations, must be greater than or equal to 1.'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?

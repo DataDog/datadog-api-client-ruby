@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Opaque token used to fetch the next page; absent on the last page.
     attr_accessor :next_page_token
 
-    # Number of items returned in this page (1–10000).
+    # Number of items returned in this page (1–5000).
     attr_reader :page_size
 
     # Pagination token echoed back from the request.
@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@page_size.nil? && @page_size > 10000
+      return false if !@page_size.nil? && @page_size > 5000
       return false if !@page_size.nil? && @page_size < 1
       true
     end
@@ -105,8 +105,8 @@ module DatadogAPIClient::V2
     # @param page_size [Object] Object to be assigned
     # @!visibility private
     def page_size=(page_size)
-      if !page_size.nil? && page_size > 10000
-        fail ArgumentError, 'invalid value for "page_size", must be smaller than or equal to 10000.'
+      if !page_size.nil? && page_size > 5000
+        fail ArgumentError, 'invalid value for "page_size", must be smaller than or equal to 5000.'
       end
       if !page_size.nil? && page_size < 1
         fail ArgumentError, 'invalid value for "page_size", must be greater than or equal to 1.'
