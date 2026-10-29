@@ -8227,6 +8227,7 @@ module DatadogAPIClient
           "v2.selectors" => "Selectors",
           "v2.self_service_trigger_wrapper" => "SelfServiceTriggerWrapper",
           "v2.send_slack_message_action" => "SendSlackMessageAction",
+          "v2.send_slack_message_action_customizable_content" => "SendSlackMessageActionCustomizableContent",
           "v2.send_slack_message_action_type" => "SendSlackMessageActionType",
           "v2.send_teams_message_action" => "SendTeamsMessageAction",
           "v2.send_teams_message_action_type" => "SendTeamsMessageActionType",
