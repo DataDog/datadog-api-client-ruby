@@ -69,6 +69,9 @@ module DatadogAPIClient::V2
     # The type of the status page controlling how the status page is accessed.
     attr_accessor :type
 
+    # The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`.
+    attr_accessor :visualization_layout
+
     # The visualization type of the status page.
     attr_accessor :visualization_type
 
@@ -94,6 +97,7 @@ module DatadogAPIClient::V2
         :'slack_subscriptions_enabled' => :'slack_subscriptions_enabled',
         :'subscriptions_enabled' => :'subscriptions_enabled',
         :'type' => :'type',
+        :'visualization_layout' => :'visualization_layout',
         :'visualization_type' => :'visualization_type'
       }
     end
@@ -118,6 +122,7 @@ module DatadogAPIClient::V2
         :'slack_subscriptions_enabled' => :'Boolean',
         :'subscriptions_enabled' => :'Boolean',
         :'type' => :'CreateStatusPageRequestDataAttributesType',
+        :'visualization_layout' => :'CreateStatusPageRequestDataAttributesVisualizationLayout',
         :'visualization_type' => :'CreateStatusPageRequestDataAttributesVisualizationType'
       }
     end
@@ -206,6 +211,10 @@ module DatadogAPIClient::V2
         self.type = attributes[:'type']
       end
 
+      if attributes.key?(:'visualization_layout')
+        self.visualization_layout = attributes[:'visualization_layout']
+      end
+
       if attributes.key?(:'visualization_type')
         self.visualization_type = attributes[:'visualization_type']
       end
@@ -253,6 +262,7 @@ module DatadogAPIClient::V2
           slack_subscriptions_enabled == o.slack_subscriptions_enabled &&
           subscriptions_enabled == o.subscriptions_enabled &&
           type == o.type &&
+          visualization_layout == o.visualization_layout &&
           visualization_type == o.visualization_type &&
           additional_properties == o.additional_properties
     end
@@ -261,7 +271,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, components, created_at, custom_domain, custom_domain_enabled, domain_prefix, email_header_image, enabled, favicon, modified_at, name, page_url, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_type, additional_properties].hash
+      [company_logo, components, created_at, custom_domain, custom_domain_enabled, domain_prefix, email_header_image, enabled, favicon, modified_at, name, page_url, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_layout, visualization_type, additional_properties].hash
     end
   end
 end
