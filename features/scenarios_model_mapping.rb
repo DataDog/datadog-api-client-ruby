@@ -5011,12 +5011,6 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
-    "v2.DeleteBulkTagsMetricsConfiguration" => {
-            "body" => "MetricBulkTagConfigDeleteRequest",
-    },
-    "v2.CreateBulkTagsMetricsConfiguration" => {
-            "body" => "MetricBulkTagConfigCreateRequest",
-    },
     "v2.CreateDerivedMetric" => {
             "body" => "DerivedMetricCreateRequest",
     },
