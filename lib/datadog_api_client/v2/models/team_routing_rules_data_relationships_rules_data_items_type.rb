@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the resource is of type 'team_routing_rules'.
+  # Indicates that the resource is of type `team_routing_rules`.
   class TeamRoutingRulesDataRelationshipsRulesDataItemsType
     include BaseEnumModel
 

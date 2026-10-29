@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the related resource is of type 'schedules'.
+  # Indicates that the related resource is of type `schedules`.
   class OverrideRelationshipsScheduleDataType
     include BaseEnumModel
 

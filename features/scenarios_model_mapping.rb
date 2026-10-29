@@ -5367,6 +5367,15 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "EscalationPolicyUpdateRequest",
     },
+    "v2.ListOnCallPages" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_query" => "String",
+            "sort" => "OnCallPagesSort",
+    },
+    "v2.GetOnCallPage" => {
+            "page_id" => "String",
+    },
     "v2.ListOnCallSchedules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
