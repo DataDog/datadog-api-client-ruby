@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Query for creating a data deletion request.
     attr_reader :query
 
+    # Time when the recovery period for the deletion request ends. Before this time, you can cancel the request and recover the data. After this time, permanent deletion begins, and the status changes to `deleting` within a few minutes. This field is returned only for `in_progress` requests when listing deletion requests, and is omitted if the value cannot be determined.
+    attr_accessor :recoverable_until
+
     # The source of the deletion request.
     attr_accessor :source
 
@@ -89,6 +92,7 @@ module DatadogAPIClient::V2
         :'org_id' => :'org_id',
         :'product' => :'product',
         :'query' => :'query',
+        :'recoverable_until' => :'recoverable_until',
         :'source' => :'source',
         :'starting_at' => :'starting_at',
         :'status' => :'status',
@@ -113,6 +117,7 @@ module DatadogAPIClient::V2
         :'org_id' => :'Integer',
         :'product' => :'String',
         :'query' => :'String',
+        :'recoverable_until' => :'String',
         :'source' => :'String',
         :'starting_at' => :'String',
         :'status' => :'String',
@@ -184,6 +189,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'recoverable_until')
+        self.recoverable_until = attributes[:'recoverable_until']
       end
 
       if attributes.key?(:'source')
@@ -398,6 +407,7 @@ module DatadogAPIClient::V2
           org_id == o.org_id &&
           product == o.product &&
           query == o.query &&
+          recoverable_until == o.recoverable_until &&
           source == o.source &&
           starting_at == o.starting_at &&
           status == o.status &&
@@ -411,7 +421,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, customer_message, displayed_total, error_category, from_time, indexes, is_created, org_id, product, query, source, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
+      [created_at, created_by, customer_message, displayed_total, error_category, from_time, indexes, is_created, org_id, product, query, recoverable_until, source, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
     end
   end
 end
