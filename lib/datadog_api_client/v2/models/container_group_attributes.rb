@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ContainerGroupAttributes
     include BaseGenericModel
 
-    # Number of containers in the group.
+    # Number of containers in the group. A container with multiple values for a grouping tag can appear in multiple groups. Summing group counts can overcount distinct containers.
     attr_accessor :count
 
     # Tags from the group name parsed in key/value format.

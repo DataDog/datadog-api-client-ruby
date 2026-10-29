@@ -21,7 +21,9 @@ module DatadogAPIClient::V2
   class ContainerGroupRelationshipsLink
     include BaseGenericModel
 
-    # Links data.
+    # This array is always empty, even when the group includes containers. To retrieve the containers
+    # in this group, make a new request to this endpoint with the `filter[tags]` value from
+    # `links.related`, using your site's API host.
     attr_accessor :data
 
     # Links attributes.
