@@ -27,7 +27,8 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'TopologyMapWidgetDefinitionDataStreams',
-          :'TopologyMapWidgetDefinitionServiceMap'
+          :'TopologyMapWidgetDefinitionServiceMap',
+          :'TopologyMapWidgetDefinitionCustom'
         ]
       end
       # Builds the object
