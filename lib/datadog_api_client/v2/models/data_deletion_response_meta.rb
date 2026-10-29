@@ -21,11 +21,17 @@ module DatadogAPIClient::V2
   class DataDeletionResponseMeta
     include BaseGenericModel
 
+    # Number of additional deletion requests the current organization can create before reaching the concurrency limit. Requests with a `pending`, `in_progress`, or `deleting` status count toward the limit. This field is returned only when listing deletion requests, and is omitted if the value cannot be determined.
+    attr_accessor :available_slots
+
     # The total deletion requests created by product.
     attr_accessor :count_product
 
     # The total deletion requests created by status.
     attr_accessor :count_status
+
+    # Maximum number of deletion requests with a `pending`, `in_progress`, or `deleting` status that the current organization can have at the same time. This field is returned only when listing deletion requests, and is omitted if the value cannot be determined.
+    attr_accessor :max_concurrent_requests
 
     # The next page when searching deletion requests created in the current organization.
     attr_accessor :next_page
@@ -42,8 +48,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'available_slots' => :'available_slots',
         :'count_product' => :'count_product',
         :'count_status' => :'count_status',
+        :'max_concurrent_requests' => :'max_concurrent_requests',
         :'next_page' => :'next_page',
         :'product' => :'product',
         :'request_status' => :'request_status'
@@ -54,8 +62,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'available_slots' => :'Integer',
         :'count_product' => :'Hash<String, Integer>',
         :'count_status' => :'Hash<String, Integer>',
+        :'max_concurrent_requests' => :'Integer',
         :'next_page' => :'String',
         :'product' => :'String',
         :'request_status' => :'String'
@@ -80,12 +90,20 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'available_slots')
+        self.available_slots = attributes[:'available_slots']
+      end
+
       if attributes.key?(:'count_product')
         self.count_product = attributes[:'count_product']
       end
 
       if attributes.key?(:'count_status')
         self.count_status = attributes[:'count_status']
+      end
+
+      if attributes.key?(:'max_concurrent_requests')
+        self.max_concurrent_requests = attributes[:'max_concurrent_requests']
       end
 
       if attributes.key?(:'next_page')
@@ -127,8 +145,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          available_slots == o.available_slots &&
           count_product == o.count_product &&
           count_status == o.count_status &&
+          max_concurrent_requests == o.max_concurrent_requests &&
           next_page == o.next_page &&
           product == o.product &&
           request_status == o.request_status &&
@@ -139,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count_product, count_status, next_page, product, request_status, additional_properties].hash
+      [available_slots, count_product, count_status, max_concurrent_requests, next_page, product, request_status, additional_properties].hash
     end
   end
 end
