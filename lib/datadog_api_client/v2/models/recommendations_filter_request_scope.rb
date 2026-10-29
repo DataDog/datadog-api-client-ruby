@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+  # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations
+  # or `*` for both.
   class RecommendationsFilterRequestScope
     include BaseEnumModel
 

@@ -3070,7 +3070,7 @@ ScenariosModelMappings = {
             "body" => "GCPUsageCostConfigPatchRequest",
     },
     "v2.SearchCostRecommendations" => {
-            "page_size" => "String",
+            "page_size" => "Integer",
             "page_token" => "String",
             "body" => "RecommendationsFilterRequest",
     },
