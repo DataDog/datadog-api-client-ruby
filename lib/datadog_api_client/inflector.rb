@@ -3599,6 +3599,8 @@ module DatadogAPIClient
           "v2.execution_policy_scope" => "ExecutionPolicyScope",
           "v2.execution_policy_script_scope" => "ExecutionPolicyScriptScope",
           "v2.execution_policy_script_scope_rule" => "ExecutionPolicyScriptScopeRule",
+          "v2.execution_policy_slack_scope" => "ExecutionPolicySlackScope",
+          "v2.execution_policy_slack_scope_rule" => "ExecutionPolicySlackScopeRule",
           "v2.execution_policy_target" => "ExecutionPolicyTarget",
           "v2.execution_policy_type" => "ExecutionPolicyType",
           "v2.execution_policy_update_request" => "ExecutionPolicyUpdateRequest",

@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # The name of the execution policy.
     attr_reader :name
 
-    # Restricts where the policy applies. At most one of `kubernetes`, `scripts`,
-    # or `remote_action_rshell` can be set. An empty object means the policy has
-    # no scope restriction.
+    # Restricts where the policy applies. At most one scope type can be set,
+    # and it must match the action pattern's integration. An empty object means
+    # the policy has no scope restriction.
     attr_accessor :scope
 
     # The targets this policy applies to.

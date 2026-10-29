@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A target this policy is scoped to, expressed as a set of Agent tags.
+  # A target this policy is scoped to, expressed as a set of tags.
   class ExecutionPolicyTarget
     include BaseGenericModel
 
-    # The Agent tags identifying the target.
+    # The tags identifying the target.
     attr_reader :agent_tags
 
     # A human-readable name for the target.
