@@ -5471,6 +5471,10 @@ ScenariosModelMappings = {
     "v2.EscalateOnCallPage" => {
             "page_id" => "UUID",
     },
+    "v2.RerouteOnCallPage" => {
+            "page_id" => "UUID",
+            "body" => "RerouteOnCallPageRequest",
+    },
     "v2.ResolveOnCallPage" => {
             "page_id" => "UUID",
     },
