@@ -239,11 +239,12 @@ module DatadogAPIClient::V2
     # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`, `wasm`, `portable_pdb`.
     # @param dry_run [Boolean] When set to `true`, returns the source maps that would be deleted without performing the actual deletion. When set to `false`, performs the deletion.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
-    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [SourcemapSymbolType] :symbol_type WASM symbol representation. Only supported for `mapkind=wasm`. Defaults to `dwarf`, which requires `filter[build_id]`. `sourcemap` requires `filter[service]` and `filter[version]`.
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds, and for `wasm` with `symbol_type=sourcemap`.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds, and for `wasm` with `symbol_type=sourcemap`.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
-    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`. Required for `wasm` with `symbol_type=dwarf`.
     # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
     # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
     # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
@@ -278,6 +279,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !allowable_values.include?(mapkind)
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
       end
+      allowable_values = ['dwarf', 'sourcemap']
+      if @api_client.config.client_side_validation && opts[:'symbol_type'] && !allowable_values.include?(opts[:'symbol_type'])
+        fail ArgumentError, "invalid value for \"symbol_type\", must be one of #{allowable_values}"
+      end
       # verify the required parameter 'dry_run' is set
       if @api_client.config.client_side_validation && dry_run.nil?
         fail ArgumentError, "Missing the required parameter 'dry_run' when calling RUMAPI.delete_sourcemaps"
@@ -289,6 +294,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'mapkind'] = mapkind
       query_params[:'dry_run'] = dry_run
+      query_params[:'symbol_type'] = opts[:'symbol_type'] if !opts[:'symbol_type'].nil?
       query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
       query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
       query_params[:'filter[variant]'] = @api_client.build_collection_param(opts[:'filter_variant'], :multi) if !opts[:'filter_variant'].nil?
@@ -479,7 +485,8 @@ module DatadogAPIClient::V2
 
     # Get service repository information.
     #
-    # Returns the repository URL and commit SHA associated with a given service and version.
+    # Returns the repository URL and commit SHA associated with a debug ID or a given service and version.
+    # Provide either `debug_id`, or both `service` and `version`. When `debug_id` is set, it takes precedence.
     #
     # @param body [ServiceRepositoryInfoRequest] 
     # @param opts [Hash] the optional parameters
@@ -849,14 +856,15 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [SourcemapSearchBy] :search_by Set to `debug_id` to browse JavaScript source maps indexed by debug ID. Only supported for `mapkind=js`. Omit for service/version searches or a specific `filter[debug_id]` lookup. In debug-ID browse mode, service, version, and filename filters are not supported.
     # @option opts [SourcemapMapKind] :mapkind The type of source map. Defaults to `js`.
+    # @option opts [SourcemapSymbolType] :symbol_type WASM symbol representation. Only supported for `mapkind=wasm`. Defaults to `dwarf`, which requires `filter[build_id]`. `sourcemap` requires `filter[service]` and `filter[version]`.
     # @option opts [String] :page_after Cursor for the next page of a JavaScript listing. Use the value from `meta.page.next_cursor` and keep the same search mode and filters. Omit on the first request. Not supported for other map kinds or for a specific `filter[debug_id]` lookup without `search_by=debug_id`.
     # @option opts [Integer] :page_size The number of results per page. Defaults to 100. Must be at least 1; values above 1000 are capped at 1000.
     # @option opts [Integer] :page_number Legacy page number, starting from 1. Prefer `page[after]` for JavaScript listings. Not supported with `search_by=debug_id`. Other map kinds default to page 1 when pagination parameters are omitted.
-    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
-    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds, and for `wasm` with `symbol_type=sourcemap`. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed). Required for `jvm`, `react`, and `flutter` map kinds, and for `wasm` with `symbol_type=sourcemap`. Also required for `js` unless searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
-    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`. Required for `wasm` with `symbol_type=dwarf`.
     # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
     # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
     # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
@@ -890,6 +898,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'mapkind'] && !allowable_values.include?(opts[:'mapkind'])
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
       end
+      allowable_values = ['dwarf', 'sourcemap']
+      if @api_client.config.client_side_validation && opts[:'symbol_type'] && !allowable_values.include?(opts[:'symbol_type'])
+        fail ArgumentError, "invalid value for \"symbol_type\", must be one of #{allowable_values}"
+      end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling RUMAPI.list_sourcemaps, must be greater than or equal to 1.'
       end
@@ -903,6 +915,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'search_by'] = opts[:'search_by'] if !opts[:'search_by'].nil?
       query_params[:'mapkind'] = opts[:'mapkind'] if !opts[:'mapkind'].nil?
+      query_params[:'symbol_type'] = opts[:'symbol_type'] if !opts[:'symbol_type'].nil?
       query_params[:'page[after]'] = opts[:'page_after'] if !opts[:'page_after'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
@@ -978,11 +991,12 @@ module DatadogAPIClient::V2
     # @param mapkind [SourcemapMapKind] The type of source map. Valid values are `js`, `jvm`, `ios`, `react`, `flutter`, `elf`, `ndk`, `il2cpp`, `wasm`, `portable_pdb`.
     # @param dry_run [Boolean] When set to `true`, returns the source maps that would be restored without performing the actual restoration. When set to `false`, performs the restoration.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
-    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+    # @option opts [SourcemapSymbolType] :symbol_type WASM symbol representation. Only supported for `mapkind=wasm`. Defaults to `dwarf`, which requires `filter[build_id]`. `sourcemap` requires `filter[service]` and `filter[version]`.
+    # @option opts [Array<String>] :filter_service Filter by service names (multiple values allowed). Required for `js`, `jvm`, `react`, and `flutter` map kinds, and for `wasm` with `symbol_type=sourcemap`.
+    # @option opts [Array<String>] :filter_version Filter by version values (multiple values allowed, maximum 10). Required for `js`, `jvm`, `react`, and `flutter` map kinds, and for `wasm` with `symbol_type=sourcemap`.
     # @option opts [Array<String>] :filter_variant Filter by variant values (multiple values allowed). Supported for `jvm`.
     # @option opts [Array<String>] :filter_id Filter by source map ID values (multiple values allowed). Supported for all map kinds.
-    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
+    # @option opts [Array<String>] :filter_build_id Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`. Required for `wasm` with `symbol_type=dwarf`.
     # @option opts [Array<String>] :filter_uuid Filter by UUID values (multiple values allowed). Supported for `ios`.
     # @option opts [Array<String>] :filter_platform Filter by platform values (multiple values allowed). Supported for `react`.
     # @option opts [Array<String>] :filter_build_number Filter by build number values (multiple values allowed). Supported for `react`.
@@ -1017,6 +1031,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !allowable_values.include?(mapkind)
         fail ArgumentError, "invalid value for \"mapkind\", must be one of #{allowable_values}"
       end
+      allowable_values = ['dwarf', 'sourcemap']
+      if @api_client.config.client_side_validation && opts[:'symbol_type'] && !allowable_values.include?(opts[:'symbol_type'])
+        fail ArgumentError, "invalid value for \"symbol_type\", must be one of #{allowable_values}"
+      end
       # verify the required parameter 'dry_run' is set
       if @api_client.config.client_side_validation && dry_run.nil?
         fail ArgumentError, "Missing the required parameter 'dry_run' when calling RUMAPI.restore_sourcemaps"
@@ -1028,6 +1046,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'mapkind'] = mapkind
       query_params[:'dry_run'] = dry_run
+      query_params[:'symbol_type'] = opts[:'symbol_type'] if !opts[:'symbol_type'].nil?
       query_params[:'filter[service]'] = @api_client.build_collection_param(opts[:'filter_service'], :multi) if !opts[:'filter_service'].nil?
       query_params[:'filter[version]'] = @api_client.build_collection_param(opts[:'filter_version'], :multi) if !opts[:'filter_version'].nil?
       query_params[:'filter[variant]'] = @api_client.build_collection_param(opts[:'filter_variant'], :multi) if !opts[:'filter_variant'].nil?

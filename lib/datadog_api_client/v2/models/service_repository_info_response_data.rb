@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes of the service repository information.
     attr_reader :attributes
 
-    # The identifier composed of the service name and version.
+    # The identifier composed of the service name and version, or the debug ID when the lookup was made by debug ID.
     attr_reader :id
 
     # The resource type for service repository info objects.
