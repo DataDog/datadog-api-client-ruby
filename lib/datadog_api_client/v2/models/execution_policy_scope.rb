@@ -17,9 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Restricts where the policy applies. At most one of `kubernetes`, `scripts`,
-  # or `remote_action_rshell` can be set. An empty object means the policy has
-  # no scope restriction.
+  # Restricts where the policy applies. At most one scope type can be set,
+  # and it must match the action pattern's integration. An empty object means
+  # the policy has no scope restriction.
   class ExecutionPolicyScope
     include BaseGenericModel
 
@@ -32,6 +32,9 @@ module DatadogAPIClient::V2
     # Restricts the policy to specific scripts.
     attr_accessor :scripts
 
+    # Restricts the policy to specific Slack private channel names.
+    attr_accessor :slack
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -40,7 +43,8 @@ module DatadogAPIClient::V2
       {
         :'kubernetes' => :'kubernetes',
         :'remote_action_rshell' => :'remote_action_rshell',
-        :'scripts' => :'scripts'
+        :'scripts' => :'scripts',
+        :'slack' => :'slack'
       }
     end
 
@@ -50,7 +54,8 @@ module DatadogAPIClient::V2
       {
         :'kubernetes' => :'ExecutionPolicyKubernetesScope',
         :'remote_action_rshell' => :'ExecutionPolicyRemoteActionRshellScope',
-        :'scripts' => :'ExecutionPolicyScriptScope'
+        :'scripts' => :'ExecutionPolicyScriptScope',
+        :'slack' => :'ExecutionPolicySlackScope'
       }
     end
 
@@ -83,6 +88,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'scripts')
         self.scripts = attributes[:'scripts']
       end
+
+      if attributes.key?(:'slack')
+        self.slack = attributes[:'slack']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -114,6 +123,7 @@ module DatadogAPIClient::V2
           kubernetes == o.kubernetes &&
           remote_action_rshell == o.remote_action_rshell &&
           scripts == o.scripts &&
+          slack == o.slack &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [kubernetes, remote_action_rshell, scripts, additional_properties].hash
+      [kubernetes, remote_action_rshell, scripts, slack, additional_properties].hash
     end
   end
 end
