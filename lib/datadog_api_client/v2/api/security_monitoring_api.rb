@@ -2423,6 +2423,7 @@ module DatadogAPIClient::V2
     # rule. To load more rules, add them with the add resources endpoint before starting the
     # batch migration. A batch migration can hold up to 1000 resources. The response does not
     # include the created resources: list the resources of the batch migration to retrieve them.
+    # Alternatively, use the start-a-rule-proposal endpoint to get a single proposed rule.
     #
     # @param body [SecurityMonitoringBatchMigrationCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -7448,6 +7449,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a rule proposal.
+    #
+    # @see #get_security_monitoring_rule_proposal_with_http_info
+    def get_security_monitoring_rule_proposal(proposal_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_rule_proposal_with_http_info(proposal_id, opts)
+      data
+    end
+
+    # Get a rule proposal.
+    #
+    # Get the status of a rule proposal started with the start-a-rule-proposal endpoint.
+    # While the status is `pending` or `in_progress`, the proposed rule is still being
+    # generated. Poll this endpoint again later. If the status is `completed`, the response's `rule` field contains
+    # the proposed Cloud SIEM detection rule. If the status is `failed`, the response's `error` field contains
+    # the reason a rule could not be generated.
+    #
+    # This endpoint does not create or modify any detection rules in Cloud SIEM. To create the
+    # proposed rule, use the create-a-detection-rule endpoint.
+    #
+    # @param proposal_id [UUID] The ID of the rule proposal, returned by the start a rule proposal endpoint.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleProposalResponse, Integer, Hash)>] SecurityMonitoringRuleProposalResponse data, response status code and response headers
+    def get_security_monitoring_rule_proposal_with_http_info(proposal_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_rule_proposal".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_rule_proposal")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_rule_proposal"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_rule_proposal ...'
+      end
+      # verify the required parameter 'proposal_id' is set
+      if @api_client.config.client_side_validation && proposal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'proposal_id' when calling SecurityMonitoringAPI.get_security_monitoring_rule_proposal"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/proposals/{proposal_id}'.sub('{proposal_id}', CGI.escape(proposal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleProposalResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_rule_proposal,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_rule_proposal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a signal's details.
     #
     # @see #get_security_monitoring_signal_with_http_info
@@ -12461,6 +12540,90 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#start_security_monitoring_batch_migration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Start a rule proposal.
+    #
+    # @see #start_security_monitoring_rule_proposal_with_http_info
+    def start_security_monitoring_rule_proposal(body, opts = {})
+      data, _status_code, _headers = start_security_monitoring_rule_proposal_with_http_info(body, opts)
+      data
+    end
+
+    # Start a rule proposal.
+    #
+    # Start generating a proposed Cloud SIEM detection rule from a natural-language
+    # description, or from an SPL or KQL rule. The proposal is based on your organization's
+    # log sources, log fields, and existing detection rules. When logs from the matching
+    # source are available, the proposed query is tested against your recent logs.
+    #
+    # The proposed rule is generated asynchronously. This endpoint returns a proposal `id`
+    # with the status `pending`. To get the proposed rule, pass this `id` to the get-a-rule-proposal
+    # endpoint and poll the endpoint until the status is `completed` or `failed`. A proposal
+    # usually takes a few minutes, and up to 10 minutes.
+    #
+    # This endpoint does not create or modify any detection rules in Cloud SIEM. To translate
+    # many rules at once, use batch migrations instead.
+    #
+    # @param body [SecurityMonitoringRuleProposalStartRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleProposalStartResponse, Integer, Hash)>] SecurityMonitoringRuleProposalStartResponse data, response status code and response headers
+    def start_security_monitoring_rule_proposal_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.start_security_monitoring_rule_proposal".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.start_security_monitoring_rule_proposal")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.start_security_monitoring_rule_proposal"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.start_security_monitoring_rule_proposal ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.start_security_monitoring_rule_proposal"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/proposals'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleProposalStartResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :start_security_monitoring_rule_proposal,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#start_security_monitoring_rule_proposal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
