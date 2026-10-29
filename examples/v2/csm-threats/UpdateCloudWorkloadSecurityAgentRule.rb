@@ -6,17 +6,33 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new
 
-# there is a valid "agent_rule" in the system
-AGENT_RULE_DATA_ID = ENV["AGENT_RULE_DATA_ID"]
-
 body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleUpdateRequest.new({
   data: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleUpdateData.new({
     attributes: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleUpdateAttributes.new({
-      description: "Updated Agent rule",
+      actions: [
+        DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleAction.new({
+          coredump: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionCoreDump.new({}),
+          disabled: false,
+          _hash: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionHash.new({}),
+          kill: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleKill.new({}),
+          log: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionLog.new({}),
+          metadata: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionMetadata.new({}),
+          network_filter: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionNetworkFilter.new({}),
+          set: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionSet.new({}),
+        }),
+      ],
+      blocking: [],
+      description: "My Agent rule",
+      disabled: [],
+      enabled: true,
       expression: 'exec.file.name == "sh"',
+      monitoring: [],
+      policy_id: "a8c8e364-6556-434d-b798-a4c23de29c0b",
+      product_tags: [],
+      silent: false,
     }),
-    id: AGENT_RULE_DATA_ID,
+    id: "3dd-0uc-h1s",
     type: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleType::AGENT_RULE,
   }),
 })
-p api_instance.update_cloud_workload_security_agent_rule(AGENT_RULE_DATA_ID, body)
+p api_instance.update_cloud_workload_security_agent_rule("agent_rule_id", body)
