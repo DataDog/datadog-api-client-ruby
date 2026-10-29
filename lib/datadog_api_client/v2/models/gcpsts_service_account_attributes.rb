@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
     attr_accessor :host_filters
 
-    # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
+    # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled or is_org_folder_resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
 
     # When enabled, Datadog collects metrics where location is explicitly stated as "global" or where location information cannot be deduced from GCP labels.
