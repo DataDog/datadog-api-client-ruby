@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The unique identifier of the schedule.
     attr_reader :id
 
-    # Indicates that the related resource is of type 'schedules'.
+    # Indicates that the related resource is of type `schedules`.
     attr_reader :type
 
     attr_accessor :additional_properties

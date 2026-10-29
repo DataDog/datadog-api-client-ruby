@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Unique identifier for the channel
     attr_accessor :id
 
-    # Indicates that the resource is of type 'notification_channels'.
+    # Indicates that the resource is of type `notification_channels`.
     attr_reader :type
 
     attr_accessor :additional_properties

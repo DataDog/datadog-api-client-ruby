@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class TeamRoutingRulesRequestDataAttributes
     include BaseGenericModel
 
-    # A list of routing rule items that define how incoming pages should be handled.
+    # A list of routing rule items that define how incoming Pages should be handled.
     attr_accessor :rules
 
     attr_accessor :additional_properties

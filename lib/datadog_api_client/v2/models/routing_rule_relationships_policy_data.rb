@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Specifies the unique identifier of the policy.
     attr_reader :id
 
-    # Indicates that the resource is of type 'policies'.
+    # Indicates that the resource is of type `policies`.
     attr_reader :type
 
     attr_accessor :additional_properties

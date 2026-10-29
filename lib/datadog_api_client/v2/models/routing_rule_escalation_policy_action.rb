@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RoutingRuleEscalationPolicyAction
     include BaseGenericModel
 
-    # The number of minutes before an acknowledged page is re-triggered.
+    # The number of minutes before an acknowledged Page is re-triggered.
     attr_accessor :ack_timeout_minutes
 
     # The ID of the escalation policy to route to.

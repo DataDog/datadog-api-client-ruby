@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the resource is of type 'shifts'.
+  # Indicates that the resource is of type `shifts`.
   class ShiftDataType
     include BaseEnumModel
 

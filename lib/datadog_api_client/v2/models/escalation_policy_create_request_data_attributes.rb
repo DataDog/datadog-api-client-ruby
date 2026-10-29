@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Specifies the name for the new escalation policy.
     attr_reader :name
 
-    # Indicates whether the page is automatically resolved when the policy ends.
+    # Indicates whether the Page is automatically resolved when the policy ends.
     attr_accessor :resolve_page_on_policy_end
 
     # Specifies how many times the escalation sequence is retried if there is no response.

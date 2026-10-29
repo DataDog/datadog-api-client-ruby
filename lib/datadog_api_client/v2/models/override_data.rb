@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Relationships for an on-call schedule override.
     attr_accessor :relationships
 
-    # Indicates that the resource is of type 'overrides'.
+    # Indicates that the resource is of type `overrides`.
     attr_reader :type
 
     attr_accessor :additional_properties
