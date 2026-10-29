@@ -21,11 +21,14 @@ module DatadogAPIClient::V2
   class ServiceRepositoryInfoRequestAttributes
     include BaseGenericModel
 
-    # The name of the service.
-    attr_reader :service
+    # The debug ID of a JavaScript source map, in UUID format. Alternative to `service` and `version`.
+    attr_accessor :debug_id
 
-    # The version of the service.
-    attr_reader :version
+    # The name of the service. Required with `version` when `debug_id` is not set.
+    attr_accessor :service
+
+    # The version of the service. Required with `service` when `debug_id` is not set.
+    attr_accessor :version
 
     attr_accessor :additional_properties
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'debug_id' => :'debug_id',
         :'service' => :'service',
         :'version' => :'version'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'debug_id' => :'UUID',
         :'service' => :'String',
         :'version' => :'String'
       }
@@ -65,6 +70,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'debug_id')
+        self.debug_id = attributes[:'debug_id']
+      end
+
       if attributes.key?(:'service')
         self.service = attributes[:'service']
       end
@@ -72,35 +81,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @service.nil?
-      return false if @version.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param service [Object] Object to be assigned
-    # @!visibility private
-    def service=(service)
-      if service.nil?
-        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
-      end
-      @service = service
-    end
-
-    # Custom attribute writer method with validation
-    # @param version [Object] Object to be assigned
-    # @!visibility private
-    def version=(version)
-      if version.nil?
-        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
-      end
-      @version = version
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,6 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          debug_id == o.debug_id &&
           service == o.service &&
           version == o.version &&
           additional_properties == o.additional_properties
@@ -138,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [service, version, additional_properties].hash
+      [debug_id, service, version, additional_properties].hash
     end
   end
 end

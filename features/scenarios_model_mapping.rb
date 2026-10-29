@@ -6029,6 +6029,7 @@ ScenariosModelMappings = {
     },
     "v2.DeleteSourcemaps" => {
             "mapkind" => "SourcemapMapKind",
+            "symbol_type" => "SourcemapSymbolType",
             "dry_run" => "Boolean",
             "filter_service" => "Array<String>",
             "filter_version" => "Array<String>",
@@ -6058,6 +6059,7 @@ ScenariosModelMappings = {
     "v2.ListSourcemaps" => {
             "search_by" => "SourcemapSearchBy",
             "mapkind" => "SourcemapMapKind",
+            "symbol_type" => "SourcemapSymbolType",
             "page_after" => "String",
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -6082,6 +6084,7 @@ ScenariosModelMappings = {
     },
     "v2.RestoreSourcemaps" => {
             "mapkind" => "SourcemapMapKind",
+            "symbol_type" => "SourcemapSymbolType",
             "dry_run" => "Boolean",
             "filter_service" => "Array<String>",
             "filter_version" => "Array<String>",

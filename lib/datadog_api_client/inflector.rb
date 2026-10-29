@@ -8602,6 +8602,7 @@ module DatadogAPIClient
           "v2.sourcemaps_list_meta" => "SourcemapsListMeta",
           "v2.sourcemaps_list_meta_page" => "SourcemapsListMetaPage",
           "v2.sourcemaps_response" => "SourcemapsResponse",
+          "v2.sourcemap_symbol_type" => "SourcemapSymbolType",
           "v2.span" => "Span",
           "v2.spans_aggregate_bucket" => "SpansAggregateBucket",
           "v2.spans_aggregate_bucket_attributes" => "SpansAggregateBucketAttributes",
