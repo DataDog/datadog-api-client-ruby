@@ -6161,12 +6161,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(GetRuleVersionHistoryResponse, Integer, Hash)>] GetRuleVersionHistoryResponse data, response status code and response headers
     def get_rule_version_history_with_http_info(rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_rule_version_history".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_rule_version_history")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_rule_version_history"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_rule_version_history ...'
@@ -11934,12 +11928,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def restore_security_monitoring_rule_with_http_info(rule_id, version, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.restore_security_monitoring_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.restore_security_monitoring_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.restore_security_monitoring_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.restore_security_monitoring_rule ...'
