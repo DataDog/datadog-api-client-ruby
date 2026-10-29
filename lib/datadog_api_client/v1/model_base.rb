@@ -185,7 +185,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def _to_hash(value)
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        value.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }

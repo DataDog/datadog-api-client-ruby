@@ -3177,6 +3177,22 @@ ScenariosModelMappings = {
             "next_record_id" => "String",
             "include_descendants" => "Boolean",
     },
+    "v2.ListTemporaryGrantRequests" => {
+            "filter_status" => "TemporaryGrantRequestStatus",
+            "page_limit" => "Integer",
+            "page_cursor" => "UUID",
+            "filter_requested_by_user_id" => "UUID",
+    },
+    "v2.GetTemporaryGrantRequest" => {
+            "request_id" => "UUID",
+    },
+    "v2.UpdateTemporaryGrantRequest" => {
+            "request_id" => "UUID",
+            "body" => "TemporaryGrantRequestDecisionRequest",
+    },
+    "v2.DeleteRequestedTemporaryGrant" => {
+            "request_id" => "UUID",
+    },
     "v2.GetUsageApplicationSecurityMonitoring" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
@@ -3250,6 +3266,20 @@ ScenariosModelMappings = {
     "v2.DeletePendingQuota" => {
             "quota_namespace" => "String",
             "id" => "String",
+    },
+    "v2.ListMyTemporaryGrantRequests" => {
+            "filter_status" => "TemporaryGrantRequestStatus",
+            "page_limit" => "Integer",
+            "page_cursor" => "UUID",
+    },
+    "v2.CreateTemporaryGrantRequest" => {
+            "body" => "TemporaryGrantRequestCreateRequest",
+    },
+    "v2.DeleteTemporaryGrantRequest" => {
+            "request_id" => "UUID",
+    },
+    "v2.GetMyTemporaryGrantRequest" => {
+            "request_id" => "UUID",
     },
     "v2.ListAllCSMAgents" => {
             "page" => "Integer",
