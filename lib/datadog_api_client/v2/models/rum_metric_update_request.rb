@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The new RUM-based metric body.
+  # The RUM-based metric update body.
   class RumMetricUpdateRequest
     include BaseGenericModel
 
-    # The new RUM-based metric properties.
+    # The RUM-based metric properties to update. `id` is required by the API and must match the `metric_id` path parameter.
     attr_reader :data
 
     attr_accessor :additional_properties

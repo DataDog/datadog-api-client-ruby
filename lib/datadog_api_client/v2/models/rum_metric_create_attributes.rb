@@ -21,19 +21,20 @@ module DatadogAPIClient::V2
   class RumMetricCreateAttributes
     include BaseGenericModel
 
-    # The compute rule to compute the RUM-based metric.
+    # The compute rule to compute the RUM-based metric. It is set at creation and only `include_percentiles` can be updated afterwards.
     attr_reader :compute
 
-    # The type of RUM events to filter on.
+    # The type of RUM events the metric is generated from. It is set at creation and cannot be changed.
     attr_reader :event_type
 
-    # The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+    # The RUM-based metric filter. Events matching this filter will be aggregated in this metric. The `event_type` filter is added automatically.
     attr_accessor :filter
 
-    # The rules for the group by.
+    # The rules to group the metric by. Each rule creates a tag on the generated metric. If omitted, the metric is not grouped.
     attr_accessor :group_by
 
-    # The rule to count updatable events. Is only set if `event_type` is `sessions` or `views`.
+    # The rule to count updatable events.
+    # Required when `event_type` is `session` or `view`, and must be omitted for other event types. It cannot be changed after creation.
     attr_accessor :uniqueness
 
     attr_accessor :additional_properties

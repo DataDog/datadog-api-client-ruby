@@ -17,19 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The compute rule to compute the RUM-based metric.
+  # The compute rule to compute the RUM-based metric. It is set at creation and only `include_percentiles` can be updated afterwards.
   class RumMetricCompute
     include BaseGenericModel
 
     # The type of aggregation to use.
+    # `count` counts the matching events. `distribution` aggregates the values found at `path`.
     attr_reader :aggregation_type
 
-    # Toggle to include or exclude percentile aggregations for distribution metrics.
-    # Only present when `aggregation_type` is `distribution`.
+    # Toggle to include or exclude percentile aggregations (p50, p75, p90, p95, p99) for distribution metrics.
+    # Required when `aggregation_type` is `distribution`, and must be omitted otherwise.
     attr_accessor :include_percentiles
 
-    # The path to the value the RUM-based metric will aggregate on.
-    # Only present when `aggregation_type` is `distribution`.
+    # The path of the numeric RUM event attribute the metric aggregates on.
+    # Only valid when `aggregation_type` is `distribution`.
     attr_accessor :path
 
     attr_accessor :additional_properties

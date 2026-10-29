@@ -25,9 +25,11 @@ module DatadogAPIClient::V2
     attr_reader :attributes
 
     # The name of the RUM-based metric.
+    # On creation, it must be 1 to 200 characters long, contain only ASCII letters, digits, underscores, and periods, start with a letter, and not start with `rum.measure` or `rum.investigate`.
+    # It cannot be changed after creation.
     attr_reader :id
 
-    # The type of the resource. The value should always be rum_metrics.
+    # The type of the resource. The value must be `rum_metrics`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -89,6 +91,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @attributes.nil?
       return false if @id.nil?
+      return false if @id.to_s.length > 200
       return false if @type.nil?
       true
     end
@@ -109,6 +112,9 @@ module DatadogAPIClient::V2
     def id=(id)
       if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      if id.to_s.length > 200
+        fail ArgumentError, 'invalid value for "id", the character length must be smaller than or equal to 200.'
       end
       @id = id
     end

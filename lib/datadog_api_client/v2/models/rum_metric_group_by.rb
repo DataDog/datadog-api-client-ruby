@@ -21,11 +21,12 @@ module DatadogAPIClient::V2
   class RumMetricGroupBy
     include BaseGenericModel
 
-    # The path to the value the RUM-based metric will be aggregated over.
+    # The path of the RUM event attribute to group the metric by.
     attr_reader :path
 
-    # Eventual name of the tag that gets created. By default, `path` is used as the tag name.
-    attr_accessor :tag_name
+    # Name of the tag that gets created on the metric. By default, `path` is used as the tag name.
+    # It must be at most 200 characters long, start with a letter, and contain only lowercase letters, digits, underscores, hyphens, colons, periods, and slashes.
+    attr_reader :tag_name
 
     attr_accessor :additional_properties
 
@@ -79,6 +80,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @path.nil?
+      return false if !@tag_name.nil? && @tag_name.to_s.length > 200
       true
     end
 
@@ -90,6 +92,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "path", path cannot be nil.'
       end
       @path = path
+    end
+
+    # Custom attribute writer method with validation
+    # @param tag_name [Object] Object to be assigned
+    # @!visibility private
+    def tag_name=(tag_name)
+      if !tag_name.nil? && tag_name.to_s.length > 200
+        fail ArgumentError, 'invalid value for "tag_name", the character length must be smaller than or equal to 200.'
+      end
+      @tag_name = tag_name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

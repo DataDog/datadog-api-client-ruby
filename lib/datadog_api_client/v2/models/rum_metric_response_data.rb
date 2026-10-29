@@ -25,9 +25,11 @@ module DatadogAPIClient::V2
     attr_accessor :attributes
 
     # The name of the RUM-based metric.
-    attr_accessor :id
+    # On creation, it must be 1 to 200 characters long, contain only ASCII letters, digits, underscores, and periods, start with a letter, and not start with `rum.measure` or `rum.investigate`.
+    # It cannot be changed after creation.
+    attr_reader :id
 
-    # The type of the resource. The value should always be rum_metrics.
+    # The type of the resource. The value must be `rum_metrics`.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -81,6 +83,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@id.nil? && @id.to_s.length > 200
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if !id.nil? && id.to_s.length > 200
+        fail ArgumentError, 'invalid value for "id", the character length must be smaller than or equal to 200.'
+      end
+      @id = id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
