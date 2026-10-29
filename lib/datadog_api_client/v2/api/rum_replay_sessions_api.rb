@@ -41,7 +41,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :source Storage source: 'event_platform' or 'blob'.
     # @option opts [Integer] :ts Server-side timestamp in milliseconds.
     # @option opts [Integer] :max_list_size Maximum size in bytes for the segment list.
-    # @option opts [String] :paging Paging token for pagination.
+    # @option opts [String] :paging Token of the next page from the `X-Paging` header of the previous response. Send it without changes, URL-encoded in the query string. Omit it to get the first page.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_segments_with_http_info(view_id, session_id, opts = {})
 
