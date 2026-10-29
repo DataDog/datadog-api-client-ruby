@@ -1821,6 +1821,7 @@ module DatadogAPIClient
           "v2.aws_regions_include_all" => "AWSRegionsIncludeAll",
           "v2.aws_regions_include_only" => "AWSRegionsIncludeOnly",
           "v2.aws_resources_config" => "AWSResourcesConfig",
+          "v2.aws_resource_type_tag_filter" => "AWSResourceTypeTagFilter",
           "v2.aws_scan_options_attributes" => "AwsScanOptionsAttributes",
           "v2.aws_scan_options_create_attributes" => "AwsScanOptionsCreateAttributes",
           "v2.aws_scan_options_create_data" => "AwsScanOptionsCreateData",
