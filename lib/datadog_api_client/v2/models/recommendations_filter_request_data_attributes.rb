@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     attr_accessor :filter
 
     # Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations
-    # or `*` for both.
+    # or `*` for both. An empty value is treated as `ccm`.
     attr_accessor :scope
 
     # Ordered list of sort clauses applied to the result set.
