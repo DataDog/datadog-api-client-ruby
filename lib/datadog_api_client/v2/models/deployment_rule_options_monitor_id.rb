@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @groups.nil?
       return false if @id.nil?
-      pattern = Regexp.new(/^[1-9][0-9]*$/)
+      pattern = Regexp.new('^[1-9][0-9]*$')
       return false if @id !~ pattern
       true
     end
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
       if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      pattern = Regexp.new(/^[1-9][0-9]*$/)
+      pattern = Regexp.new('^[1-9][0-9]*$')
       if id !~ pattern
         fail ArgumentError, "invalid value for \"id\", must conform to the pattern #{pattern}."
       end

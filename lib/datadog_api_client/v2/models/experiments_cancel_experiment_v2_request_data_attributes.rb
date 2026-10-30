@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @reason.nil?
       return false if @reason.to_s.length < 1
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       return false if @reason !~ pattern
       true
     end
@@ -87,7 +87,7 @@ module DatadogAPIClient::V2
       if reason.to_s.length < 1
         fail ArgumentError, 'invalid value for "reason", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       if reason !~ pattern
         fail ArgumentError, "invalid value for \"reason\", must conform to the pattern #{pattern}."
       end

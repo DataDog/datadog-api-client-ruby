@@ -106,10 +106,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @daily_reset_time.nil?
-      pattern = Regexp.new(/^([01]\d|2[0-3]):[0-5]\d$/)
+      pattern = Regexp.new('^([01]\\d|2[0-3]):[0-5]\\d$')
       return false if @daily_reset_time !~ pattern
       return false if @daily_reset_timezone.nil?
-      pattern = Regexp.new(/^[+-](0\d|1[0-4]):[0-5]\d$/)
+      pattern = Regexp.new('^[+-](0\\d|1[0-4]):[0-5]\\d$')
       return false if @daily_reset_timezone !~ pattern
       return false if @quota_reached_action.nil?
       return false if @session_limit.nil?
@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
       if daily_reset_time.nil?
         fail ArgumentError, 'invalid value for "daily_reset_time", daily_reset_time cannot be nil.'
       end
-      pattern = Regexp.new(/^([01]\d|2[0-3]):[0-5]\d$/)
+      pattern = Regexp.new('^([01]\\d|2[0-3]):[0-5]\\d$')
       if daily_reset_time !~ pattern
         fail ArgumentError, "invalid value for \"daily_reset_time\", must conform to the pattern #{pattern}."
       end
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
       if daily_reset_timezone.nil?
         fail ArgumentError, 'invalid value for "daily_reset_timezone", daily_reset_timezone cannot be nil.'
       end
-      pattern = Regexp.new(/^[+-](0\d|1[0-4]):[0-5]\d$/)
+      pattern = Regexp.new('^[+-](0\\d|1[0-4]):[0-5]\\d$')
       if daily_reset_timezone !~ pattern
         fail ArgumentError, "invalid value for \"daily_reset_timezone\", must conform to the pattern #{pattern}."
       end

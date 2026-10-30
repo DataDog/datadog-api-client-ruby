@@ -3204,7 +3204,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_cloud_accounts_v2 ...'
       end
-      pattern = Regexp.new("^([oO][cC][iI]|[aA][wW][sS]_[cC][uU][rR]2)?(?![\s\S])")
+      pattern = Regexp.new('^([oO][cC][iI]|[aA][wW][sS]_[cC][uU][rR]2)?(?![\\s\\S])')
       if @api_client.config.client_side_validation && !opts[:'filter_cloud'].nil? && opts[:'filter_cloud'] !~ pattern
         fail ArgumentError, "invalid value for 'opts[:\"filter_cloud\"]' when calling CloudCostManagementAPI.list_cost_cloud_accounts_v2, must conform to the pattern #{pattern}."
       end

@@ -75,7 +75,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @interval.nil?
-      pattern = Regexp.new(/^[1-9][0-9]*s$/)
+      pattern = Regexp.new('^[1-9][0-9]*s$')
       return false if @interval !~ pattern
       return false if @max_retries.nil?
       return false if @max_retries > 2147483647
@@ -90,7 +90,7 @@ module DatadogAPIClient::V2
       if interval.nil?
         fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
       end
-      pattern = Regexp.new(/^[1-9][0-9]*s$/)
+      pattern = Regexp.new('^[1-9][0-9]*s$')
       if interval !~ pattern
         fail ArgumentError, "invalid value for \"interval\", must conform to the pattern #{pattern}."
       end
