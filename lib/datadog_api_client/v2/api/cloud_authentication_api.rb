@@ -23,6 +23,79 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create an AWS cloud authentication intake mapping.
+    #
+    # @see #create_aws_cloud_auth_intake_mapping_with_http_info
+    def create_aws_cloud_auth_intake_mapping(body, opts = {})
+      data, _status_code, _headers = create_aws_cloud_auth_intake_mapping_with_http_info(body, opts)
+      data
+    end
+
+    # Create an AWS cloud authentication intake mapping.
+    #
+    # Create an AWS cloud authentication intake mapping to authorize an AWS ARN pattern for Agent authentication. The AWS account must already be integrated with Datadog, and managed API key rotation must be enabled for the organization. Patterns that conflict with existing intake or persona mappings are rejected.
+    #
+    # @param body [AWSCloudAuthIntakeMappingCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCloudAuthIntakeMappingResponse, Integer, Hash)>] AWSCloudAuthIntakeMappingResponse data, response status code and response headers
+    def create_aws_cloud_auth_intake_mapping_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_aws_cloud_auth_intake_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_aws_cloud_auth_intake_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_aws_cloud_auth_intake_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.create_aws_cloud_auth_intake_mapping ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_aws_cloud_auth_intake_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/aws/intake_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCloudAuthIntakeMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_aws_cloud_auth_intake_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#create_aws_cloud_auth_intake_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an AWS cloud authentication persona mapping.
     #
     # @see #create_aws_cloud_auth_persona_mapping_with_http_info
@@ -242,6 +315,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an AWS cloud authentication intake mapping.
+    #
+    # @see #delete_aws_cloud_auth_intake_mapping_with_http_info
+    def delete_aws_cloud_auth_intake_mapping(intake_mapping_id, opts = {})
+      delete_aws_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts)
+      nil
+    end
+
+    # Delete an AWS cloud authentication intake mapping.
+    #
+    # Delete an AWS cloud authentication intake mapping by ID.
+    #
+    # @param intake_mapping_id [String] The ID of the intake mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_aws_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_aws_cloud_auth_intake_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_aws_cloud_auth_intake_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_aws_cloud_auth_intake_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.delete_aws_cloud_auth_intake_mapping ...'
+      end
+      # verify the required parameter 'intake_mapping_id' is set
+      if @api_client.config.client_side_validation && intake_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'intake_mapping_id' when calling CloudAuthenticationAPI.delete_aws_cloud_auth_intake_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/aws/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_aws_cloud_auth_intake_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_aws_cloud_auth_intake_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an AWS cloud authentication persona mapping.
     #
     # @see #delete_aws_cloud_auth_persona_mapping_with_http_info
@@ -455,6 +599,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an AWS cloud authentication intake mapping.
+    #
+    # @see #get_aws_cloud_auth_intake_mapping_with_http_info
+    def get_aws_cloud_auth_intake_mapping(intake_mapping_id, opts = {})
+      data, _status_code, _headers = get_aws_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts)
+      data
+    end
+
+    # Get an AWS cloud authentication intake mapping.
+    #
+    # Get an AWS cloud authentication intake mapping by ID.
+    #
+    # @param intake_mapping_id [String] The ID of the intake mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCloudAuthIntakeMappingResponse, Integer, Hash)>] AWSCloudAuthIntakeMappingResponse data, response status code and response headers
+    def get_aws_cloud_auth_intake_mapping_with_http_info(intake_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_cloud_auth_intake_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_cloud_auth_intake_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aws_cloud_auth_intake_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.get_aws_cloud_auth_intake_mapping ...'
+      end
+      # verify the required parameter 'intake_mapping_id' is set
+      if @api_client.config.client_side_validation && intake_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'intake_mapping_id' when calling CloudAuthenticationAPI.get_aws_cloud_auth_intake_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/aws/intake_mapping/{intake_mapping_id}'.sub('{intake_mapping_id}', CGI.escape(intake_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCloudAuthIntakeMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_aws_cloud_auth_intake_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#get_aws_cloud_auth_intake_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an AWS cloud authentication persona mapping.
     #
     # @see #get_aws_cloud_auth_persona_mapping_with_http_info
@@ -664,6 +879,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAuthenticationAPI#get_git_hub_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List AWS cloud authentication intake mappings.
+    #
+    # @see #list_aws_cloud_auth_intake_mappings_with_http_info
+    def list_aws_cloud_auth_intake_mappings(opts = {})
+      data, _status_code, _headers = list_aws_cloud_auth_intake_mappings_with_http_info(opts)
+      data
+    end
+
+    # List AWS cloud authentication intake mappings.
+    #
+    # List AWS cloud authentication intake mappings configured for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCloudAuthIntakeMappingsResponse, Integer, Hash)>] AWSCloudAuthIntakeMappingsResponse data, response status code and response headers
+    def list_aws_cloud_auth_intake_mappings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_aws_cloud_auth_intake_mappings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_aws_cloud_auth_intake_mappings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_aws_cloud_auth_intake_mappings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_aws_cloud_auth_intake_mappings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/aws/intake_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCloudAuthIntakeMappingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_aws_cloud_auth_intake_mappings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#list_aws_cloud_auth_intake_mappings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
