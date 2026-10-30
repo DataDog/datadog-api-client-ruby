@@ -6,9 +6,14 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::FeatureFlagsAPI.new
 
-body = DatadogAPIClient::V2::CreateVariant.new({
-  key: "variant-abc123",
-  name: "Variant ABC123",
-  value: "true",
+body = DatadogAPIClient::V2::CreateVariantRequest.new({
+  data: DatadogAPIClient::V2::CreateVariantData.new({
+    attributes: DatadogAPIClient::V2::CreateVariant.new({
+      key: "variant-abc123",
+      name: "Variant ABC123",
+      value: "true",
+    }),
+    type: DatadogAPIClient::V2::VariantDataType::VARIANTS,
+  }),
 })
 p api_instance.create_variant_for_feature_flag("550e8400-e29b-41d4-a716-446655440000", body)
