@@ -27,8 +27,8 @@ module DatadogAPIClient::V2
     # The identifier of the user the detection is assigned to, if any.
     attr_accessor :assigned_to
 
-    # How the detection's current assignment was determined. Possible values are `auto_resolved`, `manual`, `reassigned`, and `cleared`.
-    attr_reader :assignment_source
+    # How the detection's current assignment was determined. Possible values are `auto_resolved`, `manual`, `reassigned`, and `cleared`. `null` when not set.
+    attr_accessor :assignment_source
 
     # DEPRECATED: mirrors `detection_type` for backward compatibility; use `detection_type`
     # instead.
@@ -41,7 +41,7 @@ module DatadogAPIClient::V2
     attr_reader :detection_type
 
     # The human-readable name of the detected resource.
-    attr_reader :display_name
+    attr_accessor :display_name
 
     # The date and time when the detection was marked as an exception, if applicable.
     attr_accessor :exception_at
@@ -59,13 +59,13 @@ module DatadogAPIClient::V2
     attr_accessor :mitigated_at
 
     # The priority of the detection, if set.
-    attr_reader :priority
+    attr_accessor :priority
 
     # The identifier of the resource the detection applies to.
     attr_reader :resource_id
 
     # The type of resource the detection applies to, for example `api_key` or `dashboard`.
-    attr_reader :resource_type
+    attr_accessor :resource_type
 
     # The current state of the detection. Possible values are `active`, `exception`, `mitigated`, `inactive`, `obsolete`, `resolved_externally`, and `mitigation_in_progress`.
     attr_reader :state
@@ -116,6 +116,23 @@ module DatadogAPIClient::V2
         :'resource_type' => :'String',
         :'state' => :'GovernanceControlDetectionState'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'assigned_team',
+        :'assigned_to',
+        :'assignment_source',
+        :'display_name',
+        :'exception_at',
+        :'exception_by',
+        :'mitigate_after',
+        :'mitigated_at',
+        :'priority',
+        :'resource_type',
+      ])
     end
 
     # Initializes the object
@@ -205,26 +222,12 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @assignment_source.nil?
       return false if @control_id.nil?
       return false if @created_at.nil?
       return false if @detection_type.nil?
-      return false if @display_name.nil?
-      return false if @priority.nil?
       return false if @resource_id.nil?
-      return false if @resource_type.nil?
       return false if @state.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param assignment_source [Object] Object to be assigned
-    # @!visibility private
-    def assignment_source=(assignment_source)
-      if assignment_source.nil?
-        fail ArgumentError, 'invalid value for "assignment_source", assignment_source cannot be nil.'
-      end
-      @assignment_source = assignment_source
     end
 
     # Custom attribute writer method with validation
@@ -258,26 +261,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param display_name [Object] Object to be assigned
-    # @!visibility private
-    def display_name=(display_name)
-      if display_name.nil?
-        fail ArgumentError, 'invalid value for "display_name", display_name cannot be nil.'
-      end
-      @display_name = display_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param priority [Object] Object to be assigned
-    # @!visibility private
-    def priority=(priority)
-      if priority.nil?
-        fail ArgumentError, 'invalid value for "priority", priority cannot be nil.'
-      end
-      @priority = priority
-    end
-
-    # Custom attribute writer method with validation
     # @param resource_id [Object] Object to be assigned
     # @!visibility private
     def resource_id=(resource_id)
@@ -285,16 +268,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "resource_id", resource_id cannot be nil.'
       end
       @resource_id = resource_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param resource_type [Object] Object to be assigned
-    # @!visibility private
-    def resource_type=(resource_type)
-      if resource_type.nil?
-        fail ArgumentError, 'invalid value for "resource_type", resource_type cannot be nil.'
-      end
-      @resource_type = resource_type
     end
 
     # Custom attribute writer method with validation
