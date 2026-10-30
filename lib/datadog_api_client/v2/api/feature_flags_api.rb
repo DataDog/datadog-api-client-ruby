@@ -319,9 +319,9 @@ module DatadogAPIClient::V2
     # the new variant in subsequent allocation syncs.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
-    # @param body [CreateVariant] 
+    # @param body [CreateVariantRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(Variant, Integer, Hash)>] Variant data, response status code and response headers
+    # @return [Array<(VariantResponse, Integer, Hash)>] VariantResponse data, response status code and response headers
     def create_variant_for_feature_flag_with_http_info(feature_flag_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -355,7 +355,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Variant'
+      return_type = opts[:debug_return_type] || 'VariantResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -1696,8 +1696,8 @@ module DatadogAPIClient::V2
     #
     # @see #update_variant_for_feature_flag_with_http_info
     def update_variant_for_feature_flag(feature_flag_id, variant_id, body, opts = {})
-      data, _status_code, _headers = update_variant_for_feature_flag_with_http_info(feature_flag_id, variant_id, body, opts)
-      data
+      update_variant_for_feature_flag_with_http_info(feature_flag_id, variant_id, body, opts)
+      nil
     end
 
     # Update a variant.
@@ -1710,7 +1710,7 @@ module DatadogAPIClient::V2
     # @param variant_id [UUID] The ID of the variant.
     # @param body [UpdateVariantRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(Variant, Integer, Hash)>] Variant data, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_variant_for_feature_flag_with_http_info(feature_flag_id, variant_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -1737,7 +1737,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1748,7 +1748,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Variant'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]

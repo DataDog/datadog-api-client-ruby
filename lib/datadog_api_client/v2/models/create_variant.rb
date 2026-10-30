@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to create a variant.
+  # Attributes for creating a variant.
   class CreateVariant
     include BaseGenericModel
 
