@@ -7269,6 +7269,15 @@ ScenariosModelMappings = {
             "uuid" => "UUID",
             "body" => "CreateOrUpdateWidgetRequest",
     },
+    "v2.CreateAWSCloudAuthIntakeMapping" => {
+            "body" => "AWSCloudAuthIntakeMappingCreateRequest",
+    },
+    "v2.DeleteAWSCloudAuthIntakeMapping" => {
+            "intake_mapping_id" => "String",
+    },
+    "v2.GetAWSCloudAuthIntakeMapping" => {
+            "intake_mapping_id" => "String",
+    },
     "v2.CreateAWSCloudAuthPersonaMapping" => {
             "body" => "AWSCloudAuthPersonaMappingCreateRequest",
     },
