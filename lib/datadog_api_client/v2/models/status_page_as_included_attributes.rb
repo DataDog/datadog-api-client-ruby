@@ -57,6 +57,9 @@ module DatadogAPIClient::V2
     # The url that the status page is accessible at.
     attr_accessor :page_url
 
+    # Whether the RSS feed is enabled for the status page.
+    attr_accessor :rss_feed_enabled
+
     # The Slack app icon URL for the status page.
     attr_accessor :slack_app_icon
 
@@ -90,6 +93,7 @@ module DatadogAPIClient::V2
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'page_url' => :'page_url',
+        :'rss_feed_enabled' => :'rss_feed_enabled',
         :'slack_app_icon' => :'slack_app_icon',
         :'slack_subscriptions_enabled' => :'slack_subscriptions_enabled',
         :'subscriptions_enabled' => :'subscriptions_enabled',
@@ -114,6 +118,7 @@ module DatadogAPIClient::V2
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'page_url' => :'String',
+        :'rss_feed_enabled' => :'Boolean',
         :'slack_app_icon' => :'String',
         :'slack_subscriptions_enabled' => :'Boolean',
         :'subscriptions_enabled' => :'Boolean',
@@ -190,6 +195,10 @@ module DatadogAPIClient::V2
         self.page_url = attributes[:'page_url']
       end
 
+      if attributes.key?(:'rss_feed_enabled')
+        self.rss_feed_enabled = attributes[:'rss_feed_enabled']
+      end
+
       if attributes.key?(:'slack_app_icon')
         self.slack_app_icon = attributes[:'slack_app_icon']
       end
@@ -249,6 +258,7 @@ module DatadogAPIClient::V2
           modified_at == o.modified_at &&
           name == o.name &&
           page_url == o.page_url &&
+          rss_feed_enabled == o.rss_feed_enabled &&
           slack_app_icon == o.slack_app_icon &&
           slack_subscriptions_enabled == o.slack_subscriptions_enabled &&
           subscriptions_enabled == o.subscriptions_enabled &&
@@ -261,7 +271,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, components, created_at, custom_domain, custom_domain_enabled, domain_prefix, email_header_image, enabled, favicon, modified_at, name, page_url, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_type, additional_properties].hash
+      [company_logo, components, created_at, custom_domain, custom_domain_enabled, domain_prefix, email_header_image, enabled, favicon, modified_at, name, page_url, rss_feed_enabled, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_type, additional_properties].hash
     end
   end
 end
