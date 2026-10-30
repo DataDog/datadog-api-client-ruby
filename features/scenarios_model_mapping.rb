@@ -3875,6 +3875,26 @@ ScenariosModelMappings = {
     "v2.StopExposureSchedule" => {
             "exposure_schedule_id" => "UUID",
     },
+    "v2.ListFeatureFlagHistory" => {
+            "start_date" => "Time",
+            "end_date" => "Time",
+            "teams" => "Array<String>",
+            "tags" => "Array<String>",
+            "feature_flag_id" => "UUID",
+            "environment_id" => "UUID",
+            "include_suggestion_events" => "Boolean",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+    },
+    "v2.ExportFeatureFlagHistory" => {
+            "start_date" => "Time",
+            "end_date" => "Time",
+            "teams" => "Array<String>",
+            "tags" => "Array<String>",
+            "feature_flag_id" => "UUID",
+            "environment_id" => "UUID",
+            "include_suggestion_events" => "Boolean",
+    },
     "v2.GetSavedFilter" => {
             "saved_filter_id" => "UUID",
     },
