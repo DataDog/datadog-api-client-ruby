@@ -22,6 +22,7 @@ require 'datadog_api_client/configuration'
 # Model base
 ## Load in the model_base modules which also initializes the V1 and V2 namespaces
 require 'datadog_api_client/v1/model_base'
+require 'datadog_api_client/v1_20270101/model_base'
 require 'datadog_api_client/v2/model_base'
 
 module DatadogAPIClient
