@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The unique identifier of the related compliance score resource.
     attr_reader :id
 
-    # JSON:API resource type for a tag rule compliance score.
+    # JSON:API resource type for a tag rule compliance score. Responses use the legacy `tag_policy_score` value.
     attr_reader :type
 
     attr_accessor :additional_properties
