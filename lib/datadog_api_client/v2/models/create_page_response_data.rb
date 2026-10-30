@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The information returned after successfully creating a page.
+  # The information returned after successfully creating a Page.
   class CreatePageResponseData
     include BaseGenericModel
 
-    # The unique ID of the created page.
+    # The unique ID of the created Page.
     attr_accessor :id
 
     # The type of resource used when creating an On-Call Page.

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RerouteOnCallPageRequestDataAttributes
     include BaseGenericModel
 
-    # An optional comment explaining why the page is being rerouted.
+    # An optional comment explaining why the Page is being rerouted.
     attr_accessor :comment
 
     # Information about the target to notify (such as a team or user).

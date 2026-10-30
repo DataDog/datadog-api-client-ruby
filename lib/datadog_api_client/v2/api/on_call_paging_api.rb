@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Acknowledges an On-Call Page.
     #
-    # @param page_id [UUID] The page ID.
+    # @param page_id [UUID] The Page ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def acknowledge_on_call_page_with_http_info(page_id, opts = {})
@@ -167,7 +167,7 @@ module DatadogAPIClient::V2
     #
     # Escalates an On-Call Page.
     #
-    # @param page_id [UUID] The page ID.
+    # @param page_id [UUID] The Page ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def escalate_on_call_page_with_http_info(page_id, opts = {})
@@ -232,7 +232,7 @@ module DatadogAPIClient::V2
     #
     # Reroutes an On-Call Page.
     #
-    # @param page_id [UUID] The page ID.
+    # @param page_id [UUID] The Page ID.
     # @param body [RerouteOnCallPageRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -304,7 +304,7 @@ module DatadogAPIClient::V2
     #
     # Resolves an On-Call Page.
     #
-    # @param page_id [UUID] The page ID.
+    # @param page_id [UUID] The Page ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def resolve_on_call_page_with_http_info(page_id, opts = {})
