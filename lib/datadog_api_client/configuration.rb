@@ -282,6 +282,7 @@ module DatadogAPIClient
             "v2.get_execution_policy": false,
             "v2.list_execution_policies": false,
             "v2.update_execution_policy": false,
+            "v2.evaluate_ai_guard_request": false,
             "v2.create_annotation": false,
             "v2.delete_annotation": false,
             "v2.get_page_annotations": false,
