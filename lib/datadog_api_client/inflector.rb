@@ -2734,6 +2734,7 @@ module DatadogAPIClient
           "v2.create_status_page_request_data_attributes_components_items" => "CreateStatusPageRequestDataAttributesComponentsItems",
           "v2.create_status_page_request_data_attributes_components_items_components_items" => "CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems",
           "v2.create_status_page_request_data_attributes_type" => "CreateStatusPageRequestDataAttributesType",
+          "v2.create_status_page_request_data_attributes_visualization_layout" => "CreateStatusPageRequestDataAttributesVisualizationLayout",
           "v2.create_status_page_request_data_attributes_visualization_type" => "CreateStatusPageRequestDataAttributesVisualizationType",
           "v2.create_table_request" => "CreateTableRequest",
           "v2.create_table_request_data" => "CreateTableRequestData",
