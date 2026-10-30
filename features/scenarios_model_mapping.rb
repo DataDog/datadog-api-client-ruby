@@ -3051,6 +3051,7 @@ ScenariosModelMappings = {
             "sort" => "String",
     },
     "v2.UploadCustomCostsFile" => {
+            "ai_provider" => "Boolean",
             "body" => "Array<CustomCostsFileLineItem>",
     },
     "v2.DeleteCustomCostsFile" => {

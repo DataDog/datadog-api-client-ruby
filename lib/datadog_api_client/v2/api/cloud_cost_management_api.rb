@@ -5098,6 +5098,7 @@ module DatadogAPIClient::V2
     #
     # @param body [Array<CustomCostsFileLineItem>] 
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :ai_provider Whether the uploaded file contains the costs of an AI provider.
     # @return [Array<(CustomCostsFileUploadResponse, Integer, Hash)>] CustomCostsFileUploadResponse data, response status code and response headers
     def upload_custom_costs_file_with_http_info(body, opts = {})
 
@@ -5113,6 +5114,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'ai_provider'] = opts[:'ai_provider'] if !opts[:'ai_provider'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
