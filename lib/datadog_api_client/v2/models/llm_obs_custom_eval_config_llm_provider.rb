@@ -27,10 +27,10 @@ module DatadogAPIClient::V2
     # Integration account identifier.
     attr_accessor :integration_account_id
 
-    # Name of the LLM integration provider.
+    # Name of the LLM integration provider. Use `deterministic` for a code evaluator, which runs `llm_judge_config.user_specified_json_post_processing_function` instead of calling an LLM. `insights_sponsored` is returned for evaluators that Datadog manages and cannot be set.
     attr_accessor :integration_provider
 
-    # Name of the LLM model.
+    # Name of the LLM model. Use `javascript` for a `deterministic` evaluator.
     attr_accessor :model_name
 
     # Google Vertex AI-specific options for LLM provider configuration.

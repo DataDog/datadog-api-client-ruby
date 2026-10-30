@@ -17,15 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Name of the LLM integration provider.
+  # Name of the LLM integration provider. Use `deterministic` for a code evaluator, which runs `llm_judge_config.user_specified_json_post_processing_function` instead of calling an LLM. `insights_sponsored` is returned for evaluators that Datadog manages and cannot be set.
   class LLMObsCustomEvalConfigIntegrationProvider
     include BaseEnumModel
 
     OPENAI = "openai".freeze
-    AMAZON_BEDROCK = "amazon-bedrock".freeze
+    AMAZON_BEDROCK = "amazon_bedrock".freeze
     ANTHROPIC = "anthropic".freeze
-    AZURE_OPENAI = "azure-openai".freeze
-    VERTEX_AI = "vertex-ai".freeze
-    LLM_PROXY = "llm-proxy".freeze
+    AZURE_OPENAI = "azure_openai".freeze
+    VERTEX_AI = "vertex_ai".freeze
+    LLM_PROXY = "llmproxy".freeze
+    DETERMINISTIC = "deterministic".freeze
+    TYPESAFE = "typesafe".freeze
+    DATADOG = "datadog".freeze
+    DATADOG_AI_GATEWAY = "datadog_ai_gateway".freeze
+    INSIGHTS_SPONSORED = "insights_sponsored".freeze
   end
 end

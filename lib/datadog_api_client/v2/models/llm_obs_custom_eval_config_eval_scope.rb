@@ -17,12 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Scope at which to evaluate spans.
+  # Scope at which to evaluate spans. `trace_fan_out` requires `llm_judge_config.target_query`.
   class LLMObsCustomEvalConfigEvalScope
     include BaseEnumModel
 
     SPAN = "span".freeze
     TRACE = "trace".freeze
+    TRACE_FAN_OUT = "trace_fan_out".freeze
     SESSION = "session".freeze
   end
 end

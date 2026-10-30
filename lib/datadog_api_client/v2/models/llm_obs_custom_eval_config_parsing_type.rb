@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     STRUCTURED_OUTPUT = "structured_output".freeze
     JSON = "json".freeze
     KEYWORD_SEARCH = "keyword_search".freeze
+    TYPED_QUESTIONS = "typed_questions".freeze
   end
 end
