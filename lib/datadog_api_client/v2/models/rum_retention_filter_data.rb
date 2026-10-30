@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # ID of retention filter in UUID.
     attr_accessor :id
 
+    # Metadata about a RUM retention filter.
+    attr_accessor :meta
+
     # The type of the resource. The value should always be retention_filters.
     attr_accessor :type
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'meta' => :'meta',
         :'type' => :'type'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'RumRetentionFilterAttributes',
         :'id' => :'String',
+        :'meta' => :'RumRetentionFilterMeta',
         :'type' => :'RumRetentionFilterType'
       }
     end
@@ -76,6 +81,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
 
       if attributes.key?(:'type')
@@ -111,6 +120,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          meta == o.meta &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [attributes, id, meta, type, additional_properties].hash
     end
   end
 end
