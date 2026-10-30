@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The RUM-based metric properties that will be updated.
+  # The RUM-based metric properties that will be updated. Omitted properties keep their current value.
   class RumMetricUpdateAttributes
     include BaseGenericModel
 
-    # The compute rule to compute the RUM-based metric.
+    # The compute rule properties that can be updated. Only valid for metrics whose `aggregation_type` is `distribution`.
     attr_accessor :compute
 
-    # The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+    # The RUM-based metric filter. Events matching this filter will be aggregated in this metric. The `event_type` filter is added automatically.
     attr_accessor :filter
 
-    # The rules for the group by.
+    # The rules to group the metric by. When provided, replaces all the existing group by rules.
     attr_accessor :group_by
 
     attr_accessor :additional_properties

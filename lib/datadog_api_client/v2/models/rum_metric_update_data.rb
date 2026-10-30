@@ -17,17 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The new RUM-based metric properties.
+  # The RUM-based metric properties to update. `id` is required by the API and must match the `metric_id` path parameter.
   class RumMetricUpdateData
     include BaseGenericModel
 
-    # The RUM-based metric properties that will be updated.
+    # The RUM-based metric properties that will be updated. Omitted properties keep their current value.
     attr_reader :attributes
 
     # The name of the RUM-based metric.
-    attr_accessor :id
+    # On creation, it must be 1 to 200 characters long, contain only ASCII letters, digits, underscores, and periods, start with a letter, and not start with `rum.measure` or `rum.investigate`.
+    # It cannot be changed after creation.
+    attr_reader :id
 
-    # The type of the resource. The value should always be rum_metrics.
+    # The type of the resource. The value must be `rum_metrics`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -88,6 +90,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @attributes.nil?
+      return false if !@id.nil? && @id.to_s.length > 200
       return false if @type.nil?
       true
     end
@@ -100,6 +103,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
       @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if !id.nil? && id.to_s.length > 200
+        fail ArgumentError, 'invalid value for "id", the character length must be smaller than or equal to 200.'
+      end
+      @id = id
     end
 
     # Custom attribute writer method with validation

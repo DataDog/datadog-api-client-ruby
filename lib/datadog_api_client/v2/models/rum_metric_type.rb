@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the resource. The value should always be rum_metrics.
+  # The type of the resource. The value must be `rum_metrics`.
   class RumMetricType
     include BaseEnumModel
 
