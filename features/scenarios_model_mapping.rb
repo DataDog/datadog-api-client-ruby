@@ -1340,6 +1340,9 @@ ScenariosModelMappings = {
     "v2.GetAwsOnDemandTask" => {
             "task_id" => "String",
     },
+    "v2.EvaluateAIGuardRequest" => {
+            "body" => "AIGuardEvaluateRequest",
+    },
     "v2.CreateAIImpactUserActivity" => {
             "body" => "AIImpactUserActivityRequest",
     },
