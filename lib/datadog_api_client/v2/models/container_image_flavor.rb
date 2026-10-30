@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Operating System version supported by the Container Image.
     attr_accessor :os_version
 
-    # Size of the platform-specific Container Image.
+    # Size of the platform-specific Container Image in bytes.
     attr_accessor :size
 
     attr_accessor :additional_properties

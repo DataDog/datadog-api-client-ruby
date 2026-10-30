@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Vulnerability counts associated with the Container Image.
+  # Vulnerability counts by severity, when available. An absent `vulnerability_count` does not mean
+  # the image has no vulnerabilities.
   class ContainerImageVulnerabilities
     include BaseGenericModel
 
