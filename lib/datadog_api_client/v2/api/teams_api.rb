@@ -41,7 +41,7 @@ module DatadogAPIClient::V2
     # @deprecated This API is deprecated.
     #
     # @param super_team_id [String] None
-    # @param body [AddMemberTeamRequest] 
+    # @param body [AddMemberTeamRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def add_member_team_with_http_info(super_team_id, body, opts = {})
@@ -119,11 +119,10 @@ module DatadogAPIClient::V2
     #
     # Create a new team hierarchy link between a parent team and a sub team.
     #
-    # @param body [TeamHierarchyLinkCreateRequest] 
+    # @param body [TeamHierarchyLinkCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamHierarchyLinkResponse, Integer, Hash)>] TeamHierarchyLinkResponse data, response status code and response headers
     def add_team_hierarchy_link_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.add_team_hierarchy_link ...'
       end
@@ -187,11 +186,10 @@ module DatadogAPIClient::V2
     # Create a new team.
     # User IDs passed through the `users` relationship field are added to the team.
     #
-    # @param body [TeamCreateRequest] 
+    # @param body [TeamCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamResponse, Integer, Hash)>] TeamResponse data, response status code and response headers
     def create_team_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team ...'
       end
@@ -254,11 +252,10 @@ module DatadogAPIClient::V2
     #
     # Create multiple team connections.
     #
-    # @param body [TeamConnectionCreateRequest] 
+    # @param body [TeamConnectionCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamConnectionsResponse, Integer, Hash)>] TeamConnectionsResponse data, response status code and response headers
     def create_team_connections_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_connections ...'
       end
@@ -322,11 +319,10 @@ module DatadogAPIClient::V2
     # Add a new link to a team.
     #
     # @param team_id [String] None
-    # @param body [TeamLinkCreateRequest] 
+    # @param body [TeamLinkCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamLinkResponse, Integer, Hash)>] TeamLinkResponse data, response status code and response headers
     def create_team_link_with_http_info(team_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_link ...'
       end
@@ -396,11 +392,10 @@ module DatadogAPIClient::V2
     # **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
     #
     # @param team_id [String] None
-    # @param body [UserTeamRequest] 
+    # @param body [UserTeamRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserTeamResponse, Integer, Hash)>] UserTeamResponse data, response status code and response headers
     def create_team_membership_with_http_info(team_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_membership ...'
       end
@@ -465,11 +460,10 @@ module DatadogAPIClient::V2
 
     # Create team notification rule.
     # @param team_id [String] None
-    # @param body [TeamNotificationRuleRequest] 
+    # @param body [TeamNotificationRuleRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamNotificationRuleResponse, Integer, Hash)>] TeamNotificationRuleResponse data, response status code and response headers
     def create_team_notification_rule_with_http_info(team_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_notification_rule ...'
       end
@@ -540,7 +534,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_with_http_info(team_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team ...'
       end
@@ -601,11 +594,10 @@ module DatadogAPIClient::V2
     #
     # Delete multiple team connections.
     #
-    # @param body [TeamConnectionDeleteRequest] 
+    # @param body [TeamConnectionDeleteRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_connections_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_connections ...'
       end
@@ -673,7 +665,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_link_with_http_info(team_id, link_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_link ...'
       end
@@ -745,7 +736,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_membership_with_http_info(team_id, user_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_membership ...'
       end
@@ -812,7 +802,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_notification_rule_with_http_info(team_id, rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_notification_rule ...'
       end
@@ -881,7 +870,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamResponse, Integer, Hash)>] TeamResponse data, response status code and response headers
     def get_team_with_http_info(team_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team ...'
       end
@@ -946,7 +934,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamHierarchyLinkResponse, Integer, Hash)>] TeamHierarchyLinkResponse data, response status code and response headers
     def get_team_hierarchy_link_with_http_info(link_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_hierarchy_link ...'
       end
@@ -1012,7 +999,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamLinkResponse, Integer, Hash)>] TeamLinkResponse data, response status code and response headers
     def get_team_link_with_http_info(team_id, link_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_link ...'
       end
@@ -1081,7 +1067,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamLinksResponse, Integer, Hash)>] TeamLinksResponse data, response status code and response headers
     def get_team_links_with_http_info(team_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_links ...'
       end
@@ -1150,7 +1135,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_keyword Search query, can be user email or name
     # @return [Array<(UserTeamsResponse, Integer, Hash)>] UserTeamsResponse data, response status code and response headers
     def get_team_memberships_with_http_info(team_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_memberships ...'
       end
@@ -1215,18 +1199,18 @@ module DatadogAPIClient::V2
     #
     # @yield [UserTeam] Paginated items
     def get_team_memberships_with_pagination(team_id, opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
-        while true do
-            response = get_team_memberships(team_id, opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+      while true do
+        response = get_team_memberships(team_id, opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      end
     end
 
     # Get team notification rule.
@@ -1243,7 +1227,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamNotificationRuleResponse, Integer, Hash)>] TeamNotificationRuleResponse data, response status code and response headers
     def get_team_notification_rule_with_http_info(team_id, rule_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_notification_rule ...'
       end
@@ -1309,7 +1292,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamNotificationRulesResponse, Integer, Hash)>] TeamNotificationRulesResponse data, response status code and response headers
     def get_team_notification_rules_with_http_info(team_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_notification_rules ...'
       end
@@ -1374,7 +1356,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamPermissionSettingsResponse, Integer, Hash)>] TeamPermissionSettingsResponse data, response status code and response headers
     def get_team_permission_settings_with_http_info(team_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_permission_settings ...'
       end
@@ -1440,7 +1421,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamSyncResponse, Integer, Hash)>] TeamSyncResponse data, response status code and response headers
     def get_team_sync_with_http_info(filter_source, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_sync ...'
       end
@@ -1511,7 +1491,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserTeamsResponse, Integer, Hash)>] UserTeamsResponse data, response status code and response headers
     def get_user_memberships_with_http_info(user_uuid, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_user_memberships ...'
       end
@@ -1651,18 +1630,18 @@ module DatadogAPIClient::V2
     #
     # @yield [Team] Paginated items
     def list_member_teams_with_pagination(super_team_id, opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
-        while true do
-            response = list_member_teams(super_team_id, opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+      while true do
+        response = list_member_teams(super_team_id, opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      end
     end
 
     # List team connections.
@@ -1686,7 +1665,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_connection_ids Filter team connections by connection IDs.
     # @return [Array<(TeamConnectionsResponse, Integer, Hash)>] TeamConnectionsResponse data, response status code and response headers
     def list_team_connections_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.list_team_connections ...'
       end
@@ -1745,18 +1723,18 @@ module DatadogAPIClient::V2
     #
     # @yield [TeamConnection] Paginated items
     def list_team_connections_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
-        while true do
-            response = list_team_connections(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+      while true do
+        response = list_team_connections(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      end
     end
 
     # Get team hierarchy links.
@@ -1778,7 +1756,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_sub_team Filter by sub team ID
     # @return [Array<(TeamHierarchyLinksResponse, Integer, Hash)>] TeamHierarchyLinksResponse data, response status code and response headers
     def list_team_hierarchy_links_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.list_team_hierarchy_links ...'
       end
@@ -1835,18 +1812,18 @@ module DatadogAPIClient::V2
     #
     # @yield [TeamHierarchyLink] Paginated items
     def list_team_hierarchy_links_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
-        while true do
-            response = list_team_hierarchy_links(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+      while true do
+        response = list_team_hierarchy_links(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      end
     end
 
     # Get team hierarchy members.
@@ -1989,7 +1966,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<TeamsField>] :fields_team List of fields that need to be fetched.
     # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
     def list_teams_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.list_teams ...'
       end
@@ -2037,7 +2013,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2054,18 +2030,18 @@ module DatadogAPIClient::V2
     #
     # @yield [Team] Paginated items
     def list_teams_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
-        while true do
-            response = list_teams(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+      while true do
+        response = list_teams(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+      end
     end
 
     # Remove a member team.
@@ -2165,7 +2141,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def remove_team_hierarchy_link_with_http_info(link_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.remove_team_hierarchy_link ...'
       end
@@ -2245,11 +2220,10 @@ module DatadogAPIClient::V2
     # group hierarchy is preserved. When `sync_membership` is enabled, group members are matched to Datadog
     # users by email address.
     #
-    # @param body [TeamSyncRequest] 
+    # @param body [TeamSyncRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def sync_teams_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.sync_teams ...'
       end
@@ -2314,11 +2288,10 @@ module DatadogAPIClient::V2
     # If the `team_links` relationship is present, the associated links are updated to be in the order they appear in the array, and any existing team links not present are removed.
     #
     # @param team_id [String] None
-    # @param body [TeamUpdateRequest] 
+    # @param body [TeamUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamResponse, Integer, Hash)>] TeamResponse data, response status code and response headers
     def update_team_with_http_info(team_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.update_team ...'
       end
@@ -2387,11 +2360,10 @@ module DatadogAPIClient::V2
     #
     # @param team_id [String] None
     # @param link_id [String] None
-    # @param body [TeamLinkCreateRequest] 
+    # @param body [TeamLinkCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamLinkResponse, Integer, Hash)>] TeamLinkResponse data, response status code and response headers
     def update_team_link_with_http_info(team_id, link_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.update_team_link ...'
       end
@@ -2466,11 +2438,10 @@ module DatadogAPIClient::V2
     #
     # @param team_id [String] None
     # @param user_id [String] None
-    # @param body [UserTeamUpdateRequest] 
+    # @param body [UserTeamUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserTeamResponse, Integer, Hash)>] UserTeamResponse data, response status code and response headers
     def update_team_membership_with_http_info(team_id, user_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.update_team_membership ...'
       end
@@ -2540,11 +2511,10 @@ module DatadogAPIClient::V2
     # Update team notification rule.
     # @param team_id [String] None
     # @param rule_id [String] None
-    # @param body [TeamNotificationRuleRequest] 
+    # @param body [TeamNotificationRuleRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamNotificationRuleResponse, Integer, Hash)>] TeamNotificationRuleResponse data, response status code and response headers
     def update_team_notification_rule_with_http_info(team_id, rule_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.update_team_notification_rule ...'
       end
@@ -2617,11 +2587,10 @@ module DatadogAPIClient::V2
     #
     # @param team_id [String] None
     # @param action [String] None
-    # @param body [TeamPermissionSettingUpdateRequest] 
+    # @param body [TeamPermissionSettingUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamPermissionSettingResponse, Integer, Hash)>] TeamPermissionSettingResponse data, response status code and response headers
     def update_team_permission_setting_with_http_info(team_id, action, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.update_team_permission_setting ...'
       end

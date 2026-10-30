@@ -35,11 +35,10 @@ module DatadogAPIClient::V2
     #
     # The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
     #
-    # @param body [RUMAggregateRequest] 
+    # @param body [RUMAggregateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMAnalyticsAggregateResponse, Integer, Hash)>] RUMAnalyticsAggregateResponse data, response status code and response headers
     def aggregate_rum_events_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.aggregate_rum_events ...'
       end
@@ -102,11 +101,10 @@ module DatadogAPIClient::V2
     #
     # Create a new RUM application in your organization.
     #
-    # @param body [RUMApplicationCreateRequest] 
+    # @param body [RUMApplicationCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMApplicationResponse, Integer, Hash)>] RUMApplicationResponse data, response status code and response headers
     def create_rum_application_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.create_rum_application ...'
       end
@@ -173,7 +171,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_rum_application_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.delete_rum_application ...'
       end
@@ -341,7 +338,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
@@ -366,7 +363,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMApplicationResponse, Integer, Hash)>] RUMApplicationResponse data, response status code and response headers
     def get_rum_application_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.get_rum_application ...'
       end
@@ -430,7 +426,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMApplicationsResponse, Integer, Hash)>] RUMApplicationsResponse data, response status code and response headers
     def get_rum_applications_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.get_rum_applications ...'
       end
@@ -488,7 +483,7 @@ module DatadogAPIClient::V2
     # Returns the repository URL and commit SHA associated with a debug ID or a given service and version.
     # Provide either `debug_id`, or both `service` and `version`. When `debug_id` is set, it takes precedence.
     #
-    # @param body [ServiceRepositoryInfoRequest] 
+    # @param body [ServiceRepositoryInfoRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceRepositoryInfoResponse, Integer, Hash)>] ServiceRepositoryInfoResponse data, response status code and response headers
     def get_service_repository_info_with_http_info(body, opts = {})
@@ -681,7 +676,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(RUMEventsResponse, Integer, Hash)>] RUMEventsResponse data, response status code and response headers
     def list_rum_events_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.list_rum_events ...'
       end
@@ -747,17 +741,17 @@ module DatadogAPIClient::V2
     #
     # @yield [RUMEvent] Paginated items
     def list_rum_events_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
-        while true do
-            response = list_rum_events(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+      @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+      while true do
+        response = list_rum_events(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      end
     end
 
     # List source maps.
@@ -965,7 +959,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1093,7 +1087,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1119,11 +1113,10 @@ module DatadogAPIClient::V2
     #
     # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
     #
-    # @param body [RUMSearchEventsRequest] 
+    # @param body [RUMSearchEventsRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMEventsResponse, Integer, Hash)>] RUMEventsResponse data, response status code and response headers
     def search_rum_events_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.search_rum_events ...'
       end
@@ -1182,17 +1175,17 @@ module DatadogAPIClient::V2
     #
     # @yield [RUMEvent] Paginated items
     def search_rum_events_with_pagination(body, opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(body, "page.limit", 10)
-        @api_client.set_attribute_from_path(api_version, body, "page.limit", RUMQueryPageOptions, page_size)
-        while true do
-            response = search_rum_events(body, opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, body, "page.cursor", RUMQueryPageOptions, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(body, "page.limit", 10)
+      @api_client.set_attribute_from_path(api_version, body, "page.limit", RUMQueryPageOptions, page_size)
+      while true do
+        response = search_rum_events(body, opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, body, "page.cursor", RUMQueryPageOptions, @api_client.get_attribute_from_path(response, "meta.page.after"))
+      end
     end
 
     # Update a RUM application.
@@ -1208,11 +1201,10 @@ module DatadogAPIClient::V2
     # Update the RUM application with given ID in your organization.
     #
     # @param id [String] RUM application ID.
-    # @param body [RUMApplicationUpdateRequest] 
+    # @param body [RUMApplicationUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMApplicationResponse, Integer, Hash)>] RUMApplicationResponse data, response status code and response headers
     def update_rum_application_with_http_info(id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.update_rum_application ...'
       end

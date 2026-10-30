@@ -35,11 +35,10 @@ module DatadogAPIClient::V2
     #
     # Create an API key.
     #
-    # @param body [APIKeyCreateRequest] 
+    # @param body [APIKeyCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def create_api_key_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_api_key ...'
       end
@@ -102,11 +101,10 @@ module DatadogAPIClient::V2
     #
     # Create an application key for current user
     #
-    # @param body [ApplicationKeyCreateRequest] 
+    # @param body [ApplicationKeyCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_current_user_application_key_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_current_user_application_key ...'
       end
@@ -169,11 +167,10 @@ module DatadogAPIClient::V2
     #
     # Create a personal access token for the current user.
     #
-    # @param body [PersonalAccessTokenCreateRequest] 
+    # @param body [PersonalAccessTokenCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(PersonalAccessTokenCreateResponse, Integer, Hash)>] PersonalAccessTokenCreateResponse data, response status code and response headers
     def create_personal_access_token_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_personal_access_token ...'
       end
@@ -240,7 +237,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_api_key_with_http_info(api_key_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_api_key ...'
       end
@@ -305,7 +301,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_application_key_with_http_info(app_key_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_application_key ...'
       end
@@ -370,7 +365,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_current_user_application_key_with_http_info(app_key_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_current_user_application_key ...'
       end
@@ -436,7 +430,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(api_key_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_api_key ...'
       end
@@ -503,7 +496,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(app_key_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_application_key ...'
       end
@@ -570,7 +562,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_current_user_application_key_with_http_info(app_key_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_current_user_application_key ...'
       end
@@ -636,7 +627,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<PersonalAccessTokensIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response.
     # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
     def get_personal_access_token_with_http_info(token_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_personal_access_token ...'
       end
@@ -712,7 +702,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_category Filter API keys by category.
     # @return [Array<(APIKeysResponse, Integer, Hash)>] APIKeysResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_api_keys ...'
       end
@@ -795,7 +784,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_application_keys ...'
       end
@@ -874,7 +862,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_current_user_application_keys_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_current_user_application_keys ...'
       end
@@ -952,7 +939,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<PersonalAccessTokensIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response.
     # @return [Array<(ListPersonalAccessTokensResponse, Integer, Hash)>] ListPersonalAccessTokensResponse data, response status code and response headers
     def list_personal_access_tokens_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_personal_access_tokens ...'
       end
@@ -1000,7 +986,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1025,7 +1011,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def revoke_personal_access_token_with_http_info(token_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.revoke_personal_access_token ...'
       end
@@ -1087,11 +1072,10 @@ module DatadogAPIClient::V2
     # Update an API key.
     #
     # @param api_key_id [String] The ID of the API key.
-    # @param body [APIKeyUpdateRequest] 
+    # @param body [APIKeyUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def update_api_key_with_http_info(api_key_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_api_key ...'
       end
@@ -1159,11 +1143,10 @@ module DatadogAPIClient::V2
     # Edit an application key
     #
     # @param app_key_id [String] The ID of the application key.
-    # @param body [ApplicationKeyUpdateRequest] 
+    # @param body [ApplicationKeyUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_application_key_with_http_info(app_key_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_application_key ...'
       end
@@ -1232,11 +1215,10 @@ module DatadogAPIClient::V2
     # The `key` field is not returned for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param app_key_id [String] The ID of the application key.
-    # @param body [ApplicationKeyUpdateRequest] 
+    # @param body [ApplicationKeyUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_current_user_application_key_with_http_info(app_key_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_current_user_application_key ...'
       end
@@ -1304,11 +1286,10 @@ module DatadogAPIClient::V2
     # Update a specific personal access token.
     #
     # @param token_id [String] The ID of the access token.
-    # @param body [PersonalAccessTokenUpdateRequest] 
+    # @param body [PersonalAccessTokenUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdatedPersonalAccessTokenResponse, Integer, Hash)>] UpdatedPersonalAccessTokenResponse data, response status code and response headers
     def update_personal_access_token_with_http_info(token_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_personal_access_token ...'
       end
@@ -1447,7 +1428,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ValidateAPIKeyResponse, Integer, Hash)>] ValidateAPIKeyResponse data, response status code and response headers
     def validate_api_key_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.validate_api_key ...'
       end
