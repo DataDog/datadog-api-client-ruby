@@ -444,6 +444,10 @@ module DatadogAPIClient::V1
     #
     # **Note**: All `estimated_*` usage types will be deprecated on February 1, 2027.
     #
+    # Each request returns usage for the month specified by `start_month`. If `end_month` is omitted
+    # or differs from `start_month`, it is treated as equal to `start_month`.
+    # To retrieve multiple months, make a separate request for each month.
+    #
     # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
     # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
     # Pseudo code example:
@@ -458,10 +462,10 @@ module DatadogAPIClient::V1
     # END
     # ```
     #
-    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for the month to retrieve. Maximum of 15 months ago. Only one month is supported per request.
     # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types. Usage types are in the format `<usage_type>_usage` and `<usage_type>_percentage`. Example: `infra_host_usage,infra_host_percentage` To obtain the complete list of usage attribution types that can be used to replace `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
     # @param opts [Hash] the optional parameters
-    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]`. If omitted or different from `start_month`, it is treated as equal to `start_month`. Only usage for `start_month` is returned; this parameter does not extend the requested range.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
     # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by. Sort fields are in the format `<usage_type>_usage`. Example: `infra_host_usage` To obtain the complete list of usage attribution types that can be used to replace `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
     # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
