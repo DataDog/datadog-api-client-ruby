@@ -24,8 +24,8 @@ module DatadogAPIClient::V2
     # Field to sort by (for example, `@potential_daily_savings`).
     attr_accessor :expression
 
-    # Sort direction, either `ASC` or `DESC`.
-    attr_accessor :order
+    # Sort direction, either `ASC` or `DESC` (case-insensitive).
+    attr_reader :order
 
     attr_accessor :additional_properties
 
@@ -72,6 +72,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'order')
         self.order = attributes[:'order']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @order.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param order [Object] Object to be assigned
+    # @!visibility private
+    def order=(order)
+      if order.nil?
+        fail ArgumentError, 'invalid value for "order", order cannot be nil.'
+      end
+      @order = order
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
