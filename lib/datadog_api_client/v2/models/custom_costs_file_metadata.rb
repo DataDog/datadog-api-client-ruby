@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CustomCostsFileMetadata
     include BaseGenericModel
 
+    # Whether the Custom Costs file contains the costs of an AI provider.
+    attr_accessor :ai_provider
+
     # Total cost in the cost file.
     attr_accessor :billed_cost
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'ai_provider' => :'ai_provider',
         :'billed_cost' => :'billed_cost',
         :'billing_currency' => :'billing_currency',
         :'charge_period' => :'charge_period',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'ai_provider' => :'Boolean',
         :'billed_cost' => :'Float',
         :'billing_currency' => :'String',
         :'charge_period' => :'CustomCostsFileUsageChargePeriod',
@@ -94,6 +99,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'ai_provider')
+        self.ai_provider = attributes[:'ai_provider']
+      end
 
       if attributes.key?(:'billed_cost')
         self.billed_cost = attributes[:'billed_cost']
@@ -156,6 +165,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_provider == o.ai_provider &&
           billed_cost == o.billed_cost &&
           billing_currency == o.billing_currency &&
           charge_period == o.charge_period &&
@@ -171,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billed_cost, billing_currency, charge_period, name, provider_names, status, uploaded_at, uploaded_by, additional_properties].hash
+      [ai_provider, billed_cost, billing_currency, charge_period, name, provider_names, status, uploaded_at, uploaded_by, additional_properties].hash
     end
   end
 end
