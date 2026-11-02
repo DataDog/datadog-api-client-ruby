@@ -36,19 +36,19 @@ module DatadogAPIClient::V2
     # Whether the library prompt template was modified.
     attr_accessor :modified_library_prompt_template
 
-    # JSON schema describing the expected output format of the LLM judge.
+    # JSON schema describing the expected output format of the LLM judge. Omit for a `deterministic` evaluator.
     attr_accessor :output_schema
 
     # Output parsing type for a custom LLM judge evaluator.
     attr_accessor :parsing_type
 
-    # List of messages forming the LLM judge prompt template.
+    # List of messages forming the LLM judge prompt template. Omit for a `deterministic` evaluator.
     attr_accessor :prompt_template
 
     # Query used to extract the target value to evaluate.
     attr_accessor :target_query
 
-    # User-provided function applied to post-process the JSON output of the LLM judge.
+    # User-provided JavaScript function applied to post-process the JSON output of the LLM judge. For a `deterministic` evaluator it is the evaluator itself: it receives the evaluated span (span scope), `{spans}` (trace scope), or `{session_id, traces}` (session scope), and its return value sets the result. A boolean, number, string or object becomes a boolean, score, categorical or JSON metric; `null` skips the evaluation; and `{value, assessment, reasoning, metadata}` also sets pass or fail, reasoning, and metadata.
     attr_accessor :user_specified_json_post_processing_function
 
     attr_accessor :additional_properties

@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Whether the evaluator is active for the target application.
     attr_reader :enabled
 
-    # Scope at which to evaluate spans.
+    # Scope at which to evaluate spans. `trace_fan_out` requires `llm_judge_config.target_query`.
     attr_accessor :eval_scope
 
     # Experiment project IDs this evaluator is scoped to.
