@@ -21,7 +21,9 @@ module DatadogAPIClient::V2
   class ContainerImageGroupAttributes
     include BaseGenericModel
 
-    # Number of Container Images in the group.
+    # Number of images in the group. An image with multiple values for a grouping tag can appear
+    # in multiple groups. Images missing a grouping key are excluded. Summing group counts does
+    # not give a reliable inventory total.
     attr_accessor :count
 
     # Name of the Container Image group.

@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # Attributes for a Container Image.
     attr_accessor :attributes
 
-    # Container Image ID.
+    # Opaque Container Image ID. Often contains a registry, repository, and digest, but the format
+    # varies by collection source. Preserve the returned value rather than constructing an ID.
     attr_accessor :id
 
     # Type of Container Image.

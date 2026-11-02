@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # List of Container Images.
+  # List of Container Images or Container Image groups.
   class ContainerImagesResponse
     include BaseGenericModel
 
-    # Array of Container Image objects.
+    # Array of `container_image` objects, or `container_image_group` objects when `group_by` is specified.
     attr_accessor :data
 
     # Pagination links.
