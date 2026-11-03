@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Description of the widget.
     attr_accessor :description
 
-    # Configuration of the group label column.
+    # Configuration of the group label column. Its width is sized automatically when omitted.
     attr_accessor :label_column
 
     # Legend configuration for the heatgrid widget.
