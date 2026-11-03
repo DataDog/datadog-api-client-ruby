@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Existing fields with updated metadata to apply to the connection.
     attr_accessor :fields_to_update
 
+    # New display name for the connection.
+    attr_reader :name
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'fields_to_add' => :'fields_to_add',
         :'fields_to_delete' => :'fields_to_delete',
-        :'fields_to_update' => :'fields_to_update'
+        :'fields_to_update' => :'fields_to_update',
+        :'name' => :'name'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'fields_to_add' => :'Array<CreateConnectionRequestDataAttributesFieldsItems>',
         :'fields_to_delete' => :'Array<String>',
-        :'fields_to_update' => :'Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>'
+        :'fields_to_update' => :'Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>',
+        :'name' => :'String'
       }
     end
 
@@ -87,6 +92,28 @@ module DatadogAPIClient::V2
           self.fields_to_update = value
         end
       end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@name.nil? && @name.to_s.length > 255
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if !name.nil? && name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,6 +145,7 @@ module DatadogAPIClient::V2
           fields_to_add == o.fields_to_add &&
           fields_to_delete == o.fields_to_delete &&
           fields_to_update == o.fields_to_update &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -125,7 +153,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fields_to_add, fields_to_delete, fields_to_update, additional_properties].hash
+      [fields_to_add, fields_to_delete, fields_to_update, name, additional_properties].hash
     end
   end
 end

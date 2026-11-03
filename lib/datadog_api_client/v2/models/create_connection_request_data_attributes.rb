@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CreateConnectionRequestDataAttributes
     include BaseGenericModel
 
+    # Type-specific configuration of the connection. Only the field matching the connection type is set.
+    attr_accessor :details
+
     # List of custom attribute fields to import from the data source.
     attr_accessor :fields
 
@@ -33,6 +36,9 @@ module DatadogAPIClient::V2
     # Additional key-value metadata associated with the connection.
     attr_accessor :metadata
 
+    # Display name of the connection.
+    attr_reader :name
+
     # The type of data source connection (for example, ref_table).
     attr_reader :type
 
@@ -42,10 +48,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'details' => :'details',
         :'fields' => :'fields',
         :'join_attribute' => :'join_attribute',
         :'join_type' => :'join_type',
         :'metadata' => :'metadata',
+        :'name' => :'name',
         :'type' => :'type'
       }
     end
@@ -54,10 +62,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'details' => :'ListConnectionsResponseDataAttributesConnectionsItemsDetails',
         :'fields' => :'Array<CreateConnectionRequestDataAttributesFieldsItems>',
         :'join_attribute' => :'String',
         :'join_type' => :'String',
         :'metadata' => :'Hash<String, String>',
+        :'name' => :'String',
         :'type' => :'String'
       }
     end
@@ -80,6 +90,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'details')
+        self.details = attributes[:'details']
+      end
+
       if attributes.key?(:'fields')
         if (value = attributes[:'fields']).is_a?(Array)
           self.fields = value
@@ -98,6 +112,10 @@ module DatadogAPIClient::V2
         self.metadata = attributes[:'metadata']
       end
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -109,6 +127,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @join_attribute.nil?
       return false if @join_type.nil?
+      return false if !@name.nil? && @name.to_s.length > 255
       return false if @type.nil?
       true
     end
@@ -131,6 +150,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "join_type", join_type cannot be nil.'
       end
       @join_type = join_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if !name.nil? && name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
+      end
+      @name = name
     end
 
     # Custom attribute writer method with validation
@@ -169,10 +198,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          details == o.details &&
           fields == o.fields &&
           join_attribute == o.join_attribute &&
           join_type == o.join_type &&
           metadata == o.metadata &&
+          name == o.name &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -181,7 +212,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fields, join_attribute, join_type, metadata, type, additional_properties].hash
+      [details, fields, join_attribute, join_type, metadata, name, type, additional_properties].hash
     end
   end
 end

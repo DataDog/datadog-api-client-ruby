@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Unique identifier for the facet info request resource.
     attr_accessor :id
 
-    # Users facet info request resource type.
+    # Facet info request resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
