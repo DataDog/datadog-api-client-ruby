@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FeatureFlagEnvironmentListItem
     include BaseGenericModel
 
-    # The allocation key used for the default variant.
+    # A system-generated allocation key, in the format `allocation-default-<hash>`, that SDKs report in flag evaluation results and exposure events when a subject receives the environment's default variant because no targeting rule matched. It has no corresponding allocation ID and cannot be used with the allocation endpoints.
     attr_accessor :default_allocation_key
 
     # The ID of the default variant for this environment.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # Indicates whether feature flag evaluation events include original targeting identifiers and full evaluation context.
     attr_accessor :observe_full_evaluation_data
 
-    # The allocation key used for the override variant.
+    # A system-generated allocation key, in the format `allocation-override-<hash>`, that SDKs report in flag evaluation results and exposure events when the environment's override variant is served. It has no corresponding allocation ID and cannot be used with the allocation endpoints.
     attr_accessor :override_allocation_key
 
     # The ID of the override variant for this environment.
