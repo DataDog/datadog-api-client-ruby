@@ -43,6 +43,9 @@ module DatadogAPIClient::V2
     # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
     attr_reader :recipients
 
+    # Additional options for the monitor notification rule.
+    attr_accessor :rule_options
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -55,7 +58,8 @@ module DatadogAPIClient::V2
         :'filter' => :'filter',
         :'modified' => :'modified',
         :'name' => :'name',
-        :'recipients' => :'recipients'
+        :'recipients' => :'recipients',
+        :'rule_options' => :'rule_options'
       }
     end
 
@@ -69,7 +73,8 @@ module DatadogAPIClient::V2
         :'filter' => :'MonitorNotificationRuleFilter',
         :'modified' => :'Time',
         :'name' => :'String',
-        :'recipients' => :'Array<String>'
+        :'recipients' => :'Array<String>',
+        :'rule_options' => :'MonitorNotificationRuleOptions'
       }
     end
 
@@ -119,6 +124,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'recipients']).is_a?(Array)
           self.recipients = value
         end
+      end
+
+      if attributes.key?(:'rule_options')
+        self.rule_options = attributes[:'rule_options']
       end
     end
 
@@ -192,6 +201,7 @@ module DatadogAPIClient::V2
           modified == o.modified &&
           name == o.name &&
           recipients == o.recipients &&
+          rule_options == o.rule_options &&
           additional_properties == o.additional_properties
     end
 
@@ -199,7 +209,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bundle_config, conditional_recipients, created, filter, modified, name, recipients, additional_properties].hash
+      [bundle_config, conditional_recipients, created, filter, modified, name, recipients, rule_options, additional_properties].hash
     end
   end
 end
