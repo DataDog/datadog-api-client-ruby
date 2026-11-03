@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The absolute UTC start time for this schedule.
     attr_accessor :absolute_start_time
 
-    # The targeting rule allocation ID this progressive rollout belongs to.
+    # The unique identifier (UUID) of the targeting rule allocation this progressive rollout belongs to. This is not the allocation key that SDKs report in evaluation results and exposure events.
     attr_reader :allocation_id
 
     # The control variant ID used for experiment comparisons.

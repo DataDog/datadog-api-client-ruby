@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfiguration
     include BaseGenericModel
 
-    # Key of the feature flag allocation linked to the experiment.
+    # Key of the feature flag allocation linked to the experiment. Matches the allocation key that SDKs report in flag evaluation results and exposure events.
     attr_accessor :allocation_key
 
     # Datadog measure and filters used to select analyzed subjects.

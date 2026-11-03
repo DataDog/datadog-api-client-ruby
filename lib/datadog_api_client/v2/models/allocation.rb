@@ -36,10 +36,10 @@ module DatadogAPIClient::V2
     # Guardrail metrics associated with this targeting rule allocation.
     attr_reader :guardrail_metrics
 
-    # The unique identifier of the targeting rule allocation.
+    # The unique identifier of the targeting rule allocation. Use this ID with the allocation management endpoints, such as `/api/v2/allocations/{allocation_id}`. It is not included in SDK evaluation results or exposure events.
     attr_accessor :id
 
-    # The unique key of the targeting rule allocation.
+    # The unique key of the targeting rule allocation. SDKs report this key in flag evaluation results and exposure events to indicate which targeting rule assigned the variant. Use it to match evaluation or experiment data to this rule.
     attr_reader :key
 
     # The display name of the targeting rule.

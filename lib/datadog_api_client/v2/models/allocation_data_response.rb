@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Targeting rule (allocation) details for a feature flag environment.
     attr_reader :attributes
 
-    # The unique identifier of the targeting rule allocation.
+    # The unique identifier of the targeting rule allocation. Use this ID with the allocation management endpoints, such as `/api/v2/allocations/{allocation_id}`. It is not included in SDK evaluation results or exposure events.
     attr_reader :id
 
     # The resource type.
