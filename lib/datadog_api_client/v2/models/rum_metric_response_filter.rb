@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
+  # The RUM-based metric filter. RUM events matching this filter are aggregated in this metric. Omitted if the metric only filters on the event type.
   class RumMetricResponseFilter
     include BaseGenericModel
 
-    # The search query - following the RUM search syntax.
+    # The search query, following the [RUM search syntax](https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/). It does not include the event type filter.
     attr_accessor :query
 
     attr_accessor :additional_properties

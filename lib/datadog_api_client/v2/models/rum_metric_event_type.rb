@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of RUM events to filter on.
+  # The type of RUM events the metric is generated from. It is set at creation and cannot be changed.
   class RumMetricEventType
     include BaseEnumModel
 
