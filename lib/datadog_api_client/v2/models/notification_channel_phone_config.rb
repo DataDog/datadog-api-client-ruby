@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class NotificationChannelPhoneConfig
     include BaseGenericModel
 
+    # Notification methods currently available for this phone number. Omitted when no methods are available.
+    attr_accessor :available_notification_types
+
     # The formatted international version of Number (e.g. +33 7 1 23 45 67).
     attr_reader :formatted_number
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'available_notification_types' => :'available_notification_types',
         :'formatted_number' => :'formatted_number',
         :'number' => :'number',
         :'region' => :'region',
@@ -58,6 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'available_notification_types' => :'Array<OnCallPhoneNotificationRuleMethod>',
         :'formatted_number' => :'String',
         :'number' => :'String',
         :'region' => :'String',
@@ -92,6 +97,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'available_notification_types')
+        if (value = attributes[:'available_notification_types']).is_a?(Array)
+          self.available_notification_types = value
+        end
+      end
 
       if attributes.key?(:'formatted_number')
         self.formatted_number = attributes[:'formatted_number']
@@ -206,6 +217,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          available_notification_types == o.available_notification_types &&
           formatted_number == o.formatted_number &&
           number == o.number &&
           region == o.region &&
@@ -219,7 +231,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formatted_number, number, region, sms_subscribed_at, type, verified, additional_properties].hash
+      [available_notification_types, formatted_number, number, region, sms_subscribed_at, type, verified, additional_properties].hash
     end
   end
 end
