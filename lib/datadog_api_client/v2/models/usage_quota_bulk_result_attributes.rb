@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # The usage limit scheduled for the organization-wide quota in the usage units defined by the quota namespace. A value of `0` is valid. At the start of the effective month, this value becomes `usage_limit` and both pending fields are omitted. Omitted when no change is scheduled or this item failed to write.
     attr_accessor :pending_usage_limit
 
-    # A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A value of `"*"` identifies the default quota applied to entities without a specific quota. This field is omitted for an organization-wide quota.
+    # A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A `user_handle` value of `"*"` identifies the default quota applied to users without a specific quota. This field is omitted for an organization-wide quota.
     attr_accessor :scope
 
     # The quota limit in the usage units defined by the quota namespace. May be fractional for quotas configured before public writes required whole units. Omitted if this item failed to write.
