@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class RumMetricResponseGroupBy
     include BaseGenericModel
 
-    # The path to the value the RUM-based metric will be aggregated over.
+    # The path of the RUM event attribute the metric is grouped by.
     attr_accessor :path
 
-    # Eventual name of the tag that gets created. By default, `path` is used as the tag name.
+    # Name of the tag created on the metric. By default, `path` is used as the tag name.
     attr_accessor :tag_name
 
     attr_accessor :additional_properties
