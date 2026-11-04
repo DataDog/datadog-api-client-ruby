@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # The name of the status page.
     attr_accessor :name
 
+    # Whether the RSS feed is enabled for the status page.
+    attr_accessor :rss_feed_enabled
+
     # The Slack app icon URL for the status page.
     attr_accessor :slack_app_icon
 
@@ -65,6 +68,7 @@ module DatadogAPIClient::V2
         :'email_header_image' => :'email_header_image',
         :'favicon' => :'favicon',
         :'name' => :'name',
+        :'rss_feed_enabled' => :'rss_feed_enabled',
         :'slack_app_icon' => :'slack_app_icon',
         :'slack_subscriptions_enabled' => :'slack_subscriptions_enabled',
         :'subscriptions_enabled' => :'subscriptions_enabled',
@@ -83,6 +87,7 @@ module DatadogAPIClient::V2
         :'email_header_image' => :'String',
         :'favicon' => :'String',
         :'name' => :'String',
+        :'rss_feed_enabled' => :'Boolean',
         :'slack_app_icon' => :'String',
         :'slack_subscriptions_enabled' => :'Boolean',
         :'subscriptions_enabled' => :'Boolean',
@@ -128,6 +133,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'rss_feed_enabled')
+        self.rss_feed_enabled = attributes[:'rss_feed_enabled']
       end
 
       if attributes.key?(:'slack_app_icon')
@@ -186,6 +195,7 @@ module DatadogAPIClient::V2
           email_header_image == o.email_header_image &&
           favicon == o.favicon &&
           name == o.name &&
+          rss_feed_enabled == o.rss_feed_enabled &&
           slack_app_icon == o.slack_app_icon &&
           slack_subscriptions_enabled == o.slack_subscriptions_enabled &&
           subscriptions_enabled == o.subscriptions_enabled &&
@@ -199,7 +209,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, domain_prefix, email_header_image, favicon, name, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_layout, visualization_type, additional_properties].hash
+      [company_logo, domain_prefix, email_header_image, favicon, name, rss_feed_enabled, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_layout, visualization_type, additional_properties].hash
     end
   end
 end
