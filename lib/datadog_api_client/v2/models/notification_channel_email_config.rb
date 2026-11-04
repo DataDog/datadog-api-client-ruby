@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Indicates that the notification channel is an e-mail address
     attr_reader :type
 
+    # Whether this email address has been verified.
+    attr_accessor :verified
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'address' => :'address',
         :'formats' => :'formats',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'verified' => :'verified'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'address' => :'String',
         :'formats' => :'Array<NotificationChannelEmailFormatType>',
-        :'type' => :'NotificationChannelEmailConfigType'
+        :'type' => :'NotificationChannelEmailConfigType',
+        :'verified' => :'Boolean'
       }
     end
 
@@ -82,6 +87,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'verified')
+        self.verified = attributes[:'verified']
       end
     end
 
@@ -154,6 +163,7 @@ module DatadogAPIClient::V2
           address == o.address &&
           formats == o.formats &&
           type == o.type &&
+          verified == o.verified &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address, formats, type, additional_properties].hash
+      [address, formats, type, verified, additional_properties].hash
     end
   end
 end
