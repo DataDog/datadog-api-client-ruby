@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Users facet info request resource type.
+  # Facet info request resource type.
   class FacetInfoRequestDataType
     include BaseEnumModel
 
     USERS_FACET_INFO_REQUEST = "users_facet_info_request".freeze
+    ACCOUNTS_FACET_INFO_REQUEST = "accounts_facet_info_request".freeze
   end
 end

@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Identifier of the user who created the connection.
     attr_accessor :created_by
 
+    # Type-specific configuration of the connection. Only the field matching the connection type is set.
+    attr_accessor :details
+
     # List of custom attribute fields imported from the data source.
     attr_accessor :fields
 
@@ -38,6 +41,9 @@ module DatadogAPIClient::V2
 
     # Additional key-value metadata associated with the connection.
     attr_accessor :metadata
+
+    # Display name of the connection.
+    attr_accessor :name
 
     # The type of data source connection (for example, ref_table).
     attr_accessor :type
@@ -56,10 +62,12 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
+        :'details' => :'details',
         :'fields' => :'fields',
         :'id' => :'id',
         :'join' => :'join',
         :'metadata' => :'metadata',
+        :'name' => :'name',
         :'type' => :'type',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by'
@@ -72,10 +80,12 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'Time',
         :'created_by' => :'String',
+        :'details' => :'ListConnectionsResponseDataAttributesConnectionsItemsDetails',
         :'fields' => :'Array<CreateConnectionRequestDataAttributesFieldsItems>',
         :'id' => :'String',
         :'join' => :'ListConnectionsResponseDataAttributesConnectionsItemsJoin',
         :'metadata' => :'Hash<String, String>',
+        :'name' => :'String',
         :'type' => :'String',
         :'updated_at' => :'Time',
         :'updated_by' => :'String'
@@ -108,6 +118,10 @@ module DatadogAPIClient::V2
         self.created_by = attributes[:'created_by']
       end
 
+      if attributes.key?(:'details')
+        self.details = attributes[:'details']
+      end
+
       if attributes.key?(:'fields')
         if (value = attributes[:'fields']).is_a?(Array)
           self.fields = value
@@ -124,6 +138,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'type')
@@ -167,10 +185,12 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           created_at == o.created_at &&
           created_by == o.created_by &&
+          details == o.details &&
           fields == o.fields &&
           id == o.id &&
           join == o.join &&
           metadata == o.metadata &&
+          name == o.name &&
           type == o.type &&
           updated_at == o.updated_at &&
           updated_by == o.updated_by &&
@@ -181,7 +201,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, fields, id, join, metadata, type, updated_at, updated_by, additional_properties].hash
+      [created_at, created_by, details, fields, id, join, metadata, name, type, updated_at, updated_by, additional_properties].hash
     end
   end
 end

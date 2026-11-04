@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class FacetInfoResponseDataAttributesResultRange
     include BaseGenericModel
 
-    # The maximum observed value for the numeric facet attribute.
+    # The maximum observed value for the numeric facet attribute. Null when no records match.
     attr_accessor :max
 
-    # The minimum observed value for the numeric facet attribute.
+    # The minimum observed value for the numeric facet attribute. Null when no records match.
     attr_accessor :min
 
     attr_accessor :additional_properties
@@ -42,9 +42,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'max' => :'Object',
-        :'min' => :'Object'
+        :'max' => :'Float',
+        :'min' => :'Float'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'max',
+        :'min',
+      ])
     end
 
     # Initializes the object
