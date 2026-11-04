@@ -33,13 +33,17 @@ module DatadogAPIClient::V2
     # The expiration date of the commitment.
     attr_accessor :expiration_date
 
+    # The Azure Savings Plan type, `Compute` or `Database`, based on the product order name. Omitted when
+    # the type can't be classified.
+    attr_accessor :savings_plan_type
+
     # The start date of the commitment.
     attr_accessor :start_date
 
-    # The term length in years.
-    attr_accessor :term_length
+    # The commitment term in whole months. Omitted when the term is unknown.
+    attr_accessor :term_length_months
 
-    # The utilization percentage of the commitment.
+    # The utilization percentage of the commitment, from 0 to 100.
     attr_accessor :utilization
 
     attr_accessor :additional_properties
@@ -52,8 +56,9 @@ module DatadogAPIClient::V2
         :'commitment_id' => :'commitment_id',
         :'committed_spend_per_hour' => :'committed_spend_per_hour',
         :'expiration_date' => :'expiration_date',
+        :'savings_plan_type' => :'savings_plan_type',
         :'start_date' => :'start_date',
-        :'term_length' => :'term_length',
+        :'term_length_months' => :'term_length_months',
         :'utilization' => :'utilization'
       }
     end
@@ -66,8 +71,9 @@ module DatadogAPIClient::V2
         :'commitment_id' => :'String',
         :'committed_spend_per_hour' => :'Float',
         :'expiration_date' => :'String',
+        :'savings_plan_type' => :'String',
         :'start_date' => :'String',
-        :'term_length' => :'Float',
+        :'term_length_months' => :'Integer',
         :'utilization' => :'Float'
       }
     end
@@ -106,12 +112,16 @@ module DatadogAPIClient::V2
         self.expiration_date = attributes[:'expiration_date']
       end
 
+      if attributes.key?(:'savings_plan_type')
+        self.savings_plan_type = attributes[:'savings_plan_type']
+      end
+
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'term_length')
-        self.term_length = attributes[:'term_length']
+      if attributes.key?(:'term_length_months')
+        self.term_length_months = attributes[:'term_length_months']
       end
 
       if attributes.key?(:'utilization')
@@ -178,8 +188,9 @@ module DatadogAPIClient::V2
           commitment_id == o.commitment_id &&
           committed_spend_per_hour == o.committed_spend_per_hour &&
           expiration_date == o.expiration_date &&
+          savings_plan_type == o.savings_plan_type &&
           start_date == o.start_date &&
-          term_length == o.term_length &&
+          term_length_months == o.term_length_months &&
           utilization == o.utilization &&
           additional_properties == o.additional_properties
     end
@@ -188,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [benefit_name, commitment_id, committed_spend_per_hour, expiration_date, start_date, term_length, utilization, additional_properties].hash
+      [benefit_name, commitment_id, committed_spend_per_hour, expiration_date, savings_plan_type, start_date, term_length_months, utilization, additional_properties].hash
     end
   end
 end

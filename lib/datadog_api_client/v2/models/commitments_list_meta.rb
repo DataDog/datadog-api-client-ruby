@@ -24,13 +24,18 @@ module DatadogAPIClient::V2
     # Unit metadata for a numeric metric.
     attr_accessor :committed_spend_unit
 
+    # Whether Azure cost data lacks the unused cost of some commitments, for example when an export is
+    # scoped below the billing profile. When `true`, utilization is overstated.
+    attr_accessor :unused_cost_unavailable
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'committed_spend_unit' => :'committed_spend_unit'
+        :'committed_spend_unit' => :'committed_spend_unit',
+        :'unused_cost_unavailable' => :'unused_cost_unavailable'
       }
     end
 
@@ -38,7 +43,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'committed_spend_unit' => :'CommitmentsUnit'
+        :'committed_spend_unit' => :'CommitmentsUnit',
+        :'unused_cost_unavailable' => :'Boolean'
       }
     end
 
@@ -62,6 +68,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'committed_spend_unit')
         self.committed_spend_unit = attributes[:'committed_spend_unit']
+      end
+
+      if attributes.key?(:'unused_cost_unavailable')
+        self.unused_cost_unavailable = attributes[:'unused_cost_unavailable']
       end
     end
 
@@ -92,6 +102,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           committed_spend_unit == o.committed_spend_unit &&
+          unused_cost_unavailable == o.unused_cost_unavailable &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +110,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [committed_spend_unit, additional_properties].hash
+      [committed_spend_unit, unused_cost_unavailable, additional_properties].hash
     end
   end
 end

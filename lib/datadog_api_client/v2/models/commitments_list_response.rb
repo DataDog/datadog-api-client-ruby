@@ -21,11 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsListResponse
     include BaseGenericModel
 
-    # Array of commitment items.
-    attr_reader :commitments
-
-    # Metadata for a commitments list response.
-    attr_accessor :meta
+    # The commitments list resource.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'commitments' => :'commitments',
-        :'meta' => :'meta'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commitments' => :'Array<CommitmentsListItem>',
-        :'meta' => :'CommitmentsListMeta'
+        :'data' => :'CommitmentsListResponseData'
       }
     end
 
@@ -65,14 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'commitments')
-        if (value = attributes[:'commitments']).is_a?(Array)
-          self.commitments = value
-        end
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -80,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @commitments.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param commitments [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def commitments=(commitments)
-      if commitments.nil?
-        fail ArgumentError, 'invalid value for "commitments", commitments cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @commitments = commitments
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commitments == o.commitments &&
-          meta == o.meta &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commitments, meta, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

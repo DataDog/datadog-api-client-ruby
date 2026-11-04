@@ -30,8 +30,14 @@ module DatadogAPIClient::V2
     # The expiration date of the commitment.
     attr_accessor :expiration_date
 
+    # The EC2 instance family covered by the Savings Plan. Returned only for EC2 Instance Savings Plans.
+    attr_accessor :instance_type_family
+
     # The payment option for the Savings Plan.
     attr_reader :purchase_option
+
+    # The AWS region covered by the Savings Plan. Returned only for EC2 Instance Savings Plans.
+    attr_accessor :region
 
     # The Savings Plan type.
     attr_reader :savings_plan_type
@@ -39,10 +45,10 @@ module DatadogAPIClient::V2
     # The start date of the commitment.
     attr_accessor :start_date
 
-    # The term length in years.
-    attr_accessor :term_length
+    # The commitment term in whole months. Omitted when the term is unknown.
+    attr_accessor :term_length_months
 
-    # The utilization percentage of the commitment.
+    # The utilization percentage of the commitment, from 0 to 100.
     attr_accessor :utilization
 
     attr_accessor :additional_properties
@@ -54,10 +60,12 @@ module DatadogAPIClient::V2
         :'commitment_id' => :'commitment_id',
         :'committed_spend_per_hour' => :'committed_spend_per_hour',
         :'expiration_date' => :'expiration_date',
+        :'instance_type_family' => :'instance_type_family',
         :'purchase_option' => :'purchase_option',
+        :'region' => :'region',
         :'savings_plan_type' => :'savings_plan_type',
         :'start_date' => :'start_date',
-        :'term_length' => :'term_length',
+        :'term_length_months' => :'term_length_months',
         :'utilization' => :'utilization'
       }
     end
@@ -69,10 +77,12 @@ module DatadogAPIClient::V2
         :'commitment_id' => :'String',
         :'committed_spend_per_hour' => :'Float',
         :'expiration_date' => :'String',
+        :'instance_type_family' => :'String',
         :'purchase_option' => :'String',
+        :'region' => :'String',
         :'savings_plan_type' => :'String',
         :'start_date' => :'String',
-        :'term_length' => :'Float',
+        :'term_length_months' => :'Integer',
         :'utilization' => :'Float'
       }
     end
@@ -107,8 +117,16 @@ module DatadogAPIClient::V2
         self.expiration_date = attributes[:'expiration_date']
       end
 
+      if attributes.key?(:'instance_type_family')
+        self.instance_type_family = attributes[:'instance_type_family']
+      end
+
       if attributes.key?(:'purchase_option')
         self.purchase_option = attributes[:'purchase_option']
+      end
+
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
 
       if attributes.key?(:'savings_plan_type')
@@ -119,8 +137,8 @@ module DatadogAPIClient::V2
         self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'term_length')
-        self.term_length = attributes[:'term_length']
+      if attributes.key?(:'term_length_months')
+        self.term_length_months = attributes[:'term_length_months']
       end
 
       if attributes.key?(:'utilization')
@@ -197,10 +215,12 @@ module DatadogAPIClient::V2
           commitment_id == o.commitment_id &&
           committed_spend_per_hour == o.committed_spend_per_hour &&
           expiration_date == o.expiration_date &&
+          instance_type_family == o.instance_type_family &&
           purchase_option == o.purchase_option &&
+          region == o.region &&
           savings_plan_type == o.savings_plan_type &&
           start_date == o.start_date &&
-          term_length == o.term_length &&
+          term_length_months == o.term_length_months &&
           utilization == o.utilization &&
           additional_properties == o.additional_properties
     end
@@ -209,7 +229,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commitment_id, committed_spend_per_hour, expiration_date, purchase_option, savings_plan_type, start_date, term_length, utilization, additional_properties].hash
+      [commitment_id, committed_spend_per_hour, expiration_date, instance_type_family, purchase_option, region, savings_plan_type, start_date, term_length_months, utilization, additional_properties].hash
     end
   end
 end

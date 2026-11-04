@@ -6,4 +6,7 @@ DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.get_commitments_commitment_list".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
-p api_instance.get_commitments_commitment_list(CommitmentsProvider::AWS, "product", 9223372036854775807, 9223372036854775807)
+opts = {
+  commitment_type: CommitmentsCommitmentType::RESERVED_INSTANCES,
+}
+p api_instance.get_commitments_commitment_list(CommitmentsProvider::AWS, "ec2", 1788220800000, 1790812799000, opts)

@@ -37,6 +37,9 @@ module DatadogAPIClient::V2
     # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
     attr_reader :recipients
 
+    # Additional options for the monitor notification rule.
+    attr_accessor :rule_options
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -45,7 +48,8 @@ module DatadogAPIClient::V2
         :'conditional_recipients' => :'conditional_recipients',
         :'filter' => :'filter',
         :'name' => :'name',
-        :'recipients' => :'recipients'
+        :'recipients' => :'recipients',
+        :'rule_options' => :'rule_options'
       }
     end
 
@@ -57,7 +61,8 @@ module DatadogAPIClient::V2
         :'conditional_recipients' => :'MonitorNotificationRuleConditionalRecipients',
         :'filter' => :'MonitorNotificationRuleFilter',
         :'name' => :'String',
-        :'recipients' => :'Array<String>'
+        :'recipients' => :'Array<String>',
+        :'rule_options' => :'MonitorNotificationRuleOptions'
       }
     end
 
@@ -97,6 +102,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'recipients']).is_a?(Array)
           self.recipients = value
         end
+      end
+
+      if attributes.key?(:'rule_options')
+        self.rule_options = attributes[:'rule_options']
       end
     end
 
@@ -151,14 +160,15 @@ module DatadogAPIClient::V2
           conditional_recipients == o.conditional_recipients &&
           filter == o.filter &&
           name == o.name &&
-          recipients == o.recipients
+          recipients == o.recipients &&
+          rule_options == o.rule_options
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bundle_config, conditional_recipients, filter, name, recipients].hash
+      [bundle_config, conditional_recipients, filter, name, recipients, rule_options].hash
     end
   end
 end
