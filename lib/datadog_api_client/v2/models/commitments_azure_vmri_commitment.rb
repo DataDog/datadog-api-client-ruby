@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # The Azure meter sub-category for the reservation.
     attr_reader :meter_sub_category
 
+    # The Azure product of the reservation. Omitted when it cannot be classified.
+    attr_accessor :product
+
     # The Azure region of the Reserved Instance.
     attr_reader :region
 
@@ -45,10 +48,10 @@ module DatadogAPIClient::V2
     # Status of an Azure VM Reserved Instance.
     attr_reader :status
 
-    # The term length in years.
-    attr_accessor :term_length
+    # The commitment term in whole months. Omitted when the term is unknown.
+    attr_accessor :term_length_months
 
-    # The utilization percentage of the commitment.
+    # The utilization percentage of the commitment, from 0 to 100.
     attr_accessor :utilization
 
     attr_accessor :additional_properties
@@ -62,10 +65,11 @@ module DatadogAPIClient::V2
         :'expiration_date' => :'expiration_date',
         :'instance_type' => :'instance_type',
         :'meter_sub_category' => :'meter_sub_category',
+        :'product' => :'product',
         :'region' => :'region',
         :'start_date' => :'start_date',
         :'status' => :'status',
-        :'term_length' => :'term_length',
+        :'term_length_months' => :'term_length_months',
         :'utilization' => :'utilization'
       }
     end
@@ -79,10 +83,11 @@ module DatadogAPIClient::V2
         :'expiration_date' => :'String',
         :'instance_type' => :'String',
         :'meter_sub_category' => :'String',
+        :'product' => :'String',
         :'region' => :'String',
         :'start_date' => :'String',
         :'status' => :'CommitmentsAzureVMRIStatus',
-        :'term_length' => :'Float',
+        :'term_length_months' => :'Integer',
         :'utilization' => :'Float'
       }
     end
@@ -125,6 +130,10 @@ module DatadogAPIClient::V2
         self.meter_sub_category = attributes[:'meter_sub_category']
       end
 
+      if attributes.key?(:'product')
+        self.product = attributes[:'product']
+      end
+
       if attributes.key?(:'region')
         self.region = attributes[:'region']
       end
@@ -137,8 +146,8 @@ module DatadogAPIClient::V2
         self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'term_length')
-        self.term_length = attributes[:'term_length']
+      if attributes.key?(:'term_length_months')
+        self.term_length_months = attributes[:'term_length_months']
       end
 
       if attributes.key?(:'utilization')
@@ -250,10 +259,11 @@ module DatadogAPIClient::V2
           expiration_date == o.expiration_date &&
           instance_type == o.instance_type &&
           meter_sub_category == o.meter_sub_category &&
+          product == o.product &&
           region == o.region &&
           start_date == o.start_date &&
           status == o.status &&
-          term_length == o.term_length &&
+          term_length_months == o.term_length_months &&
           utilization == o.utilization &&
           additional_properties == o.additional_properties
     end
@@ -262,7 +272,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [benefit_name, commitment_id, expiration_date, instance_type, meter_sub_category, region, start_date, status, term_length, utilization, additional_properties].hash
+      [benefit_name, commitment_id, expiration_date, instance_type, meter_sub_category, product, region, start_date, status, term_length_months, utilization, additional_properties].hash
     end
   end
 end

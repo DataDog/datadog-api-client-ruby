@@ -54,10 +54,10 @@ module DatadogAPIClient::V2
     # The start date of the commitment.
     attr_accessor :start_date
 
-    # The term length in years.
-    attr_accessor :term_length
+    # The commitment term in whole months. Omitted when the term is unknown.
+    attr_accessor :term_length_months
 
-    # The utilization percentage of the commitment.
+    # The utilization percentage of the commitment, from 0 to 100.
     attr_accessor :utilization
 
     attr_accessor :additional_properties
@@ -77,7 +77,7 @@ module DatadogAPIClient::V2
         :'purchase_option' => :'purchase_option',
         :'region' => :'region',
         :'start_date' => :'start_date',
-        :'term_length' => :'term_length',
+        :'term_length_months' => :'term_length_months',
         :'utilization' => :'utilization'
       }
     end
@@ -97,9 +97,18 @@ module DatadogAPIClient::V2
         :'purchase_option' => :'String',
         :'region' => :'String',
         :'start_date' => :'String',
-        :'term_length' => :'Float',
+        :'term_length_months' => :'Integer',
         :'utilization' => :'Float'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'number_of_nfus',
+        :'number_of_reservations',
+      ])
     end
 
     # Initializes the object
@@ -164,8 +173,8 @@ module DatadogAPIClient::V2
         self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'term_length')
-        self.term_length = attributes[:'term_length']
+      if attributes.key?(:'term_length_months')
+        self.term_length_months = attributes[:'term_length_months']
       end
 
       if attributes.key?(:'utilization')
@@ -283,7 +292,7 @@ module DatadogAPIClient::V2
           purchase_option == o.purchase_option &&
           region == o.region &&
           start_date == o.start_date &&
-          term_length == o.term_length &&
+          term_length_months == o.term_length_months &&
           utilization == o.utilization &&
           additional_properties == o.additional_properties
     end
@@ -292,7 +301,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [availability_zone, commitment_id, expiration_date, instance_type, number_of_nfus, number_of_reservations, offering_class, operating_system, purchase_option, region, start_date, term_length, utilization, additional_properties].hash
+      [availability_zone, commitment_id, expiration_date, instance_type, number_of_nfus, number_of_reservations, offering_class, operating_system, purchase_option, region, start_date, term_length_months, utilization, additional_properties].hash
     end
   end
 end
