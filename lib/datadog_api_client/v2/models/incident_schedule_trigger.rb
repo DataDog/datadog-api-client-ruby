@@ -21,8 +21,11 @@ module DatadogAPIClient::V2
   class IncidentScheduleTrigger
     include BaseGenericModel
 
-    # The type of incident that triggers the workflow.
+    # The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
     attr_accessor :incident_type
+
+    # The types of incidents that trigger the workflow.
+    attr_accessor :incident_types
 
     # The recurrence rule for the schedule, expressed as an iCalendar `RRULE` string.
     attr_reader :rrule
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'incident_type' => :'incidentType',
+        :'incident_types' => :'incidentTypes',
         :'rrule' => :'rrule',
         :'tag_condition' => :'tagCondition'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'incident_type' => :'String',
+        :'incident_types' => :'Array<String>',
         :'rrule' => :'String',
         :'tag_condition' => :'IncidentCondition'
       }
@@ -72,6 +77,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'incident_type')
         self.incident_type = attributes[:'incident_type']
+      end
+
+      if attributes.key?(:'incident_types')
+        if (value = attributes[:'incident_types']).is_a?(Array)
+          self.incident_types = value
+        end
       end
 
       if attributes.key?(:'rrule')
@@ -132,6 +143,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           incident_type == o.incident_type &&
+          incident_types == o.incident_types &&
           rrule == o.rrule &&
           tag_condition == o.tag_condition &&
           additional_properties == o.additional_properties
@@ -141,7 +153,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [incident_type, rrule, tag_condition, additional_properties].hash
+      [incident_type, incident_types, rrule, tag_condition, additional_properties].hash
     end
   end
 end
