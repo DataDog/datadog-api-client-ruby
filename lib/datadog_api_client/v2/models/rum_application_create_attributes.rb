@@ -18,24 +18,41 @@ require 'time'
 
 module DatadogAPIClient::V2
   # RUM application creation attributes.
+  # When `rum_event_processing_state` is omitted, it defaults to `ALL`. When `product_analytics_retention_state` is omitted, Product Analytics is not enabled. Setting it to `MAX` requires the `product_analytics_apps_write` permission.
   class RUMApplicationCreateAttributes
     include BaseGenericModel
+
+    # Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled. Defaults to `true`.
+    attr_accessor :apm_rum_flat_sampling_replay_enabled
+
+    # Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled. Defaults to `1`.
+    attr_accessor :apm_rum_flat_sampling_replay_sample_rate
 
     # Whether to create the default retention filters when the application is created: `Sessions with errors` and `Sessions`, each with a 100% retention rate.
     # Set to `false` to create the application without them, for example when you add your own retention filters right after creating it. Until you add retention filters, the application only retains sessions matched by its [permanent retention filters](https://docs.datadoghq.com/real_user_monitoring/rum_without_limits/retention_filters/#permanent-retention-filters).
     # This setting doesn't affect permanent retention filters (sessions with forced replays, Synthetics sessions and RUM-APM flat sampling).
     attr_accessor :create_default_retention_filters
 
-    # Name of the RUM application.
+    # Indicates if Error Tracking exclusion filters are enabled for the application. Defaults to `false`.
+    attr_accessor :error_tracking_exclusion_filter_enabled
+
+    # Name of the RUM application. Between 1 and 255 characters.
     attr_reader :name
 
+    # Sample rate (0-100) of Session Replay for Product Analytics sessions. Defaults to `100`.
+    attr_reader :product_analytics_replay_sample_rate
+
     # Controls the retention policy for Product Analytics data derived from RUM events.
+    # Requests also accept `PREVIEW` (the initial state of a new application, reported as `NONE` in responses). Setting `MAX` requires the `product_analytics_apps_write` permission.
     attr_accessor :product_analytics_retention_state
 
-    # Configures which RUM events are processed and stored for the application.
+    # Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
     attr_accessor :rum_event_processing_state
 
-    # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+    # List of tags to associate with the RUM application, in `key:value` format.
+    attr_accessor :tags
+
+    # Type of the RUM application. Defaults to `browser`. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`, `react`, `nextjs`, `angular`, `vuejs`, `nuxt`, `tanstack`, `maui`, `salesforce-lwc`, `shopify`, `cpp`, `rum-cpp`, `unreal`.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -44,10 +61,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'apm_rum_flat_sampling_replay_enabled' => :'apm_rum_flat_sampling_replay_enabled',
+        :'apm_rum_flat_sampling_replay_sample_rate' => :'apm_rum_flat_sampling_replay_sample_rate',
         :'create_default_retention_filters' => :'create_default_retention_filters',
+        :'error_tracking_exclusion_filter_enabled' => :'error_tracking_exclusion_filter_enabled',
         :'name' => :'name',
+        :'product_analytics_replay_sample_rate' => :'product_analytics_replay_sample_rate',
         :'product_analytics_retention_state' => :'product_analytics_retention_state',
         :'rum_event_processing_state' => :'rum_event_processing_state',
+        :'tags' => :'tags',
         :'type' => :'type'
       }
     end
@@ -56,10 +78,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'apm_rum_flat_sampling_replay_enabled' => :'Boolean',
+        :'apm_rum_flat_sampling_replay_sample_rate' => :'Float',
         :'create_default_retention_filters' => :'Boolean',
+        :'error_tracking_exclusion_filter_enabled' => :'Boolean',
         :'name' => :'String',
+        :'product_analytics_replay_sample_rate' => :'Integer',
         :'product_analytics_retention_state' => :'RUMProductAnalyticsRetentionState',
         :'rum_event_processing_state' => :'RUMEventProcessingState',
+        :'tags' => :'Array<String>',
         :'type' => :'String'
       }
     end
@@ -82,12 +109,28 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'apm_rum_flat_sampling_replay_enabled')
+        self.apm_rum_flat_sampling_replay_enabled = attributes[:'apm_rum_flat_sampling_replay_enabled']
+      end
+
+      if attributes.key?(:'apm_rum_flat_sampling_replay_sample_rate')
+        self.apm_rum_flat_sampling_replay_sample_rate = attributes[:'apm_rum_flat_sampling_replay_sample_rate']
+      end
+
       if attributes.key?(:'create_default_retention_filters')
         self.create_default_retention_filters = attributes[:'create_default_retention_filters']
       end
 
+      if attributes.key?(:'error_tracking_exclusion_filter_enabled')
+        self.error_tracking_exclusion_filter_enabled = attributes[:'error_tracking_exclusion_filter_enabled']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'product_analytics_replay_sample_rate')
+        self.product_analytics_replay_sample_rate = attributes[:'product_analytics_replay_sample_rate']
       end
 
       if attributes.key?(:'product_analytics_retention_state')
@@ -96,6 +139,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rum_event_processing_state')
         self.rum_event_processing_state = attributes[:'rum_event_processing_state']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'type')
@@ -108,6 +157,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.to_s.length > 255
+      return false if !@product_analytics_replay_sample_rate.nil? && @product_analytics_replay_sample_rate > 2147483647
       true
     end
 
@@ -118,7 +169,20 @@ module DatadogAPIClient::V2
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
+      if name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
+      end
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param product_analytics_replay_sample_rate [Object] Object to be assigned
+    # @!visibility private
+    def product_analytics_replay_sample_rate=(product_analytics_replay_sample_rate)
+      if !product_analytics_replay_sample_rate.nil? && product_analytics_replay_sample_rate > 2147483647
+        fail ArgumentError, 'invalid value for "product_analytics_replay_sample_rate", must be smaller than or equal to 2147483647.'
+      end
+      @product_analytics_replay_sample_rate = product_analytics_replay_sample_rate
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -147,10 +211,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          apm_rum_flat_sampling_replay_enabled == o.apm_rum_flat_sampling_replay_enabled &&
+          apm_rum_flat_sampling_replay_sample_rate == o.apm_rum_flat_sampling_replay_sample_rate &&
           create_default_retention_filters == o.create_default_retention_filters &&
+          error_tracking_exclusion_filter_enabled == o.error_tracking_exclusion_filter_enabled &&
           name == o.name &&
+          product_analytics_replay_sample_rate == o.product_analytics_replay_sample_rate &&
           product_analytics_retention_state == o.product_analytics_retention_state &&
           rum_event_processing_state == o.rum_event_processing_state &&
+          tags == o.tags &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -159,7 +228,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [create_default_retention_filters, name, product_analytics_retention_state, rum_event_processing_state, type, additional_properties].hash
+      [apm_rum_flat_sampling_replay_enabled, apm_rum_flat_sampling_replay_sample_rate, create_default_retention_filters, error_tracking_exclusion_filter_enabled, name, product_analytics_replay_sample_rate, product_analytics_retention_state, rum_event_processing_state, tags, type, additional_properties].hash
     end
   end
 end

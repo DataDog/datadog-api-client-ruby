@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Controls the retention policy for Product Analytics data derived from RUM events.
+  # Requests also accept `PREVIEW` (the initial state of a new application, reported as `NONE` in responses). Setting `MAX` requires the `product_analytics_apps_write` permission.
   class RUMProductAnalyticsRetentionState
     include BaseEnumModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of compute.
+  # The type of compute. `total` returns one value per bucket, `timeseries` returns a list of time points per bucket.
   class RUMComputeType
     include BaseEnumModel
 
