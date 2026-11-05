@@ -1718,6 +1718,176 @@ ScenariosModelMappings = {
     "v2.GetInvestigation" => {
             "id" => "String",
     },
+    "v2.CreateAiGatewayBudget" => {
+            "body" => "AiGatewayBudgetCreateRequest",
+    },
+    "v2.DeleteAiGatewayBudget" => {
+            "id" => "UUID",
+    },
+    "v2.GetAiGatewayBudget" => {
+            "id" => "UUID",
+    },
+    "v2.UpdateAiGatewayBudget" => {
+            "id" => "UUID",
+            "body" => "AiGatewayBudgetUpdateRequest",
+    },
+    "v2.GetAiGatewayBudgetCurrentPeriod" => {
+            "id" => "UUID",
+    },
+    "v2.ListAiGatewayBudgetInstances" => {
+            "id" => "UUID",
+            "window" => "Time",
+            "split_dim" => "Array<String>",
+            "sort" => "AiGatewayBudgetInstanceSort",
+            "limit" => "Integer",
+            "offset" => "Integer",
+    },
+    "v2.OverrideAiGatewayBudgetInstanceCapacity" => {
+            "id" => "UUID",
+            "body" => "AiGatewayBudgetInstanceCapacityOverrideRequest",
+    },
+    "v2.ListAiGatewayBudgetInstanceDimensions" => {
+            "id" => "UUID",
+            "window" => "Time",
+            "split_dim" => "Array<String>",
+            "dim" => "Array<String>",
+            "query" => "String",
+            "value" => "Array<String>",
+            "limit" => "Integer",
+    },
+    "v2.ResetAiGatewayBudgetInstanceSpend" => {
+            "id" => "UUID",
+            "body" => "AiGatewayBudgetInstanceResetRequest",
+    },
+    "v2.GetAiGatewayBudgetInstancesSummary" => {
+            "id" => "UUID",
+            "window" => "Time",
+            "split_dim" => "Array<String>",
+    },
+    "v2.CreateAiGatewayDataCaptureOverride" => {
+            "body" => "AiGatewayCaptureCreateRequest",
+    },
+    "v2.DeleteAiGatewayDataCaptureOverride" => {
+            "id" => "UUID",
+            "body" => "AiGatewayCaptureDeleteRequest",
+    },
+    "v2.UpdateAiGatewayDataCaptureOverride" => {
+            "id" => "UUID",
+            "body" => "AiGatewayCaptureUpdateRequest",
+    },
+    "v2.UpdateAiGatewayGovernance" => {
+            "body" => "AiGatewayGovernanceReplaceRequest",
+    },
+    "v2.CreateAiGatewayModelGroup" => {
+            "body" => "AiGatewayModelGroupCreateRequest",
+    },
+    "v2.DeleteAiGatewayModelGroup" => {
+            "id" => "String",
+    },
+    "v2.GetAiGatewayModelGroup" => {
+            "id" => "String",
+    },
+    "v2.UpdateAiGatewayModelGroup" => {
+            "id" => "String",
+            "body" => "AiGatewayModelGroupUpdateRequest",
+    },
+    "v2.ListAiGatewayPolicies" => {
+            "user_id" => "UUID",
+    },
+    "v2.UpsertAiGatewayPolicy" => {
+            "user_id" => "UUID",
+            "body" => "AiGatewayPolicyRequest",
+    },
+    "v2.DeleteAiGatewayPolicy" => {
+            "inbound" => "String",
+            "user_id" => "UUID",
+    },
+    "v2.GetAiGatewayPolicy" => {
+            "inbound" => "String",
+            "user_id" => "UUID",
+    },
+    "v2.ListAiGatewayProviderModels" => {
+            "integration_type" => "String",
+            "integration_account_id" => "String",
+            "project_id" => "String",
+            "location" => "String",
+            "bedrock_region" => "String",
+            "foundry_resource_id" => "String",
+    },
+    "v2.CreateAiGatewayProvider" => {
+            "body" => "AiGatewayProviderCreateRequest",
+    },
+    "v2.DeleteAiGatewayProvider" => {
+            "id" => "Integer",
+            "force" => "Boolean",
+    },
+    "v2.GetAiGatewayProvider" => {
+            "id" => "Integer",
+    },
+    "v2.UpdateAiGatewayProvider" => {
+            "id" => "Integer",
+            "body" => "AiGatewayProviderUpdateRequest",
+    },
+    "v2.ListAiGatewayModels" => {
+            "provider_id" => "Integer",
+    },
+    "v2.CreateAiGatewayModel" => {
+            "provider_id" => "Integer",
+            "body" => "AiGatewayModelCreateRequest",
+    },
+    "v2.BulkCreateAiGatewayModels" => {
+            "provider_id" => "Integer",
+            "body" => "AiGatewayModelsBulkCreateRequest",
+    },
+    "v2.DeleteAiGatewayModel" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+    },
+    "v2.UpdateAiGatewayModel" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+            "body" => "AiGatewayModelUpdateRequest",
+    },
+    "v2.DeleteAiGatewayModelPricing" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+    },
+    "v2.GetAiGatewayModelPricing" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+    },
+    "v2.UpdateAiGatewayModelPricing" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+            "body" => "AiGatewayModelPricingRequest",
+    },
+    "v2.CreateAiGatewayRateLimit" => {
+            "body" => "AiGatewayRateLimitCreateRequest",
+    },
+    "v2.DeleteAiGatewayRateLimit" => {
+            "id" => "UUID",
+    },
+    "v2.GetAiGatewayRateLimit" => {
+            "id" => "UUID",
+    },
+    "v2.UpdateAiGatewayRateLimit" => {
+            "id" => "UUID",
+            "body" => "AiGatewayRateLimitUpdateRequest",
+    },
+    "v2.DeleteAiGatewayRoutingRule" => {
+            "slug" => "String",
+            "force" => "Boolean",
+    },
+    "v2.CreateAiGatewayRoutingRule" => {
+            "body" => "AiGatewayRoutingRuleCreateRequest",
+    },
+    "v2.UpdateAiGatewayRoutingRule" => {
+            "slug" => "String",
+            "body" => "AiGatewayRoutingRuleReplaceRequest",
+    },
+    "v2.GetAiGatewayRoutingRule" => {
+            "slug" => "String",
+    },
     "v2.SearchCases" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
