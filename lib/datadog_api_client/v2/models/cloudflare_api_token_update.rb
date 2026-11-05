@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_token' => :'String',
+        :'api_token' => :'CloudflareAPITokenUpdateApiToken',
         :'type' => :'CloudflareAPITokenType'
       }
     end

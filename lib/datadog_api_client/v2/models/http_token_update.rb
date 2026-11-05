@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
         :'deleted' => :'Boolean',
         :'name' => :'String',
         :'type' => :'TokenType',
-        :'value' => :'String'
+        :'value' => :'HTTPTokenValue'
       }
     end
 

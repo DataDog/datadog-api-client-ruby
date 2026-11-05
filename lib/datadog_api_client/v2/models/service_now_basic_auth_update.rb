@@ -50,10 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'instance' => :'String',
-        :'password' => :'String',
+        :'instance' => :'ServiceNowBasicAuthUpdateInstance',
+        :'password' => :'ServiceNowBasicAuthUpdatePassword',
         :'type' => :'ServiceNowBasicAuthType',
-        :'username' => :'String'
+        :'username' => :'ServiceNowBasicAuthUpdateUsername'
       }
     end
 

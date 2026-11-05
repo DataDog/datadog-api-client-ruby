@@ -46,8 +46,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String',
-        :'domain' => :'String',
+        :'api_key' => :'FreshserviceAPIKeyUpdateApiKey',
+        :'domain' => :'FreshserviceAPIKeyUpdateDomain',
         :'type' => :'FreshserviceAPIKeyType'
       }
     end

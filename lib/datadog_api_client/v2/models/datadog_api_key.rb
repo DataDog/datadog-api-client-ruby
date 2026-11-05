@@ -54,10 +54,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String',
-        :'app_key' => :'String',
-        :'datacenter' => :'String',
-        :'subdomain' => :'String',
+        :'api_key' => :'DatadogAPIKeyApiKey',
+        :'app_key' => :'DatadogAPIKeyAppKey',
+        :'datacenter' => :'DatadogAPIKeyDatacenter',
+        :'subdomain' => :'DatadogAPIKeySubdomain',
         :'type' => :'DatadogAPIKeyType'
       }
     end

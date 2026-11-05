@@ -50,9 +50,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_password' => :'String',
-        :'api_username' => :'String',
-        :'sdk_key' => :'String',
+        :'api_password' => :'ConfigCatSDKKeyUpdateApiPassword',
+        :'api_username' => :'ConfigCatSDKKeyUpdateApiUsername',
+        :'sdk_key' => :'ConfigCatSDKKeyUpdateSdkKey',
         :'type' => :'ConfigCatSDKKeyType'
       }
     end

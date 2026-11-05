@@ -46,8 +46,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'private_key' => :'String',
-        :'service_account_email' => :'String',
+        :'private_key' => :'GCPServiceAccountPrivateKey',
+        :'service_account_email' => :'GCPServiceAccountServiceAccountEmail',
         :'type' => :'GCPServiceAccountCredentialType'
       }
     end

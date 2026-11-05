@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The `HTTPTokenAuth` `headers`.
     attr_accessor :headers
 
+    # HTTP authentication tokens returned by the API. Use `tokens` when creating or updating tokens.
+    attr_accessor :http_tokens
+
     # The `HTTPTokenAuth` `tokens`.
     attr_accessor :tokens
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
       {
         :'body' => :'body',
         :'headers' => :'headers',
+        :'http_tokens' => :'http_tokens',
         :'tokens' => :'tokens',
         :'type' => :'type',
         :'url_parameters' => :'url_parameters'
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
       {
         :'body' => :'HTTPBody',
         :'headers' => :'Array<HTTPHeader>',
+        :'http_tokens' => :'Array<HTTPTokenResponse>',
         :'tokens' => :'Array<HTTPToken>',
         :'type' => :'HTTPTokenAuthType',
         :'url_parameters' => :'Array<UrlParam>'
@@ -87,6 +92,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'headers')
         if (value = attributes[:'headers']).is_a?(Array)
           self.headers = value
+        end
+      end
+
+      if attributes.key?(:'http_tokens')
+        if (value = attributes[:'http_tokens']).is_a?(Array)
+          self.http_tokens = value
         end
       end
 
@@ -153,6 +164,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           body == o.body &&
           headers == o.headers &&
+          http_tokens == o.http_tokens &&
           tokens == o.tokens &&
           type == o.type &&
           url_parameters == o.url_parameters &&
@@ -163,7 +175,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [body, headers, tokens, type, url_parameters, additional_properties].hash
+      [body, headers, http_tokens, tokens, type, url_parameters, additional_properties].hash
     end
   end
 end
