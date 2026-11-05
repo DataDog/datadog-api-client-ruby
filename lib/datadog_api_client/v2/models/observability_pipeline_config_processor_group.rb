@@ -36,8 +36,8 @@ module DatadogAPIClient::V2
     # A list of IDs for components whose output is used as the input for this processor group.
     attr_reader :inputs
 
-    # Processors applied sequentially within this group. Events flow through each processor in order.
-    attr_reader :processors
+    # Processors applied sequentially within this group. Events flow through each processor in order. Omit or use an empty array for a group without processors.
+    attr_accessor :processors
 
     attr_accessor :additional_properties
 
@@ -122,7 +122,6 @@ module DatadogAPIClient::V2
       return false if @id.nil?
       return false if @include.nil?
       return false if @inputs.nil?
-      return false if @processors.nil?
       true
     end
 
@@ -164,16 +163,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
       end
       @inputs = inputs
-    end
-
-    # Custom attribute writer method with validation
-    # @param processors [Object] Object to be assigned
-    # @!visibility private
-    def processors=(processors)
-      if processors.nil?
-        fail ArgumentError, 'invalid value for "processors", processors cannot be nil.'
-      end
-      @processors = processors
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
