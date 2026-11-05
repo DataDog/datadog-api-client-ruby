@@ -41,8 +41,8 @@ module DatadogAPIClient::V2
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # The list of Grok parsing rules selected by either source field or include query.
-    attr_reader :rules
+    # The list of custom Grok parsing rules selected by either source field or include query. Omit to use only the Datadog library rules.
+    attr_accessor :rules
 
     # The processor type. The value should always be `parse_grok`.
     attr_reader :type
@@ -139,7 +139,6 @@ module DatadogAPIClient::V2
       return false if @enabled.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @rules.nil?
       return false if @type.nil?
       true
     end
@@ -172,16 +171,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param rules [Object] Object to be assigned
-    # @!visibility private
-    def rules=(rules)
-      if rules.nil?
-        fail ArgumentError, 'invalid value for "rules", rules cannot be nil.'
-      end
-      @rules = rules
     end
 
     # Custom attribute writer method with validation
