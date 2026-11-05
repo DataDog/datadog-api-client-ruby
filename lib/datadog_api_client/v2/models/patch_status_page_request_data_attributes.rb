@@ -30,8 +30,14 @@ module DatadogAPIClient::V2
     # The base64-encoded image data displayed in email notifications sent to status page subscribers.
     attr_accessor :email_header_image
 
+    # Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
+    attr_accessor :email_notifications_enabled
+
     # The base64-encoded image data displayed in the browser tab.
     attr_accessor :favicon
+
+    # Whether Microsoft Teams subscriptions are enabled for the status page.
+    attr_accessor :ms_teams_subscriptions_enabled
 
     # The name of the status page.
     attr_accessor :name
@@ -39,7 +45,7 @@ module DatadogAPIClient::V2
     # Whether the RSS feed is enabled for the status page.
     attr_accessor :rss_feed_enabled
 
-    # The Slack app icon URL for the status page.
+    # The base64-encoded image data used as the Slack app icon.
     attr_accessor :slack_app_icon
 
     # Whether Slack subscriptions are enabled for the status page.
@@ -66,7 +72,9 @@ module DatadogAPIClient::V2
         :'company_logo' => :'company_logo',
         :'domain_prefix' => :'domain_prefix',
         :'email_header_image' => :'email_header_image',
+        :'email_notifications_enabled' => :'email_notifications_enabled',
         :'favicon' => :'favicon',
+        :'ms_teams_subscriptions_enabled' => :'ms_teams_subscriptions_enabled',
         :'name' => :'name',
         :'rss_feed_enabled' => :'rss_feed_enabled',
         :'slack_app_icon' => :'slack_app_icon',
@@ -85,7 +93,9 @@ module DatadogAPIClient::V2
         :'company_logo' => :'String',
         :'domain_prefix' => :'String',
         :'email_header_image' => :'String',
+        :'email_notifications_enabled' => :'Boolean',
         :'favicon' => :'String',
+        :'ms_teams_subscriptions_enabled' => :'Boolean',
         :'name' => :'String',
         :'rss_feed_enabled' => :'Boolean',
         :'slack_app_icon' => :'String',
@@ -127,8 +137,16 @@ module DatadogAPIClient::V2
         self.email_header_image = attributes[:'email_header_image']
       end
 
+      if attributes.key?(:'email_notifications_enabled')
+        self.email_notifications_enabled = attributes[:'email_notifications_enabled']
+      end
+
       if attributes.key?(:'favicon')
         self.favicon = attributes[:'favicon']
+      end
+
+      if attributes.key?(:'ms_teams_subscriptions_enabled')
+        self.ms_teams_subscriptions_enabled = attributes[:'ms_teams_subscriptions_enabled']
       end
 
       if attributes.key?(:'name')
@@ -193,7 +211,9 @@ module DatadogAPIClient::V2
           company_logo == o.company_logo &&
           domain_prefix == o.domain_prefix &&
           email_header_image == o.email_header_image &&
+          email_notifications_enabled == o.email_notifications_enabled &&
           favicon == o.favicon &&
+          ms_teams_subscriptions_enabled == o.ms_teams_subscriptions_enabled &&
           name == o.name &&
           rss_feed_enabled == o.rss_feed_enabled &&
           slack_app_icon == o.slack_app_icon &&
@@ -209,7 +229,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [company_logo, domain_prefix, email_header_image, favicon, name, rss_feed_enabled, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_layout, visualization_type, additional_properties].hash
+      [company_logo, domain_prefix, email_header_image, email_notifications_enabled, favicon, ms_teams_subscriptions_enabled, name, rss_feed_enabled, slack_app_icon, slack_subscriptions_enabled, subscriptions_enabled, type, visualization_layout, visualization_type, additional_properties].hash
     end
   end
 end
