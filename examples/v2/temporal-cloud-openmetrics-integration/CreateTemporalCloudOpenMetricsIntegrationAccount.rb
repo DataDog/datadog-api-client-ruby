@@ -1,0 +1,26 @@
+# Create a Temporal Cloud OpenMetrics account returns "Created" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+  config.unstable_operations["v2.create_temporal_cloud_open_metrics_integration_account".to_sym] = true
+end
+api_instance = DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAPI.new
+
+body = DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAccountCreateRequest.new({
+  data: DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAccountCreateData.new({
+    attributes: DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAccountCreateAttributes.new({
+      authentication: DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAccountBearerTokenAuthRequest.new({
+        auth_type: DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAccountBearerTokenAuthType::BEARER_TOKEN,
+        token: "your-token",
+      }),
+      name: "temporal-cloud-prod",
+      settings: DatadogAPIClient::V2::TemporalCloudOpenMetricsIntegrationAccountSettingsRequest.new({
+        include_opt_in_labels: false,
+        namespaces_to_include: "prod-*,billing.a1b2c",
+      }),
+    }),
+    type: DatadogAPIClient::V2::IntegrationAccountType::INTEGRATION_ACCOUNT,
+  }),
+})
+p api_instance.create_temporal_cloud_open_metrics_integration_account(body)
