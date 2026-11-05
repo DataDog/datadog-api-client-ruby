@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_token' => :'String',
+        :'api_token' => :'CircleCIAPIKeyUpdateApiToken',
         :'type' => :'CircleCIAPIKeyType'
       }
     end

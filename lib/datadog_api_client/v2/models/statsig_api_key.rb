@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String',
+        :'api_key' => :'StatsigAPIKeyApiKey',
         :'type' => :'StatsigAPIKeyType'
       }
     end

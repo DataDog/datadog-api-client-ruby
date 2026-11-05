@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'access_token' => :'String',
+        :'access_token' => :'AsanaAccessTokenAccessToken',
         :'type' => :'AsanaAccessTokenType'
       }
     end

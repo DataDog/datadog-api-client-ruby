@@ -46,8 +46,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'auth_email' => :'String',
-        :'global_api_key' => :'String',
+        :'auth_email' => :'CloudflareGlobalAPITokenAuthEmail',
+        :'global_api_key' => :'CloudflareGlobalAPITokenGlobalApiKey',
         :'type' => :'CloudflareGlobalAPITokenType'
       }
     end

@@ -46,8 +46,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_token' => :'String',
-        :'domain' => :'String',
+        :'api_token' => :'OktaAPITokenApiToken',
+        :'domain' => :'OktaAPITokenDomain',
         :'type' => :'OktaAPITokenType'
       }
     end

@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ActionConnectionAttributesUpdate
     include BaseGenericModel
 
+    # AWS Secrets Manager settings shared by the credential references on a `DATACENTER` connection. These settings are required whenever a field uses an AWS Secrets Manager reference.
+    attr_accessor :external_secrets_manager
+
     # The definition of `ActionConnectionIntegrationUpdate` object.
     attr_accessor :integration
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'external_secrets_manager' => :'external_secrets_manager',
         :'integration' => :'integration',
         :'name' => :'name',
         :'tags' => :'tags'
@@ -47,10 +51,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'external_secrets_manager' => :'ActionConnectionAWSSecretsManager',
         :'integration' => :'ActionConnectionIntegrationUpdate',
         :'name' => :'String',
         :'tags' => :'Array<String>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'external_secrets_manager',
+      ])
     end
 
     # Initializes the object
@@ -70,6 +83,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'external_secrets_manager')
+        self.external_secrets_manager = attributes[:'external_secrets_manager']
+      end
 
       if attributes.key?(:'integration')
         self.integration = attributes[:'integration']
@@ -112,6 +129,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          external_secrets_manager == o.external_secrets_manager &&
           integration == o.integration &&
           name == o.name &&
           tags == o.tags &&
@@ -122,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [integration, name, tags, additional_properties].hash
+      [external_secrets_manager, integration, name, tags, additional_properties].hash
     end
   end
 end

@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'name' => :'String',
         :'type' => :'TokenType',
-        :'value' => :'String'
+        :'value' => :'HTTPTokenValue'
       }
     end
 
