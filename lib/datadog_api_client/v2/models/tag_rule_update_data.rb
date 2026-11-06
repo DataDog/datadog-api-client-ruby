@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # The unique identifier of the tag rule being updated.
     attr_reader :id
 
-    # JSON:API resource type for a tag rule.
+    # JSON:API resource type for a tag rule. Responses use the legacy `tag_policy` value.
     attr_reader :type
 
     attr_accessor :additional_properties
