@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreatePageResponse
     include BaseGenericModel
 
-    # The information returned after successfully creating a page.
+    # The information returned after successfully creating a Page.
     attr_accessor :data
 
     attr_accessor :additional_properties
