@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, and `output_tokens_per_minute` is required.
     attr_reader :requests_per_minute
 
+    # Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
+    attr_accessor :selector
+
     # Optional scope tags, such as `provider`, `model`, `ml_app`, or custom dimensions. A request matches when it has all of these tags. The reserved metadata keys `name`, `budget_name`, and `span_filter` are rejected.
     attr_accessor :tags
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'output_tokens_per_minute' => :'output_tokens_per_minute',
         :'requests_per_minute' => :'requests_per_minute',
+        :'selector' => :'selector',
         :'tags' => :'tags',
         :'team_id' => :'team_id',
         :'user_id' => :'user_id'
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'output_tokens_per_minute' => :'Integer',
         :'requests_per_minute' => :'Integer',
+        :'selector' => :'Array<AiGatewayRateLimitSelectorEntry>',
         :'tags' => :'Hash<String, String>',
         :'team_id' => :'UUID',
         :'user_id' => :'UUID'
@@ -84,6 +89,7 @@ module DatadogAPIClient::V2
         :'input_tokens_per_minute',
         :'output_tokens_per_minute',
         :'requests_per_minute',
+        :'selector',
       ])
     end
 
@@ -123,6 +129,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'requests_per_minute')
         self.requests_per_minute = attributes[:'requests_per_minute']
+      end
+
+      if attributes.key?(:'selector')
+        if (value = attributes[:'selector']).is_a?(Array)
+          self.selector = value
+        end
       end
 
       if attributes.key?(:'tags')
@@ -232,6 +244,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           output_tokens_per_minute == o.output_tokens_per_minute &&
           requests_per_minute == o.requests_per_minute &&
+          selector == o.selector &&
           tags == o.tags &&
           team_id == o.team_id &&
           user_id == o.user_id &&
@@ -242,7 +255,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [input_tokens_per_minute, mode, name, output_tokens_per_minute, requests_per_minute, tags, team_id, user_id, additional_properties].hash
+      [input_tokens_per_minute, mode, name, output_tokens_per_minute, requests_per_minute, selector, tags, team_id, user_id, additional_properties].hash
     end
   end
 end
