@@ -223,6 +223,7 @@ module DatadogAPIClient::V2
     # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
     # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_descendants Allow access to authorized descendant organizations in the same datacenter. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_pending_quota_with_http_info(quota_namespace, id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_pending_quota".to_sym]
@@ -248,6 +249,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -299,6 +301,7 @@ module DatadogAPIClient::V2
     # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
     # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_descendants Allow access to authorized descendant organizations in the same datacenter. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_quota_with_http_info(quota_namespace, id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_quota".to_sym]
@@ -324,6 +327,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1197,6 +1201,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a usage quota.
+    #
+    # @see #get_quota_with_http_info
+    def get_quota(quota_namespace, id, opts = {})
+      data, _status_code, _headers = get_quota_with_http_info(quota_namespace, id, opts)
+      data
+    end
+
+    # Get a usage quota.
+    #
+    # Returns the effective configuration of one usage quota by its opaque identifier. Future pending changes are returned separately; a pending change that is already effective is returned as the current limit. The quota must belong to the caller's organization or an authorized descendant in the same datacenter. Set `include_descendants=false` to reject all other organizations. Stored quotas remain readable after the scoped user, role, or team is deleted. Requires `billing_read` or `billing_edit`.
+    #
+    # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
+    # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_descendants Allow access to authorized descendant organizations in the same datacenter. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
+    # @return [Array<(UsageQuotaResponse, Integer, Hash)>] UsageQuotaResponse data, response status code and response headers
+    def get_quota_with_http_info(quota_namespace, id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_quota".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_quota")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_quota"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_quota ...'
+      end
+      # verify the required parameter 'quota_namespace' is set
+      if @api_client.config.client_side_validation && quota_namespace.nil?
+        fail ArgumentError, "Missing the required parameter 'quota_namespace' when calling UsageMeteringAPI.get_quota"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UsageMeteringAPI.get_quota"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/quotas/{quota_namespace}/{id}'.sub('{quota_namespace}', CGI.escape(quota_namespace.to_s).gsub('%2F', '/')).sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageQuotaResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_quota,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an organization temporary grant request.
     #
     # @see #get_temporary_grant_request_with_http_info
@@ -1965,12 +2047,13 @@ module DatadogAPIClient::V2
 
     # Update a usage quota.
     #
-    # Updates the supplied fields on a usage quota and leaves omitted fields unchanged. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
+    # Updates the supplied fields on a usage quota. Setting `enforced=false` clears any pending change atomically, including when enforcement is already disabled. Other immediate updates preserve future pending changes when `pending_usage_limit` is omitted. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
     #
     # @param quota_namespace [String] The product-specific namespace whose usage quotas are being managed.
     # @param id [String] The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
     # @param body [UsageQuotaUpdateRequest] The usage quota fields to update. Omitting an attribute leaves its current value unchanged.
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_descendants Allow access to authorized descendant organizations in the same datacenter. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
     # @return [Array<(UsageQuotaResponse, Integer, Hash)>] UsageQuotaResponse data, response status code and response headers
     def update_quota_with_http_info(quota_namespace, id, body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.update_quota".to_sym]
@@ -2000,6 +2083,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
