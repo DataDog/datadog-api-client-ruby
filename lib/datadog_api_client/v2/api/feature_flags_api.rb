@@ -989,14 +989,14 @@ module DatadogAPIClient::V2
     # List environments.
     #
     # Returns a list of environments for the organization.
-    # Supports filtering by name, key, and DD_ENV.
+    # Use `dd_env` to filter by an exact DD_ENV value in an environment's `queries` list.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :name Filter environments by name (partial matching).
-    # @option opts [String] :key Filter environments by key (partial matching).
-    # @option opts [String] :dd_env Filter environments by queries that contain the provided DD_ENV value.
-    # @option opts [Integer] :limit Maximum number of results to return.
-    # @option opts [Integer] :offset Number of results to skip.
+    # @option opts [String] :name This parameter is currently ignored. Use dd_env to filter environments.
+    # @option opts [String] :key This parameter is currently ignored. Use dd_env to filter environments.
+    # @option opts [String] :dd_env Filter environments whose queries list contains an exact match for the provided DD_ENV value.
+    # @option opts [Integer] :limit This parameter is currently ignored. All matching environments are returned.
+    # @option opts [Integer] :offset This parameter is currently ignored. All matching environments are returned.
     # @return [Array<(ListEnvironmentsResponse, Integer, Hash)>] ListEnvironmentsResponse data, response status code and response headers
     def list_feature_flags_environments_with_http_info(opts = {})
 
@@ -1550,8 +1550,13 @@ module DatadogAPIClient::V2
 
     # Update an environment.
     #
-    # Updates an existing environment's metadata such as
-    #  name and description.
+    # Updates an environment's name, DD_ENV values, and settings.
+    #
+    # Every request must include `name` and `queries`, even when changing only `observe_full_evaluation_data`.
+    # To preserve the current name and DD_ENV values, get the environment first and include those values in the request.
+    #
+    # Omitting `is_production` or `require_feature_flag_approval` resets that setting to `false`.
+    # Include their current values to preserve them. Omitting `observe_full_evaluation_data` preserves its current value.
     #
     # @param environment_id [UUID] The ID of the environment.
     # @param body [UpdateEnvironmentRequest] 
