@@ -655,6 +655,88 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Export feature flag change history.
+    #
+    # @see #export_feature_flag_history_with_http_info
+    def export_feature_flag_history(opts = {})
+      data, _status_code, _headers = export_feature_flag_history_with_http_info(opts)
+      data
+    end
+
+    # Export feature flag change history.
+    #
+    # Exports the organization's feature flag change events as a CSV file, newest first, without pagination.
+    # It accepts the same filters as the List feature flag change history endpoint, and its columns match the CSV export on the flag history page:
+    # Flag Version, Flag Name, Flag Key, Flag UUID, Action, User Name, User Email, User Type, Environment, and Timestamp.
+    #
+    # If an export fails before the file starts, the response is a JSON:API error. Large exports stream as they are read.
+    # If an export fails after streaming starts, the connection closes before the file ends, so the download fails instead of
+    # returning a file with missing rows. An export must finish within the 60-second request timeout. If an export times out,
+    # narrow the date range.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :start_date Only include changes made after this time, for example `2026-01-01T00:00:00Z`. Omit for no lower bound.
+    # @option opts [Time] :end_date Only include changes made before this time, for example `2026-02-01T00:00:00Z`. Omit for no upper bound. Must be after `start_date` when both are set.
+    # @option opts [Array<String>] :teams Only include changes to flags that belong to at least one of these teams. Use team handles without the `team:` prefix, as repeated parameters, such as `teams=checkout&teams=payments`. Handles from `teams` and `team:<handle>` values from `tags` are treated as one set. Handles that are empty, have surrounding white space, or include the `team:` prefix return a `400 Bad Request` error.
+    # @option opts [Array<String>] :tags Only include changes to flags that have all of these exact tags, as repeated parameters, such as `tags=env:prod&tags=tier:1`. Values of the form `team:<handle>` match any selected team and are combined with `teams`. Empty values are ignored.
+    # @option opts [UUID] :feature_flag_id Only include changes to this feature flag.
+    # @option opts [UUID] :environment_id Only include changes to this environment. Changes to the flag itself, which have no environment, are always included.
+    # @option opts [Boolean] :include_suggestion_events Also include review events for change requests that needed approval: rejected requests and requests still pending review. Applies only to organizations with flag approvals enabled.
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def export_feature_flag_history_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.export_feature_flag_history ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/history/export'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_date'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'end_date'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'teams'] = @api_client.build_collection_param(opts[:'teams'], :multi) if !opts[:'teams'].nil?
+      query_params[:'tags'] = @api_client.build_collection_param(opts[:'tags'], :multi) if !opts[:'tags'].nil?
+      query_params[:'feature_flag_id'] = opts[:'feature_flag_id'] if !opts[:'feature_flag_id'].nil?
+      query_params[:'environment_id'] = opts[:'environment_id'] if !opts[:'environment_id'].nil?
+      query_params[:'include_suggestion_events'] = opts[:'include_suggestion_events'] if !opts[:'include_suggestion_events'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/csv', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :export_feature_flag_history,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#export_feature_flag_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a feature flag.
     #
     # @see #get_feature_flag_with_http_info
@@ -851,6 +933,97 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#get_saved_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List feature flag change history.
+    #
+    # @see #list_feature_flag_history_with_http_info
+    def list_feature_flag_history(opts = {})
+      data, _status_code, _headers = list_feature_flag_history_with_http_info(opts)
+      data
+    end
+
+    # List feature flag change history.
+    #
+    # Returns the organization's feature flag change events, newest first.
+    # Each event includes a readable description of the change.
+    # All filters are optional, and events must match every filter you set. Without a date range, the whole history is listed.
+    # Results are paginated with `page[limit]` and `page[offset]`; follow `links.next` to read further back.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :start_date Only include changes made after this time, for example `2026-01-01T00:00:00Z`. Omit for no lower bound.
+    # @option opts [Time] :end_date Only include changes made before this time, for example `2026-02-01T00:00:00Z`. Omit for no upper bound. Must be after `start_date` when both are set.
+    # @option opts [Array<String>] :teams Only include changes to flags that belong to at least one of these teams. Use team handles without the `team:` prefix, as repeated parameters, such as `teams=checkout&teams=payments`. Handles from `teams` and `team:<handle>` values from `tags` are treated as one set. Handles that are empty, have surrounding white space, or include the `team:` prefix return a `400 Bad Request` error.
+    # @option opts [Array<String>] :tags Only include changes to flags that have all of these exact tags, as repeated parameters, such as `tags=env:prod&tags=tier:1`. Values of the form `team:<handle>` match any selected team and are combined with `teams`. Empty values are ignored.
+    # @option opts [UUID] :feature_flag_id Only include changes to this feature flag.
+    # @option opts [UUID] :environment_id Only include changes to this environment. Changes to the flag itself, which have no environment, are always included.
+    # @option opts [Boolean] :include_suggestion_events Also include review events for change requests that needed approval: rejected requests and requests still pending review. Applies only to organizations with flag approvals enabled.
+    # @option opts [Integer] :page_limit Maximum number of events to return. Defaults to `25`. Values above `50` return `50` events. Non-positive or empty values use the default. A non-integer value returns a `400 Bad Request` error.
+    # @option opts [Integer] :page_offset Number of matching events to skip before returning results. Defaults to `0`. Negative or empty values are set to `0`. A non-integer value returns a `400 Bad Request` error.
+    # @return [Array<(ListFeatureFlagHistoryResponse, Integer, Hash)>] ListFeatureFlagHistoryResponse data, response status code and response headers
+    def list_feature_flag_history_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.list_feature_flag_history ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 50
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling FeatureFlagsAPI.list_feature_flag_history, must be smaller than or equal to 50.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling FeatureFlagsAPI.list_feature_flag_history, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling FeatureFlagsAPI.list_feature_flag_history, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/history'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_date'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'end_date'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'teams'] = @api_client.build_collection_param(opts[:'teams'], :multi) if !opts[:'teams'].nil?
+      query_params[:'tags'] = @api_client.build_collection_param(opts[:'tags'], :multi) if !opts[:'tags'].nil?
+      query_params[:'feature_flag_id'] = opts[:'feature_flag_id'] if !opts[:'feature_flag_id'].nil?
+      query_params[:'environment_id'] = opts[:'environment_id'] if !opts[:'environment_id'].nil?
+      query_params[:'include_suggestion_events'] = opts[:'include_suggestion_events'] if !opts[:'include_suggestion_events'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListFeatureFlagHistoryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_feature_flag_history,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#list_feature_flag_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
