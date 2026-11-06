@@ -7510,6 +7510,24 @@ ScenariosModelMappings = {
     "v2.GetGitHubCloudAuthPersonaMapping" => {
             "persona_mapping_id" => "String",
     },
+    "v2.CreateOIDCCloudAuthPersonaMapping" => {
+            "body" => "OIDCCloudAuthPersonaMappingCreateRequest",
+    },
+    "v2.DeleteOIDCCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "UUID",
+    },
+    "v2.GetOIDCCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "UUID",
+    },
+    "v2.CreateOIDCCloudAuthProvider" => {
+            "body" => "OIDCCloudAuthProviderCreateRequest",
+    },
+    "v2.DeleteOIDCCloudAuthProvider" => {
+            "provider_id" => "UUID",
+    },
+    "v2.GetOIDCCloudAuthProvider" => {
+            "provider_id" => "UUID",
+    },
     "v2.ListWorkflows" => {
             "limit" => "Integer",
             "page" => "Integer",
