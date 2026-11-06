@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The channel ID.
     attr_reader :channel
 
+    # Options that customize the content of the Slack message sent for a Page.
+    attr_accessor :customizable_content
+
     # Indicates that the action is a send Slack message action.
     attr_reader :type
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'channel' => :'channel',
+        :'customizable_content' => :'customizable_content',
         :'type' => :'type',
         :'workspace' => :'workspace'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'channel' => :'String',
+        :'customizable_content' => :'SendSlackMessageActionCustomizableContent',
         :'type' => :'SendSlackMessageActionType',
         :'workspace' => :'String'
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'channel')
         self.channel = attributes[:'channel']
+      end
+
+      if attributes.key?(:'customizable_content')
+        self.customizable_content = attributes[:'customizable_content']
       end
 
       if attributes.key?(:'type')
@@ -150,6 +159,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           channel == o.channel &&
+          customizable_content == o.customizable_content &&
           type == o.type &&
           workspace == o.workspace &&
           additional_properties == o.additional_properties
@@ -159,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [channel, type, workspace, additional_properties].hash
+      [channel, customizable_content, type, workspace, additional_properties].hash
     end
   end
 end
