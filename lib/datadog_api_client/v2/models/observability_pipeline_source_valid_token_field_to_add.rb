@@ -81,11 +81,11 @@ module DatadogAPIClient::V2
     def valid?
       return false if @key.nil?
       return false if @key.to_s.length > 256
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       return false if @key !~ pattern
       return false if @value.nil?
       return false if @value.to_s.length > 1024
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       return false if @value !~ pattern
       true
     end
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
       if key.to_s.length > 256
         fail ArgumentError, 'invalid value for "key", the character length must be smaller than or equal to 256.'
       end
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       if key !~ pattern
         fail ArgumentError, "invalid value for \"key\", must conform to the pattern #{pattern}."
       end
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
       if value.to_s.length > 1024
         fail ArgumentError, 'invalid value for "value", the character length must be smaller than or equal to 1024.'
       end
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       if value !~ pattern
         fail ArgumentError, "invalid value for \"value\", must conform to the pattern #{pattern}."
       end

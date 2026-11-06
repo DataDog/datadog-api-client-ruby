@@ -108,10 +108,10 @@ module DatadogAPIClient::V2
     def valid?
       return false if @measure_id.nil?
       return false if @measure_id.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @measure_id !~ pattern
       return false if @operation.nil?
-      pattern = Regexp.new(/^\s*$/)
+      pattern = Regexp.new('^\\s*$')
       return false if !@property_id.nil? && @property_id !~ pattern
       return false if @values.nil?
       return false if @values.length > 1
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
       if measure_id.to_s.length < 1
         fail ArgumentError, 'invalid value for "measure_id", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if measure_id !~ pattern
         fail ArgumentError, "invalid value for \"measure_id\", must conform to the pattern #{pattern}."
       end
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
     # @param property_id [Object] Object to be assigned
     # @!visibility private
     def property_id=(property_id)
-      pattern = Regexp.new(/^\s*$/)
+      pattern = Regexp.new('^\\s*$')
       if !property_id.nil? && property_id !~ pattern
         fail ArgumentError, "invalid value for \"property_id\", must conform to the pattern #{pattern}."
       end

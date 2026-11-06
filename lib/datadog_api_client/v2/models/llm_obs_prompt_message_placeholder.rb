@@ -77,7 +77,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @name.nil?
       return false if @name.to_s.length < 1
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       return false if @name !~ pattern
       return false if @type.nil?
       true
@@ -93,7 +93,7 @@ module DatadogAPIClient::V2
       if name.to_s.length < 1
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/^[A-Za-z0-9_]+$/)
+      pattern = Regexp.new('^[A-Za-z0-9_]+$')
       if name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

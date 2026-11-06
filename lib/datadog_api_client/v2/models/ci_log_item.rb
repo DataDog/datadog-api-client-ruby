@@ -155,7 +155,7 @@ module DatadogAPIClient::V2
       return false if @pipeline_unique_id.nil?
       return false if @pipeline_unique_id.to_s.length < 1
       return false if !@provider_name.nil? && @provider_name.to_s.length < 1
-      pattern = Regexp.new(/^[^,]+$/)
+      pattern = Regexp.new('^[^,]+$')
       return false if !@provider_name.nil? && @provider_name !~ pattern
       true
     end
@@ -219,7 +219,7 @@ module DatadogAPIClient::V2
       if !provider_name.nil? && provider_name.to_s.length < 1
         fail ArgumentError, 'invalid value for "provider_name", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/^[^,]+$/)
+      pattern = Regexp.new('^[^,]+$')
       if !provider_name.nil? && provider_name !~ pattern
         fail ArgumentError, "invalid value for \"provider_name\", must conform to the pattern #{pattern}."
       end

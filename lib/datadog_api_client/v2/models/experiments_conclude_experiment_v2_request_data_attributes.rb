@@ -71,7 +71,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @decision_variant_key.nil?
       return false if @decision_variant_key.to_s.length < 1
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       return false if @decision_variant_key !~ pattern
       true
     end
@@ -86,7 +86,7 @@ module DatadogAPIClient::V2
       if decision_variant_key.to_s.length < 1
         fail ArgumentError, 'invalid value for "decision_variant_key", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/.*\S.*/)
+      pattern = Regexp.new('.*\\S.*')
       if decision_variant_key !~ pattern
         fail ArgumentError, "invalid value for \"decision_variant_key\", must conform to the pattern #{pattern}."
       end

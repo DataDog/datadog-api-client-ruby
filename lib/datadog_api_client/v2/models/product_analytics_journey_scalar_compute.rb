@@ -93,7 +93,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @aggregation.nil?
-      pattern = Regexp.new(/^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$/)
+      pattern = Regexp.new('^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$')
       return false if @aggregation !~ pattern
       true
     end
@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
       if aggregation.nil?
         fail ArgumentError, 'invalid value for "aggregation", aggregation cannot be nil.'
       end
-      pattern = Regexp.new(/^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$/)
+      pattern = Regexp.new('^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$')
       if aggregation !~ pattern
         fail ArgumentError, "invalid value for \"aggregation\", must conform to the pattern #{pattern}."
       end
