@@ -6965,6 +6965,19 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchStatusPageRequest",
     },
+    "v2.ListEmailAccessPolicies" => {
+            "page_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.CreateEmailAccessPolicy" => {
+            "page_id" => "UUID",
+            "include" => "String",
+            "body" => "CreateStatusPageEmailAccessPolicyRequest",
+    },
+    "v2.DeleteEmailAccessPolicy" => {
+            "page_id" => "UUID",
+            "policy_id" => "UUID",
+    },
     "v2.ListComponents" => {
             "page_id" => "UUID",
             "include" => "String",

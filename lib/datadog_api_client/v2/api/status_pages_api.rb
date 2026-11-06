@@ -395,6 +395,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an email access policy.
+    #
+    # @see #create_email_access_policy_with_http_info
+    def create_email_access_policy(page_id, body, opts = {})
+      data, _status_code, _headers = create_email_access_policy_with_http_info(page_id, body, opts)
+      data
+    end
+
+    # Create an email access policy.
+    #
+    # Creates an email access policy for a private status page.
+    #
+    # @param page_id [UUID] The ID of the private status page.
+    # @param body [CreateStatusPageEmailAccessPolicyRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, status_page.
+    # @return [Array<(StatusPageEmailAccessPolicyResponse, Integer, Hash)>] StatusPageEmailAccessPolicyResponse data, response status code and response headers
+    def create_email_access_policy_with_http_info(page_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.create_email_access_policy ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.create_email_access_policy"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.create_email_access_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/access_policies/email'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StatusPageEmailAccessPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_email_access_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#create_email_access_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Schedule maintenance.
     #
     # @see #create_maintenance_with_http_info
@@ -820,6 +894,76 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#delete_degradation_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an email access policy.
+    #
+    # @see #delete_email_access_policy_with_http_info
+    def delete_email_access_policy(page_id, policy_id, opts = {})
+      delete_email_access_policy_with_http_info(page_id, policy_id, opts)
+      nil
+    end
+
+    # Delete an email access policy.
+    #
+    # Deletes an email access policy from a private status page.
+    #
+    # @param page_id [UUID] The ID of the private status page.
+    # @param policy_id [UUID] The ID of the email access policy.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_email_access_policy_with_http_info(page_id, policy_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.delete_email_access_policy ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.delete_email_access_policy"
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling StatusPagesAPI.delete_email_access_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/access_policies/email/{policy_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_email_access_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#delete_email_access_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1678,6 +1822,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List email access policies.
+    #
+    # @see #list_email_access_policies_with_http_info
+    def list_email_access_policies(page_id, opts = {})
+      data, _status_code, _headers = list_email_access_policies_with_http_info(page_id, opts)
+      data
+    end
+
+    # List email access policies.
+    #
+    # Lists the email access policies for a private status page.
+    #
+    # @param page_id [UUID] The ID of the private status page.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, status_page.
+    # @return [Array<(StatusPageEmailAccessPolicyArrayResponse, Integer, Hash)>] StatusPageEmailAccessPolicyArrayResponse data, response status code and response headers
+    def list_email_access_policies_with_http_info(page_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.list_email_access_policies ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.list_email_access_policies"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/access_policies/email'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StatusPageEmailAccessPolicyArrayResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_email_access_policies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#list_email_access_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List maintenances.
     #
     # @see #list_maintenances_with_http_info
@@ -1979,7 +2190,7 @@ module DatadogAPIClient::V2
 
     # Publish status page.
     #
-    # Publishes a status page. For pages of type `public`, makes the status page available on the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, makes the status page available under the `status-pages/$domain_prefix/view` route within the Datadog organization and requires the `status_pages_internal_page_publish` permission.
+    # Publishes a status page. For pages of type `public`, makes the status page available on the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, makes the status page available under the `status-pages/$domain_prefix/view` route within the Datadog organization and requires the `status_pages_internal_page_publish` permission. For pages of type `private`, makes the status page available to users authorized by its email access policies and requires the `status_pages_private_page_publish` permission. A private status page must have at least one email access policy before it can be published.
     #
     # @param page_id [UUID] The ID of the status page.
     # @param opts [Hash] the optional parameters
@@ -2119,7 +2330,7 @@ module DatadogAPIClient::V2
 
     # Unpublish status page.
     #
-    # Unpublishes a status page. For pages of type `public`, removes the status page from the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, removes the `status-pages/$domain_prefix/view` route from the Datadog organization and requires the `status_pages_internal_page_publish` permission.
+    # Unpublishes a status page. For pages of type `public`, removes the status page from the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, removes the `status-pages/$domain_prefix/view` route from the Datadog organization and requires the `status_pages_internal_page_publish` permission. For pages of type `private`, removes access to the private status page and requires the `status_pages_private_page_publish` permission.
     #
     # @param page_id [UUID] The ID of the status page.
     # @param opts [Hash] the optional parameters
