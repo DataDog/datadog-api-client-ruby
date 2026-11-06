@@ -22,7 +22,8 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The ordered list of steps composing the RUM journey.
-    attr_reader :rum_steps
+    # `null` in responses for operations that have no journey defined.
+    attr_accessor :rum_steps
 
     attr_accessor :additional_properties
 
@@ -40,6 +41,14 @@ module DatadogAPIClient::V2
       {
         :'rum_steps' => :'Array<RUMOperationJourneyStep>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'rum_steps',
+      ])
     end
 
     # Initializes the object
@@ -65,24 +74,6 @@ module DatadogAPIClient::V2
           self.rum_steps = value
         end
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @rum_steps.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param rum_steps [Object] Object to be assigned
-    # @!visibility private
-    def rum_steps=(rum_steps)
-      if rum_steps.nil?
-        fail ArgumentError, 'invalid value for "rum_steps", rum_steps cannot be nil.'
-      end
-      @rum_steps = rum_steps
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

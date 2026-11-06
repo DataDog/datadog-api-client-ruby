@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class RumCrossProductSampling
     include BaseGenericModel
 
+    # Whether the cross-product retention filter for Session Replay is enabled.
+    attr_accessor :session_replay_enabled
+
+    # The sample rate for the Session Replay cross-product retention filter, between 0 and 100.
+    attr_reader :session_replay_sample_rate
+
     # Whether the cross-product retention filter for APM traces is enabled.
     attr_accessor :trace_enabled
 
@@ -33,6 +39,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'session_replay_enabled' => :'session_replay_enabled',
+        :'session_replay_sample_rate' => :'session_replay_sample_rate',
         :'trace_enabled' => :'trace_enabled',
         :'trace_sample_rate' => :'trace_sample_rate'
       }
@@ -42,6 +50,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'session_replay_enabled' => :'Boolean',
+        :'session_replay_sample_rate' => :'Float',
         :'trace_enabled' => :'Boolean',
         :'trace_sample_rate' => :'Float'
       }
@@ -65,6 +75,14 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'session_replay_enabled')
+        self.session_replay_enabled = attributes[:'session_replay_enabled']
+      end
+
+      if attributes.key?(:'session_replay_sample_rate')
+        self.session_replay_sample_rate = attributes[:'session_replay_sample_rate']
+      end
+
       if attributes.key?(:'trace_enabled')
         self.trace_enabled = attributes[:'trace_enabled']
       end
@@ -78,9 +96,24 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@session_replay_sample_rate.nil? && @session_replay_sample_rate > 100
+      return false if !@session_replay_sample_rate.nil? && @session_replay_sample_rate < 0
       return false if !@trace_sample_rate.nil? && @trace_sample_rate > 100
       return false if !@trace_sample_rate.nil? && @trace_sample_rate < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param session_replay_sample_rate [Object] Object to be assigned
+    # @!visibility private
+    def session_replay_sample_rate=(session_replay_sample_rate)
+      if !session_replay_sample_rate.nil? && session_replay_sample_rate > 100
+        fail ArgumentError, 'invalid value for "session_replay_sample_rate", must be smaller than or equal to 100.'
+      end
+      if !session_replay_sample_rate.nil? && session_replay_sample_rate < 0
+        fail ArgumentError, 'invalid value for "session_replay_sample_rate", must be greater than or equal to 0.'
+      end
+      @session_replay_sample_rate = session_replay_sample_rate
     end
 
     # Custom attribute writer method with validation
@@ -122,6 +155,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          session_replay_enabled == o.session_replay_enabled &&
+          session_replay_sample_rate == o.session_replay_sample_rate &&
           trace_enabled == o.trace_enabled &&
           trace_sample_rate == o.trace_sample_rate &&
           additional_properties == o.additional_properties
@@ -131,7 +166,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [trace_enabled, trace_sample_rate, additional_properties].hash
+      [session_replay_enabled, session_replay_sample_rate, trace_enabled, trace_sample_rate, additional_properties].hash
     end
   end
 end

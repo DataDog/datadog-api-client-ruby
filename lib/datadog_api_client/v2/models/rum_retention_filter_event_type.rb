@@ -28,5 +28,7 @@ module DatadogAPIClient::V2
     RESOURCE = "resource".freeze
     LONG_TASK = "long_task".freeze
     VITAL = "vital".freeze
+    OPERATION = "operation".freeze
+    EXECUTION_CONTEXT = "execution_context".freeze
   end
 end

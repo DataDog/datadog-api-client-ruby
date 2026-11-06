@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A Datadog user referenced by a RUM operation.
+  # A Datadog user referenced by a RUM operation. `null` when the user could not be resolved.
   class RUMOperationUser
     include BaseGenericModel
 

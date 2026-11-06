@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # The sample rate for a RUM retention filter, between 0.1 and 100. Values are truncated to one decimal place.
     attr_reader :sample_rate
 
+    # The product track a RUM retention filter applies to.
+    attr_accessor :track
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,7 +53,8 @@ module DatadogAPIClient::V2
         :'event_type' => :'event_type',
         :'name' => :'name',
         :'query' => :'query',
-        :'sample_rate' => :'sample_rate'
+        :'sample_rate' => :'sample_rate',
+        :'track' => :'track'
       }
     end
 
@@ -63,7 +67,8 @@ module DatadogAPIClient::V2
         :'event_type' => :'RumRetentionFilterEventType',
         :'name' => :'String',
         :'query' => :'String',
-        :'sample_rate' => :'Float'
+        :'sample_rate' => :'Float',
+        :'track' => :'RumRetentionFilterTrack'
       }
     end
 
@@ -107,6 +112,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'sample_rate')
         self.sample_rate = attributes[:'sample_rate']
+      end
+
+      if attributes.key?(:'track')
+        self.track = attributes[:'track']
       end
     end
 
@@ -164,6 +173,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           query == o.query &&
           sample_rate == o.sample_rate &&
+          track == o.track &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cross_product_sampling, enabled, event_type, name, query, sample_rate, additional_properties].hash
+      [cross_product_sampling, enabled, event_type, name, query, sample_rate, track, additional_properties].hash
     end
   end
 end
