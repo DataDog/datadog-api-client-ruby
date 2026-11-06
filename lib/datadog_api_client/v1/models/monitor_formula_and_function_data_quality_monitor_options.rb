@@ -21,6 +21,10 @@ module DatadogAPIClient::V1
   class MonitorFormulaAndFunctionDataQualityMonitorOptions
     include BaseGenericModel
 
+    # Number of consecutive runs that must breach before the monitor alerts.
+    # Only supported by `data-jobs alert` job duration monitors. Defaults to `1`.
+    attr_reader :consecutive_runs
+
     # Crontab expression to override the default schedule.
     attr_accessor :crontab_override
 
@@ -29,6 +33,10 @@ module DatadogAPIClient::V1
 
     # Custom WHERE clause for the query.
     attr_accessor :custom_where
+
+    # How a `data-jobs alert` job duration monitor detects a breach. Must match the
+    # `.detection()` call in the monitor query. Required for job duration monitors.
+    attr_accessor :detection_type
 
     # Columns to group results by.
     attr_accessor :group_by_columns
@@ -54,9 +62,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'consecutive_runs' => :'consecutive_runs',
         :'crontab_override' => :'crontab_override',
         :'custom_sql' => :'custom_sql',
         :'custom_where' => :'custom_where',
+        :'detection_type' => :'detection_type',
         :'group_by_columns' => :'group_by_columns',
         :'model_configuration' => :'model_configuration',
         :'model_type_override' => :'model_type_override',
@@ -69,9 +79,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'consecutive_runs' => :'Integer',
         :'crontab_override' => :'String',
         :'custom_sql' => :'String',
         :'custom_where' => :'String',
+        :'detection_type' => :'MonitorFormulaAndFunctionDataQualityDetectionType',
         :'group_by_columns' => :'Array<String>',
         :'model_configuration' => :'MonitorFormulaAndFunctionDataQualityModelConfiguration',
         :'model_type_override' => :'MonitorFormulaAndFunctionDataQualityModelTypeOverride',
@@ -98,6 +110,10 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'consecutive_runs')
+        self.consecutive_runs = attributes[:'consecutive_runs']
+      end
+
       if attributes.key?(:'crontab_override')
         self.crontab_override = attributes[:'crontab_override']
       end
@@ -108,6 +124,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'custom_where')
         self.custom_where = attributes[:'custom_where']
+      end
+
+      if attributes.key?(:'detection_type')
+        self.detection_type = attributes[:'detection_type']
       end
 
       if attributes.key?(:'group_by_columns')
@@ -131,6 +151,24 @@ module DatadogAPIClient::V1
       if attributes.key?(:'source_to_target_config')
         self.source_to_target_config = attributes[:'source_to_target_config']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@consecutive_runs.nil? && @consecutive_runs < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param consecutive_runs [Object] Object to be assigned
+    # @!visibility private
+    def consecutive_runs=(consecutive_runs)
+      if !consecutive_runs.nil? && consecutive_runs < 1
+        fail ArgumentError, 'invalid value for "consecutive_runs", must be greater than or equal to 1.'
+      end
+      @consecutive_runs = consecutive_runs
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -159,9 +197,11 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          consecutive_runs == o.consecutive_runs &&
           crontab_override == o.crontab_override &&
           custom_sql == o.custom_sql &&
           custom_where == o.custom_where &&
+          detection_type == o.detection_type &&
           group_by_columns == o.group_by_columns &&
           model_configuration == o.model_configuration &&
           model_type_override == o.model_type_override &&
@@ -174,7 +214,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [crontab_override, custom_sql, custom_where, group_by_columns, model_configuration, model_type_override, sensitivity, source_to_target_config, additional_properties].hash
+      [consecutive_runs, crontab_override, custom_sql, custom_where, detection_type, group_by_columns, model_configuration, model_type_override, sensitivity, source_to_target_config, additional_properties].hash
     end
   end
 end
