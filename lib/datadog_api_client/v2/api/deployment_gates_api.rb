@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Endpoint to create a deployment gate.
     #
-    # @param body [CreateDeploymentGateParams] 
+    # @param body [CreateDeploymentGateParams]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGateResponse, Integer, Hash)>] DeploymentGateResponse data, response status code and response headers
     def create_deployment_gate_with_http_info(body, opts = {})
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # Endpoint to create a deployment rule. A gate for the rule must already exist.
     #
     # @param gate_id [String] The ID of the deployment gate.
-    # @param body [CreateDeploymentRuleParams] 
+    # @param body [CreateDeploymentRuleParams]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentRuleResponse, Integer, Hash)>] DeploymentRuleResponse data, response status code and response headers
     def create_deployment_rule_with_http_info(gate_id, body, opts = {})
@@ -704,7 +704,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -721,17 +721,17 @@ module DatadogAPIClient::V2
     #
     # @yield [DeploymentGateEvaluationData] Paginated items
     def list_deployment_gate_evaluations_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 20)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        while true do
-            response = list_deployment_gate_evaluations(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 20)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      while true do
+        response = list_deployment_gate_evaluations(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+      end
     end
 
     # Get all deployment gates.
@@ -922,7 +922,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -939,17 +939,17 @@ module DatadogAPIClient::V2
     #
     # @yield [DeploymentGateRuleEvaluationData] Paginated items
     def list_deployment_rule_evaluations_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 50)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        while true do
-            response = list_deployment_rule_evaluations(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length == 0
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "page_size", 50)
+      @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+      while true do
+        response = list_deployment_rule_evaluations(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length == 0
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.next_cursor"))
+      end
     end
 
     # Trigger a deployment gate evaluation.
@@ -970,7 +970,7 @@ module DatadogAPIClient::V2
     # and no pre-configured gate is required. When `configuration` is omitted, rules are resolved from the
     # gate pre-configured for the given service and environment through the Datadog UI, API, or Terraform.
     #
-    # @param body [DeploymentGatesEvaluationRequest] 
+    # @param body [DeploymentGatesEvaluationRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGatesEvaluationResponse, Integer, Hash)>] DeploymentGatesEvaluationResponse data, response status code and response headers
     def trigger_deployment_gates_evaluation_with_http_info(body, opts = {})
@@ -1044,7 +1044,7 @@ module DatadogAPIClient::V2
     # Endpoint to update a deployment gate.
     #
     # @param id [String] The ID of the deployment gate.
-    # @param body [UpdateDeploymentGateParams] 
+    # @param body [UpdateDeploymentGateParams]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGateResponse, Integer, Hash)>] DeploymentGateResponse data, response status code and response headers
     def update_deployment_gate_with_http_info(id, body, opts = {})
@@ -1123,7 +1123,7 @@ module DatadogAPIClient::V2
     #
     # @param gate_id [String] The ID of the deployment gate.
     # @param id [String] The ID of the deployment rule.
-    # @param body [UpdateDeploymentRuleParams] 
+    # @param body [UpdateDeploymentRuleParams]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentRuleResponse, Integer, Hash)>] DeploymentRuleResponse data, response status code and response headers
     def update_deployment_rule_with_http_info(gate_id, id, body, opts = {})
