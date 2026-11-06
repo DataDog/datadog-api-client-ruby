@@ -15,6 +15,15 @@ body = DatadogAPIClient::V2::AiGatewayRateLimitCreateRequest.new({
       name: "Default rate limit",
       output_tokens_per_minute: nil,
       requests_per_minute: 600,
+      selector: [
+        DatadogAPIClient::V2::AiGatewayRateLimitSelectorEntry.new({
+          dim: "user_id",
+          per_value: true,
+          values: [
+            "11111111-1111-1111-1111-111111111111",
+          ],
+        }),
+      ],
       team_id: "00000000-0000-4000-8000-000000000002",
       user_id: "00000000-0000-4000-8000-000000000001",
     }),

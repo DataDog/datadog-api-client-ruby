@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Whether this rate limit is active.
     attr_reader :enabled
 
-    # Maximum input tokens per rolling minute shared by all matching traffic. Null when this rule does not limit input tokens.
+    # Maximum input tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit input tokens.
     attr_reader :input_tokens_per_minute
 
     # Action taken when request rate exceeds the limit.
@@ -42,10 +42,10 @@ module DatadogAPIClient::V2
     # Rate limit name.
     attr_reader :name
 
-    # Maximum output tokens per rolling minute shared by all matching traffic. Null when this rule does not limit output tokens.
+    # Maximum output tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit output tokens.
     attr_reader :output_tokens_per_minute
 
-    # Maximum requests per rolling minute shared by all matching traffic. Null when this rule does not limit requests.
+    # Maximum requests per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit requests.
     attr_reader :requests_per_minute
 
     # Increases on every change to the definition.
@@ -53,6 +53,9 @@ module DatadogAPIClient::V2
 
     # Whether provider or model scope metadata was withheld. Omit unchanged scope fields on an unrelated update to preserve their saved values.
     attr_reader :scope_restricted
+
+    # Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
+    attr_accessor :selector
 
     # Optional scope tags, such as provider, model, ml_app, or custom dimensions. A request matches when it has all of these tags.
     attr_reader :tags
@@ -86,6 +89,7 @@ module DatadogAPIClient::V2
         :'requests_per_minute' => :'requests_per_minute',
         :'revision' => :'revision',
         :'scope_restricted' => :'scope_restricted',
+        :'selector' => :'selector',
         :'tags' => :'tags',
         :'team_id' => :'team_id',
         :'updated_at' => :'updated_at',
@@ -109,6 +113,7 @@ module DatadogAPIClient::V2
         :'requests_per_minute' => :'Integer',
         :'revision' => :'Integer',
         :'scope_restricted' => :'Boolean',
+        :'selector' => :'Array<AiGatewayRateLimitSelectorEntry>',
         :'tags' => :'Hash<String, String>',
         :'team_id' => :'UUID',
         :'updated_at' => :'Time',
@@ -125,6 +130,7 @@ module DatadogAPIClient::V2
         :'monitor_id',
         :'output_tokens_per_minute',
         :'requests_per_minute',
+        :'selector',
         :'team_id',
         :'user_id',
       ])
@@ -190,6 +196,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'scope_restricted')
         self.scope_restricted = attributes[:'scope_restricted']
+      end
+
+      if attributes.key?(:'selector')
+        if (value = attributes[:'selector']).is_a?(Array)
+          self.selector = value
+        end
       end
 
       if attributes.key?(:'tags')
@@ -412,6 +424,7 @@ module DatadogAPIClient::V2
           requests_per_minute == o.requests_per_minute &&
           revision == o.revision &&
           scope_restricted == o.scope_restricted &&
+          selector == o.selector &&
           tags == o.tags &&
           team_id == o.team_id &&
           updated_at == o.updated_at &&
@@ -424,7 +437,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, enabled, input_tokens_per_minute, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, tags, team_id, updated_at, updated_by, user_id, additional_properties].hash
+      [created_at, created_by, enabled, input_tokens_per_minute, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, selector, tags, team_id, updated_at, updated_by, user_id, additional_properties].hash
     end
   end
 end
