@@ -3429,15 +3429,23 @@ ScenariosModelMappings = {
             "body" => "UsageQuotasCreateRequest",
     },
     "v2.DeleteQuota" => {
+            "include_descendants" => "Boolean",
+            "quota_namespace" => "String",
+            "id" => "String",
+    },
+    "v2.GetQuota" => {
+            "include_descendants" => "Boolean",
             "quota_namespace" => "String",
             "id" => "String",
     },
     "v2.UpdateQuota" => {
+            "include_descendants" => "Boolean",
             "quota_namespace" => "String",
             "id" => "String",
             "body" => "UsageQuotaUpdateRequest",
     },
     "v2.DeletePendingQuota" => {
+            "include_descendants" => "Boolean",
             "quota_namespace" => "String",
             "id" => "String",
     },
