@@ -31,7 +31,8 @@ module DatadogAPIClient::V1
           :'MonitorFormulaAndFunctionDataQualityQueryDefinition',
           :'MonitorFormulaAndFunctionDataJobsQueryDefinition',
           :'MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition',
-          :'MonitorFormulaAndFunctionAggregateFilteredQueryDefinition'
+          :'MonitorFormulaAndFunctionAggregateFilteredQueryDefinition',
+          :'MonitorFormulaAndFunctionMetricQueryDefinition'
         ]
       end
       # Builds the object

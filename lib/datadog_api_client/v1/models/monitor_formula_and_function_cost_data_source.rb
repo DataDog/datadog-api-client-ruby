@@ -21,7 +21,6 @@ module DatadogAPIClient::V1
   class MonitorFormulaAndFunctionCostDataSource
     include BaseEnumModel
 
-    METRICS = "metrics".freeze
     CLOUD_COST = "cloud_cost".freeze
     DATADOG_USAGE = "datadog_usage".freeze
   end

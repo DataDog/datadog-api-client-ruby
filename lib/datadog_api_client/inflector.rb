@@ -478,6 +478,8 @@ module DatadogAPIClient
           "v1.monitor_formula_and_function_event_query_group_by" => "MonitorFormulaAndFunctionEventQueryGroupBy",
           "v1.monitor_formula_and_function_event_query_group_by_sort" => "MonitorFormulaAndFunctionEventQueryGroupBySort",
           "v1.monitor_formula_and_function_events_data_source" => "MonitorFormulaAndFunctionEventsDataSource",
+          "v1.monitor_formula_and_function_metric_query_data_source" => "MonitorFormulaAndFunctionMetricQueryDataSource",
+          "v1.monitor_formula_and_function_metric_query_definition" => "MonitorFormulaAndFunctionMetricQueryDefinition",
           "v1.monitor_formula_and_function_metrics_aggregator" => "MonitorFormulaAndFunctionMetricsAggregator",
           "v1.monitor_formula_and_function_metrics_data_source" => "MonitorFormulaAndFunctionMetricsDataSource",
           "v1.monitor_formula_and_function_metrics_query_definition" => "MonitorFormulaAndFunctionMetricsQueryDefinition",
