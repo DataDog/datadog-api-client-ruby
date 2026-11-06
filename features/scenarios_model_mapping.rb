@@ -6379,6 +6379,20 @@ ScenariosModelMappings = {
     "v2.CreateRumConfig" => {
             "body" => "RumConfigCreateRequest",
     },
+    "v2.ListRUMArchiveConfigs" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.DeleteRUMArchiveConfig" => {
+            "app_id" => "UUID",
+    },
+    "v2.GetRUMArchiveConfig" => {
+            "app_id" => "UUID",
+    },
+    "v2.UpdateRUMArchiveConfig" => {
+            "app_id" => "UUID",
+            "body" => "RumArchiveConfigUpsertRequest",
+    },
     "v2.CreateRumMetric" => {
             "body" => "RumMetricCreateRequest",
     },
@@ -6477,6 +6491,30 @@ ScenariosModelMappings = {
     },
     "v2.QueryAggregatedWaterfall" => {
             "body" => "AggregatedWaterfallRequest",
+    },
+    "v2.GetRUMRecoverySessionCount" => {
+            "body" => "RumRecoveryCountRequest",
+    },
+    "v2.ListRUMRecoveryBatchRequests" => {
+            "type" => "RumRecoveryBatchRequestType",
+            "limit" => "Integer",
+            "cursor" => "String",
+            "from" => "Integer",
+            "to" => "Integer",
+            "query" => "String",
+    },
+    "v2.CreateRUMRecoveryRequest" => {
+            "body" => "RumRecoveryCreateRequest",
+    },
+    "v2.GetRUMRecoveryRequest" => {
+            "request_id" => "UUID",
+    },
+    "v2.UpdateRUMRecoveryBatchRequest" => {
+            "request_id" => "UUID",
+            "body" => "RumRecoveryCancelRequest",
+    },
+    "v2.SearchRUMArchiveSessions" => {
+            "body" => "RumArchiveSessionsSearchRequest",
     },
     "v2.ListRumReplayPlaylists" => {
             "filter_created_by_uuid" => "String",
