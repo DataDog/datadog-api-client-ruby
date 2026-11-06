@@ -24,8 +24,16 @@ module DatadogAPIClient::V2
     # Estimated average hourly number of indexed time series for the given metric over the last hour. For organizations on Metric Name Pricing, this represents the estimated sum of indexed data points over the last hour.
     attr_accessor :indexed_volume
 
+    # Change in `indexed_volume` compared with the previous hour: the last hour's value minus the value for
+    # the hour before. Negative when volume decreased.
+    attr_accessor :indexed_volume_delta
+
     # Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour.
     attr_accessor :ingested_volume
+
+    # Change in `ingested_volume` compared with the previous hour: the last hour's value minus the value for
+    # the hour before. Negative when volume decreased.
+    attr_accessor :ingested_volume_delta
 
     attr_accessor :additional_properties
 
@@ -34,7 +42,9 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'indexed_volume' => :'indexed_volume',
-        :'ingested_volume' => :'ingested_volume'
+        :'indexed_volume_delta' => :'indexed_volume_delta',
+        :'ingested_volume' => :'ingested_volume',
+        :'ingested_volume_delta' => :'ingested_volume_delta'
       }
     end
 
@@ -43,7 +53,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'indexed_volume' => :'Integer',
-        :'ingested_volume' => :'Integer'
+        :'indexed_volume_delta' => :'Integer',
+        :'ingested_volume' => :'Integer',
+        :'ingested_volume_delta' => :'Integer'
       }
     end
 
@@ -69,8 +81,16 @@ module DatadogAPIClient::V2
         self.indexed_volume = attributes[:'indexed_volume']
       end
 
+      if attributes.key?(:'indexed_volume_delta')
+        self.indexed_volume_delta = attributes[:'indexed_volume_delta']
+      end
+
       if attributes.key?(:'ingested_volume')
         self.ingested_volume = attributes[:'ingested_volume']
+      end
+
+      if attributes.key?(:'ingested_volume_delta')
+        self.ingested_volume_delta = attributes[:'ingested_volume_delta']
       end
     end
 
@@ -101,7 +121,9 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           indexed_volume == o.indexed_volume &&
+          indexed_volume_delta == o.indexed_volume_delta &&
           ingested_volume == o.ingested_volume &&
+          ingested_volume_delta == o.ingested_volume_delta &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [indexed_volume, ingested_volume, additional_properties].hash
+      [indexed_volume, indexed_volume_delta, ingested_volume, ingested_volume_delta, additional_properties].hash
     end
   end
 end
