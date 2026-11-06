@@ -24,8 +24,11 @@ module DatadogAPIClient::V2
     # The maximum number of times to execute a workflow for an incident.
     attr_accessor :execution_limit
 
-    # The type of incident that triggers the workflow.
+    # The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
     attr_accessor :incident_type
+
+    # The types of incidents that trigger the workflow.
+    attr_accessor :incident_types
 
     # Whether to execute the workflow serially for an incident.
     attr_accessor :serial_execution
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
       {
         :'execution_limit' => :'executionLimit',
         :'incident_type' => :'incidentType',
+        :'incident_types' => :'incidentTypes',
         :'serial_execution' => :'serialExecution',
         :'tag_condition' => :'tagCondition'
       }
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'execution_limit' => :'ExecutionLimit',
         :'incident_type' => :'String',
+        :'incident_types' => :'Array<String>',
         :'serial_execution' => :'SerialExecution',
         :'tag_condition' => :'IncidentCondition'
       }
@@ -81,6 +86,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'incident_type')
         self.incident_type = attributes[:'incident_type']
+      end
+
+      if attributes.key?(:'incident_types')
+        if (value = attributes[:'incident_types']).is_a?(Array)
+          self.incident_types = value
+        end
       end
 
       if attributes.key?(:'serial_execution')
@@ -120,6 +131,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           execution_limit == o.execution_limit &&
           incident_type == o.incident_type &&
+          incident_types == o.incident_types &&
           serial_execution == o.serial_execution &&
           tag_condition == o.tag_condition &&
           additional_properties == o.additional_properties
@@ -129,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [execution_limit, incident_type, serial_execution, tag_condition, additional_properties].hash
+      [execution_limit, incident_type, incident_types, serial_execution, tag_condition, additional_properties].hash
     end
   end
 end

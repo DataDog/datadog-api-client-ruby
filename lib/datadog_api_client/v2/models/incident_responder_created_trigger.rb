@@ -24,8 +24,11 @@ module DatadogAPIClient::V2
     # The maximum number of times to execute a workflow for an incident.
     attr_accessor :execution_limit
 
-    # The type of incident that triggers the workflow.
+    # The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
     attr_accessor :incident_type
+
+    # The types of incidents that trigger the workflow.
+    attr_accessor :incident_types
 
     # Conditions that determine which incidents trigger the workflow.
     attr_accessor :tag_condition
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'execution_limit' => :'executionLimit',
         :'incident_type' => :'incidentType',
+        :'incident_types' => :'incidentTypes',
         :'tag_condition' => :'tagCondition'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'execution_limit' => :'ExecutionLimit',
         :'incident_type' => :'String',
+        :'incident_types' => :'Array<String>',
         :'tag_condition' => :'IncidentCondition'
       }
     end
@@ -76,6 +81,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'incident_type')
         self.incident_type = attributes[:'incident_type']
+      end
+
+      if attributes.key?(:'incident_types')
+        if (value = attributes[:'incident_types']).is_a?(Array)
+          self.incident_types = value
+        end
       end
 
       if attributes.key?(:'tag_condition')
@@ -111,6 +122,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           execution_limit == o.execution_limit &&
           incident_type == o.incident_type &&
+          incident_types == o.incident_types &&
           tag_condition == o.tag_condition &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [execution_limit, incident_type, tag_condition, additional_properties].hash
+      [execution_limit, incident_type, incident_types, tag_condition, additional_properties].hash
     end
   end
 end
