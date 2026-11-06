@@ -39,6 +39,7 @@ module DatadogAPIClient::V2
           :'FreshserviceIntegration',
           :'GCPIntegration',
           :'GeminiIntegration',
+          :'GithubIntegration',
           :'GitlabIntegration',
           :'GreyNoiseIntegration',
           :'HTTPIntegration',
