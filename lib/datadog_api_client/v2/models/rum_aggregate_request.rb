@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The object sent with the request to retrieve aggregation buckets of RUM events from your organization.
+  # `filter.indexes` is not supported and ignored.
   class RUMAggregateRequest
     include BaseGenericModel
 
