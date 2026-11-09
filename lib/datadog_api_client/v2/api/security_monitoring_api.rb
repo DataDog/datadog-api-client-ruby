@@ -12849,12 +12849,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AssigneeResponse, Integer, Hash)>] AssigneeResponse data, response status code and response headers
     def update_findings_assignee_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_findings_assignee".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_findings_assignee")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_findings_assignee"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_findings_assignee ...'
@@ -12936,12 +12930,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SeverityOverrideResponse, Integer, Hash)>] SeverityOverrideResponse data, response status code and response headers
     def update_findings_severity_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_findings_severity".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_findings_severity")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_findings_severity"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_findings_severity ...'
