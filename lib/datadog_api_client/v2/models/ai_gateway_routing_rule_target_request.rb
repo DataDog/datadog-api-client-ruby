@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleTargetRequest
     include BaseGenericModel
 
+    # Marks the default destination of a classified tier. A classified tier has exactly one default, and the default has no rubric. It receives requests that no rubric fits, requests the decision model cannot place, and picks below the confidence threshold. Must be omitted, null, or false in other tiers.
+    attr_accessor :default
+
     # Saved target row ID. On replacement, retain this ID only within its original route and at most once. A stale or foreign ID is rejected.
     attr_reader :id
 
@@ -30,11 +33,14 @@ module DatadogAPIClient::V2
     # Opaque model catalog ID for a concrete model target. New selections require provider View; saved selections can be retained without metadata.
     attr_reader :model_id
 
-    # Provider slug. weighted_affinity requires an explicit provider and does not allow "*".
+    # Provider slug. weighted_affinity and classified tiers require an explicit provider and do not allow "*".
     attr_accessor :provider
 
     # Optional reasoning effort preference for this model destination. Must be supported by the selected model and provider. For provider "*", every eligible provider must support the level. An explicit value overrides the request's reasoning setting, subject to model-group policy. Omitted or null preserves request and provider behavior; none is an explicit level, not the default. Omitted or null clears an override on full replacement. Routing-rule references cannot set this field; each referenced model destination owns its override. If an override cannot be applied at runtime, the gateway keeps the destination and restores the caller's original reasoning settings, or preserves the provider default when omitted. It rechecks all applicable route and model-group policies against those settings before sending. Model-group max_reasoning_level enforces hard limits; the override is not an additional cap. Normal fallback applies if governance denies the resulting request or the destination cannot otherwise serve it. Metrics and span tags record the override outcome and incompatibility reason. When response headers have not already been committed, `X-Ai-Gateway-Reasoning-Override` reports applied or not_applied for the returned attempt, and `X-Ai-Gateway-Reasoning-Override-Reason` reports the reason when not applied.
     attr_accessor :reasoning_level
+
+    # Describes when the decision model picks this destination, in up to 300 characters. Required on every destination of a classified tier except the default, and different for each destination in the tier. Leading and trailing spaces are trimmed. Must be omitted or null on the default destination and in other tiers.
+    attr_reader :rubric
 
     # Organization-unique routing rule slug. Allowed only in configured tiers.
     attr_accessor :slug
@@ -42,7 +48,7 @@ module DatadogAPIClient::V2
     # Type of routing target.
     attr_reader :type
 
-    # Relative weight in a weighted_affinity tier. Omitted or null defaults to 1. Weights need not total 100. Must be omitted or null in configured tiers.
+    # Relative weight in a weighted_affinity tier. Omitted or null defaults to 1. Weights need not total 100. Must be omitted or null in configured and classified tiers.
     attr_reader :weight
 
     attr_accessor :additional_properties
@@ -51,11 +57,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'default' => :'default',
         :'id' => :'id',
         :'model' => :'model',
         :'model_id' => :'model_id',
         :'provider' => :'provider',
         :'reasoning_level' => :'reasoning_level',
+        :'rubric' => :'rubric',
         :'slug' => :'slug',
         :'type' => :'type',
         :'weight' => :'weight'
@@ -66,11 +74,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'default' => :'Boolean',
         :'id' => :'Integer',
         :'model' => :'String',
         :'model_id' => :'Integer',
         :'provider' => :'String',
         :'reasoning_level' => :'AiGatewayRoutingReasoningLevel',
+        :'rubric' => :'String',
         :'slug' => :'String',
         :'type' => :'AiGatewayRoutingRuleTargetType',
         :'weight' => :'Integer'
@@ -81,7 +91,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'default',
         :'reasoning_level',
+        :'rubric',
         :'weight',
       ])
     end
@@ -104,6 +116,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'default')
+        self.default = attributes[:'default']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -122,6 +138,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'reasoning_level')
         self.reasoning_level = attributes[:'reasoning_level']
+      end
+
+      if attributes.key?(:'rubric')
+        self.rubric = attributes[:'rubric']
       end
 
       if attributes.key?(:'slug')
@@ -143,6 +163,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if !@id.nil? && @id < 1
       return false if !@model_id.nil? && @model_id < 1
+      return false if !@rubric.nil? && @rubric.to_s.length > 300
       return false if @type.nil?
       return false if !@weight.nil? && @weight > 10000
       return false if !@weight.nil? && @weight < 1
@@ -167,6 +188,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "model_id", must be greater than or equal to 1.'
       end
       @model_id = model_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param rubric [Object] Object to be assigned
+    # @!visibility private
+    def rubric=(rubric)
+      if !rubric.nil? && rubric.to_s.length > 300
+        fail ArgumentError, 'invalid value for "rubric", the character length must be smaller than or equal to 300.'
+      end
+      @rubric = rubric
     end
 
     # Custom attribute writer method with validation
@@ -218,11 +249,13 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          default == o.default &&
           id == o.id &&
           model == o.model &&
           model_id == o.model_id &&
           provider == o.provider &&
           reasoning_level == o.reasoning_level &&
+          rubric == o.rubric &&
           slug == o.slug &&
           type == o.type &&
           weight == o.weight &&
@@ -233,7 +266,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, model, model_id, provider, reasoning_level, slug, type, weight, additional_properties].hash
+      [default, id, model, model_id, provider, reasoning_level, rubric, slug, type, weight, additional_properties].hash
     end
   end
 end
