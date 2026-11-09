@@ -12,7 +12,7 @@ on:
         description: 'JSON array of Ruby versions to test against'
         required: false
         type: string
-        default: '["2.7", "3.2", "jruby-9.4.12.0"]'
+        default: '["2.7", "3.2", "jruby-9.4"]'
       platforms:
         description: 'JSON array of platforms to run tests on'
         required: false
@@ -51,7 +51,7 @@ jobs:
           repository: DataDog/datadog-api-client-ruby
           ref: ${{ inputs.target-branch || github.ref }}
       - name: Set up Ruby ${{ matrix.ruby-version }}
-        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+        uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
