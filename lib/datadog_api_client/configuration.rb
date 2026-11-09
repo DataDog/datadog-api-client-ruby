@@ -493,6 +493,7 @@ module DatadogAPIClient
             "v2.delete_requested_temporary_grant": false,
             "v2.delete_temporary_grant_request": false,
             "v2.get_my_temporary_grant_request": false,
+            "v2.get_quota": false,
             "v2.get_temporary_grant_request": false,
             "v2.list_my_temporary_grant_requests": false,
             "v2.list_quotas": false,
