@@ -112,7 +112,7 @@ jobs:
           sudo apt-get -y install zstd
           echo "ZSTANDARD_LIBRARY=$(find /usr/lib -iname libzstd.so.1)" >> $GITHUB_ENV
       - name: Set up Ruby 3.2
-        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+        uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
         with:
           ruby-version: "3.2"
           bundler-cache: true
