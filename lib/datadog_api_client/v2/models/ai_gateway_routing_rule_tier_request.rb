@@ -21,10 +21,15 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleTierRequest
     include BaseGenericModel
 
-    # How a tier orders its targets. Omitted or null defaults to configured, which preserves target order. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier.
+    # Decision model that picks the destination of a classified tier.
+    attr_accessor :classifier
+
+    # How a tier orders its targets. Omitted or null defaults to configured, which preserves target order. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier. The classified ordering lets a decision model pick one destination for each request by its rubric. It is allowed only on the first tier, and it needs a classifier and exactly one default destination.
+    #
+    # **Note**: Classified routing is in Preview and may not be available for all organizations. Saving a classified tier returns 403 Forbidden unless the feature is enabled for your organization.
     attr_accessor :ordering
 
-    #
+    # Targets of the tier. A classified tier accepts only model targets, each with an explicit provider ("*" is not allowed). Exactly one of its targets is the default, and the other 1 to 9 targets are destinations with a rubric.
     attr_reader :targets
 
     attr_accessor :additional_properties
@@ -33,6 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'classifier' => :'classifier',
         :'ordering' => :'ordering',
         :'targets' => :'targets'
       }
@@ -42,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'classifier' => :'AiGatewayRoutingRuleClassifierRequest',
         :'ordering' => :'AiGatewayNullableRoutingRuleTierOrdering',
         :'targets' => :'Array<AiGatewayRoutingRuleTargetRequest>'
       }
@@ -51,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'classifier',
         :'ordering',
       ])
     end
@@ -72,6 +80,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'classifier')
+        self.classifier = attributes[:'classifier']
+      end
 
       if attributes.key?(:'ordering')
         self.ordering = attributes[:'ordering']
@@ -132,6 +144,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          classifier == o.classifier &&
           ordering == o.ordering &&
           targets == o.targets &&
           additional_properties == o.additional_properties
@@ -141,7 +154,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ordering, targets, additional_properties].hash
+      [classifier, ordering, targets, additional_properties].hash
     end
   end
 end

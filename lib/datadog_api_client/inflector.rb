@@ -1559,6 +1559,8 @@ module DatadogAPIClient
           "v2.ai_gateway_restricted_details_meta" => "AiGatewayRestrictedDetailsMeta",
           "v2.ai_gateway_routing_reasoning_level" => "AiGatewayRoutingReasoningLevel",
           "v2.ai_gateway_routing_rule_attributes" => "AiGatewayRoutingRuleAttributes",
+          "v2.ai_gateway_routing_rule_classifier" => "AiGatewayRoutingRuleClassifier",
+          "v2.ai_gateway_routing_rule_classifier_request" => "AiGatewayRoutingRuleClassifierRequest",
           "v2.ai_gateway_routing_rule_create_attributes" => "AiGatewayRoutingRuleCreateAttributes",
           "v2.ai_gateway_routing_rule_create_data" => "AiGatewayRoutingRuleCreateData",
           "v2.ai_gateway_routing_rule_create_request" => "AiGatewayRoutingRuleCreateRequest",

@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleTier
     include BaseGenericModel
 
+    # Decision model of a classified tier.
+    attr_accessor :classifier
+
     # How a tier orders its targets.
     attr_reader :ordering
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'classifier' => :'classifier',
         :'ordering' => :'ordering',
         :'ordering_issue' => :'ordering_issue',
         :'targets' => :'targets'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'classifier' => :'AiGatewayRoutingRuleClassifier',
         :'ordering' => :'AiGatewayRoutingRuleTierOrdering',
         :'ordering_issue' => :'AiGatewayRoutingRuleTierOrderingIssue',
         :'targets' => :'Array<AiGatewayRoutingRuleTarget>'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'classifier')
+        self.classifier = attributes[:'classifier']
+      end
 
       if attributes.key?(:'ordering')
         self.ordering = attributes[:'ordering']
@@ -144,6 +153,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          classifier == o.classifier &&
           ordering == o.ordering &&
           ordering_issue == o.ordering_issue &&
           targets == o.targets &&
@@ -154,7 +164,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ordering, ordering_issue, targets, additional_properties].hash
+      [classifier, ordering, ordering_issue, targets, additional_properties].hash
     end
   end
 end
