@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # The attributes of a pruned trace returned by the Get pruned trace by ID endpoint.
     attr_reader :attributes
 
-    # The full 128-bit trace ID, encoded as a 32-character hexadecimal string.
+    # The trace ID as requested: a decimal ID is returned unchanged, and a hexadecimal ID is lowercased and
+    # left-padded with zeros to 32 characters.
     attr_reader :id
 
     # The type of the pruned trace resource. The value is always `pruned_trace`.

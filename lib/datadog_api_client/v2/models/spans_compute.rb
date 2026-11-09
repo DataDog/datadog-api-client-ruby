@@ -18,7 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A compute rule to compute metrics or timeseries.
-  # All computes in a request must have the same `type`, and `timeseries` computes must use the same `interval`.
+  # All computes in a request must have the same `type` (defaults to `total` when omitted),
+  # and `timeseries` computes must use the same `interval`.
   # To get both totals and timeseries, send separate requests.
   class SpansCompute
     include BaseGenericModel

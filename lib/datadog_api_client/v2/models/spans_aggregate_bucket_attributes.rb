@@ -24,10 +24,11 @@ module DatadogAPIClient::V2
     # The key, value pairs for each group by.
     attr_accessor :by
 
-    # The compute data.
+    # Map of compute ID (`c0`, `c1`, ... in request order) to the computed value, or to a list of
+    # `{time, value}` points for a `timeseries` compute.
     attr_accessor :compute
 
-    # A map of the metric name -> value for regular compute or list of values for a timeseries.
+    # Not returned by this endpoint. Read the values from `compute` instead.
     attr_accessor :computes
 
     attr_accessor :additional_properties

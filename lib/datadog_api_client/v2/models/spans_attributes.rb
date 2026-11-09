@@ -68,7 +68,8 @@ module DatadogAPIClient::V2
     # Array of tags associated with your span.
     attr_accessor :tags
 
-    # Id of the trace to which the span belongs.
+    # ID of the trace to which the span belongs: a 32-character hexadecimal string for 128-bit trace IDs,
+    # or a decimal string for 64-bit trace IDs. Pass it unchanged to Get a trace by ID.
     attr_accessor :trace_id
 
     # The type of the span.
