@@ -27,11 +27,11 @@ module DatadogAPIClient::V2
     # Metric name prefixes excluded from the rule's scope.
     attr_accessor :ignored_metric_name_matches
 
-    # Metric name prefixes (glob patterns) this rule applies to.
-    attr_accessor :metric_name_matches
+    # Metric name prefixes (glob patterns) this rule applies to. At most 50 patterns, each at most 200 characters.
+    attr_reader :metric_name_matches
 
-    # Human-readable name for the rule.
-    attr_accessor :name
+    # Human-readable name for the rule. At most 200 characters.
+    attr_reader :name
 
     # Versioned configuration options for a tag indexing rule.
     attr_accessor :options
@@ -123,6 +123,35 @@ module DatadogAPIClient::V2
           self.tags = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@metric_name_matches.nil? && @metric_name_matches.length > 50
+      return false if !@name.nil? && @name.to_s.length > 200
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param metric_name_matches [Object] Object to be assigned
+    # @!visibility private
+    def metric_name_matches=(metric_name_matches)
+      if !metric_name_matches.nil? && metric_name_matches.length > 50
+        fail ArgumentError, 'invalid value for "metric_name_matches", number of items must be less than or equal to 50.'
+      end
+      @metric_name_matches = metric_name_matches
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if !name.nil? && name.to_s.length > 200
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

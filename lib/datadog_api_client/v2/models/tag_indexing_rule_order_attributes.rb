@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class TagIndexingRuleOrderAttributes
     include BaseGenericModel
 
-    # Ordered list of tag indexing rule UUIDs. The server assigns rule_order 1, 2, … matching position in this list.
-    attr_accessor :rule_ids
+    # Ordered list of tag indexing rule UUIDs. The server assigns rule_order 1, 2, … matching position in this list. Must contain the UUID of every active rule in the org (at most 1,000); omitting any active rule returns a 400 error.
+    attr_reader :rule_ids
 
     attr_accessor :additional_properties
 
@@ -65,6 +65,24 @@ module DatadogAPIClient::V2
           self.rule_ids = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@rule_ids.nil? && @rule_ids.length > 1000
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param rule_ids [Object] Object to be assigned
+    # @!visibility private
+    def rule_ids=(rule_ids)
+      if !rule_ids.nil? && rule_ids.length > 1000
+        fail ArgumentError, 'invalid value for "rule_ids", number of items must be less than or equal to 1000.'
+      end
+      @rule_ids = rule_ids
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
