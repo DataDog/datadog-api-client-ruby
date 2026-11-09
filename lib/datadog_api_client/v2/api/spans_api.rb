@@ -209,7 +209,7 @@ module DatadogAPIClient::V2
     # [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter_query Search query following spans syntax.
+    # @option opts [String] :filter_query The search query, following the [span search syntax](https://docs.datadoghq.com/tracing/trace_explorer/query_syntax/). Reserved fields (`service`, `env`, `version`, `resource_name`, `operation_name`, `status`, `span_id`, `trace_id`, `type`) take no `@` prefix, and neither do tags such as `host` or primary tags such as `datacenter`. Span attributes need one, for example `@span.kind:server` or `@http.status_code:500`. Wrap values that contain special characters such as `:`, `{`, `}`, `(`, `)`, or spaces in double quotes, for example `@http.route:"/api/v1/users/{id}"` or `resource_name:"GET /api/v1/users"`. Wildcards do not work inside quotes, so to combine a wildcard with special characters, escape each one with `\` instead, for example `resource_name:Clients\:\:*`.
     # @option opts [String] :filter_from Minimum timestamp for requested spans. Supports date-time ISO8601, date math, and regular timestamps (milliseconds).
     # @option opts [String] :filter_to Maximum timestamp for requested spans. Supports date-time ISO8601, date math, and regular timestamps (milliseconds).
     # @option opts [SpansSort] :sort Order of spans in results.
