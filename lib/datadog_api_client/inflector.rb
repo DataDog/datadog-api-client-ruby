@@ -7993,6 +7993,7 @@ module DatadogAPIClient
           "v2.rum_operation_response_attributes" => "RUMOperationResponseAttributes",
           "v2.rum_operation_response_data" => "RUMOperationResponseData",
           "v2.rum_operations_list_response" => "RUMOperationsListResponse",
+          "v2.rum_operations_list_response_links" => "RUMOperationsListResponseLinks",
           "v2.rum_operations_list_response_meta" => "RUMOperationsListResponseMeta",
           "v2.rum_operations_list_response_meta_page" => "RUMOperationsListResponseMetaPage",
           "v2.rum_operation_strong_link_create_request" => "RUMOperationStrongLinkCreateRequest",
