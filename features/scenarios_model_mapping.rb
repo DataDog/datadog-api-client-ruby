@@ -3793,6 +3793,14 @@ ScenariosModelMappings = {
             "issue_id" => "String",
             "body" => "IssueUpdateStateRequest",
     },
+    "v2.GetEUDMDevices" => {
+            "bssid" => "Array<String>",
+            "page_limit" => "Integer",
+            "page_cursor" => "String",
+    },
+    "v2.GetEUDMDevice" => {
+            "device_id" => "String",
+    },
     "v2.ListEvents" => {
             "filter_query" => "String",
             "filter_from" => "String",
