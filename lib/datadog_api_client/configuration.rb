@@ -450,8 +450,6 @@ module DatadogAPIClient
             "v2.search_security_monitoring_histsignals": false,
             "v2.start_security_monitoring_batch_migration": false,
             "v2.start_security_monitoring_rule_proposal": false,
-            "v2.update_findings_assignee": false,
-            "v2.update_findings_severity": false,
             "v2.update_security_findings_automation_due_date_rule": false,
             "v2.update_security_findings_automation_inbox_rule": false,
             "v2.update_security_findings_automation_mute_rule": false,
