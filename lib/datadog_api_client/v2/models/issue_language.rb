@@ -46,6 +46,7 @@ module DatadogAPIClient::V2
     SCALA = "SCALA".freeze
     SWIFT = "SWIFT".freeze
     TERRAFORM = "TERRAFORM".freeze
+    TF = "TF".freeze
     TYPESCRIPT = "TYPESCRIPT".freeze
     UNKNOWN = "UNKNOWN".freeze
   end

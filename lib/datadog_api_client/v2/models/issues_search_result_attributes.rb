@@ -22,9 +22,15 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Count of sessions impacted by the issue over the queried time window.
+    # Returned for RUM, LLM Observability, browser, and mobile searches,
+    # or when `issue.impacted_sessions` is requested in the `include` query parameter.
+    # Omitted when zero unless requested in the `include` query parameter.
     attr_accessor :impacted_sessions
 
     # Count of users impacted by the issue over the queried time window.
+    # Returned for RUM, browser, and mobile searches,
+    # or when `issue.impacted_users` is requested in the `include` query parameter.
+    # Omitted when zero unless requested in the `include` query parameter.
     attr_accessor :impacted_users
 
     # Total count of errors that match the issue over the queried time window.
