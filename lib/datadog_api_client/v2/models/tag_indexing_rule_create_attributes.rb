@@ -27,10 +27,10 @@ module DatadogAPIClient::V2
     # Metric name prefixes excluded from the rule's scope.
     attr_accessor :ignored_metric_name_matches
 
-    # Metric name prefixes (glob patterns) this rule applies to.
+    # Metric name prefixes (glob patterns) this rule applies to. At most 50 patterns, each at most 200 characters.
     attr_reader :metric_name_matches
 
-    # Human-readable name for the rule.
+    # Human-readable name for the rule. At most 200 characters.
     attr_reader :name
 
     # Versioned configuration options for a tag indexing rule.
@@ -121,7 +121,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @metric_name_matches.nil?
+      return false if @metric_name_matches.length > 50
       return false if @name.nil?
+      return false if @name.to_s.length > 200
       true
     end
 
@@ -132,6 +134,9 @@ module DatadogAPIClient::V2
       if metric_name_matches.nil?
         fail ArgumentError, 'invalid value for "metric_name_matches", metric_name_matches cannot be nil.'
       end
+      if metric_name_matches.length > 50
+        fail ArgumentError, 'invalid value for "metric_name_matches", number of items must be less than or equal to 50.'
+      end
       @metric_name_matches = metric_name_matches
     end
 
@@ -141,6 +146,9 @@ module DatadogAPIClient::V2
     def name=(name)
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if name.to_s.length > 200
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
       end
       @name = name
     end
