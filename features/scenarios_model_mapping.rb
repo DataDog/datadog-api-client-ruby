@@ -5982,6 +5982,9 @@ ScenariosModelMappings = {
     "v2.QueryUsers" => {
             "body" => "QueryUsersRequest",
     },
+    "v2.DeleteUserProfile" => {
+            "user_id" => "String",
+    },
     "v2.GetMapping" => {
             "entity" => "String",
     },

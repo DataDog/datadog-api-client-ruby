@@ -797,6 +797,7 @@ module DatadogAPIClient
             "v2.query_product_analytics_sankey": false,
             "v2.create_connection": false,
             "v2.delete_connection": false,
+            "v2.delete_user_profile": false,
             "v2.get_account_facet_info": false,
             "v2.get_mapping": false,
             "v2.get_user_facet_info": false,
