@@ -3426,6 +3426,7 @@ ScenariosModelMappings = {
     "v2.CreateQuotas" => {
             "quota_namespace" => "String",
             "include_descendants" => "Boolean",
+            "create_only" => "Boolean",
             "body" => "UsageQuotasCreateRequest",
     },
     "v2.DeleteQuota" => {
