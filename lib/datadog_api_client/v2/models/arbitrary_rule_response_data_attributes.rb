@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The `attributes` `enabled`.
     attr_reader :enabled
 
+    # Whether the rule is an out-of-the-box rule provided by Datadog. Omitted when `false`.
+    attr_accessor :is_ootb
+
     # The `attributes` `last_modified_user_uuid`.
     attr_reader :last_modified_user_uuid
 
@@ -45,6 +48,9 @@ module DatadogAPIClient::V2
     # The `attributes` `rejected`.
     attr_accessor :rejected
 
+    # Rule category. Omitted for custom rules.
+    attr_accessor :rule_category
+
     # The `attributes` `rule_name`.
     attr_reader :rule_name
 
@@ -56,6 +62,12 @@ module DatadogAPIClient::V2
 
     # The `attributes` `updated`.
     attr_reader :updated
+
+    # The first date the rule applies to. Omitted when the rule has no start date.
+    attr_accessor :valid_from_date
+
+    # The last date the rule applies to. Omitted when the rule has no end date.
+    attr_accessor :valid_through_date
 
     # The `attributes` `version`.
     attr_reader :version
@@ -69,15 +81,19 @@ module DatadogAPIClient::V2
         :'costs_to_allocate' => :'costs_to_allocate',
         :'created' => :'created',
         :'enabled' => :'enabled',
+        :'is_ootb' => :'is_ootb',
         :'last_modified_user_uuid' => :'last_modified_user_uuid',
         :'order_id' => :'order_id',
         :'processing_status' => :'processing_status',
         :'provider' => :'provider',
         :'rejected' => :'rejected',
+        :'rule_category' => :'rule_category',
         :'rule_name' => :'rule_name',
         :'strategy' => :'strategy',
         :'type' => :'type',
         :'updated' => :'updated',
+        :'valid_from_date' => :'valid_from_date',
+        :'valid_through_date' => :'valid_through_date',
         :'version' => :'version'
       }
     end
@@ -89,15 +105,19 @@ module DatadogAPIClient::V2
         :'costs_to_allocate' => :'Array<ArbitraryRuleResponseDataAttributesCostsToAllocateItems>',
         :'created' => :'Time',
         :'enabled' => :'Boolean',
+        :'is_ootb' => :'Boolean',
         :'last_modified_user_uuid' => :'String',
         :'order_id' => :'Integer',
         :'processing_status' => :'String',
         :'provider' => :'Array<String>',
         :'rejected' => :'Boolean',
+        :'rule_category' => :'ArbitraryRuleResponseDataAttributesRuleCategory',
         :'rule_name' => :'String',
         :'strategy' => :'ArbitraryRuleResponseDataAttributesStrategy',
         :'type' => :'String',
         :'updated' => :'Time',
+        :'valid_from_date' => :'Time',
+        :'valid_through_date' => :'Time',
         :'version' => :'Integer'
       }
     end
@@ -134,6 +154,10 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
+      if attributes.key?(:'is_ootb')
+        self.is_ootb = attributes[:'is_ootb']
+      end
+
       if attributes.key?(:'last_modified_user_uuid')
         self.last_modified_user_uuid = attributes[:'last_modified_user_uuid']
       end
@@ -156,6 +180,10 @@ module DatadogAPIClient::V2
         self.rejected = attributes[:'rejected']
       end
 
+      if attributes.key?(:'rule_category')
+        self.rule_category = attributes[:'rule_category']
+      end
+
       if attributes.key?(:'rule_name')
         self.rule_name = attributes[:'rule_name']
       end
@@ -170,6 +198,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'updated')
         self.updated = attributes[:'updated']
+      end
+
+      if attributes.key?(:'valid_from_date')
+        self.valid_from_date = attributes[:'valid_from_date']
+      end
+
+      if attributes.key?(:'valid_through_date')
+        self.valid_through_date = attributes[:'valid_through_date']
       end
 
       if attributes.key?(:'version')
@@ -338,15 +374,19 @@ module DatadogAPIClient::V2
           costs_to_allocate == o.costs_to_allocate &&
           created == o.created &&
           enabled == o.enabled &&
+          is_ootb == o.is_ootb &&
           last_modified_user_uuid == o.last_modified_user_uuid &&
           order_id == o.order_id &&
           processing_status == o.processing_status &&
           provider == o.provider &&
           rejected == o.rejected &&
+          rule_category == o.rule_category &&
           rule_name == o.rule_name &&
           strategy == o.strategy &&
           type == o.type &&
           updated == o.updated &&
+          valid_from_date == o.valid_from_date &&
+          valid_through_date == o.valid_through_date &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -355,7 +395,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [costs_to_allocate, created, enabled, last_modified_user_uuid, order_id, processing_status, provider, rejected, rule_name, strategy, type, updated, version, additional_properties].hash
+      [costs_to_allocate, created, enabled, is_ootb, last_modified_user_uuid, order_id, processing_status, provider, rejected, rule_category, rule_name, strategy, type, updated, valid_from_date, valid_through_date, version, additional_properties].hash
     end
   end
 end
