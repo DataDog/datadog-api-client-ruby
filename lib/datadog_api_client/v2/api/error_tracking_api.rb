@@ -99,10 +99,11 @@ module DatadogAPIClient::V2
     # Get the details of an error tracking issue.
     #
     # Retrieve the full details for a specific error tracking issue, including attributes and relationships.
+    # Returns 403 if the caller lacks the `error_tracking_read` permission or does not have access to the issue's data.
     #
     # @param issue_id [String] The identifier of the issue.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<GetIssueIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `case`, `team_owners`, and `samples`.
+    # @option opts [Array<GetIssueIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `bits_investigation`, `case`, `pull_requests`, `samples`, `team_owners`, and `watches`. Values must not contain spaces. `case` and `assignee` return nothing, without an error, if the caller lacks the `cases_read` permission.
     # @option opts [Array<IssueSampleBias>] :filter_samples_biases Comma-separated list of biases used to pick the samples returned with `include=samples`. Requires `include=samples`. Defaults to all biases.
     # @return [Array<(IssueResponse, Integer, Hash)>] IssueResponse data, response status code and response headers
     def get_issue_with_http_info(issue_id, opts = {})
@@ -171,7 +172,7 @@ module DatadogAPIClient::V2
     #
     # @param body [IssuesSearchRequest] Search issues request payload.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<SearchIssuesIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `issue`, `issue.assignee`, `issue.case`, and `issue.team_owners`.
+    # @option opts [Array<SearchIssuesIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `issue`, `issue.assignee`, `issue.bits_investigation`, `issue.case`, `issue.impacted_sessions`, `issue.impacted_users`, `issue.pull_requests`, `issue.team_owners`, and `issue.watches`.
     # @return [Array<(IssuesSearchResponse, Integer, Hash)>] IssuesSearchResponse data, response status code and response headers
     def search_issues_with_http_info(body, opts = {})
 

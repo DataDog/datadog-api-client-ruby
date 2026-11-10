@@ -23,7 +23,12 @@ module DatadogAPIClient::V2
 
     ISSUE = "issue".freeze
     ISSUE_ASSIGNEE = "issue.assignee".freeze
+    ISSUE_BITS_INVESTIGATION = "issue.bits_investigation".freeze
     ISSUE_CASE = "issue.case".freeze
+    ISSUE_IMPACTED_SESSIONS = "issue.impacted_sessions".freeze
+    ISSUE_IMPACTED_USERS = "issue.impacted_users".freeze
+    ISSUE_PULL_REQUESTS = "issue.pull_requests".freeze
     ISSUE_TEAM_OWNERS = "issue.team_owners".freeze
+    ISSUE_WATCHES = "issue.watches".freeze
   end
 end

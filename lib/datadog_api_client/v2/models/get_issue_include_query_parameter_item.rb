@@ -22,8 +22,11 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     ASSIGNEE = "assignee".freeze
+    BITS_INVESTIGATION = "bits_investigation".freeze
     CASE = "case".freeze
-    TEAM_OWNERS = "team_owners".freeze
+    PULL_REQUESTS = "pull_requests".freeze
     SAMPLES = "samples".freeze
+    TEAM_OWNERS = "team_owners".freeze
+    WATCHES = "watches".freeze
   end
 end

@@ -17,21 +17,31 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between the issue and an assignee, case and/or teams.
+  # Relationship between the issue and other resources, such as an assignee, case, teams, pull requests, watches, samples, or a Bits AI investigation.
   class IssueRelationships
     include BaseGenericModel
 
     # Relationship between the issue and assignee.
     attr_accessor :assignee
 
+    # Bits AI investigation linked to the issue, returned when `bits_investigation` is requested
+    # in the `include` query parameter.
+    attr_accessor :bits_investigation
+
     # Relationship between the issue and case.
     attr_accessor :_case
+
+    # Relationship between the issue and its linked pull requests. Returned when `pull_requests` is included and the issue has linked pull requests.
+    attr_accessor :pull_requests
 
     # Relationship between the issue and its curated error samples.
     attr_accessor :samples
 
     # Relationship between the issue and teams.
     attr_accessor :team_owners
+
+    # Relationship between the issue and its active watches. Returned when `watches` is included and the issue has an active watch.
+    attr_accessor :watches
 
     attr_accessor :additional_properties
 
@@ -40,9 +50,12 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'assignee' => :'assignee',
+        :'bits_investigation' => :'bits_investigation',
         :'_case' => :'case',
+        :'pull_requests' => :'pull_requests',
         :'samples' => :'samples',
-        :'team_owners' => :'team_owners'
+        :'team_owners' => :'team_owners',
+        :'watches' => :'watches'
       }
     end
 
@@ -51,9 +64,12 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'assignee' => :'IssueAssigneeRelationship',
+        :'bits_investigation' => :'IssueBitsInvestigationRelationship',
         :'_case' => :'IssueCaseRelationship',
+        :'pull_requests' => :'IssuePullRequestsRelationship',
         :'samples' => :'IssueSamplesRelationship',
-        :'team_owners' => :'IssueTeamOwnersRelationship'
+        :'team_owners' => :'IssueTeamOwnersRelationship',
+        :'watches' => :'IssueWatchesRelationship'
       }
     end
 
@@ -79,8 +95,16 @@ module DatadogAPIClient::V2
         self.assignee = attributes[:'assignee']
       end
 
+      if attributes.key?(:'bits_investigation')
+        self.bits_investigation = attributes[:'bits_investigation']
+      end
+
       if attributes.key?(:'_case')
         self._case = attributes[:'_case']
+      end
+
+      if attributes.key?(:'pull_requests')
+        self.pull_requests = attributes[:'pull_requests']
       end
 
       if attributes.key?(:'samples')
@@ -89,6 +113,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'team_owners')
         self.team_owners = attributes[:'team_owners']
+      end
+
+      if attributes.key?(:'watches')
+        self.watches = attributes[:'watches']
       end
     end
 
@@ -119,9 +147,12 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           assignee == o.assignee &&
+          bits_investigation == o.bits_investigation &&
           _case == o._case &&
+          pull_requests == o.pull_requests &&
           samples == o.samples &&
           team_owners == o.team_owners &&
+          watches == o.watches &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignee, _case, samples, team_owners, additional_properties].hash
+      [assignee, bits_investigation, _case, pull_requests, samples, team_owners, watches, additional_properties].hash
     end
   end
 end

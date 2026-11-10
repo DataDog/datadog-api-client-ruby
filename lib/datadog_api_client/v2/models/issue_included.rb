@@ -29,6 +29,8 @@ module DatadogAPIClient::V2
           :'IssueCase',
           :'IssueUser',
           :'IssueTeam',
+          :'IssuePullRequest',
+          :'IssueWatch',
           :'IssueSample'
         ]
       end

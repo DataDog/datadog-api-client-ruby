@@ -60,6 +60,12 @@ module DatadogAPIClient::V2
     # Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
     attr_accessor :status
 
+    # Status group of the work item.
+    attr_accessor :status_group
+
+    # Status of the work item. Must be one of the existing statuses for the work item's type.
+    attr_accessor :status_name
+
     # Title of the case.
     attr_accessor :title
 
@@ -85,6 +91,8 @@ module DatadogAPIClient::V2
         :'modified_at' => :'modified_at',
         :'priority' => :'priority',
         :'status' => :'status',
+        :'status_group' => :'status_group',
+        :'status_name' => :'status_name',
         :'title' => :'title',
         :'type' => :'type'
       }
@@ -107,6 +115,8 @@ module DatadogAPIClient::V2
         :'modified_at' => :'Time',
         :'priority' => :'CasePriority',
         :'status' => :'CaseStatus',
+        :'status_group' => :'CaseStatusGroup',
+        :'status_name' => :'String',
         :'title' => :'String',
         :'type' => :'String'
       }
@@ -184,6 +194,14 @@ module DatadogAPIClient::V2
         self.status = attributes[:'status']
       end
 
+      if attributes.key?(:'status_group')
+        self.status_group = attributes[:'status_group']
+      end
+
+      if attributes.key?(:'status_name')
+        self.status_name = attributes[:'status_name']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -232,6 +250,8 @@ module DatadogAPIClient::V2
           modified_at == o.modified_at &&
           priority == o.priority &&
           status == o.status &&
+          status_group == o.status_group &&
+          status_name == o.status_name &&
           title == o.title &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -241,7 +261,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, closed_at, created_at, creation_source, description, due_date, insights, jira_issue, key, linear_issue, modified_at, priority, status, title, type, additional_properties].hash
+      [archived_at, closed_at, created_at, creation_source, description, due_date, insights, jira_issue, key, linear_issue, modified_at, priority, status, status_group, status_name, title, type, additional_properties].hash
     end
   end
 end

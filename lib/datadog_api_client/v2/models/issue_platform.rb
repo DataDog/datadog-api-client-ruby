@@ -24,6 +24,7 @@ module DatadogAPIClient::V2
     ANDROID = "ANDROID".freeze
     BACKEND = "BACKEND".freeze
     BROWSER = "BROWSER".freeze
+    ELECTRON = "ELECTRON".freeze
     FLUTTER = "FLUTTER".freeze
     IOS = "IOS".freeze
     REACT_NATIVE = "REACT_NATIVE".freeze

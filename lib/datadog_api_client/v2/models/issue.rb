@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Issue identifier.
     attr_reader :id
 
-    # Relationship between the issue and an assignee, case and/or teams.
+    # Relationship between the issue and other resources, such as an assignee, case, teams, pull requests, watches, samples, or a Bits AI investigation.
     attr_accessor :relationships
 
     # Type of the object.
