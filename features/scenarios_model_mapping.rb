@@ -4678,6 +4678,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "ElasticCloudIntegrationAccountUpdateRequest",
     },
+    "v2.CreateNebiusCloudIntegrationAccount" => {
+            "body" => "NebiusCloudIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteNebiusCloudIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetNebiusCloudIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateNebiusCloudIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "NebiusCloudIntegrationAccountUpdateRequest",
+    },
     "v2.CreateSnowflakeIntegrationAccount" => {
             "body" => "SnowflakeIntegrationAccountCreateRequest",
     },
