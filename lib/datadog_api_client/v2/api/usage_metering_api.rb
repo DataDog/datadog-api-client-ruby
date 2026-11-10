@@ -35,6 +35,10 @@ module DatadogAPIClient::V2
     #
     # Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated.
     # Otherwise, a quota is created only when `usage_limit` and `enforced` are provided.
+    # Set `create_only=true` to atomically create exactly one quota in the caller's organization and reject an
+    # existing quota with `409` instead of updating it. This mode does not support pending limits or descendant writes.
+    # Repeated create-only requests do not replay the original response. If a response is lost, a retry can return `409`
+    # even if the first request succeeded; reconcile the outcome before retrying or importing the quota.
     # For the organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period and can
     # accompany an immediate limit or update an existing quota by itself.
     # Scheduled changes follow `include_descendants` like the other fields. Requires the `billing_edit` permission.
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
     # @param body [UsageQuotasCreateRequest] The usage quotas to create or update.
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :include_descendants Whether to write every item in the request to the caller's organization and all of its descendant organizations, instead of only the caller's organization. Only descendants in the same data center are supported. For a user-handle scope, the quota is applied only to the caller's organization and to descendant organizations where that user handle exists; the item fails only if the handle exists in none of them.
+    # @option opts [Boolean] :create_only Create one quota without updating an existing quota. Requires exactly one item that specifies `usage_limit` and `enforced`, omits `pending_usage_limit`, and sets `include_descendants=false`. The quota belongs to the caller's organization. An existing quota returns `409` without being modified.
     # @return [Array<(UsageQuotasBulkResponse, Integer, Hash)>] UsageQuotasBulkResponse data, response status code and response headers
     def create_quotas_with_http_info(quota_namespace, body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.create_quotas".to_sym]
@@ -97,6 +102,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
+      query_params[:'create_only'] = opts[:'create_only'] if !opts[:'create_only'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
