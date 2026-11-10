@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RulesValidateQueryRequestDataAttributes
     include BaseGenericModel
 
-    # The `attributes` `Query`.
+    # The tag pipeline rule query to validate, in Datadog tag query syntax: `tag:value` terms combined with `AND`, `OR`, and `NOT`.
     attr_reader :query
 
     attr_accessor :additional_properties
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'query' => :'Query'
+        :'query' => :'query'
       }
     end
 

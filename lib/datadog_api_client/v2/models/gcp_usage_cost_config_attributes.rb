@@ -28,7 +28,19 @@ module DatadogAPIClient::V2
     attr_reader :bucket_name
 
     # The timestamp when the Google Cloud Usage Cost config was created.
-    attr_reader :created_at
+    attr_accessor :created_at
+
+    # The BigQuery table the committed use discount (CUD) metadata is read from. Only returned when CUD metadata is configured for the account.
+    attr_accessor :cud_metadata_config
+
+    # The error codes reported for the committed use discount (CUD) metadata export. Only returned when CUD metadata is configured for the account.
+    attr_accessor :cud_metadata_error_codes
+
+    # The state of the Google Cloud committed use discount (CUD) metadata export. Only returned when CUD metadata is configured for the account.
+    attr_accessor :cud_metadata_state
+
+    # The timestamp when the committed use discount (CUD) metadata state was last updated. Only returned when CUD metadata is configured for the account.
+    attr_accessor :cud_metadata_status_updated_at
 
     # The export dataset name used for the Google Cloud Usage Cost Report.
     attr_reader :dataset
@@ -55,10 +67,10 @@ module DatadogAPIClient::V2
     attr_reader :status
 
     # The timestamp when the Google Cloud Usage Cost config status was updated.
-    attr_reader :status_updated_at
+    attr_accessor :status_updated_at
 
     # The timestamp when the Google Cloud Usage Cost config status was updated.
-    attr_reader :updated_at
+    attr_accessor :updated_at
 
     attr_accessor :additional_properties
 
@@ -69,6 +81,10 @@ module DatadogAPIClient::V2
         :'account_id' => :'account_id',
         :'bucket_name' => :'bucket_name',
         :'created_at' => :'created_at',
+        :'cud_metadata_config' => :'cud_metadata_config',
+        :'cud_metadata_error_codes' => :'cud_metadata_error_codes',
+        :'cud_metadata_state' => :'cud_metadata_state',
+        :'cud_metadata_status_updated_at' => :'cud_metadata_status_updated_at',
         :'dataset' => :'dataset',
         :'error_messages' => :'error_messages',
         :'export_prefix' => :'export_prefix',
@@ -89,6 +105,10 @@ module DatadogAPIClient::V2
         :'account_id' => :'String',
         :'bucket_name' => :'String',
         :'created_at' => :'String',
+        :'cud_metadata_config' => :'GCPCudMetadataConfig',
+        :'cud_metadata_error_codes' => :'Array<Integer>',
+        :'cud_metadata_state' => :'String',
+        :'cud_metadata_status_updated_at' => :'String',
         :'dataset' => :'String',
         :'error_messages' => :'Array<String>',
         :'export_prefix' => :'String',
@@ -140,6 +160,24 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'cud_metadata_config')
+        self.cud_metadata_config = attributes[:'cud_metadata_config']
+      end
+
+      if attributes.key?(:'cud_metadata_error_codes')
+        if (value = attributes[:'cud_metadata_error_codes']).is_a?(Array)
+          self.cud_metadata_error_codes = value
+        end
+      end
+
+      if attributes.key?(:'cud_metadata_state')
+        self.cud_metadata_state = attributes[:'cud_metadata_state']
+      end
+
+      if attributes.key?(:'cud_metadata_status_updated_at')
+        self.cud_metadata_status_updated_at = attributes[:'cud_metadata_status_updated_at']
+      end
+
       if attributes.key?(:'dataset')
         self.dataset = attributes[:'dataset']
       end
@@ -189,18 +227,12 @@ module DatadogAPIClient::V2
     def valid?
       return false if @account_id.nil?
       return false if @bucket_name.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      return false if !@created_at.nil? && @created_at !~ pattern
       return false if @dataset.nil?
       return false if @export_prefix.nil?
       return false if @export_project_name.nil?
       return false if !@months.nil? && @months > 36
       return false if @service_account.nil?
       return false if @status.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      return false if !@status_updated_at.nil? && @status_updated_at !~ pattern
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      return false if !@updated_at.nil? && @updated_at !~ pattern
       true
     end
 
@@ -222,17 +254,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "bucket_name", bucket_name cannot be nil.'
       end
       @bucket_name = bucket_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param created_at [Object] Object to be assigned
-    # @!visibility private
-    def created_at=(created_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      if !created_at.nil? && created_at !~ pattern
-        fail ArgumentError, "invalid value for \"created_at\", must conform to the pattern #{pattern}."
-      end
-      @created_at = created_at
     end
 
     # Custom attribute writer method with validation
@@ -295,28 +316,6 @@ module DatadogAPIClient::V2
       @status = status
     end
 
-    # Custom attribute writer method with validation
-    # @param status_updated_at [Object] Object to be assigned
-    # @!visibility private
-    def status_updated_at=(status_updated_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      if !status_updated_at.nil? && status_updated_at !~ pattern
-        fail ArgumentError, "invalid value for \"status_updated_at\", must conform to the pattern #{pattern}."
-      end
-      @status_updated_at = status_updated_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param updated_at [Object] Object to be assigned
-    # @!visibility private
-    def updated_at=(updated_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      if !updated_at.nil? && updated_at !~ pattern
-        fail ArgumentError, "invalid value for \"updated_at\", must conform to the pattern #{pattern}."
-      end
-      @updated_at = updated_at
-    end
-
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -346,6 +345,10 @@ module DatadogAPIClient::V2
           account_id == o.account_id &&
           bucket_name == o.bucket_name &&
           created_at == o.created_at &&
+          cud_metadata_config == o.cud_metadata_config &&
+          cud_metadata_error_codes == o.cud_metadata_error_codes &&
+          cud_metadata_state == o.cud_metadata_state &&
+          cud_metadata_status_updated_at == o.cud_metadata_status_updated_at &&
           dataset == o.dataset &&
           error_messages == o.error_messages &&
           export_prefix == o.export_prefix &&
@@ -363,7 +366,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, bucket_name, created_at, dataset, error_messages, export_prefix, export_project_name, months, project_id, service_account, status, status_updated_at, updated_at, additional_properties].hash
+      [account_id, bucket_name, created_at, cud_metadata_config, cud_metadata_error_codes, cud_metadata_state, cud_metadata_status_updated_at, dataset, error_messages, export_prefix, export_project_name, months, project_id, service_account, status, status_updated_at, updated_at, additional_properties].hash
     end
   end
 end

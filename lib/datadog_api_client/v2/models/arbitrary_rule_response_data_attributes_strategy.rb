@@ -45,8 +45,20 @@ module DatadogAPIClient::V2
     # The `strategy` `granularity`.
     attr_accessor :granularity
 
+    # Only supported for `proportional_timeseries` and `even_timeseries` rules. Creates a synthetic tag from timeseries input rows before `tag_transforms` are applied.
+    attr_accessor :mapping_transform
+
     # The `strategy` `method`.
     attr_reader :method
+
+    # Tags added to every cost row allocated by the rule.
+    attr_accessor :static_tags
+
+    # Integration metrics query used to calculate coverage.
+    attr_accessor :supporting_timeseries
+
+    # Only supported for `proportional_timeseries` and `even_timeseries` rules. Applies tag key renames and tag value transforms to timeseries input rows after `mapping_transform`.
+    attr_accessor :tag_transforms
 
     attr_accessor :additional_properties
 
@@ -62,7 +74,11 @@ module DatadogAPIClient::V2
         :'evaluate_grouped_by_filters' => :'evaluate_grouped_by_filters',
         :'evaluate_grouped_by_tag_keys' => :'evaluate_grouped_by_tag_keys',
         :'granularity' => :'granularity',
-        :'method' => :'method'
+        :'mapping_transform' => :'mapping_transform',
+        :'method' => :'method',
+        :'static_tags' => :'static_tags',
+        :'supporting_timeseries' => :'supporting_timeseries',
+        :'tag_transforms' => :'tag_transforms'
       }
     end
 
@@ -78,8 +94,20 @@ module DatadogAPIClient::V2
         :'evaluate_grouped_by_filters' => :'Array<ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems>',
         :'evaluate_grouped_by_tag_keys' => :'Array<String>',
         :'granularity' => :'String',
-        :'method' => :'String'
+        :'mapping_transform' => :'ArbitraryRuleMappingTransform',
+        :'method' => :'String',
+        :'static_tags' => :'Array<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>',
+        :'supporting_timeseries' => :'Hash<String, Object>',
+        :'tag_transforms' => :'ArbitraryRuleTagTransforms'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'supporting_timeseries',
+      ])
     end
 
     # Initializes the object
@@ -144,8 +172,26 @@ module DatadogAPIClient::V2
         self.granularity = attributes[:'granularity']
       end
 
+      if attributes.key?(:'mapping_transform')
+        self.mapping_transform = attributes[:'mapping_transform']
+      end
+
       if attributes.key?(:'method')
         self.method = attributes[:'method']
+      end
+
+      if attributes.key?(:'static_tags')
+        if (value = attributes[:'static_tags']).is_a?(Array)
+          self.static_tags = value
+        end
+      end
+
+      if attributes.key?(:'supporting_timeseries')
+        self.supporting_timeseries = attributes[:'supporting_timeseries']
+      end
+
+      if attributes.key?(:'tag_transforms')
+        self.tag_transforms = attributes[:'tag_transforms']
       end
     end
 
@@ -201,7 +247,11 @@ module DatadogAPIClient::V2
           evaluate_grouped_by_filters == o.evaluate_grouped_by_filters &&
           evaluate_grouped_by_tag_keys == o.evaluate_grouped_by_tag_keys &&
           granularity == o.granularity &&
+          mapping_transform == o.mapping_transform &&
           method == o.method &&
+          static_tags == o.static_tags &&
+          supporting_timeseries == o.supporting_timeseries &&
+          tag_transforms == o.tag_transforms &&
           additional_properties == o.additional_properties
     end
 
@@ -209,7 +259,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allocated_by, allocated_by_filters, allocated_by_tag_keys, based_on_costs, based_on_timeseries, evaluate_grouped_by_filters, evaluate_grouped_by_tag_keys, granularity, method, additional_properties].hash
+      [allocated_by, allocated_by_filters, allocated_by_tag_keys, based_on_costs, based_on_timeseries, evaluate_grouped_by_filters, evaluate_grouped_by_tag_keys, granularity, mapping_transform, method, static_tags, supporting_timeseries, tag_transforms, additional_properties].hash
     end
   end
 end

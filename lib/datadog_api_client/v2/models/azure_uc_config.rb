@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     attr_reader :client_id
 
     # The timestamp when the Azure config was created.
-    attr_reader :created_at
+    attr_accessor :created_at
 
     # The dataset type of the Azure config.
     attr_reader :dataset_type
@@ -55,7 +55,7 @@ module DatadogAPIClient::V2
     attr_reader :status
 
     # The timestamp when the Azure config status was last updated.
-    attr_reader :status_updated_at
+    attr_accessor :status_updated_at
 
     # The name of the storage account where the Azure Export is saved.
     attr_reader :storage_account
@@ -64,7 +64,7 @@ module DatadogAPIClient::V2
     attr_reader :storage_container
 
     # The timestamp when the Azure config was last updated.
-    attr_reader :updated_at
+    attr_accessor :updated_at
 
     attr_accessor :additional_properties
 
@@ -207,20 +207,14 @@ module DatadogAPIClient::V2
     def valid?
       return false if @account_id.nil?
       return false if @client_id.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      return false if !@created_at.nil? && @created_at !~ pattern
       return false if @dataset_type.nil?
       return false if @export_name.nil?
       return false if @export_path.nil?
       return false if !@months.nil? && @months > 36
       return false if @scope.nil?
       return false if @status.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      return false if !@status_updated_at.nil? && @status_updated_at !~ pattern
       return false if @storage_account.nil?
       return false if @storage_container.nil?
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      return false if !@updated_at.nil? && @updated_at !~ pattern
       true
     end
 
@@ -242,17 +236,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "client_id", client_id cannot be nil.'
       end
       @client_id = client_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param created_at [Object] Object to be assigned
-    # @!visibility private
-    def created_at=(created_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      if !created_at.nil? && created_at !~ pattern
-        fail ArgumentError, "invalid value for \"created_at\", must conform to the pattern #{pattern}."
-      end
-      @created_at = created_at
     end
 
     # Custom attribute writer method with validation
@@ -316,17 +299,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param status_updated_at [Object] Object to be assigned
-    # @!visibility private
-    def status_updated_at=(status_updated_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      if !status_updated_at.nil? && status_updated_at !~ pattern
-        fail ArgumentError, "invalid value for \"status_updated_at\", must conform to the pattern #{pattern}."
-      end
-      @status_updated_at = status_updated_at
-    end
-
-    # Custom attribute writer method with validation
     # @param storage_account [Object] Object to be assigned
     # @!visibility private
     def storage_account=(storage_account)
@@ -344,17 +316,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "storage_container", storage_container cannot be nil.'
       end
       @storage_container = storage_container
-    end
-
-    # Custom attribute writer method with validation
-    # @param updated_at [Object] Object to be assigned
-    # @!visibility private
-    def updated_at=(updated_at)
-      pattern = Regexp.new(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}$/)
-      if !updated_at.nil? && updated_at !~ pattern
-        fail ArgumentError, "invalid value for \"updated_at\", must conform to the pattern #{pattern}."
-      end
-      @updated_at = updated_at
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
