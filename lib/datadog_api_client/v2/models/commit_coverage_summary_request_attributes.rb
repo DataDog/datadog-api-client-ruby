@@ -88,7 +88,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @commit_sha.nil?
-      pattern = Regexp.new(/^[a-fA-F0-9]{40}$/)
+      pattern = Regexp.new('^[a-fA-F0-9]{40}$')
       return false if @commit_sha !~ pattern
       return false if !@repository_id.nil? && @repository_id.to_s.length < 1
       return false if !@repository_url.nil? && @repository_url.to_s.length < 1
@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
       if commit_sha.nil?
         fail ArgumentError, 'invalid value for "commit_sha", commit_sha cannot be nil.'
       end
-      pattern = Regexp.new(/^[a-fA-F0-9]{40}$/)
+      pattern = Regexp.new('^[a-fA-F0-9]{40}$')
       if commit_sha !~ pattern
         fail ArgumentError, "invalid value for \"commit_sha\", must conform to the pattern #{pattern}."
       end

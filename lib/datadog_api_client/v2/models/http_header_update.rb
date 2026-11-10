@@ -88,7 +88,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
-      pattern = Regexp.new(/^[A-Za-z][A-Za-z\\d\\-\\_]*$/)
+      pattern = Regexp.new('^[A-Za-z][A-Za-z\\\\d\\\\-\\\\_]*$')
       return false if @name !~ pattern
       true
     end
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      pattern = Regexp.new(/^[A-Za-z][A-Za-z\\d\\-\\_]*$/)
+      pattern = Regexp.new('^[A-Za-z][A-Za-z\\\\d\\\\-\\\\_]*$')
       if name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

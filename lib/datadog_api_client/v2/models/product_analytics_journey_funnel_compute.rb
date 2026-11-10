@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      pattern = Regexp.new(/^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$/)
+      pattern = Regexp.new('^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$')
       return false if !@aggregation.nil? && @aggregation !~ pattern
       true
     end
@@ -88,7 +88,7 @@ module DatadogAPIClient::V2
     # @param aggregation [Object] Object to be assigned
     # @!visibility private
     def aggregation=(aggregation)
-      pattern = Regexp.new(/^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$/)
+      pattern = Regexp.new('^(count|cardinality|avg|median|min|max|sum|pc[0-9]{1,2})$')
       if !aggregation.nil? && aggregation !~ pattern
         fail ArgumentError, "invalid value for \"aggregation\", must conform to the pattern #{pattern}."
       end

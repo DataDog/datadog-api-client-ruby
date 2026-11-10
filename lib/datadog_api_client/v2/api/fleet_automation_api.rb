@@ -447,7 +447,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && agent_key.nil?
         fail ArgumentError, "Missing the required parameter 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_detail_v2"
       end
-      pattern = Regexp.new("^[0-9a-f]{32}$")
+      pattern = Regexp.new('^[0-9a-f]{32}$')
       if @api_client.config.client_side_validation && agent_key !~ pattern
         fail ArgumentError, "invalid value for 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_detail_v2, must conform to the pattern #{pattern}."
       end

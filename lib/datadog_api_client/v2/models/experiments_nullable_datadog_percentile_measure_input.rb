@@ -134,23 +134,23 @@ module DatadogAPIClient::V2
     def valid?
       return false if @column_name.nil?
       return false if @column_name.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @column_name !~ pattern
       return false if @column_type.nil?
       return false if @column_type.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @column_type !~ pattern
       return false if @name.nil?
       return false if @name.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @name !~ pattern
       return false if @source_subtype.nil?
       return false if @source_subtype.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @source_subtype !~ pattern
       return false if @source_type.nil?
       return false if @source_type.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @source_type !~ pattern
       true
     end
@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
       if column_name.to_s.length < 1
         fail ArgumentError, 'invalid value for "column_name", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if column_name !~ pattern
         fail ArgumentError, "invalid value for \"column_name\", must conform to the pattern #{pattern}."
       end
@@ -182,7 +182,7 @@ module DatadogAPIClient::V2
       if column_type.to_s.length < 1
         fail ArgumentError, 'invalid value for "column_type", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if column_type !~ pattern
         fail ArgumentError, "invalid value for \"column_type\", must conform to the pattern #{pattern}."
       end
@@ -199,7 +199,7 @@ module DatadogAPIClient::V2
       if name.to_s.length < 1
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end
@@ -216,7 +216,7 @@ module DatadogAPIClient::V2
       if source_subtype.to_s.length < 1
         fail ArgumentError, 'invalid value for "source_subtype", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if source_subtype !~ pattern
         fail ArgumentError, "invalid value for \"source_subtype\", must conform to the pattern #{pattern}."
       end
@@ -233,7 +233,7 @@ module DatadogAPIClient::V2
       if source_type.to_s.length < 1
         fail ArgumentError, 'invalid value for "source_type", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if source_type !~ pattern
         fail ArgumentError, "invalid value for \"source_type\", must conform to the pattern #{pattern}."
       end

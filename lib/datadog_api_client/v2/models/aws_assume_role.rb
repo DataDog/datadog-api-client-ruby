@@ -106,7 +106,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @account_id.nil?
-      pattern = Regexp.new(/^\d{12}$/)
+      pattern = Regexp.new('^\\d{12}$')
       return false if @account_id !~ pattern
       return false if @role.nil?
       return false if @type.nil?
@@ -120,7 +120,7 @@ module DatadogAPIClient::V2
       if account_id.nil?
         fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
       end
-      pattern = Regexp.new(/^\d{12}$/)
+      pattern = Regexp.new('^\\d{12}$')
       if account_id !~ pattern
         fail ArgumentError, "invalid value for \"account_id\", must conform to the pattern #{pattern}."
       end

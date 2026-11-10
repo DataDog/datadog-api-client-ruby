@@ -246,7 +246,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @operation.nil?
       return false if @operation.to_s.length < 1
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       return false if @operation !~ pattern
       return false if @warehouse_metric_measure.nil?
       true
@@ -262,7 +262,7 @@ module DatadogAPIClient::V2
       if operation.to_s.length < 1
         fail ArgumentError, 'invalid value for "operation", the character length must be great than or equal to 1.'
       end
-      pattern = Regexp.new(/\S/)
+      pattern = Regexp.new('\\S')
       if operation !~ pattern
         fail ArgumentError, "invalid value for \"operation\", must conform to the pattern #{pattern}."
       end
