@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The timestamp when the RUM operation was created.
     attr_accessor :created_at
 
-    # A Datadog user referenced by a RUM operation.
+    # A Datadog user referenced by a RUM operation. `null` when the user could not be resolved.
     attr_accessor :created_by
 
     # A description of the RUM operation.
@@ -52,12 +52,12 @@ module DatadogAPIClient::V2
     attr_accessor :org_id
 
     # A list of tags associated with the RUM operation.
-    attr_reader :tags
+    attr_accessor :tags
 
     # The timestamp when the RUM operation was last updated.
     attr_accessor :updated_at
 
-    # A Datadog user referenced by a RUM operation.
+    # A Datadog user referenced by a RUM operation. `null` when the user could not be resolved.
     attr_accessor :updated_by
 
     attr_accessor :additional_properties
@@ -108,8 +108,12 @@ module DatadogAPIClient::V2
       Set.new([
         :'application_id',
         :'category',
+        :'created_by',
         :'description',
+        :'feature_ids',
+        :'tags',
         :'updated_at',
+        :'updated_by',
       ])
     end
 
@@ -194,7 +198,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @journey_rum.nil?
       return false if @name.nil?
-      return false if @tags.nil?
       true
     end
 
@@ -216,16 +219,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param tags [Object] Object to be assigned
-    # @!visibility private
-    def tags=(tags)
-      if tags.nil?
-        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
-      end
-      @tags = tags
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
