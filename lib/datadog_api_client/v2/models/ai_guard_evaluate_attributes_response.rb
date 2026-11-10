@@ -24,6 +24,11 @@ module DatadogAPIClient::V2
     # The recommended action for the evaluated conversation.
     attr_reader :action
 
+    # The span tags that tracers should add to the `ai_guard` span. Each item contains a
+    # backend-defined key and value, and clients should not assume a fixed set of keys.
+    # Example keys include `ai_guard.evaluate_id` and `ai_guard.evaluation_context`.
+    attr_accessor :extra_tags
+
     # The global threat probability, between `0` and `1`. Included only when computed.
     attr_accessor :global_prob
 
@@ -69,6 +74,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'action' => :'action',
+        :'extra_tags' => :'extra_tags',
         :'global_prob' => :'global_prob',
         :'is_blocking_enabled' => :'is_blocking_enabled',
         :'reason' => :'reason',
@@ -85,6 +91,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'action' => :'AIGuardAction',
+        :'extra_tags' => :'Array<AIGuardExtraTag>',
         :'global_prob' => :'Float',
         :'is_blocking_enabled' => :'Boolean',
         :'reason' => :'String',
@@ -124,6 +131,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
+      end
+
+      if attributes.key?(:'extra_tags')
+        if (value = attributes[:'extra_tags']).is_a?(Array)
+          self.extra_tags = value
+        end
       end
 
       if attributes.key?(:'global_prob')
@@ -243,6 +256,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
+          extra_tags == o.extra_tags &&
           global_prob == o.global_prob &&
           is_blocking_enabled == o.is_blocking_enabled &&
           reason == o.reason &&
@@ -258,7 +272,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, global_prob, is_blocking_enabled, reason, redaction_replacements, scfw_findings, sds_findings, tag_probs, tags, additional_properties].hash
+      [action, extra_tags, global_prob, is_blocking_enabled, reason, redaction_replacements, scfw_findings, sds_findings, tag_probs, tags, additional_properties].hash
     end
   end
 end

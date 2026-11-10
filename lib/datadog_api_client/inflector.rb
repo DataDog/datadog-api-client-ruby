@@ -1591,6 +1591,7 @@ module DatadogAPIClient
           "v2.ai_guard_evaluate_request_data_attributes" => "AIGuardEvaluateRequestDataAttributes",
           "v2.ai_guard_evaluate_response" => "AIGuardEvaluateResponse",
           "v2.ai_guard_evaluation_type" => "AIGuardEvaluationType",
+          "v2.ai_guard_extra_tag" => "AIGuardExtraTag",
           "v2.ai_guard_image_url" => "AIGuardImageURL",
           "v2.ai_guard_message" => "AIGuardMessage",
           "v2.ai_guard_message_content" => "AIGuardMessageContent",
