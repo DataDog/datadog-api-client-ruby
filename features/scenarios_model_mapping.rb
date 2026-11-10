@@ -4103,6 +4103,23 @@ ScenariosModelMappings = {
             "saved_filter_id" => "UUID",
             "body" => "PatchSavedFilterRequest",
     },
+    "v2.DeleteFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+    },
+    "v2.GetFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+    },
+    "v2.ApplyFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+    },
+    "v2.ApproveFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+            "body" => "ApproveFlagSuggestionRequest",
+    },
+    "v2.RejectFlagSuggestion" => {
+            "suggestion_id" => "UUID",
+            "body" => "RejectFlagSuggestionRequest",
+    },
     "v2.GetFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },
@@ -4121,6 +4138,7 @@ ScenariosModelMappings = {
     "v2.UpdateAllocationsForFeatureFlagInEnvironment" => {
             "feature_flag_id" => "UUID",
             "environment_id" => "UUID",
+            "default_variant_key" => "String",
             "body" => "OverwriteAllocationsRequest",
     },
     "v2.DisableFeatureFlagEnvironment" => {
@@ -4130,6 +4148,14 @@ ScenariosModelMappings = {
     "v2.EnableFeatureFlagEnvironment" => {
             "feature_flag_id" => "UUID",
             "environment_id" => "UUID",
+    },
+    "v2.UpdateFeatureFlagApprovals" => {
+            "feature_flag_id" => "UUID",
+            "body" => "UpdateFeatureFlagApprovalsRequest",
+    },
+    "v2.CreateFlagSuggestion" => {
+            "feature_flag_id" => "UUID",
+            "body" => "CreateFlagSuggestionRequest",
     },
     "v2.UnarchiveFeatureFlag" => {
             "feature_flag_id" => "UUID",
