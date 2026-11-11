@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class TenancyConfigDataAttributes
     include BaseGenericModel
 
+    # List of Datadog tags applied to data collected from the tenancy.
+    attr_accessor :account_tags
+
     # The identifier of the billing plan associated with the OCI tenancy.
     attr_reader :billing_plan_id
 
@@ -33,8 +36,20 @@ module DatadogAPIClient::V2
     # The OCID of the OCI compartment used by the Datadog integration stack.
     attr_accessor :dd_compartment_id
 
+    # The version of the Datadog infrastructure-as-code stack applied to the tenancy (for example, 1.2.0).
+    attr_accessor :dd_iac_version
+
     # The OCID of the OCI Resource Manager stack used by the Datadog integration.
     attr_accessor :dd_stack_id
+
+    # List of OCI defined tags applied to the Datadog-managed connector hubs.
+    attr_accessor :defined_tags
+
+    # Whether resource change events collection from OCI is enabled for the tenancy.
+    attr_accessor :events_collection_enabled
+
+    # Access control details for the tenancy configuration, used to determine whether the requesting user can edit it.
+    attr_accessor :grace_resource
 
     # The home region of the OCI tenancy (for example, us-ashburn-1).
     attr_accessor :home_region
@@ -54,6 +69,9 @@ module DatadogAPIClient::V2
     # Whether resource collection from OCI is enabled for the tenancy.
     attr_accessor :resource_collection_enabled
 
+    # Whether service quota collection from OCI is enabled for the tenancy.
+    attr_accessor :service_quota_collection_enabled
+
     # The human-readable name of the OCI tenancy.
     attr_accessor :tenancy_name
 
@@ -66,17 +84,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_tags' => :'account_tags',
         :'billing_plan_id' => :'billing_plan_id',
         :'config_version' => :'config_version',
         :'cost_collection_enabled' => :'cost_collection_enabled',
         :'dd_compartment_id' => :'dd_compartment_id',
+        :'dd_iac_version' => :'dd_iac_version',
         :'dd_stack_id' => :'dd_stack_id',
+        :'defined_tags' => :'defined_tags',
+        :'events_collection_enabled' => :'events_collection_enabled',
+        :'grace_resource' => :'grace_resource',
         :'home_region' => :'home_region',
         :'logs_config' => :'logs_config',
         :'metrics_config' => :'metrics_config',
         :'parent_tenancy_name' => :'parent_tenancy_name',
         :'regions_config' => :'regions_config',
         :'resource_collection_enabled' => :'resource_collection_enabled',
+        :'service_quota_collection_enabled' => :'service_quota_collection_enabled',
         :'tenancy_name' => :'tenancy_name',
         :'user_ocid' => :'user_ocid'
       }
@@ -86,17 +110,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_tags' => :'Array<String>',
         :'billing_plan_id' => :'Integer',
         :'config_version' => :'Integer',
         :'cost_collection_enabled' => :'Boolean',
         :'dd_compartment_id' => :'String',
+        :'dd_iac_version' => :'String',
         :'dd_stack_id' => :'String',
+        :'defined_tags' => :'Array<String>',
+        :'events_collection_enabled' => :'Boolean',
+        :'grace_resource' => :'TenancyConfigDataAttributesGraceResource',
         :'home_region' => :'String',
         :'logs_config' => :'TenancyConfigDataAttributesLogsConfig',
         :'metrics_config' => :'TenancyConfigDataAttributesMetricsConfig',
         :'parent_tenancy_name' => :'String',
         :'regions_config' => :'TenancyConfigDataAttributesRegionsConfig',
         :'resource_collection_enabled' => :'Boolean',
+        :'service_quota_collection_enabled' => :'Boolean',
         :'tenancy_name' => :'String',
         :'user_ocid' => :'String'
       }
@@ -120,6 +150,12 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'account_tags')
+        if (value = attributes[:'account_tags']).is_a?(Array)
+          self.account_tags = value
+        end
+      end
+
       if attributes.key?(:'billing_plan_id')
         self.billing_plan_id = attributes[:'billing_plan_id']
       end
@@ -136,8 +172,26 @@ module DatadogAPIClient::V2
         self.dd_compartment_id = attributes[:'dd_compartment_id']
       end
 
+      if attributes.key?(:'dd_iac_version')
+        self.dd_iac_version = attributes[:'dd_iac_version']
+      end
+
       if attributes.key?(:'dd_stack_id')
         self.dd_stack_id = attributes[:'dd_stack_id']
+      end
+
+      if attributes.key?(:'defined_tags')
+        if (value = attributes[:'defined_tags']).is_a?(Array)
+          self.defined_tags = value
+        end
+      end
+
+      if attributes.key?(:'events_collection_enabled')
+        self.events_collection_enabled = attributes[:'events_collection_enabled']
+      end
+
+      if attributes.key?(:'grace_resource')
+        self.grace_resource = attributes[:'grace_resource']
       end
 
       if attributes.key?(:'home_region')
@@ -162,6 +216,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'resource_collection_enabled')
         self.resource_collection_enabled = attributes[:'resource_collection_enabled']
+      end
+
+      if attributes.key?(:'service_quota_collection_enabled')
+        self.service_quota_collection_enabled = attributes[:'service_quota_collection_enabled']
       end
 
       if attributes.key?(:'tenancy_name')
@@ -217,17 +275,23 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_tags == o.account_tags &&
           billing_plan_id == o.billing_plan_id &&
           config_version == o.config_version &&
           cost_collection_enabled == o.cost_collection_enabled &&
           dd_compartment_id == o.dd_compartment_id &&
+          dd_iac_version == o.dd_iac_version &&
           dd_stack_id == o.dd_stack_id &&
+          defined_tags == o.defined_tags &&
+          events_collection_enabled == o.events_collection_enabled &&
+          grace_resource == o.grace_resource &&
           home_region == o.home_region &&
           logs_config == o.logs_config &&
           metrics_config == o.metrics_config &&
           parent_tenancy_name == o.parent_tenancy_name &&
           regions_config == o.regions_config &&
           resource_collection_enabled == o.resource_collection_enabled &&
+          service_quota_collection_enabled == o.service_quota_collection_enabled &&
           tenancy_name == o.tenancy_name &&
           user_ocid == o.user_ocid &&
           additional_properties == o.additional_properties
@@ -237,7 +301,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing_plan_id, config_version, cost_collection_enabled, dd_compartment_id, dd_stack_id, home_region, logs_config, metrics_config, parent_tenancy_name, regions_config, resource_collection_enabled, tenancy_name, user_ocid, additional_properties].hash
+      [account_tags, billing_plan_id, config_version, cost_collection_enabled, dd_compartment_id, dd_iac_version, dd_stack_id, defined_tags, events_collection_enabled, grace_resource, home_region, logs_config, metrics_config, parent_tenancy_name, regions_config, resource_collection_enabled, service_quota_collection_enabled, tenancy_name, user_ocid, additional_properties].hash
     end
   end
 end

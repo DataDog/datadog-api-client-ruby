@@ -9857,6 +9857,7 @@ module DatadogAPIClient
           "v2.tenancy_config" => "TenancyConfig",
           "v2.tenancy_config_data" => "TenancyConfigData",
           "v2.tenancy_config_data_attributes" => "TenancyConfigDataAttributes",
+          "v2.tenancy_config_data_attributes_grace_resource" => "TenancyConfigDataAttributesGraceResource",
           "v2.tenancy_config_data_attributes_logs_config" => "TenancyConfigDataAttributesLogsConfig",
           "v2.tenancy_config_data_attributes_metrics_config" => "TenancyConfigDataAttributesMetricsConfig",
           "v2.tenancy_config_data_attributes_regions_config" => "TenancyConfigDataAttributesRegionsConfig",

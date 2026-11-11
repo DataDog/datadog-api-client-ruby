@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # List of OCI service names excluded from metrics collection.
     attr_accessor :excluded_services
 
+    # Map of OCI service names to the resource tag filters that scope metrics collection for that service.
+    attr_accessor :resource_tag_filters
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'compartment_tag_filters' => :'compartment_tag_filters',
         :'enabled' => :'enabled',
-        :'excluded_services' => :'excluded_services'
+        :'excluded_services' => :'excluded_services',
+        :'resource_tag_filters' => :'resource_tag_filters'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'compartment_tag_filters' => :'Array<String>',
         :'enabled' => :'Boolean',
-        :'excluded_services' => :'Array<String>'
+        :'excluded_services' => :'Array<String>',
+        :'resource_tag_filters' => :'Hash<String, Array<String>>'
       }
     end
 
@@ -85,6 +90,10 @@ module DatadogAPIClient::V2
           self.excluded_services = value
         end
       end
+
+      if attributes.key?(:'resource_tag_filters')
+        self.resource_tag_filters = attributes[:'resource_tag_filters']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -116,6 +125,7 @@ module DatadogAPIClient::V2
           compartment_tag_filters == o.compartment_tag_filters &&
           enabled == o.enabled &&
           excluded_services == o.excluded_services &&
+          resource_tag_filters == o.resource_tag_filters &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compartment_tag_filters, enabled, excluded_services, additional_properties].hash
+      [compartment_tag_filters, enabled, excluded_services, resource_tag_filters, additional_properties].hash
     end
   end
 end
