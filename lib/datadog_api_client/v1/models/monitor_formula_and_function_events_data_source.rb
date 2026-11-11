@@ -31,5 +31,6 @@ module DatadogAPIClient::V1
     DATABASE_QUERIES = "database_queries".freeze
     NETWORK = "network".freeze
     NETWORK_PATH = "network_path".freeze
+    LLM_OBSERVABILITY = "llm_observability".freeze
   end
 end
