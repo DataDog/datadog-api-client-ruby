@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class TenancyConfigDataAttributesRegionsConfig
     include BaseGenericModel
 
-    # List of OCI regions available for data collection in the tenancy.
+    # List of OCI regions available for data collection in the tenancy. Returns `null` when no regions are set.
     attr_accessor :available
 
-    # List of OCI regions explicitly disabled for data collection.
+    # List of OCI regions explicitly disabled for data collection. Returns `null` when no regions are set.
     attr_accessor :disabled
 
-    # List of OCI regions enabled for data collection.
+    # List of OCI regions enabled for data collection. Returns `null` when no regions are set.
     attr_accessor :enabled
 
     attr_accessor :additional_properties
@@ -50,6 +50,16 @@ module DatadogAPIClient::V2
         :'disabled' => :'Array<String>',
         :'enabled' => :'Array<String>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'available',
+        :'disabled',
+        :'enabled',
+      ])
     end
 
     # Initializes the object
