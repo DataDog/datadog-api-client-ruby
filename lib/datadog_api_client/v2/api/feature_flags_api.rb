@@ -23,6 +23,165 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Apply an approved flag change suggestion.
+    #
+    # @see #apply_flag_suggestion_with_http_info
+    def apply_flag_suggestion(suggestion_id, opts = {})
+      data, _status_code, _headers = apply_flag_suggestion_with_http_info(suggestion_id, opts)
+      data
+    end
+
+    # Apply an approved flag change suggestion.
+    #
+    # Applies a previously approved feature flag change suggestion. Requires contributor or
+    # editor access to the flag. Pending, rejected, or discarded suggestions return `409 Conflict`.
+    # An already applied suggestion also returns `409 Conflict`, except that retrying an applied
+    # experiment action succeeds. This endpoint does not require a request body.
+    #
+    # When an `ALLOCATIONS` suggestion is applied, either by this endpoint or by an approval that applies it,
+    # each exposure schedule with `autostart` set to `true`, no `absolute_start_time`, and no future
+    # `scheduled_start_time` starts at apply time. This includes a schedule that is already running, so a
+    # suggestion that omits its `absolute_start_time` restarts its rollout. If its `selection_interval_ms` is
+    # greater than `0`, every step except the last uses that interval. An `absolute_start_time` in the
+    # suggestion is kept, including one set by the allocations request that built the suggestion, so time spent
+    # waiting for approval counts toward its rollout steps.
+    # Schedules with `apm_retention`, in the suggestion or on the saved schedule, are the exception: apply does
+    # not start them, and they start only through the exposure schedule start endpoint. When the suggestion omits
+    # `apm_retention` or `absolute_start_time` for a saved schedule with `apm_retention`, apply keeps the saved
+    # values, so a running schedule keeps its start, unless the suggestion changes its rollout strategy, which
+    # stops it.
+    #
+    # @param suggestion_id [UUID] The ID of the feature flag change suggestion.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FeatureFlagSuggestionResponse, Integer, Hash)>] FeatureFlagSuggestionResponse data, response status code and response headers
+    def apply_flag_suggestion_with_http_info(suggestion_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.apply_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.apply_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}/apply'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FeatureFlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :apply_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#apply_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Approve a flag change suggestion.
+    #
+    # @see #approve_flag_suggestion_with_http_info
+    def approve_flag_suggestion(suggestion_id, body, opts = {})
+      data, _status_code, _headers = approve_flag_suggestion_with_http_info(suggestion_id, body, opts)
+      data
+    end
+
+    # Approve a flag change suggestion.
+    #
+    # Approves a feature flag change suggestion and applies the change immediately by default.
+    # Set `apply` to `false` to approve without applying, then call `ApplyFlagSuggestion` later.
+    # Until it is applied or deleted, an approved suggestion still blocks conflicting changes.
+    # Requires editor access to the flag or the Feature Flag Approvals Override permission.
+    # A creator cannot approve their own suggestion unless they have override permission.
+    # Applied or discarded suggestions return `409 Conflict`. Retrying approval of an already
+    # applied experiment action with `apply` set to `true` succeeds.
+    #
+    # @param suggestion_id [UUID] The ID of the feature flag change suggestion.
+    # @param body [ApproveFlagSuggestionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FeatureFlagSuggestionResponse, Integer, Hash)>] FeatureFlagSuggestionResponse data, response status code and response headers
+    def approve_flag_suggestion_with_http_info(suggestion_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.approve_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.approve_flag_suggestion"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.approve_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}/approve'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FeatureFlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :approve_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#approve_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Archive a feature flag.
     #
     # @see #archive_feature_flag_with_http_info
@@ -33,8 +192,17 @@ module DatadogAPIClient::V2
 
     # Archive a feature flag.
     #
-    # Archives a feature flag. Archived flags are
-    # hidden from the main list but remain accessible and can be unarchived.
+    # Archives a feature flag. Archived flags are hidden from the main list but remain accessible
+    # and can be unarchived.
+    #
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion. The change is not applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param opts [Hash] the optional parameters
@@ -99,7 +267,17 @@ module DatadogAPIClient::V2
 
     # Create targeting rules for a flag env.
     #
-    # Creates a new targeting rule (allocation) for a specific feature flag in a specific environment.
+    # Creates a new targeting rule (allocation) for a feature flag in an environment.
+    #
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `202 Accepted` with an
+    # `approval-required` resource. No allocation is created and no suggestion is persisted.
+    # The resource ID is the flag ID. Submit its `property`, `action`, `suggestion`, and `environment_id`
+    # to `CreateFlagSuggestion`, together with `notification_rule_targets`, to request approval.
+    # The suggestion value contains the complete desired allocation set, including the new rule.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict`, including for callers with
+    # override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param environment_id [UUID] The ID of the environment.
@@ -300,6 +478,101 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a flag change suggestion.
+    #
+    # @see #create_flag_suggestion_with_http_info
+    def create_flag_suggestion(feature_flag_id, body, opts = {})
+      data, _status_code, _headers = create_flag_suggestion_with_http_info(feature_flag_id, body, opts)
+      data
+    end
+
+    # Create a flag change suggestion.
+    #
+    # Creates a persisted suggestion for a feature flag change that requires approval.
+    # The change is not applied until the suggestion is approved and applied. Requires
+    # contributor or editor access to the flag. The request must contain at least one
+    # `notification_rule_targets` handle for review notifications.
+    #
+    # Use this endpoint to submit the proposed change from the `202 Accepted` approval-required
+    # response of `CreateAllocationsForFeatureFlagInEnvironment`. Other approval-gated mutation endpoints
+    # return `201 Created` with a persisted suggestion. Do not submit those suggestions again.
+    #
+    # An `environment_id` is required for `ALLOCATIONS`, `DEFAULT_VARIANT`, and `OVERRIDE_VARIANT`.
+    # For allocation and variant changes, `suggestion` is a JSON-encoded string, not a nested
+    # JSON object. Conflicting suggestions that are pending, or approved but not yet applied,
+    # return `409 Conflict`.
+    #
+    # The allocations in an `ALLOCATIONS` suggestion are validated with the rules that
+    # `UpdateAllocationsForFeatureFlagInEnvironment` applies to a change that requires approval, including the
+    # rules for request fields, targeting rules and their `ONE_OF` and `NOT_ONE_OF` value limits, variant and
+    # metric references, draft allocations, and exposure schedules. A schedule with `apm_retention` that has not
+    # started must be started with the exposure schedule start endpoint, not with `autostart` or an
+    # `absolute_start_time`. That endpoint's Product Analytics Experiments Write permission checks also apply.
+    # If that endpoint would reject the allocations, this endpoint returns the same error: `400 Bad Request` for
+    # invalid allocations, for example a `UNIFORM_INTERVALS` schedule with a `selection_interval_ms` of `0`,
+    # `403 Forbidden` when the caller lacks the Experiments Write permission the lineup needs, and
+    # `409 Conflict` for a lineup that changes or omits a draft allocation.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param body [CreateFlagSuggestionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FeatureFlagSuggestionResponse, Integer, Hash)>] FeatureFlagSuggestionResponse data, response status code and response headers
+    def create_flag_suggestion_with_http_info(feature_flag_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.create_flag_suggestion ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.create_flag_suggestion"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.create_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/suggestions'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FeatureFlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#create_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Add a variant to a feature flag.
     #
     # @see #create_variant_for_feature_flag_with_http_info
@@ -443,6 +716,74 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete or discard a flag change suggestion.
+    #
+    # @see #delete_flag_suggestion_with_http_info
+    def delete_flag_suggestion(suggestion_id, opts = {})
+      delete_flag_suggestion_with_http_info(suggestion_id, opts)
+      nil
+    end
+
+    # Delete or discard a flag change suggestion.
+    #
+    # Deletes a pending suggestion or discards an approved suggestion that has not been
+    # applied. Requires editor access to the flag, or contributor access for the suggestion's
+    # creator. Applied and rejected suggestions return `409 Conflict`. A missing or already
+    # discarded suggestion returns `204 No Content`.
+    #
+    # @param suggestion_id [UUID] The ID of the feature flag change suggestion.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_flag_suggestion_with_http_info(suggestion_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.delete_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.delete_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#delete_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a variant.
     #
     # @see #delete_variant_from_feature_flag_with_http_info
@@ -455,7 +796,15 @@ module DatadogAPIClient::V2
     #
     # Deletes a variant from a feature flag.
     #
-    # When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a `FlagSuggestion` with `201 Created` instead of deleting the variant immediately. If a pending suggestion already exists for this flag's variant property, the endpoint returns `409 Conflict`.
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion, in the same format as the `GetFlagSuggestion` response. The change is not
+    # applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param variant_id [UUID] The ID of the variant.
@@ -525,7 +874,17 @@ module DatadogAPIClient::V2
 
     # Disable a feature flag in an environment.
     #
-    # Disable a feature flag in a specific environment.
+    # Disables a feature flag in a specific environment.
+    #
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion, in the same format as the `GetFlagSuggestion` response. The change is not
+    # applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param environment_id [UUID] The ID of the environment.
@@ -595,7 +954,17 @@ module DatadogAPIClient::V2
 
     # Enable a feature flag in an environment.
     #
-    # Enable a feature flag in a specific environment.
+    # Enables a feature flag in a specific environment.
+    #
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion, in the same format as the `GetFlagSuggestion` response. The change is not
+    # applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param environment_id [UUID] The ID of the environment.
@@ -782,6 +1151,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#get_feature_flags_environment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a flag change suggestion.
+    #
+    # @see #get_flag_suggestion_with_http_info
+    def get_flag_suggestion(suggestion_id, opts = {})
+      data, _status_code, _headers = get_flag_suggestion_with_http_info(suggestion_id, opts)
+      data
+    end
+
+    # Get a flag change suggestion.
+    #
+    # Returns a feature flag change suggestion by ID. Use `lifecycle_status` to distinguish
+    # pending, approved, applied, rejected, and discarded suggestions. An approved suggestion
+    # has not yet been applied; an applied suggestion has changed the flag.
+    #
+    # @param suggestion_id [UUID] The ID of the feature flag change suggestion.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FeatureFlagSuggestionResponse, Integer, Hash)>] FeatureFlagSuggestionResponse data, response status code and response headers
+    def get_flag_suggestion_with_http_info(suggestion_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.get_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.get_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FeatureFlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#get_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1123,6 +1559,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Reject a flag change suggestion.
+    #
+    # @see #reject_flag_suggestion_with_http_info
+    def reject_flag_suggestion(suggestion_id, body, opts = {})
+      data, _status_code, _headers = reject_flag_suggestion_with_http_info(suggestion_id, body, opts)
+      data
+    end
+
+    # Reject a flag change suggestion.
+    #
+    # Rejects a pending feature flag change suggestion without applying the change. Requires
+    # editor access to the flag or the Feature Flag Approvals Override permission. Rejecting
+    # an already rejected suggestion succeeds. Approved, applied, or discarded suggestions
+    # return `409 Conflict`.
+    #
+    # @param suggestion_id [UUID] The ID of the feature flag change suggestion.
+    # @param body [RejectFlagSuggestionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FeatureFlagSuggestionResponse, Integer, Hash)>] FeatureFlagSuggestionResponse data, response status code and response headers
+    def reject_flag_suggestion_with_http_info(suggestion_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.reject_flag_suggestion ...'
+      end
+      # verify the required parameter 'suggestion_id' is set
+      if @api_client.config.client_side_validation && suggestion_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suggestion_id' when calling FeatureFlagsAPI.reject_flag_suggestion"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.reject_flag_suggestion"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/suggestions/{suggestion_id}/reject'.sub('{suggestion_id}', CGI.escape(suggestion_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FeatureFlagSuggestionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :reject_flag_suggestion,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#reject_flag_suggestion\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Resume a progressive rollout.
     #
     # @see #resume_exposure_schedule_with_http_info
@@ -1328,8 +1839,16 @@ module DatadogAPIClient::V2
 
     # Unarchive a feature flag.
     #
-    # Unarchives a previously archived feature flag,
-    # making it visible in the main list again.
+    # Unarchives a previously archived feature flag, making it visible in the main list again.
+    #
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion. The change is not applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param opts [Hash] the optional parameters
@@ -1394,13 +1913,27 @@ module DatadogAPIClient::V2
 
     # Update targeting rules for a flag.
     #
-    # Updates targeting rules (allocations) for a specific feature flag in a specific environment.
-    # This operation replaces the existing allocation set with the request payload.
+    # Updates targeting rules (allocations) for a feature flag in an environment. This operation
+    # replaces the existing allocation set with the request payload.
+    #
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion. The change is not applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
+    #
+    # When approval is required, combining allocation replacement with `default_variant_key`
+    # returns `400 Bad Request`. Omit that parameter and submit the default variant change
+    # separately with `CreateFlagSuggestion` using the `DEFAULT_VARIANT` property and the variant ID.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param environment_id [UUID] The ID of the environment.
     # @param body [OverwriteAllocationsRequest] 
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :default_variant_key The key of the default variant to set. When approval is required, omit this parameter and submit a `DEFAULT_VARIANT` suggestion separately.
     # @return [Array<(ListAllocationsResponse, Integer, Hash)>] ListAllocationsResponse data, response status code and response headers
     def update_allocations_for_feature_flag_in_environment_with_http_info(feature_flag_id, environment_id, body, opts = {})
 
@@ -1424,6 +1957,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'default_variant_key'] = opts[:'default_variant_key'] if !opts[:'default_variant_key'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1472,13 +2006,30 @@ module DatadogAPIClient::V2
 
     # Update a feature flag.
     #
-    # Updates an existing feature flag's metadata such as
-    #  name and description. Does not modify targeting rules or allocations.
+    # Updates an existing feature flag's metadata, including its name,
+    # description, distribution channel, and tags. Does not modify targeting rules or allocations.
     #
     # To change the owning team, update `tags` and include a tag of the form
     # `team:<team-handle>` in the array. `tags` is a full replacement of the
     # existing tag set (including any `team:` tag), so include every tag you
     # want to keep, not just the ones you're adding.
+    #
+    # To change the lifecycle, set `staleness_status` to `ACTIVE` (temporary) or `PERMANENT`.
+    # Either value clears any snooze; omit it to keep the lifecycle. Send `staleness_status` in a
+    # separate request from `distribution_channel`. Do not copy the top-level `staleness_status`
+    # from a response into the request: that legacy response field is always `ACTIVE`, so
+    # copying it makes a `PERMANENT` flag temporary.
+    #
+    # When backend approvals are enabled and a distribution channel change requires approval,
+    # callers without the Feature Flag Approvals Override permission receive `201 Created`
+    # with a suggestion instead of an updated flag. No fields in the request are applied.
+    # The suggestion contains only the distribution channel change. To update other fields, such as
+    # name, description, JSON schema, and tags, send a separate request without `distribution_channel`.
+    #
+    # While backend approvals are enabled, a request that includes `distribution_channel`
+    # returns `409 Conflict` if a distribution channel suggestion for the flag is pending, or
+    # approved but not yet applied. No fields are applied, including for callers with override
+    # permission.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param body [UpdateFeatureFlagRequest] 
@@ -1536,6 +2087,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#update_feature_flag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set the approval requirement for a feature flag.
+    #
+    # @see #update_feature_flag_approvals_with_http_info
+    def update_feature_flag_approvals(feature_flag_id, body, opts = {})
+      data, _status_code, _headers = update_feature_flag_approvals_with_http_info(feature_flag_id, body, opts)
+      data
+    end
+
+    # Set the approval requirement for a feature flag.
+    #
+    # Enables or disables the approval requirement for a feature flag. Requires the Feature
+    # Flag Write permission and contributor or editor access to the flag. Disabling approvals
+    # also requires the Feature Flag Approvals Override permission, even if approvals are already disabled.
+    # This operation updates the setting directly and does not create a suggestion. Changing the setting
+    # returns `409 Conflict` when a pending experiment request or a running approved experiment uses the flag.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param body [UpdateFeatureFlagApprovalsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FeatureFlagResponse, Integer, Hash)>] FeatureFlagResponse data, response status code and response headers
+    def update_feature_flag_approvals_with_http_info(feature_flag_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.update_feature_flag_approvals ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.update_feature_flag_approvals"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.update_feature_flag_approvals"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/require-approval'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FeatureFlagResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_feature_flag_approvals,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#update_feature_flag_approvals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1704,7 +2331,15 @@ module DatadogAPIClient::V2
     #
     # Updates the name and value of an existing variant on a feature flag.
     #
-    # When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a `FlagSuggestion` with `201 Created` instead of applying the change immediately. Use the returned suggestion `id` to approve or reject the change. If a pending suggestion already exists for this flag's variant property, the endpoint returns `409 Conflict`.
+    # When backend approvals are enabled and this change requires approval, callers without
+    # the Feature Flag Approvals Override permission receive `201 Created` with a persisted
+    # suggestion, in the same format as the `GetFlagSuggestion` response. The change is not
+    # applied until the suggestion is approved and applied.
+    # Use the returned suggestion ID with `GetFlagSuggestion`, `ApproveFlagSuggestion`,
+    # `RejectFlagSuggestion`, or `DeleteFlagSuggestion`.
+    #
+    # A conflicting suggestion that is pending, or approved but not yet applied, returns `409 Conflict` without applying the change,
+    # including for callers with override permission or when approval is no longer required.
     #
     # @param feature_flag_id [UUID] The ID of the feature flag.
     # @param variant_id [UUID] The ID of the variant.
