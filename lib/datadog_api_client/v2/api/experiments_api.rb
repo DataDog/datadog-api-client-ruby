@@ -2039,6 +2039,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List experiment holdouts.
+    #
+    # @see #list_experiment_holdouts_with_http_info
+    def list_experiment_holdouts(experiment_id, opts = {})
+      data, _status_code, _headers = list_experiment_holdouts_with_http_info(experiment_id, opts)
+      data
+    end
+
+    # List experiment holdouts.
+    #
+    # List the holdouts an experiment is attached to, in evaluation order: MANAGED holdouts first, starting with the GLOBAL holdout, followed by EXTERNAL holdouts. For a draft experiment, the response includes the GLOBAL holdout that the experiment would join if it started. The response excludes archived and deleted holdouts, and MANAGED holdouts past their analysis window. EXTERNAL holdouts are listed until they are archived. MANAGED holdouts are listed only for experiments that use a Datadog feature flag, because Datadog serves holdouts only through its flags. The order matches the experiment's `holdout_ids` attribute.
+    #
+    # @param experiment_id [UUID] The UUID of the experiment.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsExperimentHoldoutV2DTOArray, Integer, Hash)>] ExperimentsExperimentHoldoutV2DTOArray data, response status code and response headers
+    def list_experiment_holdouts_with_http_info(experiment_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_experiment_holdouts ...'
+      end
+      # verify the required parameter 'experiment_id' is set
+      if @api_client.config.client_side_validation && experiment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'experiment_id' when calling ExperimentsAPI.list_experiment_holdouts"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/{experiment_id}/holdouts'.sub('{experiment_id}', CGI.escape(experiment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsExperimentHoldoutV2DTOArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_experiment_holdouts,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#list_experiment_holdouts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List experiment metric groups.
     #
     # @see #list_experiment_metric_groups_with_http_info

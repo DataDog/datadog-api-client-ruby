@@ -4008,6 +4008,9 @@ ScenariosModelMappings = {
     "v2.GetExperimentDiagnostics" => {
             "experiment_id" => "UUID",
     },
+    "v2.ListExperimentHoldouts" => {
+            "experiment_id" => "UUID",
+    },
     "v2.ListExperimentMetricGroups" => {
             "experiment_id" => "UUID",
     },

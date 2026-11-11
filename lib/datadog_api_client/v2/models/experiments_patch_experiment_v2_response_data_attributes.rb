@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Kind of experiment. STANDARD is an ordinary experiment. Other values, such as CANARY and HOLDOUT, identify experiments owned by another workflow. New kinds may be added; treat unknown values as non-standard.
     attr_accessor :experiment_type
 
+    # IDs of the holdouts the experiment is attached to, in evaluation order: MANAGED holdouts first, starting with the GLOBAL holdout, followed by EXTERNAL holdouts. For a draft experiment, the list includes the GLOBAL holdout that the experiment would join if it started. `GET /api/v2/experiments/{experiment_id}/holdouts` returns their details.
+    attr_accessor :holdout_ids
+
     # Expected effect that the experiment is intended to test.
     attr_accessor :hypothesis
 
@@ -125,6 +128,7 @@ module DatadogAPIClient::V2
         :'events_end_date' => :'events_end_date',
         :'events_start_date' => :'events_start_date',
         :'experiment_type' => :'experiment_type',
+        :'holdout_ids' => :'holdout_ids',
         :'hypothesis' => :'hypothesis',
         :'migration_metadata' => :'migration_metadata',
         :'name' => :'name',
@@ -161,6 +165,7 @@ module DatadogAPIClient::V2
         :'events_end_date' => :'Time',
         :'events_start_date' => :'Time',
         :'experiment_type' => :'String',
+        :'holdout_ids' => :'Array<UUID>',
         :'hypothesis' => :'String',
         :'migration_metadata' => :'Object',
         :'name' => :'String',
@@ -260,6 +265,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'experiment_type')
         self.experiment_type = attributes[:'experiment_type']
+      end
+
+      if attributes.key?(:'holdout_ids')
+        if (value = attributes[:'holdout_ids']).is_a?(Array)
+          self.holdout_ids = value
+        end
       end
 
       if attributes.key?(:'hypothesis')
@@ -384,6 +395,7 @@ module DatadogAPIClient::V2
           events_end_date == o.events_end_date &&
           events_start_date == o.events_start_date &&
           experiment_type == o.experiment_type &&
+          holdout_ids == o.holdout_ids &&
           hypothesis == o.hypothesis &&
           migration_metadata == o.migration_metadata &&
           name == o.name &&
@@ -409,7 +421,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignments_end_date, assignments_start_date, concluded_at, conclusion, created_at, datadog_flag_configuration, decision_metrics, decision_variant_key, events_end_date, events_start_date, experiment_type, hypothesis, migration_metadata, name, pipeline_table_suffix, protocol_id, related_links, results_last_updated, split_by_properties, status, structured_metadata, subject_type_id, summary, tags, teams, traffic_exposure, updated_at, variants, warehouse_exposure_configuration, additional_properties].hash
+      [assignments_end_date, assignments_start_date, concluded_at, conclusion, created_at, datadog_flag_configuration, decision_metrics, decision_variant_key, events_end_date, events_start_date, experiment_type, holdout_ids, hypothesis, migration_metadata, name, pipeline_table_suffix, protocol_id, related_links, results_last_updated, split_by_properties, status, structured_metadata, subject_type_id, summary, tags, teams, traffic_exposure, updated_at, variants, warehouse_exposure_configuration, additional_properties].hash
     end
   end
 end
