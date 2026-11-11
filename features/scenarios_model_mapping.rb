@@ -4661,6 +4661,19 @@ ScenariosModelMappings = {
             "id" => "UUID",
             "body" => "IncidentTimestampOverridePatchRequest",
     },
+    "v2.CreateChatGPTEnterpriseIntegrationAccount" => {
+            "body" => "ChatGPTEnterpriseIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteChatGPTEnterpriseIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetChatGPTEnterpriseIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateChatGPTEnterpriseIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "ChatGPTEnterpriseIntegrationAccountUpdateRequest",
+    },
     "v2.CreateDatabricksIntegrationAccount" => {
             "body" => "DatabricksIntegrationAccountCreateRequest",
     },
