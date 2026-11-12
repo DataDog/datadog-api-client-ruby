@@ -3230,6 +3230,10 @@ ScenariosModelMappings = {
     "v2.GetCustomCostsFile" => {
             "file_id" => "String",
     },
+    "v2.UpdateCustomCostsFile" => {
+            "file_id" => "String",
+            "body" => "CustomCostsFileUpdateRequest",
+    },
     "v2.CreateCostGCPUsageCostConfig" => {
             "body" => "GCPUsageCostConfigPostRequest",
     },
