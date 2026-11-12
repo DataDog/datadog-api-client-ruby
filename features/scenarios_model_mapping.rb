@@ -1295,6 +1295,18 @@ ScenariosModelMappings = {
             "resource_id" => "String",
             "agent_type" => "AgentHealthAgentType",
     },
+    "v2.ListAgentHealthIssues" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_severity" => "String",
+            "filter_category" => "String",
+            "filter_issue_type" => "String",
+            "filter_resource_kind" => "String",
+            "filter_resource_id" => "String",
+    },
+    "v2.GetAgentHealthIssue" => {
+            "issue_id" => "String",
+    },
     "v2.CreateAwsScanOptions" => {
             "body" => "AwsScanOptionsCreateRequest",
     },
