@@ -6495,6 +6495,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_amazon_s3_source_type" => "ObservabilityPipelineAmazonS3SourceType",
           "v2.observability_pipeline_amazon_security_lake_destination" => "ObservabilityPipelineAmazonSecurityLakeDestination",
           "v2.observability_pipeline_amazon_security_lake_destination_type" => "ObservabilityPipelineAmazonSecurityLakeDestinationType",
+          "v2.observability_pipeline_anomaly_detection" => "ObservabilityPipelineAnomalyDetection",
           "v2.observability_pipeline_aws_auth" => "ObservabilityPipelineAwsAuth",
           "v2.observability_pipeline_azure_data_explorer_destination" => "ObservabilityPipelineAzureDataExplorerDestination",
           "v2.observability_pipeline_azure_data_explorer_destination_auth" => "ObservabilityPipelineAzureDataExplorerDestinationAuth",
