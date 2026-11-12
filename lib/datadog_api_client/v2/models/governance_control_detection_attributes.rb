@@ -30,10 +30,6 @@ module DatadogAPIClient::V2
     # How the detection's current assignment was determined. Possible values are `auto_resolved`, `manual`, `reassigned`, and `cleared`.
     attr_reader :assignment_source
 
-    # DEPRECATED: mirrors `detection_type` for backward compatibility; use `detection_type`
-    # instead.
-    attr_reader :control_id
-
     # The date and time when the detection was created.
     attr_reader :created_at
 
@@ -79,7 +75,6 @@ module DatadogAPIClient::V2
         :'assigned_team' => :'assigned_team',
         :'assigned_to' => :'assigned_to',
         :'assignment_source' => :'assignment_source',
-        :'control_id' => :'control_id',
         :'created_at' => :'created_at',
         :'detection_type' => :'detection_type',
         :'display_name' => :'display_name',
@@ -102,7 +97,6 @@ module DatadogAPIClient::V2
         :'assigned_team' => :'String',
         :'assigned_to' => :'String',
         :'assignment_source' => :'GovernanceControlDetectionAssignmentSource',
-        :'control_id' => :'String',
         :'created_at' => :'Time',
         :'detection_type' => :'String',
         :'display_name' => :'String',
@@ -146,10 +140,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'assignment_source')
         self.assignment_source = attributes[:'assignment_source']
-      end
-
-      if attributes.key?(:'control_id')
-        self.control_id = attributes[:'control_id']
       end
 
       if attributes.key?(:'created_at')
@@ -206,7 +196,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @assignment_source.nil?
-      return false if @control_id.nil?
       return false if @created_at.nil?
       return false if @detection_type.nil?
       return false if @display_name.nil?
@@ -225,16 +214,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "assignment_source", assignment_source cannot be nil.'
       end
       @assignment_source = assignment_source
-    end
-
-    # Custom attribute writer method with validation
-    # @param control_id [Object] Object to be assigned
-    # @!visibility private
-    def control_id=(control_id)
-      if control_id.nil?
-        fail ArgumentError, 'invalid value for "control_id", control_id cannot be nil.'
-      end
-      @control_id = control_id
     end
 
     # Custom attribute writer method with validation
@@ -336,7 +315,6 @@ module DatadogAPIClient::V2
           assigned_team == o.assigned_team &&
           assigned_to == o.assigned_to &&
           assignment_source == o.assignment_source &&
-          control_id == o.control_id &&
           created_at == o.created_at &&
           detection_type == o.detection_type &&
           display_name == o.display_name &&
@@ -356,7 +334,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assigned_team, assigned_to, assignment_source, control_id, created_at, detection_type, display_name, exception_at, exception_by, metadata, mitigate_after, mitigated_at, priority, resource_id, resource_type, state, additional_properties].hash
+      [assigned_team, assigned_to, assignment_source, created_at, detection_type, display_name, exception_at, exception_by, metadata, mitigate_after, mitigated_at, priority, resource_id, resource_type, state, additional_properties].hash
     end
   end
 end
