@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleReplaceData
     include BaseGenericModel
 
-    # Attributes used to replace an AI Gateway routing rule.
+    # Partial route update. Omit tiers to preserve the entire graph, including hidden selections. Saved target IDs retain omitted settings. Replacing tiers must explicitly retain or remove every hidden occurrence.
     attr_reader :attributes
 
     # Resource identifier.

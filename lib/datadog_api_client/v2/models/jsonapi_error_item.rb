@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class JSONAPIErrorItem
     include BaseGenericModel
 
+    # An application-specific error code.
+    attr_accessor :code
+
     # A human-readable explanation specific to this occurrence of the error.
     attr_accessor :detail
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'code' => :'code',
         :'detail' => :'detail',
         :'meta' => :'meta',
         :'source' => :'source',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'code' => :'String',
         :'detail' => :'String',
         :'meta' => :'Hash<String, Object>',
         :'source' => :'JSONAPIErrorItemSource',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
+      end
 
       if attributes.key?(:'detail')
         self.detail = attributes[:'detail']
@@ -127,6 +136,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          code == o.code &&
           detail == o.detail &&
           meta == o.meta &&
           source == o.source &&
@@ -139,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detail, meta, source, status, title, additional_properties].hash
+      [code, detail, meta, source, status, title, additional_properties].hash
     end
   end
 end

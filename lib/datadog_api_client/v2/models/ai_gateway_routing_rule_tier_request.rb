@@ -21,7 +21,10 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleTierRequest
     include BaseGenericModel
 
-    # How a tier orders its targets. Omitted or null defaults to configured, which preserves target order. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier.
+    # Decision model and settings for a classified tier. Omission preserves the saved classifier; null clears it. Newly selected models require provider View.
+    attr_accessor :classifier
+
+    # How a tier orders its targets. Omission preserves the saved same-position tier on update; null resets to configured. New tiers default to configured. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier. The `classified` ordering is allowed only in the first tier and requires a classifier, destination rubrics, and one default destination.
     attr_accessor :ordering
 
     #
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'classifier' => :'classifier',
         :'ordering' => :'ordering',
         :'targets' => :'targets'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'classifier' => :'AiGatewayRoutingClassifierRequest',
         :'ordering' => :'AiGatewayNullableRoutingRuleTierOrdering',
         :'targets' => :'Array<AiGatewayRoutingRuleTargetRequest>'
       }
@@ -51,6 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'classifier',
         :'ordering',
       ])
     end
@@ -72,6 +78,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'classifier')
+        self.classifier = attributes[:'classifier']
+      end
 
       if attributes.key?(:'ordering')
         self.ordering = attributes[:'ordering']
@@ -132,6 +142,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          classifier == o.classifier &&
           ordering == o.ordering &&
           targets == o.targets &&
           additional_properties == o.additional_properties
@@ -141,7 +152,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ordering, targets, additional_properties].hash
+      [classifier, ordering, targets, additional_properties].hash
     end
   end
 end

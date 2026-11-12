@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # How a tier orders its targets. Omitted or null defaults to configured, which preserves target order. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier.
+  # How a tier orders its targets. Omission preserves the saved same-position tier on update; null resets to configured. New tiers default to configured. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier. The `classified` ordering is allowed only in the first tier and requires a classifier, destination rubrics, and one default destination.
   class AiGatewayNullableRoutingRuleTierOrdering
     include BaseEnumModel
 
     CONFIGURED = "configured".freeze
     WEIGHTED_AFFINITY = "weighted_affinity".freeze
+    CLASSIFIED = "classified".freeze
   end
 end

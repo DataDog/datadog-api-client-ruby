@@ -17,9 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes used to replace an AI Gateway routing rule.
+  # Partial route update. Omit tiers to preserve the entire graph, including hidden selections. Saved target IDs retain omitted settings. Replacing tiers must explicitly retain or remove every hidden occurrence.
   class AiGatewayRoutingRuleReplaceAttributes
     include BaseGenericModel
+
+    # Saved route revision. A mismatched value returns 409 without changes.
+    attr_accessor :expected_updated_at
+
+    # Parent-local saved occurrence IDs explicitly removed from the submitted tiers. IDs must be distinct, belong to this route, and not also be retained.
+    attr_accessor :removed_target_ids
 
     #
     attr_reader :tiers
@@ -30,6 +36,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'expected_updated_at' => :'expected_updated_at',
+        :'removed_target_ids' => :'removed_target_ids',
         :'tiers' => :'tiers'
       }
     end
@@ -38,6 +46,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'expected_updated_at' => :'Time',
+        :'removed_target_ids' => :'Array<Integer>',
         :'tiers' => :'Array<AiGatewayRoutingRuleTierRequest>'
       }
     end
@@ -60,6 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'expected_updated_at')
+        self.expected_updated_at = attributes[:'expected_updated_at']
+      end
+
+      if attributes.key?(:'removed_target_ids')
+        if (value = attributes[:'removed_target_ids']).is_a?(Array)
+          self.removed_target_ids = value
+        end
+      end
+
       if attributes.key?(:'tiers')
         if (value = attributes[:'tiers']).is_a?(Array)
           self.tiers = value
@@ -71,8 +91,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @tiers.nil?
-      return false if @tiers.length < 1
+      return false if !@tiers.nil? && @tiers.length < 1
       true
     end
 
@@ -80,10 +99,7 @@ module DatadogAPIClient::V2
     # @param tiers [Object] Object to be assigned
     # @!visibility private
     def tiers=(tiers)
-      if tiers.nil?
-        fail ArgumentError, 'invalid value for "tiers", tiers cannot be nil.'
-      end
-      if tiers.length < 1
+      if !tiers.nil? && tiers.length < 1
         fail ArgumentError, 'invalid value for "tiers", number of items must be greater than or equal to 1.'
       end
       @tiers = tiers
@@ -115,6 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          expected_updated_at == o.expected_updated_at &&
+          removed_target_ids == o.removed_target_ids &&
           tiers == o.tiers &&
           additional_properties == o.additional_properties
     end
@@ -123,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tiers, additional_properties].hash
+      [expected_updated_at, removed_target_ids, tiers, additional_properties].hash
     end
   end
 end

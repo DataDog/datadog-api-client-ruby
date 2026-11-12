@@ -24,8 +24,8 @@ module DatadogAPIClient::V2
     # Time when the resource was created.
     attr_reader :created_at
 
-    # Stable numeric route identifier used by scoped policies.
-    attr_accessor :route_id
+    # Stable numeric route identifier used by scoped policies and `ai-gateway-route` restriction policies.
+    attr_reader :route_id
 
     #
     attr_reader :tiers
@@ -99,6 +99,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @created_at.nil?
+      return false if @route_id.nil?
       return false if @tiers.nil?
       return false if @tiers.length < 1
       return false if @updated_at.nil?
@@ -113,6 +114,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
       end
       @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param route_id [Object] Object to be assigned
+    # @!visibility private
+    def route_id=(route_id)
+      if route_id.nil?
+        fail ArgumentError, 'invalid value for "route_id", route_id cannot be nil.'
+      end
+      @route_id = route_id
     end
 
     # Custom attribute writer method with validation
