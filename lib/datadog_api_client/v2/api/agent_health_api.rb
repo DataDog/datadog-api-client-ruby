@@ -23,6 +23,83 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Get an Agent Health issue.
+    #
+    # @see #get_agent_health_issue_with_http_info
+    def get_agent_health_issue(issue_id, opts = {})
+      data, _status_code, _headers = get_agent_health_issue_with_http_info(issue_id, opts)
+      data
+    end
+
+    # Get an Agent Health issue.
+    #
+    # Get an Agent Health issue and its available remediation in your organization.
+    # Only open issues are returned. The `remediation` attribute is omitted when
+    # the issue has no remediation.
+    #
+    # Returns `404` if the issue does not exist, is not open, belongs to another
+    # organization, or you do not have access to its data. This response does not
+    # reveal whether the issue exists. Returns `403` if you lack the `hosts_read` permission.
+    #
+    # @param issue_id [String] The unique identifier of the issue. It can contain `:` and must be percent-encoded by clients when included in the path.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AgentHealthIssueResponse, Integer, Hash)>] AgentHealthIssueResponse data, response status code and response headers
+    def get_agent_health_issue_with_http_info(issue_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_agent_health_issue".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_agent_health_issue")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_agent_health_issue"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentHealthAPI.get_agent_health_issue ...'
+      end
+      # verify the required parameter 'issue_id' is set
+      if @api_client.config.client_side_validation && issue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'issue_id' when calling AgentHealthAPI.get_agent_health_issue"
+      end
+      # resource path
+      local_var_path = '/api/v2/agenthealth/issues/{issue_id}'.sub('{issue_id}', CGI.escape(issue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AgentHealthIssueResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_agent_health_issue,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentHealthAPI#get_agent_health_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List active Agent Health issues.
     #
     # @see #list_agent_health_host_issues_with_http_info
@@ -90,6 +167,125 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AgentHealthAPI#list_agent_health_host_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Agent Health issues.
+    #
+    # @see #list_agent_health_issues_with_http_info
+    def list_agent_health_issues(opts = {})
+      data, _status_code, _headers = list_agent_health_issues_with_http_info(opts)
+      data
+    end
+
+    # List Agent Health issues.
+    #
+    # List Agent Health issues across your organization. Only open issues are returned.
+    # Returns `403` if you lack the `hosts_read` permission.
+    #
+    # Results use a stable order: severity rank (`high`, `medium`, `low`, then other values),
+    # then `first_seen_at` descending with missing timestamps last, then issue ID ascending.
+    # Use `page[size]` and the zero-based `page[number]` to paginate. Invalid page values
+    # return a `400` JSON:API error response. `meta.page.total_filtered_count` is the number
+    # of issues matching the filters, and `meta.page.total_count` the number of open issues
+    # in the organization.
+    #
+    # Each filter accepts up to 50 comma-separated exact values of at most 256 characters
+    # each, combined with OR within a filter and AND across filters. Blank entries are ignored; an all-blank filter
+    # is treated as absent.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of issues to return per page, from 1 to 100. Defaults to 25.
+    # @option opts [Integer] :page_number The zero-based page number, from 0 to 1000000. Defaults to 0.
+    # @option opts [String] :filter_severity Filter by a comma-separated list of exact `severity` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
+    # @option opts [String] :filter_category Filter by a comma-separated list of exact `category` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
+    # @option opts [String] :filter_issue_type Filter by a comma-separated list of exact `issue_type` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
+    # @option opts [String] :filter_resource_kind Filter by a comma-separated list of exact `resource_kind` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
+    # @option opts [String] :filter_resource_id Filter by a comma-separated list of exact `resource_id` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
+    # @return [Array<(AgentHealthIssuesResponse, Integer, Hash)>] AgentHealthIssuesResponse data, response status code and response headers
+    def list_agent_health_issues_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_agent_health_issues".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_agent_health_issues")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_agent_health_issues"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentHealthAPI.list_agent_health_issues ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling AgentHealthAPI.list_agent_health_issues, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling AgentHealthAPI.list_agent_health_issues, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] > 1000000
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling AgentHealthAPI.list_agent_health_issues, must be smaller than or equal to 1000000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling AgentHealthAPI.list_agent_health_issues, must be greater than or equal to 0.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_severity'].nil? && opts[:'filter_severity'].to_s.length > 12850
+        fail ArgumentError, 'invalid value for "opts[:"filter_severity"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_category'].nil? && opts[:'filter_category'].to_s.length > 12850
+        fail ArgumentError, 'invalid value for "opts[:"filter_category"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_issue_type'].nil? && opts[:'filter_issue_type'].to_s.length > 12850
+        fail ArgumentError, 'invalid value for "opts[:"filter_issue_type"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_resource_kind'].nil? && opts[:'filter_resource_kind'].to_s.length > 12850
+        fail ArgumentError, 'invalid value for "opts[:"filter_resource_kind"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_resource_id'].nil? && opts[:'filter_resource_id'].to_s.length > 12850
+        fail ArgumentError, 'invalid value for "opts[:"filter_resource_id"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
+      end
+      # resource path
+      local_var_path = '/api/v2/agenthealth/issues'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[severity]'] = opts[:'filter_severity'] if !opts[:'filter_severity'].nil?
+      query_params[:'filter[category]'] = opts[:'filter_category'] if !opts[:'filter_category'].nil?
+      query_params[:'filter[issue_type]'] = opts[:'filter_issue_type'] if !opts[:'filter_issue_type'].nil?
+      query_params[:'filter[resource_kind]'] = opts[:'filter_resource_kind'] if !opts[:'filter_resource_kind'].nil?
+      query_params[:'filter[resource_id]'] = opts[:'filter_resource_id'] if !opts[:'filter_resource_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AgentHealthIssuesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_agent_health_issues,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentHealthAPI#list_agent_health_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
