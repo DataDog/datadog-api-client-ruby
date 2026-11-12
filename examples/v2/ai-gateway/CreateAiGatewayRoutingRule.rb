@@ -13,14 +13,22 @@ body = DatadogAPIClient::V2::AiGatewayRoutingRuleCreateRequest.new({
       slug: "coding",
       tiers: [
         DatadogAPIClient::V2::AiGatewayRoutingRuleTierRequest.new({
+          classifier: DatadogAPIClient::V2::AiGatewayRoutingClassifierRequest.new({
+            confidence_threshold: 0.5,
+            context: "Requests come from engineers.",
+            model: "gpt-6-luna",
+            provider: "openai",
+          }),
           ordering: DatadogAPIClient::V2::AiGatewayNullableRoutingRuleTierOrdering::CONFIGURED,
           targets: [
             DatadogAPIClient::V2::AiGatewayRoutingRuleTargetRequest.new({
+              default: false,
               id: 901,
               model: "gpt-5.2-codex",
               model_id: 101,
               provider: "prod-us",
               reasoning_level: DatadogAPIClient::V2::AiGatewayRoutingReasoningLevel::MEDIUM,
+              rubric: "Short factual questions.",
               slug: "coding-fallback",
               type: DatadogAPIClient::V2::AiGatewayRoutingRuleTargetType::MODEL,
               weight: 70,

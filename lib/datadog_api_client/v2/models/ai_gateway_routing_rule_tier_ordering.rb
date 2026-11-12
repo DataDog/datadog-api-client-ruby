@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     CONFIGURED = "configured".freeze
     WEIGHTED_AFFINITY = "weighted_affinity".freeze
+    CLASSIFIED = "classified".freeze
   end
 end

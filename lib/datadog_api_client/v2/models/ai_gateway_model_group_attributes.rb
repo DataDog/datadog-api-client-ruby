@@ -51,6 +51,9 @@ module DatadogAPIClient::V2
     #
     attr_reader :routing_rules
 
+    # Whether some saved routes are hidden from the caller. Omit routing_rule_slugs to preserve all memberships; replacing the visible selection also preserves saved hidden memberships.
+    attr_accessor :routing_rules_restricted
+
     # Time when the resource was last updated.
     attr_reader :updated_at
 
@@ -70,6 +73,7 @@ module DatadogAPIClient::V2
         :'providers' => :'providers',
         :'revision' => :'revision',
         :'routing_rules' => :'routing_rules',
+        :'routing_rules_restricted' => :'routing_rules_restricted',
         :'updated_at' => :'updated_at'
       }
     end
@@ -88,6 +92,7 @@ module DatadogAPIClient::V2
         :'providers' => :'Array<AiGatewayModelGroupProvider>',
         :'revision' => :'Integer',
         :'routing_rules' => :'Array<AiGatewayModelGroupRoutingRule>',
+        :'routing_rules_restricted' => :'Boolean',
         :'updated_at' => :'Time'
       }
     end
@@ -166,6 +171,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'routing_rules']).is_a?(Array)
           self.routing_rules = value
         end
+      end
+
+      if attributes.key?(:'routing_rules_restricted')
+        self.routing_rules_restricted = attributes[:'routing_rules_restricted']
       end
 
       if attributes.key?(:'updated_at')
@@ -326,6 +335,7 @@ module DatadogAPIClient::V2
           providers == o.providers &&
           revision == o.revision &&
           routing_rules == o.routing_rules &&
+          routing_rules_restricted == o.routing_rules_restricted &&
           updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
@@ -334,7 +344,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_fast_mode, created_at, max_reasoning_level, model_ids, models, name, provider_ids, providers, revision, routing_rules, updated_at, additional_properties].hash
+      [allow_fast_mode, created_at, max_reasoning_level, model_ids, models, name, provider_ids, providers, revision, routing_rules, routing_rules_restricted, updated_at, additional_properties].hash
     end
   end
 end

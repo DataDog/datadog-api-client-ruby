@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleTarget
     include BaseGenericModel
 
+    # Present and true for the default classified destination.
+    attr_accessor :default
+
     # Saved target row ID. On replacement, retain this ID only within its original route and at most once. A stale or foreign ID is rejected.
     attr_reader :id
 
@@ -33,10 +36,13 @@ module DatadogAPIClient::V2
     # Provider slug. Omitted for dynamic resolution and when the caller cannot view its provider.
     attr_accessor :provider
 
-    # Optional reasoning effort preference for this model destination. Must be supported by the selected model and provider. For provider "*", every eligible provider must support the level. An explicit value overrides the request's reasoning setting, subject to model-group policy. Omitted or null preserves request and provider behavior; none is an explicit level, not the default. Omitted or null clears an override on full replacement. Routing-rule references cannot set this field; each referenced model destination owns its override. If an override cannot be applied at runtime, the gateway keeps the destination and restores the caller's original reasoning settings, or preserves the provider default when omitted. It rechecks all applicable route and model-group policies against those settings before sending. Model-group max_reasoning_level enforces hard limits; the override is not an additional cap. Normal fallback applies if governance denies the resulting request or the destination cannot otherwise serve it. Metrics and span tags record the override outcome and incompatibility reason. When response headers have not already been committed, `X-Ai-Gateway-Reasoning-Override` reports applied or not_applied for the returned attempt, and `X-Ai-Gateway-Reasoning-Override-Reason` reports the reason when not applied.
+    # Optional reasoning effort preference for this model destination. Must be supported by the selected model and provider. For provider "*", every eligible provider must support the level. An explicit value overrides the request's reasoning setting, subject to model-group policy. Omitted or null preserves request and provider behavior; none is an explicit level, not the default. On update, omission preserves a saved target override; null explicitly clears it. Routing-rule references cannot set this field; each referenced model destination owns its override. If an override cannot be applied at runtime, the gateway keeps the destination and restores the caller's original reasoning settings, or preserves the provider default when omitted. It rechecks all applicable route and model-group policies against those settings before sending. Model-group max_reasoning_level enforces hard limits; the override is not an additional cap. Normal fallback applies if governance denies the resulting request or the destination cannot otherwise serve it. Metrics and span tags record the override outcome and incompatibility reason. When response headers have not already been committed, `X-Ai-Gateway-Reasoning-Override` reports applied or not_applied for the returned attempt, and `X-Ai-Gateway-Reasoning-Override-Reason` reports the reason when not applied.
     attr_accessor :reasoning_level
 
-    # Organization-unique resource slug.
+    # Destination rubric, present only for non-default targets in classified tiers.
+    attr_accessor :rubric
+
+    # Referenced route slug. Omitted when the caller lacks View; only the parent-local occurrence ID remains.
     attr_accessor :slug
 
     # Type of routing target.
@@ -51,11 +57,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'default' => :'default',
         :'id' => :'id',
         :'model' => :'model',
         :'model_id' => :'model_id',
         :'provider' => :'provider',
         :'reasoning_level' => :'reasoning_level',
+        :'rubric' => :'rubric',
         :'slug' => :'slug',
         :'type' => :'type',
         :'weight' => :'weight'
@@ -66,11 +74,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'default' => :'Boolean',
         :'id' => :'Integer',
         :'model' => :'String',
         :'model_id' => :'Integer',
         :'provider' => :'String',
         :'reasoning_level' => :'AiGatewayRoutingReasoningLevel',
+        :'rubric' => :'String',
         :'slug' => :'String',
         :'type' => :'AiGatewayRoutingRuleTargetType',
         :'weight' => :'Integer'
@@ -103,6 +113,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'default')
+        self.default = attributes[:'default']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -121,6 +135,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'reasoning_level')
         self.reasoning_level = attributes[:'reasoning_level']
+      end
+
+      if attributes.key?(:'rubric')
+        self.rubric = attributes[:'rubric']
       end
 
       if attributes.key?(:'slug')
@@ -217,11 +235,13 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          default == o.default &&
           id == o.id &&
           model == o.model &&
           model_id == o.model_id &&
           provider == o.provider &&
           reasoning_level == o.reasoning_level &&
+          rubric == o.rubric &&
           slug == o.slug &&
           type == o.type &&
           weight == o.weight &&
@@ -232,7 +252,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, model, model_id, provider, reasoning_level, slug, type, weight, additional_properties].hash
+      [default, id, model, model_id, provider, reasoning_level, rubric, slug, type, weight, additional_properties].hash
     end
   end
 end
