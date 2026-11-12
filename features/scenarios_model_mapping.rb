@@ -6187,18 +6187,8 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "body" => "CloudWorkloadSecurityAgentPolicyUpdateRequest",
     },
-    "v2.CreateCloudWorkloadSecurityAgentRule" => {
-            "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
-    },
-    "v2.DeleteCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-    },
     "v2.GetCloudWorkloadSecurityAgentRule" => {
             "agent_rule_id" => "String",
-    },
-    "v2.UpdateCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-            "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
     },
     "v2.GetRumSdkConfig" => {
             "config_id" => "String",
