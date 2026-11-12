@@ -21,8 +21,11 @@ module DatadogAPIClient::V2
   class IncidentCreatedTrigger
     include BaseGenericModel
 
-    # The type of incident that triggers the workflow.
+    # Deprecated. Use `incidentTypes` instead. The type of incident that triggers the workflow.
     attr_accessor :incident_type
+
+    # The types of incident that trigger the workflow.
+    attr_accessor :incident_types
 
     # Conditions that determine which incidents trigger the workflow.
     attr_accessor :tag_condition
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'incident_type' => :'incidentType',
+        :'incident_types' => :'incidentTypes',
         :'tag_condition' => :'tagCondition'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'incident_type' => :'String',
+        :'incident_types' => :'Array<IncidentTriggerIncidentType>',
         :'tag_condition' => :'IncidentCondition'
       }
     end
@@ -67,6 +72,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'incident_type')
         self.incident_type = attributes[:'incident_type']
+      end
+
+      if attributes.key?(:'incident_types')
+        if (value = attributes[:'incident_types']).is_a?(Array)
+          self.incident_types = value
+        end
       end
 
       if attributes.key?(:'tag_condition')
@@ -101,6 +112,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           incident_type == o.incident_type &&
+          incident_types == o.incident_types &&
           tag_condition == o.tag_condition &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [incident_type, tag_condition, additional_properties].hash
+      [incident_type, incident_types, tag_condition, additional_properties].hash
     end
   end
 end
