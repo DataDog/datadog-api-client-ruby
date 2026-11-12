@@ -17,17 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration of the group label column.
+  # Configuration of the group label column. Its width is sized automatically when omitted.
   class HeatgridLabelColumn
     include BaseGenericModel
 
+    # Ordered string replacement rules for the group labels.
+    attr_accessor :text_formats
+
     # Width of the label column.
-    attr_reader :width
+    attr_accessor :width
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'text_formats' => :'text_formats',
         :'width' => :'width'
       }
     end
@@ -36,6 +40,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'text_formats' => :'Array<HeatgridTextFormatRule>',
         :'width' => :'HeatgridLabelColumnWidth'
       }
     end
@@ -56,27 +61,15 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'text_formats')
+        if (value = attributes[:'text_formats']).is_a?(Array)
+          self.text_formats = value
+        end
+      end
+
       if attributes.key?(:'width')
         self.width = attributes[:'width']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @width.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param width [Object] Object to be assigned
-    # @!visibility private
-    def width=(width)
-      if width.nil?
-        fail ArgumentError, 'invalid value for "width", width cannot be nil.'
-      end
-      @width = width
     end
 
     # Checks equality by comparing each attribute.
@@ -85,6 +78,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          text_formats == o.text_formats &&
           width == o.width
     end
 
@@ -92,7 +86,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [width].hash
+      [text_formats, width].hash
     end
   end
 end

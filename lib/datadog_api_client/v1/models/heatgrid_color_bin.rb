@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A color and optional lower threshold for a discrete bin.
+  # A color, optional lower threshold, and optional label for a discrete bin.
   class HeatgridColorBin
     include BaseGenericModel
 
     # A color string, or two color strings for the light and dark themes, in that order.
     attr_reader :color
+
+    # Name of the bin.
+    attr_reader :label
 
     # Inclusive lower bound. Omit for the first bin.
     attr_accessor :lower_bound
@@ -32,6 +35,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'color' => :'color',
+        :'label' => :'label',
         :'lower_bound' => :'lower_bound'
       }
     end
@@ -41,6 +45,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'color' => :'HeatgridColor',
+        :'label' => :'String',
         :'lower_bound' => :'Float'
       }
     end
@@ -65,6 +70,10 @@ module DatadogAPIClient::V1
         self.color = attributes[:'color']
       end
 
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
+      end
+
       if attributes.key?(:'lower_bound')
         self.lower_bound = attributes[:'lower_bound']
       end
@@ -75,6 +84,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @color.nil?
+      return false if !@label.nil? && @label.to_s.length > 255
       true
     end
 
@@ -88,6 +98,16 @@ module DatadogAPIClient::V1
       @color = color
     end
 
+    # Custom attribute writer method with validation
+    # @param label [Object] Object to be assigned
+    # @!visibility private
+    def label=(label)
+      if !label.nil? && label.to_s.length > 255
+        fail ArgumentError, 'invalid value for "label", the character length must be smaller than or equal to 255.'
+      end
+      @label = label
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -95,6 +115,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           color == o.color &&
+          label == o.label &&
           lower_bound == o.lower_bound
     end
 
@@ -102,7 +123,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, lower_bound].hash
+      [color, label, lower_bound].hash
     end
   end
 end
