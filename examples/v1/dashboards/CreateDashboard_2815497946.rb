@@ -27,6 +27,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
             request_type: DatadogAPIClient::V1::TopologyRequestType::TOPOLOGY,
             query: DatadogAPIClient::V1::TopologyQueryDataStreams.new({
               data_source: DatadogAPIClient::V1::TopologyQueryDataStreamsDataSource::DATA_STREAMS,
+              service: "",
               filters: [
                 "env:prod",
               ],

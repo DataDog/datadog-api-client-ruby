@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Options for deployment rule response representing either faulty deployment detection or monitor options.
+  # Bits Deployment Analysis rules only accept `duration`, using the faulty deployment detection options shape.
   module DeploymentRulesOptions
     class << self
       include BaseOneOfModel
