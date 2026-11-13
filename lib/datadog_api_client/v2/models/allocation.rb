@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class Allocation
     include BaseGenericModel
 
+    # The bandit that serves through this targeting rule allocation. Absent when no bandit uses it. Until the bandit ends, only the bandit's own operations can change or delete the allocation; its position among the flag's targeting rules can still change.
+    attr_accessor :bandit_id
+
     # The timestamp when the targeting rule allocation was created.
     attr_reader :created_at
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'bandit_id' => :'bandit_id',
         :'created_at' => :'created_at',
         :'environment_ids' => :'environment_ids',
         :'experiment_id' => :'experiment_id',
@@ -86,6 +90,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'bandit_id' => :'UUID',
         :'created_at' => :'Time',
         :'environment_ids' => :'Array<UUID>',
         :'experiment_id' => :'String',
@@ -127,6 +132,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'bandit_id')
+        self.bandit_id = attributes[:'bandit_id']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -332,6 +341,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bandit_id == o.bandit_id &&
           created_at == o.created_at &&
           environment_ids == o.environment_ids &&
           experiment_id == o.experiment_id &&
@@ -352,7 +362,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, environment_ids, experiment_id, exposure_schedule, guardrail_metrics, id, key, name, order_position, targeting_rules, type, updated_at, variant_weights, additional_properties].hash
+      [bandit_id, created_at, environment_ids, experiment_id, exposure_schedule, guardrail_metrics, id, key, name, order_position, targeting_rules, type, updated_at, variant_weights, additional_properties].hash
     end
   end
 end
