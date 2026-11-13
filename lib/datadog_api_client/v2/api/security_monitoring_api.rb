@@ -2576,7 +2576,7 @@ module DatadogAPIClient::V2
 
     # Create a critical asset.
     #
-    # Create a new critical asset.
+    # Create a new dynamic severity rule (previously called critical assets).
     #
     # @param body [SecurityMonitoringCriticalAssetCreateRequest] The definition of the new critical asset.
     # @param opts [Hash] the optional parameters
@@ -4209,7 +4209,7 @@ module DatadogAPIClient::V2
 
     # Delete a critical asset.
     #
-    # Delete a specific critical asset.
+    # Delete a specific dynamic severity rule (previously called critical assets).
     #
     # @param critical_asset_id [String] The ID of the critical asset.
     # @param opts [Hash] the optional parameters
@@ -5327,7 +5327,7 @@ module DatadogAPIClient::V2
 
     # Get critical assets affecting a specific rule.
     #
-    # Get the list of critical assets that affect a specific existing rule by the rule's ID.
+    # Get the list of dynamic severity rules (previously called critical assets) that affect a specific existing rule by the rule's ID.
     #
     # @param rule_id [String] The ID of the rule.
     # @param opts [Hash] the optional parameters
@@ -6869,7 +6869,7 @@ module DatadogAPIClient::V2
 
     # Get a critical asset.
     #
-    # Get the details of a specific critical asset.
+    # Get the details of a specific dynamic severity rule (previously called critical assets).
     #
     # @param critical_asset_id [String] The ID of the critical asset.
     # @param opts [Hash] the optional parameters
@@ -10308,7 +10308,7 @@ module DatadogAPIClient::V2
 
     # Get all critical assets.
     #
-    # Get the list of all critical assets.
+    # Get the list of all dynamic severity rules (previously called critical assets).
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringCriticalAssetsResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetsResponse data, response status code and response headers
@@ -13687,7 +13687,7 @@ module DatadogAPIClient::V2
 
     # Update a critical asset.
     #
-    # Update a specific critical asset.
+    # Update a specific dynamic severity rule (previously called critical assets).
     #
     # @param critical_asset_id [String] The ID of the critical asset.
     # @param body [SecurityMonitoringCriticalAssetUpdateRequest] New definition of the critical asset. Supports partial updates.
