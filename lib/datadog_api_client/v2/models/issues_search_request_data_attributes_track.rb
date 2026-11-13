@@ -17,12 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Track of the events to query. Either track(s) or persona(s) must be specified.
+  # Track of the events to query. Either `track` or `persona` must be specified.
+  # If both are specified, `persona` is ignored.
   class IssuesSearchRequestDataAttributesTrack
     include BaseEnumModel
 
     TRACE = "trace".freeze
     LOGS = "logs".freeze
     RUM = "rum".freeze
+    LLMOBS = "llmobs".freeze
   end
 end

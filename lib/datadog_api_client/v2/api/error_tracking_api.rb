@@ -168,7 +168,8 @@ module DatadogAPIClient::V2
 
     # Search error tracking issues.
     #
-    # Search issues endpoint allows you to programmatically search for issues within your organization. This endpoint returns a list of issues that match a given search query, following the event search syntax. The search results are limited to a maximum of 100 issues per request.
+    # Search issues endpoint allows you to programmatically search for issues within your organization. This endpoint returns a list of issues that match a given search query, following the event search syntax. The search results are limited to a maximum of 100 issues per issue state.
+    # Returns 400 if neither `track` nor `persona` is specified, or if a `team_ids` value does not match an existing team.
     #
     # @param body [IssuesSearchRequest] Search issues request payload.
     # @param opts [Hash] the optional parameters

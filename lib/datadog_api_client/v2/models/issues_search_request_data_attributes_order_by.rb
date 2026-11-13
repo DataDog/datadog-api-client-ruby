@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The attribute to sort the search results by.
+  # The attribute to sort the search results by, in descending order. Defaults to `TOTAL_COUNT`.
   class IssuesSearchRequestDataAttributesOrderBy
     include BaseEnumModel
 
@@ -25,5 +25,6 @@ module DatadogAPIClient::V2
     FIRST_SEEN = "FIRST_SEEN".freeze
     IMPACTED_SESSIONS = "IMPACTED_SESSIONS".freeze
     PRIORITY = "PRIORITY".freeze
+    IMPACTED_ACCOUNTS = "IMPACTED_ACCOUNTS".freeze
   end
 end
