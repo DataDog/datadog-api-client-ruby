@@ -15,7 +15,7 @@ body = DatadogAPIClient::V2::TagRuleCreateRequest.new({
       negated: false,
       required: true,
       rule_type: DatadogAPIClient::V2::TagRuleCreateType::SURFACING,
-      scope: "env",
+      scope: "env:prod",
       source: DatadogAPIClient::V2::TagRuleSource::LOGS,
       tag_key: "service",
       tag_value_patterns: [
@@ -23,7 +23,7 @@ body = DatadogAPIClient::V2::TagRuleCreateRequest.new({
         "web",
       ],
     }),
-    type: DatadogAPIClient::V2::TagRuleResourceType::TAG_RULE,
+    type: DatadogAPIClient::V2::TagRuleResourceType::TAG_POLICY,
   }),
 })
 p api_instance.create_tag_rule(body)

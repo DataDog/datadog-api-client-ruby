@@ -18,7 +18,9 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its
-  # current value unchanged. The `source` of a rule cannot be changed.
+  # current value unchanged. The `source` of a rule cannot be changed. Tag keys, patterns,
+  # and metrics scopes have the same constraints as on creation. If the effective
+  # `tag_value_patterns` contains `*`, set `required` and `negated` to different values.
   class TagRuleUpdateAttributes
     include BaseGenericModel
 
@@ -36,16 +38,17 @@ module DatadogAPIClient::V2
 
     # How the rule is enforced. `blocking` rejects telemetry that violates the rule.
     # `surfacing` only highlights non-compliant telemetry without blocking it.
+    # RUM supports only `surfacing` rules.
     attr_accessor :rule_type
 
     # The scope the rule applies within.
     attr_accessor :scope
 
     # The tag key that the rule governs.
-    attr_accessor :tag_key
+    attr_reader :tag_key
 
     # One or more patterns that valid values for the tag key must match.
-    attr_accessor :tag_value_patterns
+    attr_reader :tag_value_patterns
 
     attr_accessor :additional_properties
 
@@ -130,6 +133,41 @@ module DatadogAPIClient::V2
           self.tag_value_patterns = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      pattern = Regexp.new(/^[A-Za-z0-9_.\/-]+$/)
+      return false if !@tag_key.nil? && @tag_key !~ pattern
+      return false if !@tag_value_patterns.nil? && @tag_value_patterns.length > 30
+      return false if !@tag_value_patterns.nil? && @tag_value_patterns.length < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param tag_key [Object] Object to be assigned
+    # @!visibility private
+    def tag_key=(tag_key)
+      pattern = Regexp.new(/^[A-Za-z0-9_.\/-]+$/)
+      if !tag_key.nil? && tag_key !~ pattern
+        fail ArgumentError, "invalid value for \"tag_key\", must conform to the pattern #{pattern}."
+      end
+      @tag_key = tag_key
+    end
+
+    # Custom attribute writer method with validation
+    # @param tag_value_patterns [Object] Object to be assigned
+    # @!visibility private
+    def tag_value_patterns=(tag_value_patterns)
+      if !tag_value_patterns.nil? && tag_value_patterns.length > 30
+        fail ArgumentError, 'invalid value for "tag_value_patterns", number of items must be less than or equal to 30.'
+      end
+      if !tag_value_patterns.nil? && tag_value_patterns.length < 1
+        fail ArgumentError, 'invalid value for "tag_value_patterns", number of items must be greater than or equal to 1.'
+      end
+      @tag_value_patterns = tag_value_patterns
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

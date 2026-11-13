@@ -17,11 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes that can be supplied when creating a tag rule.
+  # Attributes that can be supplied when creating a tag rule. If `tag_value_patterns`
+  # contains `*`, set `required` and `negated` to different values. If both are `false`,
+  # the rule has no effect. If both are `true`, no value can satisfy the rule.
   class TagRuleCreateAttributes
     include BaseGenericModel
 
-    # Whether the rule is currently enforced. Defaults to `true` for newly created rules.
+    # The API ignores this value on creation and always enables new rules. To disable a rule, use the "Update a tag rule" endpoint.
     attr_accessor :enabled
 
     # Human-readable name for the tag rule.
@@ -37,18 +39,23 @@ module DatadogAPIClient::V2
     # creation time.
     attr_reader :rule_type
 
-    # The scope the rule applies within. Typically an environment, team, or
-    # organization-level identifier used to limit where the rule is enforced.
+    # The scope the rule applies within. For logs and spans, use a search query, such
+    # as `env:prod`, or `*` to match all telemetry. For metrics, use a metric selector
+    # with an optional tag filter, such as `system.cpu.*{env:prod}`. A metric wildcard
+    # is allowed only once, at the end of the metric selector.
     attr_reader :scope
 
     # The telemetry source that a tag rule applies to.
     attr_reader :source
 
-    # The tag key that the rule governs (for example, `service`).
+    # The tag key that the rule governs (for example, `service`). Allowed characters
+    # are ASCII letters, digits, underscores, hyphens, periods, and slashes. The keys
+    # `host` and `device` are not supported in any letter case.
     attr_reader :tag_key
 
-    # One or more patterns that valid values for the tag key must match. At least one
-    # pattern is required.
+    # Between 1 and 30 non-empty patterns that valid values for the tag key must match.
+    # Allowed characters are ASCII letters, digits, underscores, colons, hyphens,
+    # periods, commas, slashes, and asterisks.
     attr_reader :tag_value_patterns
 
     attr_accessor :additional_properties
@@ -151,7 +158,10 @@ module DatadogAPIClient::V2
       return false if @scope.nil?
       return false if @source.nil?
       return false if @tag_key.nil?
+      pattern = Regexp.new(/^[A-Za-z0-9_.\/-]+$/)
+      return false if @tag_key !~ pattern
       return false if @tag_value_patterns.nil?
+      return false if @tag_value_patterns.length > 30
       return false if @tag_value_patterns.length < 1
       true
     end
@@ -203,6 +213,10 @@ module DatadogAPIClient::V2
       if tag_key.nil?
         fail ArgumentError, 'invalid value for "tag_key", tag_key cannot be nil.'
       end
+      pattern = Regexp.new(/^[A-Za-z0-9_.\/-]+$/)
+      if tag_key !~ pattern
+        fail ArgumentError, "invalid value for \"tag_key\", must conform to the pattern #{pattern}."
+      end
       @tag_key = tag_key
     end
 
@@ -212,6 +226,9 @@ module DatadogAPIClient::V2
     def tag_value_patterns=(tag_value_patterns)
       if tag_value_patterns.nil?
         fail ArgumentError, 'invalid value for "tag_value_patterns", tag_value_patterns cannot be nil.'
+      end
+      if tag_value_patterns.length > 30
+        fail ArgumentError, 'invalid value for "tag_value_patterns", number of items must be less than or equal to 30.'
       end
       if tag_value_patterns.length < 1
         fail ArgumentError, 'invalid value for "tag_value_patterns", number of items must be greater than or equal to 1.'

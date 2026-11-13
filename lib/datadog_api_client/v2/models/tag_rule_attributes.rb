@@ -53,6 +53,7 @@ module DatadogAPIClient::V2
 
     # How the rule is enforced. `blocking` rejects telemetry that violates the rule.
     # `surfacing` only highlights non-compliant telemetry without blocking it.
+    # RUM supports only `surfacing` rules.
     attr_reader :rule_type
 
     # The scope the rule applies within.
