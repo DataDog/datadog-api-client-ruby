@@ -32,11 +32,11 @@ module DatadogAPIClient::V2
     # Defaults to false. Requires `tags` property.
     attr_accessor :exclude_tags_mode
 
-    # Toggle to include or exclude percentile aggregations for distribution metrics.
-    # Only present when the `metric_type` is `distribution`.
+    # Whether percentile aggregations are enabled for a `distribution`, `exponential_histogram`,
+    # or `explicit_histogram` metric.
     attr_accessor :include_percentiles
 
-    # The metric's type.
+    # The metric's type. Contact your Customer Success Manager for instructions on using native histogram types.
     attr_accessor :metric_type
 
     # Timestamp when the tag configuration was last modified.
