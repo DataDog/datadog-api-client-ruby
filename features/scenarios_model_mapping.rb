@@ -5632,6 +5632,10 @@ ScenariosModelMappings = {
     "v2.GetOnCallPage" => {
             "page_id" => "String",
     },
+    "v2.CreateOnCallPageComment" => {
+            "page_id" => "String",
+            "body" => "CreateOnCallPageCommentRequest",
+    },
     "v2.ListOnCallSchedules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
