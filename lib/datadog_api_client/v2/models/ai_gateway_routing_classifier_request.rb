@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Decision model on the provider. Omit together with provider to preserve the saved selection.
     attr_accessor :model
 
-    # Decision-model provider slug. Omit together with model to preserve the saved selection.
+    # Decision-model provider slug. It must name a provider of type `openai`, `baseten`, or `typesafe`, the provider types that serve a decision model. Omit together with model to preserve the saved selection.
     attr_accessor :provider
 
     attr_accessor :additional_properties
