@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
     # The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
     attr_accessor :timeout_h
 
-    # List of requests that can be used in the monitor query. **This feature is currently in beta.**
+    # List of requests that can be used in the monitor query.
     attr_accessor :variables
 
     attr_accessor :additional_properties
