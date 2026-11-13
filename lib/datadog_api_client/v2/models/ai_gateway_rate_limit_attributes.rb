@@ -30,8 +30,11 @@ module DatadogAPIClient::V2
     # Whether this rate limit is active.
     attr_reader :enabled
 
-    # Maximum input tokens per rolling minute shared by all matching traffic. Null when this rule does not limit input tokens.
+    # Maximum input tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit input tokens.
     attr_reader :input_tokens_per_minute
+
+    # Whether the selector gives each matching value its own allowance, that is, whether it has at least one per_value entry. Returned even when scope_restricted hides the selector.
+    attr_accessor :is_template
 
     # Action taken when request rate exceeds the limit.
     attr_reader :mode
@@ -42,10 +45,10 @@ module DatadogAPIClient::V2
     # Rate limit name.
     attr_reader :name
 
-    # Maximum output tokens per rolling minute shared by all matching traffic. Null when this rule does not limit output tokens.
+    # Maximum output tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit output tokens.
     attr_reader :output_tokens_per_minute
 
-    # Maximum requests per rolling minute shared by all matching traffic. Null when this rule does not limit requests.
+    # Maximum requests per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit requests.
     attr_reader :requests_per_minute
 
     # Increases on every change to the definition.
@@ -54,11 +57,17 @@ module DatadogAPIClient::V2
     # Whether provider or model scope metadata was withheld. Omit unchanged scope fields on an unrelated update to preserve their saved values.
     attr_reader :scope_restricted
 
+    # Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
+    attr_accessor :selector
+
     # Optional scope tags, such as provider, model, ml_app, or custom dimensions. A request matches when it has all of these tags.
     attr_reader :tags
 
     # Optional Team UUID. Count only requests attributed to this Datadog Team.
     attr_accessor :team_id
+
+    # Dimensions of the selector's per_value entries, such as user_id or tag:env, each matching value of which gets its own allowance. Empty unless is_template is true. Returned even when scope_restricted hides the selector.
+    attr_accessor :template_split_dims
 
     # Last modification timestamp.
     attr_reader :updated_at
@@ -79,6 +88,7 @@ module DatadogAPIClient::V2
         :'created_by' => :'created_by',
         :'enabled' => :'enabled',
         :'input_tokens_per_minute' => :'input_tokens_per_minute',
+        :'is_template' => :'is_template',
         :'mode' => :'mode',
         :'monitor_id' => :'monitor_id',
         :'name' => :'name',
@@ -86,8 +96,10 @@ module DatadogAPIClient::V2
         :'requests_per_minute' => :'requests_per_minute',
         :'revision' => :'revision',
         :'scope_restricted' => :'scope_restricted',
+        :'selector' => :'selector',
         :'tags' => :'tags',
         :'team_id' => :'team_id',
+        :'template_split_dims' => :'template_split_dims',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by',
         :'user_id' => :'user_id'
@@ -102,6 +114,7 @@ module DatadogAPIClient::V2
         :'created_by' => :'String',
         :'enabled' => :'Boolean',
         :'input_tokens_per_minute' => :'Integer',
+        :'is_template' => :'Boolean',
         :'mode' => :'AiGatewayRateLimitMode',
         :'monitor_id' => :'Integer',
         :'name' => :'String',
@@ -109,8 +122,10 @@ module DatadogAPIClient::V2
         :'requests_per_minute' => :'Integer',
         :'revision' => :'Integer',
         :'scope_restricted' => :'Boolean',
+        :'selector' => :'Array<AiGatewayRateLimitSelectorEntry>',
         :'tags' => :'Hash<String, String>',
         :'team_id' => :'UUID',
+        :'template_split_dims' => :'Array<String>',
         :'updated_at' => :'Time',
         :'updated_by' => :'String',
         :'user_id' => :'UUID'
@@ -125,6 +140,7 @@ module DatadogAPIClient::V2
         :'monitor_id',
         :'output_tokens_per_minute',
         :'requests_per_minute',
+        :'selector',
         :'team_id',
         :'user_id',
       ])
@@ -164,6 +180,10 @@ module DatadogAPIClient::V2
         self.input_tokens_per_minute = attributes[:'input_tokens_per_minute']
       end
 
+      if attributes.key?(:'is_template')
+        self.is_template = attributes[:'is_template']
+      end
+
       if attributes.key?(:'mode')
         self.mode = attributes[:'mode']
       end
@@ -192,12 +212,24 @@ module DatadogAPIClient::V2
         self.scope_restricted = attributes[:'scope_restricted']
       end
 
+      if attributes.key?(:'selector')
+        if (value = attributes[:'selector']).is_a?(Array)
+          self.selector = value
+        end
+      end
+
       if attributes.key?(:'tags')
         self.tags = attributes[:'tags']
       end
 
       if attributes.key?(:'team_id')
         self.team_id = attributes[:'team_id']
+      end
+
+      if attributes.key?(:'template_split_dims')
+        if (value = attributes[:'template_split_dims']).is_a?(Array)
+          self.template_split_dims = value
+        end
       end
 
       if attributes.key?(:'updated_at')
@@ -405,6 +437,7 @@ module DatadogAPIClient::V2
           created_by == o.created_by &&
           enabled == o.enabled &&
           input_tokens_per_minute == o.input_tokens_per_minute &&
+          is_template == o.is_template &&
           mode == o.mode &&
           monitor_id == o.monitor_id &&
           name == o.name &&
@@ -412,8 +445,10 @@ module DatadogAPIClient::V2
           requests_per_minute == o.requests_per_minute &&
           revision == o.revision &&
           scope_restricted == o.scope_restricted &&
+          selector == o.selector &&
           tags == o.tags &&
           team_id == o.team_id &&
+          template_split_dims == o.template_split_dims &&
           updated_at == o.updated_at &&
           updated_by == o.updated_by &&
           user_id == o.user_id &&
@@ -424,7 +459,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, enabled, input_tokens_per_minute, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, tags, team_id, updated_at, updated_by, user_id, additional_properties].hash
+      [created_at, created_by, enabled, input_tokens_per_minute, is_template, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, selector, tags, team_id, template_split_dims, updated_at, updated_by, user_id, additional_properties].hash
     end
   end
 end
