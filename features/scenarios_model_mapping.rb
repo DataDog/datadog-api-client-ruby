@@ -1886,6 +1886,17 @@ ScenariosModelMappings = {
             "id" => "UUID",
             "body" => "AiGatewayRateLimitUpdateRequest",
     },
+    "v2.ListAiGatewayRateLimitInstances" => {
+            "id" => "UUID",
+            "split_dim" => "Array<String>",
+            "sort" => "AiGatewayRateLimitInstanceSort",
+            "limit" => "Integer",
+            "offset" => "Integer",
+    },
+    "v2.GetAiGatewayRateLimitInstancesSummary" => {
+            "id" => "UUID",
+            "split_dim" => "Array<String>",
+    },
     "v2.DeleteAiGatewayRoutingRule" => {
             "slug" => "String",
             "force" => "Boolean",

@@ -498,7 +498,7 @@ module DatadogAPIClient::V2
 
     # Create an AI Gateway rate limit.
     #
-    # Create a rate limit. All requests matching its scope share one allowance, and every matching rate limit applies. Returns 409 when another active rate limit has the same user, Team, and tags, or when the organization already has the maximum number of rate limits.
+    # Create a rate limit. All requests matching its scope share one allowance, unless a selector makes it a template, which gives each matched user, Team, or value its own allowance. Every matching rate limit applies. Returns 409 when another active rate limit has the same user, Team, tags, and selector, or when the organization already has the maximum number of rate limits.
     #
     # @param body [AiGatewayRateLimitCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -2043,6 +2043,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an AI Gateway rate limit counter summary.
+    #
+    # @see #get_ai_gateway_rate_limit_instances_summary_with_http_info
+    def get_ai_gateway_rate_limit_instances_summary(id, opts = {})
+      data, _status_code, _headers = get_ai_gateway_rate_limit_instances_summary_with_http_info(id, opts)
+      data
+    end
+
+    # Get an AI Gateway rate limit counter summary.
+    #
+    # Aggregate a template rate limit's counters, including how many there are, how many are near or at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters that match every given dimension value. When the caller can't see the template's selector, every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds. Returns 503 when counter usage can't be read.
+    #
+    # @param id [UUID] Rate limit UUID.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Array<String>] :split_dim Keep only counters whose split dimension equals a value, written as `<dim>=<value>`, such as `split_dim=user_id=<uuid>&split_dim=model=gpt-4o`. Dimensions use the `split_dims` names `user_id`, `team_id`, `model`, `provider`, and `tag:<key>`. Repeat the parameter to filter on several dimensions; a counter must match all of them. Each dimension may appear once and must be a per-value dimension of the rate limit.
+    # @return [Array<(AiGatewayRateLimitInstancesSummaryResponse, Integer, Hash)>] AiGatewayRateLimitInstancesSummaryResponse data, response status code and response headers
+    def get_ai_gateway_rate_limit_instances_summary_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_ai_gateway_rate_limit_instances_summary".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_ai_gateway_rate_limit_instances_summary")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_ai_gateway_rate_limit_instances_summary"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AIGatewayAPI.get_ai_gateway_rate_limit_instances_summary ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling AIGatewayAPI.get_ai_gateway_rate_limit_instances_summary"
+      end
+      # resource path
+      local_var_path = '/api/v2/rate-limits/{id}/instances/summary'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'split_dim'] = @api_client.build_collection_param(opts[:'split_dim'], :multi) if !opts[:'split_dim'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AiGatewayRateLimitInstancesSummaryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_ai_gateway_rate_limit_instances_summary,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AIGatewayAPI#get_ai_gateway_rate_limit_instances_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get AI Gateway rate limit usage.
     #
     # @see #get_ai_gateway_rate_limit_usage_with_http_info
@@ -2860,6 +2934,99 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AIGatewayAPI#list_ai_gateway_providers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List AI Gateway rate limit counters.
+    #
+    # @see #list_ai_gateway_rate_limit_instances_with_http_info
+    def list_ai_gateway_rate_limit_instances(id, opts = {})
+      data, _status_code, _headers = list_ai_gateway_rate_limit_instances_with_http_info(id, opts)
+      data
+    end
+
+    # List AI Gateway rate limit counters.
+    #
+    # List the counters of a template rate limit, one per matched user, Team, or value, with their live usage. Counters appear within a few minutes of their first request and are dropped after 30 days without one. Usage is read for counters seen in the last 20 minutes, at most 200 per request; past that, rows carry usage_known false. Counters for a provider or model the caller can't see are left out, and when the caller can't see the template's selector, the list is empty. A rate limit with one shared allowance, including one whose selector has no per_value entry, returns an empty list. Returns 503 when counter usage can't be read.
+    #
+    # @param id [UUID] Rate limit UUID.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Array<String>] :split_dim Keep only counters whose split dimension equals a value, written as `<dim>=<value>`, such as `split_dim=user_id=<uuid>&split_dim=model=gpt-4o`. Dimensions use the `split_dims` names `user_id`, `team_id`, `model`, `provider`, and `tag:<key>`. Repeat the parameter to filter on several dimensions; a counter must match all of them. Each dimension may appear once and must be a per-value dimension of the rate limit.
+    # @option opts [AiGatewayRateLimitInstanceSort] :sort Sort order for rate limit counters.
+    # @option opts [Integer] :limit Maximum number of rate limit counters to return.
+    # @option opts [Integer] :offset Number of rate limit counters to skip.
+    # @return [Array<(AiGatewayRateLimitInstanceListResponse, Integer, Hash)>] AiGatewayRateLimitInstanceListResponse data, response status code and response headers
+    def list_ai_gateway_rate_limit_instances_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_ai_gateway_rate_limit_instances".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_ai_gateway_rate_limit_instances")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_ai_gateway_rate_limit_instances"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AIGatewayAPI.list_ai_gateway_rate_limit_instances ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling AIGatewayAPI.list_ai_gateway_rate_limit_instances"
+      end
+      allowable_values = ['utilization_desc', 'last_seen_desc', 'key_asc']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AIGatewayAPI.list_ai_gateway_rate_limit_instances, must be smaller than or equal to 500.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AIGatewayAPI.list_ai_gateway_rate_limit_instances, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling AIGatewayAPI.list_ai_gateway_rate_limit_instances, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/rate-limits/{id}/instances'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'split_dim'] = @api_client.build_collection_param(opts[:'split_dim'], :multi) if !opts[:'split_dim'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AiGatewayRateLimitInstanceListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_ai_gateway_rate_limit_instances,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AIGatewayAPI#list_ai_gateway_rate_limit_instances\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3729,7 +3896,7 @@ module DatadogAPIClient::V2
 
     # Update an AI Gateway rate limit.
     #
-    # Update a rate limit. Only the attributes sent are changed. Scope stays editable, and changes never reset current usage. Returns 409 when the rule was changed concurrently or the new scope duplicates another rule.
+    # Update a rate limit. Only the attributes sent are changed, and changes never reset current usage. Scope stays editable, except on a template rate limit, whose user_id, team_id, and tags are rejected with 400. Returns 409 when the rule was changed concurrently or the new scope duplicates another rule.
     #
     # @param id [UUID] Rate limit UUID.
     # @param body [AiGatewayRateLimitUpdateRequest] 
