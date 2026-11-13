@@ -5217,6 +5217,7 @@ module DatadogAPIClient
           "v2.incident_todo_response_included_item" => "IncidentTodoResponseIncludedItem",
           "v2.incident_todo_type" => "IncidentTodoType",
           "v2.incident_trigger" => "IncidentTrigger",
+          "v2.incident_trigger_incident_type" => "IncidentTriggerIncidentType",
           "v2.incident_trigger_wrapper" => "IncidentTriggerWrapper",
           "v2.incident_type" => "IncidentType",
           "v2.incident_type_attributes" => "IncidentTypeAttributes",
