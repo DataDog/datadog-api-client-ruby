@@ -15,6 +15,7 @@ body = DatadogAPIClient::V2::LLMObsPatternsConfigUpsertRequest.new({
       evp_query: "@ml_app:support-bot",
       hierarchy_depth: 2,
       integration_provider: "openai",
+      min_cluster_size: 15,
       model_name: "gpt-4o",
       name: "Support chatbot topics",
       num_records: 1000,
