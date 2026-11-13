@@ -3436,6 +3436,14 @@ ScenariosModelMappings = {
             "start_hr" => "Time",
             "end_hr" => "Time",
     },
+    "v2.GetUsageMonthlyResources" => {
+            "filter_billing_dimension" => "String",
+            "filter_month" => "String",
+            "filter_view" => "MonthlyResourcesView",
+            "filter_include_descendants" => "Boolean",
+            "page_limit" => "Integer",
+            "page_next_record_id" => "String",
+    },
     "v2.GetUsageObservabilityPipelines" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
