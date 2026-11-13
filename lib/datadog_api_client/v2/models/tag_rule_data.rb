@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Related resources for a tag rule. Only present when the corresponding `include` query parameter is supplied.
     attr_accessor :relationships
 
-    # JSON:API resource type for a tag rule.
+    # JSON:API resource type for a tag rule. Requests accept `tag_rule` or `tag_policy`; responses use `tag_policy`.
     attr_reader :type
 
     attr_accessor :additional_properties

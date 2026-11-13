@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::TagRuleUpdateRequest.new({
       tag_value_patterns: [],
     }),
     id: "123",
-    type: DatadogAPIClient::V2::TagRuleResourceType::TAG_RULE,
+    type: DatadogAPIClient::V2::TagRuleResourceType::TAG_POLICY,
   }),
 })
 p api_instance.update_tag_rule("rule_id", body)

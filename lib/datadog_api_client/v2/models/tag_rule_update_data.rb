@@ -22,13 +22,15 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its
-    # current value unchanged. The `source` of a rule cannot be changed.
+    # current value unchanged. The `source` of a rule cannot be changed. Tag keys, patterns,
+    # and metrics scopes have the same constraints as on creation. If the effective
+    # `tag_value_patterns` contains `*`, set `required` and `negated` to different values.
     attr_accessor :attributes
 
     # The unique identifier of the tag rule being updated.
     attr_reader :id
 
-    # JSON:API resource type for a tag rule.
+    # JSON:API resource type for a tag rule. Requests accept `tag_rule` or `tag_policy`; responses use `tag_policy`.
     attr_reader :type
 
     attr_accessor :additional_properties

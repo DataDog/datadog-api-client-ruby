@@ -110,7 +110,8 @@ module DatadogAPIClient::V2
     #
     # Delete a tag rule. By default the rule is soft-deleted so it can be recovered later
     # and so that historical score data remains queryable. Pass `hard_delete=true` to remove
-    # the rule permanently.
+    # the rule permanently. Deleting a `blocking` rule additionally requires the
+    # `telemetry_rules_activate` permission.
     #
     # @param rule_id [String] The unique identifier of the tag rule to delete.
     # @param opts [Hash] the optional parameters
@@ -190,7 +191,7 @@ module DatadogAPIClient::V2
     # @param rule_id [String] The unique identifier of the tag rule.
     # @param opts [Hash] the optional parameters
     # @option opts [TagRuleInclude] :include Comma-separated list of related resources to include alongside the rule. Currently the only supported value is `score`.
-    # @option opts [Integer] :ts_start Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds.
+    # @option opts [Integer] :ts_start Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to approximately 4 hours before the current time for metrics, or 24 hours before the current time for other sources. The API clamps earlier values to this default, regardless of `ts_end`.
     # @option opts [Integer] :ts_end End of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Must be in the past and greater than `ts_start`.
     # @return [Array<(TagRuleResponse, Integer, Hash)>] TagRuleResponse data, response status code and response headers
     def get_tag_rule_with_http_info(rule_id, opts = {})
@@ -273,7 +274,7 @@ module DatadogAPIClient::V2
     #
     # @param rule_id [String] The unique identifier of the tag rule.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :ts_start Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds.
+    # @option opts [Integer] :ts_start Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to approximately 4 hours before the current time for metrics, or 24 hours before the current time for other sources. The API clamps earlier values to this default, regardless of `ts_end`.
     # @option opts [Integer] :ts_end End of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Must be in the past and greater than `ts_start`.
     # @return [Array<(TagRuleScoreResponse, Integer, Hash)>] TagRuleScoreResponse data, response status code and response headers
     def get_tag_rule_score_with_http_info(rule_id, opts = {})
@@ -353,7 +354,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :include_deleted Whether to include rules that have been soft-deleted. Defaults to `false`.
     # @option opts [TagRuleInclude] :include Comma-separated list of related resources to include alongside each rule in the response. Currently the only supported value is `score`.
     # @option opts [TagRuleSource] :filter_source Restrict the result set to rules whose source matches the given value.
-    # @option opts [Integer] :ts_start Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to a recent window appropriate for the source.
+    # @option opts [Integer] :ts_start Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to approximately 4 hours before the current time for metrics, or 24 hours before the current time for other sources. The API clamps earlier values to this default, regardless of `ts_end`.
     # @option opts [Integer] :ts_end End of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Must be in the past and greater than `ts_start`.
     # @return [Array<(TagRulesListResponse, Integer, Hash)>] TagRulesListResponse data, response status code and response headers
     def list_tag_rules_with_http_info(opts = {})
@@ -435,6 +436,9 @@ module DatadogAPIClient::V2
     # Update one or more attributes of an existing tag rule. Only the fields supplied in the
     # request body are modified; omitted fields retain their current values. The rule's
     # `source` cannot be changed after creation.
+    # Promoting a rule from `surfacing` to `blocking` additionally requires the
+    # `telemetry_rules_activate` permission, and your organization must have access to
+    # blocking rules. You can't promote RUM rules to `blocking`.
     #
     # @param rule_id [String] The unique identifier of the tag rule to update.
     # @param body [TagRuleUpdateRequest] 

@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API resource type for a tag rule.
+  # JSON:API resource type for a tag rule. Requests accept `tag_rule` or `tag_policy`; responses use `tag_policy`.
   class TagRuleResourceType
     include BaseEnumModel
 
     TAG_RULE = "tag_rule".freeze
+    TAG_POLICY = "tag_policy".freeze
   end
 end
