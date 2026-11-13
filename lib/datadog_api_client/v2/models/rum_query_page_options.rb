@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class RUMQueryPageOptions
     include BaseGenericModel
 
-    # List following results with a cursor provided in the previous query.
+    # Cursor to get the next page of results, taken from `meta.page.after` of the previous response. Send it with the same `filter` and `sort` as the request that returned it.
     attr_accessor :cursor
 
-    # Maximum number of events in the response.
+    # Maximum number of events in the response. Between 1 and 1000.
     attr_reader :limit
 
     attr_accessor :additional_properties
