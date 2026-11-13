@@ -3805,6 +3805,11 @@ ScenariosModelMappings = {
             "issue_id" => "String",
             "body" => "IssueUpdateAssigneeRequest",
     },
+    "v2.GetIssueImpact" => {
+            "issue_id" => "String",
+            "filter_from" => "Integer",
+            "filter_to" => "Integer",
+    },
     "v2.UpdateIssueState" => {
             "issue_id" => "String",
             "body" => "IssueUpdateStateRequest",
