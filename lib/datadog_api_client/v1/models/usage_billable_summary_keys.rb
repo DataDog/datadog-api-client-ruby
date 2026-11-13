@@ -109,6 +109,12 @@ module DatadogAPIClient::V1
     attr_accessor :dbm_normalized_queries_sum
 
     # Response with properties for each aggregated usage type.
+    attr_accessor :error_tracking_sum
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :error_tracking_tiered_sum
+
+    # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_apm_and_profiler_average
 
     # Response with properties for each aggregated usage type.
@@ -323,6 +329,8 @@ module DatadogAPIClient::V1
         :'dbm_host_top99p' => :'dbm_host_top99p',
         :'dbm_normalized_queries_average' => :'dbm_normalized_queries_average',
         :'dbm_normalized_queries_sum' => :'dbm_normalized_queries_sum',
+        :'error_tracking_sum' => :'error_tracking_sum',
+        :'error_tracking_tiered_sum' => :'error_tracking_tiered_sum',
         :'fargate_container_apm_and_profiler_average' => :'fargate_container_apm_and_profiler_average',
         :'fargate_container_apm_and_profiler_sum' => :'fargate_container_apm_and_profiler_sum',
         :'fargate_container_average' => :'fargate_container_average',
@@ -419,6 +427,8 @@ module DatadogAPIClient::V1
         :'dbm_host_top99p' => :'UsageBillableSummaryBody',
         :'dbm_normalized_queries_average' => :'UsageBillableSummaryBody',
         :'dbm_normalized_queries_sum' => :'UsageBillableSummaryBody',
+        :'error_tracking_sum' => :'UsageBillableSummaryBody',
+        :'error_tracking_tiered_sum' => :'UsageBillableSummaryBody',
         :'fargate_container_apm_and_profiler_average' => :'UsageBillableSummaryBody',
         :'fargate_container_apm_and_profiler_sum' => :'UsageBillableSummaryBody',
         :'fargate_container_average' => :'UsageBillableSummaryBody',
@@ -614,6 +624,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'dbm_normalized_queries_sum')
         self.dbm_normalized_queries_sum = attributes[:'dbm_normalized_queries_sum']
+      end
+
+      if attributes.key?(:'error_tracking_sum')
+        self.error_tracking_sum = attributes[:'error_tracking_sum']
+      end
+
+      if attributes.key?(:'error_tracking_tiered_sum')
+        self.error_tracking_tiered_sum = attributes[:'error_tracking_tiered_sum']
       end
 
       if attributes.key?(:'fargate_container_apm_and_profiler_average')
@@ -912,6 +930,8 @@ module DatadogAPIClient::V1
           dbm_host_top99p == o.dbm_host_top99p &&
           dbm_normalized_queries_average == o.dbm_normalized_queries_average &&
           dbm_normalized_queries_sum == o.dbm_normalized_queries_sum &&
+          error_tracking_sum == o.error_tracking_sum &&
+          error_tracking_tiered_sum == o.error_tracking_tiered_sum &&
           fargate_container_apm_and_profiler_average == o.fargate_container_apm_and_profiler_average &&
           fargate_container_apm_and_profiler_sum == o.fargate_container_apm_and_profiler_sum &&
           fargate_container_average == o.fargate_container_average &&
@@ -979,7 +999,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_fargate_average, apm_fargate_sum, apm_host_sum, apm_host_top99p, apm_profiler_host_sum, apm_profiler_host_top99p, apm_trace_search_sum, application_security_fargate_average, application_security_host_sum, application_security_host_top99p, ci_pipeline_indexed_spans_sum, ci_pipeline_maximum, ci_pipeline_sum, ci_test_indexed_spans_sum, ci_testing_maximum, ci_testing_sum, cloud_cost_management_average, cloud_cost_management_sum, cspm_container_sum, cspm_host_sum, cspm_host_top99p, custom_event_sum, cws_container_sum, cws_host_sum, cws_host_top99p, dbm_host_sum, dbm_host_top99p, dbm_normalized_queries_average, dbm_normalized_queries_sum, fargate_container_apm_and_profiler_average, fargate_container_apm_and_profiler_sum, fargate_container_average, fargate_container_profiler_average, fargate_container_profiler_sum, fargate_container_sum, incident_management_maximum, incident_management_sum, infra_and_apm_host_sum, infra_and_apm_host_top99p, infra_container_sum, infra_host_sum, infra_host_top99p, ingested_spans_sum, ingested_timeseries_average, ingested_timeseries_sum, iot_sum, iot_top99p, lambda_function_average, lambda_function_sum, logs_forwarding_sum, logs_indexed_15day_sum, logs_indexed_180day_sum, logs_indexed_1day_sum, logs_indexed_30day_sum, logs_indexed_360day_sum, logs_indexed_3day_sum, logs_indexed_45day_sum, logs_indexed_60day_sum, logs_indexed_7day_sum, logs_indexed_90day_sum, logs_indexed_custom_retention_sum, logs_indexed_sum, logs_ingested_sum, network_device_sum, network_device_top99p, npm_flow_sum, npm_host_sum, npm_host_top99p, observability_pipeline_sum, online_archive_sum, prof_container_sum, prof_host_sum, prof_host_top99p, rum_lite_sum, rum_replay_sum, rum_sum, rum_units_sum, sensitive_data_scanner_sum, serverless_apm_sum, serverless_infra_average, serverless_infra_sum, serverless_invocation_sum, siem_sum, standard_timeseries_average, synthetics_api_tests_sum, synthetics_app_testing_maximum, synthetics_browser_checks_sum, timeseries_average, timeseries_sum, additional_properties].hash
+      [apm_fargate_average, apm_fargate_sum, apm_host_sum, apm_host_top99p, apm_profiler_host_sum, apm_profiler_host_top99p, apm_trace_search_sum, application_security_fargate_average, application_security_host_sum, application_security_host_top99p, ci_pipeline_indexed_spans_sum, ci_pipeline_maximum, ci_pipeline_sum, ci_test_indexed_spans_sum, ci_testing_maximum, ci_testing_sum, cloud_cost_management_average, cloud_cost_management_sum, cspm_container_sum, cspm_host_sum, cspm_host_top99p, custom_event_sum, cws_container_sum, cws_host_sum, cws_host_top99p, dbm_host_sum, dbm_host_top99p, dbm_normalized_queries_average, dbm_normalized_queries_sum, error_tracking_sum, error_tracking_tiered_sum, fargate_container_apm_and_profiler_average, fargate_container_apm_and_profiler_sum, fargate_container_average, fargate_container_profiler_average, fargate_container_profiler_sum, fargate_container_sum, incident_management_maximum, incident_management_sum, infra_and_apm_host_sum, infra_and_apm_host_top99p, infra_container_sum, infra_host_sum, infra_host_top99p, ingested_spans_sum, ingested_timeseries_average, ingested_timeseries_sum, iot_sum, iot_top99p, lambda_function_average, lambda_function_sum, logs_forwarding_sum, logs_indexed_15day_sum, logs_indexed_180day_sum, logs_indexed_1day_sum, logs_indexed_30day_sum, logs_indexed_360day_sum, logs_indexed_3day_sum, logs_indexed_45day_sum, logs_indexed_60day_sum, logs_indexed_7day_sum, logs_indexed_90day_sum, logs_indexed_custom_retention_sum, logs_indexed_sum, logs_ingested_sum, network_device_sum, network_device_top99p, npm_flow_sum, npm_host_sum, npm_host_top99p, observability_pipeline_sum, online_archive_sum, prof_container_sum, prof_host_sum, prof_host_top99p, rum_lite_sum, rum_replay_sum, rum_sum, rum_units_sum, sensitive_data_scanner_sum, serverless_apm_sum, serverless_infra_average, serverless_infra_sum, serverless_invocation_sum, siem_sum, standard_timeseries_average, synthetics_api_tests_sum, synthetics_app_testing_maximum, synthetics_browser_checks_sum, timeseries_average, timeseries_sum, additional_properties].hash
     end
   end
 end
