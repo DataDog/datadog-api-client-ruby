@@ -39,6 +39,10 @@ module DatadogAPIClient::V2
     # Integration provider for a bring-your-own-model configuration.
     attr_accessor :integration_provider
 
+    # Minimum topic size, the smallest number of interactions a topic must contain. Topics with fewer
+    # interactions are moved to Outliers.
+    attr_reader :min_cluster_size
+
     # Model name for a bring-your-own-model configuration.
     attr_accessor :model_name
 
@@ -72,6 +76,7 @@ module DatadogAPIClient::V2
         :'hierarchy_depth' => :'hierarchy_depth',
         :'id' => :'id',
         :'integration_provider' => :'integration_provider',
+        :'min_cluster_size' => :'min_cluster_size',
         :'model_name' => :'model_name',
         :'name' => :'name',
         :'num_records' => :'num_records',
@@ -92,6 +97,7 @@ module DatadogAPIClient::V2
         :'hierarchy_depth' => :'Integer',
         :'id' => :'String',
         :'integration_provider' => :'String',
+        :'min_cluster_size' => :'Integer',
         :'model_name' => :'String',
         :'name' => :'String',
         :'num_records' => :'Integer',
@@ -155,6 +161,10 @@ module DatadogAPIClient::V2
         self.integration_provider = attributes[:'integration_provider']
       end
 
+      if attributes.key?(:'min_cluster_size')
+        self.min_cluster_size = attributes[:'min_cluster_size']
+      end
+
       if attributes.key?(:'model_name')
         self.model_name = attributes[:'model_name']
       end
@@ -193,6 +203,9 @@ module DatadogAPIClient::V2
       return false if @hierarchy_depth.nil?
       return false if @hierarchy_depth > 2147483647
       return false if @id.nil?
+      return false if @min_cluster_size.nil?
+      return false if @min_cluster_size > 2147483647
+      return false if @min_cluster_size < 2
       return false if @name.nil?
       return false if @num_records.nil?
       return false if @num_records > 2147483647
@@ -243,6 +256,22 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param min_cluster_size [Object] Object to be assigned
+    # @!visibility private
+    def min_cluster_size=(min_cluster_size)
+      if min_cluster_size.nil?
+        fail ArgumentError, 'invalid value for "min_cluster_size", min_cluster_size cannot be nil.'
+      end
+      if min_cluster_size > 2147483647
+        fail ArgumentError, 'invalid value for "min_cluster_size", must be smaller than or equal to 2147483647.'
+      end
+      if min_cluster_size < 2
+        fail ArgumentError, 'invalid value for "min_cluster_size", must be greater than or equal to 2.'
+      end
+      @min_cluster_size = min_cluster_size
     end
 
     # Custom attribute writer method with validation
@@ -330,6 +359,7 @@ module DatadogAPIClient::V2
           hierarchy_depth == o.hierarchy_depth &&
           id == o.id &&
           integration_provider == o.integration_provider &&
+          min_cluster_size == o.min_cluster_size &&
           model_name == o.model_name &&
           name == o.name &&
           num_records == o.num_records &&
@@ -344,7 +374,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, created_at, evp_query, hierarchy_depth, id, integration_provider, model_name, name, num_records, sampling_ratio, scope, template, updated_at, additional_properties].hash
+      [account_id, created_at, evp_query, hierarchy_depth, id, integration_provider, min_cluster_size, model_name, name, num_records, sampling_ratio, scope, template, updated_at, additional_properties].hash
     end
   end
 end
