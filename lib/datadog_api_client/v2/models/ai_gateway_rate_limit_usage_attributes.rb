@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AiGatewayRateLimitUsageAttributes
     include BaseGenericModel
 
+    # Priced spend, in microcents, counted in the rolling one-minute window. Only rules with a cost limit count it, so it is 0 for other rules and for the untracked and total entries.
+    attr_accessor :cost_microcents
+
     # Input tokens counted in the rolling one-minute window.
     attr_reader :input_tokens
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cost_microcents' => :'cost_microcents',
         :'input_tokens' => :'input_tokens',
         :'limited_requests' => :'limited_requests',
         :'output_tokens' => :'output_tokens',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cost_microcents' => :'Integer',
         :'input_tokens' => :'Integer',
         :'limited_requests' => :'Integer',
         :'output_tokens' => :'Integer',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cost_microcents')
+        self.cost_microcents = attributes[:'cost_microcents']
+      end
 
       if attributes.key?(:'input_tokens')
         self.input_tokens = attributes[:'input_tokens']
@@ -189,6 +198,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cost_microcents == o.cost_microcents &&
           input_tokens == o.input_tokens &&
           limited_requests == o.limited_requests &&
           output_tokens == o.output_tokens &&
@@ -201,7 +211,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [input_tokens, limited_requests, output_tokens, requests, would_limit_requests, additional_properties].hash
+      [cost_microcents, input_tokens, limited_requests, output_tokens, requests, would_limit_requests, additional_properties].hash
     end
   end
 end

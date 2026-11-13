@@ -10,6 +10,7 @@ api_instance = DatadogAPIClient::V2::AIGatewayAPI.new
 body = DatadogAPIClient::V2::AiGatewayRateLimitUpdateRequest.new({
   data: DatadogAPIClient::V2::AiGatewayRateLimitUpdateData.new({
     attributes: DatadogAPIClient::V2::AiGatewayRateLimitUpdateAttributes.new({
+      cost_microcents_per_minute: nil,
       input_tokens_per_minute: nil,
       mode: DatadogAPIClient::V2::AiGatewayRateLimitMode::ALERT,
       output_tokens_per_minute: nil,

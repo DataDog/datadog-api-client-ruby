@@ -1570,6 +1570,7 @@ module DatadogAPIClient
           "v2.ai_gateway_rate_limit_instance_resource" => "AiGatewayRateLimitInstanceResource",
           "v2.ai_gateway_rate_limit_instance_sort" => "AiGatewayRateLimitInstanceSort",
           "v2.ai_gateway_rate_limit_instances_summary_attributes" => "AiGatewayRateLimitInstancesSummaryAttributes",
+          "v2.ai_gateway_rate_limit_instances_summary_list_response" => "AiGatewayRateLimitInstancesSummaryListResponse",
           "v2.ai_gateway_rate_limit_instances_summary_resource" => "AiGatewayRateLimitInstancesSummaryResource",
           "v2.ai_gateway_rate_limit_instances_summary_response" => "AiGatewayRateLimitInstancesSummaryResponse",
           "v2.ai_gateway_rate_limit_instances_summary_type" => "AiGatewayRateLimitInstancesSummaryType",

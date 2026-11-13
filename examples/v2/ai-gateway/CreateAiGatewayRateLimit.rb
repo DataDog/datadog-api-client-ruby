@@ -10,6 +10,7 @@ api_instance = DatadogAPIClient::V2::AIGatewayAPI.new
 body = DatadogAPIClient::V2::AiGatewayRateLimitCreateRequest.new({
   data: DatadogAPIClient::V2::AiGatewayRateLimitCreateData.new({
     attributes: DatadogAPIClient::V2::AiGatewayRateLimitCreateAttributes.new({
+      cost_microcents_per_minute: 100000000,
       input_tokens_per_minute: nil,
       mode: DatadogAPIClient::V2::AiGatewayRateLimitMode::ALERT,
       name: "Default rate limit",

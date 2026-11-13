@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class AiGatewayRateLimitInstanceAttributes
     include BaseGenericModel
 
+    # Priced spend, in microcents, counted in the rolling one-minute window. 0 when the rate limit doesn't limit cost.
+    attr_accessor :cost_microcents
+
+    # The rate limit's per-counter spend limit, in microcents. Null when it doesn't limit cost.
+    attr_accessor :cost_microcents_per_minute
+
     # When the gateway first recorded a request for this counter.
     attr_reader :first_seen
 
@@ -33,7 +39,7 @@ module DatadogAPIClient::V2
     # Opaque canonical key identifying the counter.
     attr_reader :instance_key
 
-    # When the gateway last recorded a request for this counter; up to a few minutes behind live traffic.
+    # When the gateway last saw this counter hot, that is near or at a limit or limiting; up to a few minutes behind live traffic.
     attr_reader :last_seen
 
     # Requests this counter rejected in the last 15 minutes (ENFORCE).
@@ -72,6 +78,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cost_microcents' => :'cost_microcents',
+        :'cost_microcents_per_minute' => :'cost_microcents_per_minute',
         :'first_seen' => :'first_seen',
         :'input_tokens' => :'input_tokens',
         :'input_tokens_per_minute' => :'input_tokens_per_minute',
@@ -94,6 +102,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cost_microcents' => :'Integer',
+        :'cost_microcents_per_minute' => :'Integer',
         :'first_seen' => :'Time',
         :'input_tokens' => :'Integer',
         :'input_tokens_per_minute' => :'Integer',
@@ -116,6 +126,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'cost_microcents_per_minute',
         :'input_tokens_per_minute',
         :'output_tokens_per_minute',
         :'requests_per_minute',
@@ -139,6 +150,14 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cost_microcents')
+        self.cost_microcents = attributes[:'cost_microcents']
+      end
+
+      if attributes.key?(:'cost_microcents_per_minute')
+        self.cost_microcents_per_minute = attributes[:'cost_microcents_per_minute']
+      end
 
       if attributes.key?(:'first_seen')
         self.first_seen = attributes[:'first_seen']
@@ -366,6 +385,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cost_microcents == o.cost_microcents &&
+          cost_microcents_per_minute == o.cost_microcents_per_minute &&
           first_seen == o.first_seen &&
           input_tokens == o.input_tokens &&
           input_tokens_per_minute == o.input_tokens_per_minute &&
@@ -388,7 +409,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first_seen, input_tokens, input_tokens_per_minute, instance_key, last_seen, limited_requests, output_tokens, output_tokens_per_minute, rate_limit_id, requests, requests_per_minute, split_dims, usage_known, utilization, would_limit_requests, additional_properties].hash
+      [cost_microcents, cost_microcents_per_minute, first_seen, input_tokens, input_tokens_per_minute, instance_key, last_seen, limited_requests, output_tokens, output_tokens_per_minute, rate_limit_id, requests, requests_per_minute, split_dims, usage_known, utilization, would_limit_requests, additional_properties].hash
     end
   end
 end

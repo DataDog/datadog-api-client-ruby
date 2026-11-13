@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AiGatewayRateLimitAttributes
     include BaseGenericModel
 
+    # Maximum priced spend per rolling minute, in microcents of 1e-8 USD each, shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit cost.
+    attr_reader :cost_microcents_per_minute
+
     # Creation timestamp.
     attr_reader :created_at
 
@@ -34,7 +37,7 @@ module DatadogAPIClient::V2
     attr_reader :input_tokens_per_minute
 
     # Whether the selector gives each matching value its own allowance, that is, whether it has at least one per_value entry. Returned even when scope_restricted hides the selector.
-    attr_accessor :is_template
+    attr_reader :is_template
 
     # Action taken when request rate exceeds the limit.
     attr_reader :mode
@@ -67,7 +70,7 @@ module DatadogAPIClient::V2
     attr_accessor :team_id
 
     # Dimensions of the selector's per_value entries, such as user_id or tag:env, each matching value of which gets its own allowance. Empty unless is_template is true. Returned even when scope_restricted hides the selector.
-    attr_accessor :template_split_dims
+    attr_reader :template_split_dims
 
     # Last modification timestamp.
     attr_reader :updated_at
@@ -84,6 +87,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cost_microcents_per_minute' => :'cost_microcents_per_minute',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'enabled' => :'enabled',
@@ -110,6 +114,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cost_microcents_per_minute' => :'Integer',
         :'created_at' => :'Time',
         :'created_by' => :'String',
         :'enabled' => :'Boolean',
@@ -136,6 +141,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'cost_microcents_per_minute',
         :'input_tokens_per_minute',
         :'monitor_id',
         :'output_tokens_per_minute',
@@ -163,6 +169,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cost_microcents_per_minute')
+        self.cost_microcents_per_minute = attributes[:'cost_microcents_per_minute']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -249,11 +259,14 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute > 10000000000000
+      return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute < 1
       return false if @created_at.nil?
       return false if @created_by.nil?
       return false if @enabled.nil?
       return false if !@input_tokens_per_minute.nil? && @input_tokens_per_minute > 100000000000
       return false if !@input_tokens_per_minute.nil? && @input_tokens_per_minute < 1
+      return false if @is_template.nil?
       return false if @mode.nil?
       return false if @name.nil?
       return false if !@output_tokens_per_minute.nil? && @output_tokens_per_minute > 100000000000
@@ -263,9 +276,23 @@ module DatadogAPIClient::V2
       return false if @revision.nil?
       return false if @scope_restricted.nil?
       return false if @tags.nil?
+      return false if @template_split_dims.nil?
       return false if @updated_at.nil?
       return false if @updated_by.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cost_microcents_per_minute [Object] Object to be assigned
+    # @!visibility private
+    def cost_microcents_per_minute=(cost_microcents_per_minute)
+      if !cost_microcents_per_minute.nil? && cost_microcents_per_minute > 10000000000000
+        fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be smaller than or equal to 10000000000000.'
+      end
+      if !cost_microcents_per_minute.nil? && cost_microcents_per_minute < 1
+        fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be greater than or equal to 1.'
+      end
+      @cost_microcents_per_minute = cost_microcents_per_minute
     end
 
     # Custom attribute writer method with validation
@@ -309,6 +336,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "input_tokens_per_minute", must be greater than or equal to 1.'
       end
       @input_tokens_per_minute = input_tokens_per_minute
+    end
+
+    # Custom attribute writer method with validation
+    # @param is_template [Object] Object to be assigned
+    # @!visibility private
+    def is_template=(is_template)
+      if is_template.nil?
+        fail ArgumentError, 'invalid value for "is_template", is_template cannot be nil.'
+      end
+      @is_template = is_template
     end
 
     # Custom attribute writer method with validation
@@ -388,6 +425,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param template_split_dims [Object] Object to be assigned
+    # @!visibility private
+    def template_split_dims=(template_split_dims)
+      if template_split_dims.nil?
+        fail ArgumentError, 'invalid value for "template_split_dims", template_split_dims cannot be nil.'
+      end
+      @template_split_dims = template_split_dims
+    end
+
+    # Custom attribute writer method with validation
     # @param updated_at [Object] Object to be assigned
     # @!visibility private
     def updated_at=(updated_at)
@@ -433,6 +480,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cost_microcents_per_minute == o.cost_microcents_per_minute &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           enabled == o.enabled &&
@@ -459,7 +507,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, enabled, input_tokens_per_minute, is_template, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, selector, tags, team_id, template_split_dims, updated_at, updated_by, user_id, additional_properties].hash
+      [cost_microcents_per_minute, created_at, created_by, enabled, input_tokens_per_minute, is_template, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, selector, tags, team_id, template_split_dims, updated_at, updated_by, user_id, additional_properties].hash
     end
   end
 end
