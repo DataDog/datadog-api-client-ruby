@@ -6801,6 +6801,12 @@ ScenariosModelMappings = {
             "rule_id" => "String",
             "body" => "SensitiveDataScannerRuleUpdateRequest",
     },
+    "v2.ListTargetScanningGroups" => {
+            "filter_target" => "SensitiveDataScannerGroupTarget",
+    },
+    "v2.GetScanningGroup" => {
+            "group_id" => "String",
+    },
     "v2.CreateServiceAccount" => {
             "body" => "ServiceAccountCreateRequest",
     },
