@@ -586,7 +586,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -609,7 +609,7 @@ module DatadogAPIClient::V2
     # mitigation type is omitted, the control's configured mitigation is used. The request is
     # accepted for asynchronous processing.
     #
-    # @param body [GovernanceMitigationRequest] 
+    # @param body [GovernanceMitigationRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def mitigate_governance_detections_with_http_info(body, opts = {})
@@ -685,7 +685,7 @@ module DatadogAPIClient::V2
     # parameters may require additional permissions.
     #
     # @param detection_type [String] The detection type that identifies the control, for example `unused_api_keys`.
-    # @param body [GovernanceControlUpdateRequest] 
+    # @param body [GovernanceControlUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GovernanceControlResponse, Integer, Hash)>] GovernanceControlResponse data, response status code and response headers
     def update_governance_control_with_http_info(detection_type, body, opts = {})
@@ -765,7 +765,7 @@ module DatadogAPIClient::V2
     # destinations receive them.
     #
     # @param detection_type [String] The detection type that identifies the control; for example, `unused_api_keys`.
-    # @param body [ControlNotificationSettingsUpdateRequest] 
+    # @param body [ControlNotificationSettingsUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(ControlNotificationSettingsResponse, Integer, Hash)>] ControlNotificationSettingsResponse data, response status code and response headers
     def update_governance_control_notification_settings_with_http_info(detection_type, body, opts = {})
@@ -845,7 +845,7 @@ module DatadogAPIClient::V2
     # reassigned, or deferred for mitigation.
     #
     # @param detection_id [String] The unique identifier of the detection.
-    # @param body [GovernanceControlDetectionUpdateRequest] 
+    # @param body [GovernanceControlDetectionUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GovernanceControlDetectionResponse, Integer, Hash)>] GovernanceControlDetectionResponse data, response status code and response headers
     def update_governance_detection_with_http_info(detection_id, body, opts = {})
@@ -923,7 +923,7 @@ module DatadogAPIClient::V2
     # Update the organization-wide governance notification settings. Only the attributes present in
     # the request are modified.
     #
-    # @param body [GovernanceNotificationSettingsUpdateRequest] 
+    # @param body [GovernanceNotificationSettingsUpdateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(GovernanceNotificationSettingsResponse, Integer, Hash)>] GovernanceNotificationSettingsResponse data, response status code and response headers
     def update_governance_notification_settings_with_http_info(body, opts = {})

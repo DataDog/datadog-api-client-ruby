@@ -22,7 +22,8 @@ Gem::Specification.new do |spec|
     "source_code_uri"   => "https://github.com/DataDog/datadog-api-client-ruby"
   }
 
-  spec.add_runtime_dependency "httparty", "~> 0.20", ">= 0.20.0"
+  spec.add_runtime_dependency "mini_mime", "~> 1.0"
+  spec.add_runtime_dependency "multipart-post", "~> 2.2"
 
   spec.add_runtime_dependency "zeitwerk", "~> 2.6", ">= 2.6.0"
 

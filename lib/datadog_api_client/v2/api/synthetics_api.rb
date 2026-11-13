@@ -37,11 +37,10 @@ module DatadogAPIClient::V2
     # and releases any storage used by already-uploaded parts.
     #
     # @param public_id [String] The public ID of the Synthetic test.
-    # @param body [SyntheticsTestFileAbortMultipartUploadRequest] 
+    # @param body [SyntheticsTestFileAbortMultipartUploadRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def abort_test_file_multipart_upload_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.abort_test_file_multipart_upload ...'
       end
@@ -113,7 +112,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
     def add_test_to_synthetics_downtime_with_http_info(downtime_id, test_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.add_test_to_synthetics_downtime ...'
       end
@@ -180,11 +178,10 @@ module DatadogAPIClient::V2
     # have been uploaded using the presigned URLs obtained from the multipart presigned URLs endpoint.
     #
     # @param public_id [String] The public ID of the Synthetic test.
-    # @param body [SyntheticsTestFileCompleteMultipartUploadRequest] 
+    # @param body [SyntheticsTestFileCompleteMultipartUploadRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def complete_test_file_multipart_upload_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.complete_test_file_multipart_upload ...'
       end
@@ -251,11 +248,10 @@ module DatadogAPIClient::V2
     #
     # Create a new Synthetics downtime.
     #
-    # @param body [SyntheticsDowntimeRequest] 
+    # @param body [SyntheticsDowntimeRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
     def create_synthetics_downtime_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_downtime ...'
       end
@@ -315,11 +311,10 @@ module DatadogAPIClient::V2
     end
 
     # Create a Network Path test.
-    # @param body [SyntheticsNetworkTestEditRequest] 
+    # @param body [SyntheticsNetworkTestEditRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
     def create_synthetics_network_test_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_network_test ...'
       end
@@ -379,11 +374,10 @@ module DatadogAPIClient::V2
     end
 
     # Create a test suite.
-    # @param body [SuiteCreateEditRequest] 
+    # @param body [SuiteCreateEditRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
     def create_synthetics_suite_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_suite ...'
       end
@@ -450,7 +444,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_synthetics_downtime_with_http_info(downtime_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_synthetics_downtime ...'
       end
@@ -508,11 +501,10 @@ module DatadogAPIClient::V2
     end
 
     # Bulk delete suites.
-    # @param body [DeletedSuitesRequestDeleteRequest] 
+    # @param body [DeletedSuitesRequestDeleteRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeletedSuitesResponse, Integer, Hash)>] DeletedSuitesResponse data, response status code and response headers
     def delete_synthetics_suites_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_synthetics_suites ...'
       end
@@ -572,11 +564,10 @@ module DatadogAPIClient::V2
     end
 
     # Bulk delete tests.
-    # @param body [DeletedTestsRequestDeleteRequest] 
+    # @param body [DeletedTestsRequestDeleteRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeletedTestsResponse, Integer, Hash)>] DeletedTestsResponse data, response status code and response headers
     def delete_synthetics_tests_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_synthetics_tests ...'
       end
@@ -641,7 +632,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
     def edit_synthetics_suite_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.edit_synthetics_suite ...'
       end
@@ -713,7 +703,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsApiMultistepParentTestsResponse, Integer, Hash)>] SyntheticsApiMultistepParentTestsResponse data, response status code and response headers
     def get_api_multistep_subtest_parents_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_multistep_subtest_parents ...'
       end
@@ -779,7 +768,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsApiMultistepSubtestsResponse, Integer, Hash)>] SyntheticsApiMultistepSubtestsResponse data, response status code and response headers
     def get_api_multistep_subtests_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_multistep_subtests ...'
       end
@@ -843,7 +831,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(OnDemandConcurrencyCapResponse, Integer, Hash)>] OnDemandConcurrencyCapResponse data, response status code and response headers
     def get_on_demand_concurrency_cap_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_on_demand_concurrency_cap ...'
       end
@@ -907,7 +894,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :timestamp Timestamp in seconds to look up the result.
     # @return [Array<(SyntheticsTestResultResponse, Integer, Hash)>] SyntheticsTestResultResponse data, response status code and response headers
     def get_synthetics_browser_test_result_with_http_info(public_id, result_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_browser_test_result ...'
       end
@@ -978,7 +964,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
     def get_synthetics_downtime_with_http_info(downtime_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_downtime ...'
       end
@@ -1040,7 +1025,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsFastTestResult, Integer, Hash)>] SyntheticsFastTestResult data, response status code and response headers
     def get_synthetics_fast_test_result_with_http_info(id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_fast_test_result ...'
       end
@@ -1102,7 +1086,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
     def get_synthetics_network_test_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_network_test ...'
       end
@@ -1164,7 +1147,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
     def get_synthetics_suite_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_suite ...'
       end
@@ -1232,7 +1214,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :timestamp Timestamp in seconds to look up the result.
     # @return [Array<(SyntheticsTestResultResponse, Integer, Hash)>] SyntheticsTestResultResponse data, response status code and response headers
     def get_synthetics_test_result_with_http_info(public_id, result_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_test_result ...'
       end
@@ -1306,7 +1287,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :only_check_existence If `true`, only check whether the version exists without returning its full payload. Returns an empty object if the version exists, or 404 if not.
     # @return [Array<(SyntheticsTestVersionResponse, Integer, Hash)>] SyntheticsTestVersionResponse data, response status code and response headers
     def get_synthetics_test_version_with_http_info(public_id, version_number, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_test_version ...'
       end
@@ -1375,11 +1355,10 @@ module DatadogAPIClient::V2
     # The returned URL is temporary and expires after a short period.
     #
     # @param public_id [String] The public ID of the Synthetic test.
-    # @param body [SyntheticsTestFileDownloadRequest] 
+    # @param body [SyntheticsTestFileDownloadRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestFileDownloadResponse, Integer, Hash)>] SyntheticsTestFileDownloadResponse data, response status code and response headers
     def get_test_file_download_url_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test_file_download_url ...'
       end
@@ -1448,11 +1427,10 @@ module DatadogAPIClient::V2
     # Returns the presigned URLs for each part along with the bucket key that references the file.
     #
     # @param public_id [String] The public ID of the Synthetic test.
-    # @param body [SyntheticsTestFileMultipartPresignedUrlsRequest] 
+    # @param body [SyntheticsTestFileMultipartPresignedUrlsRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestFileMultipartPresignedUrlsResponse, Integer, Hash)>] SyntheticsTestFileMultipartPresignedUrlsResponse data, response status code and response headers
     def get_test_file_multipart_presigned_urls_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test_file_multipart_presigned_urls ...'
       end
@@ -1523,7 +1501,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestParentSuitesResponse, Integer, Hash)>] SyntheticsTestParentSuitesResponse data, response status code and response headers
     def get_test_parent_suites_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test_parent_suites ...'
       end
@@ -1594,7 +1571,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :device_id Device IDs for which to query results.
     # @return [Array<(SyntheticsTestLatestResultsResponse, Integer, Hash)>] SyntheticsTestLatestResultsResponse data, response status code and response headers
     def list_synthetics_browser_test_latest_results_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_browser_test_latest_results ...'
       end
@@ -1649,7 +1625,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1675,7 +1651,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_active If set to `true`, return only downtimes that are currently active.
     # @return [Array<(SyntheticsDowntimesResponse, Integer, Hash)>] SyntheticsDowntimesResponse data, response status code and response headers
     def list_synthetics_downtimes_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_downtimes ...'
       end
@@ -1744,7 +1719,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :device_id Device IDs for which to query results.
     # @return [Array<(SyntheticsTestLatestResultsResponse, Integer, Hash)>] SyntheticsTestLatestResultsResponse data, response status code and response headers
     def list_synthetics_test_latest_results_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_test_latest_results ...'
       end
@@ -1799,7 +1773,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -1826,7 +1800,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :limit Maximum number of version records to return per page.
     # @return [Array<(SyntheticsTestVersionHistoryResponse, Integer, Hash)>] SyntheticsTestVersionHistoryResponse data, response status code and response headers
     def list_synthetics_test_versions_with_http_info(public_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_test_versions ...'
       end
@@ -1904,7 +1877,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GlobalVariableResponse, Integer, Hash)>] GlobalVariableResponse data, response status code and response headers
     def patch_global_variable_with_http_info(variable_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.patch_global_variable ...'
       end
@@ -1982,7 +1954,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
     def patch_test_suite_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.patch_test_suite ...'
       end
@@ -2054,7 +2025,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPollTestResultsResponse, Integer, Hash)>] SyntheticsPollTestResultsResponse data, response status code and response headers
     def poll_synthetics_test_results_with_http_info(result_ids, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.poll_synthetics_test_results ...'
       end
@@ -2121,7 +2091,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
     def remove_test_from_synthetics_downtime_with_http_info(downtime_id, test_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.remove_test_from_synthetics_downtime ...'
       end
@@ -2194,7 +2163,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :count The maximum number of results to return.
     # @return [Array<(SyntheticsSuiteSearchResponse, Integer, Hash)>] SyntheticsSuiteSearchResponse data, response status code and response headers
     def search_suites_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.search_suites ...'
       end
@@ -2260,7 +2228,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(OnDemandConcurrencyCapResponse, Integer, Hash)>] OnDemandConcurrencyCapResponse data, response status code and response headers
     def set_on_demand_concurrency_cap_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.set_on_demand_concurrency_cap ...'
       end
@@ -2324,11 +2291,10 @@ module DatadogAPIClient::V2
     # Update a Synthetics downtime by its ID.
     #
     # @param downtime_id [String] The ID of the downtime to update.
-    # @param body [SyntheticsDowntimeRequest] 
+    # @param body [SyntheticsDowntimeRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDowntimeResponse, Integer, Hash)>] SyntheticsDowntimeResponse data, response status code and response headers
     def update_synthetics_downtime_with_http_info(downtime_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_synthetics_downtime ...'
       end
@@ -2397,7 +2363,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
     def update_synthetics_network_test_with_http_info(public_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_synthetics_network_test ...'
       end
