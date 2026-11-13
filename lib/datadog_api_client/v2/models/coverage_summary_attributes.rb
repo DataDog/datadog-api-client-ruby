@@ -30,6 +30,11 @@ module DatadogAPIClient::V2
     # Total number of coverage reports evaluated.
     attr_accessor :evaluated_reports_count
 
+    # Coverage statistics broken down by flag. Each entry contains only coverage percentages.
+    # Branch summaries include the flags of the latest covered commit, including coverage carried forward
+    # to that commit. Pull request summaries include flags across all commits of the pull request.
+    attr_accessor :flags
+
     # Overall patch coverage percentage.
     attr_accessor :patch_coverage
 
@@ -48,6 +53,7 @@ module DatadogAPIClient::V2
         :'codeowners' => :'codeowners',
         :'evaluated_flags_count' => :'evaluated_flags_count',
         :'evaluated_reports_count' => :'evaluated_reports_count',
+        :'flags' => :'flags',
         :'patch_coverage' => :'patch_coverage',
         :'services' => :'services',
         :'total_coverage' => :'total_coverage'
@@ -61,6 +67,7 @@ module DatadogAPIClient::V2
         :'codeowners' => :'Hash<String, CoverageSummaryCodeownerStats>',
         :'evaluated_flags_count' => :'Integer',
         :'evaluated_reports_count' => :'Integer',
+        :'flags' => :'Hash<String, CoverageSummaryFlagStats>',
         :'patch_coverage' => :'Float',
         :'services' => :'Hash<String, CoverageSummaryServiceStats>',
         :'total_coverage' => :'Float'
@@ -72,6 +79,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'codeowners',
+        :'flags',
         :'patch_coverage',
         :'services',
         :'total_coverage',
@@ -106,6 +114,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'evaluated_reports_count')
         self.evaluated_reports_count = attributes[:'evaluated_reports_count']
+      end
+
+      if attributes.key?(:'flags')
+        self.flags = attributes[:'flags']
       end
 
       if attributes.key?(:'patch_coverage')
@@ -150,6 +162,7 @@ module DatadogAPIClient::V2
           codeowners == o.codeowners &&
           evaluated_flags_count == o.evaluated_flags_count &&
           evaluated_reports_count == o.evaluated_reports_count &&
+          flags == o.flags &&
           patch_coverage == o.patch_coverage &&
           services == o.services &&
           total_coverage == o.total_coverage &&
@@ -160,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [codeowners, evaluated_flags_count, evaluated_reports_count, patch_coverage, services, total_coverage, additional_properties].hash
+      [codeowners, evaluated_flags_count, evaluated_reports_count, flags, patch_coverage, services, total_coverage, additional_properties].hash
     end
   end
 end
