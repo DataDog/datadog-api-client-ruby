@@ -2865,6 +2865,7 @@ module DatadogAPIClient
           "v2.coverage_summary_attributes" => "CoverageSummaryAttributes",
           "v2.coverage_summary_codeowner_stats" => "CoverageSummaryCodeownerStats",
           "v2.coverage_summary_data" => "CoverageSummaryData",
+          "v2.coverage_summary_flag_stats" => "CoverageSummaryFlagStats",
           "v2.coverage_summary_response" => "CoverageSummaryResponse",
           "v2.coverage_summary_service_stats" => "CoverageSummaryServiceStats",
           "v2.coverage_summary_type" => "CoverageSummaryType",

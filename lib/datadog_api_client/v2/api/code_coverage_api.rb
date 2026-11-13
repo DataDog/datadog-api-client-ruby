@@ -34,8 +34,8 @@ module DatadogAPIClient::V2
     # Get code coverage summary for a branch.
     #
     # Retrieve aggregated code coverage statistics for a specific branch in a repository.
-    # This endpoint provides overall coverage metrics as well as breakdowns by service
-    # and code owner.
+    # This endpoint provides overall coverage metrics as well as breakdowns by service,
+    # code owner, and flag.
     #
     # @param body [BranchCoverageSummaryRequest] 
     # @param opts [Hash] the optional parameters
@@ -103,8 +103,8 @@ module DatadogAPIClient::V2
     # Get code coverage summary for a commit.
     #
     # Retrieve aggregated code coverage statistics for a specific commit in a repository.
-    # This endpoint provides overall coverage metrics as well as breakdowns by service
-    # and code owner.
+    # This endpoint provides overall coverage metrics as well as breakdowns by service,
+    # code owner, and flag.
     #
     # The commit SHA must be a 40-character hexadecimal string (SHA-1 hash).
     #
@@ -243,8 +243,8 @@ module DatadogAPIClient::V2
     # Get code coverage summary for a pull request.
     #
     # Retrieve aggregated code coverage statistics for a specific pull request in a repository.
-    # This endpoint provides overall coverage metrics as well as breakdowns by service
-    # and code owner.
+    # This endpoint provides overall coverage metrics as well as breakdowns by service,
+    # code owner, and flag.
     #
     # @param body [PRCoverageSummaryRequest] 
     # @param opts [Hash] the optional parameters
