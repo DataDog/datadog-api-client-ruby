@@ -4543,6 +4543,8 @@ module DatadogAPIClient
           "v2.gcp_metric_namespace_config" => "GCPMetricNamespaceConfig",
           "v2.gcp_monitored_resource_config" => "GCPMonitoredResourceConfig",
           "v2.gcp_monitored_resource_config_type" => "GCPMonitoredResourceConfigType",
+          "v2.gcp_project_filter_config" => "GCPProjectFilterConfig",
+          "v2.gcp_project_filter_config_type" => "GCPProjectFilterConfigType",
           "v2.gcp_scan_options" => "GcpScanOptions",
           "v2.gcp_scan_options_array" => "GcpScanOptionsArray",
           "v2.gcp_scan_options_data" => "GcpScanOptionsData",
