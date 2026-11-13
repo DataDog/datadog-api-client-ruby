@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::RUMApplicationUpdateRequest.new({
   data: DatadogAPIClient::V2::RUMApplicationUpdate.new({
     attributes: DatadogAPIClient::V2::RUMApplicationUpdateAttributes.new({
       name: "updated_name_for_my_existing_rum_application",
-      type: "browser",
+      type: DatadogAPIClient::V2::RUMApplicationPlatformType::BROWSER,
     }),
     id: RUM_APPLICATION_DATA_ID,
     type: DatadogAPIClient::V2::RUMApplicationUpdateType::RUM_APPLICATION_UPDATE,

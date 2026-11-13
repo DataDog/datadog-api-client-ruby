@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::RUMApplicationUpdateRequest.new({
     attributes: DatadogAPIClient::V2::RUMApplicationUpdateAttributes.new({
       name: "updated_rum_with_product_scales",
       rum_event_processing_state: DatadogAPIClient::V2::RUMEventProcessingState::ALL,
-      product_analytics_retention_state: DatadogAPIClient::V2::RUMProductAnalyticsRetentionState::MAX,
+      product_analytics_retention_state: DatadogAPIClient::V2::RUMProductAnalyticsRetentionStateRequest::MAX,
     }),
     id: RUM_APPLICATION_DATA_ID,
     type: DatadogAPIClient::V2::RUMApplicationUpdateType::RUM_APPLICATION_UPDATE,
