@@ -3816,6 +3816,10 @@ ScenariosModelMappings = {
             "issue_id" => "String",
             "body" => "IssueUpdateAssigneeRequest",
     },
+    "v2.SnoozeIssue" => {
+            "issue_id" => "String",
+            "body" => "IssueSnoozeRequest",
+    },
     "v2.UpdateIssueState" => {
             "issue_id" => "String",
             "body" => "IssueUpdateStateRequest",

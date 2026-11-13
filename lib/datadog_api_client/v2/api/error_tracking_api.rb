@@ -228,6 +228,89 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Snooze an issue.
+    #
+    # @see #snooze_issue_with_http_info
+    def snooze_issue(issue_id, body, opts = {})
+      data, _status_code, _headers = snooze_issue_with_http_info(issue_id, body, opts)
+      data
+    end
+
+    # Snooze an issue.
+    #
+    # Snooze an issue by `issue_id`: move it to `IGNORED` until a condition is met, then back to `OPEN`.
+    # The condition can be a number of occurrences, a number of distinct values of an attribute such as `@usr.id`,
+    # an elapsed time, or any or all of several conditions.
+    # Snoozing an issue that is already snoozed replaces its snooze. Updating the state of the issue with
+    # `UpdateIssueState` cancels the snooze.
+    # The response includes the watch that reopens the issue.
+    #
+    # @param issue_id [String] The identifier of the issue.
+    # @param body [IssueSnoozeRequest] Snooze issue request payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IssueResponse, Integer, Hash)>] IssueResponse data, response status code and response headers
+    def snooze_issue_with_http_info(issue_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.snooze_issue".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.snooze_issue")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.snooze_issue"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ErrorTrackingAPI.snooze_issue ...'
+      end
+      # verify the required parameter 'issue_id' is set
+      if @api_client.config.client_side_validation && issue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'issue_id' when calling ErrorTrackingAPI.snooze_issue"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ErrorTrackingAPI.snooze_issue"
+      end
+      # resource path
+      local_var_path = '/api/v2/error-tracking/issues/{issue_id}/snooze'.sub('{issue_id}', CGI.escape(issue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IssueResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :snooze_issue,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ErrorTrackingAPI#snooze_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update the assignee of an issue.
     #
     # @see #update_issue_assignee_with_http_info
