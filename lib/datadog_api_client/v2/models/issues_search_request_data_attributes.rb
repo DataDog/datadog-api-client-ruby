@@ -27,10 +27,11 @@ module DatadogAPIClient::V2
     # Start date (inclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :from
 
-    # The attribute to sort the search results by.
+    # The attribute to sort the search results by, in descending order. Defaults to `TOTAL_COUNT`.
     attr_accessor :order_by
 
-    # Persona for the search. Either track(s) or persona(s) must be specified.
+    # Persona for the search. Either `track` or `persona` must be specified.
+    # Ignored if `track` is specified.
     attr_accessor :persona
 
     # Search query following the event search syntax.
@@ -45,7 +46,8 @@ module DatadogAPIClient::V2
     # End date (exclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :to
 
-    # Track of the events to query. Either track(s) or persona(s) must be specified.
+    # Track of the events to query. Either `track` or `persona` must be specified.
+    # If both are specified, `persona` is ignored.
     attr_accessor :track
 
     attr_accessor :additional_properties

@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Persona for the search. Either track(s) or persona(s) must be specified.
+  # Persona for the search. Either `track` or `persona` must be specified.
+  # Ignored if `track` is specified.
   class IssuesSearchRequestDataAttributesPersona
     include BaseEnumModel
 
@@ -25,5 +26,6 @@ module DatadogAPIClient::V2
     BROWSER = "BROWSER".freeze
     MOBILE = "MOBILE".freeze
     BACKEND = "BACKEND".freeze
+    AGENT = "AGENT".freeze
   end
 end
