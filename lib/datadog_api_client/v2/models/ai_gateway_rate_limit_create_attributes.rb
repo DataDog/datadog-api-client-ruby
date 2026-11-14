@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AiGatewayRateLimitCreateAttributes
     include BaseGenericModel
 
+    # Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. At most 10000000000000, that is $100,000. In `ENFORCE` mode, requests to a model with no pricing are rejected, because their cost can't be counted.
+    attr_reader :cost_microcents_per_minute
+
     # Maximum input tokens per rolling minute.
     attr_reader :input_tokens_per_minute
 
@@ -33,7 +36,7 @@ module DatadogAPIClient::V2
     # Maximum output tokens per rolling minute.
     attr_reader :output_tokens_per_minute
 
-    # Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, and `output_tokens_per_minute` is required.
+    # Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, `output_tokens_per_minute`, and `cost_microcents_per_minute` is required.
     attr_reader :requests_per_minute
 
     # Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cost_microcents_per_minute' => :'cost_microcents_per_minute',
         :'input_tokens_per_minute' => :'input_tokens_per_minute',
         :'mode' => :'mode',
         :'name' => :'name',
@@ -70,6 +74,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cost_microcents_per_minute' => :'Integer',
         :'input_tokens_per_minute' => :'Integer',
         :'mode' => :'AiGatewayRateLimitMode',
         :'name' => :'String',
@@ -86,6 +91,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'cost_microcents_per_minute',
         :'input_tokens_per_minute',
         :'output_tokens_per_minute',
         :'requests_per_minute',
@@ -110,6 +116,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cost_microcents_per_minute')
+        self.cost_microcents_per_minute = attributes[:'cost_microcents_per_minute']
+      end
 
       if attributes.key?(:'input_tokens_per_minute')
         self.input_tokens_per_minute = attributes[:'input_tokens_per_minute']
@@ -154,6 +164,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute > 10000000000000
+      return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute < 1
       return false if !@input_tokens_per_minute.nil? && @input_tokens_per_minute > 100000000000
       return false if !@input_tokens_per_minute.nil? && @input_tokens_per_minute < 1
       return false if @name.nil?
@@ -162,6 +174,19 @@ module DatadogAPIClient::V2
       return false if !@requests_per_minute.nil? && @requests_per_minute > 10000000
       return false if !@requests_per_minute.nil? && @requests_per_minute < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cost_microcents_per_minute [Object] Object to be assigned
+    # @!visibility private
+    def cost_microcents_per_minute=(cost_microcents_per_minute)
+      if !cost_microcents_per_minute.nil? && cost_microcents_per_minute > 10000000000000
+        fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be smaller than or equal to 10000000000000.'
+      end
+      if !cost_microcents_per_minute.nil? && cost_microcents_per_minute < 1
+        fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be greater than or equal to 1.'
+      end
+      @cost_microcents_per_minute = cost_microcents_per_minute
     end
 
     # Custom attribute writer method with validation
@@ -239,6 +264,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cost_microcents_per_minute == o.cost_microcents_per_minute &&
           input_tokens_per_minute == o.input_tokens_per_minute &&
           mode == o.mode &&
           name == o.name &&
@@ -255,7 +281,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [input_tokens_per_minute, mode, name, output_tokens_per_minute, requests_per_minute, selector, tags, team_id, user_id, additional_properties].hash
+      [cost_microcents_per_minute, input_tokens_per_minute, mode, name, output_tokens_per_minute, requests_per_minute, selector, tags, team_id, user_id, additional_properties].hash
     end
   end
 end

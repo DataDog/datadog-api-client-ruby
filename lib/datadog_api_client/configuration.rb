@@ -337,6 +337,7 @@ module DatadogAPIClient
             "v2.list_ai_gateway_provider_models": false,
             "v2.list_ai_gateway_providers": false,
             "v2.list_ai_gateway_rate_limit_instances": false,
+            "v2.list_ai_gateway_rate_limit_instances_summaries": false,
             "v2.list_ai_gateway_rate_limits": false,
             "v2.list_ai_gateway_routing_rules": false,
             "v2.override_ai_gateway_budget_instance_capacity": false,

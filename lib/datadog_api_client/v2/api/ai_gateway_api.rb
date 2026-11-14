@@ -2053,7 +2053,7 @@ module DatadogAPIClient::V2
 
     # Get an AI Gateway rate limit counter summary.
     #
-    # Aggregate a template rate limit's counters, including how many there are, how many are near or at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters that match every given dimension value. When the caller can't see the template's selector, every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds. Returns 503 when counter usage can't be read.
+    # Aggregate a template rate limit's hot counters (those near or at a limit, or limiting, in the last hour), including how many there are, how many are near or at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters that match every given dimension value. When the caller can't see the template's selector, every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds. Returns 503 when counter usage can't be read.
     #
     # @param id [UUID] Rate limit UUID.
     # @param opts [Hash] the optional parameters
@@ -2948,7 +2948,7 @@ module DatadogAPIClient::V2
 
     # List AI Gateway rate limit counters.
     #
-    # List the counters of a template rate limit, one per matched user, Team, or value, with their live usage. Counters appear within a few minutes of their first request and are dropped after 30 days without one. Usage is read for counters seen in the last 20 minutes, at most 200 per request; past that, rows carry usage_known false. Counters for a provider or model the caller can't see are left out, and when the caller can't see the template's selector, the list is empty. A rate limit with one shared allowance, including one whose selector has no per_value entry, returns an empty list. Returns 503 when counter usage can't be read.
+    # List the hot counters of a template rate limit, one per matched user, Team, or value, with their live usage. Only counters at 80% or more of a limit, or that limited or would have limited a request, in the last hour are listed. A counter appears within a few minutes of becoming hot. Usage is read for at most 200 counters per request; past that, rows carry usage_known false. Counters for a provider or model the caller can't see are left out, and when the caller can't see the template's selector, the list is empty. A rate limit with one shared allowance, including one whose selector has no per_value entry, returns an empty list. Returns 503 when counter usage can't be read.
     #
     # @param id [UUID] Rate limit UUID.
     # @param opts [Hash] the optional parameters
@@ -3027,6 +3027,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AIGatewayAPI#list_ai_gateway_rate_limit_instances\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List AI Gateway rate limit counter summaries.
+    #
+    # @see #list_ai_gateway_rate_limit_instances_summaries_with_http_info
+    def list_ai_gateway_rate_limit_instances_summaries(opts = {})
+      data, _status_code, _headers = list_ai_gateway_rate_limit_instances_summaries_with_http_info(opts)
+      data
+    end
+
+    # List AI Gateway rate limit counter summaries.
+    #
+    # Aggregate the counters of every template rate limit in the organization in one call, with one summary per template in the order the rate limit list returns them. Each summary is the one the single-template counter summary endpoint returns without split_dim, including scope_restricted and truncated. Rate limits with one shared allowance are left out. Summaries are cached for up to 15 seconds.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AiGatewayRateLimitInstancesSummaryListResponse, Integer, Hash)>] AiGatewayRateLimitInstancesSummaryListResponse data, response status code and response headers
+    def list_ai_gateway_rate_limit_instances_summaries_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_ai_gateway_rate_limit_instances_summaries".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_ai_gateway_rate_limit_instances_summaries")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_ai_gateway_rate_limit_instances_summaries"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AIGatewayAPI.list_ai_gateway_rate_limit_instances_summaries ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/rate-limits/instances/summary'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AiGatewayRateLimitInstancesSummaryListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_ai_gateway_rate_limit_instances_summaries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AIGatewayAPI#list_ai_gateway_rate_limit_instances_summaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
