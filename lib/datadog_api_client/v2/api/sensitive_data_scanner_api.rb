@@ -309,6 +309,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get Scanning Group.
+    #
+    # @see #get_scanning_group_with_http_info
+    def get_scanning_group(group_id, opts = {})
+      data, _status_code, _headers = get_scanning_group_with_http_info(group_id, opts)
+      data
+    end
+
+    # Get Scanning Group.
+    #
+    # Get a scanning group, with its rules included.
+    # Only scanning groups of the `llm_observability` target are returned. Other scanning groups
+    # are reported as not found.
+    #
+    # @param group_id [String] The ID of a group of rules.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SensitiveDataScannerTargetGroupResponse, Integer, Hash)>] SensitiveDataScannerTargetGroupResponse data, response status code and response headers
+    def get_scanning_group_with_http_info(group_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SensitiveDataScannerAPI.get_scanning_group ...'
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling SensitiveDataScannerAPI.get_scanning_group"
+      end
+      # resource path
+      local_var_path = '/api/v2/sensitive-data-scanner/groups/{group_id}'.sub('{group_id}', CGI.escape(group_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SensitiveDataScannerTargetGroupResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_scanning_group,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SensitiveDataScannerAPI#get_scanning_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Scanning Groups.
     #
     # @see #list_scanning_groups_with_http_info
@@ -425,6 +492,81 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SensitiveDataScannerAPI#list_standard_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Scanning Groups of a target.
+    #
+    # @see #list_target_scanning_groups_with_http_info
+    def list_target_scanning_groups(filter_target, opts = {})
+      data, _status_code, _headers = list_target_scanning_groups_with_http_info(filter_target, opts)
+      data
+    end
+
+    # List Scanning Groups of a target.
+    #
+    # List the scanning groups of a target, with their rules included.
+    # Only the `llm_observability` target is supported. Scanning groups of logs, RUM, events, and APM
+    # are listed by the List Scanning Groups endpoint.
+    # If the organization has no scanning group for the target, its default group is stored and returned,
+    # so it can be edited. This does not change what gets scanned, because the default rules already apply.
+    #
+    # @param filter_target [SensitiveDataScannerGroupTarget] Target whose scanning groups are listed.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SensitiveDataScannerTargetGroupListResponse, Integer, Hash)>] SensitiveDataScannerTargetGroupListResponse data, response status code and response headers
+    def list_target_scanning_groups_with_http_info(filter_target, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SensitiveDataScannerAPI.list_target_scanning_groups ...'
+      end
+      # verify the required parameter 'filter_target' is set
+      if @api_client.config.client_side_validation && filter_target.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_target' when calling SensitiveDataScannerAPI.list_target_scanning_groups"
+      end
+      # verify enum value
+      allowable_values = ['llm_observability']
+      if @api_client.config.client_side_validation && !allowable_values.include?(filter_target)
+        fail ArgumentError, "invalid value for \"filter_target\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/sensitive-data-scanner/groups'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[target]'] = filter_target
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SensitiveDataScannerTargetGroupListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_target_scanning_groups,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SensitiveDataScannerAPI#list_target_scanning_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
