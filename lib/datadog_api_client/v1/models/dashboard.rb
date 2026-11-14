@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
   class Dashboard
     include BaseGenericModel
 
+    # Archive date of the dashboard.
+    attr_accessor :archived_at
+
     # Identifier of the dashboard author.
     attr_accessor :author_handle
 
@@ -92,6 +95,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'archived_at' => :'archived_at',
         :'author_handle' => :'author_handle',
         :'author_name' => :'author_name',
         :'created_at' => :'created_at',
@@ -119,6 +123,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'archived_at' => :'Time',
         :'author_handle' => :'String',
         :'author_name' => :'String',
         :'created_at' => :'Time',
@@ -173,6 +178,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'archived_at')
+        self.archived_at = attributes[:'archived_at']
+      end
 
       if attributes.key?(:'author_handle')
         self.author_handle = attributes[:'author_handle']
@@ -357,6 +366,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          archived_at == o.archived_at &&
           author_handle == o.author_handle &&
           author_name == o.author_name &&
           created_at == o.created_at &&
@@ -384,7 +394,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author_handle, author_name, created_at, default_timeframe, description, experience_type, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
+      [archived_at, author_handle, author_name, created_at, default_timeframe, description, experience_type, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
     end
   end
 end
