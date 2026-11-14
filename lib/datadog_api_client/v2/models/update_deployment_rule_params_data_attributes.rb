@@ -28,6 +28,7 @@ module DatadogAPIClient::V2
     attr_reader :name
 
     # Options for deployment rule response representing either faulty deployment detection or monitor options.
+    # Bits Deployment Analysis rules only accept `duration`, using the faulty deployment detection options shape.
     attr_reader :options
 
     attr_accessor :additional_properties

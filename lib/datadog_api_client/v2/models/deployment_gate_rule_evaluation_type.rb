@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     MONITOR = "monitor".freeze
     FAULTY_DEPLOYMENT_DETECTION = "faulty_deployment_detection".freeze
+    BITS_DEPLOYMENT_ANALYSIS = "bits_deployment_analysis".freeze
   end
 end

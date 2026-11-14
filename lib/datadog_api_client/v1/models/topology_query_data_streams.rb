@@ -27,11 +27,11 @@ module DatadogAPIClient::V1
     # Your environment and primary tag (or * if enabled for your account).
     attr_reader :filters
 
-    # A search string for filtering services. Replaces the deprecated `service` field.
+    # A search string for filtering services. When set, this replaces the `service` field.
     attr_accessor :query_string
 
-    # (deprecated) Name of the service. Use `query_string` instead.
-    attr_accessor :service
+    # (deprecated) Name of the service. Leave this empty and use query_string instead.
+    attr_reader :service
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -97,6 +97,7 @@ module DatadogAPIClient::V1
       return false if @data_source.nil?
       return false if @filters.nil?
       return false if @filters.length < 1
+      return false if @service.nil?
       true
     end
 
@@ -121,6 +122,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "filters", number of items must be greater than or equal to 1.'
       end
       @filters = filters
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    # @!visibility private
+    def service=(service)
+      if service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
     end
 
     # Checks equality by comparing each attribute.

@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'DeploymentGatesMonitorRule',
-          :'DeploymentGatesFDDRule'
+          :'DeploymentGatesFDDRule',
+          :'DeploymentGatesBitsDeploymentAnalysisRule'
         ]
       end
       # Builds the object
