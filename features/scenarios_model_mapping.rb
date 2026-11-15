@@ -3275,6 +3275,32 @@ ScenariosModelMappings = {
             "page_token" => "String",
             "body" => "RecommendationsFilterRequest",
     },
+    "v2.CreateCostRecommendationCustomRule" => {
+            "body" => "CostRecommendationCustomRuleCreateRequest",
+    },
+    "v2.DeleteCostRecommendationCustomRule" => {
+            "custom_rule_id" => "String",
+    },
+    "v2.GetCostRecommendationCustomRule" => {
+            "custom_rule_id" => "String",
+    },
+    "v2.UpdateCostRecommendationCustomRule" => {
+            "custom_rule_id" => "String",
+            "body" => "CostRecommendationCustomRuleUpdateRequest",
+    },
+    "v2.CreateCostRecommendationNotificationRule" => {
+            "body" => "CostRecommendationNotificationRuleCreateRequest",
+    },
+    "v2.DeleteCostRecommendationNotificationRule" => {
+            "notification_rule_id" => "String",
+    },
+    "v2.GetCostRecommendationNotificationRule" => {
+            "notification_rule_id" => "String",
+    },
+    "v2.UpdateCostRecommendationNotificationRule" => {
+            "notification_rule_id" => "String",
+            "body" => "CostRecommendationNotificationRuleUpdateRequest",
+    },
     "v2.ListCostTagDescriptions" => {
             "filter_cloud" => "String",
     },
