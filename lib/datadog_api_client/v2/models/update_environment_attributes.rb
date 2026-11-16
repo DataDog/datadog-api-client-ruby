@@ -21,16 +21,19 @@ module DatadogAPIClient::V2
   class UpdateEnvironmentAttributes
     include BaseGenericModel
 
-    # Indicates whether this is a production environment.
+    # Indicates whether this is a production environment. If omitted, resets to false. Include the existing value to preserve it.
     attr_accessor :is_production
 
-    # The name of the environment.
+    # The name of the environment. Required on every request and unique within the organization. Must contain 1 to 200 ASCII characters, start with a letter or digit, and contain only letters, digits, spaces, underscores, hyphens, and periods.
     attr_accessor :name
 
-    # List of queries to define the environment scope.
+    # Controls whether feature flag evaluation events may include original targeting identifiers and full evaluation context. When true, SDKs may include this data. When false, SDKs hash targeting identifiers and omit evaluation context. If omitted, the existing value is preserved.
+    attr_accessor :observe_full_evaluation_data
+
+    # Required list of at least one exact DD_ENV value associated with this environment. Values cannot be used by another environment in the same organization. Wildcards and search expressions are not supported.
     attr_reader :queries
 
-    # Indicates whether feature flag changes require approval in this environment.
+    # Indicates whether feature flag changes require approval in this environment. If omitted, resets to false. Include the existing value to preserve it.
     attr_accessor :require_feature_flag_approval
 
     attr_accessor :additional_properties
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
       {
         :'is_production' => :'is_production',
         :'name' => :'name',
+        :'observe_full_evaluation_data' => :'observe_full_evaluation_data',
         :'queries' => :'queries',
         :'require_feature_flag_approval' => :'require_feature_flag_approval'
       }
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'is_production' => :'Boolean',
         :'name' => :'String',
+        :'observe_full_evaluation_data' => :'Boolean',
         :'queries' => :'Array<String>',
         :'require_feature_flag_approval' => :'Boolean'
       }
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'observe_full_evaluation_data')
+        self.observe_full_evaluation_data = attributes[:'observe_full_evaluation_data']
       end
 
       if attributes.key?(:'queries')
@@ -140,6 +149,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           is_production == o.is_production &&
           name == o.name &&
+          observe_full_evaluation_data == o.observe_full_evaluation_data &&
           queries == o.queries &&
           require_feature_flag_approval == o.require_feature_flag_approval &&
           additional_properties == o.additional_properties
@@ -149,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_production, name, queries, require_feature_flag_approval, additional_properties].hash
+      [is_production, name, observe_full_evaluation_data, queries, require_feature_flag_approval, additional_properties].hash
     end
   end
 end
