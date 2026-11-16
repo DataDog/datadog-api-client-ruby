@@ -18,6 +18,13 @@ body = DatadogAPIClient::V2::AiGatewayRateLimitUpdateRequest.new({
       tags: nil,
       team_id: nil,
       user_id: nil,
+      window_limits: [
+        DatadogAPIClient::V2::AiGatewayRateLimitWindowLimit.new({
+          amount: 2000000000,
+          metric: DatadogAPIClient::V2::AiGatewayRateLimitWindowLimitMetric::COST,
+          window: DatadogAPIClient::V2::AiGatewayRateLimitWindowLimitWindow::TWENTY_FOUR_HOURS,
+        }),
+      ],
     }),
     id: "11111111-1111-1111-1111-111111111111",
     type: DatadogAPIClient::V2::AiGatewayRateLimitType::RATE_LIMITS,

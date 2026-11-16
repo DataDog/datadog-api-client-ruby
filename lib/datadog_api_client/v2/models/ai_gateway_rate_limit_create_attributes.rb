@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AiGatewayRateLimitCreateAttributes
     include BaseGenericModel
 
-    # Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. At most 10000000000000, that is $100,000. In `ENFORCE` mode, requests to a model with no pricing are rejected, because their cost can't be counted.
+    # Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. In `ENFORCE` mode, the gateway rejects requests to models with no pricing because their cost can't be counted.
     attr_reader :cost_microcents_per_minute
 
     # Maximum input tokens per rolling minute.
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Maximum output tokens per rolling minute.
     attr_reader :output_tokens_per_minute
 
-    # Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, `output_tokens_per_minute`, and `cost_microcents_per_minute` is required.
+    # Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, `output_tokens_per_minute`, `cost_microcents_per_minute`, or a non-empty `window_limits` is required.
     attr_reader :requests_per_minute
 
     # Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
@@ -50,6 +50,9 @@ module DatadogAPIClient::V2
 
     # Optional UUID. Count only this user's requests.
     attr_accessor :user_id
+
+    # Limits over rolling windows longer than a minute, such as $20 of spend per 24 hours. This field is available only to organizations with the feature enabled. Other organizations receive a 400 Bad Request response for a non-empty list. Each limit counts the rule's matching traffic, or each counter of a template rate limit, over its window. Set per-minute limits in the `*_per_minute` fields. A rule can have at most four limits in total, including any per-minute limits that are set. Each metric and window pair can appear only once, and for the same metric, a longer window must have a larger amount. In `ENFORCE` mode, the gateway rejects a request that exceeds any limit with HTTP 429 and a `Retry-After` header. If the list includes a `cost` limit, the gateway also rejects requests to models with no pricing because their cost can't be counted.
+    attr_reader :window_limits
 
     attr_accessor :additional_properties
 
@@ -66,7 +69,8 @@ module DatadogAPIClient::V2
         :'selector' => :'selector',
         :'tags' => :'tags',
         :'team_id' => :'team_id',
-        :'user_id' => :'user_id'
+        :'user_id' => :'user_id',
+        :'window_limits' => :'window_limits'
       }
     end
 
@@ -83,7 +87,8 @@ module DatadogAPIClient::V2
         :'selector' => :'Array<AiGatewayRateLimitSelectorEntry>',
         :'tags' => :'Hash<String, String>',
         :'team_id' => :'UUID',
-        :'user_id' => :'UUID'
+        :'user_id' => :'UUID',
+        :'window_limits' => :'Array<AiGatewayRateLimitWindowLimit>'
       }
     end
 
@@ -158,13 +163,18 @@ module DatadogAPIClient::V2
       if attributes.key?(:'user_id')
         self.user_id = attributes[:'user_id']
       end
+
+      if attributes.key?(:'window_limits')
+        if (value = attributes[:'window_limits']).is_a?(Array)
+          self.window_limits = value
+        end
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute > 10000000000000
       return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute < 1
       return false if !@input_tokens_per_minute.nil? && @input_tokens_per_minute > 100000000000
       return false if !@input_tokens_per_minute.nil? && @input_tokens_per_minute < 1
@@ -173,6 +183,7 @@ module DatadogAPIClient::V2
       return false if !@output_tokens_per_minute.nil? && @output_tokens_per_minute < 1
       return false if !@requests_per_minute.nil? && @requests_per_minute > 10000000
       return false if !@requests_per_minute.nil? && @requests_per_minute < 1
+      return false if !@window_limits.nil? && @window_limits.length > 4
       true
     end
 
@@ -180,9 +191,6 @@ module DatadogAPIClient::V2
     # @param cost_microcents_per_minute [Object] Object to be assigned
     # @!visibility private
     def cost_microcents_per_minute=(cost_microcents_per_minute)
-      if !cost_microcents_per_minute.nil? && cost_microcents_per_minute > 10000000000000
-        fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be smaller than or equal to 10000000000000.'
-      end
       if !cost_microcents_per_minute.nil? && cost_microcents_per_minute < 1
         fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be greater than or equal to 1.'
       end
@@ -238,6 +246,16 @@ module DatadogAPIClient::V2
       @requests_per_minute = requests_per_minute
     end
 
+    # Custom attribute writer method with validation
+    # @param window_limits [Object] Object to be assigned
+    # @!visibility private
+    def window_limits=(window_limits)
+      if !window_limits.nil? && window_limits.length > 4
+        fail ArgumentError, 'invalid value for "window_limits", number of items must be less than or equal to 4.'
+      end
+      @window_limits = window_limits
+    end
+
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -274,6 +292,7 @@ module DatadogAPIClient::V2
           tags == o.tags &&
           team_id == o.team_id &&
           user_id == o.user_id &&
+          window_limits == o.window_limits &&
           additional_properties == o.additional_properties
     end
 
@@ -281,7 +300,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cost_microcents_per_minute, input_tokens_per_minute, mode, name, output_tokens_per_minute, requests_per_minute, selector, tags, team_id, user_id, additional_properties].hash
+      [cost_microcents_per_minute, input_tokens_per_minute, mode, name, output_tokens_per_minute, requests_per_minute, selector, tags, team_id, user_id, window_limits, additional_properties].hash
     end
   end
 end

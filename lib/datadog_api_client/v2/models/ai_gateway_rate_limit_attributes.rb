@@ -81,6 +81,9 @@ module DatadogAPIClient::V2
     # Optional user UUID. Count only this user's requests.
     attr_accessor :user_id
 
+    # Limits over rolling windows longer than a minute. Each limit counts the rule's matching traffic, or each counter of a template rate limit, over its window. Per-minute limits are in the `*_per_minute` fields. This list is empty when the rule has no window limits.
+    attr_reader :window_limits
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -106,7 +109,8 @@ module DatadogAPIClient::V2
         :'template_split_dims' => :'template_split_dims',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by',
-        :'user_id' => :'user_id'
+        :'user_id' => :'user_id',
+        :'window_limits' => :'window_limits'
       }
     end
 
@@ -133,7 +137,8 @@ module DatadogAPIClient::V2
         :'template_split_dims' => :'Array<String>',
         :'updated_at' => :'Time',
         :'updated_by' => :'String',
-        :'user_id' => :'UUID'
+        :'user_id' => :'UUID',
+        :'window_limits' => :'Array<AiGatewayRateLimitWindowLimit>'
       }
     end
 
@@ -253,13 +258,18 @@ module DatadogAPIClient::V2
       if attributes.key?(:'user_id')
         self.user_id = attributes[:'user_id']
       end
+
+      if attributes.key?(:'window_limits')
+        if (value = attributes[:'window_limits']).is_a?(Array)
+          self.window_limits = value
+        end
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute > 10000000000000
       return false if !@cost_microcents_per_minute.nil? && @cost_microcents_per_minute < 1
       return false if @created_at.nil?
       return false if @created_by.nil?
@@ -279,6 +289,7 @@ module DatadogAPIClient::V2
       return false if @template_split_dims.nil?
       return false if @updated_at.nil?
       return false if @updated_by.nil?
+      return false if !@window_limits.nil? && @window_limits.length > 4
       true
     end
 
@@ -286,9 +297,6 @@ module DatadogAPIClient::V2
     # @param cost_microcents_per_minute [Object] Object to be assigned
     # @!visibility private
     def cost_microcents_per_minute=(cost_microcents_per_minute)
-      if !cost_microcents_per_minute.nil? && cost_microcents_per_minute > 10000000000000
-        fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be smaller than or equal to 10000000000000.'
-      end
       if !cost_microcents_per_minute.nil? && cost_microcents_per_minute < 1
         fail ArgumentError, 'invalid value for "cost_microcents_per_minute", must be greater than or equal to 1.'
       end
@@ -454,6 +462,16 @@ module DatadogAPIClient::V2
       @updated_by = updated_by
     end
 
+    # Custom attribute writer method with validation
+    # @param window_limits [Object] Object to be assigned
+    # @!visibility private
+    def window_limits=(window_limits)
+      if !window_limits.nil? && window_limits.length > 4
+        fail ArgumentError, 'invalid value for "window_limits", number of items must be less than or equal to 4.'
+      end
+      @window_limits = window_limits
+    end
+
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
@@ -500,6 +518,7 @@ module DatadogAPIClient::V2
           updated_at == o.updated_at &&
           updated_by == o.updated_by &&
           user_id == o.user_id &&
+          window_limits == o.window_limits &&
           additional_properties == o.additional_properties
     end
 
@@ -507,7 +526,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cost_microcents_per_minute, created_at, created_by, enabled, input_tokens_per_minute, is_template, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, selector, tags, team_id, template_split_dims, updated_at, updated_by, user_id, additional_properties].hash
+      [cost_microcents_per_minute, created_at, created_by, enabled, input_tokens_per_minute, is_template, mode, monitor_id, name, output_tokens_per_minute, requests_per_minute, revision, scope_restricted, selector, tags, team_id, template_split_dims, updated_at, updated_by, user_id, window_limits, additional_properties].hash
     end
   end
 end
