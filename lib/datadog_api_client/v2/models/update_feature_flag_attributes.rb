@@ -24,11 +24,20 @@ module DatadogAPIClient::V2
     # The description of the feature flag.
     attr_accessor :description
 
+    # The distribution channel for the feature flag.
+    attr_accessor :distribution_channel
+
     # JSON schema for validation when value_type is JSON.
     attr_accessor :json_schema
 
     # The name of the feature flag.
     attr_accessor :name
+
+    # The lifecycle to set. `ACTIVE` makes the flag temporary; `PERMANENT` excludes it from
+    # staleness detection. Either value clears any snooze; omit the field to keep the lifecycle.
+    # Do not copy the top-level `staleness_status` from a response into this field: that legacy
+    # response field is always `ACTIVE`.
+    attr_accessor :staleness_status
 
     # Tags associated with the feature flag. This field replaces the full set of
     # existing tags; omit it to leave tags unchanged, or pass an empty array to
@@ -43,8 +52,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'description' => :'description',
+        :'distribution_channel' => :'distribution_channel',
         :'json_schema' => :'json_schema',
         :'name' => :'name',
+        :'staleness_status' => :'staleness_status',
         :'tags' => :'tags'
       }
     end
@@ -54,8 +65,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'description' => :'String',
+        :'distribution_channel' => :'FeatureFlagDistributionChannel',
         :'json_schema' => :'String',
         :'name' => :'String',
+        :'staleness_status' => :'UpdateFeatureFlagStalenessStatus',
         :'tags' => :'Array<String>'
       }
     end
@@ -90,12 +103,20 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'distribution_channel')
+        self.distribution_channel = attributes[:'distribution_channel']
+      end
+
       if attributes.key?(:'json_schema')
         self.json_schema = attributes[:'json_schema']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'staleness_status')
+        self.staleness_status = attributes[:'staleness_status']
       end
 
       if attributes.key?(:'tags')
@@ -150,8 +171,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
+          distribution_channel == o.distribution_channel &&
           json_schema == o.json_schema &&
           name == o.name &&
+          staleness_status == o.staleness_status &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -160,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, json_schema, name, tags, additional_properties].hash
+      [description, distribution_channel, json_schema, name, staleness_status, tags, additional_properties].hash
     end
   end
 end

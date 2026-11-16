@@ -60,7 +60,9 @@ module DatadogAPIClient::V2
     # The feature flag's current staleness state and suggested actions.
     attr_accessor :staleness_details
 
-    # Legacy status retained for compatibility. This field is always `ACTIVE`; use `staleness_details.staleness_status` for the computed status.
+    # Legacy status retained for compatibility. This field is always `ACTIVE`; use
+    # `staleness_details.staleness_status` for the computed status. Do not copy it into an update
+    # request: sending `ACTIVE` makes a `PERMANENT` flag temporary and clears any snooze.
     attr_accessor :staleness_status
 
     # An explicit staleness status override. Omitted when no override is set.
