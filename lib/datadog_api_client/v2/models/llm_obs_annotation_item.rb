@@ -21,6 +21,11 @@ module DatadogAPIClient::V2
   class LLMObsAnnotationItem
     include BaseGenericModel
 
+    # Caller-supplied name or identifier for the external person or automated system that produced the labels.
+    # The value is stored and returned as provided. It is not a Datadog user ID or login, and it is not
+    # resolved against Datadog users.
+    attr_accessor :annotator
+
     # Timestamp when the annotation was created.
     attr_reader :created_at
 
@@ -48,6 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'annotator' => :'annotator',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'id' => :'id',
@@ -62,6 +68,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'annotator' => :'String',
         :'created_at' => :'Time',
         :'created_by' => :'String',
         :'id' => :'String',
@@ -89,6 +96,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'annotator')
+        self.annotator = attributes[:'annotator']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -229,6 +240,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          annotator == o.annotator &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           id == o.id &&
@@ -243,7 +255,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, id, interaction_id, label_values, modified_at, modified_by, additional_properties].hash
+      [annotator, created_at, created_by, id, interaction_id, label_values, modified_at, modified_by, additional_properties].hash
     end
   end
 end
