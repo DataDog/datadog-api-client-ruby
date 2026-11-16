@@ -1564,6 +1564,131 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get monthly usage by resource.
+    #
+    # @see #get_usage_monthly_resources_with_http_info
+    def get_usage_monthly_resources(filter_billing_dimension, filter_month, filter_view, opts = {})
+      data, _status_code, _headers = get_usage_monthly_resources_with_http_info(filter_billing_dimension, filter_month, filter_view, opts)
+      data
+    end
+
+    # Get monthly usage by resource.
+    #
+    # Get resource-level usage for a billing dimension and month, using the same
+    # data as the resource breakdown in Plan & Usage. Supports all host and
+    # non-host resource types available in that breakdown. Availability depends
+    # on the billing dimension and the organization's usage data.
+    #
+    # Results are scoped to the authenticated organization. Set `filter[include_descendants]`
+    # to `true` to also return usage from its descendant organizations in all regions.
+    #
+    # Set `filter[view]` to `billable` to return resources that contribute to billable usage.
+    # For dimensions billed at the 99th percentile, this view returns resources at the
+    # selected billing hour. For sum-based dimensions, it returns monthly resource usage.
+    # Set `filter[view]` to `all` to return the full monthly resource breakdown. Requests
+    # for unsupported billing dimensions, or dimensions configured with an unsupported
+    # billing aggregation method, return a `400 Bad Request` error.
+    #
+    # To get the next page of results, pass the `meta.pagination.next_record_id` value
+    # from the previous response as `page[next_record_id]`, and keep all filters unchanged.
+    # A null cursor indicates the last page. Paginated responses contain at most
+    # `page[limit]` resource records, including queries across descendant organizations.
+    #
+    # Exception: for any billing dimension billed at the 99th percentile,
+    # `filter[view]=billable` returns the complete resource breakdown in one response,
+    # including requested descendants. Eligibility depends on the organization's
+    # billing configuration for the requested dimension and month, not on the product
+    # name. For these queries, `page[limit]` and `page[next_record_id]` are ignored, and
+    # `meta.pagination.next_record_id` is null. Sum-based usage and `filter[view]=all`
+    # remain paginated.
+    #
+    # @param filter_billing_dimension [String] Billing dimension to retrieve, such as `infra_host`, `indexed_points`, or `logs_indexed_30day`.
+    # @param filter_month [String] Month of usage to retrieve in `YYYY-MM` format.
+    # @param filter_view [MonthlyResourcesView] Set to `billable` to return resources that contribute to billable usage, or `all` to return the full monthly resource breakdown.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :filter_include_descendants Include usage for descendant organizations of the authenticated organization.
+    # @option opts [Integer] :page_limit Maximum number of resource records per paginated response. Must be a positive integer. Values above 100,000 are capped at 100,000. Ignored for billable queries using 99th-percentile billing, which return the complete result in one response.
+    # @option opts [String] :page_next_record_id Opaque cursor from `meta.pagination.next_record_id` in the previous response. Omit for the first request. Ignored for billable queries using 99th-percentile billing, which always return the complete result.
+    # @return [Array<(MonthlyResourcesResponse, Integer, Hash)>] MonthlyResourcesResponse data, response status code and response headers
+    def get_usage_monthly_resources_with_http_info(filter_billing_dimension, filter_month, filter_view, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_monthly_resources ...'
+      end
+      # verify the required parameter 'filter_billing_dimension' is set
+      if @api_client.config.client_side_validation && filter_billing_dimension.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_billing_dimension' when calling UsageMeteringAPI.get_usage_monthly_resources"
+      end
+      # verify the required parameter 'filter_month' is set
+      if @api_client.config.client_side_validation && filter_month.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_month' when calling UsageMeteringAPI.get_usage_monthly_resources"
+      end
+      pattern = Regexp.new("^[0-9]{4}-(0[1-9]|1[0-2])$")
+      if @api_client.config.client_side_validation && filter_month !~ pattern
+        fail ArgumentError, "invalid value for 'filter_month' when calling UsageMeteringAPI.get_usage_monthly_resources, must conform to the pattern #{pattern}."
+      end
+      # verify the required parameter 'filter_view' is set
+      if @api_client.config.client_side_validation && filter_view.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_view' when calling UsageMeteringAPI.get_usage_monthly_resources"
+      end
+      # verify enum value
+      allowable_values = ['billable', 'all']
+      if @api_client.config.client_side_validation && !allowable_values.include?(filter_view)
+        fail ArgumentError, "invalid value for \"filter_view\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 100000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.get_usage_monthly_resources, must be smaller than or equal to 100000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.get_usage_monthly_resources, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/monthly_resources'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[billing_dimension]'] = filter_billing_dimension
+      query_params[:'filter[month]'] = filter_month
+      query_params[:'filter[view]'] = filter_view
+      query_params[:'filter[include_descendants]'] = opts[:'filter_include_descendants'] if !opts[:'filter_include_descendants'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[next_record_id]'] = opts[:'page_next_record_id'] if !opts[:'page_next_record_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonthlyResourcesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_usage_monthly_resources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_monthly_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for observability pipelines.
     #
     # @see #get_usage_observability_pipelines_with_http_info
