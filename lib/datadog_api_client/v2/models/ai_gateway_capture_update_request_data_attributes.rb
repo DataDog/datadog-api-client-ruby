@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AiGatewayCaptureUpdateRequestDataAttributes
     include BaseGenericModel
 
-    # Opaque revision of the organization default and all overrides. Writes require the revision returned by a current read or preview.
+    # Opaque revision of the organization default and all overrides, including hidden overrides. Writes require the revision returned by a current read or preview.
     attr_reader :configuration_revision
 
     # Set to `true` to confirm a change that can enable full capture, including a deletion that causes a `full_capture` override or the organization default to apply.
