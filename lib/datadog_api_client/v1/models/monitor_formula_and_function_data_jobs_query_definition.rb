@@ -22,19 +22,28 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # The type of job being monitored. Valid values include:
-    # `databricks.job`, `spark.application`, `airflow.dag`,
-    # `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`.
+    # `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`.
+    # The `aastra` dialect also accepts `airflow.job`, `dbt.model`, and `dbt.test`.
     # Custom job types are supported with the `custom.ol.` prefix.
     attr_reader :job_type
 
-    # Filter expression used to select the jobs to monitor.
+    # Filter expression used to select the jobs to monitor. Its syntax depends on `query_dialect`:
+    # a metric tag filter such as `job_name:smoke*` for `metric`, or an Aastra entity search
+    # such as ``search for databricks_job where `@team:data-eng` `` for `aastra`.
     attr_reader :jobs_query
+
+    # Monitor configuration options for data jobs queries.
+    attr_accessor :monitor_options
 
     # Name of the query for use in formulas. Must be `run_query`.
     attr_reader :name
 
-    # Query dialect for data jobs queries. Currently only `metric` is supported.
+    # Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
     attr_reader :query_dialect
+
+    # Optional filter on individual runs, using metrics filter syntax.
+    # Only supported with the `aastra` query dialect.
+    attr_accessor :run_filter
 
     attr_accessor :additional_properties
 
@@ -44,8 +53,10 @@ module DatadogAPIClient::V1
       {
         :'job_type' => :'job_type',
         :'jobs_query' => :'jobs_query',
+        :'monitor_options' => :'monitor_options',
         :'name' => :'name',
-        :'query_dialect' => :'query_dialect'
+        :'query_dialect' => :'query_dialect',
+        :'run_filter' => :'run_filter'
       }
     end
 
@@ -55,8 +66,10 @@ module DatadogAPIClient::V1
       {
         :'job_type' => :'String',
         :'jobs_query' => :'String',
+        :'monitor_options' => :'MonitorFormulaAndFunctionDataJobsMonitorOptions',
         :'name' => :'String',
-        :'query_dialect' => :'String'
+        :'query_dialect' => :'String',
+        :'run_filter' => :'String'
       }
     end
 
@@ -86,12 +99,20 @@ module DatadogAPIClient::V1
         self.jobs_query = attributes[:'jobs_query']
       end
 
+      if attributes.key?(:'monitor_options')
+        self.monitor_options = attributes[:'monitor_options']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
       if attributes.key?(:'query_dialect')
         self.query_dialect = attributes[:'query_dialect']
+      end
+
+      if attributes.key?(:'run_filter')
+        self.run_filter = attributes[:'run_filter']
       end
     end
 
@@ -174,8 +195,10 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           job_type == o.job_type &&
           jobs_query == o.jobs_query &&
+          monitor_options == o.monitor_options &&
           name == o.name &&
           query_dialect == o.query_dialect &&
+          run_filter == o.run_filter &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +206,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [job_type, jobs_query, name, query_dialect, additional_properties].hash
+      [job_type, jobs_query, monitor_options, name, query_dialect, run_filter, additional_properties].hash
     end
   end
 end
