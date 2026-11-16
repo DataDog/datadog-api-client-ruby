@@ -27,6 +27,13 @@ body = DatadogAPIClient::V2::AiGatewayRateLimitCreateRequest.new({
       ],
       team_id: "00000000-0000-4000-8000-000000000002",
       user_id: "00000000-0000-4000-8000-000000000001",
+      window_limits: [
+        DatadogAPIClient::V2::AiGatewayRateLimitWindowLimit.new({
+          amount: 2000000000,
+          metric: DatadogAPIClient::V2::AiGatewayRateLimitWindowLimitMetric::COST,
+          window: DatadogAPIClient::V2::AiGatewayRateLimitWindowLimitWindow::TWENTY_FOUR_HOURS,
+        }),
+      ],
     }),
     type: DatadogAPIClient::V2::AiGatewayRateLimitType::RATE_LIMITS,
   }),
