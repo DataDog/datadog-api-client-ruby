@@ -13,6 +13,7 @@ body = DatadogAPIClient::V2::LLMObsAnnotationsRequest.new({
     attributes: DatadogAPIClient::V2::LLMObsAnnotationsDataAttributesRequest.new({
       annotations: [
         DatadogAPIClient::V2::LLMObsUpsertAnnotationItem.new({
+          annotator: "Alex Contractor",
           interaction_id: "00000000-0000-0000-0000-000000000001",
           label_values: [
             DatadogAPIClient::V2::LLMObsAnnotationLabelValue.new({

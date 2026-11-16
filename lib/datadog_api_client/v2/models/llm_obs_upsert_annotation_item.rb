@@ -22,6 +22,15 @@ module DatadogAPIClient::V2
   class LLMObsUpsertAnnotationItem
     include BaseGenericModel
 
+    # Caller-supplied name or identifier for the external person or automated system that produced the labels.
+    # The value is an opaque string with no required format. Use a stable, recognizable value for the same
+    # producer across annotations.
+    # The value is stored and returned as provided. It is not a Datadog user ID or login, and it is not
+    # resolved against Datadog users.
+    # Omit this field or set it to `null` to preserve existing attribution. Set it to an empty string to clear
+    # attribution.
+    attr_accessor :annotator
+
     # ID of the interaction to annotate.
     attr_reader :interaction_id
 
@@ -35,6 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'annotator' => :'annotator',
         :'interaction_id' => :'interaction_id',
         :'label_values' => :'label_values'
       }
@@ -44,9 +54,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'annotator' => :'String',
         :'interaction_id' => :'String',
         :'label_values' => :'Array<LLMObsAnnotationLabelValue>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'annotator',
+      ])
     end
 
     # Initializes the object
@@ -66,6 +85,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'annotator')
+        self.annotator = attributes[:'annotator']
+      end
 
       if attributes.key?(:'interaction_id')
         self.interaction_id = attributes[:'interaction_id']
@@ -137,6 +160,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          annotator == o.annotator &&
           interaction_id == o.interaction_id &&
           label_values == o.label_values &&
           additional_properties == o.additional_properties
@@ -146,7 +170,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [interaction_id, label_values, additional_properties].hash
+      [annotator, interaction_id, label_values, additional_properties].hash
     end
   end
 end
