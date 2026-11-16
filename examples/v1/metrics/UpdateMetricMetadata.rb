@@ -7,7 +7,10 @@ end
 api_instance = DatadogAPIClient::V1::MetricsAPI.new
 
 body = DatadogAPIClient::V1::MetricMetadata.new({
+  description: "Number of requests received.",
   per_unit: "second",
+  short_name: "requests",
+  statsd_interval: 10,
   type: "count",
   unit: "byte",
 })
