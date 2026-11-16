@@ -8564,6 +8564,8 @@ module DatadogAPIClient
           "v2.security_monitoring_batch_migration_published_resource_data" => "SecurityMonitoringBatchMigrationPublishedResourceData",
           "v2.security_monitoring_batch_migration_published_resource_status" => "SecurityMonitoringBatchMigrationPublishedResourceStatus",
           "v2.security_monitoring_batch_migration_published_resource_type" => "SecurityMonitoringBatchMigrationPublishedResourceType",
+          "v2.security_monitoring_batch_migration_publish_error" => "SecurityMonitoringBatchMigrationPublishError",
+          "v2.security_monitoring_batch_migration_publish_error_detail" => "SecurityMonitoringBatchMigrationPublishErrorDetail",
           "v2.security_monitoring_batch_migration_publish_request" => "SecurityMonitoringBatchMigrationPublishRequest",
           "v2.security_monitoring_batch_migration_publish_response" => "SecurityMonitoringBatchMigrationPublishResponse",
           "v2.security_monitoring_batch_migration_publish_type" => "SecurityMonitoringBatchMigrationPublishType",
