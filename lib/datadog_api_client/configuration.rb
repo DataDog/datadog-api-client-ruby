@@ -547,6 +547,7 @@ module DatadogAPIClient
             "v2.update_deployment_gate": false,
             "v2.update_deployment_rule": false,
             "v2.get_issue_impact": false,
+            "v2.snooze_issue": false,
             "v2.get_eudm_device": false,
             "v2.get_eudm_devices": false,
             "v2.clone_form": false,
