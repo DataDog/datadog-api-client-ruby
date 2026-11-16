@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Name of the Custom Costs file.
     attr_accessor :name
 
+    # Reason the content of the Custom Costs file is not returned. Only set when `content` is omitted.
+    attr_accessor :preview_unavailable_reason
+
     # Providers contained in the Custom Costs file.
     attr_accessor :provider_names
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
         :'charge_period' => :'charge_period',
         :'content' => :'content',
         :'name' => :'name',
+        :'preview_unavailable_reason' => :'preview_unavailable_reason',
         :'provider_names' => :'provider_names',
         :'status' => :'status',
         :'uploaded_at' => :'uploaded_at',
@@ -80,6 +84,7 @@ module DatadogAPIClient::V2
         :'charge_period' => :'CustomCostsFileUsageChargePeriod',
         :'content' => :'Array<CustomCostsFileLineItem>',
         :'name' => :'String',
+        :'preview_unavailable_reason' => :'CustomCostsFilePreviewUnavailableReason',
         :'provider_names' => :'Array<String>',
         :'status' => :'String',
         :'uploaded_at' => :'Float',
@@ -129,6 +134,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'preview_unavailable_reason')
+        self.preview_unavailable_reason = attributes[:'preview_unavailable_reason']
       end
 
       if attributes.key?(:'provider_names')
@@ -182,6 +191,7 @@ module DatadogAPIClient::V2
           charge_period == o.charge_period &&
           content == o.content &&
           name == o.name &&
+          preview_unavailable_reason == o.preview_unavailable_reason &&
           provider_names == o.provider_names &&
           status == o.status &&
           uploaded_at == o.uploaded_at &&
@@ -193,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ai_provider, billed_cost, billing_currency, charge_period, content, name, provider_names, status, uploaded_at, uploaded_by, additional_properties].hash
+      [ai_provider, billed_cost, billing_currency, charge_period, content, name, preview_unavailable_reason, provider_names, status, uploaded_at, uploaded_by, additional_properties].hash
     end
   end
 end

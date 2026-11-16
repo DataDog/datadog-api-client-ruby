@@ -3170,6 +3170,7 @@ module DatadogAPIClient
           "v2.custom_costs_file_metadata_high_level" => "CustomCostsFileMetadataHighLevel",
           "v2.custom_costs_file_metadata_with_content" => "CustomCostsFileMetadataWithContent",
           "v2.custom_costs_file_metadata_with_content_high_level" => "CustomCostsFileMetadataWithContentHighLevel",
+          "v2.custom_costs_file_preview_unavailable_reason" => "CustomCostsFilePreviewUnavailableReason",
           "v2.custom_costs_file_update_attributes" => "CustomCostsFileUpdateAttributes",
           "v2.custom_costs_file_update_data" => "CustomCostsFileUpdateData",
           "v2.custom_costs_file_update_request" => "CustomCostsFileUpdateRequest",
