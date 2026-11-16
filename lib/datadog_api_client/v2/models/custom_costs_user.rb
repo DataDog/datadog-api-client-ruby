@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class CustomCostsUser
     include BaseGenericModel
 
-    # The name of the Custom Costs file.
+    # Handle of the user. This is usually the user's email address, but can be another identifier (for example, a UUID for a service account).
     attr_accessor :email
 
-    # The name of the Custom Costs file.
+    # Icon of the user.
     attr_accessor :icon
 
     # Name of the user.
