@@ -158,6 +158,92 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get the impact of an error tracking issue.
+    #
+    # @see #get_issue_impact_with_http_info
+    def get_issue_impact(issue_id, filter_from, filter_to, opts = {})
+      data, _status_code, _headers = get_issue_impact_with_http_info(issue_id, filter_from, filter_to, opts)
+      data
+    end
+
+    # Get the impact of an error tracking issue.
+    #
+    # Get an issue's impact over a time window: its error counts by source, and the users, sessions, accounts,
+    # RUM views, and endpoints it affects most.
+    # Returns 403 if the caller lacks the `error_tracking_read` permission or does not have access to the issue's
+    # data.
+    #
+    # @param issue_id [String] The identifier of the issue.
+    # @param filter_from [Integer] Start of the time window, in milliseconds since the Unix epoch. Must be before `filter[to]`.
+    # @param filter_to [Integer] End of the time window, in milliseconds since the Unix epoch. Use the issue's `last_seen` to end the window at its latest error.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IssueImpactResponse, Integer, Hash)>] IssueImpactResponse data, response status code and response headers
+    def get_issue_impact_with_http_info(issue_id, filter_from, filter_to, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_issue_impact".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_issue_impact")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_issue_impact"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ErrorTrackingAPI.get_issue_impact ...'
+      end
+      # verify the required parameter 'issue_id' is set
+      if @api_client.config.client_side_validation && issue_id.nil?
+        fail ArgumentError, "Missing the required parameter 'issue_id' when calling ErrorTrackingAPI.get_issue_impact"
+      end
+      # verify the required parameter 'filter_from' is set
+      if @api_client.config.client_side_validation && filter_from.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_from' when calling ErrorTrackingAPI.get_issue_impact"
+      end
+      # verify the required parameter 'filter_to' is set
+      if @api_client.config.client_side_validation && filter_to.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_to' when calling ErrorTrackingAPI.get_issue_impact"
+      end
+      # resource path
+      local_var_path = '/api/v2/error-tracking/issues/{issue_id}/impact'.sub('{issue_id}', CGI.escape(issue_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = filter_from
+      query_params[:'filter[to]'] = filter_to
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IssueImpactResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_issue_impact,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ErrorTrackingAPI#get_issue_impact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search error tracking issues.
     #
     # @see #search_issues_with_http_info
