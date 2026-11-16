@@ -33,7 +33,8 @@ module DatadogAPIClient::V1
     # The data quality measure to query. Common values include:
     # `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`,
     # `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`,
-    # `sum`, `uniqueness`. Additional values may be supported.
+    # `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`.
+    # Additional values may be supported.
     attr_reader :measure
 
     # Monitor configuration options for data quality queries.
@@ -41,6 +42,10 @@ module DatadogAPIClient::V1
 
     # Name of the query for use in formulas.
     attr_reader :name
+
+    # Optional filter on individual runs, using metrics filter syntax.
+    # Only supported by `data-jobs alert` job duration monitors.
+    attr_accessor :run_filter
 
     # Schema version for the data quality query.
     attr_accessor :schema_version
@@ -61,6 +66,7 @@ module DatadogAPIClient::V1
         :'measure' => :'measure',
         :'monitor_options' => :'monitor_options',
         :'name' => :'name',
+        :'run_filter' => :'run_filter',
         :'schema_version' => :'schema_version',
         :'scope' => :'scope'
       }
@@ -76,6 +82,7 @@ module DatadogAPIClient::V1
         :'measure' => :'String',
         :'monitor_options' => :'MonitorFormulaAndFunctionDataQualityMonitorOptions',
         :'name' => :'String',
+        :'run_filter' => :'String',
         :'schema_version' => :'String',
         :'scope' => :'String'
       }
@@ -123,6 +130,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'run_filter')
+        self.run_filter = attributes[:'run_filter']
       end
 
       if attributes.key?(:'schema_version')
@@ -217,6 +228,7 @@ module DatadogAPIClient::V1
           measure == o.measure &&
           monitor_options == o.monitor_options &&
           name == o.name &&
+          run_filter == o.run_filter &&
           schema_version == o.schema_version &&
           scope == o.scope &&
           additional_properties == o.additional_properties
@@ -226,7 +238,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, filter, group_by, measure, monitor_options, name, schema_version, scope, additional_properties].hash
+      [data_source, filter, group_by, measure, monitor_options, name, run_filter, schema_version, scope, additional_properties].hash
     end
   end
 end
