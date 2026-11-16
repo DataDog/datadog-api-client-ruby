@@ -33,14 +33,19 @@ module DatadogAPIClient::V1
 
     # Create an API key.
     #
+    # This endpoint is deprecated. Use [Create an API key](https://docs.datadoghq.com/api/latest/key-management/#create-an-api-key) (`POST /api/v2/api_keys`) instead.
+    #
     # Creates an API key with a given name.
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param body [ApiKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def create_api_key_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateAPIKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_api_key ...'
@@ -102,15 +107,20 @@ module DatadogAPIClient::V1
 
     # Create an application key.
     #
+    # This endpoint is deprecated. Use [Create an application key for current user](https://docs.datadoghq.com/api/latest/key-management/#create-an-application-key-for-current-user) (`POST /api/v2/current_user/application_keys`) instead.
+    #
     # Create an application key with a given name.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [ApplicationKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_application_key_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateApplicationKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_application_key ...'
@@ -172,14 +182,19 @@ module DatadogAPIClient::V1
 
     # Delete an API key.
     #
+    # This endpoint is deprecated. Use [Delete an API key](https://docs.datadoghq.com/api/latest/key-management/#delete-an-api-key) (`DELETE /api/v2/api_keys/{api_key_id}`) instead.
+    #
     # Delete a given API key.
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param key [String] The specific API key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def delete_api_key_with_http_info(key, opts = {})
+      warn "[DEPRECATION] `DeleteAPIKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_api_key ...'
@@ -239,15 +254,25 @@ module DatadogAPIClient::V1
 
     # Delete an application key.
     #
+    # This endpoint is deprecated. To delete your own application key, use
+    # [Delete an application key owned by current user](https://docs.datadoghq.com/api/latest/key-management/#delete-an-application-key-owned-by-current-user)
+    # (`DELETE /api/v2/current_user/application_keys/{app_key_id}`), which requires the `user_app_keys` permission.
+    # To delete an application key for your organization, use
+    # [Delete an application key](https://docs.datadoghq.com/api/latest/key-management/#delete-an-application-key)
+    # (`DELETE /api/v2/application_keys/{app_key_id}`), which requires the `org_app_keys_write` permission.
+    #
     # Delete a given application key.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def delete_application_key_with_http_info(key, opts = {})
+      warn "[DEPRECATION] `DeleteApplicationKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_application_key ...'
@@ -307,14 +332,19 @@ module DatadogAPIClient::V1
 
     # Get API key.
     #
+    # This endpoint is deprecated. Use [Get API key](https://docs.datadoghq.com/api/latest/key-management/#get-api-key) (`GET /api/v2/api_keys/{api_key_id}`) instead.
+    #
     # Get a given API key.
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param key [String] The specific API key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(key, opts = {})
+      warn "[DEPRECATION] `GetAPIKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_api_key ...'
@@ -374,15 +404,25 @@ module DatadogAPIClient::V1
 
     # Get an application key.
     #
+    # This endpoint is deprecated. To get your own application key, use
+    # [Get one application key owned by current user](https://docs.datadoghq.com/api/latest/key-management/#get-one-application-key-owned-by-current-user)
+    # (`GET /api/v2/current_user/application_keys/{app_key_id}`), which requires the `user_app_keys` permission.
+    # To get an application key for your organization, use
+    # [Get an application key](https://docs.datadoghq.com/api/latest/key-management/#get-an-application-key)
+    # (`GET /api/v2/application_keys/{app_key_id}`), which requires the `org_app_keys_read` permission.
+    #
     # Get a given application key.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(key, opts = {})
+      warn "[DEPRECATION] `GetApplicationKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_application_key ...'
@@ -442,13 +482,18 @@ module DatadogAPIClient::V1
 
     # Get all API keys.
     #
+    # This endpoint is deprecated. Use [Get all API keys](https://docs.datadoghq.com/api/latest/key-management/#get-all-api-keys) (`GET /api/v2/api_keys`) instead.
+    #
     # Get all API keys available for your account.
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAPIKeys` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_api_keys ...'
@@ -504,14 +549,24 @@ module DatadogAPIClient::V1
 
     # Get all application keys.
     #
+    # This endpoint is deprecated. To list your own application keys, use
+    # [Get all application keys owned by current user](https://docs.datadoghq.com/api/latest/key-management/#get-all-application-keys-owned-by-current-user)
+    # (`GET /api/v2/current_user/application_keys`), which requires the `user_app_keys` permission.
+    # To list application keys across your organization, use
+    # [Get all application keys](https://docs.datadoghq.com/api/latest/key-management/#get-all-application-keys)
+    # (`GET /api/v2/application_keys`), which requires the `org_app_keys_read` permission.
+    #
     # Get all application keys available for your Datadog account.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyListResponse, Integer, Hash)>] ApplicationKeyListResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListApplicationKeys` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_application_keys ...'
@@ -567,15 +622,20 @@ module DatadogAPIClient::V1
 
     # Edit an API key.
     #
+    # This endpoint is deprecated. Use [Edit an API key](https://docs.datadoghq.com/api/latest/key-management/#edit-an-api-key) (`PATCH /api/v2/api_keys/{api_key_id}`) instead.
+    #
     # Edit an API key name.
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param key [String] The specific API key you are working with.
     # @param body [ApiKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def update_api_key_with_http_info(key, body, opts = {})
+      warn "[DEPRECATION] `UpdateAPIKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_api_key ...'
@@ -641,16 +701,26 @@ module DatadogAPIClient::V1
 
     # Edit an application key.
     #
+    # This endpoint is deprecated. To edit your own application key, use
+    # [Edit an application key owned by current user](https://docs.datadoghq.com/api/latest/key-management/#edit-an-application-key-owned-by-current-user)
+    # (`PATCH /api/v2/current_user/application_keys/{app_key_id}`), which requires the `user_app_keys` permission.
+    # To edit an application key for your organization, use
+    # [Edit an application key](https://docs.datadoghq.com/api/latest/key-management/#edit-an-application-key)
+    # (`PATCH /api/v2/application_keys/{app_key_id}`), which requires the `org_app_keys_write` permission.
+    #
     # Edit an application key name.
     # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param key [String] The specific APP key you are working with.
     # @param body [ApplicationKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_application_key_with_http_info(key, body, opts = {})
+      warn "[DEPRECATION] `UpdateApplicationKey` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_application_key ...'
