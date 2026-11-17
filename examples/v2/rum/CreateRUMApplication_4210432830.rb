@@ -10,9 +10,9 @@ body = DatadogAPIClient::V2::RUMApplicationCreateRequest.new({
   data: DatadogAPIClient::V2::RUMApplicationCreate.new({
     attributes: DatadogAPIClient::V2::RUMApplicationCreateAttributes.new({
       name: "test-rum-with-product-scales-5c67ebb32077e1d9",
-      type: "browser",
+      type: DatadogAPIClient::V2::RUMApplicationPlatformType::BROWSER,
       rum_event_processing_state: DatadogAPIClient::V2::RUMEventProcessingState::ERROR_FOCUSED_MODE,
-      product_analytics_retention_state: DatadogAPIClient::V2::RUMProductAnalyticsRetentionState::NONE,
+      product_analytics_retention_state: DatadogAPIClient::V2::RUMProductAnalyticsRetentionStateRequest::NONE,
     }),
     type: DatadogAPIClient::V2::RUMApplicationCreateType::RUM_APPLICATION_CREATE,
   }),

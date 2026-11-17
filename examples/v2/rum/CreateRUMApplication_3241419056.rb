@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::RUMApplicationCreateRequest.new({
   data: DatadogAPIClient::V2::RUMApplicationCreate.new({
     attributes: DatadogAPIClient::V2::RUMApplicationCreateAttributes.new({
       name: "test-rum-no-default-rf-5c67ebb32077e1d9",
-      type: "browser",
+      type: DatadogAPIClient::V2::RUMApplicationPlatformType::BROWSER,
       create_default_retention_filters: false,
     }),
     type: DatadogAPIClient::V2::RUMApplicationCreateType::RUM_APPLICATION_CREATE,

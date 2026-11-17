@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The status of the response.
+  # The status of the response. `timeout` means the query did not complete in time and the results are partial.
   class RUMResponseStatus
     include BaseEnumModel
 
