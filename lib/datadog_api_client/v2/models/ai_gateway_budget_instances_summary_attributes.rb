@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # Whether instances were withheld because their provider or model is hidden. Summary counts and totals exclude those instances.
     attr_reader :restricted_details
 
+    # Sum of the capacity of every matching instance in the window, including per-instance overrides.
+    attr_accessor :total_capacity_microcents
+
     # Spend summed across all instances, in microcents.
     attr_reader :total_spend_microcents
 
@@ -53,6 +56,7 @@ module DatadogAPIClient::V2
         :'instance_count' => :'instance_count',
         :'over_warning_threshold_count' => :'over_warning_threshold_count',
         :'restricted_details' => :'restricted_details',
+        :'total_capacity_microcents' => :'total_capacity_microcents',
         :'total_spend_microcents' => :'total_spend_microcents',
         :'window_start' => :'window_start'
       }
@@ -67,6 +71,7 @@ module DatadogAPIClient::V2
         :'instance_count' => :'Integer',
         :'over_warning_threshold_count' => :'Integer',
         :'restricted_details' => :'Boolean',
+        :'total_capacity_microcents' => :'Integer',
         :'total_spend_microcents' => :'Integer',
         :'window_start' => :'Time'
       }
@@ -108,6 +113,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'restricted_details')
         self.restricted_details = attributes[:'restricted_details']
+      end
+
+      if attributes.key?(:'total_capacity_microcents')
+        self.total_capacity_microcents = attributes[:'total_capacity_microcents']
       end
 
       if attributes.key?(:'total_spend_microcents')
@@ -234,6 +243,7 @@ module DatadogAPIClient::V2
           instance_count == o.instance_count &&
           over_warning_threshold_count == o.over_warning_threshold_count &&
           restricted_details == o.restricted_details &&
+          total_capacity_microcents == o.total_capacity_microcents &&
           total_spend_microcents == o.total_spend_microcents &&
           window_start == o.window_start &&
           additional_properties == o.additional_properties
@@ -243,7 +253,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [budget_id, exceeded_capacity_count, instance_count, over_warning_threshold_count, restricted_details, total_spend_microcents, window_start, additional_properties].hash
+      [budget_id, exceeded_capacity_count, instance_count, over_warning_threshold_count, restricted_details, total_capacity_microcents, total_spend_microcents, window_start, additional_properties].hash
     end
   end
 end

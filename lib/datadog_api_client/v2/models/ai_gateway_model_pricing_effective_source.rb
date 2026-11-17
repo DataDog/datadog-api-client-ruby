@@ -23,6 +23,8 @@ module DatadogAPIClient::V2
 
     CATALOG_AUTO = "catalog_auto".freeze
     MODEL_OVERRIDE = "model_override".freeze
+    MODELS_DEV = "models_dev".freeze
+    UNPRICED = "unpriced".freeze
     UNKNOWN = "unknown".freeze
   end
 end

@@ -11,6 +11,7 @@ body = DatadogAPIClient::V2::AiGatewayProviderCreateRequest.new({
   data: DatadogAPIClient::V2::AiGatewayProviderCreateData.new({
     attributes: DatadogAPIClient::V2::AiGatewayProviderCreateAttributes.new({
       cost_multiplier: 1.0,
+      credential_source: DatadogAPIClient::V2::AiGatewayProviderCreateCredentialSource::INTEGRATION_ACCOUNT,
       initial_bindings: [
         DatadogAPIClient::V2::AiGatewayProviderInitialBinding.new({
           principals: [
@@ -42,6 +43,7 @@ body = DatadogAPIClient::V2::AiGatewayProviderCreateRequest.new({
       ],
       name: "production-us",
       slug: "prod-us",
+      zdr_eligible: false,
     }),
     type: DatadogAPIClient::V2::AiGatewayProviderType::PROVIDERS,
   }),

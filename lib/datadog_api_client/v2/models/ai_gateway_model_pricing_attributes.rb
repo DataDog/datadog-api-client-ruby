@@ -21,11 +21,37 @@ module DatadogAPIClient::V2
   class AiGatewayModelPricingAttributes
     include BaseGenericModel
 
+    # True when models.dev pricing is authoritative for this organization and provider.
+    attr_accessor :authoritative
+
+    # The published models.dev price. Present only when it is the effective price.
+    attr_accessor :automatic_pricing
+
+    # True when a `BLOCK` budget covering this model rejects its requests before they reach the provider.
+    attr_accessor :blocks_budgeted_requests
+
+    # Effective provider multiplier applied to every reported rate.
+    attr_accessor :cost_multiplier
+
+    # True when the provider bills this model per minute of audio instead of per token, as with transcription
+    # models. The gateway prices only per token, so it can't charge for these models, and a per-token
+    # override can't express their rate.
+    attr_accessor :duration_priced
+
     # Effective source of the model pricing data.
     attr_accessor :effective_source
 
     # Pricing configuration for a model.
     attr_accessor :pricing_config
+
+    # Whether the gateway has a price for the model.
+    attr_accessor :status
+
+    # Human-readable sentence for `unpriced_reason`. Omitted when the model is priced or the code has no description yet.
+    attr_accessor :unpriced_description
+
+    # Stable code explaining why the model has no price, such as `automatic_price_absent`. Omitted when the model is priced.
+    attr_accessor :unpriced_reason
 
     attr_accessor :additional_properties
 
@@ -33,8 +59,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'authoritative' => :'authoritative',
+        :'automatic_pricing' => :'automatic_pricing',
+        :'blocks_budgeted_requests' => :'blocks_budgeted_requests',
+        :'cost_multiplier' => :'cost_multiplier',
+        :'duration_priced' => :'duration_priced',
         :'effective_source' => :'effective_source',
-        :'pricing_config' => :'pricing_config'
+        :'pricing_config' => :'pricing_config',
+        :'status' => :'status',
+        :'unpriced_description' => :'unpriced_description',
+        :'unpriced_reason' => :'unpriced_reason'
       }
     end
 
@@ -42,8 +76,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'authoritative' => :'Boolean',
+        :'automatic_pricing' => :'AiGatewayModelAutomaticPricing',
+        :'blocks_budgeted_requests' => :'Boolean',
+        :'cost_multiplier' => :'Float',
+        :'duration_priced' => :'Boolean',
         :'effective_source' => :'AiGatewayModelPricingEffectiveSource',
-        :'pricing_config' => :'AiGatewayModelPricingConfig'
+        :'pricing_config' => :'AiGatewayModelPricingConfig',
+        :'status' => :'AiGatewayModelPricingStatus',
+        :'unpriced_description' => :'String',
+        :'unpriced_reason' => :'String'
       }
     end
 
@@ -65,12 +107,44 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'authoritative')
+        self.authoritative = attributes[:'authoritative']
+      end
+
+      if attributes.key?(:'automatic_pricing')
+        self.automatic_pricing = attributes[:'automatic_pricing']
+      end
+
+      if attributes.key?(:'blocks_budgeted_requests')
+        self.blocks_budgeted_requests = attributes[:'blocks_budgeted_requests']
+      end
+
+      if attributes.key?(:'cost_multiplier')
+        self.cost_multiplier = attributes[:'cost_multiplier']
+      end
+
+      if attributes.key?(:'duration_priced')
+        self.duration_priced = attributes[:'duration_priced']
+      end
+
       if attributes.key?(:'effective_source')
         self.effective_source = attributes[:'effective_source']
       end
 
       if attributes.key?(:'pricing_config')
         self.pricing_config = attributes[:'pricing_config']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'unpriced_description')
+        self.unpriced_description = attributes[:'unpriced_description']
+      end
+
+      if attributes.key?(:'unpriced_reason')
+        self.unpriced_reason = attributes[:'unpriced_reason']
       end
     end
 
@@ -100,8 +174,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          authoritative == o.authoritative &&
+          automatic_pricing == o.automatic_pricing &&
+          blocks_budgeted_requests == o.blocks_budgeted_requests &&
+          cost_multiplier == o.cost_multiplier &&
+          duration_priced == o.duration_priced &&
           effective_source == o.effective_source &&
           pricing_config == o.pricing_config &&
+          status == o.status &&
+          unpriced_description == o.unpriced_description &&
+          unpriced_reason == o.unpriced_reason &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +191,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [effective_source, pricing_config, additional_properties].hash
+      [authoritative, automatic_pricing, blocks_budgeted_requests, cost_multiplier, duration_priced, effective_source, pricing_config, status, unpriced_description, unpriced_reason, additional_properties].hash
     end
   end
 end

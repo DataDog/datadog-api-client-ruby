@@ -24,6 +24,14 @@ module DatadogAPIClient::V2
     # Multiplier applied to provider costs. Must be greater than 0 and at most 1000000.
     attr_reader :cost_multiplier
 
+    # Whose credential the gateway sends to the provider. Defaults to `integration_account`, which sends
+    # the integration account's credential. `subscription` forwards each caller's own subscription sign-in
+    # (`ChatGPT` for `openai`, `claude.ai` for `anthropic`) and needs no integration account; it is available
+    # only to organizations with subscription providers enabled. A subscription provider's models are
+    # optional: callers can use any model their subscription includes, and a model you add sets its
+    # pricing. Immutable.
+    attr_accessor :credential_source
+
     # Reserved for initial View/Edit permissions. Supplying this attribute, including an empty array or null, returns HTTP 503 before discovery or persistence. Omit it for normal creation.
     attr_accessor :initial_bindings
 
@@ -45,6 +53,11 @@ module DatadogAPIClient::V2
     # Immutable routing identifier.
     attr_reader :slug
 
+    # Whether this provider connection is covered by a zero data retention agreement. Defaults to `false`.
+    # For Bedrock, zero data retention is granted per region, so configure one provider per region and set
+    # this only on the covered ones.
+    attr_accessor :zdr_eligible
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -52,13 +65,15 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cost_multiplier' => :'cost_multiplier',
+        :'credential_source' => :'credential_source',
         :'initial_bindings' => :'initial_bindings',
         :'integration_account_id' => :'integration_account_id',
         :'integration_config' => :'integration_config',
         :'known_provider' => :'known_provider',
         :'models' => :'models',
         :'name' => :'name',
-        :'slug' => :'slug'
+        :'slug' => :'slug',
+        :'zdr_eligible' => :'zdr_eligible'
       }
     end
 
@@ -67,13 +82,15 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cost_multiplier' => :'Float',
+        :'credential_source' => :'AiGatewayProviderCreateCredentialSource',
         :'initial_bindings' => :'Array<AiGatewayProviderInitialBinding>',
         :'integration_account_id' => :'String',
         :'integration_config' => :'AiGatewayProviderIntegrationConfig',
         :'known_provider' => :'AiGatewayKnownProvider',
         :'models' => :'Array<AiGatewayModelInput>',
         :'name' => :'String',
-        :'slug' => :'String'
+        :'slug' => :'String',
+        :'zdr_eligible' => :'Boolean'
       }
     end
 
@@ -97,6 +114,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'cost_multiplier')
         self.cost_multiplier = attributes[:'cost_multiplier']
+      end
+
+      if attributes.key?(:'credential_source')
+        self.credential_source = attributes[:'credential_source']
       end
 
       if attributes.key?(:'initial_bindings')
@@ -129,6 +150,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
+      end
+
+      if attributes.key?(:'zdr_eligible')
+        self.zdr_eligible = attributes[:'zdr_eligible']
       end
     end
 
@@ -236,6 +261,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cost_multiplier == o.cost_multiplier &&
+          credential_source == o.credential_source &&
           initial_bindings == o.initial_bindings &&
           integration_account_id == o.integration_account_id &&
           integration_config == o.integration_config &&
@@ -243,6 +269,7 @@ module DatadogAPIClient::V2
           models == o.models &&
           name == o.name &&
           slug == o.slug &&
+          zdr_eligible == o.zdr_eligible &&
           additional_properties == o.additional_properties
     end
 
@@ -250,7 +277,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cost_multiplier, initial_bindings, integration_account_id, integration_config, known_provider, models, name, slug, additional_properties].hash
+      [cost_multiplier, credential_source, initial_bindings, integration_account_id, integration_config, known_provider, models, name, slug, zdr_eligible, additional_properties].hash
     end
   end
 end

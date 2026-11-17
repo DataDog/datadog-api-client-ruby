@@ -48,6 +48,9 @@ module DatadogAPIClient::V2
     # Human-readable resource name.
     attr_reader :name
 
+    # Health across all counters in the active accounting window. Includes hidden counters; contains no scope values or identities.
+    attr_accessor :reporting_summary
+
     # Whether provider or model scope metadata was withheld. Omit unchanged scope fields on an unrelated update to preserve their saved values.
     attr_reader :scope_restricted
 
@@ -93,6 +96,7 @@ module DatadogAPIClient::V2
         :'enforcement' => :'enforcement',
         :'monitor_id' => :'monitor_id',
         :'name' => :'name',
+        :'reporting_summary' => :'reporting_summary',
         :'scope_restricted' => :'scope_restricted',
         :'selector' => :'selector',
         :'tags' => :'tags',
@@ -119,6 +123,7 @@ module DatadogAPIClient::V2
         :'enforcement' => :'AiGatewayBudgetEnforcement',
         :'monitor_id' => :'Integer',
         :'name' => :'String',
+        :'reporting_summary' => :'AiGatewayBudgetReportingSummary',
         :'scope_restricted' => :'Boolean',
         :'selector' => :'Array<AiGatewayBudgetSelectorEntry>',
         :'tags' => :'Hash<String, String>',
@@ -193,6 +198,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'reporting_summary')
+        self.reporting_summary = attributes[:'reporting_summary']
       end
 
       if attributes.key?(:'scope_restricted')
@@ -445,6 +454,7 @@ module DatadogAPIClient::V2
           enforcement == o.enforcement &&
           monitor_id == o.monitor_id &&
           name == o.name &&
+          reporting_summary == o.reporting_summary &&
           scope_restricted == o.scope_restricted &&
           selector == o.selector &&
           tags == o.tags &&
@@ -462,7 +472,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [capacity_microcents, created_at, created_by, current_period_capacity_microcents, current_spend_microcents, enabled, enforcement, monitor_id, name, scope_restricted, selector, tags, team_id, updated_at, user_id, warning_threshold, window_end, window_policy, window_start, additional_properties].hash
+      [capacity_microcents, created_at, created_by, current_period_capacity_microcents, current_spend_microcents, enabled, enforcement, monitor_id, name, reporting_summary, scope_restricted, selector, tags, team_id, updated_at, user_id, warning_threshold, window_end, window_policy, window_start, additional_properties].hash
     end
   end
 end

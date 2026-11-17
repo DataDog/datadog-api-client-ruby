@@ -12,6 +12,7 @@ body = DatadogAPIClient::V2::AiGatewayProviderUpdateRequest.new({
     attributes: DatadogAPIClient::V2::AiGatewayProviderUpdateAttributes.new({
       cost_multiplier: 1.0,
       name: "production-us-v2",
+      zdr_eligible: false,
     }),
     id: "42",
     type: DatadogAPIClient::V2::AiGatewayProviderType::PROVIDERS,
