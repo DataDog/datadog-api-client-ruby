@@ -943,7 +943,7 @@ module DatadogAPIClient::V2
 
     # Create a case view.
     #
-    # Creates a new saved work item view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
+    # Creates a new saved work item view with a name, filter query, and associated project.
     #
     # @param body [CaseViewCreateRequest] Work item view payload.
     # @param opts [Hash] the optional parameters
@@ -4131,7 +4131,7 @@ module DatadogAPIClient::V2
 
     # Update a case view.
     #
-    # Updates the name, query, or notification rule of an existing work item view.
+    # Updates the name or query of an existing work item view.
     #
     # @param view_id [String] The UUID of the work item view.
     # @param body [CaseViewUpdateRequest] Work item view payload.

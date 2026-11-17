@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a work item view, including the filter query and optional notification rule.
+  # Attributes of a work item view, including the filter query.
   class CaseViewAttributes
     include BaseGenericModel
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # A human-readable name for the view, displayed in the Work Management UI.
     attr_reader :name
 
-    # The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching work items.
+    # Deprecated. Identifier of a legacy notification rule linked to this view, if any.
     attr_accessor :np_rule_id
 
     # The search query that determines which work items appear in this view. Uses the same syntax as the Work Management search bar (for example, `status:open priority:P1`).

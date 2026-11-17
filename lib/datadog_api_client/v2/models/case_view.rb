@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseView
     include BaseGenericModel
 
-    # Attributes of a work item view, including the filter query and optional notification rule.
+    # Attributes of a work item view, including the filter query.
     attr_reader :attributes
 
     # The view's identifier.
