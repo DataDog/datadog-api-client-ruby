@@ -4763,6 +4763,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "ChatGPTEnterpriseIntegrationAccountUpdateRequest",
     },
+    "v2.CreateCoreWeaveCloudIntegrationAccount" => {
+            "body" => "CoreWeaveCloudIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteCoreWeaveCloudIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetCoreWeaveCloudIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateCoreWeaveCloudIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "CoreWeaveCloudIntegrationAccountUpdateRequest",
+    },
     "v2.CreateDatabricksIntegrationAccount" => {
             "body" => "DatabricksIntegrationAccountCreateRequest",
     },
