@@ -27,8 +27,8 @@ module DatadogAPIClient::V2
     # Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled.
     attr_accessor :apm_rum_flat_sampling_replay_enabled
 
-    # Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled.
-    attr_accessor :apm_rum_flat_sampling_replay_sample_rate
+    # Fraction (0 to 1) of APM-correlated RUM sessions with Session Replay when flat sampling is enabled.
+    attr_reader :apm_rum_flat_sampling_replay_sample_rate
 
     # ID of the RUM application.
     attr_reader :application_id
@@ -84,7 +84,7 @@ module DatadogAPIClient::V2
     # List of tags associated with the RUM application.
     attr_accessor :tags
 
-    # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+    # Type of the RUM application. Possible values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`, `react`, `nextjs`, `angular`, `vuejs`, `nuxt`, `tanstack`, `maui`, `salesforce-lwc`, `shopify`, `cpp`, `unreal`.
     attr_reader :type
 
     # Timestamp in ms of the last update date.
@@ -281,13 +281,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if !@api_key_id.nil? && @api_key_id > 2147483647
+      return false if !@apm_rum_flat_sampling_replay_sample_rate.nil? && @apm_rum_flat_sampling_replay_sample_rate > 1
+      return false if !@apm_rum_flat_sampling_replay_sample_rate.nil? && @apm_rum_flat_sampling_replay_sample_rate < 0
       return false if @application_id.nil?
       return false if @created_at.nil?
       return false if @created_by_handle.nil?
       return false if @name.nil?
       return false if @org_id.nil?
       return false if @org_id > 2147483647
-      return false if !@product_analytics_replay_sample_rate.nil? && @product_analytics_replay_sample_rate > 2147483647
+      return false if !@product_analytics_replay_sample_rate.nil? && @product_analytics_replay_sample_rate > 100
+      return false if !@product_analytics_replay_sample_rate.nil? && @product_analytics_replay_sample_rate < 0
       return false if @type.nil?
       return false if @updated_at.nil?
       return false if @updated_by_handle.nil?
@@ -302,6 +305,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "api_key_id", must be smaller than or equal to 2147483647.'
       end
       @api_key_id = api_key_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param apm_rum_flat_sampling_replay_sample_rate [Object] Object to be assigned
+    # @!visibility private
+    def apm_rum_flat_sampling_replay_sample_rate=(apm_rum_flat_sampling_replay_sample_rate)
+      if !apm_rum_flat_sampling_replay_sample_rate.nil? && apm_rum_flat_sampling_replay_sample_rate > 1
+        fail ArgumentError, 'invalid value for "apm_rum_flat_sampling_replay_sample_rate", must be smaller than or equal to 1.'
+      end
+      if !apm_rum_flat_sampling_replay_sample_rate.nil? && apm_rum_flat_sampling_replay_sample_rate < 0
+        fail ArgumentError, 'invalid value for "apm_rum_flat_sampling_replay_sample_rate", must be greater than or equal to 0.'
+      end
+      @apm_rum_flat_sampling_replay_sample_rate = apm_rum_flat_sampling_replay_sample_rate
     end
 
     # Custom attribute writer method with validation
@@ -361,8 +377,11 @@ module DatadogAPIClient::V2
     # @param product_analytics_replay_sample_rate [Object] Object to be assigned
     # @!visibility private
     def product_analytics_replay_sample_rate=(product_analytics_replay_sample_rate)
-      if !product_analytics_replay_sample_rate.nil? && product_analytics_replay_sample_rate > 2147483647
-        fail ArgumentError, 'invalid value for "product_analytics_replay_sample_rate", must be smaller than or equal to 2147483647.'
+      if !product_analytics_replay_sample_rate.nil? && product_analytics_replay_sample_rate > 100
+        fail ArgumentError, 'invalid value for "product_analytics_replay_sample_rate", must be smaller than or equal to 100.'
+      end
+      if !product_analytics_replay_sample_rate.nil? && product_analytics_replay_sample_rate < 0
+        fail ArgumentError, 'invalid value for "product_analytics_replay_sample_rate", must be greater than or equal to 0.'
       end
       @product_analytics_replay_sample_rate = product_analytics_replay_sample_rate
     end

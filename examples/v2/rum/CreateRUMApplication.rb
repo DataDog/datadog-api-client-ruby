@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::RUMApplicationCreateRequest.new({
   data: DatadogAPIClient::V2::RUMApplicationCreate.new({
     attributes: DatadogAPIClient::V2::RUMApplicationCreateAttributes.new({
       name: "test-rum-5c67ebb32077e1d9",
-      type: "ios",
+      type: DatadogAPIClient::V2::RUMApplicationPlatformType::IOS,
     }),
     type: DatadogAPIClient::V2::RUMApplicationCreateType::RUM_APPLICATION_CREATE,
   }),

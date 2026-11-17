@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The identifier of the request.
     attr_accessor :request_id
 
-    # The status of the response.
+    # The status of the response. `timeout` means the query did not complete in time and the results are partial.
     attr_accessor :status
 
     # A list of warnings (non-fatal errors) encountered. Partial results may return if

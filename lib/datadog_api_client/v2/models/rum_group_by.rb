@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RUMGroupBy
     include BaseGenericModel
 
-    # The name of the facet to use (required).
+    # The attribute to group by, for example `@view.name` or `@session.type` (required).
     attr_reader :facet
 
     # Used to perform a histogram computation (only for measure facets).
@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
     # The maximum buckets to return for this group-by.
     attr_accessor :limit
 
-    # The value to use for logs that don't have the facet used to group by.
+    # The value to use for events that don't have the facet used to group by.
     attr_accessor :missing
 
     # A sort rule.
