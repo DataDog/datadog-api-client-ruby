@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'error' => :'String',
+        :'error' => :'SecurityMonitoringBatchMigrationPublishError',
         :'rule_id' => :'String',
         :'status' => :'SecurityMonitoringBatchMigrationPublishedResourceStatus'
       }
