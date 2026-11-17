@@ -17,13 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Information about when experiment results were updated and whether they are stale.
+  # Selected experiment result run, its recorded EVSI forecast, and results freshness.
   class ExperimentsExperimentResultsV2MetaDTO
     include BaseGenericModel
+
+    # Forecast horizon and traffic counts used to calculate expected value of sample information (EVSI) for result_run_id. Assumes traffic continues at the rate observed during the lookback window. Omitted if the forecast was not recorded or could not be loaded.
+    attr_accessor :evsi_context
 
     # Whether the saved results require a refresh or their freshness cannot be confirmed. See stale_reasons for
     # details.
     attr_accessor :is_stale
+
+    # ID of the successful experiment run that produced these results.
+    attr_reader :result_run_id
 
     # Time when the experiment results were last updated.
     attr_accessor :results_last_updated
@@ -37,7 +43,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'evsi_context' => :'evsi_context',
         :'is_stale' => :'is_stale',
+        :'result_run_id' => :'result_run_id',
         :'results_last_updated' => :'results_last_updated',
         :'stale_reasons' => :'stale_reasons'
       }
@@ -47,7 +55,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'evsi_context' => :'ExperimentsEVSIContext',
         :'is_stale' => :'Boolean',
+        :'result_run_id' => :'UUID',
         :'results_last_updated' => :'Time',
         :'stale_reasons' => :'Array<String>'
       }
@@ -79,8 +89,16 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'evsi_context')
+        self.evsi_context = attributes[:'evsi_context']
+      end
+
       if attributes.key?(:'is_stale')
         self.is_stale = attributes[:'is_stale']
+      end
+
+      if attributes.key?(:'result_run_id')
+        self.result_run_id = attributes[:'result_run_id']
       end
 
       if attributes.key?(:'results_last_updated')
@@ -92,6 +110,24 @@ module DatadogAPIClient::V2
           self.stale_reasons = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @result_run_id.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param result_run_id [Object] Object to be assigned
+    # @!visibility private
+    def result_run_id=(result_run_id)
+      if result_run_id.nil?
+        fail ArgumentError, 'invalid value for "result_run_id", result_run_id cannot be nil.'
+      end
+      @result_run_id = result_run_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,7 +156,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          evsi_context == o.evsi_context &&
           is_stale == o.is_stale &&
+          result_run_id == o.result_run_id &&
           results_last_updated == o.results_last_updated &&
           stale_reasons == o.stale_reasons &&
           additional_properties == o.additional_properties
@@ -130,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_stale, results_last_updated, stale_reasons, additional_properties].hash
+      [evsi_context, is_stale, result_run_id, results_last_updated, stale_reasons, additional_properties].hash
     end
   end
 end

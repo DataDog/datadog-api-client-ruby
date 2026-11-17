@@ -27,8 +27,14 @@ module DatadogAPIClient::V2
     # Configured nominal confidence level. Interval bounds can use an adjusted level for multiple testing or hybrid methods.
     attr_accessor :confidence_level
 
-    # Expected reduction in minimum expected regret from collecting more sample data.
+    # Expected value of sample information: expected reduction in minimum expected regret from additional data over the recorded horizon. Uses the analysis estimand units; relative lift is a fraction, not a percentage. Zero is a valid estimate. Omitted when unavailable or unrecorded.
     attr_accessor :evsi
+
+    # Standard error of the hypothetical additional-data estimate used for EVSI, in the same estimand units and CUPED setting. May be present when EVSI computation failed. Omitted when unavailable or unrecorded.
+    attr_accessor :evsi_future_se
+
+    # Recorded reason this analysis has no EVSI estimate. Omitted when unrecorded; absence does not establish availability for historical or imported results. Controls and non-Bayesian analyses omit this field.
+    attr_accessor :evsi_unavailable_reason
 
     # Expected effect when the effect is positive.
     attr_accessor :expectation_above_zero
@@ -93,6 +99,8 @@ module DatadogAPIClient::V2
         :'confidence_interval' => :'confidence_interval',
         :'confidence_level' => :'confidence_level',
         :'evsi' => :'evsi',
+        :'evsi_future_se' => :'evsi_future_se',
+        :'evsi_unavailable_reason' => :'evsi_unavailable_reason',
         :'expectation_above_zero' => :'expectation_above_zero',
         :'expectation_below_zero' => :'expectation_below_zero',
         :'global_lift' => :'global_lift',
@@ -121,6 +129,8 @@ module DatadogAPIClient::V2
         :'confidence_interval' => :'ExperimentsConfidenceInterval',
         :'confidence_level' => :'Float',
         :'evsi' => :'Float',
+        :'evsi_future_se' => :'Float',
+        :'evsi_unavailable_reason' => :'ExperimentsEVSIUnavailableReason',
         :'expectation_above_zero' => :'Float',
         :'expectation_below_zero' => :'Float',
         :'global_lift' => :'Float',
@@ -178,6 +188,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'evsi')
         self.evsi = attributes[:'evsi']
+      end
+
+      if attributes.key?(:'evsi_future_se')
+        self.evsi_future_se = attributes[:'evsi_future_se']
+      end
+
+      if attributes.key?(:'evsi_unavailable_reason')
+        self.evsi_unavailable_reason = attributes[:'evsi_unavailable_reason']
       end
 
       if attributes.key?(:'expectation_above_zero')
@@ -282,6 +300,8 @@ module DatadogAPIClient::V2
           confidence_interval == o.confidence_interval &&
           confidence_level == o.confidence_level &&
           evsi == o.evsi &&
+          evsi_future_se == o.evsi_future_se &&
+          evsi_unavailable_reason == o.evsi_unavailable_reason &&
           expectation_above_zero == o.expectation_above_zero &&
           expectation_below_zero == o.expectation_below_zero &&
           global_lift == o.global_lift &&
@@ -307,7 +327,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [confidence_interval, confidence_level, evsi, expectation_above_zero, expectation_below_zero, global_lift, global_lift_lower_bound, global_lift_upper_bound, is_cuped_adjusted, is_unreliable, lift_type, method, minimum_expected_regret, p_value, point_estimate, probability_above_zero, probability_below_zero, standard_error, unreliable_reason, variant_metric_value, z_score, additional_properties].hash
+      [confidence_interval, confidence_level, evsi, evsi_future_se, evsi_unavailable_reason, expectation_above_zero, expectation_below_zero, global_lift, global_lift_lower_bound, global_lift_upper_bound, is_cuped_adjusted, is_unreliable, lift_type, method, minimum_expected_regret, p_value, point_estimate, probability_above_zero, probability_below_zero, standard_error, unreliable_reason, variant_metric_value, z_score, additional_properties].hash
     end
   end
 end
