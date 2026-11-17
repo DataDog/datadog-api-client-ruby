@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The name of the view.
     attr_reader :name
 
-    # The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching work items.
+    # Deprecated. This field is ignored. Use `POST /api/v2/cases/projects/{project_id}/notification_rules` to manage project notifications.
     attr_accessor :np_rule_id
 
     # The UUID of the project this view belongs to. Views are scoped to a single project.
