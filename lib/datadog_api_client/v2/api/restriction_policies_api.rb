@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     # For AI Gateway provider and route policies, requires `ai_gateway_config_write` and standard restriction-policy authorization.
     # Deleting a provider or route policy restores normal unrestricted defaults.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `ai-gateway-capture-override`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_restriction_policy_with_http_info(resource_id, opts = {})
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
     # Retrieves the restriction policy associated with a specified resource.
     # For AI Gateway provider and route policies, requires `ai_gateway_config_read`.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `ai-gateway-capture-override`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def get_restriction_policy_with_http_info(resource_id, opts = {})
@@ -172,6 +172,7 @@ module DatadogAPIClient::V2
     # Restriction policies can be applied to the following resources:
     # - AI Gateway Providers: `ai-gateway-provider`
     # - AI Gateway Routes: `ai-gateway-route`
+    # - AI Gateway Capture Overrides: `ai-gateway-capture-override`
     # - Dashboards: `dashboard`
     # - Integration Services: `integration-service`
     # - Integration Webhooks: `integration-webhook`
@@ -202,17 +203,19 @@ module DatadogAPIClient::V2
     # - Network Path Configs: `network-path-config`
     #
     # AI Gateway provider policies control configuration and inherited model/catalog/pricing visibility. Route policies control route configuration and identifying nested references.
-    # The editor relation includes View. Providers and routes have no Run relation; restriction policies don't affect inference.
-    # Reading provider or route policies requires `ai_gateway_config_read`. Updating or deleting them requires
+    # Capture override policies control who can view and edit override configuration. Hidden overrides remain effective for traffic.
+    # The editor relation includes View. Providers, routes, and capture overrides have no Run relation; restriction policies don't affect inference.
+    # Reading provider, route, or capture override policies requires `ai_gateway_config_read`. Updating or deleting them requires
     # `ai_gateway_config_write` and follows standard restriction-policy authorization, including
     # administrator recovery and self-lockout checks.
-    # Providers and routes without a restriction policy retain the normal unrestricted defaults.
+    # Providers, routes, and capture overrides without a restriction policy retain the normal unrestricted defaults.
     #
     # #### Supported relations for resources
     # Resource Type               | Supported Relations
     # ----------------------------|--------------------------
     # AI Gateway Providers        | `viewer`, `editor`
     # AI Gateway Routes           | `viewer`, `editor`
+    # AI Gateway Capture Overrides | `viewer`, `editor`
     # Dashboards                  | `viewer`, `editor`
     # Integration Services        | `viewer`, `editor`
     # Integration Webhooks        | `viewer`, `editor`
@@ -242,7 +245,7 @@ module DatadogAPIClient::V2
     # Feature Flags               | `viewer`, `contributor`, `editor`
     # Network Path Configs        | `viewer`, `editor`
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `ai-gateway-capture-override`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :allow_self_lockout Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.
