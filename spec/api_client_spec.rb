@@ -54,22 +54,24 @@ describe DatadogAPIClient::APIClient do
     end
   end
 
-  describe 'timeout in #build_request' do
+  describe 'timeout in #build_http' do
     let(:config) { DatadogAPIClient::Configuration.new }
     let(:api_client) { DatadogAPIClient::APIClient.new(config) }
+    let(:uri) { URI('https://api.datadoghq.com/test') }
 
     it 'defaults to nil' do
       expect(DatadogAPIClient::Configuration.default.timeout).to eq(nil)
       expect(config.timeout).to eq(nil)
 
-      request = api_client.build_request(Net::HTTP::Get, '/test')
-      expect(request.options[:timeout]).to eq(nil)
+      http = api_client.build_http(uri)
+      expect(http.read_timeout).to eq(Net::HTTP.new(uri.host).read_timeout)
     end
 
     it 'can be customized' do
       config.timeout = 100
-      request = api_client.build_request(Net::HTTP::Get, '/test')
-      expect(request.options[:timeout]).to eq(100)
+      http = api_client.build_http(uri)
+      expect(http.open_timeout).to eq(100)
+      expect(http.read_timeout).to eq(100)
     end
   end
 
@@ -79,22 +81,30 @@ describe DatadogAPIClient::APIClient do
     it 'is not sent by default' do
       api_client = DatadogAPIClient::APIClient.new(config)
       request = api_client.build_request(Net::HTTP::Get, '/test')
-      expect(request.options[:headers]).not_to have_key('X-Datadog-Managed-By')
+      expect(request['X-Datadog-Managed-By']).to be_nil
     end
 
     it 'is sent when is_iac is enabled on the configuration' do
       config.is_iac = true
       api_client = DatadogAPIClient::APIClient.new(config)
       request = api_client.build_request(Net::HTTP::Get, '/test')
-      expect(request.options[:headers]['X-Datadog-Managed-By']).to eq('iac')
+      expect(request['X-Datadog-Managed-By']).to eq('iac')
     end
   end
 
   describe '#deserialize' do
+    def http_response(body, headers)
+      response = Net::HTTPOK.new('1.1', '200', 'OK')
+      headers.each { |key, value| response[key] = value }
+      response.instance_variable_set(:@read, true)
+      response.instance_variable_set(:@body, body)
+      response
+    end
+
     it "handles Array<Integer>" do
       api_client = DatadogAPIClient::APIClient.new
       headers = { 'Content-Type' => 'application/json' }
-      response = double('response', headers: headers, body: '[12, 34]')
+      response = http_response('[12, 34]', headers)
       data = api_client.deserialize("V1", response, 'Array<Integer>')
       expect(data).to be_instance_of(Array)
       expect(data).to eq([12, 34])
@@ -103,7 +113,7 @@ describe DatadogAPIClient::APIClient do
     it 'handles Array<Array<Integer>>' do
       api_client = DatadogAPIClient::APIClient.new
       headers = { 'Content-Type' => 'application/json' }
-      response = double('response', headers: headers, body: '[[12, 34], [56]]')
+      response = http_response('[[12, 34], [56]]', headers)
       data = api_client.deserialize("V1", response, 'Array<Array<Integer>>')
       expect(data).to be_instance_of(Array)
       expect(data).to eq([[12, 34], [56]])
@@ -112,7 +122,7 @@ describe DatadogAPIClient::APIClient do
     it 'handles Hash<String, String>' do
       api_client = DatadogAPIClient::APIClient.new
       headers = { 'Content-Type' => 'application/json' }
-      response = double('response', headers: headers, body: '{"message": "Hello"}')
+      response = http_response('{"message": "Hello"}', headers)
       data = api_client.deserialize("V1", response, 'Hash<String, String>')
       expect(data).to be_instance_of(Hash)
       expect(data).to eq(:message => 'Hello')

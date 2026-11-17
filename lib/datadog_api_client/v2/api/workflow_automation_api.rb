@@ -40,7 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(WorklflowCancelInstanceResponse, Integer, Hash)>] WorklflowCancelInstanceResponse data, response status code and response headers
     def cancel_workflow_instance_with_http_info(workflow_id, instance_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.cancel_workflow_instance ...'
       end
@@ -105,11 +104,10 @@ module DatadogAPIClient::V2
     #
     # Create a new workflow, returning the workflow ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
     #
-    # @param body [CreateWorkflowRequest] 
+    # @param body [CreateWorkflowRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(CreateWorkflowResponse, Integer, Hash)>] CreateWorkflowResponse data, response status code and response headers
     def create_workflow_with_http_info(body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_workflow ...'
       end
@@ -173,11 +171,10 @@ module DatadogAPIClient::V2
     # Execute the given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
     #
     # @param workflow_id [String] The ID of the workflow.
-    # @param body [WorkflowInstanceCreateRequest] 
+    # @param body [WorkflowInstanceCreateRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(WorkflowInstanceCreateResponse, Integer, Hash)>] WorkflowInstanceCreateResponse data, response status code and response headers
     def create_workflow_instance_with_http_info(workflow_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_workflow_instance ...'
       end
@@ -248,7 +245,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_workflow_with_http_info(workflow_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.delete_workflow ...'
       end
@@ -313,7 +309,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(GetWorkflowResponse, Integer, Hash)>] GetWorkflowResponse data, response status code and response headers
     def get_workflow_with_http_info(workflow_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.get_workflow ...'
       end
@@ -379,7 +374,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(WorklflowGetInstanceResponse, Integer, Hash)>] WorklflowGetInstanceResponse data, response status code and response headers
     def get_workflow_instance_with_http_info(workflow_id, instance_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.get_workflow_instance ...'
       end
@@ -450,7 +444,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(WorkflowListInstancesResponse, Integer, Hash)>] WorkflowListInstancesResponse data, response status code and response headers
     def list_workflow_instances_with_http_info(workflow_id, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.list_workflow_instances ...'
       end
@@ -523,7 +516,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_include_specs Whether to include the full spec of each workflow in the response. When `false` (the default), each workflow's `spec` is returned as `null`.
     # @return [Array<(ListWorkflowsResponse, Integer, Hash)>] ListWorkflowsResponse data, response status code and response headers
     def list_workflows_with_http_info(opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.list_workflows ...'
       end
@@ -567,7 +559,7 @@ module DatadogAPIClient::V2
         :return_type => return_type,
         :api_version => "V2"
       )
-      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      new_options[:query_string_normalizer] = DatadogAPIClient::QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -584,18 +576,18 @@ module DatadogAPIClient::V2
     #
     # @yield [WorkflowListItem] Paginated items
     def list_workflows_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "limit", 50)
-        @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page", Integer, 0)
-        while true do
-            response = list_workflows(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page", Integer, @api_client.get_attribute_from_path(opts, "page", 0) + 1)
+      api_version = "V2"
+      page_size = @api_client.get_attribute_from_path(opts, "limit", 50)
+      @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
+      @api_client.set_attribute_from_path(api_version, opts, "page", Integer, 0)
+      while true do
+        response = list_workflows(opts)
+        @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+        if @api_client.get_attribute_from_path(response, "data").length < page_size
+          break
         end
+        @api_client.set_attribute_from_path(api_version, opts, "page", Integer, @api_client.get_attribute_from_path(opts, "page", 0) + 1)
+      end
     end
 
     # Update an existing Workflow.
@@ -611,11 +603,10 @@ module DatadogAPIClient::V2
     # Update a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
     #
     # @param workflow_id [String] The ID of the workflow.
-    # @param body [UpdateWorkflowRequest] 
+    # @param body [UpdateWorkflowRequest]
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdateWorkflowResponse, Integer, Hash)>] UpdateWorkflowResponse data, response status code and response headers
     def update_workflow_with_http_info(workflow_id, body, opts = {})
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.update_workflow ...'
       end
