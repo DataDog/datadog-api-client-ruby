@@ -29,6 +29,7 @@ module DatadogAPIClient::V2
           :'SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes',
           :'SecurityMonitoringOktaIntegrationConfigUpdateAttributes',
           :'SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes',
+          :'SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes',
           :'SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes',
           :'SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes'
         ]

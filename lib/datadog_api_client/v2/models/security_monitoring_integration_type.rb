@@ -24,6 +24,7 @@ module DatadogAPIClient::V2
     GOOGLE_WORKSPACE = "GOOGLE_WORKSPACE".freeze
     OKTA = "OKTA".freeze
     ENTRA_ID = "ENTRA_ID".freeze
+    AWS_IDENTITY_CENTER = "AWS_IDENTITY_CENTER".freeze
     CROWDSTRIKE = "CROWDSTRIKE".freeze
     SENTINELONE = "SENTINELONE".freeze
   end
