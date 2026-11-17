@@ -24,7 +24,9 @@ module DatadogAPIClient::V2
     # The RUM application ID to analyze.
     attr_reader :application_id
 
-    # Performance criteria to filter view instances by a metric threshold.
+    # Performance criteria to filter view instances by a metric threshold. When criteria are
+    # applied, specify at least one of `min` or `max`. When both are provided, `min` must be less
+    # than `max`.
     attr_accessor :criteria
 
     # RUM query string to filter events (for example, @session.type:user @geo.country:US).
