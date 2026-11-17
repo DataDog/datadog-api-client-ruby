@@ -23,6 +23,233 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Get funnel step suggestions.
+    #
+    # @see #query_product_analytics_funnel_step_suggestions_with_http_info
+    def query_product_analytics_funnel_step_suggestions(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_funnel_step_suggestions_with_http_info(body, opts)
+      data
+    end
+
+    # Get funnel step suggestions.
+    #
+    # Get the steps that users most often take after the existing steps of a funnel.
+    # Suggestions come from the same precomputed journeys as feature suggestions.
+    # Returns an empty list when no journey starts with the given steps.
+    #
+    # @param body [ProductAnalyticsFunnelStepSuggestionsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsFunnelStepSuggestionsResponse, Integer, Hash)>] ProductAnalyticsFunnelStepSuggestionsResponse data, response status code and response headers
+    def query_product_analytics_funnel_step_suggestions_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_funnel_step_suggestions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_funnel_step_suggestions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_funnel_step_suggestions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_funnel_step_suggestions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_funnel_step_suggestions"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/suggestions/features/steps'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsFunnelStepSuggestionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_funnel_step_suggestions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_funnel_step_suggestions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get feature suggestions.
+    #
+    # @see #query_product_analytics_funnel_suggestions_with_http_info
+    def query_product_analytics_funnel_suggestions(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_funnel_suggestions_with_http_info(body, opts)
+      data
+    end
+
+    # Get feature suggestions.
+    #
+    # Get the features that Product Analytics detected in your applications, grouped by
+    # application and feature area. Each feature comes with a suggested journey that users
+    # follow to use it, which you can use as funnel steps.
+    #
+    # @param body [ProductAnalyticsFunnelSuggestionsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsFunnelSuggestionsResponse, Integer, Hash)>] ProductAnalyticsFunnelSuggestionsResponse data, response status code and response headers
+    def query_product_analytics_funnel_suggestions_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_funnel_suggestions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_funnel_suggestions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_funnel_suggestions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_funnel_suggestions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_funnel_suggestions"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/suggestions/features'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsFunnelSuggestionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_funnel_suggestions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_funnel_suggestions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Analyze journey drop-off.
+    #
+    # @see #query_product_analytics_journey_drop_off_with_http_info
+    def query_product_analytics_journey_drop_off(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_journey_drop_off_with_http_info(body, opts)
+      data
+    end
+
+    # Analyze journey drop-off.
+    #
+    # Analyze the drop-off at a given step of the journey. The journey must have at least two
+    # steps, and only the `@session.id` join key is supported. Set `target` to the node to
+    # analyze. It can't be the first step. When `target` is omitted, the last step is used.
+    # Returns the number of sessions that reached the step before the target but not the target,
+    # together with the issues and frustration signals most associated with the drop-off.
+    #
+    # @param body [ProductAnalyticsJourneyDropOffRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsJourneyDropOffResponse, Integer, Hash)>] ProductAnalyticsJourneyDropOffResponse data, response status code and response headers
+    def query_product_analytics_journey_drop_off_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_product_analytics_journey_drop_off".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_product_analytics_journey_drop_off")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_product_analytics_journey_drop_off"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_journey_drop_off ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_journey_drop_off"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/journey/drop_off_analysis'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsJourneyDropOffResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_journey_drop_off,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_journey_drop_off\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Compute journey funnel analysis.
     #
     # @see #query_product_analytics_journey_funnel_with_http_info

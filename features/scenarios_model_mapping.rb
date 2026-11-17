@@ -6030,6 +6030,9 @@ ScenariosModelMappings = {
     "v2.QueryProductAnalyticsTimeseries" => {
             "body" => "ProductAnalyticsAnalyticsRequest",
     },
+    "v2.QueryProductAnalyticsJourneyDropOff" => {
+            "body" => "ProductAnalyticsJourneyDropOffRequest",
+    },
     "v2.QueryProductAnalyticsJourneyFunnel" => {
             "body" => "ProductAnalyticsJourneyFunnelRequest",
     },
@@ -6056,6 +6059,12 @@ ScenariosModelMappings = {
     },
     "v2.QueryProductAnalyticsSankey" => {
             "body" => "ProductAnalyticsSankeyRequest",
+    },
+    "v2.QueryProductAnalyticsFunnelSuggestions" => {
+            "body" => "ProductAnalyticsFunnelSuggestionsRequest",
+    },
+    "v2.QueryProductAnalyticsFunnelStepSuggestions" => {
+            "body" => "ProductAnalyticsFunnelStepSuggestionsRequest",
     },
     "v2.GetAccountFacetInfo" => {
             "body" => "FacetInfoRequest",
