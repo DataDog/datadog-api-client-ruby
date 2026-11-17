@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # Model identifier sent to the provider.
     attr_reader :model_id_wire
 
+    # Attributes of a model pricing resource.
+    attr_accessor :pricing
+
     # Provider identifier.
     attr_reader :provider_id
 
@@ -48,6 +51,10 @@ module DatadogAPIClient::V2
     # Time when the resource was last updated.
     attr_reader :updated_at
 
+    # The Datadog side of a model's zero data retention eligibility. The customer side is the provider's
+    # `zdr_eligible` setting.
+    attr_accessor :zdr
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -59,10 +66,12 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'metadata' => :'metadata',
         :'model_id_wire' => :'model_id_wire',
+        :'pricing' => :'pricing',
         :'provider_id' => :'provider_id',
         :'source' => :'source',
         :'supported_operations' => :'supported_operations',
-        :'updated_at' => :'updated_at'
+        :'updated_at' => :'updated_at',
+        :'zdr' => :'zdr'
       }
     end
 
@@ -75,10 +84,12 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'metadata' => :'AiGatewayModelMetadata',
         :'model_id_wire' => :'String',
+        :'pricing' => :'AiGatewayModelPricingAttributes',
         :'provider_id' => :'Integer',
         :'source' => :'AiGatewayModelSource',
         :'supported_operations' => :'Array<AiGatewaySupportedOperation>',
-        :'updated_at' => :'Time'
+        :'updated_at' => :'Time',
+        :'zdr' => :'AiGatewayModelZdr'
       }
     end
 
@@ -120,6 +131,10 @@ module DatadogAPIClient::V2
         self.model_id_wire = attributes[:'model_id_wire']
       end
 
+      if attributes.key?(:'pricing')
+        self.pricing = attributes[:'pricing']
+      end
+
       if attributes.key?(:'provider_id')
         self.provider_id = attributes[:'provider_id']
       end
@@ -136,6 +151,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'zdr')
+        self.zdr = attributes[:'zdr']
       end
     end
 
@@ -265,10 +284,12 @@ module DatadogAPIClient::V2
           id == o.id &&
           metadata == o.metadata &&
           model_id_wire == o.model_id_wire &&
+          pricing == o.pricing &&
           provider_id == o.provider_id &&
           source == o.source &&
           supported_operations == o.supported_operations &&
           updated_at == o.updated_at &&
+          zdr == o.zdr &&
           additional_properties == o.additional_properties
     end
 
@@ -276,7 +297,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, enabled, id, metadata, model_id_wire, provider_id, source, supported_operations, updated_at, additional_properties].hash
+      [created_at, enabled, id, metadata, model_id_wire, pricing, provider_id, source, supported_operations, updated_at, zdr, additional_properties].hash
     end
   end
 end

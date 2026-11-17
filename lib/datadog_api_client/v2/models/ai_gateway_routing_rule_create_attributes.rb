@@ -21,6 +21,10 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleCreateAttributes
     include BaseGenericModel
 
+    # Reserved for initial View and Edit permissions. Supplying this attribute returns HTTP 400 and doesn't
+    # create the route. Create the route, then set its permissions through the restriction policy API.
+    attr_accessor :initial_bindings
+
     # Organization-unique resource slug.
     attr_reader :slug
 
@@ -33,6 +37,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'initial_bindings' => :'initial_bindings',
         :'slug' => :'slug',
         :'tiers' => :'tiers'
       }
@@ -42,6 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'initial_bindings' => :'Array<AiGatewayProviderInitialBinding>',
         :'slug' => :'String',
         :'tiers' => :'Array<AiGatewayRoutingRuleTierRequest>'
       }
@@ -64,6 +70,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'initial_bindings')
+        if (value = attributes[:'initial_bindings']).is_a?(Array)
+          self.initial_bindings = value
+        end
+      end
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
@@ -143,6 +155,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          initial_bindings == o.initial_bindings &&
           slug == o.slug &&
           tiers == o.tiers &&
           additional_properties == o.additional_properties
@@ -152,7 +165,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [slug, tiers, additional_properties].hash
+      [initial_bindings, slug, tiers, additional_properties].hash
     end
   end
 end

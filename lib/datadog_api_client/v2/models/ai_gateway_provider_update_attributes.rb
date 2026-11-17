@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Human-readable resource name.
     attr_reader :name
 
+    # Whether this provider connection is covered by a zero data retention agreement. Omit to leave unchanged.
+    attr_accessor :zdr_eligible
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cost_multiplier' => :'cost_multiplier',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'zdr_eligible' => :'zdr_eligible'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cost_multiplier' => :'Float',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'zdr_eligible' => :'Boolean'
       }
     end
 
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'zdr_eligible')
+        self.zdr_eligible = attributes[:'zdr_eligible']
       end
     end
 
@@ -139,6 +148,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cost_multiplier == o.cost_multiplier &&
           name == o.name &&
+          zdr_eligible == o.zdr_eligible &&
           additional_properties == o.additional_properties
     end
 
@@ -146,7 +156,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cost_multiplier, name, additional_properties].hash
+      [cost_multiplier, name, zdr_eligible, additional_properties].hash
     end
   end
 end

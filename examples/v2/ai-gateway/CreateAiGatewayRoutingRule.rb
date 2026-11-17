@@ -10,6 +10,14 @@ api_instance = DatadogAPIClient::V2::AIGatewayAPI.new
 body = DatadogAPIClient::V2::AiGatewayRoutingRuleCreateRequest.new({
   data: DatadogAPIClient::V2::AiGatewayRoutingRuleCreateData.new({
     attributes: DatadogAPIClient::V2::AiGatewayRoutingRuleCreateAttributes.new({
+      initial_bindings: [
+        DatadogAPIClient::V2::AiGatewayProviderInitialBinding.new({
+          principals: [
+            "org:11111111-1111-1111-1111-111111111111",
+          ],
+          relation: DatadogAPIClient::V2::AiGatewayProviderInitialBindingRelation::VIEWER,
+        }),
+      ],
       slug: "coding",
       tiers: [
         DatadogAPIClient::V2::AiGatewayRoutingRuleTierRequest.new({

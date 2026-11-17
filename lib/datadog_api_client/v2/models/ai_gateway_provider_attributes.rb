@@ -27,6 +27,11 @@ module DatadogAPIClient::V2
     # Time when the resource was created.
     attr_reader :created_at
 
+    # Whose credential the gateway sends to the provider. `integration_account` sends the integration
+    # account's credential. `subscription` forwards each caller's own subscription sign-in (`ChatGPT` for
+    # `openai`, `claude.ai` for `anthropic`) and needs no integration account.
+    attr_accessor :credential_source
+
     # Provider integration account identifier.
     attr_reader :integration_account_id
 
@@ -42,8 +47,16 @@ module DatadogAPIClient::V2
     # Immutable routing identifier.
     attr_reader :slug
 
+    # Read-only. Whether the provider is working, based on the model sync and live calls. Omitted for
+    # providers that are never checked, which include providers without an integration account, and
+    # Azure OpenAI and Gemini providers until live traffic records a status.
+    attr_accessor :status
+
     # Time when the resource was last updated.
     attr_reader :updated_at
+
+    # Whether this provider connection is covered by a zero data retention agreement.
+    attr_accessor :zdr_eligible
 
     attr_accessor :additional_properties
 
@@ -53,12 +66,15 @@ module DatadogAPIClient::V2
       {
         :'cost_multiplier' => :'cost_multiplier',
         :'created_at' => :'created_at',
+        :'credential_source' => :'credential_source',
         :'integration_account_id' => :'integration_account_id',
         :'integration_config' => :'integration_config',
         :'known_provider' => :'known_provider',
         :'name' => :'name',
         :'slug' => :'slug',
-        :'updated_at' => :'updated_at'
+        :'status' => :'status',
+        :'updated_at' => :'updated_at',
+        :'zdr_eligible' => :'zdr_eligible'
       }
     end
 
@@ -68,12 +84,15 @@ module DatadogAPIClient::V2
       {
         :'cost_multiplier' => :'Float',
         :'created_at' => :'Time',
+        :'credential_source' => :'AiGatewayProviderCredentialSource',
         :'integration_account_id' => :'String',
         :'integration_config' => :'AiGatewayProviderIntegrationConfig',
         :'known_provider' => :'AiGatewayKnownProvider',
         :'name' => :'String',
         :'slug' => :'String',
-        :'updated_at' => :'Time'
+        :'status' => :'AiGatewayProviderStatus',
+        :'updated_at' => :'Time',
+        :'zdr_eligible' => :'Boolean'
       }
     end
 
@@ -103,6 +122,10 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'credential_source')
+        self.credential_source = attributes[:'credential_source']
+      end
+
       if attributes.key?(:'integration_account_id')
         self.integration_account_id = attributes[:'integration_account_id']
       end
@@ -123,8 +146,16 @@ module DatadogAPIClient::V2
         self.slug = attributes[:'slug']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'zdr_eligible')
+        self.zdr_eligible = attributes[:'zdr_eligible']
       end
     end
 
@@ -240,12 +271,15 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cost_multiplier == o.cost_multiplier &&
           created_at == o.created_at &&
+          credential_source == o.credential_source &&
           integration_account_id == o.integration_account_id &&
           integration_config == o.integration_config &&
           known_provider == o.known_provider &&
           name == o.name &&
           slug == o.slug &&
+          status == o.status &&
           updated_at == o.updated_at &&
+          zdr_eligible == o.zdr_eligible &&
           additional_properties == o.additional_properties
     end
 
@@ -253,7 +287,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cost_multiplier, created_at, integration_account_id, integration_config, known_provider, name, slug, updated_at, additional_properties].hash
+      [cost_multiplier, created_at, credential_source, integration_account_id, integration_config, known_provider, name, slug, status, updated_at, zdr_eligible, additional_properties].hash
     end
   end
 end
