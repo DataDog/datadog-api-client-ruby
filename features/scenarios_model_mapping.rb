@@ -3870,6 +3870,28 @@ ScenariosModelMappings = {
     "v2.CreateExperiment" => {
             "body" => "ExperimentsCreateExperimentV2Request",
     },
+    "v2.ListBandits" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "filter_query" => "String",
+            "sort" => "String",
+            "filter_status" => "Array<String>",
+            "filter_subject_type_id" => "Array<UUID>",
+            "filter_tags" => "Array<String>",
+    },
+    "v2.GetBandit" => {
+            "bandit_id" => "UUID",
+    },
+    "v2.GetBanditResults" => {
+            "bandit_id" => "UUID",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+    },
+    "v2.GetBanditTrafficSummary" => {
+            "bandit_id" => "UUID",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+    },
     "v2.ListExposureSQLModels" => {
             "include" => "Array<String>",
             "include_archived" => "Boolean",

@@ -1313,6 +1313,227 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get bandit.
+    #
+    # @see #get_bandit_with_http_info
+    def get_bandit(bandit_id, opts = {})
+      data, _status_code, _headers = get_bandit_with_http_info(bandit_id, opts)
+      data
+    end
+
+    # Get bandit.
+    #
+    # Get a bandit: its setup, the policy it serves, its latest refresh, and the arm most likely to be best. When the caller lacks feature flag or environment read permissions, the response omits `datadog_flag_configuration` and `meta.warnings` includes `datadog_flag_configuration_omitted`. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsBanditV2DTO, Integer, Hash)>] ExperimentsBanditV2DTO data, response status code and response headers
+    def get_bandit_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.get_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditV2DTO'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#get_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get bandit results.
+    #
+    # @see #get_bandit_results_with_http_info
+    def get_bandit_results(bandit_id, opts = {})
+      data, _status_code, _headers = get_bandit_results_with_http_info(bandit_id, opts)
+      data
+    end
+
+    # Get bandit results.
+    #
+    # Get what a bandit's refreshes have learned: each arm's estimate and probability of being best from the latest saved refresh, and each arm's point estimate over time. `filter[from]` and `filter[to]` narrow only `point_estimates`, not the latest estimates. For observation counts, use Get bandit traffic summary. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :filter_from Return only point estimates from refreshes saved at or after this RFC3339 timestamp. Inclusive.
+    # @option opts [Time] :filter_to Return only point estimates from refreshes saved before this RFC3339 timestamp. Exclusive.
+    # @return [Array<(ExperimentsBanditResultsV2DTO, Integer, Hash)>] ExperimentsBanditResultsV2DTO data, response status code and response headers
+    def get_bandit_results_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_bandit_results".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_bandit_results")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_bandit_results"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_bandit_results ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.get_bandit_results"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/results'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditResultsV2DTO'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_bandit_results,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#get_bandit_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get bandit traffic summary.
+    #
+    # @see #get_bandit_traffic_summary_with_http_info
+    def get_bandit_traffic_summary(bandit_id, opts = {})
+      data, _status_code, _headers = get_bandit_traffic_summary_with_http_info(bandit_id, opts)
+      data
+    end
+
+    # Get bandit traffic summary.
+    #
+    # Get what a bandit has observed, as of its latest saved refresh: observation counts, subjects, and each arm's valid observations and subjects in total and per UTC day. An observation is a subject's reward on the arm it was exposed to, counted on the UTC day of its anchor time. `filter[from]` and `filter[to]` narrow only `daily`, not the totals. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :filter_from Return only the UTC days that overlap the range starting at this RFC3339 timestamp. Inclusive.
+    # @option opts [Time] :filter_to Return only the UTC days that overlap the range ending at this RFC3339 timestamp. Exclusive.
+    # @return [Array<(ExperimentsBanditTrafficSummaryV2DTO, Integer, Hash)>] ExperimentsBanditTrafficSummaryV2DTO data, response status code and response headers
+    def get_bandit_traffic_summary_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_bandit_traffic_summary".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_bandit_traffic_summary")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_bandit_traffic_summary"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.get_bandit_traffic_summary ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.get_bandit_traffic_summary"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/traffic-summary'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditTrafficSummaryV2DTO'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_bandit_traffic_summary,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#get_bandit_traffic_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get experiment.
     #
     # @see #get_experiment_with_http_info
@@ -2039,6 +2260,87 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List bandits.
+    #
+    # @see #list_bandits_with_http_info
+    def list_bandits(opts = {})
+      data, _status_code, _headers = list_bandits_with_http_info(opts)
+      data
+    end
+
+    # List bandits.
+    #
+    # List the organization's bandits, newest first by default. Each item is a summary. For a bandit's setup, active policy, and latest refresh, use Get bandit. Bandits must be enabled for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_offset Number of results to skip for pagination. Defaults to 0 when omitted.
+    # @option opts [Integer] :page_limit Maximum number of results to return. Defaults to 25 when omitted, and is capped at 50 (larger values are clamped to 50). The response includes meta.page (with total) and pagination links.
+    # @option opts [String] :filter_query Find bandits whose names contain the search text, regardless of case.
+    # @option opts [String] :sort Sort fields: `name`, `created_at`, or `updated_at`. Use a comma-separated list in priority order; for example, `name,-created_at`. Prefix each field with `-` for descending. Defaults to `created_at` descending.
+    # @option opts [Array<String>] :filter_status Filter by bandit status. Accepted values are `DRAFT`, `SCHEDULED`, `RUNNING`, `PAUSED`, `STOPPED`, and `COMPLETED`. Repeat this parameter to select several statuses; for example, `filter[status]=RUNNING&filter[status]=PAUSED`.
+    # @option opts [Array<UUID>] :filter_subject_type_id Filter by subject type UUID. Repeat this parameter to supply several IDs. A bandit matches if it uses any listed subject type.
+    # @option opts [Array<String>] :filter_tags Filter by tag name. Repeat this parameter to supply several tags. A bandit matches if it has at least one listed tag. Use `team:<handle>` to filter by team. When both tags and teams are given, a bandit must match one of each.
+    # @return [Array<(ExperimentsBanditV2ListDTOArray, Integer, Hash)>] ExperimentsBanditV2ListDTOArray data, response status code and response headers
+    def list_bandits_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_bandits".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_bandits")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_bandits"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_bandits ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter[status]'] = @api_client.build_collection_param(opts[:'filter_status'], :multi) if !opts[:'filter_status'].nil?
+      query_params[:'filter[subject_type_id]'] = @api_client.build_collection_param(opts[:'filter_subject_type_id'], :multi) if !opts[:'filter_subject_type_id'].nil?
+      query_params[:'filter[tags]'] = @api_client.build_collection_param(opts[:'filter_tags'], :multi) if !opts[:'filter_tags'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditV2ListDTOArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_bandits,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#list_bandits\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List experiment holdouts.
     #
     # @see #list_experiment_holdouts_with_http_info
@@ -2341,11 +2643,11 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Array<String>] :include Optional fields to include. Repeat this parameter to request several fields. `counts` adds experiment_count, which costs an extra aggregate query.
-    # @option opts [Boolean] :include_archived When true, archived models are included in the result. Defaults to false, so archived models are hidden.
+    # @option opts [Boolean] :include_archived When `true`, archived models are included in the result. Defaults to `false`, so archived models are hidden.
     # @option opts [Integer] :page_limit Maximum number of results to return. Defaults to 25 when omitted, and is capped at 50 (larger values are clamped to 50). The response includes meta.page (with total) and pagination links.
     # @option opts [Integer] :page_offset Number of results to skip for pagination. Defaults to 0 when omitted.
     # @option opts [String] :search Find exposure SQL models whose names contain the search text, regardless of case.
-    # @option opts [String] :sort Sort field: name, created_at, or updated_at. Prefix with `-` for descending (for example, `-created_at`). Defaults to created_at descending.
+    # @option opts [String] :sort Sort field: `name`, `created_at`, or `updated_at`. Prefix with `-` for descending (for example, `-created_at`). Defaults to `created_at` descending.
     # @return [Array<(ExperimentsExposureSQLModelV2DTOArray, Integer, Hash)>] ExperimentsExposureSQLModelV2DTOArray data, response status code and response headers
     def list_exposure_sql_models_with_http_info(opts = {})
 
