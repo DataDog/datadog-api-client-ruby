@@ -1,0 +1,19 @@
+# Update a Product Analytics launch returns "OK" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+  config.unstable_operations["v2.update_product_analytics_launch".to_sym] = true
+end
+api_instance = DatadogAPIClient::V2::ProductAnalyticsAPI.new
+
+body = DatadogAPIClient::V2::ProductAnalyticsLaunchPatchRequest.new({
+  data: DatadogAPIClient::V2::ProductAnalyticsLaunchPatchData.new({
+    attributes: DatadogAPIClient::V2::ProductAnalyticsLaunchPatchAttributes.new({
+      phase: DatadogAPIClient::V2::ProductAnalyticsLaunchPhase::SETUP,
+    }),
+    id: "5e3c7a1b-2d4f-4e6a-8b9c-0d1e2f3a4b5c",
+    type: DatadogAPIClient::V2::ProductAnalyticsLaunchType::LIFTOFF,
+  }),
+})
+p api_instance.update_product_analytics_launch("5e3c7a1b-2d4f-4e6a-8b9c-0d1e2f3a4b5c", body)
