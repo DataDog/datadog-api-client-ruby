@@ -530,7 +530,7 @@ module DatadogAPIClient::V2
 
     # List datastores.
     #
-    # Lists all datastores for the organization.
+    # Lists all datastores in the organization.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(DatastoreArray, Integer, Hash)>] DatastoreArray data, response status code and response headers

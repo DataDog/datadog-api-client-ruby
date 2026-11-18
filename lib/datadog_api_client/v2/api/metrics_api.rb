@@ -862,7 +862,7 @@ module DatadogAPIClient::V2
 
     # Get a derived metric.
     #
-    # Get the definition of a derived metric by name.
+    # Get the definition of a derived metric from its name.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
