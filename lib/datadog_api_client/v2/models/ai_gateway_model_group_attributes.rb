@@ -30,20 +30,28 @@ module DatadogAPIClient::V2
     # Maximum reasoning level permitted by a model group.
     attr_accessor :max_reasoning_level
 
-    # All saved model catalog IDs, including selections whose provider metadata is hidden. Preserve these IDs independently of the visible catalog.
+    # Saved model catalog IDs whose providers the caller can view. Hidden identities are omitted. The
+    # `models_restricted` field indicates hidden membership.
     attr_reader :model_ids
 
-    # Metadata for saved model selections whose providers the caller can view. Missing metadata does not remove a saved ID.
+    # Metadata for saved model selections whose providers the caller can view. Hidden model identities and metadata are omitted.
     attr_reader :models
+
+    # Whether some saved models are hidden from the caller. Hidden identities, names, and counts are omitted. Editing visible selections preserves hidden memberships.
+    attr_accessor :models_restricted
 
     # Human-readable resource name.
     attr_reader :name
 
-    # All explicitly selected provider IDs, including hidden providers. Embedded provider metadata includes only viewable providers.
+    # Explicitly selected provider IDs the caller can view. Hidden identities are omitted. The
+    # `providers_restricted` field indicates hidden membership.
     attr_reader :provider_ids
 
-    # Viewable explicitly selected providers, separate from individually selected models. Use provider_ids to retain all selections.
+    # Viewable explicitly selected providers, separate from individually selected models. Hidden provider identities and metadata are omitted.
     attr_reader :providers
+
+    # Whether some saved providers are hidden from the caller. Hidden identities, names, and counts are omitted. Editing visible selections preserves hidden memberships.
+    attr_accessor :providers_restricted
 
     # Revision of the organization-wide policy. Present for the default model group and absent for named policies.
     attr_reader :revision
@@ -68,9 +76,11 @@ module DatadogAPIClient::V2
         :'max_reasoning_level' => :'max_reasoning_level',
         :'model_ids' => :'model_ids',
         :'models' => :'models',
+        :'models_restricted' => :'models_restricted',
         :'name' => :'name',
         :'provider_ids' => :'provider_ids',
         :'providers' => :'providers',
+        :'providers_restricted' => :'providers_restricted',
         :'revision' => :'revision',
         :'routing_rules' => :'routing_rules',
         :'routing_rules_restricted' => :'routing_rules_restricted',
@@ -87,9 +97,11 @@ module DatadogAPIClient::V2
         :'max_reasoning_level' => :'AiGatewayNullableMaxReasoningLevel',
         :'model_ids' => :'Array<Integer>',
         :'models' => :'Array<AiGatewayModelGroupModel>',
+        :'models_restricted' => :'Boolean',
         :'name' => :'String',
         :'provider_ids' => :'Array<Integer>',
         :'providers' => :'Array<AiGatewayModelGroupProvider>',
+        :'providers_restricted' => :'Boolean',
         :'revision' => :'Integer',
         :'routing_rules' => :'Array<AiGatewayModelGroupRoutingRule>',
         :'routing_rules_restricted' => :'Boolean',
@@ -147,6 +159,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'models_restricted')
+        self.models_restricted = attributes[:'models_restricted']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -161,6 +177,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'providers']).is_a?(Array)
           self.providers = value
         end
+      end
+
+      if attributes.key?(:'providers_restricted')
+        self.providers_restricted = attributes[:'providers_restricted']
       end
 
       if attributes.key?(:'revision')
@@ -330,9 +350,11 @@ module DatadogAPIClient::V2
           max_reasoning_level == o.max_reasoning_level &&
           model_ids == o.model_ids &&
           models == o.models &&
+          models_restricted == o.models_restricted &&
           name == o.name &&
           provider_ids == o.provider_ids &&
           providers == o.providers &&
+          providers_restricted == o.providers_restricted &&
           revision == o.revision &&
           routing_rules == o.routing_rules &&
           routing_rules_restricted == o.routing_rules_restricted &&
@@ -344,7 +366,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_fast_mode, created_at, max_reasoning_level, model_ids, models, name, provider_ids, providers, revision, routing_rules, routing_rules_restricted, updated_at, additional_properties].hash
+      [allow_fast_mode, created_at, max_reasoning_level, model_ids, models, models_restricted, name, provider_ids, providers, providers_restricted, revision, routing_rules, routing_rules_restricted, updated_at, additional_properties].hash
     end
   end
 end
