@@ -29,6 +29,10 @@ module DatadogAPIClient::V2
     # Each rule must contain a name and a valid Grok pattern.
     attr_reader :match_rules
 
+    # Optional name identifying this include-based Grok rule in worker diagnostics.
+    # Names must be unique within the processor.
+    attr_reader :name
+
     # A list of Grok helper rules that can be referenced by the parsing rules.
     attr_accessor :support_rules
 
@@ -40,6 +44,7 @@ module DatadogAPIClient::V2
       {
         :'include' => :'include',
         :'match_rules' => :'match_rules',
+        :'name' => :'name',
         :'support_rules' => :'support_rules'
       }
     end
@@ -50,6 +55,7 @@ module DatadogAPIClient::V2
       {
         :'include' => :'String',
         :'match_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>',
+        :'name' => :'String',
         :'support_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>'
       }
     end
@@ -82,6 +88,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.key?(:'support_rules')
         if (value = attributes[:'support_rules']).is_a?(Array)
           self.support_rules = value
@@ -95,6 +105,8 @@ module DatadogAPIClient::V2
     def valid?
       return false if @include.nil?
       return false if @match_rules.nil?
+      return false if !@name.nil? && @name.to_s.length > 128
+      return false if !@name.nil? && @name.to_s.length < 1
       true
     end
 
@@ -116,6 +128,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
       end
       @match_rules = match_rules
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if !name.nil? && name.to_s.length > 128
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 128.'
+      end
+      if !name.nil? && name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -146,6 +171,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           include == o.include &&
           match_rules == o.match_rules &&
+          name == o.name &&
           support_rules == o.support_rules &&
           additional_properties == o.additional_properties
     end
@@ -154,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [include, match_rules, support_rules, additional_properties].hash
+      [include, match_rules, name, support_rules, additional_properties].hash
     end
   end
 end
