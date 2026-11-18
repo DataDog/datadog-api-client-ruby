@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Resources returned in this response.
     attr_reader :data
 
-    # Information about when experiment results were updated and whether they are stale.
+    # Selected experiment result run, its recorded EVSI forecast, and results freshness.
     attr_accessor :meta
 
     attr_accessor :additional_properties
