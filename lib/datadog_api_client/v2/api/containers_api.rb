@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # or `/api/v2/query/timeseries`.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter_tags Comma-separated `key:value` tags. A container must match every tag. Wildcards, negation (`-key:value`), spaces, and `IN (...)` are not supported. To cover several hosts, make one request per host.
+    # @option opts [String] :filter_tags Comma-separated `key:value` tags. A container must match every tag. Each tag starts with a letter and contains only letters, digits, `_`, `-`, `.`, `/`, `@`, and `:`. Values match exactly and are case-sensitive (tags are usually lowercase). In a value, `*` matches any run of characters, including none. It can appear anywhere in the value and more than once, and it can't be escaped. For example, `env:prod*` matches `env:prod` and `env:prod-eu`, `kube_namespace:*-web` matches `kube_namespace:shop-web`, and `container_id:a4cf*` matches containers whose ID starts with `a4cf`. These return `400 Bad Request`, with the reason in `errors[0].detail`: a `*` in a key or in a tag without `:` (`kube_*:prod`, `*:prod`, `prod*`), a `?`, a leading `-` (negation), spaces (so `OR` and `IN (...)` can't be used), an empty value (`env:`), and more than 1024 characters in total. To match unrelated values of one key, make one request per value.
     # @option opts [String] :group_by Comma-separated list of up to three tag keys to group containers by. Returns `container_group` objects with counts and tags. Grouped results ignore `sort` and do not support pagination. Containers with multiple values for a grouping tag can appear in multiple groups. Summing group counts can overcount distinct containers.
     # @option opts [String] :sort Attribute to sort individual containers by: `name`, `created_at`, `started_at`, `state`, `container_id`, `host`, `image_name`, or `image_digest`. Defaults to `started_at` in ascending order. Prefix the attribute with `-` for descending order, such as `-started_at`. Ignored when `group_by` is specified.
     # @option opts [Integer] :page_size Maximum number of results returned. For grouped results, defaults to `100` with a maximum of `1000` groups.
@@ -50,6 +50,9 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContainersAPI.list_containers ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_tags'].nil? && opts[:'filter_tags'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"filter_tags"]" when calling ContainersAPI.list_containers, the character length must be smaller than or equal to 1024.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ContainersAPI.list_containers, must be smaller than or equal to 10000.'
