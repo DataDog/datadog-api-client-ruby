@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Details of the global variable to create.
+  # Details of the global variable to create or update.
   class SyntheticsGlobalVariableRequest
     include BaseGenericModel
 
@@ -29,6 +29,12 @@ module DatadogAPIClient::V1
 
     # Unique identifier of the global variable.
     attr_accessor :id
+
+    # Whether this global variable is a persistent email variable. Set to `true` and omit `value` when creating
+    # a persistent email variable; Datadog generates an immutable email address. When updating an existing
+    # persistent email variable, omit `value` and either keep `is_email` set to `true` or omit it.
+    # The variable cannot be converted to or from a persistent email variable.
+    attr_accessor :is_email
 
     # Determines if the global variable is a FIDO variable.
     attr_accessor :is_fido
@@ -60,6 +66,7 @@ module DatadogAPIClient::V1
         :'attributes' => :'attributes',
         :'description' => :'description',
         :'id' => :'id',
+        :'is_email' => :'is_email',
         :'is_fido' => :'is_fido',
         :'is_totp' => :'is_totp',
         :'name' => :'name',
@@ -77,6 +84,7 @@ module DatadogAPIClient::V1
         :'attributes' => :'SyntheticsGlobalVariableAttributes',
         :'description' => :'String',
         :'id' => :'String',
+        :'is_email' => :'Boolean',
         :'is_fido' => :'Boolean',
         :'is_totp' => :'Boolean',
         :'name' => :'String',
@@ -115,6 +123,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'is_email')
+        self.is_email = attributes[:'is_email']
       end
 
       if attributes.key?(:'is_fido')
@@ -217,6 +229,7 @@ module DatadogAPIClient::V1
           attributes == o.attributes &&
           description == o.description &&
           id == o.id &&
+          is_email == o.is_email &&
           is_fido == o.is_fido &&
           is_totp == o.is_totp &&
           name == o.name &&
@@ -231,7 +244,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, description, id, is_fido, is_totp, name, parse_test_options, parse_test_public_id, tags, value, additional_properties].hash
+      [attributes, description, id, is_email, is_fido, is_totp, name, parse_test_options, parse_test_public_id, tags, value, additional_properties].hash
     end
   end
 end
