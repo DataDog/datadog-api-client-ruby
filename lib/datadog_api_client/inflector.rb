@@ -3789,8 +3789,6 @@ module DatadogAPIClient
           "v2.downtime_response_data" => "DowntimeResponseData",
           "v2.downtime_response_included_item" => "DowntimeResponseIncludedItem",
           "v2.downtime_run_as_item" => "DowntimeRunAsItem",
-          "v2.downtime_run_as_principal" => "DowntimeRunAsPrincipal",
-          "v2.downtime_run_as_principal_type" => "DowntimeRunAsPrincipalType",
           "v2.downtime_schedule_create_request" => "DowntimeScheduleCreateRequest",
           "v2.downtime_schedule_current_downtime_response" => "DowntimeScheduleCurrentDowntimeResponse",
           "v2.downtime_schedule_one_time_create_update_request" => "DowntimeScheduleOneTimeCreateUpdateRequest",
