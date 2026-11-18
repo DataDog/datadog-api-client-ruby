@@ -23,6 +23,81 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Add an allowed outreach domain.
+    #
+    # @see #add_security_agent_outreach_policy_domain_with_http_info
+    def add_security_agent_outreach_policy_domain(body, opts = {})
+      data, _status_code, _headers = add_security_agent_outreach_policy_domain_with_http_info(body, opts)
+      data
+    end
+
+    # Add an allowed outreach domain.
+    #
+    # Add one allowed email domain. User outreach is only sent to users whose email domain is allowed. The
+    # domain must be a fully qualified domain name, like `example.com`; it is lowercased before being stored.
+    # An organization can allow at most 20 domains.
+    #
+    # @param body [SecurityAgentOutreachDomainAddRequest] The email domain to allow.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityAgentOutreachPolicyResponse, Integer, Hash)>] SecurityAgentOutreachPolicyResponse data, response status code and response headers
+    def add_security_agent_outreach_policy_domain_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.add_security_agent_outreach_policy_domain".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.add_security_agent_outreach_policy_domain")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.add_security_agent_outreach_policy_domain"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsSecurityAnalystAPI.add_security_agent_outreach_policy_domain ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling BitsSecurityAnalystAPI.add_security_agent_outreach_policy_domain"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityAgentOutreachPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :add_security_agent_outreach_policy_domain,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#add_security_agent_outreach_policy_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Count Bits Security Analyst investigations.
     #
     # @see #count_security_agent_investigations_with_http_info
@@ -196,6 +271,74 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get the user outreach policy.
+    #
+    # @see #get_security_agent_outreach_policy_with_http_info
+    def get_security_agent_outreach_policy(opts = {})
+      data, _status_code, _headers = get_security_agent_outreach_policy_with_http_info(opts)
+      data
+    end
+
+    # Get the user outreach policy.
+    #
+    # Get the organization's user outreach policy for Bits Security Analyst: the outreach mode, the per-rule
+    # automation state, the allowed email domains that user outreach can be sent to, and, for the caller, domains
+    # that could be allowed next.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityAgentOutreachPolicyResponse, Integer, Hash)>] SecurityAgentOutreachPolicyResponse data, response status code and response headers
+    def get_security_agent_outreach_policy_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_agent_outreach_policy".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_agent_outreach_policy")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_agent_outreach_policy"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsSecurityAnalystAPI.get_security_agent_outreach_policy ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/security_agent/outreach_policy'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityAgentOutreachPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_agent_outreach_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#get_security_agent_outreach_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Bits Security Analyst investigations.
     #
     # @see #list_security_agent_investigations_with_http_info
@@ -301,6 +444,227 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#list_security_agent_investigations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove an allowed outreach domain.
+    #
+    # @see #remove_security_agent_outreach_policy_domain_with_http_info
+    def remove_security_agent_outreach_policy_domain(domain, opts = {})
+      data, _status_code, _headers = remove_security_agent_outreach_policy_domain_with_http_info(domain, opts)
+      data
+    end
+
+    # Remove an allowed outreach domain.
+    #
+    # Remove one allowed email domain, by its name.
+    #
+    # @param domain [String] The allowed email domain to remove, for example `example.com`. Case-insensitive.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityAgentOutreachPolicyResponse, Integer, Hash)>] SecurityAgentOutreachPolicyResponse data, response status code and response headers
+    def remove_security_agent_outreach_policy_domain_with_http_info(domain, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.remove_security_agent_outreach_policy_domain".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_security_agent_outreach_policy_domain")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.remove_security_agent_outreach_policy_domain"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsSecurityAnalystAPI.remove_security_agent_outreach_policy_domain ...'
+      end
+      # verify the required parameter 'domain' is set
+      if @api_client.config.client_side_validation && domain.nil?
+        fail ArgumentError, "Missing the required parameter 'domain' when calling BitsSecurityAnalystAPI.remove_security_agent_outreach_policy_domain"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains/{domain}'.sub('{domain}', CGI.escape(domain.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityAgentOutreachPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :remove_security_agent_outreach_policy_domain,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#remove_security_agent_outreach_policy_domain\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the outreach mode.
+    #
+    # @see #update_security_agent_outreach_mode_with_http_info
+    def update_security_agent_outreach_mode(body, opts = {})
+      data, _status_code, _headers = update_security_agent_outreach_mode_with_http_info(body, opts)
+      data
+    end
+
+    # Update the outreach mode.
+    #
+    # Set the organization's outreach mode: `off` (no user outreach), `manual` (outreach is only sent when an
+    # analyst triggers it), or `automated` (rules with outreach enabled auto-send automated interviews to users
+    # whose email domain is allowed).
+    #
+    # @param body [SecurityAgentOutreachModeUpdateRequest] The new outreach mode.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityAgentOutreachModeResponse, Integer, Hash)>] SecurityAgentOutreachModeResponse data, response status code and response headers
+    def update_security_agent_outreach_mode_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_agent_outreach_mode".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_agent_outreach_mode")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_agent_outreach_mode"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsSecurityAnalystAPI.update_security_agent_outreach_mode ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling BitsSecurityAnalystAPI.update_security_agent_outreach_mode"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/security_agent/outreach_policy'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityAgentOutreachModeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_agent_outreach_mode,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#update_security_agent_outreach_mode\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update outreach policy rules.
+    #
+    # @see #update_security_agent_outreach_policy_rules_with_http_info
+    def update_security_agent_outreach_policy_rules(body, opts = {})
+      data, _status_code, _headers = update_security_agent_outreach_policy_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Update outreach policy rules.
+    #
+    # Upsert the outreach automation state of detection rules. Each rule in the request gets the given state;
+    # rules not in the request keep their state. A rule with `is_enabled: true` auto-sends automated interviews
+    # in `automated` mode.
+    #
+    # @param body [SecurityAgentOutreachRulesUpdateRequest] The rules to upsert.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityAgentOutreachPolicyResponse, Integer, Hash)>] SecurityAgentOutreachPolicyResponse data, response status code and response headers
+    def update_security_agent_outreach_policy_rules_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_security_agent_outreach_policy_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_security_agent_outreach_policy_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_security_agent_outreach_policy_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsSecurityAnalystAPI.update_security_agent_outreach_policy_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling BitsSecurityAnalystAPI.update_security_agent_outreach_policy_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/security_agent/outreach_policy/rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityAgentOutreachPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_agent_outreach_policy_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#update_security_agent_outreach_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
