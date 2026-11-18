@@ -6846,6 +6846,9 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "page_size" => "Integer",
     },
+    "v2.CreateSecurityAgentInvestigation" => {
+            "body" => "SecurityAgentInvestigationCreateRequest",
+    },
     "v2.CountSecurityAgentInvestigations" => {
             "field" => "SecurityAgentInvestigationCountField",
             "filter_title" => "String",
