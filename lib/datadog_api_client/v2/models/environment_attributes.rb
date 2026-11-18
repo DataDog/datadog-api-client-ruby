@@ -24,14 +24,8 @@ module DatadogAPIClient::V2
     # The timestamp when the environment was created.
     attr_accessor :created_at
 
-    # The description of the environment.
-    attr_accessor :description
-
     # Indicates whether this is a production environment.
     attr_accessor :is_production
-
-    # The unique key of the environment.
-    attr_accessor :key
 
     # The name of the environment.
     attr_reader :name
@@ -55,9 +49,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'created_at' => :'created_at',
-        :'description' => :'description',
         :'is_production' => :'is_production',
-        :'key' => :'key',
         :'name' => :'name',
         :'observe_full_evaluation_data' => :'observe_full_evaluation_data',
         :'queries' => :'queries',
@@ -71,23 +63,13 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_at' => :'Time',
-        :'description' => :'String',
         :'is_production' => :'Boolean',
-        :'key' => :'String',
         :'name' => :'String',
         :'observe_full_evaluation_data' => :'Boolean',
         :'queries' => :'Array<String>',
         :'require_feature_flag_approval' => :'Boolean',
         :'updated_at' => :'Time'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'description',
-      ])
     end
 
     # Initializes the object
@@ -112,16 +94,8 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
       if attributes.key?(:'is_production')
         self.is_production = attributes[:'is_production']
-      end
-
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
       end
 
       if attributes.key?(:'name')
@@ -203,9 +177,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           created_at == o.created_at &&
-          description == o.description &&
           is_production == o.is_production &&
-          key == o.key &&
           name == o.name &&
           observe_full_evaluation_data == o.observe_full_evaluation_data &&
           queries == o.queries &&
@@ -218,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, description, is_production, key, name, observe_full_evaluation_data, queries, require_feature_flag_approval, updated_at, additional_properties].hash
+      [created_at, is_production, name, observe_full_evaluation_data, queries, require_feature_flag_approval, updated_at, additional_properties].hash
     end
   end
 end
