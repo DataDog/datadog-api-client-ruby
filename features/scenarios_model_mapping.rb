@@ -6079,6 +6079,49 @@ ScenariosModelMappings = {
     "v2.QueryProductAnalyticsJourneyTimeseries" => {
             "body" => "ProductAnalyticsFormulaJourneyRequest",
     },
+    "v2.ListProductAnalyticsLaunches" => {
+            "sort" => "String",
+            "scope" => "ProductAnalyticsLaunchListScope",
+            "phase" => "Array<ProductAnalyticsLaunchPhase>",
+            "application_id" => "String",
+            "name" => "String",
+    },
+    "v2.CreateProductAnalyticsLaunch" => {
+            "body" => "ProductAnalyticsLaunchCreateRequest",
+    },
+    "v2.DeleteProductAnalyticsLaunch" => {
+            "id" => "String",
+    },
+    "v2.GetProductAnalyticsLaunch" => {
+            "id" => "String",
+    },
+    "v2.UpdateProductAnalyticsLaunch" => {
+            "id" => "String",
+            "body" => "ProductAnalyticsLaunchPatchRequest",
+    },
+    "v2.ListProductAnalyticsMonitors" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "chart_id" => "String",
+            "dashboard_id" => "String",
+    },
+    "v2.CreateProductAnalyticsMonitor" => {
+            "body" => "ProductAnalyticsMonitorCreateRequest",
+    },
+    "v2.DeleteProductAnalyticsMonitor" => {
+            "monitor_id" => "String",
+    },
+    "v2.GetProductAnalyticsMonitor" => {
+            "monitor_id" => "String",
+    },
+    "v2.UpdateProductAnalyticsMonitor" => {
+            "monitor_id" => "String",
+            "body" => "ProductAnalyticsMonitorUpdateRequest",
+    },
+    "v2.RemoveChartFromProductAnalyticsMonitor" => {
+            "monitor_id" => "String",
+            "body" => "ProductAnalyticsMonitorUnlinkRequest",
+    },
     "v2.QueryProductAnalyticsRetentionGrid" => {
             "body" => "ProductAnalyticsRetentionGridRequest",
     },
@@ -6099,6 +6142,31 @@ ScenariosModelMappings = {
     },
     "v2.QueryAccounts" => {
             "body" => "QueryAccountRequest",
+    },
+    "v2.ListProductAnalyticsSegments" => {
+            "filter_entity" => "SegmentEntity",
+            "filter_type" => "String",
+            "filter_ids" => "String",
+            "filter_disabled" => "Boolean",
+            "sort_column" => "SegmentSortColumn",
+            "sort_order" => "QuerySortOrder",
+            "limit" => "Integer",
+    },
+    "v2.CreateProductAnalyticsSegment" => {
+            "body" => "SegmentCreateRequest",
+    },
+    "v2.DeleteProductAnalyticsSegment" => {
+            "id" => "String",
+    },
+    "v2.GetProductAnalyticsSegment" => {
+            "id" => "String",
+    },
+    "v2.UpdateProductAnalyticsSegment" => {
+            "id" => "String",
+            "body" => "SegmentUpdateRequest",
+    },
+    "v2.PreviewProductAnalyticsSegment" => {
+            "body" => "SegmentPreviewRequest",
     },
     "v2.QueryEventFilteredUsers" => {
             "body" => "QueryEventFilteredUsersRequest",

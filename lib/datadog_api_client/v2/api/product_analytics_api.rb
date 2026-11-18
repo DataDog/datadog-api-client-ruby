@@ -23,6 +23,609 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create a Product Analytics launch.
+    #
+    # @see #create_product_analytics_launch_with_http_info
+    def create_product_analytics_launch(body, opts = {})
+      data, _status_code, _headers = create_product_analytics_launch_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Product Analytics launch.
+    #
+    # Create a Product Analytics launch and its tracking plan.
+    # The tracking plan lists the events and event properties to instrument. Events can only reference properties
+    # and KPIs defined in the launch.
+    #
+    # @param body [ProductAnalyticsLaunchCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsLaunchResponse, Integer, Hash)>] ProductAnalyticsLaunchResponse data, response status code and response headers
+    def create_product_analytics_launch_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_product_analytics_launch".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_product_analytics_launch")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_product_analytics_launch"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.create_product_analytics_launch ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.create_product_analytics_launch"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/launches'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsLaunchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_product_analytics_launch,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#create_product_analytics_launch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a Product Analytics monitor.
+    #
+    # @see #create_product_analytics_monitor_with_http_info
+    def create_product_analytics_monitor(body, opts = {})
+      data, _status_code, _headers = create_product_analytics_monitor_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Product Analytics monitor.
+    #
+    # Create a Product Analytics monitor that alerts on a Product Analytics query, such as a funnel conversion rate.
+    # Link it to the chart it was created from with the `chart_id` and `dashboard_id` tags.
+    #
+    # @param body [ProductAnalyticsMonitorCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsMonitorResponse, Integer, Hash)>] ProductAnalyticsMonitorResponse data, response status code and response headers
+    def create_product_analytics_monitor_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_product_analytics_monitor".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_product_analytics_monitor")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_product_analytics_monitor"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.create_product_analytics_monitor ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.create_product_analytics_monitor"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/monitors'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsMonitorResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_product_analytics_monitor,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#create_product_analytics_monitor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a Product Analytics launch.
+    #
+    # @see #delete_product_analytics_launch_with_http_info
+    def delete_product_analytics_launch(id, opts = {})
+      delete_product_analytics_launch_with_http_info(id, opts)
+      nil
+    end
+
+    # Delete a Product Analytics launch.
+    #
+    # Delete a Product Analytics launch and its tracking plan.
+    #
+    # @param id [String] UUID of the launch.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_product_analytics_launch_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_product_analytics_launch".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_product_analytics_launch")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_product_analytics_launch"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.delete_product_analytics_launch ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductAnalyticsAPI.delete_product_analytics_launch"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/launches/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_product_analytics_launch,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#delete_product_analytics_launch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a Product Analytics monitor.
+    #
+    # @see #delete_product_analytics_monitor_with_http_info
+    def delete_product_analytics_monitor(monitor_id, opts = {})
+      delete_product_analytics_monitor_with_http_info(monitor_id, opts)
+      nil
+    end
+
+    # Delete a Product Analytics monitor.
+    #
+    # Delete a Product Analytics monitor.
+    #
+    # @param monitor_id [String] Numeric ID of the monitor.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_product_analytics_monitor_with_http_info(monitor_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_product_analytics_monitor".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_product_analytics_monitor")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_product_analytics_monitor"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.delete_product_analytics_monitor ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling ProductAnalyticsAPI.delete_product_analytics_monitor"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/monitors/{monitor_id}'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_product_analytics_monitor,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#delete_product_analytics_monitor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a Product Analytics launch.
+    #
+    # @see #get_product_analytics_launch_with_http_info
+    def get_product_analytics_launch(id, opts = {})
+      data, _status_code, _headers = get_product_analytics_launch_with_http_info(id, opts)
+      data
+    end
+
+    # Get a Product Analytics launch.
+    #
+    # Get a Product Analytics launch and its tracking plan by UUID.
+    #
+    # @param id [String] UUID of the launch.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsLaunchResponse, Integer, Hash)>] ProductAnalyticsLaunchResponse data, response status code and response headers
+    def get_product_analytics_launch_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_product_analytics_launch".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_product_analytics_launch")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_product_analytics_launch"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.get_product_analytics_launch ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductAnalyticsAPI.get_product_analytics_launch"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/launches/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsLaunchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_product_analytics_launch,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#get_product_analytics_launch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a Product Analytics monitor.
+    #
+    # @see #get_product_analytics_monitor_with_http_info
+    def get_product_analytics_monitor(monitor_id, opts = {})
+      data, _status_code, _headers = get_product_analytics_monitor_with_http_info(monitor_id, opts)
+      data
+    end
+
+    # Get a Product Analytics monitor.
+    #
+    # Get a Product Analytics monitor by its ID.
+    #
+    # @param monitor_id [String] Numeric ID of the monitor.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsMonitorResponse, Integer, Hash)>] ProductAnalyticsMonitorResponse data, response status code and response headers
+    def get_product_analytics_monitor_with_http_info(monitor_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_product_analytics_monitor".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_product_analytics_monitor")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_product_analytics_monitor"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.get_product_analytics_monitor ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling ProductAnalyticsAPI.get_product_analytics_monitor"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/monitors/{monitor_id}'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsMonitorResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_product_analytics_monitor,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#get_product_analytics_monitor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Product Analytics launches.
+    #
+    # @see #list_product_analytics_launches_with_http_info
+    def list_product_analytics_launches(opts = {})
+      data, _status_code, _headers = list_product_analytics_launches_with_http_info(opts)
+      data
+    end
+
+    # List Product Analytics launches.
+    #
+    # List the Product Analytics launches of your organization. A launch tracks a feature release with its phase,
+    # KPIs, and tracking plan.
+    # Results are sorted by `-created_at` by default.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :sort Comma-separated fields to sort by: `id`, `phase`, `feature_flag_id`, `name`, `application_id`, `description`, `created_by`, `created_at`, `updated_by`, or `updated_at`. Prefix a field with `-` to sort in descending order.
+    # @option opts [ProductAnalyticsLaunchListScope] :scope Set to `liftoffs` to leave out launches in the `plan` phase.
+    # @option opts [Array<ProductAnalyticsLaunchPhase>] :phase Return only launches in these phases. Repeat the parameter to pass several phases.
+    # @option opts [String] :application_id Return only launches of this RUM application UUID.
+    # @option opts [String] :name Return only launches whose name contains this value, ignoring case.
+    # @return [Array<(ProductAnalyticsLaunchesResponse, Integer, Hash)>] ProductAnalyticsLaunchesResponse data, response status code and response headers
+    def list_product_analytics_launches_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_product_analytics_launches".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_product_analytics_launches")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_product_analytics_launches"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.list_product_analytics_launches ...'
+      end
+      allowable_values = ['liftoffs']
+      if @api_client.config.client_side_validation && opts[:'scope'] && !allowable_values.include?(opts[:'scope'])
+        fail ArgumentError, "invalid value for \"scope\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/launches'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'scope'] = opts[:'scope'] if !opts[:'scope'].nil?
+      query_params[:'phase'] = @api_client.build_collection_param(opts[:'phase'], :multi) if !opts[:'phase'].nil?
+      query_params[:'application_id'] = opts[:'application_id'] if !opts[:'application_id'].nil?
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsLaunchesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_product_analytics_launches,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#list_product_analytics_launches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Product Analytics monitors.
+    #
+    # @see #list_product_analytics_monitors_with_http_info
+    def list_product_analytics_monitors(opts = {})
+      data, _status_code, _headers = list_product_analytics_monitors_with_http_info(opts)
+      data
+    end
+
+    # List Product Analytics monitors.
+    #
+    # List the Product Analytics monitors of your organization, one page at a time.
+    # When `chart_id` is set, optionally with `dashboard_id`, the response includes every monitor linked to that
+    # chart, without pagination.
+    # With `chart_id` alone, monitors created from a dashboard widget are not returned.
+    # Monitors created in the last few seconds may be missing.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Maximum number of monitors per page, from 1 to 1000. Ignored when `chart_id` is set.
+    # @option opts [Integer] :page_number Page number, starting at 1. Ignored when `chart_id` is set.
+    # @option opts [String] :chart_id Return only the monitors linked to this chart. Turns off pagination.
+    # @option opts [String] :dashboard_id Return only the monitors linked to this dashboard. Requires `chart_id`.
+    # @return [Array<(ProductAnalyticsMonitorListResponse, Integer, Hash)>] ProductAnalyticsMonitorListResponse data, response status code and response headers
+    def list_product_analytics_monitors_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_product_analytics_monitors".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_product_analytics_monitors")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_product_analytics_monitors"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.list_product_analytics_monitors ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ProductAnalyticsAPI.list_product_analytics_monitors, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ProductAnalyticsAPI.list_product_analytics_monitors, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling ProductAnalyticsAPI.list_product_analytics_monitors, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/monitors'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'chart_id'] = opts[:'chart_id'] if !opts[:'chart_id'].nil?
+      query_params[:'dashboard_id'] = opts[:'dashboard_id'] if !opts[:'dashboard_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsMonitorListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_product_analytics_monitors,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#list_product_analytics_monitors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Compute journey funnel analysis.
     #
     # @see #query_product_analytics_journey_funnel_with_http_info
@@ -902,6 +1505,86 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Unlink a Product Analytics monitor from its chart.
+    #
+    # @see #remove_chart_from_product_analytics_monitor_with_http_info
+    def remove_chart_from_product_analytics_monitor(monitor_id, body, opts = {})
+      remove_chart_from_product_analytics_monitor_with_http_info(monitor_id, body, opts)
+      nil
+    end
+
+    # Unlink a Product Analytics monitor from its chart.
+    #
+    # Remove the `chart_id` and `dashboard_id` tags from a Product Analytics monitor. The monitor and the rest of
+    # its configuration are kept.
+    # The request must name the stored link exactly. A monitor with no link is left unchanged.
+    #
+    # @param monitor_id [String] Numeric ID of the monitor.
+    # @param body [ProductAnalyticsMonitorUnlinkRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def remove_chart_from_product_analytics_monitor_with_http_info(monitor_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.remove_chart_from_product_analytics_monitor".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_chart_from_product_analytics_monitor")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.remove_chart_from_product_analytics_monitor"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.remove_chart_from_product_analytics_monitor ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling ProductAnalyticsAPI.remove_chart_from_product_analytics_monitor"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.remove_chart_from_product_analytics_monitor"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/monitors/{monitor_id}/unlink'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :remove_chart_from_product_analytics_monitor,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#remove_chart_from_product_analytics_monitor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Send server-side events.
     #
     # @see #submit_product_analytics_event_with_http_info
@@ -993,6 +1676,167 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProductAnalyticsAPI#submit_product_analytics_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a Product Analytics launch.
+    #
+    # @see #update_product_analytics_launch_with_http_info
+    def update_product_analytics_launch(id, body, opts = {})
+      data, _status_code, _headers = update_product_analytics_launch_with_http_info(id, body, opts)
+      data
+    end
+
+    # Update a Product Analytics launch.
+    #
+    # Update some fields of a Product Analytics launch. Fields that are not set are left unchanged. The `id` in
+    # the body must match the one in the path.
+    # Setting `steps.tracking_plan` replaces the whole stored tracking plan, not only the fields you send.
+    # Returns `409` when the launch changed during the update; fetch it again and retry.
+    #
+    # @param id [String] UUID of the launch.
+    # @param body [ProductAnalyticsLaunchPatchRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsLaunchResponse, Integer, Hash)>] ProductAnalyticsLaunchResponse data, response status code and response headers
+    def update_product_analytics_launch_with_http_info(id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_product_analytics_launch".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_product_analytics_launch")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_product_analytics_launch"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.update_product_analytics_launch ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductAnalyticsAPI.update_product_analytics_launch"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.update_product_analytics_launch"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/launches/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsLaunchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_product_analytics_launch,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#update_product_analytics_launch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a Product Analytics monitor.
+    #
+    # @see #update_product_analytics_monitor_with_http_info
+    def update_product_analytics_monitor(monitor_id, body, opts = {})
+      data, _status_code, _headers = update_product_analytics_monitor_with_http_info(monitor_id, body, opts)
+      data
+    end
+
+    # Update a Product Analytics monitor.
+    #
+    # Update a Product Analytics monitor. Fields that are not set are left unchanged, and at least one field
+    # must be set. When set, `tags` replaces the monitor tags except `chart_id` and `dashboard_id`, which this
+    # endpoint ignores. To remove them, use the unlink endpoint.
+    #
+    # @param monitor_id [String] Numeric ID of the monitor.
+    # @param body [ProductAnalyticsMonitorUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsMonitorResponse, Integer, Hash)>] ProductAnalyticsMonitorResponse data, response status code and response headers
+    def update_product_analytics_monitor_with_http_info(monitor_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_product_analytics_monitor".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_product_analytics_monitor")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_product_analytics_monitor"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.update_product_analytics_monitor ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling ProductAnalyticsAPI.update_product_analytics_monitor"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.update_product_analytics_monitor"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/monitors/{monitor_id}'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsMonitorResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_product_analytics_monitor,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#update_product_analytics_monitor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

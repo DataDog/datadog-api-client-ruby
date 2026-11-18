@@ -101,6 +101,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a segment.
+    #
+    # @see #create_product_analytics_segment_with_http_info
+    def create_product_analytics_segment(body, opts = {})
+      data, _status_code, _headers = create_product_analytics_segment_with_http_info(body, opts)
+      data
+    end
+
+    # Create a segment.
+    #
+    # Create a user or account segment. The `data_query` defines who belongs to the segment.
+    # Segment names must be unique in the organization.
+    #
+    # @param body [SegmentCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SegmentResponse, Integer, Hash)>] SegmentResponse data, response status code and response headers
+    def create_product_analytics_segment_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_product_analytics_segment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_product_analytics_segment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_product_analytics_segment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumAudienceManagementAPI.create_product_analytics_segment ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RumAudienceManagementAPI.create_product_analytics_segment"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/segment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SegmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_product_analytics_segment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumAudienceManagementAPI#create_product_analytics_segment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete connection.
     #
     # @see #delete_connection_with_http_info
@@ -177,6 +251,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a segment.
+    #
+    # @see #delete_product_analytics_segment_with_http_info
+    def delete_product_analytics_segment(id, opts = {})
+      data, _status_code, _headers = delete_product_analytics_segment_with_http_info(id, opts)
+      data
+    end
+
+    # Delete a segment.
+    #
+    # Delete a segment. Segments created by users are deleted permanently.
+    # Segments created by Datadog, and segments based on an uploaded list, are disabled instead.
+    #
+    # @param id [String] ID of the segment.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SegmentDeleteResponse, Integer, Hash)>] SegmentDeleteResponse data, response status code and response headers
+    def delete_product_analytics_segment_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_product_analytics_segment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_product_analytics_segment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_product_analytics_segment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumAudienceManagementAPI.delete_product_analytics_segment ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling RumAudienceManagementAPI.delete_product_analytics_segment"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/segment/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SegmentDeleteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_product_analytics_segment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumAudienceManagementAPI#delete_product_analytics_segment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a user profile.
     #
     # @see #delete_user_profile_with_http_info
@@ -188,7 +334,8 @@ module DatadogAPIClient::V2
     # Delete a user profile.
     #
     # Delete a Product Analytics user profile.
-    # Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few minutes.
+    # Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few
+    # minutes.
     # This only deletes the user profile. To delete the RUM events of the user, use the RUM data deletion API.
     #
     # @param user_id [String] The ID of the user to delete, as sent in the `usr.id` attribute.
@@ -394,6 +541,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a segment.
+    #
+    # @see #get_product_analytics_segment_with_http_info
+    def get_product_analytics_segment(id, opts = {})
+      data, _status_code, _headers = get_product_analytics_segment_with_http_info(id, opts)
+      data
+    end
+
+    # Get a segment.
+    #
+    # Get a segment by ID, including its definition.
+    #
+    # @param id [String] ID of the segment.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SegmentResponse, Integer, Hash)>] SegmentResponse data, response status code and response headers
+    def get_product_analytics_segment_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_product_analytics_segment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_product_analytics_segment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_product_analytics_segment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumAudienceManagementAPI.get_product_analytics_segment ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling RumAudienceManagementAPI.get_product_analytics_segment"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/segment/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SegmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_product_analytics_segment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumAudienceManagementAPI#get_product_analytics_segment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get user facet info.
     #
     # @see #get_user_facet_info_with_http_info
@@ -534,6 +752,177 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RumAudienceManagementAPI#list_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List segments.
+    #
+    # @see #list_product_analytics_segments_with_http_info
+    def list_product_analytics_segments(opts = {})
+      data, _status_code, _headers = list_product_analytics_segments_with_http_info(opts)
+      data
+    end
+
+    # List segments.
+    #
+    # List the user and account segments of your organization. Disabled segments are left out unless
+    # `filter[disabled]` is `false`.
+    # The list does not include segment definitions; get a segment by ID to see its `data_query`.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [SegmentEntity] :filter_entity Return only segments of this entity kind. Other values are ignored.
+    # @option opts [String] :filter_type Comma-separated segment kinds to return: `event_platform`, `user_store`, `account_store`, `reference_table`, `static`, `template`, `combination`, `journey`, or `retention`.
+    # @option opts [String] :filter_ids Comma-separated segment IDs to return, up to 1000.
+    # @option opts [Boolean] :filter_disabled Set to `false` to include disabled segments.
+    # @option opts [SegmentSortColumn] :sort_column Column to sort by. Other values are ignored.
+    # @option opts [QuerySortOrder] :sort_order Sort order. Only used with `sort[column]`.
+    # @option opts [Integer] :limit Maximum number of segments to return. Returns all segments when not set.
+    # @return [Array<(SegmentsResponse, Integer, Hash)>] SegmentsResponse data, response status code and response headers
+    def list_product_analytics_segments_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_product_analytics_segments".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_product_analytics_segments")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_product_analytics_segments"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumAudienceManagementAPI.list_product_analytics_segments ...'
+      end
+      allowable_values = ['user', 'account']
+      if @api_client.config.client_side_validation && opts[:'filter_entity'] && !allowable_values.include?(opts[:'filter_entity'])
+        fail ArgumentError, "invalid value for \"filter_entity\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['name', 'description', 'created_by', 'created_at', 'modified_by', 'modified_at', 'disabled_by', 'disabled_at', 'uuid']
+      if @api_client.config.client_side_validation && opts[:'sort_column'] && !allowable_values.include?(opts[:'sort_column'])
+        fail ArgumentError, "invalid value for \"sort_column\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['asc', 'desc']
+      if @api_client.config.client_side_validation && opts[:'sort_order'] && !allowable_values.include?(opts[:'sort_order'])
+        fail ArgumentError, "invalid value for \"sort_order\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RumAudienceManagementAPI.list_product_analytics_segments, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/segment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[entity]'] = opts[:'filter_entity'] if !opts[:'filter_entity'].nil?
+      query_params[:'filter[type]'] = opts[:'filter_type'] if !opts[:'filter_type'].nil?
+      query_params[:'filter[ids]'] = opts[:'filter_ids'] if !opts[:'filter_ids'].nil?
+      query_params[:'filter[disabled]'] = opts[:'filter_disabled'] if !opts[:'filter_disabled'].nil?
+      query_params[:'sort[column]'] = opts[:'sort_column'] if !opts[:'sort_column'].nil?
+      query_params[:'sort[order]'] = opts[:'sort_order'] if !opts[:'sort_order'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SegmentsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_product_analytics_segments,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumAudienceManagementAPI#list_product_analytics_segments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Preview a segment.
+    #
+    # @see #preview_product_analytics_segment_with_http_info
+    def preview_product_analytics_segment(body, opts = {})
+      data, _status_code, _headers = preview_product_analytics_segment_with_http_info(body, opts)
+      data
+    end
+
+    # Preview a segment.
+    #
+    # Preview the users or accounts that match a segment definition, without saving it.
+    # Returns up to 1000 rows and the total number of matching entities.
+    #
+    # @param body [SegmentPreviewRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SegmentPreviewResponse, Integer, Hash)>] SegmentPreviewResponse data, response status code and response headers
+    def preview_product_analytics_segment_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.preview_product_analytics_segment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.preview_product_analytics_segment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.preview_product_analytics_segment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumAudienceManagementAPI.preview_product_analytics_segment ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RumAudienceManagementAPI.preview_product_analytics_segment"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/segments/preview'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SegmentPreviewResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :preview_product_analytics_segment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumAudienceManagementAPI#preview_product_analytics_segment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -831,6 +1220,86 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RumAudienceManagementAPI#update_connection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a segment.
+    #
+    # @see #update_product_analytics_segment_with_http_info
+    def update_product_analytics_segment(id, body, opts = {})
+      update_product_analytics_segment_with_http_info(id, body, opts)
+      nil
+    end
+
+    # Update a segment.
+    #
+    # Update a segment. Fields that are not set are left unchanged. The `id` in the body must match the one in the
+    # path.
+    # The response has no body; get the segment to see the result.
+    #
+    # @param id [String] ID of the segment.
+    # @param body [SegmentUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_product_analytics_segment_with_http_info(id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_product_analytics_segment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_product_analytics_segment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_product_analytics_segment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RumAudienceManagementAPI.update_product_analytics_segment ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling RumAudienceManagementAPI.update_product_analytics_segment"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RumAudienceManagementAPI.update_product_analytics_segment"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/segment/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_product_analytics_segment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RumAudienceManagementAPI#update_product_analytics_segment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
