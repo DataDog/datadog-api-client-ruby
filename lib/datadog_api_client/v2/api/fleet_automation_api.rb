@@ -97,6 +97,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a fleet access scope.
+    #
+    # @see #create_fleet_access_scope_with_http_info
+    def create_fleet_access_scope(body, opts = {})
+      data, _status_code, _headers = create_fleet_access_scope_with_http_info(body, opts)
+      data
+    end
+
+    # Create a fleet access scope.
+    #
+    # Create an access scope defining which fleet actions can be performed on matching agents. Manage its principals separately with a restriction policy on `fleet-scope:<id>`.
+    #
+    # @param body [FleetAccessScopeWriteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAccessScopeResponse, Integer, Hash)>] FleetAccessScopeResponse data, response status code and response headers
+    def create_fleet_access_scope_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_fleet_access_scope".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_fleet_access_scope")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_fleet_access_scope"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_access_scope ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_access_scope"
+      end
+      # resource path
+      local_var_path = '/api/v2/fleet/access_scopes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAccessScopeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_fleet_access_scope,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_access_scope\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a configuration deployment.
     #
     # @see #create_fleet_deployment_configure_v2_with_http_info
@@ -340,6 +413,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a fleet access scope.
+    #
+    # @see #delete_fleet_access_scope_with_http_info
+    def delete_fleet_access_scope(access_scope_id, opts = {})
+      delete_fleet_access_scope_with_http_info(access_scope_id, opts)
+      nil
+    end
+
+    # Delete a fleet access scope.
+    #
+    # Delete an access scope. The associated restriction policy is deleted on a best-effort basis. Listing scopes after the last scope is deleted initializes the default scope again.
+    #
+    # @param access_scope_id [String] The unique identifier of the fleet access scope.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_fleet_access_scope_with_http_info(access_scope_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_fleet_access_scope".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_fleet_access_scope")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_fleet_access_scope"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.delete_fleet_access_scope ...'
+      end
+      # verify the required parameter 'access_scope_id' is set
+      if @api_client.config.client_side_validation && access_scope_id.nil?
+        fail ArgumentError, "Missing the required parameter 'access_scope_id' when calling FleetAutomationAPI.delete_fleet_access_scope"
+      end
+      # resource path
+      local_var_path = '/api/v2/fleet/access_scopes/{access_scope_id}'.sub('{access_scope_id}', CGI.escape(access_scope_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_fleet_access_scope,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#delete_fleet_access_scope\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a schedule.
     #
     # @see #delete_fleet_schedule_with_http_info
@@ -415,6 +559,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FleetAutomationAPI#delete_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a fleet access scope.
+    #
+    # @see #get_fleet_access_scope_with_http_info
+    def get_fleet_access_scope(access_scope_id, opts = {})
+      data, _status_code, _headers = get_fleet_access_scope_with_http_info(access_scope_id, opts)
+      data
+    end
+
+    # Get a fleet access scope.
+    #
+    # Retrieve an access scope by its unique identifier.
+    #
+    # @param access_scope_id [String] The unique identifier of the fleet access scope.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAccessScopeResponse, Integer, Hash)>] FleetAccessScopeResponse data, response status code and response headers
+    def get_fleet_access_scope_with_http_info(access_scope_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_access_scope".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_access_scope")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_access_scope"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_access_scope ...'
+      end
+      # verify the required parameter 'access_scope_id' is set
+      if @api_client.config.client_side_validation && access_scope_id.nil?
+        fail ArgumentError, "Missing the required parameter 'access_scope_id' when calling FleetAutomationAPI.get_fleet_access_scope"
+      end
+      # resource path
+      local_var_path = '/api/v2/fleet/access_scopes/{access_scope_id}'.sub('{access_scope_id}', CGI.escape(access_scope_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAccessScopeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_fleet_access_scope,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_access_scope\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -622,6 +837,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_schedule_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List all fleet access scopes.
+    #
+    # @see #list_fleet_access_scopes_with_http_info
+    def list_fleet_access_scopes(opts = {})
+      data, _status_code, _headers = list_fleet_access_scopes_with_http_info(opts)
+      data
+    end
+
+    # List all fleet access scopes.
+    #
+    # Retrieve all access scopes in the organization. This endpoint is not paginated. If the organization has no scopes, listing initializes its default scope, including after the final scope has been deleted.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAccessScopesResponse, Integer, Hash)>] FleetAccessScopesResponse data, response status code and response headers
+    def list_fleet_access_scopes_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_access_scopes".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_access_scopes")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_access_scopes"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_access_scopes ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/fleet/access_scopes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAccessScopesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_fleet_access_scopes,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_access_scopes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1177,6 +1458,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FleetAutomationAPI#trigger_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace a fleet access scope.
+    #
+    # @see #update_fleet_access_scope_with_http_info
+    def update_fleet_access_scope(access_scope_id, body, opts = {})
+      data, _status_code, _headers = update_fleet_access_scope_with_http_info(access_scope_id, body, opts)
+      data
+    end
+
+    # Replace a fleet access scope.
+    #
+    # Replace the mutable attributes of an access scope selected by its path ID. Omitted strings become empty; omitted feature flags become false. Existing restriction policy bindings are preserved.
+    #
+    # @param access_scope_id [String] The unique identifier of the fleet access scope.
+    # @param body [FleetAccessScopeWriteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAccessScopeResponse, Integer, Hash)>] FleetAccessScopeResponse data, response status code and response headers
+    def update_fleet_access_scope_with_http_info(access_scope_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_fleet_access_scope".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_fleet_access_scope")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_fleet_access_scope"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.update_fleet_access_scope ...'
+      end
+      # verify the required parameter 'access_scope_id' is set
+      if @api_client.config.client_side_validation && access_scope_id.nil?
+        fail ArgumentError, "Missing the required parameter 'access_scope_id' when calling FleetAutomationAPI.update_fleet_access_scope"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.update_fleet_access_scope"
+      end
+      # resource path
+      local_var_path = '/api/v2/fleet/access_scopes/{access_scope_id}'.sub('{access_scope_id}', CGI.escape(access_scope_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAccessScopeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_fleet_access_scope,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#update_fleet_access_scope\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

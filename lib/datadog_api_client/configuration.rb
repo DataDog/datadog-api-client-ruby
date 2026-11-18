@@ -197,11 +197,16 @@ module DatadogAPIClient
       @http_proxypass = nil
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
+            "v2.create_fleet_access_scope": false,
             "v2.create_fleet_schedule": false,
+            "v2.delete_fleet_access_scope": false,
             "v2.delete_fleet_schedule": false,
+            "v2.get_fleet_access_scope": false,
+            "v2.list_fleet_access_scopes": false,
             "v2.list_fleet_agent_tracers": false,
             "v2.list_fleet_tracers": false,
             "v2.trigger_fleet_schedule": false,
+            "v2.update_fleet_access_scope": false,
             "v2.update_fleet_schedule": false,
             "v2.aggregate_llm_obs_experimentation": false,
             "v2.batch_update_llm_obs_dataset": false,

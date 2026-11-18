@@ -867,6 +867,19 @@ ScenariosModelMappings = {
             "sort_descending" => "Boolean",
             "filter" => "String",
     },
+    "v2.CreateFleetAccessScope" => {
+            "body" => "FleetAccessScopeWriteRequest",
+    },
+    "v2.DeleteFleetAccessScope" => {
+            "access_scope_id" => "String",
+    },
+    "v2.GetFleetAccessScope" => {
+            "access_scope_id" => "String",
+    },
+    "v2.UpdateFleetAccessScope" => {
+            "access_scope_id" => "String",
+            "body" => "FleetAccessScopeWriteRequest",
+    },
     "v2.ListFleetAgentsV2" => {
             "page_number" => "Integer",
             "page_size" => "Integer",
