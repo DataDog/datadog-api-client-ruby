@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :search Free-text search over process fields such as the executable and user. When it contains several words, a process must match all of them. Use `tags` for exact values such as host.
-    # @option opts [String] :tags Comma-separated `key:value` tags. A process must match every tag. Wildcards, negation (`-key:value`), spaces, and `IN (...)` are not supported. To cover several hosts, make one request per host.
+    # @option opts [String] :tags Comma-separated `key:value` tags. A process must match every tag. Each tag starts with a letter and contains only letters, digits, `_`, `-`, `.`, `/`, `@`, and `:`. Values match exactly and are case-sensitive (tags are usually lowercase, so `env:PROD` matches nothing if the tag is `env:prod`). In a value, `*` matches any run of characters, including none. It can appear anywhere in the value and more than once, and it can't be escaped. For example, `env:prod*` matches `env:prod` and `env:prod-eu`, `service:*web*` matches `service:checkout-web-1`, and `env:*` matches any process with an `env` tag. These return `400 Bad Request`, with the reason in `errors[0].detail`: a `*` in a key or in a tag without `:` (`kube_*:prod`, `*:prod`, `prod*`), a `?`, a leading `-` (negation), spaces (so `OR` and `IN (...)` can't be used), an empty value (`env:`), and more than 1024 characters in total. A `*` in the value of `started`, `infra_type`, or `apm_instrumented` also returns 400, but its `detail` is only `Bad Request`. To match unrelated values of one key, make one request per value.
     # @option opts [Integer] :from Start of the query window, in Unix seconds. Must be within the past 36 hours and at most 1 hour before `to`. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` is provided, the query window is `[now - 15m, now]`.
     # @option opts [Integer] :to End of the query window, in Unix seconds. Must be at most 1 hour after `from`. If not provided, the end of the query window is 15 minutes after the `from` timestamp. If neither `from` nor `to` is provided, the query window is `[now - 15m, now]`.
     # @option opts [Integer] :page_limit Maximum number of results returned.
@@ -53,6 +53,9 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'tags'].nil? && opts[:'tags'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"tags"]" when calling ProcessesAPI.list_processes, the character length must be smaller than or equal to 1024.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be smaller than or equal to 10000.'
