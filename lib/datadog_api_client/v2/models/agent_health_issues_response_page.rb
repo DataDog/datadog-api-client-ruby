@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Pagination counts for the Agent Health issues.
+  # Counts for the matching Agent Health issues.
   class AgentHealthIssuesResponsePage
     include BaseGenericModel
 
-    # The total number of open issues in the organization, ignoring filters.
-    attr_reader :total_count
+    # The number of open issues matching the filters in each issue-type group.
+    attr_reader :counts_by_issue_type
 
-    # The total number of open issues matching the filters, across all pages.
-    attr_reader :total_filtered_count
+    # The total number of open issues matching the filters.
+    attr_reader :total_count
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'total_count' => :'total_count',
-        :'total_filtered_count' => :'total_filtered_count'
+        :'counts_by_issue_type' => :'counts_by_issue_type',
+        :'total_count' => :'total_count'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'total_count' => :'Integer',
-        :'total_filtered_count' => :'Integer'
+        :'counts_by_issue_type' => :'Hash<String, Integer>',
+        :'total_count' => :'Integer'
       }
     end
 
@@ -65,12 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'total_count')
-        self.total_count = attributes[:'total_count']
+      if attributes.key?(:'counts_by_issue_type')
+        self.counts_by_issue_type = attributes[:'counts_by_issue_type']
       end
 
-      if attributes.key?(:'total_filtered_count')
-        self.total_filtered_count = attributes[:'total_filtered_count']
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
     end
 
@@ -78,9 +78,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @counts_by_issue_type.nil?
       return false if @total_count.nil?
-      return false if @total_filtered_count.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param counts_by_issue_type [Object] Object to be assigned
+    # @!visibility private
+    def counts_by_issue_type=(counts_by_issue_type)
+      if counts_by_issue_type.nil?
+        fail ArgumentError, 'invalid value for "counts_by_issue_type", counts_by_issue_type cannot be nil.'
+      end
+      @counts_by_issue_type = counts_by_issue_type
     end
 
     # Custom attribute writer method with validation
@@ -91,16 +101,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "total_count", total_count cannot be nil.'
       end
       @total_count = total_count
-    end
-
-    # Custom attribute writer method with validation
-    # @param total_filtered_count [Object] Object to be assigned
-    # @!visibility private
-    def total_filtered_count=(total_filtered_count)
-      if total_filtered_count.nil?
-        fail ArgumentError, 'invalid value for "total_filtered_count", total_filtered_count cannot be nil.'
-      end
-      @total_filtered_count = total_filtered_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          counts_by_issue_type == o.counts_by_issue_type &&
           total_count == o.total_count &&
-          total_filtered_count == o.total_filtered_count &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_count, total_filtered_count, additional_properties].hash
+      [counts_by_issue_type, total_count, additional_properties].hash
     end
   end
 end
