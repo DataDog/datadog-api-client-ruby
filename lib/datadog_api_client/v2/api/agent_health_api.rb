@@ -181,23 +181,24 @@ module DatadogAPIClient::V2
 
     # List Agent Health issues.
     #
-    # List Agent Health issues across your organization. Only open issues are returned.
-    # Returns `403` if you lack the `hosts_read` permission.
+    # List open Agent Health issues across your organization. Returns `403` if you
+    # lack the `hosts_read` permission.
     #
-    # Results use a stable order: severity rank (`high`, `medium`, `low`, then other values),
-    # then `first_seen_at` descending with missing timestamps last, then issue ID ascending.
-    # Use `page[size]` and the zero-based `page[number]` to paginate. Invalid page values
-    # return a `400` JSON:API error response. `meta.page.total_filtered_count` is the number
-    # of issues matching the filters, and `meta.page.total_count` the number of open issues
-    # in the organization.
+    # Each item in `data` is a JSON:API resource object whose `attributes` hold the issue
+    # fields, including its `issue_type`. Issues use a stable order: severity rank
+    # (`high`, `medium`, `low`, then other values), then `first_seen_at` descending with
+    # missing timestamps last, then issue ID ascending.
+    #
+    # Set `count_by=issue_type` to include `meta.page`, where `total_count` is the number of
+    # open issues matching the filters and `counts_by_issue_type` holds the per-type counts.
+    # `meta` is omitted when `count_by` is not requested.
     #
     # Each filter accepts up to 50 comma-separated exact values of at most 256 characters
     # each, combined with OR within a filter and AND across filters. Blank entries are ignored; an all-blank filter
     # is treated as absent.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size The number of issues to return per page, from 1 to 100. Defaults to 25.
-    # @option opts [Integer] :page_number The zero-based page number, from 0 to 1000000. Defaults to 0.
+    # @option opts [AgentHealthIssuesCountBy] :count_by Set to `issue_type` to include `meta.page` with `total_count` and per-issue-type counts. If you don't set this parameter, the response omits `meta`. Only `issue_type` is supported.
     # @option opts [String] :filter_severity Filter by a comma-separated list of exact `severity` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
     # @option opts [String] :filter_category Filter by a comma-separated list of exact `category` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
     # @option opts [String] :filter_issue_type Filter by a comma-separated list of exact `issue_type` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
@@ -215,17 +216,9 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AgentHealthAPI.list_agent_health_issues ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling AgentHealthAPI.list_agent_health_issues, must be smaller than or equal to 100.'
-      end
-      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling AgentHealthAPI.list_agent_health_issues, must be greater than or equal to 1.'
-      end
-      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] > 1000000
-        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling AgentHealthAPI.list_agent_health_issues, must be smaller than or equal to 1000000.'
-      end
-      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling AgentHealthAPI.list_agent_health_issues, must be greater than or equal to 0.'
+      allowable_values = ['issue_type']
+      if @api_client.config.client_side_validation && opts[:'count_by'] && !allowable_values.include?(opts[:'count_by'])
+        fail ArgumentError, "invalid value for \"count_by\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'filter_severity'].nil? && opts[:'filter_severity'].to_s.length > 12850
         fail ArgumentError, 'invalid value for "opts[:"filter_severity"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
@@ -247,8 +240,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'count_by'] = opts[:'count_by'] if !opts[:'count_by'].nil?
       query_params[:'filter[severity]'] = opts[:'filter_severity'] if !opts[:'filter_severity'].nil?
       query_params[:'filter[category]'] = opts[:'filter_category'] if !opts[:'filter_category'].nil?
       query_params[:'filter[issue_type]'] = opts[:'filter_issue_type'] if !opts[:'filter_issue_type'].nil?

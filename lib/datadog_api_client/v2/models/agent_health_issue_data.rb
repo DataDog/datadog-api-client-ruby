@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An open Agent Health issue.
+  # An open Agent Health issue with available remediation.
   class AgentHealthIssueData
     include BaseGenericModel
 
-    # Attributes of an open Agent Health issue.
+    # Attributes of an open Agent Health issue, including available remediation.
     attr_reader :attributes
 
     # The unique identifier of the issue.

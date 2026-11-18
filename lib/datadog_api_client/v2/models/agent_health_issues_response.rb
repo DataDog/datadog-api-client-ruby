@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A paginated response containing open Agent Health issues.
+  # A response containing open Agent Health issues.
   class AgentHealthIssuesResponse
     include BaseGenericModel
 
-    # The open Agent Health issues on this page.
+    # The open Agent Health issues matching the request.
     attr_reader :data
 
-    # Pagination metadata for the matching Agent Health issues.
-    attr_reader :meta
+    # Aggregate counts for the matching Agent Health issues. Present only when `count_by=issue_type` is requested.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -81,7 +81,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @data.nil?
-      return false if @meta.nil?
       true
     end
 
@@ -93,16 +92,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
       @data = data
-    end
-
-    # Custom attribute writer method with validation
-    # @param meta [Object] Object to be assigned
-    # @!visibility private
-    def meta=(meta)
-      if meta.nil?
-        fail ArgumentError, 'invalid value for "meta", meta cannot be nil.'
-      end
-      @meta = meta
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

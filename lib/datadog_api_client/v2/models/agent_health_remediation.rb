@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AgentHealthRemediation
     include BaseGenericModel
 
+    # A suggested prompt for an AI assistant to help remediate the issue.
+    attr_accessor :ai_prompt
+
     # A script that can be used to remediate the issue.
     attr_accessor :script
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'ai_prompt' => :'ai_prompt',
         :'script' => :'script',
         :'steps' => :'steps',
         :'summary' => :'summary'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'ai_prompt' => :'String',
         :'script' => :'AgentHealthRemediationScript',
         :'steps' => :'Array<AgentHealthRemediationStep>',
         :'summary' => :'String'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'ai_prompt')
+        self.ai_prompt = attributes[:'ai_prompt']
+      end
 
       if attributes.key?(:'script')
         self.script = attributes[:'script']
@@ -111,6 +120,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_prompt == o.ai_prompt &&
           script == o.script &&
           steps == o.steps &&
           summary == o.summary &&
@@ -121,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [script, steps, summary, additional_properties].hash
+      [ai_prompt, script, steps, summary, additional_properties].hash
     end
   end
 end

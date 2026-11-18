@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of an open Agent Health issue.
+  # Attributes of an open Agent Health issue, including available remediation.
   class AgentHealthIssueAttributes
     include BaseGenericModel
 
@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The description of the issue. Omitted when empty.
     attr_accessor :description
 
+    # Free-form, issue-type-specific context. Keys are not part of the stable schema. Omitted when empty.
+    attr_accessor :extra
+
     # The time the issue was first seen, in RFC 3339 format. Omitted when empty.
     attr_accessor :first_seen_at
 
@@ -35,6 +38,9 @@ module DatadogAPIClient::V2
 
     # The machine-readable type of the issue.
     attr_reader :issue_type
+
+    # Remediation for the issue. Omitted when no remediation is available.
+    attr_accessor :remediation
 
     # The identifier of the affected resource, interpreted according to `resource_kind`: hostname for `host`, DaemonSet UID for `deployment` (node Agent), cluster UUID for `cluster`, hostname of the host running the Cluster Agent for `cluster_agent`, or OpenTelemetry collector ID for `otel`.
     attr_reader :resource_id
@@ -68,9 +74,11 @@ module DatadogAPIClient::V2
       {
         :'category' => :'category',
         :'description' => :'description',
+        :'extra' => :'extra',
         :'first_seen_at' => :'first_seen_at',
         :'issue_name' => :'issue_name',
         :'issue_type' => :'issue_type',
+        :'remediation' => :'remediation',
         :'resource_id' => :'resource_id',
         :'resource_kind' => :'resource_kind',
         :'resource_type' => :'resource_type',
@@ -88,9 +96,11 @@ module DatadogAPIClient::V2
       {
         :'category' => :'String',
         :'description' => :'String',
+        :'extra' => :'Hash<String, Object>',
         :'first_seen_at' => :'Time',
         :'issue_name' => :'String',
         :'issue_type' => :'String',
+        :'remediation' => :'AgentHealthRemediation',
         :'resource_id' => :'String',
         :'resource_kind' => :'String',
         :'resource_type' => :'String',
@@ -128,6 +138,10 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'extra')
+        self.extra = attributes[:'extra']
+      end
+
       if attributes.key?(:'first_seen_at')
         self.first_seen_at = attributes[:'first_seen_at']
       end
@@ -138,6 +152,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'issue_type')
         self.issue_type = attributes[:'issue_type']
+      end
+
+      if attributes.key?(:'remediation')
+        self.remediation = attributes[:'remediation']
       end
 
       if attributes.key?(:'resource_id')
@@ -276,9 +294,11 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           category == o.category &&
           description == o.description &&
+          extra == o.extra &&
           first_seen_at == o.first_seen_at &&
           issue_name == o.issue_name &&
           issue_type == o.issue_type &&
+          remediation == o.remediation &&
           resource_id == o.resource_id &&
           resource_kind == o.resource_kind &&
           resource_type == o.resource_type &&
@@ -294,7 +314,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, description, first_seen_at, issue_name, issue_type, resource_id, resource_kind, resource_type, severity, state, tags, title, updated_at, additional_properties].hash
+      [category, description, extra, first_seen_at, issue_name, issue_type, remediation, resource_id, resource_kind, resource_type, severity, state, tags, title, updated_at, additional_properties].hash
     end
   end
 end

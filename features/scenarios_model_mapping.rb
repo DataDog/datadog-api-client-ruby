@@ -1296,8 +1296,7 @@ ScenariosModelMappings = {
             "agent_type" => "AgentHealthAgentType",
     },
     "v2.ListAgentHealthIssues" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
+            "count_by" => "AgentHealthIssuesCountBy",
             "filter_severity" => "String",
             "filter_category" => "String",
             "filter_issue_type" => "String",
