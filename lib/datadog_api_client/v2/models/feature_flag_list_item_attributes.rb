@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The timestamp when the feature flag was archived.
     attr_accessor :archived_at
 
+    # How subjects are assigned to variants. `DATADOG` is the native scheme. `EPPO` reproduces the assignments that Eppo made for a flag migrated from Eppo, so its subjects keep their variants. Set when the flag is created and never changed.
+    attr_accessor :bucketing_mode
+
     # The timestamp when the feature flag was created.
     attr_accessor :created_at
 
@@ -85,6 +88,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'archived_at' => :'archived_at',
+        :'bucketing_mode' => :'bucketing_mode',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'description' => :'description',
@@ -111,6 +115,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'archived_at' => :'Time',
+        :'bucketing_mode' => :'FeatureFlagBucketingMode',
         :'created_at' => :'Time',
         :'created_by' => :'UUID',
         :'description' => :'String',
@@ -161,6 +166,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'archived_at')
         self.archived_at = attributes[:'archived_at']
+      end
+
+      if attributes.key?(:'bucketing_mode')
+        self.bucketing_mode = attributes[:'bucketing_mode']
       end
 
       if attributes.key?(:'created_at')
@@ -331,6 +340,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           archived_at == o.archived_at &&
+          bucketing_mode == o.bucketing_mode &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           description == o.description &&
@@ -356,7 +366,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, is_favorite, json_schema, key, last_updated_by, name, require_approval, staleness_details, staleness_status, staleness_status_override, tags, updated_at, value_type, variants, additional_properties].hash
+      [archived_at, bucketing_mode, created_at, created_by, description, distribution_channel, feature_flag_environments, is_favorite, json_schema, key, last_updated_by, name, require_approval, staleness_details, staleness_status, staleness_status_override, tags, updated_at, value_type, variants, additional_properties].hash
     end
   end
 end

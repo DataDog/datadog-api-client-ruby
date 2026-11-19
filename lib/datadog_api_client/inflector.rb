@@ -4434,6 +4434,7 @@ module DatadogAPIClient
           "v2.fastly_service_type" => "FastlyServiceType",
           "v2.feature_flag" => "FeatureFlag",
           "v2.feature_flag_attributes" => "FeatureFlagAttributes",
+          "v2.feature_flag_bucketing_mode" => "FeatureFlagBucketingMode",
           "v2.feature_flag_change_event" => "FeatureFlagChangeEvent",
           "v2.feature_flag_change_event_action" => "FeatureFlagChangeEventAction",
           "v2.feature_flag_change_event_attributes" => "FeatureFlagChangeEventAttributes",
