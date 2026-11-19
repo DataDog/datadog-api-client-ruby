@@ -47,6 +47,9 @@ module DatadogAPIClient::V1
     # Override for the model type used in anomaly detection.
     attr_accessor :model_type_override
 
+    # Platform-specific settings for a data quality monitor.
+    attr_accessor :platform_settings
+
     # Sensitivity of the anomaly detection model, expressed as a multiplier on the width
     # of the predicted bounds. Higher values widen the bounds and produce fewer alerts;
     # lower values tighten them and produce more alerts. Defaults to `3.0`.
@@ -70,6 +73,7 @@ module DatadogAPIClient::V1
         :'group_by_columns' => :'group_by_columns',
         :'model_configuration' => :'model_configuration',
         :'model_type_override' => :'model_type_override',
+        :'platform_settings' => :'platform_settings',
         :'sensitivity' => :'sensitivity',
         :'source_to_target_config' => :'source_to_target_config'
       }
@@ -87,6 +91,7 @@ module DatadogAPIClient::V1
         :'group_by_columns' => :'Array<String>',
         :'model_configuration' => :'MonitorFormulaAndFunctionDataQualityModelConfiguration',
         :'model_type_override' => :'MonitorFormulaAndFunctionDataQualityModelTypeOverride',
+        :'platform_settings' => :'MonitorFormulaAndFunctionDataQualityPlatformSettings',
         :'sensitivity' => :'Float',
         :'source_to_target_config' => :'MonitorFormulaAndFunctionDataQualitySourceToTargetConfig'
       }
@@ -142,6 +147,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'model_type_override')
         self.model_type_override = attributes[:'model_type_override']
+      end
+
+      if attributes.key?(:'platform_settings')
+        self.platform_settings = attributes[:'platform_settings']
       end
 
       if attributes.key?(:'sensitivity')
@@ -205,6 +214,7 @@ module DatadogAPIClient::V1
           group_by_columns == o.group_by_columns &&
           model_configuration == o.model_configuration &&
           model_type_override == o.model_type_override &&
+          platform_settings == o.platform_settings &&
           sensitivity == o.sensitivity &&
           source_to_target_config == o.source_to_target_config &&
           additional_properties == o.additional_properties
@@ -214,7 +224,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [consecutive_runs, crontab_override, custom_sql, custom_where, detection_type, group_by_columns, model_configuration, model_type_override, sensitivity, source_to_target_config, additional_properties].hash
+      [consecutive_runs, crontab_override, custom_sql, custom_where, detection_type, group_by_columns, model_configuration, model_type_override, platform_settings, sensitivity, source_to_target_config, additional_properties].hash
     end
   end
 end
