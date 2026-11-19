@@ -42,8 +42,11 @@ module DatadogAPIClient::V2
     # The name of the project.
     attr_reader :name
 
-    # The UUID of the project owner.
+    # The UUID of the user that created the project. The creator is always an owner of the project.
     attr_accessor :owner_id
+
+    # The UUIDs of the project's owners besides its creator, in the order they became owners.
+    attr_accessor :owner_ids
 
     # The list of tags associated with the project.
     attr_reader :tags
@@ -65,6 +68,7 @@ module DatadogAPIClient::V2
         :'is_starred' => :'is_starred',
         :'name' => :'name',
         :'owner_id' => :'owner_id',
+        :'owner_ids' => :'owner_ids',
         :'tags' => :'tags',
         :'updated_at' => :'updated_at'
       }
@@ -82,6 +86,7 @@ module DatadogAPIClient::V2
         :'is_starred' => :'Boolean',
         :'name' => :'String',
         :'owner_id' => :'String',
+        :'owner_ids' => :'Array<UUID>',
         :'tags' => :'Array<ModelLabTag>',
         :'updated_at' => :'Time'
       }
@@ -145,6 +150,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'owner_id')
         self.owner_id = attributes[:'owner_id']
+      end
+
+      if attributes.key?(:'owner_ids')
+        if (value = attributes[:'owner_ids']).is_a?(Array)
+          self.owner_ids = value
+        end
       end
 
       if attributes.key?(:'tags')
@@ -276,6 +287,7 @@ module DatadogAPIClient::V2
           is_starred == o.is_starred &&
           name == o.name &&
           owner_id == o.owner_id &&
+          owner_ids == o.owner_ids &&
           tags == o.tags &&
           updated_at == o.updated_at &&
           additional_properties == o.additional_properties
@@ -285,7 +297,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [artifact_storage_location, created_at, deleted_at, description, external_url, is_starred, name, owner_id, tags, updated_at, additional_properties].hash
+      [artifact_storage_location, created_at, deleted_at, description, external_url, is_starred, name, owner_id, owner_ids, tags, updated_at, additional_properties].hash
     end
   end
 end
