@@ -3,7 +3,11 @@
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
+  config.unstable_operations["v2.create_bandit".to_sym] = true
   config.unstable_operations["v2.get_bandit_traffic_summary".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::ExperimentsAPI.new
-p api_instance.get_bandit_traffic_summary("4b1f3c2e-8d5a-4f6b-9c7e-1a2b3c4d5e6f")
+
+# there is a valid "bandit" in the system
+BANDIT_DATA_ID = ENV["BANDIT_DATA_ID"]
+p api_instance.get_bandit_traffic_summary(BANDIT_DATA_ID)
