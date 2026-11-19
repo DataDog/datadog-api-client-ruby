@@ -461,6 +461,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an HCP Terraform persona mapping.
+    #
+    # @see #create_terraform_cloud_auth_persona_mapping_with_http_info
+    def create_terraform_cloud_auth_persona_mapping(body, opts = {})
+      data, _status_code, _headers = create_terraform_cloud_auth_persona_mapping_with_http_info(body, opts)
+      data
+    end
+
+    # Create an HCP Terraform persona mapping.
+    #
+    # Create an HCP Terraform persona mapping. The mapping associates a Datadog user or service account with workload identity tokens from an HCP Terraform issuer whose `sub` claim matches `sub_pattern`.
+    #
+    # The response includes the `audience` value to set as the `TFC_WORKLOAD_IDENTITY_AUDIENCE_DATADOG` environment variable in HCP Terraform. The API returns a 409 error if the pattern duplicates an existing mapping, or if it can match the same token as an existing mapping for a different account.
+    #
+    # @param body [TerraformCloudAuthPersonaMappingCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TerraformCloudAuthPersonaMappingResponse, Integer, Hash)>] TerraformCloudAuthPersonaMappingResponse data, response status code and response headers
+    def create_terraform_cloud_auth_persona_mapping_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_terraform_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_terraform_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_terraform_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.create_terraform_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_terraform_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/terraform/persona_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TerraformCloudAuthPersonaMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_terraform_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#create_terraform_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an AWS cloud authentication intake mapping.
     #
     # @see #delete_aws_cloud_auth_intake_mapping_with_http_info
@@ -883,6 +958,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_oidc_cloud_auth_provider\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an HCP Terraform persona mapping.
+    #
+    # @see #delete_terraform_cloud_auth_persona_mapping_with_http_info
+    def delete_terraform_cloud_auth_persona_mapping(persona_mapping_id, opts = {})
+      delete_terraform_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts)
+      nil
+    end
+
+    # Delete an HCP Terraform persona mapping.
+    #
+    # Delete an HCP Terraform persona mapping by ID. Workload identity tokens that matched only this mapping can no longer be exchanged.
+    #
+    # @param persona_mapping_id [String] The ID of the persona mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_terraform_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_terraform_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_terraform_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_terraform_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.delete_terraform_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'persona_mapping_id' is set
+      if @api_client.config.client_side_validation && persona_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.delete_terraform_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_terraform_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_terraform_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1313,6 +1459,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an HCP Terraform persona mapping.
+    #
+    # @see #get_terraform_cloud_auth_persona_mapping_with_http_info
+    def get_terraform_cloud_auth_persona_mapping(persona_mapping_id, opts = {})
+      data, _status_code, _headers = get_terraform_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts)
+      data
+    end
+
+    # Get an HCP Terraform persona mapping.
+    #
+    # Get an HCP Terraform persona mapping by ID.
+    #
+    # @param persona_mapping_id [String] The ID of the persona mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TerraformCloudAuthPersonaMappingResponse, Integer, Hash)>] TerraformCloudAuthPersonaMappingResponse data, response status code and response headers
+    def get_terraform_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_terraform_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_terraform_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_terraform_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.get_terraform_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'persona_mapping_id' is set
+      if @api_client.config.client_side_validation && persona_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.get_terraform_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TerraformCloudAuthPersonaMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_terraform_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#get_terraform_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List AWS cloud authentication intake mappings.
     #
     # @see #list_aws_cloud_auth_intake_mappings_with_http_info
@@ -1705,6 +1922,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAuthenticationAPI#list_oidc_cloud_auth_providers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List HCP Terraform persona mappings.
+    #
+    # @see #list_terraform_cloud_auth_persona_mappings_with_http_info
+    def list_terraform_cloud_auth_persona_mappings(opts = {})
+      data, _status_code, _headers = list_terraform_cloud_auth_persona_mappings_with_http_info(opts)
+      data
+    end
+
+    # List HCP Terraform persona mappings.
+    #
+    # List all HCP Terraform persona mappings in the organization. Each mapping associates an HCP Terraform workload identity token issuer and `sub` claim pattern with a Datadog user or service account.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TerraformCloudAuthPersonaMappingsResponse, Integer, Hash)>] TerraformCloudAuthPersonaMappingsResponse data, response status code and response headers
+    def list_terraform_cloud_auth_persona_mappings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_terraform_cloud_auth_persona_mappings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_terraform_cloud_auth_persona_mappings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_terraform_cloud_auth_persona_mappings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.list_terraform_cloud_auth_persona_mappings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/wif/terraform/persona_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TerraformCloudAuthPersonaMappingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_terraform_cloud_auth_persona_mappings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#list_terraform_cloud_auth_persona_mappings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

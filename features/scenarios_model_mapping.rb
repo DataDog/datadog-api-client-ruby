@@ -7778,6 +7778,15 @@ ScenariosModelMappings = {
     "v2.GetOIDCCloudAuthProvider" => {
             "provider_id" => "UUID",
     },
+    "v2.CreateTerraformCloudAuthPersonaMapping" => {
+            "body" => "TerraformCloudAuthPersonaMappingCreateRequest",
+    },
+    "v2.DeleteTerraformCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
+    "v2.GetTerraformCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
     "v2.ListWorkflows" => {
             "limit" => "Integer",
             "page" => "Integer",
