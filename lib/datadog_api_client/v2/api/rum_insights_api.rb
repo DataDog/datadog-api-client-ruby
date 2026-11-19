@@ -107,7 +107,8 @@ module DatadogAPIClient::V2
 
     # Query aggregated waterfall.
     #
-    # Get aggregated network resource waterfall data for a RUM view, sampled across multiple view instances.
+    # Get aggregated network resource waterfall data for a RUM view, sampled across multiple view
+    # instances.
     #
     # @param body [AggregatedWaterfallRequest] 
     # @param opts [Hash] the optional parameters

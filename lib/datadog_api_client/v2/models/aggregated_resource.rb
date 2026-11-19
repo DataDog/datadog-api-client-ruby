@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Aggregated performance statistics for a single network resource across sampled view instances.
+  # Aggregated performance statistics for a single network resource across sampled view
+  # instances.
   class AggregatedResource
     include BaseGenericModel
 
@@ -36,13 +37,16 @@ module DatadogAPIClient::V2
     # Number of requests downloaded from the network.
     attr_reader :downloaded_count
 
-    # 75th percentile duration across all view names in the application, present when include_global_appearance is true.
+    # 75th percentile duration across all view names in the application, present when
+    # include_global_appearance is true.
     attr_accessor :global_p75_duration_ms
 
-    # Number of distinct view names in the application that load this resource, present when include_global_appearance is true.
+    # Number of distinct view names in the application that load this resource, present when
+    # include_global_appearance is true.
     attr_reader :global_view_name_count
 
-    # Percentage of distinct view names in the application that load this resource, present when include_global_appearance is true.
+    # Percentage of distinct view names in the application that load this resource, present when
+    # include_global_appearance is true.
     attr_accessor :global_view_name_pct
 
     # HTTP method for the resource request.
