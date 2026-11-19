@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
 
     # Enable historical metrics ingestion.
     #
-    # Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent:
+    # Enable historical metrics ingestion for a metric. Idempotent:
     # enabling an already-enabled metric returns 200 instead of 201. Not supported for
     # distribution metrics, metrics with an existing tag configuration, or most standard
     # (non-custom) metrics.
@@ -111,12 +111,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(HistoricalMetricsConfigurationResponse, Integer, Hash)>] HistoricalMetricsConfigurationResponse data, response status code and response headers
     def create_historical_metrics_configuration_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_historical_metrics_configuration".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_historical_metrics_configuration")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_historical_metrics_configuration"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.create_historical_metrics_configuration ...'
@@ -489,12 +483,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_historical_metrics_configuration_with_http_info(metric_name, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_historical_metrics_configuration".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_historical_metrics_configuration")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_historical_metrics_configuration"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_historical_metrics_configuration ...'
@@ -935,12 +923,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(HistoricalMetricsConfigurationResponse, Integer, Hash)>] HistoricalMetricsConfigurationResponse data, response status code and response headers
     def get_historical_metrics_configuration_with_http_info(metric_name, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_historical_metrics_configuration".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_historical_metrics_configuration")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_historical_metrics_configuration"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.get_historical_metrics_configuration ...'
