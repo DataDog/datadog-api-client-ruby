@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # The RUM application ID that was analyzed.
     attr_reader :application_id
 
-    # Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
+    # Performance criteria used to filter view instances by a metric threshold, or null if no
+    # criteria were applied.
     attr_accessor :criteria
 
     # Start of the analyzed time range as a Unix timestamp in seconds.
@@ -70,7 +71,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'application_id' => :'String',
+        :'application_id' => :'UUID',
         :'criteria' => :'AggregatedWaterfallResponseAttributesCriteria',
         :'from' => :'Integer',
         :'resources' => :'Array<AggregatedResource>',
@@ -157,6 +158,7 @@ module DatadogAPIClient::V2
       return false if @from.nil?
       return false if @resources.nil?
       return false if @sampled_view_ids.nil?
+      return false if @sampled_view_ids.length > 50
       return false if @to.nil?
       return false if @total_cache_hit_rate_pct.nil?
       return false if @view_count.nil?
@@ -201,6 +203,9 @@ module DatadogAPIClient::V2
     def sampled_view_ids=(sampled_view_ids)
       if sampled_view_ids.nil?
         fail ArgumentError, 'invalid value for "sampled_view_ids", sampled_view_ids cannot be nil.'
+      end
+      if sampled_view_ids.length > 50
+        fail ArgumentError, 'invalid value for "sampled_view_ids", number of items must be less than or equal to 50.'
       end
       @sampled_view_ids = sampled_view_ids
     end
