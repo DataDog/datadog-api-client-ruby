@@ -122,6 +122,93 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a Bits Security Analyst investigation.
+    #
+    # @see #create_security_agent_investigation_with_http_info
+    def create_security_agent_investigation(body, opts = {})
+      data, _status_code, _headers = create_security_agent_investigation_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Bits Security Analyst investigation.
+    #
+    # Start a Bits Security Analyst investigation of a signal, or get its investigation if it already has one.
+    #
+    # If the signal already has an investigation, in any state, the response has its latest investigation.
+    # Otherwise, an investigation starts, and the response has the new investigation in the `investigating` state.
+    # Set `rerun` to `true` to start a new investigation of a signal that already has one. If the signal's
+    # investigation is still running, the response has that investigation, and no new one starts.
+    # While the investigation is `investigating`, the response has a `Retry-After` header.
+    # `GET /api/v2/security_monitoring/security_agent/investigations/{investigation_id}` reads it right away.
+    #
+    # The response doesn't have the investigation's content: `conclusion`, `signal`, `key_entities`, `key_evidence`,
+    # `steps`, and `response_suggestions`. Get the investigation for its content.
+    #
+    # This endpoint is rate limited to `30` requests per minute per organization. Every investigation it starts,
+    # including a rerun, counts toward the organization's monthly investigation limit. Starting an investigation
+    # returns `429` with the code `monthly_limit_reached` once the organization has reached that limit.
+    #
+    # @param body [SecurityAgentInvestigationCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityAgentInvestigationResponse, Integer, Hash)>] SecurityAgentInvestigationResponse data, response status code and response headers
+    def create_security_agent_investigation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_agent_investigation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_agent_investigation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_agent_investigation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BitsSecurityAnalystAPI.create_security_agent_investigation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling BitsSecurityAnalystAPI.create_security_agent_investigation"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/security_agent/investigations'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityAgentInvestigationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_agent_investigation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BitsSecurityAnalystAPI#create_security_agent_investigation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a Bits Security Analyst investigation.
     #
     # @see #get_security_agent_investigation_with_http_info

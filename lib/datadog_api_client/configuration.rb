@@ -861,6 +861,7 @@ module DatadogAPIClient
             "v2.list_entity_risk_scores": false,
             "v2.add_stix_threat_intel": false,
             "v2.count_security_agent_investigations": false,
+            "v2.create_security_agent_investigation": false,
             "v2.get_security_agent_investigation": false,
             "v2.list_security_agent_investigations": false,
             "v2.create_slo_report_job": false,
