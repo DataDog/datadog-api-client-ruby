@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The caller lacks edit permission on one or more feature flags that reference this saved filter.
+  # The caller lacks edit permission on one or more feature flags that reference this saved filter, or on one or more of their environments.
   class SavedFilterPermissionDeniedData
     include BaseGenericModel
 
-    # The caller lacks edit permission on one or more feature flags that reference this saved filter.
+    # The caller lacks edit permission on one or more feature flags that reference this saved filter, or on one or more of their environments.
     attr_reader :attributes
 
     # The ID of the saved filter.
