@@ -224,6 +224,152 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a cost recommendation custom rule.
+    #
+    # @see #create_cost_recommendation_custom_rule_with_http_info
+    def create_cost_recommendation_custom_rule(body, opts = {})
+      data, _status_code, _headers = create_cost_recommendation_custom_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a cost recommendation custom rule.
+    #
+    # Create a custom recommendation rule. The rule overrides the settings it lists for the resources its tag filters match; every other setting keeps the recommender default. Only the settings in the request are stored.
+    #
+    # @param body [CostRecommendationCustomRuleCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationCustomRuleResponse, Integer, Hash)>] CostRecommendationCustomRuleResponse data, response status code and response headers
+    def create_cost_recommendation_custom_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_cost_recommendation_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_cost_recommendation_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_cost_recommendation_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_cost_recommendation_custom_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_cost_recommendation_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/custom_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationCustomRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_cost_recommendation_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_cost_recommendation_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a cost recommendation notification rule.
+    #
+    # @see #create_cost_recommendation_notification_rule_with_http_info
+    def create_cost_recommendation_notification_rule(body, opts = {})
+      data, _status_code, _headers = create_cost_recommendation_notification_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a cost recommendation notification rule.
+    #
+    # Create a rule that sends a digest of the cost recommendations matching `scope_query` to Slack or Microsoft Teams on a schedule.
+    #
+    # @param body [CostRecommendationNotificationRuleCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationNotificationRuleResponse, Integer, Hash)>] CostRecommendationNotificationRuleResponse data, response status code and response headers
+    def create_cost_recommendation_notification_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_cost_recommendation_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_cost_recommendation_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_cost_recommendation_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_cost_recommendation_notification_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_cost_recommendation_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/notification_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_cost_recommendation_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_cost_recommendation_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create custom allocation rule.
     #
     # @see #create_custom_allocation_rule_with_http_info
@@ -699,6 +845,148 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a cost recommendation custom rule.
+    #
+    # @see #delete_cost_recommendation_custom_rule_with_http_info
+    def delete_cost_recommendation_custom_rule(custom_rule_id, opts = {})
+      delete_cost_recommendation_custom_rule_with_http_info(custom_rule_id, opts)
+      nil
+    end
+
+    # Delete a cost recommendation custom rule.
+    #
+    # Delete a custom recommendation rule.
+    #
+    # @param custom_rule_id [String] The ID of the custom rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_cost_recommendation_custom_rule_with_http_info(custom_rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_cost_recommendation_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_cost_recommendation_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_cost_recommendation_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_recommendation_custom_rule ...'
+      end
+      # verify the required parameter 'custom_rule_id' is set
+      if @api_client.config.client_side_validation && custom_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'custom_rule_id' when calling CloudCostManagementAPI.delete_cost_recommendation_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/custom_rules/{custom_rule_id}'.sub('{custom_rule_id}', CGI.escape(custom_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_cost_recommendation_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_cost_recommendation_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a cost recommendation notification rule.
+    #
+    # @see #delete_cost_recommendation_notification_rule_with_http_info
+    def delete_cost_recommendation_notification_rule(notification_rule_id, opts = {})
+      delete_cost_recommendation_notification_rule_with_http_info(notification_rule_id, opts)
+      nil
+    end
+
+    # Delete a cost recommendation notification rule.
+    #
+    # Delete a recommendation notification rule.
+    #
+    # @param notification_rule_id [String] The ID of the notification rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_cost_recommendation_notification_rule_with_http_info(notification_rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_cost_recommendation_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_cost_recommendation_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_cost_recommendation_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_recommendation_notification_rule ...'
+      end
+      # verify the required parameter 'notification_rule_id' is set
+      if @api_client.config.client_side_validation && notification_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_rule_id' when calling CloudCostManagementAPI.delete_cost_recommendation_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/notification_rules/{notification_rule_id}'.sub('{notification_rule_id}', CGI.escape(notification_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_cost_recommendation_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_cost_recommendation_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2364,6 +2652,148 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a cost recommendation custom rule.
+    #
+    # @see #get_cost_recommendation_custom_rule_with_http_info
+    def get_cost_recommendation_custom_rule(custom_rule_id, opts = {})
+      data, _status_code, _headers = get_cost_recommendation_custom_rule_with_http_info(custom_rule_id, opts)
+      data
+    end
+
+    # Get a cost recommendation custom rule.
+    #
+    # Get a custom recommendation rule.
+    #
+    # @param custom_rule_id [String] The ID of the custom rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationCustomRuleResponse, Integer, Hash)>] CostRecommendationCustomRuleResponse data, response status code and response headers
+    def get_cost_recommendation_custom_rule_with_http_info(custom_rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_cost_recommendation_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_cost_recommendation_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_cost_recommendation_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_recommendation_custom_rule ...'
+      end
+      # verify the required parameter 'custom_rule_id' is set
+      if @api_client.config.client_side_validation && custom_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'custom_rule_id' when calling CloudCostManagementAPI.get_cost_recommendation_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/custom_rules/{custom_rule_id}'.sub('{custom_rule_id}', CGI.escape(custom_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationCustomRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_recommendation_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_recommendation_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a cost recommendation notification rule.
+    #
+    # @see #get_cost_recommendation_notification_rule_with_http_info
+    def get_cost_recommendation_notification_rule(notification_rule_id, opts = {})
+      data, _status_code, _headers = get_cost_recommendation_notification_rule_with_http_info(notification_rule_id, opts)
+      data
+    end
+
+    # Get a cost recommendation notification rule.
+    #
+    # Get a recommendation notification rule.
+    #
+    # @param notification_rule_id [String] The ID of the notification rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationNotificationRuleResponse, Integer, Hash)>] CostRecommendationNotificationRuleResponse data, response status code and response headers
+    def get_cost_recommendation_notification_rule_with_http_info(notification_rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_cost_recommendation_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_cost_recommendation_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_cost_recommendation_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_recommendation_notification_rule ...'
+      end
+      # verify the required parameter 'notification_rule_id' is set
+      if @api_client.config.client_side_validation && notification_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_rule_id' when calling CloudCostManagementAPI.get_cost_recommendation_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/notification_rules/{notification_rule_id}'.sub('{notification_rule_id}', CGI.escape(notification_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_recommendation_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_recommendation_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a Cloud Cost Management tag description.
     #
     # @see #get_cost_tag_description_by_key_with_http_info
@@ -3373,6 +3803,138 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_oci_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List cost recommendation custom rules.
+    #
+    # @see #list_cost_recommendation_custom_rules_with_http_info
+    def list_cost_recommendation_custom_rules(opts = {})
+      data, _status_code, _headers = list_cost_recommendation_custom_rules_with_http_info(opts)
+      data
+    end
+
+    # List cost recommendation custom rules.
+    #
+    # List the custom recommendation rules of the organization. A custom rule overrides recommender settings for the resources its tag filters match.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationCustomRulesResponse, Integer, Hash)>] CostRecommendationCustomRulesResponse data, response status code and response headers
+    def list_cost_recommendation_custom_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_recommendation_custom_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_recommendation_custom_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_recommendation_custom_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_recommendation_custom_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/custom_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationCustomRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_recommendation_custom_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_recommendation_custom_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List cost recommendation notification rules.
+    #
+    # @see #list_cost_recommendation_notification_rules_with_http_info
+    def list_cost_recommendation_notification_rules(opts = {})
+      data, _status_code, _headers = list_cost_recommendation_notification_rules_with_http_info(opts)
+      data
+    end
+
+    # List cost recommendation notification rules.
+    #
+    # List the recommendation notification rules of the organization. A notification rule sends a digest of the cost recommendations that match its query to Slack or Microsoft Teams on a schedule.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationNotificationRulesResponse, Integer, Hash)>] CostRecommendationNotificationRulesResponse data, response status code and response headers
+    def list_cost_recommendation_notification_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_cost_recommendation_notification_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_cost_recommendation_notification_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_cost_recommendation_notification_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_recommendation_notification_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/notification_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationNotificationRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_recommendation_notification_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_recommendation_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4845,6 +5407,162 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a cost recommendation custom rule.
+    #
+    # @see #update_cost_recommendation_custom_rule_with_http_info
+    def update_cost_recommendation_custom_rule(custom_rule_id, body, opts = {})
+      data, _status_code, _headers = update_cost_recommendation_custom_rule_with_http_info(custom_rule_id, body, opts)
+      data
+    end
+
+    # Update a cost recommendation custom rule.
+    #
+    # Update a custom recommendation rule. Attributes left out keep their value; `filters` and `settings` replace the stored list and map when sent. The recommender of a rule cannot change.
+    #
+    # @param custom_rule_id [String] The ID of the custom rule.
+    # @param body [CostRecommendationCustomRuleUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationCustomRuleResponse, Integer, Hash)>] CostRecommendationCustomRuleResponse data, response status code and response headers
+    def update_cost_recommendation_custom_rule_with_http_info(custom_rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_cost_recommendation_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_cost_recommendation_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_cost_recommendation_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_recommendation_custom_rule ...'
+      end
+      # verify the required parameter 'custom_rule_id' is set
+      if @api_client.config.client_side_validation && custom_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'custom_rule_id' when calling CloudCostManagementAPI.update_cost_recommendation_custom_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_cost_recommendation_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/custom_rules/{custom_rule_id}'.sub('{custom_rule_id}', CGI.escape(custom_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationCustomRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_cost_recommendation_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_recommendation_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a cost recommendation notification rule.
+    #
+    # @see #update_cost_recommendation_notification_rule_with_http_info
+    def update_cost_recommendation_notification_rule(notification_rule_id, body, opts = {})
+      data, _status_code, _headers = update_cost_recommendation_notification_rule_with_http_info(notification_rule_id, body, opts)
+      data
+    end
+
+    # Update a cost recommendation notification rule.
+    #
+    # Update a recommendation notification rule. Attributes left out keep their value.
+    #
+    # @param notification_rule_id [String] The ID of the notification rule.
+    # @param body [CostRecommendationNotificationRuleUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CostRecommendationNotificationRuleResponse, Integer, Hash)>] CostRecommendationNotificationRuleResponse data, response status code and response headers
+    def update_cost_recommendation_notification_rule_with_http_info(notification_rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_cost_recommendation_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_cost_recommendation_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_cost_recommendation_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_recommendation_notification_rule ...'
+      end
+      # verify the required parameter 'notification_rule_id' is set
+      if @api_client.config.client_side_validation && notification_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_rule_id' when calling CloudCostManagementAPI.update_cost_recommendation_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_cost_recommendation_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/recommendations/notification_rules/{notification_rule_id}'.sub('{notification_rule_id}', CGI.escape(notification_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostRecommendationNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_cost_recommendation_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_recommendation_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
