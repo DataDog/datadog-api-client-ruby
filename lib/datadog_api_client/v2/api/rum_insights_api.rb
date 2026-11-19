@@ -33,7 +33,8 @@ module DatadogAPIClient::V2
 
     # Query aggregated long tasks.
     #
-    # Get aggregated long task data for a RUM view, grouped by invoker type and sampled across multiple view instances.
+    # Get aggregated long task data for a RUM view, grouped by invoker type and sampled across
+    # multiple view instances.
     #
     # @param body [AggregatedLongTasksRequest] 
     # @param opts [Hash] the optional parameters

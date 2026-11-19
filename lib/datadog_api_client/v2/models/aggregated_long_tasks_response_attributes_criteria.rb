@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
+  # Performance criteria used to filter view instances by a metric threshold, or null if no
+  # criteria were applied.
   class AggregatedLongTasksResponseAttributesCriteria
     include BaseGenericModel
 

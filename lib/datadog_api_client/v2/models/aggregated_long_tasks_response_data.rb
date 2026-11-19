@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes of an aggregated long tasks response.
     attr_reader :attributes
 
-    # Hash-based unique identifier for this aggregation.
+    # Unique UUID identifying this response.
     attr_reader :id
 
     # The JSON:API type for aggregated long tasks requests.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'AggregatedLongTasksResponseAttributes',
-        :'id' => :'String',
+        :'id' => :'UUID',
         :'type' => :'AggregatedLongTasksRequestType'
       }
     end

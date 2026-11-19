@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class TopLongTaskInvoker
     include BaseGenericModel
 
-    # Number of sampled views where this invoker had long tasks contributing to the criteria metric.
+    # Number of sampled views where this invoker had long tasks contributing to the criteria
+    # metric.
     attr_reader :criteria_view_occurrences
 
     # Cleaned source file path for the invoker script.
