@@ -305,6 +305,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create bandit.
+    #
+    # @see #create_bandit_with_http_info
+    def create_bandit(body, opts = {})
+      data, _status_code, _headers = create_bandit_with_http_info(body, opts)
+      data
+    end
+
+    # Create bandit.
+    #
+    # Create a draft bandit. `name` is required; you can set everything else now, or later with PATCH `/api/v2/experiments/bandits/{bandit_id}`. A draft on a flag holds a targeting rule that doesn't serve traffic until the bandit starts. `variants` lists the flag variants the bandit uses by `feature_flag_variant_id`: `is_active` makes a variant an arm (the default), and `is_fallback` marks the variant served after a scheduled end. The server fills in each variant's `key` and `name` from the flag. A scheduled end needs a fallback. Setting `datadog_flag_configuration` or `variants` needs feature flag and environment read permissions and edit access to the flag. Whether the draft is ready to run is checked when it starts. Validation can return several field errors at once. This endpoint is not idempotent. Bandits must be enabled for the organization.
+    #
+    # @param body [ExperimentsCreateBanditV2Request] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsBanditV2DTO, Integer, Hash)>] ExperimentsBanditV2DTO data, response status code and response headers
+    def create_bandit_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.create_bandit ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExperimentsAPI.create_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditV2DTO'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#create_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create experiment.
     #
     # @see #create_experiment_with_http_info
@@ -912,6 +985,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#create_subject_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete bandit.
+    #
+    # @see #delete_bandit_with_http_info
+    def delete_bandit(bandit_id, opts = {})
+      delete_bandit_with_http_info(bandit_id, opts)
+      nil
+    end
+
+    # Delete bandit.
+    #
+    # Delete a bandit in any status, with its targeting rule, in one transaction. As with deleting an experiment, a running bandit's rule stops serving and traffic falls through to the flag's other rules; the flag can then be used by another bandit or experiment. After deletion the API no longer returns the bandit. Deleting a bandit cannot be undone. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_bandit_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.delete_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.delete_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#delete_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2260,6 +2404,87 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List bandit policies.
+    #
+    # @see #list_bandit_policies_with_http_info
+    def list_bandit_policies(bandit_id, opts = {})
+      data, _status_code, _headers = list_bandit_policies_with_http_info(bandit_id, opts)
+      data
+    end
+
+    # List bandit policies.
+    #
+    # List the policies a bandit has served, newest first by default, including the policy it serves after it ends. Each policy is the traffic split SDKs served from when it was applied until the next one. Exposures log the policy's ID as `bandit.policy_id`, so the history tells you the split behind each exposure. Exposures logged after the bandit ends have no policy ID. `filter[from]` and `filter[to]` keep the policies in effect during the range, including the one already in effect at `filter[from]`. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :filter_from Return only the policies in effect at or after this RFC 3339 time (inclusive), including the one already in effect at it.
+    # @option opts [Time] :filter_to Return only the policies applied before this RFC 3339 time (exclusive).
+    # @option opts [Integer] :page_offset Number of results to skip for pagination. Defaults to 0 when omitted.
+    # @option opts [Integer] :page_limit Maximum number of results to return. Defaults to 25 when omitted, and is capped at 50 (larger values are clamped to 50). The response includes meta.page (with total) and pagination links.
+    # @option opts [String] :sort `applied_at` for oldest first, or `-applied_at` for newest first. Defaults to `-applied_at`.
+    # @return [Array<(ExperimentsBanditPolicyHistoryV2DTOArray, Integer, Hash)>] ExperimentsBanditPolicyHistoryV2DTOArray data, response status code and response headers
+    def list_bandit_policies_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_bandit_policies".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_bandit_policies")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_bandit_policies"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.list_bandit_policies ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.list_bandit_policies"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/policies'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditPolicyHistoryV2DTOArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_bandit_policies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#list_bandit_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List bandits.
     #
     # @see #list_bandits_with_http_info
@@ -2983,6 +3208,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update bandit.
+    #
+    # @see #patch_bandit_with_http_info
+    def patch_bandit(bandit_id, body, opts = {})
+      data, _status_code, _headers = patch_bandit_with_http_info(bandit_id, body, opts)
+      data
+    end
+
+    # Update bandit.
+    #
+    # Update a bandit. Omitted attributes, including omitted fields of `datadog_flag_configuration` and `bayesian_prior`, are unchanged. `variants`, `tags`, and `teams` replace the stored lists. Setting a nullable attribute to `null` clears it; `datadog_flag_configuration: null` takes a draft off its flag. What can change depends on the status. A draft can change anything. A running or paused bandit can change its name, description, refresh schedule, scheduled end, prior, fallback (send the current arms in `variants` with a different `is_fallback`), tags, and teams. A stopped or completed bandit can change only its tags and teams. Values that don't change can be sent again in any status. Setting `datadog_flag_configuration` or `variants` needs feature flag and environment read permissions and edit access to the flag. Validation can return several field errors at once: HTTP 400 if any is about invalid input, or 409 if all are status conflicts. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param body [ExperimentsPatchBanditV2Request] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExperimentsBanditV2DTO, Integer, Hash)>] ExperimentsBanditV2DTO data, response status code and response headers
+    def patch_bandit_with_http_info(bandit_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.patch_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.patch_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.patch_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.patch_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.patch_bandit"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExperimentsAPI.patch_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditV2DTO'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :patch_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#patch_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patch experiment.
     #
     # @see #patch_experiment_with_http_info
@@ -3257,6 +3560,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Pause bandit.
+    #
+    # @see #pause_bandit_with_http_info
+    def pause_bandit(bandit_id, opts = {})
+      pause_bandit_with_http_info(bandit_id, opts)
+      nil
+    end
+
+    # Pause bandit.
+    #
+    # Pause a running bandit. Its targeting rule keeps serving the current traffic split, and refreshes stop changing the split until the bandit is resumed. Pausing a bandit that isn't running returns 409. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def pause_bandit_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.pause_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.pause_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.pause_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.pause_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.pause_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/pause'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :pause_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#pause_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Publish experiment protocol.
     #
     # @see #publish_experiment_protocol_with_http_info
@@ -3320,6 +3694,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#publish_experiment_protocol\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Refresh bandit.
+    #
+    # @see #refresh_bandit_with_http_info
+    def refresh_bandit(bandit_id, opts = {})
+      data, _status_code, _headers = refresh_bandit_with_http_info(bandit_id, opts)
+      data
+    end
+
+    # Refresh bandit.
+    #
+    # Start a refresh of a running bandit now, instead of waiting for its schedule. The refresh reads the bandit's latest data and saves new results. Outside warmup it also serves the traffic split it proposes, so it can change traffic. HTTP 202 confirms the refresh started, not that it finished. The response returns the refresh ID, which the bandit then reports as `latest_refresh`. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :full_refresh Recompute the bandit's whole history instead of updating its latest refresh; for example, after its exposure or metric data was backfilled. Defaults to `false`.
+    # @return [Array<(ExperimentsBanditRefreshV2DTO, Integer, Hash)>] ExperimentsBanditRefreshV2DTO data, response status code and response headers
+    def refresh_bandit_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.refresh_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.refresh_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.refresh_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.refresh_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.refresh_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/refresh'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'full_refresh'] = opts[:'full_refresh'] if !opts[:'full_refresh'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExperimentsBanditRefreshV2DTO'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :refresh_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#refresh_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3531,6 +3978,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Resume bandit.
+    #
+    # @see #resume_bandit_with_http_info
+    def resume_bandit(bandit_id, opts = {})
+      resume_bandit_with_http_info(bandit_id, opts)
+      nil
+    end
+
+    # Resume bandit.
+    #
+    # Resume a paused bandit, so refreshes change its traffic split again. Resuming a bandit that isn't paused returns 409. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def resume_bandit_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.resume_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.resume_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.resume_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.resume_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.resume_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/resume'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :resume_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#resume_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Set default subject type.
     #
     # @see #set_default_subject_type_with_http_info
@@ -3592,6 +4110,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#set_default_subject_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Start bandit.
+    #
+    # @see #start_bandit_with_http_info
+    def start_bandit(bandit_id, opts = {})
+      start_bandit_with_http_info(bandit_id, opts)
+      nil
+    end
+
+    # Start bandit.
+    #
+    # Start a draft bandit. Its targeting rule is published serving every arm equally, and each refresh then shifts traffic toward the arms that do best. The bandit starts exactly as it is configured; set it up with PATCH `/api/v2/experiments/bandits/{bandit_id}` first. It needs a flag, at least two arms, a subject type, a metric, and an exposure SQL model. The request is idempotent: a bandit that is already running still returns 204, so a retry after a timeout is safe. Stop is not idempotent. A start is blocked when the flag environment requires an approval or a pending change request touches the flag's targeting rules; retrying alone does not resolve an approval requirement. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def start_bandit_with_http_info(bandit_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.start_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.start_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.start_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.start_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.start_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/start'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :start_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#start_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3660,6 +4249,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ExperimentsAPI#start_experiment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Stop bandit.
+    #
+    # @see #stop_bandit_with_http_info
+    def stop_bandit(bandit_id, body, opts = {})
+      stop_bandit_with_http_info(bandit_id, body, opts)
+      nil
+    end
+
+    # Stop bandit.
+    #
+    # Stop a running or paused bandit. From then on its targeting rule serves `served_variant_key` to everyone, overriding any configured fallback, and the bandit stops refreshing. `served_variant_key` can be any of the flag's variants. Stopping can't be reversed and is not idempotent: stopping a bandit that has already stopped or completed returns 409. Bandits must be enabled for the organization.
+    #
+    # @param bandit_id [UUID] The UUID of the bandit.
+    # @param body [ExperimentsStopBanditV2Request] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def stop_bandit_with_http_info(bandit_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.stop_bandit".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.stop_bandit")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.stop_bandit"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ExperimentsAPI.stop_bandit ...'
+      end
+      # verify the required parameter 'bandit_id' is set
+      if @api_client.config.client_side_validation && bandit_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bandit_id' when calling ExperimentsAPI.stop_bandit"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExperimentsAPI.stop_bandit"
+      end
+      # resource path
+      local_var_path = '/api/v2/experiments/bandits/{bandit_id}/stop'.sub('{bandit_id}', CGI.escape(bandit_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :stop_bandit,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ExperimentsAPI#stop_bandit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -33,8 +33,14 @@ module DatadogAPIClient::V2
     # `WARMUP` serves the arms equally. `ADAPTIVE` serves the initial split or a split from a refresh. `FALLBACK` serves one variant after the bandit ends.
     attr_reader :kind
 
+    # The policy's place in the bandit's policy history. It follows `applied_at` and orders policies saved at the same time.
+    attr_reader :policy_number
+
     # Why the policy was applied.
     attr_reader :reason
+
+    # The refresh that proposed the policy. `null` for policies no refresh proposed, such as the first split and the policy served after the bandit ends.
+    attr_accessor :refresh_id
 
     # Each variant's share of traffic. The probabilities add up to 1.
     attr_reader :variants
@@ -49,7 +55,9 @@ module DatadogAPIClient::V2
         :'config_version' => :'config_version',
         :'id' => :'id',
         :'kind' => :'kind',
+        :'policy_number' => :'policy_number',
         :'reason' => :'reason',
+        :'refresh_id' => :'refresh_id',
         :'variants' => :'variants'
       }
     end
@@ -62,9 +70,19 @@ module DatadogAPIClient::V2
         :'config_version' => :'Integer',
         :'id' => :'UUID',
         :'kind' => :'ExperimentsBanditPolicyKind',
+        :'policy_number' => :'Integer',
         :'reason' => :'ExperimentsBanditPolicyReason',
+        :'refresh_id' => :'UUID',
         :'variants' => :'Array<ExperimentsBanditPolicyVariantV2>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'refresh_id',
+      ])
     end
 
     # Initializes the object
@@ -101,8 +119,16 @@ module DatadogAPIClient::V2
         self.kind = attributes[:'kind']
       end
 
+      if attributes.key?(:'policy_number')
+        self.policy_number = attributes[:'policy_number']
+      end
+
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
+      end
+
+      if attributes.key?(:'refresh_id')
+        self.refresh_id = attributes[:'refresh_id']
       end
 
       if attributes.key?(:'variants')
@@ -120,6 +146,7 @@ module DatadogAPIClient::V2
       return false if @config_version.nil?
       return false if @id.nil?
       return false if @kind.nil?
+      return false if @policy_number.nil?
       return false if @reason.nil?
       return false if @variants.nil?
       true
@@ -163,6 +190,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "kind", kind cannot be nil.'
       end
       @kind = kind
+    end
+
+    # Custom attribute writer method with validation
+    # @param policy_number [Object] Object to be assigned
+    # @!visibility private
+    def policy_number=(policy_number)
+      if policy_number.nil?
+        fail ArgumentError, 'invalid value for "policy_number", policy_number cannot be nil.'
+      end
+      @policy_number = policy_number
     end
 
     # Custom attribute writer method with validation
@@ -215,7 +252,9 @@ module DatadogAPIClient::V2
           config_version == o.config_version &&
           id == o.id &&
           kind == o.kind &&
+          policy_number == o.policy_number &&
           reason == o.reason &&
+          refresh_id == o.refresh_id &&
           variants == o.variants &&
           additional_properties == o.additional_properties
     end
@@ -224,7 +263,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [applied_at, config_version, id, kind, reason, variants, additional_properties].hash
+      [applied_at, config_version, id, kind, policy_number, reason, refresh_id, variants, additional_properties].hash
     end
   end
 end

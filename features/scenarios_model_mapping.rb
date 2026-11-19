@@ -3886,13 +3886,48 @@ ScenariosModelMappings = {
             "filter_subject_type_id" => "Array<UUID>",
             "filter_tags" => "Array<String>",
     },
+    "v2.CreateBandit" => {
+            "body" => "ExperimentsCreateBanditV2Request",
+    },
+    "v2.DeleteBandit" => {
+            "bandit_id" => "UUID",
+    },
     "v2.GetBandit" => {
             "bandit_id" => "UUID",
+    },
+    "v2.PatchBandit" => {
+            "bandit_id" => "UUID",
+            "body" => "ExperimentsPatchBanditV2Request",
+    },
+    "v2.PauseBandit" => {
+            "bandit_id" => "UUID",
+    },
+    "v2.ListBanditPolicies" => {
+            "bandit_id" => "UUID",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "sort" => "String",
+    },
+    "v2.RefreshBandit" => {
+            "bandit_id" => "UUID",
+            "full_refresh" => "Boolean",
     },
     "v2.GetBanditResults" => {
             "bandit_id" => "UUID",
             "filter_from" => "Time",
             "filter_to" => "Time",
+    },
+    "v2.ResumeBandit" => {
+            "bandit_id" => "UUID",
+    },
+    "v2.StartBandit" => {
+            "bandit_id" => "UUID",
+    },
+    "v2.StopBandit" => {
+            "bandit_id" => "UUID",
+            "body" => "ExperimentsStopBanditV2Request",
     },
     "v2.GetBanditTrafficSummary" => {
             "bandit_id" => "UUID",
