@@ -63,6 +63,9 @@ module DatadogAPIClient::V2
     # Type of indicator (for example, IP address or domain).
     attr_accessor :indicator_type
 
+    # Whether the indicator is muted for your organization.
+    attr_accessor :is_muted
+
     # Timestamp when the indicator was last seen.
     attr_accessor :last_seen
 
@@ -87,8 +90,18 @@ module DatadogAPIClient::V2
     # Threat intelligence sources that flagged this indicator as malicious.
     attr_accessor :malicious_sources
 
+    # OCSF fields in which the indicator was matched. Returned only when `ocsf` is true.
+    attr_accessor :matched_ocsf_fields
+
     # Effect of a scoring factor on the indicator's threat score.
     attr_accessor :max_trust_score
+
+    # Reason provided when the indicator was muted. Returned only when the indicator is muted.
+    attr_accessor :mute_reason
+
+    # Scope of the mute applied to the indicator (for example, `org`). Returned only when the indicator
+    # is muted.
+    attr_accessor :mute_scope
 
     # Threat score for the indicator (0-100).
     attr_accessor :score
@@ -146,6 +159,7 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'indicator' => :'indicator',
         :'indicator_type' => :'indicator_type',
+        :'is_muted' => :'is_muted',
         :'last_seen' => :'last_seen',
         :'log_matches' => :'log_matches',
         :'log_sources' => :'log_sources',
@@ -154,7 +168,10 @@ module DatadogAPIClient::V2
         :'m_signal' => :'m_signal',
         :'m_sources' => :'m_sources',
         :'malicious_sources' => :'malicious_sources',
+        :'matched_ocsf_fields' => :'matched_ocsf_fields',
         :'max_trust_score' => :'max_trust_score',
+        :'mute_reason' => :'mute_reason',
+        :'mute_scope' => :'mute_scope',
         :'score' => :'score',
         :'services' => :'services',
         :'signal_matches' => :'signal_matches',
@@ -188,6 +205,7 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'indicator' => :'String',
         :'indicator_type' => :'String',
+        :'is_muted' => :'Boolean',
         :'last_seen' => :'Time',
         :'log_matches' => :'Integer',
         :'log_sources' => :'Array<String>',
@@ -196,7 +214,10 @@ module DatadogAPIClient::V2
         :'m_signal' => :'IoCScoreEffect',
         :'m_sources' => :'IoCScoreEffect',
         :'malicious_sources' => :'Array<IoCSource>',
+        :'matched_ocsf_fields' => :'Array<String>',
         :'max_trust_score' => :'IoCScoreEffect',
+        :'mute_reason' => :'String',
+        :'mute_scope' => :'String',
         :'score' => :'Float',
         :'services' => :'Array<String>',
         :'signal_matches' => :'Integer',
@@ -304,6 +325,10 @@ module DatadogAPIClient::V2
         self.indicator_type = attributes[:'indicator_type']
       end
 
+      if attributes.key?(:'is_muted')
+        self.is_muted = attributes[:'is_muted']
+      end
+
       if attributes.key?(:'last_seen')
         self.last_seen = attributes[:'last_seen']
       end
@@ -340,8 +365,22 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'matched_ocsf_fields')
+        if (value = attributes[:'matched_ocsf_fields']).is_a?(Array)
+          self.matched_ocsf_fields = value
+        end
+      end
+
       if attributes.key?(:'max_trust_score')
         self.max_trust_score = attributes[:'max_trust_score']
+      end
+
+      if attributes.key?(:'mute_reason')
+        self.mute_reason = attributes[:'mute_reason']
+      end
+
+      if attributes.key?(:'mute_scope')
+        self.mute_scope = attributes[:'mute_scope']
       end
 
       if attributes.key?(:'score')
@@ -443,6 +482,7 @@ module DatadogAPIClient::V2
           id == o.id &&
           indicator == o.indicator &&
           indicator_type == o.indicator_type &&
+          is_muted == o.is_muted &&
           last_seen == o.last_seen &&
           log_matches == o.log_matches &&
           log_sources == o.log_sources &&
@@ -451,7 +491,10 @@ module DatadogAPIClient::V2
           m_signal == o.m_signal &&
           m_sources == o.m_sources &&
           malicious_sources == o.malicious_sources &&
+          matched_ocsf_fields == o.matched_ocsf_fields &&
           max_trust_score == o.max_trust_score &&
+          mute_reason == o.mute_reason &&
+          mute_scope == o.mute_scope &&
           score == o.score &&
           services == o.services &&
           signal_matches == o.signal_matches &&
@@ -471,7 +514,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [additional_data, as_cidr_block, as_geo, as_number, as_organization, as_type, benign_sources, categories, critical_assets, first_seen, hosts, id, indicator, indicator_type, last_seen, log_matches, log_sources, m_as_type, m_persistence, m_signal, m_sources, malicious_sources, max_trust_score, score, services, signal_matches, signal_severity, signal_tier, suspicious_sources, tags, triage_history, triage_state, triaged_at, triaged_by, users, additional_properties].hash
+      [additional_data, as_cidr_block, as_geo, as_number, as_organization, as_type, benign_sources, categories, critical_assets, first_seen, hosts, id, indicator, indicator_type, is_muted, last_seen, log_matches, log_sources, m_as_type, m_persistence, m_signal, m_sources, malicious_sources, matched_ocsf_fields, max_trust_score, mute_reason, mute_scope, score, services, signal_matches, signal_severity, signal_tier, suspicious_sources, tags, triage_history, triage_state, triaged_at, triaged_by, users, additional_properties].hash
     end
   end
 end
