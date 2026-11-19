@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # A Datadog search query that determines which logs are forwarded using this route.
     attr_accessor :include
 
+    # A human-readable name for this route.
+    attr_accessor :name
+
     # Unique identifier for this route within the destination.
     attr_accessor :route_id
 
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
       {
         :'api_key_key' => :'api_key_key',
         :'include' => :'include',
+        :'name' => :'name',
         :'route_id' => :'route_id',
         :'site' => :'site'
       }
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
       {
         :'api_key_key' => :'String',
         :'include' => :'String',
+        :'name' => :'String',
         :'route_id' => :'String',
         :'site' => :'String'
       }
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'route_id')
@@ -120,6 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           api_key_key == o.api_key_key &&
           include == o.include &&
+          name == o.name &&
           route_id == o.route_id &&
           site == o.site &&
           additional_properties == o.additional_properties
@@ -129,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key_key, include, route_id, site, additional_properties].hash
+      [api_key_key, include, name, route_id, site, additional_properties].hash
     end
   end
 end

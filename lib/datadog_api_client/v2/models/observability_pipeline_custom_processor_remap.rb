@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # A descriptive name for this remap rule.
     attr_reader :name
 
+    # A sample event used to test the VRL script in the pipeline editor.
+    attr_accessor :sample
+
     # The VRL script source code that defines the processing logic.
     attr_reader :source
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'enabled',
         :'include' => :'include',
         :'name' => :'name',
+        :'sample' => :'sample',
         :'source' => :'source'
       }
     end
@@ -58,6 +62,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'Boolean',
         :'include' => :'String',
         :'name' => :'String',
+        :'sample' => :'String',
         :'source' => :'String'
       }
     end
@@ -94,6 +99,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'sample')
+        self.sample = attributes[:'sample']
       end
 
       if attributes.key?(:'source')
@@ -182,6 +191,7 @@ module DatadogAPIClient::V2
           enabled == o.enabled &&
           include == o.include &&
           name == o.name &&
+          sample == o.sample &&
           source == o.source &&
           additional_properties == o.additional_properties
     end
@@ -190,7 +200,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [drop_on_error, enabled, include, name, source, additional_properties].hash
+      [drop_on_error, enabled, include, name, sample, source, additional_properties].hash
     end
   end
 end
