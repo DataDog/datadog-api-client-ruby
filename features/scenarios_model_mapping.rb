@@ -5563,6 +5563,14 @@ ScenariosModelMappings = {
     "v2.ListModelLabProjectArtifacts" => {
             "project_id" => "Integer",
     },
+    "v2.RemoveModelLabProjectOwner" => {
+            "project_id" => "Integer",
+            "user_id" => "UUID",
+    },
+    "v2.AddModelLabProjectOwner" => {
+            "project_id" => "Integer",
+            "user_id" => "UUID",
+    },
     "v2.UnstarModelLabProject" => {
             "project_id" => "Integer",
     },

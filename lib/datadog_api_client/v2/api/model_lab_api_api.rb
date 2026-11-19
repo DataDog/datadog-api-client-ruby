@@ -23,6 +23,85 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Add an owner to a Model Lab project.
+    #
+    # @see #add_model_lab_project_owner_with_http_info
+    def add_model_lab_project_owner(project_id, user_id, opts = {})
+      add_model_lab_project_owner_with_http_info(project_id, user_id, opts)
+      nil
+    end
+
+    # Add an owner to a Model Lab project.
+    #
+    # Add a user as an owner of a Model Lab project. The user must belong to the
+    # project's organization. The project's creator is always an owner, so adding
+    # the creator, or a user who is already an owner, has no effect.
+    # A project can have at most 50 owners besides its creator.
+    #
+    # @param project_id [Integer] The ID of the Model Lab project.
+    # @param user_id [UUID] The UUID of the user.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def add_model_lab_project_owner_with_http_info(project_id, user_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.add_model_lab_project_owner".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.add_model_lab_project_owner")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.add_model_lab_project_owner"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ModelLabAPIAPI.add_model_lab_project_owner ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling ModelLabAPIAPI.add_model_lab_project_owner"
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling ModelLabAPIAPI.add_model_lab_project_owner"
+      end
+      # resource path
+      local_var_path = '/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :add_model_lab_project_owner,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ModelLabAPIAPI#add_model_lab_project_owner\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a Model Lab run.
     #
     # @see #delete_model_lab_run_with_http_info
@@ -548,7 +627,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter Text search filter for project name or description.
-    # @option opts [UUID] :filter_owner_id Filter by owner UUID.
+    # @option opts [UUID] :filter_owner_id Filter by owner UUID. Matches projects the user created and projects the user was added to as an owner.
     # @option opts [String] :filter_tags Filter by tags. Format: key:value,key2:value2.
     # @option opts [String] :sort Sort field. Valid values: name, created_at, updated_at. Prefix with '-' for descending order (e.g., -updated_at).
     # @option opts [Integer] :page_size Number of items per page. Maximum is 100.
@@ -1017,6 +1096,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ModelLabAPIAPI#pin_model_lab_run\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove an owner from a Model Lab project.
+    #
+    # @see #remove_model_lab_project_owner_with_http_info
+    def remove_model_lab_project_owner(project_id, user_id, opts = {})
+      remove_model_lab_project_owner_with_http_info(project_id, user_id, opts)
+      nil
+    end
+
+    # Remove an owner from a Model Lab project.
+    #
+    # Remove a user from the owners of a Model Lab project. Removing a user who
+    # isn't an owner has no effect. The project's creator is always an owner and
+    # can't be removed.
+    #
+    # @param project_id [Integer] The ID of the Model Lab project.
+    # @param user_id [UUID] The UUID of the user.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def remove_model_lab_project_owner_with_http_info(project_id, user_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.remove_model_lab_project_owner".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_model_lab_project_owner")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.remove_model_lab_project_owner"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ModelLabAPIAPI.remove_model_lab_project_owner ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling ModelLabAPIAPI.remove_model_lab_project_owner"
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling ModelLabAPIAPI.remove_model_lab_project_owner"
+      end
+      # resource path
+      local_var_path = '/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :remove_model_lab_project_owner,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ModelLabAPIAPI#remove_model_lab_project_owner\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
