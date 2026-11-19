@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class AggregatedLongTasksByInvokerType
     include BaseGenericModel
 
-    # Number of sampled views where this invoker type had long tasks contributing to the criteria metric.
+    # Number of sampled views where this invoker type had long tasks contributing to the criteria
+    # metric.
     attr_reader :criteria_view_occurrences
 
     # Rank-product impact score combining view frequency and blocking time severity.

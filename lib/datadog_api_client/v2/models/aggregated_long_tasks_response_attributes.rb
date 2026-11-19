@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # The RUM application ID that was analyzed.
     attr_reader :application_id
 
-    # Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
+    # Performance criteria used to filter view instances by a metric threshold, or null if no
+    # criteria were applied.
     attr_accessor :criteria
 
     # Start of the analyzed time range as a Unix timestamp in seconds.
@@ -33,13 +34,13 @@ module DatadogAPIClient::V2
     # Long task statistics grouped by invoker type, sorted by impact score descending.
     attr_reader :long_tasks_by_invoker_type
 
-    # List of RUM view IDs sampled for this aggregation, capped at 50.
+    # IDs of sampled views that contain at least one long task. At most 50 IDs are returned.
     attr_reader :sampled_view_ids
 
     # End of the analyzed time range as a Unix timestamp in seconds.
     attr_reader :to
 
-    # Number of view instances included in the analysis.
+    # Number of sampled views that contain at least one long task.
     attr_reader :view_count
 
     # The RUM view name that was analyzed.
@@ -66,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'application_id' => :'String',
+        :'application_id' => :'UUID',
         :'criteria' => :'AggregatedLongTasksResponseAttributesCriteria',
         :'from' => :'Integer',
         :'long_tasks_by_invoker_type' => :'Array<AggregatedLongTasksByInvokerType>',
@@ -148,6 +149,7 @@ module DatadogAPIClient::V2
       return false if @from.nil?
       return false if @long_tasks_by_invoker_type.nil?
       return false if @sampled_view_ids.nil?
+      return false if @sampled_view_ids.length > 50
       return false if @to.nil?
       return false if @view_count.nil?
       return false if @view_count > 2147483647
@@ -191,6 +193,9 @@ module DatadogAPIClient::V2
     def sampled_view_ids=(sampled_view_ids)
       if sampled_view_ids.nil?
         fail ArgumentError, 'invalid value for "sampled_view_ids", sampled_view_ids cannot be nil.'
+      end
+      if sampled_view_ids.length > 50
+        fail ArgumentError, 'invalid value for "sampled_view_ids", number of items must be less than or equal to 50.'
       end
       @sampled_view_ids = sampled_view_ids
     end

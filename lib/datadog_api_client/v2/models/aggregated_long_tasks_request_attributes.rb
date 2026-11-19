@@ -30,15 +30,16 @@ module DatadogAPIClient::V2
     attr_accessor :criteria
 
     # RUM query string to filter events (for example, @session.type:user @geo.country:US).
-    attr_accessor :filter
+    attr_reader :filter
 
-    # Start of the time range as a Unix timestamp in seconds.
+    # Start of the time range as a Unix timestamp in seconds. Must be less than `to`;
+    # the range cannot exceed 7 days.
     attr_reader :from
 
     # Number of view instances to sample, between 1 and 500.
     attr_reader :sample_size
 
-    # End of the time range as a Unix timestamp in seconds.
+    # End of the time range as a Unix timestamp in seconds. Must be greater than `from`.
     attr_reader :to
 
     # The RUM view name to analyze (for example, /account/login).
@@ -64,7 +65,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'application_id' => :'String',
+        :'application_id' => :'UUID',
         :'criteria' => :'AggregatedWaterfallPerformanceCriteria',
         :'filter' => :'String',
         :'from' => :'Integer',
@@ -126,12 +127,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @application_id.nil?
+      return false if !@filter.nil? && @filter.to_s.length > 10000
       return false if @from.nil?
+      return false if @from > 4102444800
       return false if @sample_size.nil?
       return false if @sample_size > 500
       return false if @sample_size < 1
       return false if @to.nil?
+      return false if @to > 4102444800
       return false if @view_name.nil?
+      return false if @view_name.to_s.length > 1000
       true
     end
 
@@ -146,11 +151,24 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param filter [Object] Object to be assigned
+    # @!visibility private
+    def filter=(filter)
+      if !filter.nil? && filter.to_s.length > 10000
+        fail ArgumentError, 'invalid value for "filter", the character length must be smaller than or equal to 10000.'
+      end
+      @filter = filter
+    end
+
+    # Custom attribute writer method with validation
     # @param from [Object] Object to be assigned
     # @!visibility private
     def from=(from)
       if from.nil?
         fail ArgumentError, 'invalid value for "from", from cannot be nil.'
+      end
+      if from > 4102444800
+        fail ArgumentError, 'invalid value for "from", must be smaller than or equal to 4102444800.'
       end
       @from = from
     end
@@ -178,6 +196,9 @@ module DatadogAPIClient::V2
       if to.nil?
         fail ArgumentError, 'invalid value for "to", to cannot be nil.'
       end
+      if to > 4102444800
+        fail ArgumentError, 'invalid value for "to", must be smaller than or equal to 4102444800.'
+      end
       @to = to
     end
 
@@ -187,6 +208,9 @@ module DatadogAPIClient::V2
     def view_name=(view_name)
       if view_name.nil?
         fail ArgumentError, 'invalid value for "view_name", view_name cannot be nil.'
+      end
+      if view_name.to_s.length > 1000
+        fail ArgumentError, 'invalid value for "view_name", the character length must be smaller than or equal to 1000.'
       end
       @view_name = view_name
     end

@@ -24,13 +24,13 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Maximum threshold in seconds (inclusive).
-    attr_accessor :max
+    attr_reader :max
 
     # Performance metric used to filter view instances by threshold.
     attr_reader :metric
 
     # Minimum threshold in seconds (inclusive).
-    attr_accessor :min
+    attr_reader :min
 
     attr_accessor :additional_properties
 
@@ -89,8 +89,20 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@max.nil? && @max > 3600
       return false if @metric.nil?
+      return false if !@min.nil? && @min > 3600
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param max [Object] Object to be assigned
+    # @!visibility private
+    def max=(max)
+      if !max.nil? && max > 3600
+        fail ArgumentError, 'invalid value for "max", must be smaller than or equal to 3600.'
+      end
+      @max = max
     end
 
     # Custom attribute writer method with validation
@@ -101,6 +113,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
       end
       @metric = metric
+    end
+
+    # Custom attribute writer method with validation
+    # @param min [Object] Object to be assigned
+    # @!visibility private
+    def min=(min)
+      if !min.nil? && min > 3600
+        fail ArgumentError, 'invalid value for "min", must be smaller than or equal to 3600.'
+      end
+      @min = min
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
