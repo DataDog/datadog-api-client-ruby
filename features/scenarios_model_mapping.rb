@@ -4814,6 +4814,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "NebiusCloudIntegrationAccountUpdateRequest",
     },
+    "v2.CreateOpenAICodexIntegrationAccount" => {
+            "body" => "OpenAICodexIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteOpenAICodexIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetOpenAICodexIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateOpenAICodexIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "OpenAICodexIntegrationAccountUpdateRequest",
+    },
     "v2.CreateSnowflakeIntegrationAccount" => {
             "body" => "SnowflakeIntegrationAccountCreateRequest",
     },
