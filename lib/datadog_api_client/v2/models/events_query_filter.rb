@@ -21,13 +21,14 @@ module DatadogAPIClient::V2
   class EventsQueryFilter
     include BaseGenericModel
 
-    # The minimum time for the requested events. Supports date math and regular timestamps in milliseconds.
+    # The minimum time for the requested events. Supports date math, ISO 8601 and timestamps in milliseconds.
+    # Widen it from the default to search beyond the last 15 minutes.
     attr_accessor :from
 
-    # The search query following the event search syntax.
+    # The search query following the event search syntax. Attributes take `@` (`@evt.category:alert`); tags and reserved fields don't (`service:web`).
     attr_accessor :query
 
-    # The maximum time for the requested events. Supports date math and regular timestamps in milliseconds.
+    # The maximum time for the requested events. Supports date math, ISO 8601 and timestamps in milliseconds.
     attr_accessor :to
 
     attr_accessor :additional_properties
