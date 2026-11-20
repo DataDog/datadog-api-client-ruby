@@ -53,6 +53,9 @@ module DatadogAPIClient::V1
     # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
     attr_accessor :host_filters
 
+    # The Datadog-assigned ID of the GCP integration account.
+    attr_accessor :id
+
     # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
 
@@ -98,6 +101,7 @@ module DatadogAPIClient::V1
         :'cloud_run_revision_filters' => :'cloud_run_revision_filters',
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
+        :'id' => :'id',
         :'is_cspm_enabled' => :'is_cspm_enabled',
         :'is_resource_change_collection_enabled' => :'is_resource_change_collection_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
@@ -124,6 +128,7 @@ module DatadogAPIClient::V1
         :'cloud_run_revision_filters' => :'Array<String>',
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
+        :'id' => :'UUID',
         :'is_cspm_enabled' => :'Boolean',
         :'is_resource_change_collection_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
@@ -193,6 +198,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'host_filters')
         self.host_filters = attributes[:'host_filters']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'is_cspm_enabled')
@@ -273,6 +282,7 @@ module DatadogAPIClient::V1
           cloud_run_revision_filters == o.cloud_run_revision_filters &&
           errors == o.errors &&
           host_filters == o.host_filters &&
+          id == o.id &&
           is_cspm_enabled == o.is_cspm_enabled &&
           is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
@@ -290,7 +300,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, monitored_resource_configs, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type, additional_properties].hash
+      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, id, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, monitored_resource_configs, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type, additional_properties].hash
     end
   end
 end
