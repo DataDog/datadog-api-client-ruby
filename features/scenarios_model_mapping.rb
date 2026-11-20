@@ -4797,6 +4797,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "ChatGPTEnterpriseIntegrationAccountUpdateRequest",
     },
+    "v2.CreateClaudeComplianceIntegrationAccount" => {
+            "body" => "ClaudeComplianceIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteClaudeComplianceIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetClaudeComplianceIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateClaudeComplianceIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "ClaudeComplianceIntegrationAccountUpdateRequest",
+    },
     "v2.CreateCoreWeaveCloudIntegrationAccount" => {
             "body" => "CoreWeaveCloudIntegrationAccountCreateRequest",
     },
