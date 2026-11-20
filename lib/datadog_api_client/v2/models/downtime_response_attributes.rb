@@ -50,10 +50,10 @@ module DatadogAPIClient::V2
     # Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
     attr_accessor :notify_end_types
 
-    # The principals (users, roles, or teams) allowed to act on behalf of the downtime.
+    # The user the downtime runs as. The downtime only silences monitors this user can mute.
     #
     # **Note**: This feature is currently in Preview and may not be available for all organizations.
-    attr_accessor :run_as
+    attr_reader :run_as
 
     # The schedule that defines when the monitor starts, stops, and recurs. There are two types of schedules:
     # one-time and recurring. Recurring schedules may have up to five RRULE-based recurrences. If no schedules are
@@ -193,6 +193,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@run_as.nil? && @run_as.length > 1
+      return false if !@run_as.nil? && @run_as.length < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param run_as [Object] Object to be assigned
+    # @!visibility private
+    def run_as=(run_as)
+      if !run_as.nil? && run_as.length > 1
+        fail ArgumentError, 'invalid value for "run_as", number of items must be less than or equal to 1.'
+      end
+      if !run_as.nil? && run_as.length < 1
+        fail ArgumentError, 'invalid value for "run_as", number of items must be greater than or equal to 1.'
+      end
+      @run_as = run_as
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A set of principals allowed to act on behalf of the downtime.
+  # A set of principals the downtime runs as.
   class DowntimeRunAsItem
     include BaseGenericModel
 
-    # List of principals allowed to act on behalf of the downtime.
-    attr_accessor :principals
+    # The principal the downtime runs as. Only one user is supported.
+    attr_reader :principals
 
     attr_accessor :additional_properties
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'principals' => :'Array<DowntimeRunAsPrincipal>'
+        :'principals' => :'Array<String>'
       }
     end
 
@@ -65,6 +65,32 @@ module DatadogAPIClient::V2
           self.principals = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @principals.nil?
+      return false if @principals.length > 1
+      return false if @principals.length < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param principals [Object] Object to be assigned
+    # @!visibility private
+    def principals=(principals)
+      if principals.nil?
+        fail ArgumentError, 'invalid value for "principals", principals cannot be nil.'
+      end
+      if principals.length > 1
+        fail ArgumentError, 'invalid value for "principals", number of items must be less than or equal to 1.'
+      end
+      if principals.length < 1
+        fail ArgumentError, 'invalid value for "principals", number of items must be greater than or equal to 1.'
+      end
+      @principals = principals
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
