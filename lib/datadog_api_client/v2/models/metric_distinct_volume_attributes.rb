@@ -21,7 +21,8 @@ module DatadogAPIClient::V2
   class MetricDistinctVolumeAttributes
     include BaseGenericModel
 
-    # Distinct volume for the given metric.
+    # Distinct volume for the given metric. This value is `null` for standard metrics in organizations on
+    # Metric Name Pricing.
     attr_accessor :distinct_volume
 
     attr_accessor :additional_properties
@@ -40,6 +41,14 @@ module DatadogAPIClient::V2
       {
         :'distinct_volume' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'distinct_volume',
+      ])
     end
 
     # Initializes the object

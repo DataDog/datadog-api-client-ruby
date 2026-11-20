@@ -21,14 +21,14 @@ module DatadogAPIClient::V2
   class MetricIngestedIndexedVolumeAttributes
     include BaseGenericModel
 
-    # Estimated average hourly number of indexed time series for the given metric over the last hour. For organizations on Metric Name Pricing, this represents the estimated sum of indexed data points over the last hour.
+    # Estimated average hourly number of indexed time series for the given metric over the last hour. For organizations on Metric Name Pricing, this represents the estimated sum of indexed data points over the last hour. This value is `null` when no estimated usage data is available for the metric.
     attr_accessor :indexed_volume
 
     # Change in `indexed_volume` compared with the previous hour: the last hour's value minus the value for
     # the hour before. Negative when volume decreased.
     attr_accessor :indexed_volume_delta
 
-    # Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour.
+    # Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour. This value can be `null` when ingested volume is not available for the metric.
     attr_accessor :ingested_volume
 
     # Change in `ingested_volume` compared with the previous hour: the last hour's value minus the value for
@@ -57,6 +57,15 @@ module DatadogAPIClient::V2
         :'ingested_volume' => :'Integer',
         :'ingested_volume_delta' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'indexed_volume',
+        :'ingested_volume',
+      ])
     end
 
     # Initializes the object
