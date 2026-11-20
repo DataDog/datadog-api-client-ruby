@@ -4862,6 +4862,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "OpenAICodexIntegrationAccountUpdateRequest",
     },
+    "v2.CreateOpenAILLMEvaluationsIntegrationAccount" => {
+            "body" => "OpenAILLMEvaluationsIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteOpenAILLMEvaluationsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetOpenAILLMEvaluationsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateOpenAILLMEvaluationsIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "OpenAILLMEvaluationsIntegrationAccountUpdateRequest",
+    },
     "v2.CreateSnowflakeIntegrationAccount" => {
             "body" => "SnowflakeIntegrationAccountCreateRequest",
     },
