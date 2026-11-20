@@ -104,8 +104,8 @@ module DatadogAPIClient::V1
     # **Note**: To enrich the data returned by this endpoint with security scans, see the new [api/v2/security/scanned-assets-metadata](https://docs.datadoghq.com/api/latest/security-monitoring/#list-scanned-assets-metadata) endpoint.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter String to filter search results.
-    # @option opts [String] :sort_field Sort hosts by this field.
+    # @option opts [String] :filter String to filter search results. A filter is one or more terms separated by spaces or commas. A host must match every term. Prefix a term with `!` to exclude matching hosts.  Term types: - `<text>`: Partial, case-insensitive match against host name, alias, AWS ID and name, tags, apps, and   agent metadata. Text of fewer than 3 characters only matches a field whose value is exactly that text. - `tag:<key>:<value>`: Exact match on a tag, for example `tag:env:prod`. - `field:apps:<app>`: Exact match on an app name, for example `field:apps:nginx`. - `field:metadata_agent_version:<value>`, `field:metadata_machine:<value>`,   `field:metadata_platform:<value>`, `field:metadata_processor:<value>`: Exact match on that metadata field. - `exists:tag:<key>` or `exists:field:<field>`: Match hosts that have the tag key or a non-empty value   for the field, for example `exists:tag:env` or `exists:field:metadata_platform`. - `exact:<value>`: Whole-value, case-sensitive match.  Boolean operators (`AND`, `OR`, `NOT`) and `*` wildcards are not supported.
+    # @option opts [String] :sort_field Sort hosts by this field. Options include `name`, `aws_id`, `aws_name`, `up`, `apps`, `cpu`, `iowait`, and `load`. Unrecognized values default to `cpu`..
     # @option opts [String] :sort_dir Direction of sort. Options include `asc` and `desc`.
     # @option opts [Integer] :start Specify the starting point for the host search results. For example, if you set `count` to 100 and the first 100 results have already been returned, you can set `start` to `101` to get the next 100 results.
     # @option opts [Integer] :count Number of hosts to return. Max 1000.
