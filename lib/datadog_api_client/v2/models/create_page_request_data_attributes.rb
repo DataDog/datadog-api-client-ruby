@@ -24,13 +24,13 @@ module DatadogAPIClient::V2
     # A short summary of the issue or context.
     attr_accessor :description
 
-    # Tags to help categorize or filter the page.
+    # Tags to help categorize or filter the Page.
     attr_accessor :tags
 
     # Information about the target to notify (such as a team or user).
     attr_reader :target
 
-    # The title of the page.
+    # The title of the Page.
     attr_reader :title
 
     # On-Call Page urgency level.
