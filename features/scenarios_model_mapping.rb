@@ -3645,6 +3645,9 @@ ScenariosModelMappings = {
     "v2.CancelDataDeletionRequest" => {
             "id" => "String",
     },
+    "v2.ForceDataDeletionRequest" => {
+            "id" => "String",
+    },
     "v2.CreateJourney" => {
             "body" => "DemJourneyCreateRequest",
     },

@@ -4630,6 +4630,7 @@ module DatadogAPIClient
           "v2.flutter_sourcemap_attributes" => "FlutterSourcemapAttributes",
           "v2.flutter_sourcemap_data" => "FlutterSourcemapData",
           "v2.flutter_sourcemap_map_kind" => "FlutterSourcemapMapKind",
+          "v2.force_data_deletion_response_body" => "ForceDataDeletionResponseBody",
           "v2.form_data" => "FormData",
           "v2.form_data_attributes" => "FormDataAttributes",
           "v2.form_data_definition" => "FormDataDefinition",

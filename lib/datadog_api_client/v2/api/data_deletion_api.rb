@@ -160,6 +160,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Forces a data deletion request.
+    #
+    # @see #force_data_deletion_request_with_http_info
+    def force_data_deletion_request(id, opts = {})
+      data, _status_code, _headers = force_data_deletion_request_with_http_info(id, opts)
+      data
+    end
+
+    # Forces a data deletion request.
+    #
+    # Skips the remaining recovery period of a data deletion request by providing its ID.
+    # Only requests in `in_progress` status can be forced. The deletion starts within a few minutes,
+    # the request moves to `deleting` status, and it can no longer be canceled.
+    #
+    # @param id [String] ID of the deletion request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ForceDataDeletionResponseBody, Integer, Hash)>] ForceDataDeletionResponseBody data, response status code and response headers
+    def force_data_deletion_request_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.force_data_deletion_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.force_data_deletion_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.force_data_deletion_request"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataDeletionAPI.force_data_deletion_request ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DataDeletionAPI.force_data_deletion_request"
+      end
+      # resource path
+      local_var_path = '/api/v2/deletion/requests/{id}/force'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ForceDataDeletionResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :force_data_deletion_request,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataDeletionAPI#force_data_deletion_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Gets a list of data deletion requests.
     #
     # @see #get_data_deletion_requests_with_http_info
