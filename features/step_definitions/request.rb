@@ -409,6 +409,15 @@ Given(/^new "([^"]+)" with version "([^"]+)" request$/) do |name, version|
   @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
 end
 
+Given(/^new "([^"]+)" with version "([^"]+)" request$/) do |name, version|
+  @operation_api_version = "#{@api_version}_#{version.delete('-')}"
+  @api_instance = api.const_get("V#{operation_api_version}").const_get(@api_name).new api_client
+  next if test_runner_enabled?
+
+  @operation_id = name
+  @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
+end
+
 When('the request is sent') do
   prepare_test_runner_request if test_runner_enabled?
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }

@@ -9,7 +9,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 # there is a valid "powerpack" in the system
 POWERPACK_DATA_ID = ENV["POWERPACK_DATA_ID"]
 
-body = DatadogAPIClient::V1::Dashboard.new({
+body = DatadogAPIClient::V1::Dashboard_V1.new({
   title: "Example-Dashboard with powerpack widget",
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
   widgets: [

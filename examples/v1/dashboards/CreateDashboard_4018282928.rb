@@ -6,7 +6,7 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
-body = DatadogAPIClient::V1::Dashboard.new({
+body = DatadogAPIClient::V1::Dashboard_V1.new({
   title: "Example-Dashboard with events flat group_by fields",
   widgets: [
     DatadogAPIClient::V1::Widget.new({

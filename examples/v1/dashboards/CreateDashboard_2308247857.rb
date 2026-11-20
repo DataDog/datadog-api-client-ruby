@@ -9,7 +9,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 # there is a valid "monitor" in the system
 MONITOR_ID = ENV["MONITOR_ID"]
 
-body = DatadogAPIClient::V1::Dashboard.new({
+body = DatadogAPIClient::V1::Dashboard_V1.new({
   title: "Example-Dashboard",
   description: "",
   widgets: [

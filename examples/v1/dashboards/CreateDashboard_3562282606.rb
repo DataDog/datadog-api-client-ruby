@@ -9,7 +9,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 # there is a valid "slo" in the system
 SLO_DATA_0_ID = ENV["SLO_DATA_0_ID"]
 
-body = DatadogAPIClient::V1::Dashboard.new({
+body = DatadogAPIClient::V1::Dashboard_V1.new({
   title: "Example-Dashboard",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
