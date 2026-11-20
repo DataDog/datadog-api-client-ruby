@@ -6,7 +6,7 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
-body = DatadogAPIClient::V1::Dashboard.new({
+body = DatadogAPIClient::V1::Dashboard_V1.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
   title: "Example-Dashboard with has_value_labels",
   widgets: [

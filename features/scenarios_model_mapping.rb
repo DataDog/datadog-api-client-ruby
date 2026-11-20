@@ -840,6 +840,16 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v1_20270101.CreateDashboard" => {
+            "body" => "Dashboard",
+    },
+    "v1_20270101.GetDashboard" => {
+            "dashboard_id" => "String",
+    },
+    "v1_20270101.UpdateDashboard" => {
+            "dashboard_id" => "String",
+            "body" => "Dashboard",
+    },
     "v2.ListFleetAgentTracers" => {
             "agent_key" => "String",
             "page_number" => "Integer",
