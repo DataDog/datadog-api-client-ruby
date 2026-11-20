@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The retention quota mode. `custom` enforces a fixed session limit.
   # `custom` is the only supported mode.
-  class RumRetentionQuotaMode
+  class RUMRetentionQuotaMode
     include BaseEnumModel
 
     CUSTOM = "custom".freeze

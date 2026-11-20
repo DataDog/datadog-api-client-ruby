@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The RUM-based metric update body.
-  class RumMetricUpdateRequest
+  class RUMMetricUpdateRequest
     include BaseGenericModel
 
     # The RUM-based metric properties to update. `id` is required by the API and must match the `metric_id` path parameter.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RumMetricUpdateData'
+        :'data' => :'RUMMetricUpdateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricUpdateRequest` initialize method"
       end
 
       self.additional_properties = {}

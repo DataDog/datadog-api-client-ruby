@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource.
-  class RumRecoveryBatchListData
+  class RUMRecoveryBatchListData
     include BaseGenericModel
 
     # Batch recovery progress. Status updates can appear here before they appear in request details.
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumRecoveryBatchListAttributes',
+        :'attributes' => :'RUMRecoveryBatchListAttributes',
         :'id' => :'String',
-        :'type' => :'RumRecoveryBatchListDataType'
+        :'type' => :'RUMRecoveryBatchListDataType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryBatchListData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryBatchListData` initialize method"
       end
 
       self.additional_properties = {}

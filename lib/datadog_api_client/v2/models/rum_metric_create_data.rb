@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The new RUM-based metric properties.
-  class RumMetricCreateData
+  class RUMMetricCreateData
     include BaseGenericModel
 
     # The object describing the Datadog RUM-based metric to create.
@@ -48,9 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumMetricCreateAttributes',
+        :'attributes' => :'RUMMetricCreateAttributes',
         :'id' => :'String',
-        :'type' => :'RumMetricType'
+        :'type' => :'RUMMetricType'
       }
     end
 
@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricCreateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricCreateData` initialize method"
       end
 
       self.additional_properties = {}

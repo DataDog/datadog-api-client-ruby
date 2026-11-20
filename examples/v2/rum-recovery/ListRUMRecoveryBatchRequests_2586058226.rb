@@ -7,4 +7,4 @@ opts = {
   to: 2,
   query: "service:rum18600-fixture AND @usr.id:(123 OR 456)",
 }
-p api_instance.list_rum_recovery_batch_requests(RumRecoveryBatchRequestType::BATCH, opts)
+p api_instance.list_rum_recovery_batch_requests(RUMRecoveryBatchRequestType::BATCH, opts)

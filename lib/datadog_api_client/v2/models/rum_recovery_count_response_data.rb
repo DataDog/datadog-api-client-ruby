@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource.
-  class RumRecoveryCountResponseData
+  class RUMRecoveryCountResponseData
     include BaseGenericModel
 
     # Approximate recoverable count.
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumRecoveryCountResponseAttributes',
+        :'attributes' => :'RUMRecoveryCountResponseAttributes',
         :'id' => :'String',
-        :'type' => :'RumRecoveryCountResponseDataType'
+        :'type' => :'RUMRecoveryCountResponseDataType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryCountResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryCountResponseData` initialize method"
       end
 
       self.additional_properties = {}

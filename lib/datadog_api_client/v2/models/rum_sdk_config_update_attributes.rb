@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Attributes of the RUM SDK configuration to update.
-  class RumSdkConfigUpdateAttributes
+  class RUMSdkConfigUpdateAttributes
     include BaseGenericModel
 
     # The RUM SDK settings to apply when updating a configuration.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rum' => :'RumSdkConfigRumUpdateAttributes'
+        :'rum' => :'RUMSdkConfigRUMUpdateAttributes'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}

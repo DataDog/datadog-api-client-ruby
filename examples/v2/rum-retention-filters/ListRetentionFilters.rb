@@ -4,5 +4,5 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
-api_instance = DatadogAPIClient::V2::RumRetentionFiltersAPI.new
+api_instance = DatadogAPIClient::V2::RUMRetentionFiltersAPI.new
 p api_instance.list_retention_filters("1d4b9c34-7ac4-423a-91cf-9902d926e9b3")

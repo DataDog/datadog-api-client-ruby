@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of aggregation to use.
   # `count` counts the matching events. `distribution` aggregates the values found at `path`.
-  class RumMetricComputeAggregationType
+  class RUMMetricComputeAggregationType
     include BaseEnumModel
 
     COUNT = "count".freeze

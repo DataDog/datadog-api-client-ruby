@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of the resource. The value should always be `rum_config`.
-  class RumConfigType
+  class RUMConfigType
     include BaseEnumModel
 
     RUM_CONFIG = "rum_config".freeze

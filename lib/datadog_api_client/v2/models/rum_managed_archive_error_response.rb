@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # API error response.
-  class RumManagedArchiveErrorResponse
+  class RUMManagedArchiveErrorResponse
     include BaseGenericModel
 
     # Errors as plain-text messages or JSON:API error objects containing status, title, and detail.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumManagedArchiveErrorResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMManagedArchiveErrorResponse` initialize method"
       end
 
       self.additional_properties = {}

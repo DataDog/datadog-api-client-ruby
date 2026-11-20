@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Session availability or recovery state. `RECOVERED` indicates that the session is ready to query.
-  class RumRecoverySessionStatus
+  class RUMRecoverySessionStatus
     include BaseEnumModel
 
     AVAILABLE = "AVAILABLE".freeze

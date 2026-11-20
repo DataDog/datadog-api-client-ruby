@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Targeted recovery. Omitted request_type defaults to sessions.
-  class RumRecoverySessionsRequestType
+  class RUMRecoverySessionsRequestType
     include BaseEnumModel
 
     SESSIONS = "sessions".freeze

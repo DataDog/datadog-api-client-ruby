@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A serialized regex used as an extractor in dynamic options.
-  class RumSdkConfigSerializedRegex
+  class RUMSdkConfigSerializedRegex
     include BaseGenericModel
 
     # The type identifier for a serialized regex. Always `regex`.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rc_serialized_type' => :'RumSdkConfigSerializedRegexType',
+        :'rc_serialized_type' => :'RUMSdkConfigSerializedRegexType',
         :'value' => :'String'
       }
     end
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigSerializedRegex` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigSerializedRegex` initialize method"
       end
 
       self.additional_properties = {}

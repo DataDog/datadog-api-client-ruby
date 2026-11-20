@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Batch-list pagination metadata.
-  class RumRecoveryBatchListMeta
+  class RUMRecoveryBatchListMeta
     include BaseGenericModel
 
     # Opaque next-page cursor. Omitted on the final page.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryBatchListMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryBatchListMeta` initialize method"
       end
 
       self.additional_properties = {}

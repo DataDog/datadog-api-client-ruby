@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Configuration for a URL that should have distributed tracing enabled.
-  class RumSdkConfigTracingUrlConfig
+  class RUMSdkConfigTracingUrlConfig
     include BaseGenericModel
 
     # A match option used for URL or origin pattern matching.
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'match' => :'RumSdkConfigMatchOption',
-        :'propagator_types' => :'Array<RumSdkConfigTracingUrlPropagatorType>'
+        :'match' => :'RUMSdkConfigMatchOption',
+        :'propagator_types' => :'Array<RUMSdkConfigTracingUrlPropagatorType>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigTracingUrlConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigTracingUrlConfig` initialize method"
       end
 
       self.additional_properties = {}
