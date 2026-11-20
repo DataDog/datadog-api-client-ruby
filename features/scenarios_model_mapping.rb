@@ -2500,6 +2500,14 @@ ScenariosModelMappings = {
     "v2.UpdateFindingsSeverity" => {
             "body" => "SeverityOverrideRequest",
     },
+    "v2.SearchRemediationGroups" => {
+            "filter_finding_type" => "Array<RemediationGroupFindingType>",
+            "filter_query" => "String",
+            "sort" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "include" => "RemediationGroupInclude",
+    },
     "v2.ListAssetsSBOMs" => {
             "page_token" => "String",
             "page_number" => "Integer",

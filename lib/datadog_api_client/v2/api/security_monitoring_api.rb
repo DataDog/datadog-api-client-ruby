@@ -12133,6 +12133,141 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Search remediation groups.
+    #
+    # @see #search_remediation_groups_with_http_info
+    def search_remediation_groups(opts = {})
+      data, _status_code, _headers = search_remediation_groups_with_http_info(opts)
+      data
+    end
+
+    # Search remediation groups.
+    #
+    # Search the remediation groups of your organization. A remediation group gathers the open security findings
+    # that one change fixes, such as updating a package in a repository or upgrading an image.
+    #
+    # Each group comes from a grouping definition, which sets the finding type it covers and the kind object the
+    # group returns:
+    #
+    # | Grouping definition    | Finding type                       | Kind object      |
+    # | ---------------------- | ---------------------------------- | ---------------- |
+    # | `sca.package_update`   | `library_vulnerability`            | `package_update` |
+    # | `cloudvm.image_update` | `host_and_container_vulnerability` | `image_update`   |
+    #
+    # Groups are computed from the attributes of security findings, described in the
+    # [security findings schema](https://docs.datadoghq.com/security/guide/findings-schema/). The description of
+    # each kind object lists the findings its grouping definition reads and the attribute each field comes from.
+    #
+    # The search includes all open findings, regardless of when they were first detected.
+    #
+    # This endpoint requires the `cases_read` permission and either the `security_monitoring_findings_read` or
+    # `appsec_vm_read` permission.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Array<RemediationGroupFindingType>] :filter_finding_type Returns only groups whose grouping definition covers this `@finding_type` value. To match more than one finding type, repeat the parameter.
+    # @option opts [String] :filter_query Returns only groups with at least one open finding that matches the query. Use the security findings search syntax with attributes from the [security findings schema](https://docs.datadoghq.com/security/guide/findings-schema/), prefixed by `@`. For example, `@severity:(critical OR high)` returns groups with at least one critical or high finding. The group's counts still include every finding in the group. The query can be at most 2048 bytes after JSON encoding, and the parameter can appear only once.
+    # @option opts [String] :sort Comma-separated list of sort fields. Prefix a field with `-` to sort in descending order. `findings.by_severity` sorts by the critical count, then high, medium, low, info, none, and unknown. `findings.total` sorts by the total finding count. By default, groups are sorted by critical count, then high count, then total finding count, all in descending order.
+    # @option opts [Integer] :page_size Number of groups in a page.
+    # @option opts [Integer] :page_number Page to return, starting at 1.
+    # @option opts [RemediationGroupInclude] :include Adds each group's case to `included`. `case` is the only supported value.
+    # @return [Array<(SearchRemediationGroupsResponse, Integer, Hash)>] SearchRemediationGroupsResponse data, response status code and response headers
+    def search_remediation_groups_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_remediation_groups".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_remediation_groups")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_remediation_groups"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_remediation_groups ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.search_remediation_groups, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling SecurityMonitoringAPI.search_remediation_groups, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.search_remediation_groups, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.search_remediation_groups, must be greater than or equal to 1.'
+      end
+      allowable_values = ['case']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/remediation_groups'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[finding_type]'] = @api_client.build_collection_param(opts[:'filter_finding_type'], :multi) if !opts[:'filter_finding_type'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SearchRemediationGroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :search_remediation_groups,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#search_remediation_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search remediation groups.
+    #
+    # Provide a paginated version of {#search_remediation_groups}, returning all items.
+    #
+    # To use it you need to use a block: search_remediation_groups_with_pagination { |item| p item }
+    #
+    # @yield [RemediationGroupData] Paginated items
+    def search_remediation_groups_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 1)
+        while true do
+            response = search_remediation_groups(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 1) + 1)
+        end
+    end
+
     # Search security findings.
     #
     # @see #search_security_findings_with_http_info
