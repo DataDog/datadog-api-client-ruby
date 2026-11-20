@@ -30,6 +30,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineOpentelemetrySource',
           :'ObservabilityPipelineAmazonDataFirehoseSource',
           :'ObservabilityPipelineAmazonS3Source',
+          :'ObservabilityPipelineCrowdStrikeFdrSource',
           :'ObservabilityPipelineFluentBitSource',
           :'ObservabilityPipelineFluentdSource',
           :'ObservabilityPipelineGooglePubSubSource',
