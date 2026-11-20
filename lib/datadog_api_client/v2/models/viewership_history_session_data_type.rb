@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Rum replay session resource type.
+  # RUM replay session resource type.
   class ViewershipHistorySessionDataType
     include BaseEnumModel
 

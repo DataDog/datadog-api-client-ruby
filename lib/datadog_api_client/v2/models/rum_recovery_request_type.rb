@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource type.
-  class RumRecoveryRequestType
+  class RUMRecoveryRequestType
     include BaseEnumModel
 
     RUM_RECOVERY_REQUEST = "rum_recovery_request".freeze

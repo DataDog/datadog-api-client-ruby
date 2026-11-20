@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The RUM retention filter body to update.
-  class RumRetentionFilterUpdateRequest
+  class RUMRetentionFilterUpdateRequest
     include BaseGenericModel
 
     # The new RUM retention filter properties to update.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RumRetentionFilterUpdateData'
+        :'data' => :'RUMRetentionFilterUpdateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRetentionFilterUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRetentionFilterUpdateRequest` initialize method"
       end
 
       self.additional_properties = {}

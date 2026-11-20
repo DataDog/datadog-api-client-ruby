@@ -6338,12 +6338,12 @@ ScenariosModelMappings = {
     "v2.GetCloudWorkloadSecurityAgentRule" => {
             "agent_rule_id" => "String",
     },
-    "v2.GetRumSdkConfig" => {
+    "v2.GetRUMSdkConfig" => {
             "config_id" => "String",
     },
-    "v2.UpdateRumSdkConfig" => {
+    "v2.UpdateRUMSdkConfig" => {
             "config_id" => "String",
-            "body" => "RumSdkConfigUpdateRequest",
+            "body" => "RUMSdkConfigUpdateRequest",
     },
     "v2.ListReplayHeatmapSnapshots" => {
             "filter_device_type" => "String",
@@ -6524,21 +6524,21 @@ ScenariosModelMappings = {
     },
     "v2.OrderRetentionFilters" => {
             "app_id" => "String",
-            "body" => "RumRetentionFiltersOrderRequest",
+            "body" => "RUMRetentionFiltersOrderRequest",
     },
     "v2.ListRetentionFilters" => {
             "app_id" => "String",
     },
     "v2.CreateRetentionFilter" => {
             "app_id" => "String",
-            "body" => "RumRetentionFilterCreateRequest",
+            "body" => "RUMRetentionFilterCreateRequest",
     },
     "v2.ListExclusionFilters" => {
             "app_id" => "String",
     },
     "v2.CreateExclusionFilter" => {
             "app_id" => "String",
-            "body" => "RumExclusionFilterCreateRequest",
+            "body" => "RUMExclusionFilterCreateRequest",
     },
     "v2.DeleteExclusionFilter" => {
             "app_id" => "String",
@@ -6551,19 +6551,19 @@ ScenariosModelMappings = {
     "v2.UpdateExclusionFilter" => {
             "app_id" => "String",
             "ef_id" => "String",
-            "body" => "RumExclusionFilterUpdateRequest",
+            "body" => "RUMExclusionFilterUpdateRequest",
     },
     "v2.ListPermanentRetentionFilters" => {
             "app_id" => "String",
     },
     "v2.GetPermanentRetentionFilter" => {
             "app_id" => "String",
-            "permanent_rf_id" => "RumPermanentRetentionFilterID",
+            "permanent_rf_id" => "RUMPermanentRetentionFilterID",
     },
     "v2.UpdatePermanentRetentionFilter" => {
             "app_id" => "String",
-            "permanent_rf_id" => "RumPermanentRetentionFilterID",
-            "body" => "RumPermanentRetentionFilterUpdateRequest",
+            "permanent_rf_id" => "RUMPermanentRetentionFilterID",
+            "body" => "RUMPermanentRetentionFilterUpdateRequest",
     },
     "v2.DeleteRetentionFilter" => {
             "app_id" => "String",
@@ -6576,13 +6576,13 @@ ScenariosModelMappings = {
     "v2.UpdateRetentionFilter" => {
             "app_id" => "String",
             "rf_id" => "String",
-            "body" => "RumRetentionFilterUpdateRequest",
+            "body" => "RUMRetentionFilterUpdateRequest",
     },
-    "v2.UpdateRumConfig" => {
-            "body" => "RumConfigUpdateRequest",
+    "v2.UpdateRUMConfig" => {
+            "body" => "RUMConfigUpdateRequest",
     },
-    "v2.CreateRumConfig" => {
-            "body" => "RumConfigCreateRequest",
+    "v2.CreateRUMConfig" => {
+            "body" => "RUMConfigCreateRequest",
     },
     "v2.ListRUMArchiveConfigs" => {
             "page_number" => "Integer",
@@ -6596,33 +6596,33 @@ ScenariosModelMappings = {
     },
     "v2.UpdateRUMArchiveConfig" => {
             "app_id" => "UUID",
-            "body" => "RumArchiveConfigUpsertRequest",
+            "body" => "RUMArchiveConfigUpsertRequest",
     },
-    "v2.CreateRumMetric" => {
-            "body" => "RumMetricCreateRequest",
+    "v2.CreateRUMMetric" => {
+            "body" => "RUMMetricCreateRequest",
     },
-    "v2.DeleteRumMetric" => {
+    "v2.DeleteRUMMetric" => {
             "metric_id" => "String",
     },
-    "v2.GetRumMetric" => {
+    "v2.GetRUMMetric" => {
             "metric_id" => "String",
     },
-    "v2.UpdateRumMetric" => {
+    "v2.UpdateRUMMetric" => {
             "metric_id" => "String",
-            "body" => "RumMetricUpdateRequest",
+            "body" => "RUMMetricUpdateRequest",
     },
-    "v2.DeleteRumQuotaConfig" => {
-            "scope_type" => "RumRetentionQuotaScopeType",
+    "v2.DeleteRUMQuotaConfig" => {
+            "scope_type" => "RUMRetentionQuotaScopeType",
             "scope_id" => "String",
     },
-    "v2.GetRumQuotaConfig" => {
-            "scope_type" => "RumRetentionQuotaScopeType",
+    "v2.GetRUMQuotaConfig" => {
+            "scope_type" => "RUMRetentionQuotaScopeType",
             "scope_id" => "String",
     },
-    "v2.UpsertRumQuotaConfig" => {
-            "scope_type" => "RumRetentionQuotaScopeType",
+    "v2.UpsertRUMQuotaConfig" => {
+            "scope_type" => "RUMRetentionQuotaScopeType",
             "scope_id" => "String",
-            "body" => "RumRetentionQuotaConfigUpdateRequest",
+            "body" => "RUMRetentionQuotaConfigUpdateRequest",
     },
     "v2.ListTeamsOwnershipMappings" => {
             "filter_view_name" => "Array<String>",
@@ -6698,10 +6698,10 @@ ScenariosModelMappings = {
             "body" => "AggregatedWaterfallRequest",
     },
     "v2.GetRUMRecoverySessionCount" => {
-            "body" => "RumRecoveryCountRequest",
+            "body" => "RUMRecoveryCountRequest",
     },
     "v2.ListRUMRecoveryBatchRequests" => {
-            "type" => "RumRecoveryBatchRequestType",
+            "type" => "RUMRecoveryBatchRequestType",
             "limit" => "Integer",
             "cursor" => "String",
             "from" => "Integer",
@@ -6709,51 +6709,51 @@ ScenariosModelMappings = {
             "query" => "String",
     },
     "v2.CreateRUMRecoveryRequest" => {
-            "body" => "RumRecoveryCreateRequest",
+            "body" => "RUMRecoveryCreateRequest",
     },
     "v2.GetRUMRecoveryRequest" => {
             "request_id" => "UUID",
     },
     "v2.UpdateRUMRecoveryBatchRequest" => {
             "request_id" => "UUID",
-            "body" => "RumRecoveryCancelRequest",
+            "body" => "RUMRecoveryCancelRequest",
     },
     "v2.SearchRUMArchiveSessions" => {
-            "body" => "RumArchiveSessionsSearchRequest",
+            "body" => "RUMArchiveSessionsSearchRequest",
     },
-    "v2.ListRumReplayPlaylists" => {
+    "v2.ListRUMReplayPlaylists" => {
             "filter_created_by_uuid" => "String",
             "filter_query" => "String",
             "page_number" => "Integer",
             "page_size" => "Integer",
     },
-    "v2.CreateRumReplayPlaylist" => {
+    "v2.CreateRUMReplayPlaylist" => {
             "body" => "Playlist",
     },
-    "v2.DeleteRumReplayPlaylist" => {
+    "v2.DeleteRUMReplayPlaylist" => {
             "playlist_id" => "Integer",
     },
-    "v2.GetRumReplayPlaylist" => {
+    "v2.GetRUMReplayPlaylist" => {
             "playlist_id" => "Integer",
     },
-    "v2.UpdateRumReplayPlaylist" => {
+    "v2.UpdateRUMReplayPlaylist" => {
             "playlist_id" => "Integer",
             "body" => "Playlist",
     },
-    "v2.BulkRemoveRumReplayPlaylistSessions" => {
+    "v2.BulkRemoveRUMReplayPlaylistSessions" => {
             "playlist_id" => "Integer",
             "body" => "SessionIdArray",
     },
-    "v2.ListRumReplayPlaylistSessions" => {
+    "v2.ListRUMReplayPlaylistSessions" => {
             "playlist_id" => "Integer",
             "page_number" => "Integer",
             "page_size" => "Integer",
     },
-    "v2.RemoveRumReplaySessionFromPlaylist" => {
+    "v2.RemoveRUMReplaySessionFromPlaylist" => {
             "playlist_id" => "Integer",
             "session_id" => "String",
     },
-    "v2.AddRumReplaySessionToPlaylist" => {
+    "v2.AddRUMReplaySessionToPlaylist" => {
             "data_source" => "String",
             "ts" => "Integer",
             "playlist_id" => "Integer",
@@ -6767,19 +6767,19 @@ ScenariosModelMappings = {
             "max_list_size" => "Integer",
             "paging" => "String",
     },
-    "v2.ListRumReplaySessionWatchers" => {
+    "v2.ListRUMReplaySessionWatchers" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
             "session_id" => "String",
     },
-    "v2.DeleteRumReplaySessionWatch" => {
+    "v2.DeleteRUMReplaySessionWatch" => {
             "session_id" => "String",
     },
-    "v2.CreateRumReplaySessionWatch" => {
+    "v2.CreateRUMReplaySessionWatch" => {
             "session_id" => "String",
             "body" => "Watch",
     },
-    "v2.ListRumReplayViewershipHistorySessions" => {
+    "v2.ListRUMReplayViewershipHistorySessions" => {
             "filter_watched_at_start" => "Integer",
             "page_number" => "Integer",
             "filter_created_by" => "String",

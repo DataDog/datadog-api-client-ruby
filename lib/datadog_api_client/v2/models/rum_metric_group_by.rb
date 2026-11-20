@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A group by rule.
-  class RumMetricGroupBy
+  class RUMMetricGroupBy
     include BaseGenericModel
 
     # The path of the RUM event attribute to group the metric by.
@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricGroupBy` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricGroupBy` initialize method"
       end
 
       self.additional_properties = {}

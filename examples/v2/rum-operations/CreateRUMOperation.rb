@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::RUMOperationCreateRequest.new({
       description: nil,
       display_name: "Checkout completed",
       feature_ids: [],
-      journey_rum: DatadogAPIClient::V2::RUMOperationJourneyRum.new({
+      journey_rum: DatadogAPIClient::V2::RUMOperationJourneyRUM.new({
         rum_steps: [
           DatadogAPIClient::V2::RUMOperationJourneyStep.new({
             composite: DatadogAPIClient::V2::RUMOperationJourneyCompositeRule.new({

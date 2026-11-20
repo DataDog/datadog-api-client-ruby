@@ -4,7 +4,7 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
-api_instance = DatadogAPIClient::V2::RumTeamsOwnershipAPI.new
+api_instance = DatadogAPIClient::V2::RUMTeamsOwnershipAPI.new
 
 # there is a valid "teams_ownership_mapping" in the system
 TEAMS_OWNERSHIP_MAPPING_DATA_ID = ENV["TEAMS_OWNERSHIP_MAPPING_DATA_ID"]

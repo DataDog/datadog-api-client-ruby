@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The RUM-based metric filter. RUM events matching this filter are aggregated in this metric. Omitted if the metric only filters on the event type.
-  class RumMetricResponseFilter
+  class RUMMetricResponseFilter
     include BaseGenericModel
 
     # The search query, following the [RUM search syntax](https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/). It does not include the event type filter.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricResponseFilter` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricResponseFilter` initialize method"
       end
 
       self.additional_properties = {}

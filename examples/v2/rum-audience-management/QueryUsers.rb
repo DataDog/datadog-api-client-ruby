@@ -5,7 +5,7 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
   config.unstable_operations["v2.query_users".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::RumAudienceManagementAPI.new
+api_instance = DatadogAPIClient::V2::RUMAudienceManagementAPI.new
 
 body = DatadogAPIClient::V2::QueryUsersRequest.new({
   data: DatadogAPIClient::V2::QueryUsersRequestData.new({

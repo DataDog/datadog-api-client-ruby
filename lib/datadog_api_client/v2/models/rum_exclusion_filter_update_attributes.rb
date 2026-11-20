@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # The attributes of an exclusion filter that can be updated.
   # For the built-in Error Tracking exclusion filter, only `enabled` can be set;
   # `name`, `event_type`, and `query` must be omitted.
-  class RumExclusionFilterUpdateAttributes
+  class RUMExclusionFilterUpdateAttributes
     include BaseGenericModel
 
     # Whether the exclusion filter is active.
@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
-        :'event_type' => :'RumExclusionFilterEventType',
+        :'event_type' => :'RUMExclusionFilterEventType',
         :'name' => :'String',
         :'query' => :'String'
       }
@@ -65,7 +65,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumExclusionFilterUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMExclusionFilterUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}

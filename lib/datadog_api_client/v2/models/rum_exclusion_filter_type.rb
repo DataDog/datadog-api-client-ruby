@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The resource type. The value must be `exclusion_filters`.
-  class RumExclusionFilterType
+  class RUMExclusionFilterType
     include BaseEnumModel
 
     EXCLUSION_FILTERS = "exclusion_filters".freeze

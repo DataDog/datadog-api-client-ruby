@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Unique identifier of the watch record.
     attr_accessor :id
 
-    # Rum replay watch resource type.
+    # RUM replay watch resource type.
     attr_reader :type
 
     attr_accessor :additional_properties

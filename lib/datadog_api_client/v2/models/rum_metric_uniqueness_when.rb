@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # When to count updatable events. `match` when the event is first seen, or `end` when the event is complete. Sessions and views are updated over time, and each one is counted once.
-  class RumMetricUniquenessWhen
+  class RUMMetricUniquenessWhen
     include BaseEnumModel
 
     WHEN_MATCH = "match".freeze

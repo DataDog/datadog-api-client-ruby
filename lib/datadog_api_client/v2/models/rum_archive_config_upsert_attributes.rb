@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Archive configuration to save. When enabled is true, retention_days is required and must be 30, 90, or 180. When disabled, retention_days can be omitted.
-  class RumArchiveConfigUpsertAttributes
+  class RUMArchiveConfigUpsertAttributes
     include BaseGenericModel
 
     # Whether archiving is enabled.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveConfigUpsertAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveConfigUpsertAttributes` initialize method"
       end
 
       self.additional_properties = {}

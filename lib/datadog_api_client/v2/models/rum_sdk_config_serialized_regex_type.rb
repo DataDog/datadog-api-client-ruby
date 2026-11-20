@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type identifier for a serialized regex. Always `regex`.
-  class RumSdkConfigSerializedRegexType
+  class RUMSdkConfigSerializedRegexType
     include BaseEnumModel
 
     REGEX = "regex".freeze

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Metadata about the retention filter.
-  class RumRetentionFilterMeta
+  class RUMRetentionFilterMeta
     include BaseGenericModel
 
     # The types of changes the retention filter accepts. `complete` filters can be updated and deleted.
@@ -51,8 +51,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'edition_mode' => :'RumRetentionFilterEditionMode',
-        :'source' => :'RumRetentionFilterMetaSource',
+        :'edition_mode' => :'RUMRetentionFilterEditionMode',
+        :'source' => :'RUMRetentionFilterMetaSource',
         :'updated_at' => :'Integer',
         :'updated_by_handle' => :'String'
       }
@@ -63,7 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRetentionFilterMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRetentionFilterMeta` initialize method"
       end
 
       self.additional_properties = {}

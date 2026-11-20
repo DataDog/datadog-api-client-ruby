@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The exclusion filter properties to update.
-  class RumExclusionFilterUpdateData
+  class RUMExclusionFilterUpdateData
     include BaseGenericModel
 
     # The attributes of an exclusion filter that can be updated.
@@ -48,9 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumExclusionFilterUpdateAttributes',
+        :'attributes' => :'RUMExclusionFilterUpdateAttributes',
         :'id' => :'String',
-        :'type' => :'RumExclusionFilterType'
+        :'type' => :'RUMExclusionFilterType'
       }
     end
 
@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumExclusionFilterUpdateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMExclusionFilterUpdateData` initialize method"
       end
 
       self.additional_properties = {}

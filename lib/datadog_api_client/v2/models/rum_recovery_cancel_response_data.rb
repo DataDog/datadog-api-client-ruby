@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource.
-  class RumRecoveryCancelResponseData
+  class RUMRecoveryCancelResponseData
     include BaseGenericModel
 
     # Batch cancellation acknowledgment.
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumRecoveryCancelResponseAttributes',
+        :'attributes' => :'RUMRecoveryCancelResponseAttributes',
         :'id' => :'String',
-        :'type' => :'RumRecoveryRequestType'
+        :'type' => :'RUMRecoveryRequestType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryCancelResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryCancelResponseData` initialize method"
       end
 
       self.additional_properties = {}

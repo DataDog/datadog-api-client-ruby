@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Metadata about the exclusion filter.
-  class RumExclusionFilterMeta
+  class RUMExclusionFilterMeta
     include BaseGenericModel
 
     # Unix epoch (in milliseconds) when the exclusion filter was last enabled.
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumExclusionFilterMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMExclusionFilterMeta` initialize method"
       end
 
       self.additional_properties = {}

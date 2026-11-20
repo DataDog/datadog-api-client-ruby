@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The attributes of an exclusion filter to create.
-  class RumExclusionFilterCreateAttributes
+  class RUMExclusionFilterCreateAttributes
     include BaseGenericModel
 
     # Whether the exclusion filter is active. Defaults to `true`.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
-        :'event_type' => :'RumExclusionFilterEventType',
+        :'event_type' => :'RUMExclusionFilterEventType',
         :'name' => :'String',
         :'query' => :'String'
       }
@@ -63,7 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumExclusionFilterCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMExclusionFilterCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}

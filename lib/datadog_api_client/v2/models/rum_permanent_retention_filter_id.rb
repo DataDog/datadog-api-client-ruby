@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The identifier of a permanent RUM retention filter.
-  class RumPermanentRetentionFilterID
+  class RUMPermanentRetentionFilterID
     include BaseEnumModel
 
     RUM_APM_FLAT_SAMPLING = "rum_apm_flat_sampling".freeze

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource type.
-  class RumArchiveConfigType
+  class RUMArchiveConfigType
     include BaseEnumModel
 
     RUM_ARCHIVE_CONFIG = "rum_archive_config".freeze

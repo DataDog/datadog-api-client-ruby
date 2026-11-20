@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource.
-  class RumArchiveSessionsSearchData
+  class RUMArchiveSessionsSearchData
     include BaseGenericModel
 
     # Archived-session query. A window wider than configured archive retention is narrowed before searching.
@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumArchiveSessionsSearchAttributes',
+        :'attributes' => :'RUMArchiveSessionsSearchAttributes',
         :'id' => :'String',
         :'type' => :'String'
       }
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveSessionsSearchData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveSessionsSearchData` initialize method"
       end
 
       self.additional_properties = {}

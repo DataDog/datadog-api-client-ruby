@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Metadata associated with a RUM SDK configuration.
-  class RumSdkConfigMeta
+  class RUMSdkConfigMeta
     include BaseGenericModel
 
     # The timestamp of the last update to this configuration.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigMeta` initialize method"
       end
 
       self.additional_properties = {}

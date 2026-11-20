@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Attributes of the RUM configuration.
-  class RumConfigAttributes
+  class RUMConfigAttributes
     include BaseGenericModel
 
     # Whether the RUM configuration is disabled for the organization.
@@ -87,7 +87,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumConfigAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMConfigAttributes` initialize method"
       end
 
       self.additional_properties = {}

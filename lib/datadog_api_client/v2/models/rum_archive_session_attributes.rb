@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Archived session metadata.
-  class RumArchiveSessionAttributes
+  class RUMArchiveSessionAttributes
     include BaseGenericModel
 
     # Session account id, or null when unavailable.
@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
         :'anonymous_id' => :'String',
         :'application_id' => :'UUID',
         :'country' => :'String',
-        :'recovery_status' => :'RumArchiveSessionRecoveryStatus',
+        :'recovery_status' => :'RUMArchiveSessionRecoveryStatus',
         :'service' => :'String',
         :'session_id' => :'String',
         :'timestamp' => :'Integer',
@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveSessionAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveSessionAttributes` initialize method"
       end
 
       self.additional_properties = {}

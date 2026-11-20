@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The strategy used to extract the dynamic value.
-  class RumSdkConfigDynamicOptionStrategy
+  class RUMSdkConfigDynamicOptionStrategy
     include BaseEnumModel
 
     JS = "js".freeze

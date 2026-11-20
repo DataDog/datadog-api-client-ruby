@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Query-based batch recovery.
-  class RumRecoveryBatchRequestType
+  class RUMRecoveryBatchRequestType
     include BaseEnumModel
 
     BATCH = "batch".freeze

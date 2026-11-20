@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of the resource, always `rum_quota_config`.
-  class RumRetentionQuotaConfigType
+  class RUMRetentionQuotaConfigType
     include BaseEnumModel
 
     RUM_QUOTA_CONFIG = "rum_quota_config".freeze

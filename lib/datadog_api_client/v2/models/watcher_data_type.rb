@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Rum replay watcher resource type.
+  # RUM replay watcher resource type.
   class WatcherDataType
     include BaseEnumModel
 

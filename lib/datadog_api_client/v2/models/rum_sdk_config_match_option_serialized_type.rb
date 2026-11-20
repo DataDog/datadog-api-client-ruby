@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of match pattern, either a literal string or a regex.
-  class RumSdkConfigMatchOptionSerializedType
+  class RUMSdkConfigMatchOptionSerializedType
     include BaseEnumModel
 
     STRING = "string".freeze

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The compute rule of the RUM-based metric.
-  class RumMetricResponseCompute
+  class RUMMetricResponseCompute
     include BaseGenericModel
 
     # The type of aggregation to use.
@@ -49,7 +49,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'aggregation_type' => :'RumMetricComputeAggregationType',
+        :'aggregation_type' => :'RUMMetricComputeAggregationType',
         :'include_percentiles' => :'Boolean',
         :'path' => :'String'
       }
@@ -60,7 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricResponseCompute` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricResponseCompute` initialize method"
       end
 
       self.additional_properties = {}

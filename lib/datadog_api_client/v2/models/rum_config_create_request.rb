@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Request body for creating the RUM configuration.
-  class RumConfigCreateRequest
+  class RUMConfigCreateRequest
     include BaseGenericModel
 
     # Object describing the RUM configuration to create.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RumConfigCreateData'
+        :'data' => :'RUMConfigCreateData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumConfigCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMConfigCreateRequest` initialize method"
       end
 
       self.additional_properties = {}

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Query for a recovery estimate. The range cannot exceed 180 days; from cannot be more than 4 years ago and to cannot be more than 1 hour in the future. Session availability depends on the configured archive retention.
-  class RumRecoveryCountAttributes
+  class RUMRecoveryCountAttributes
     include BaseGenericModel
 
     # Start of the range in Unix milliseconds. Must be positive and earlier than to.
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryCountAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryCountAttributes` initialize method"
       end
 
       self.additional_properties = {}

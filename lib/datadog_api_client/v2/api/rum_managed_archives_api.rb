@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
     #
     # @param app_id [UUID] RUM application ID.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumArchiveConfigResponse, Integer, Hash)>] RumArchiveConfigResponse data, response status code and response headers
+    # @return [Array<(RUMArchiveConfigResponse, Integer, Hash)>] RUMArchiveConfigResponse data, response status code and response headers
     def get_rum_archive_config_with_http_info(app_id, opts = {})
 
       if @api_client.config.debugging
@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumArchiveConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMArchiveConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_number Page number.
     # @option opts [Integer] :page_size Configurations per page.
-    # @return [Array<(RumArchiveConfigListResponse, Integer, Hash)>] RumArchiveConfigListResponse data, response status code and response headers
+    # @return [Array<(RUMArchiveConfigListResponse, Integer, Hash)>] RUMArchiveConfigListResponse data, response status code and response headers
     def list_rum_archive_configs_with_http_info(opts = {})
 
       if @api_client.config.debugging
@@ -206,7 +206,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumArchiveConfigListResponse'
+      return_type = opts[:debug_return_type] || 'RUMArchiveConfigListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -242,9 +242,9 @@ module DatadogAPIClient::V2
     # Create or update the archive configuration for a RUM application. The application ID in the path must match `data.id`. Disabling archiving does not delete archived sessions.
     #
     # @param app_id [UUID] RUM application ID. Must match data.id for PUT.
-    # @param body [RumArchiveConfigUpsertRequest] JSON:API request body.
+    # @param body [RUMArchiveConfigUpsertRequest] JSON:API request body.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumArchiveConfigResponse, Integer, Hash)>] RumArchiveConfigResponse data, response status code and response headers
+    # @return [Array<(RUMArchiveConfigResponse, Integer, Hash)>] RUMArchiveConfigResponse data, response status code and response headers
     def update_rum_archive_config_with_http_info(app_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -278,7 +278,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumArchiveConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMArchiveConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
