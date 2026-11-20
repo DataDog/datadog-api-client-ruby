@@ -452,6 +452,7 @@ module DatadogAPIClient
             "v2.reorder_security_findings_automation_severity_modifier_rules": false,
             "v2.reorder_security_findings_automation_ticket_creation_rules": false,
             "v2.run_historical_job": false,
+            "v2.search_remediation_groups": false,
             "v2.search_security_monitoring_histsignals": false,
             "v2.start_security_monitoring_batch_migration": false,
             "v2.start_security_monitoring_rule_proposal": false,
