@@ -5439,6 +5439,9 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.ListMetricMetadata" => {
+            "filter_metric_name" => "String",
+    },
     "v2.ListTagIndexingRules" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",
