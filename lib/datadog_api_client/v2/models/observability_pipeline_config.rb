@@ -21,8 +21,16 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineConfig
     include BaseGenericModel
 
+    # Anomaly detection settings for the pipeline.
+    # Only applies to `logs` pipelines. Requires Observability Pipelines Worker 2.25 or later.
+    attr_accessor :anomaly_detection
+
     # A list of destination components where processed logs are sent.
     attr_reader :destinations
+
+    # Set to `true` to enable end-to-end acknowledgments for the pipeline.
+    # Requires Observability Pipelines Worker 2.14 or later.
+    attr_accessor :end_to_end_acknowledgements
 
     # The type of data being ingested. Defaults to `logs` if not specified.
     attr_accessor :pipeline_type
@@ -51,7 +59,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'anomaly_detection' => :'anomaly_detection',
         :'destinations' => :'destinations',
+        :'end_to_end_acknowledgements' => :'end_to_end_acknowledgements',
         :'pipeline_type' => :'pipeline_type',
         :'processor_groups' => :'processor_groups',
         :'processors' => :'processors',
@@ -64,7 +74,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'anomaly_detection' => :'ObservabilityPipelineAnomalyDetection',
         :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
+        :'end_to_end_acknowledgements' => :'Boolean',
         :'pipeline_type' => :'ObservabilityPipelineConfigPipelineType',
         :'processor_groups' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'processors' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
@@ -91,10 +103,18 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'anomaly_detection')
+        self.anomaly_detection = attributes[:'anomaly_detection']
+      end
+
       if attributes.key?(:'destinations')
         if (value = attributes[:'destinations']).is_a?(Array)
           self.destinations = value
         end
+      end
+
+      if attributes.key?(:'end_to_end_acknowledgements')
+        self.end_to_end_acknowledgements = attributes[:'end_to_end_acknowledgements']
       end
 
       if attributes.key?(:'pipeline_type')
@@ -179,7 +199,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          anomaly_detection == o.anomaly_detection &&
           destinations == o.destinations &&
+          end_to_end_acknowledgements == o.end_to_end_acknowledgements &&
           pipeline_type == o.pipeline_type &&
           processor_groups == o.processor_groups &&
           processors == o.processors &&
@@ -192,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, pipeline_type, processor_groups, processors, sources, use_legacy_search_syntax, additional_properties].hash
+      [anomaly_detection, destinations, end_to_end_acknowledgements, pipeline_type, processor_groups, processors, sources, use_legacy_search_syntax, additional_properties].hash
     end
   end
 end
