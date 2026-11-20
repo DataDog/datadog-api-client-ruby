@@ -4784,6 +4784,19 @@ ScenariosModelMappings = {
             "id" => "UUID",
             "body" => "IncidentTimestampOverridePatchRequest",
     },
+    "v2.CreateAnthropicUsageAndCostsIntegrationAccount" => {
+            "body" => "AnthropicUsageAndCostsIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteAnthropicUsageAndCostsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetAnthropicUsageAndCostsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateAnthropicUsageAndCostsIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "AnthropicUsageAndCostsIntegrationAccountUpdateRequest",
+    },
     "v2.CreateChatGPTEnterpriseIntegrationAccount" => {
             "body" => "ChatGPTEnterpriseIntegrationAccountCreateRequest",
     },
