@@ -24,8 +24,19 @@ module DatadogAPIClient::V2
     # Object description of attributes from your event.
     attr_accessor :attributes
 
+    # The host associated with the event.
+    attr_accessor :host
+
     # The message of the event.
     attr_accessor :message
+
+    # The service associated with the event.
+    attr_accessor :service
+
+    # The event status. Legacy events can use `failure`, `error`, `warning`,
+    # `info`, `success`, `user_update`, `recommendation`, or `snapshot`.
+    # Alert events can use `error`, `warn`, or `ok`.
+    attr_accessor :status
 
     # An array of tags associated with the event.
     attr_accessor :tags
@@ -40,7 +51,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'host' => :'host',
         :'message' => :'message',
+        :'service' => :'service',
+        :'status' => :'status',
         :'tags' => :'tags',
         :'timestamp' => :'timestamp'
       }
@@ -51,7 +65,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'EventAttributes',
+        :'host' => :'String',
         :'message' => :'String',
+        :'service' => :'String',
+        :'status' => :'EventStatusType',
         :'tags' => :'Array<String>',
         :'timestamp' => :'Time'
       }
@@ -79,8 +96,20 @@ module DatadogAPIClient::V2
         self.attributes = attributes[:'attributes']
       end
 
+      if attributes.key?(:'host')
+        self.host = attributes[:'host']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'service')
+        self.service = attributes[:'service']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.key?(:'tags')
@@ -121,7 +150,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          host == o.host &&
           message == o.message &&
+          service == o.service &&
+          status == o.status &&
           tags == o.tags &&
           timestamp == o.timestamp &&
           additional_properties == o.additional_properties
@@ -131,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, message, tags, timestamp, additional_properties].hash
+      [attributes, host, message, service, status, tags, timestamp, additional_properties].hash
     end
   end
 end
