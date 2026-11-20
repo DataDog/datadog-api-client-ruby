@@ -17,9 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The caller lacks edit permission on one or more feature flags that reference this saved filter.
+  # The caller lacks edit permission on one or more feature flags that reference this saved filter, or on one or more of their environments.
   class SavedFilterPermissionDeniedAttributes
     include BaseGenericModel
+
+    # Environments preventing this update.
+    attr_accessor :denied_environments
 
     # Feature flags preventing this update.
     attr_reader :denied_flags
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'denied_environments' => :'denied_environments',
         :'denied_flags' => :'denied_flags',
         :'message' => :'message'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'denied_environments' => :'Array<SavedFilterEnvironmentReference>',
         :'denied_flags' => :'Array<SavedFilterFlagReference>',
         :'message' => :'String'
       }
@@ -64,6 +69,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'denied_environments')
+        if (value = attributes[:'denied_environments']).is_a?(Array)
+          self.denied_environments = value
+        end
+      end
 
       if attributes.key?(:'denied_flags')
         if (value = attributes[:'denied_flags']).is_a?(Array)
@@ -131,6 +142,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          denied_environments == o.denied_environments &&
           denied_flags == o.denied_flags &&
           message == o.message &&
           additional_properties == o.additional_properties
@@ -140,7 +152,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denied_flags, message, additional_properties].hash
+      [denied_environments, denied_flags, message, additional_properties].hash
     end
   end
 end
