@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
     #
     # Get the details of an event by `event_id`.
     #
-    # @param event_id [String] The UID of the event.
+    # @param event_id [String] The event's `evt.id` or `evt.uid`, read from `data[].attributes.attributes.evt` in List or Search results. The top-level `data[].id` is not accepted.
     # @param opts [Hash] the optional parameters
     # @return [Array<(V2EventResponse, Integer, Hash)>] V2EventResponse data, response status code and response headers
     def get_event_with_http_info(event_id, opts = {})
@@ -176,10 +176,20 @@ module DatadogAPIClient::V2
     #
     # Use this endpoint to see your latest events.
     #
+    # Query syntax: attributes take `@` (`@evt.integration_id:kubernetes`, `@evt.category:alert`), while tags and
+    # reserved fields don't (`kube_cluster_name:gizmo`, `service:web`, `source:oom_kill`). A name that needs `@`
+    # matches nothing without it. To filter by integration, prefer `@evt.integration_id`, whose values use hyphens
+    # (`oom-kill`), over `source`, whose values use underscores (`oom_kill`). Bare words search the event text, and
+    # quoted phrases, `OR`, `-` negation and value wildcards work; wildcards in attribute names, such as `@*.name`, don't.
+    #
+    # Without `from`, only the last 15 minutes are searched, so widen the window before concluding that no event exists.
+    # Each event's own fields are under `data[].attributes.attributes`, for example `evt.integration_id`, `evt.category`,
+    # `title` and `service`. To fetch one event with `GetEvent`, use its `evt.id` or `evt.uid`, not the top-level `id`.
+    #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter_query Search query following events syntax.
-    # @option opts [String] :filter_from Minimum timestamp for requested events, in milliseconds.
-    # @option opts [String] :filter_to Maximum timestamp for requested events, in milliseconds.
+    # @option opts [String] :filter_query Search query following events syntax. Attributes take `@` (`@evt.category:alert`); tags and reserved fields don't (`service:web`).
+    # @option opts [String] :filter_from Minimum time for requested events, as date math (`now-1h`), ISO 8601 or a timestamp in milliseconds. Defaults to `now-15m`.
+    # @option opts [String] :filter_to Maximum time for requested events, as date math, ISO 8601 or a timestamp in milliseconds. Defaults to `now`.
     # @option opts [EventsSort] :sort Order of events in results.
     # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
     # @option opts [Integer] :page_limit Maximum number of events in the response.
@@ -278,6 +288,16 @@ module DatadogAPIClient::V2
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to build complex events filtering and search.
+    #
+    # Query syntax: attributes take `@` (`@evt.integration_id:kubernetes`, `@evt.category:alert`), while tags and
+    # reserved fields don't (`kube_cluster_name:gizmo`, `service:web`, `source:oom_kill`). A name that needs `@`
+    # matches nothing without it. To filter by integration, prefer `@evt.integration_id`, whose values use hyphens
+    # (`oom-kill`), over `source`, whose values use underscores (`oom_kill`). Bare words search the event text, and
+    # quoted phrases, `OR`, `-` negation and value wildcards work; wildcards in attribute names, such as `@*.name`, don't.
+    #
+    # Without `from`, only the last 15 minutes are searched, so widen the window before concluding that no event exists.
+    # Each event's own fields are under `data[].attributes.attributes`, for example `evt.integration_id`, `evt.category`,
+    # `title` and `service`. To fetch one event with `GetEvent`, use its `evt.id` or `evt.uid`, not the top-level `id`.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [EventsListRequest] :body 
