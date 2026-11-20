@@ -6798,6 +6798,8 @@ module DatadogAPIClient
           "v2.observability_pipeline_config_processor_group" => "ObservabilityPipelineConfigProcessorGroup",
           "v2.observability_pipeline_config_processor_item" => "ObservabilityPipelineConfigProcessorItem",
           "v2.observability_pipeline_config_source_item" => "ObservabilityPipelineConfigSourceItem",
+          "v2.observability_pipeline_crowd_strike_fdr_source" => "ObservabilityPipelineCrowdStrikeFdrSource",
+          "v2.observability_pipeline_crowd_strike_fdr_source_type" => "ObservabilityPipelineCrowdStrikeFdrSourceType",
           "v2.observability_pipeline_crowd_strike_next_gen_siem_destination" => "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
           "v2.observability_pipeline_crowd_strike_next_gen_siem_destination_compression" => "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression",
           "v2.observability_pipeline_crowd_strike_next_gen_siem_destination_compression_algorithm" => "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm",
