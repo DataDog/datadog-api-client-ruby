@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Datadog resource key identifying the recommended resource.
     attr_accessor :dd_resource_key
 
+    # Selected recommendation fields. Omitted when no requested fields match.
+    attr_accessor :extra_fields
+
     # Estimated daily savings if the recommendation is applied.
     attr_accessor :potential_daily_savings
 
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'dd_resource_key' => :'dd_resource_key',
+        :'extra_fields' => :'extra_fields',
         :'potential_daily_savings' => :'potential_daily_savings',
         :'recommendation_type' => :'recommendation_type',
         :'recommender_id' => :'recommender_id',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'dd_resource_key' => :'String',
+        :'extra_fields' => :'Array<CostRecommendationExtraField>',
         :'potential_daily_savings' => :'CostRecommendationDataAttributesPotentialDailySavings',
         :'recommendation_type' => :'String',
         :'recommender_id' => :'String',
@@ -93,6 +98,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'dd_resource_key')
         self.dd_resource_key = attributes[:'dd_resource_key']
+      end
+
+      if attributes.key?(:'extra_fields')
+        if (value = attributes[:'extra_fields']).is_a?(Array)
+          self.extra_fields = value
+        end
       end
 
       if attributes.key?(:'potential_daily_savings')
@@ -149,6 +160,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           dd_resource_key == o.dd_resource_key &&
+          extra_fields == o.extra_fields &&
           potential_daily_savings == o.potential_daily_savings &&
           recommendation_type == o.recommendation_type &&
           recommender_id == o.recommender_id &&
@@ -162,7 +174,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dd_resource_key, potential_daily_savings, recommendation_type, recommender_id, resource_id, resource_type, tags, additional_properties].hash
+      [dd_resource_key, extra_fields, potential_daily_savings, recommendation_type, recommender_id, resource_id, resource_type, tags, additional_properties].hash
     end
   end
 end

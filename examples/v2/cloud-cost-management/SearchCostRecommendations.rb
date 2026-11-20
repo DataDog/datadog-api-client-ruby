@@ -10,6 +10,9 @@ api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
 body = DatadogAPIClient::V2::RecommendationsFilterRequest.new({
   data: DatadogAPIClient::V2::RecommendationsFilterRequestData.new({
     attributes: DatadogAPIClient::V2::RecommendationsFilterRequestDataAttributes.new({
+      extra_fields: [
+        "tags.env",
+      ],
       scope: DatadogAPIClient::V2::RecommendationsFilterRequestScope::CCM,
       sort: [
         DatadogAPIClient::V2::RecommendationsFilterRequestSortItems.new({

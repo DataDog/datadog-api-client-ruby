@@ -2934,6 +2934,7 @@ module DatadogAPIClient
           "v2.cost_recommendation_data_attributes" => "CostRecommendationDataAttributes",
           "v2.cost_recommendation_data_attributes_potential_daily_savings" => "CostRecommendationDataAttributesPotentialDailySavings",
           "v2.cost_recommendation_data_type" => "CostRecommendationDataType",
+          "v2.cost_recommendation_extra_field" => "CostRecommendationExtraField",
           "v2.cost_tag" => "CostTag",
           "v2.cost_tag_attributes" => "CostTagAttributes",
           "v2.cost_tag_description" => "CostTagDescription",
