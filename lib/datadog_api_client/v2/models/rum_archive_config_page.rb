@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Page information.
-  class RumArchiveConfigPage
+  class RUMArchiveConfigPage
     include BaseGenericModel
 
     # Total configurations for the organization.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveConfigPage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveConfigPage` initialize method"
       end
 
       self.additional_properties = {}

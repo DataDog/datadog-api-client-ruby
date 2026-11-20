@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Archived-session query. A window wider than configured archive retention is narrowed before searching.
-  class RumArchiveSessionsSearchAttributes
+  class RUMArchiveSessionsSearchAttributes
     include BaseGenericModel
 
     # Opaque next-page cursor. Keep the query, time range, and hide_retained value unchanged.
@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveSessionsSearchAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveSessionsSearchAttributes` initialize method"
       end
 
       self.additional_properties = {}

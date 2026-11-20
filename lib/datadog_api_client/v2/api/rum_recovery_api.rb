@@ -37,9 +37,9 @@ module DatadogAPIClient::V2
     #
     # Creation is not idempotent. After an uncertain response, check session search or batch listing before retrying.
     #
-    # @param body [RumRecoveryCreateRequest] JSON:API request body.
+    # @param body [RUMRecoveryCreateRequest] JSON:API request body.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumRecoveryCreateResponse, Integer, Hash)>] RumRecoveryCreateResponse data, response status code and response headers
+    # @return [Array<(RUMRecoveryCreateResponse, Integer, Hash)>] RUMRecoveryCreateResponse data, response status code and response headers
     def create_rum_recovery_request_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -69,7 +69,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRecoveryCreateResponse'
+      return_type = opts[:debug_return_type] || 'RUMRecoveryCreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -106,7 +106,7 @@ module DatadogAPIClient::V2
     #
     # @param request_id [UUID] Recovery request UUID.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumRecoveryRequestResponse, Integer, Hash)>] RumRecoveryRequestResponse data, response status code and response headers
+    # @return [Array<(RUMRecoveryRequestResponse, Integer, Hash)>] RUMRecoveryRequestResponse data, response status code and response headers
     def get_rum_recovery_request_with_http_info(request_id, opts = {})
 
       if @api_client.config.debugging
@@ -134,7 +134,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRecoveryRequestResponse'
+      return_type = opts[:debug_return_type] || 'RUMRecoveryRequestResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -169,9 +169,9 @@ module DatadogAPIClient::V2
     #
     # Return the full estimated number of recoverable sessions and the configured maximum per batch. The estimate is not capped at that maximum. This endpoint does not create a recovery request. Narrow the query or time range if the estimate exceeds max_recoverable_sessions. Creation checks a fresh estimate and returns 400 if it exceeds the configured maximum.
     #
-    # @param body [RumRecoveryCountRequest] JSON:API request body.
+    # @param body [RUMRecoveryCountRequest] JSON:API request body.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumRecoveryCountResponse, Integer, Hash)>] RumRecoveryCountResponse data, response status code and response headers
+    # @return [Array<(RUMRecoveryCountResponse, Integer, Hash)>] RUMRecoveryCountResponse data, response status code and response headers
     def get_rum_recovery_session_count_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -201,7 +201,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRecoveryCountResponse'
+      return_type = opts[:debug_return_type] || 'RUMRecoveryCountResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -237,14 +237,14 @@ module DatadogAPIClient::V2
     # List batch recovery requests for your organization. Set `type=batch`. Optional `from` and `to` bounds filter request creation time; `query` filters the queries stored on recovery requests.
     # A filtered page can be empty or contain fewer than `limit` results and still include `meta.next_cursor`. Continue until the cursor is absent, keeping the filters unchanged between pages.
     #
-    # @param type [RumRecoveryBatchRequestType] Must equal batch.
+    # @param type [RUMRecoveryBatchRequestType] Must equal batch.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :limit Number of results returned per page, at most 100 (default 50). Omitted, zero, or negative values use 50. Invalid integers return 400.
     # @option opts [String] :cursor Opaque next-page cursor. Keep type, from, to, and query unchanged between pages.
     # @option opts [Integer] :from Start of the request creation-time range in Unix milliseconds, inclusive. This filters created_at, not the time range of the sessions being recovered. Must be earlier than to when both are provided.
     # @option opts [Integer] :to End of the request creation-time range in Unix milliseconds, exclusive. This filters created_at, not the time range of the sessions being recovered. Must be later than from when both are provided.
     # @option opts [String] :query Filter recovery requests whose stored query selects matching facet values. Supports facet:value and facet:(A OR B) terms combined with AND, including * and ? wildcards in filter values. Attribute facets keep their leading @. At most 4096 bytes. Exclusions, repeated facets, free text, ranges, and OR between terms return 400. Stored queries that cannot be matched unambiguously are excluded. Blank values apply no query filter.
-    # @return [Array<(RumRecoveryBatchListResponse, Integer, Hash)>] RumRecoveryBatchListResponse data, response status code and response headers
+    # @return [Array<(RUMRecoveryBatchListResponse, Integer, Hash)>] RUMRecoveryBatchListResponse data, response status code and response headers
     def list_rum_recovery_batch_requests_with_http_info(type, opts = {})
 
       if @api_client.config.debugging
@@ -298,7 +298,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRecoveryBatchListResponse'
+      return_type = opts[:debug_return_type] || 'RUMRecoveryBatchListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -333,9 +333,9 @@ module DatadogAPIClient::V2
     #
     # Search archived RUM sessions. Use `meta.page.next_cursor` to retrieve the next page.
     #
-    # @param body [RumArchiveSessionsSearchRequest] JSON:API request body.
+    # @param body [RUMArchiveSessionsSearchRequest] JSON:API request body.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumArchiveSessionsResponse, Integer, Hash)>] RumArchiveSessionsResponse data, response status code and response headers
+    # @return [Array<(RUMArchiveSessionsResponse, Integer, Hash)>] RUMArchiveSessionsResponse data, response status code and response headers
     def search_rum_archive_sessions_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -365,7 +365,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumArchiveSessionsResponse'
+      return_type = opts[:debug_return_type] || 'RUMArchiveSessionsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -401,9 +401,9 @@ module DatadogAPIClient::V2
     # Cancel pending work for a batch recovery request. Work already in progress can finish, and recovered data is not removed. Requests in a terminal state return `409`.
     #
     # @param request_id [UUID] Recovery request UUID.
-    # @param body [RumRecoveryCancelRequest] JSON:API request body.
+    # @param body [RUMRecoveryCancelRequest] JSON:API request body.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumRecoveryCancelResponse, Integer, Hash)>] RumRecoveryCancelResponse data, response status code and response headers
+    # @return [Array<(RUMRecoveryCancelResponse, Integer, Hash)>] RUMRecoveryCancelResponse data, response status code and response headers
     def update_rum_recovery_batch_request_with_http_info(request_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -437,7 +437,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRecoveryCancelResponse'
+      return_type = opts[:debug_return_type] || 'RUMRecoveryCancelResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]

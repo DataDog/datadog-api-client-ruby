@@ -4,15 +4,15 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
-api_instance = DatadogAPIClient::V2::RumRetentionFiltersAPI.new
+api_instance = DatadogAPIClient::V2::RUMRetentionFiltersAPI.new
 
-body = DatadogAPIClient::V2::RumRetentionFilterUpdateRequest.new({
-  data: DatadogAPIClient::V2::RumRetentionFilterUpdateData.new({
+body = DatadogAPIClient::V2::RUMRetentionFilterUpdateRequest.new({
+  data: DatadogAPIClient::V2::RUMRetentionFilterUpdateData.new({
     id: "4b95d361-f65d-4515-9824-c9aaeba5ac2a",
-    type: DatadogAPIClient::V2::RumRetentionFilterType::RETENTION_FILTERS,
-    attributes: DatadogAPIClient::V2::RumRetentionFilterUpdateAttributes.new({
+    type: DatadogAPIClient::V2::RUMRetentionFilterType::RETENTION_FILTERS,
+    attributes: DatadogAPIClient::V2::RUMRetentionFilterUpdateAttributes.new({
       name: "Test updating retention filter",
-      event_type: DatadogAPIClient::V2::RumRetentionFilterEventType::VIEW,
+      event_type: DatadogAPIClient::V2::RUMRetentionFilterEventType::VIEW,
       query: "view_query",
       sample_rate: 100,
       enabled: true,

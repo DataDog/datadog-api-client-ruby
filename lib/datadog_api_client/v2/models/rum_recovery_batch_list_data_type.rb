@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource type.
-  class RumRecoveryBatchListDataType
+  class RUMRecoveryBatchListDataType
     include BaseEnumModel
 
     RUM_BATCH_RECOVERY_REQUEST = "rum_batch_recovery_request".freeze

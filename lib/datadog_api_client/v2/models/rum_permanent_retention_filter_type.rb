@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of the resource. The value should always be `permanent_retention_filters`.
-  class RumPermanentRetentionFilterType
+  class RUMPermanentRetentionFilterType
     include BaseEnumModel
 
     PERMANENT_RETENTION_FILTERS = "permanent_retention_filters".freeze

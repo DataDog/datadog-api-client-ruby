@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of RUM events to filter on.
-  class RumRetentionFilterEventType
+  class RUMRetentionFilterEventType
     include BaseEnumModel
 
     SESSION = "session".freeze

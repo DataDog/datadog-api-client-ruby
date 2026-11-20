@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Progress for one targeted session.
-  class RumRecoveredSession
+  class RUMRecoveredSession
     include BaseGenericModel
 
     # Application UUID.
@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
         :'error_message' => :'String',
         :'events_recovered' => :'Integer',
         :'session_id' => :'UUID',
-        :'status' => :'RumRecoverySessionStatus'
+        :'status' => :'RUMRecoverySessionStatus'
       }
     end
 
@@ -67,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveredSession` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveredSession` initialize method"
       end
 
       self.additional_properties = {}

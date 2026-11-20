@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The rule to count updatable events.
   # Required when `event_type` is `session` or `view`, and must be omitted for other event types. It cannot be changed after creation.
-  class RumMetricUniqueness
+  class RUMMetricUniqueness
     include BaseGenericModel
 
     # When to count updatable events. `match` when the event is first seen, or `end` when the event is complete. Sessions and views are updated over time, and each one is counted once.
@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'_when' => :'RumMetricUniquenessWhen'
+        :'_when' => :'RUMMetricUniquenessWhen'
       }
     end
 
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricUniqueness` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricUniqueness` initialize method"
       end
 
       self.additional_properties = {}

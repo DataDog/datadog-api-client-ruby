@@ -3,10 +3,10 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RUMRecoveryAPI.new
 
-body = DatadogAPIClient::V2::RumRecoveryCountRequest.new({
-  data: DatadogAPIClient::V2::RumRecoveryCountRequestData.new({
+body = DatadogAPIClient::V2::RUMRecoveryCountRequest.new({
+  data: DatadogAPIClient::V2::RUMRecoveryCountRequestData.new({
     type: "rum_recovery_count",
-    attributes: DatadogAPIClient::V2::RumRecoveryCountAttributes.new({
+    attributes: DatadogAPIClient::V2::RUMRecoveryCountAttributes.new({
       query: "service:rum18600-fixture",
       from: 1621077071000,
       to: 1636629071000,

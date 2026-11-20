@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Delete the RUM retention quota configuration for a given scope.
     #
-    # @param scope_type [RumRetentionQuotaScopeType] The type of scope the retention quota configuration applies to. `application` is the only supported scope type.
+    # @param scope_type [RUMRetentionQuotaScopeType] The type of scope the retention quota configuration applies to. `application` is the only supported scope type.
     # @param scope_id [String] The identifier of the scope the retention quota configuration applies to. For the `application` scope, this is the RUM application ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -110,10 +110,10 @@ module DatadogAPIClient::V2
     #
     # Get the RUM retention quota configuration for a given scope.
     #
-    # @param scope_type [RumRetentionQuotaScopeType] The type of scope the retention quota configuration applies to. `application` is the only supported scope type.
+    # @param scope_type [RUMRetentionQuotaScopeType] The type of scope the retention quota configuration applies to. `application` is the only supported scope type.
     # @param scope_id [String] The identifier of the scope the retention quota configuration applies to. For the `application` scope, this is the RUM application ID.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumRetentionQuotaConfigResponse, Integer, Hash)>] RumRetentionQuotaConfigResponse data, response status code and response headers
+    # @return [Array<(RUMRetentionQuotaConfigResponse, Integer, Hash)>] RUMRetentionQuotaConfigResponse data, response status code and response headers
     def get_rum_quota_config_with_http_info(scope_type, scope_id, opts = {})
 
       if @api_client.config.debugging
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRetentionQuotaConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMRetentionQuotaConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -186,11 +186,11 @@ module DatadogAPIClient::V2
     # Create or update the RUM retention quota configuration for a given scope.
     # Returns the retention quota configuration object when the request is successful.
     #
-    # @param scope_type [RumRetentionQuotaScopeType] The type of scope the retention quota configuration applies to. `application` is the only supported scope type.
+    # @param scope_type [RUMRetentionQuotaScopeType] The type of scope the retention quota configuration applies to. `application` is the only supported scope type.
     # @param scope_id [String] The identifier of the scope the retention quota configuration applies to. For the `application` scope, this is the RUM application ID.
-    # @param body [RumRetentionQuotaConfigUpdateRequest] The definition of the RUM retention quota configuration to create or update.
+    # @param body [RUMRetentionQuotaConfigUpdateRequest] The definition of the RUM retention quota configuration to create or update.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumRetentionQuotaConfigResponse, Integer, Hash)>] RumRetentionQuotaConfigResponse data, response status code and response headers
+    # @return [Array<(RUMRetentionQuotaConfigResponse, Integer, Hash)>] RUMRetentionQuotaConfigResponse data, response status code and response headers
     def upsert_rum_quota_config_with_http_info(scope_type, scope_id, body, opts = {})
 
       if @api_client.config.debugging
@@ -233,7 +233,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumRetentionQuotaConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMRetentionQuotaConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]

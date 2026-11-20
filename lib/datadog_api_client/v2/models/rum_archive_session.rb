@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource.
-  class RumArchiveSession
+  class RUMArchiveSession
     include BaseGenericModel
 
     # Archived session metadata.
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumArchiveSessionAttributes',
+        :'attributes' => :'RUMArchiveSessionAttributes',
         :'id' => :'String',
-        :'type' => :'RumArchiveSessionType'
+        :'type' => :'RUMArchiveSessionType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveSession` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveSession` initialize method"
       end
 
       self.additional_properties = {}

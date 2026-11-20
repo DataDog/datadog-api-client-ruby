@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The configuration for cross-product retention filters.
-  class RumCrossProductSampling
+  class RUMCrossProductSampling
     include BaseGenericModel
 
     # Whether the cross-product retention filter for Session Replay is enabled.
@@ -63,7 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumCrossProductSampling` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMCrossProductSampling` initialize method"
       end
 
       self.additional_properties = {}

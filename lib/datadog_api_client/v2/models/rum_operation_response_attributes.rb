@@ -93,7 +93,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'display_name' => :'String',
         :'feature_ids' => :'Array<String>',
-        :'journey_rum' => :'RUMOperationJourneyRum',
+        :'journey_rum' => :'RUMOperationJourneyRUM',
         :'name' => :'String',
         :'org_id' => :'Integer',
         :'tags' => :'Array<String>',

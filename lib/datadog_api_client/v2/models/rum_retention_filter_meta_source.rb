@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The source of the last update to the retention filter. The value is `unknown` if the request doesn't specify a source.
-  class RumRetentionFilterMetaSource
+  class RUMRetentionFilterMetaSource
     include BaseEnumModel
 
     DEFAULT = "default".freeze

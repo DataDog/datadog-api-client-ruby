@@ -4,5 +4,5 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
-api_instance = DatadogAPIClient::V2::RumReplayHeatmapsAPI.new
+api_instance = DatadogAPIClient::V2::RUMReplayHeatmapsAPI.new
 p api_instance.list_replay_heatmap_snapshots("/home")

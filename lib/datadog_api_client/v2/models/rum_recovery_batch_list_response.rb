@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API document.
-  class RumRecoveryBatchListResponse
+  class RUMRecoveryBatchListResponse
     include BaseGenericModel
 
     # Batch requests ordered newest first. A filtered page can be empty while meta.next_cursor is present.
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RumRecoveryBatchListData>',
-        :'meta' => :'RumRecoveryBatchListMeta'
+        :'data' => :'Array<RUMRecoveryBatchListData>',
+        :'meta' => :'RUMRecoveryBatchListMeta'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryBatchListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryBatchListResponse` initialize method"
       end
 
       self.additional_properties = {}

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The RUM-based metric properties to update. Omitted properties keep their current value.
-  class RumMetricUpdateAttributes
+  class RUMMetricUpdateAttributes
     include BaseGenericModel
 
     # The compute rule properties that can be updated. Only valid for metrics whose `aggregation_type` is `distribution`.
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'compute' => :'RumMetricUpdateCompute',
-        :'filter' => :'RumMetricFilter',
-        :'group_by' => :'Array<RumMetricGroupBy>'
+        :'compute' => :'RUMMetricUpdateCompute',
+        :'filter' => :'RUMMetricFilter',
+        :'group_by' => :'Array<RUMMetricGroupBy>'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}

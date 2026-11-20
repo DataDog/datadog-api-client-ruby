@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Approximate recoverable count.
-  class RumRecoveryCountResponseAttributes
+  class RUMRecoveryCountResponseAttributes
     include BaseGenericModel
 
     # Estimated distinct recoverable sessions not already retained in hot storage. The full estimate is returned without capping it at max_recoverable_sessions.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryCountResponseAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryCountResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}

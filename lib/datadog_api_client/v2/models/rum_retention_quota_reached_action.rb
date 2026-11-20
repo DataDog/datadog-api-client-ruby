@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The action to take when the session quota is reached.
-  class RumRetentionQuotaReachedAction
+  class RUMRetentionQuotaReachedAction
     include BaseEnumModel
 
     STOP = "stop".freeze

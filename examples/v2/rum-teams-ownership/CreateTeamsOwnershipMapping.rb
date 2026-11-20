@@ -5,7 +5,7 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
   config.unstable_operations["v2.create_teams_ownership_mapping".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::RumTeamsOwnershipAPI.new
+api_instance = DatadogAPIClient::V2::RUMTeamsOwnershipAPI.new
 
 body = DatadogAPIClient::V2::TeamsOwnershipMappingCreateRequest.new({
   data: DatadogAPIClient::V2::TeamsOwnershipMappingCreateData.new({

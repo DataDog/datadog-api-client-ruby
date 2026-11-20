@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The attributes of a permanent RUM retention filter.
-  class RumPermanentRetentionFilterAttributes
+  class RUMPermanentRetentionFilterAttributes
     include BaseGenericModel
 
     # The configuration for cross-product retention filters.
@@ -50,9 +50,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cross_product_sampling' => :'RumCrossProductSampling',
+        :'cross_product_sampling' => :'RUMCrossProductSampling',
         :'description' => :'String',
-        :'editability' => :'RumPermanentRetentionFilterEditability',
+        :'editability' => :'RUMPermanentRetentionFilterEditability',
         :'name' => :'String'
       }
     end
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumPermanentRetentionFilterAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMPermanentRetentionFilterAttributes` initialize method"
       end
 
       self.additional_properties = {}
