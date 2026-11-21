@@ -1583,6 +1583,8 @@ module DatadogAPIClient::V2
     # Get a browser test's latest results.
     #
     # Get the latest result summaries for a given Synthetic browser test.
+    # To filter tests across your organization by monitor status, state, or tags, use
+    # the Search Synthetic tests with filters endpoint.
     #
     # @param public_id [String] The public ID of the Synthetic browser test for which to search results.
     # @param opts [Hash] the optional parameters
@@ -1733,6 +1735,8 @@ module DatadogAPIClient::V2
     # Get a test's latest results.
     #
     # Get the latest result summaries for a given Synthetic test.
+    # To filter tests across your organization by monitor status, state, or tags, use
+    # the Search Synthetic tests with filters endpoint.
     #
     # @param public_id [String] The public ID of the Synthetic test for which to search results.
     # @param opts [Hash] the optional parameters
