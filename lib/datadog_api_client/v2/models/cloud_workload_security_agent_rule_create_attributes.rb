@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # Whether the Agent rule is enabled.
     attr_accessor :enabled
 
-    # The SECL expression of the Agent rule.
+    # The SECL expression of the Agent rule. See [Agent expressions](https://docs.datadoghq.com/security/workload_protection/agent_expressions/).
     attr_reader :expression
 
     # The platforms the Agent rule is supported on.
