@@ -21,6 +21,14 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleReplaceAttributes
     include BaseGenericModel
 
+    # Optional description of what the routing rule is for. Up to 500 characters.
+    # Omit it or send null to keep the saved description. Send an empty string to clear it.
+    attr_accessor :description
+
+    # Optional human-readable name shown in place of the slug. Up to 100 characters on one line.
+    # Omit it or send null to keep the saved display name. Send an empty string to clear it.
+    attr_accessor :display_name
+
     # Saved route revision. A mismatched value returns 409 without changes.
     attr_accessor :expected_updated_at
 
@@ -36,6 +44,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
+        :'display_name' => :'display_name',
         :'expected_updated_at' => :'expected_updated_at',
         :'removed_target_ids' => :'removed_target_ids',
         :'tiers' => :'tiers'
@@ -46,10 +56,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
+        :'display_name' => :'String',
         :'expected_updated_at' => :'Time',
         :'removed_target_ids' => :'Array<Integer>',
         :'tiers' => :'Array<AiGatewayRoutingRuleTierRequest>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'description',
+        :'display_name',
+      ])
     end
 
     # Initializes the object
@@ -69,6 +90,14 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
 
       if attributes.key?(:'expected_updated_at')
         self.expected_updated_at = attributes[:'expected_updated_at']
@@ -131,6 +160,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
+          display_name == o.display_name &&
           expected_updated_at == o.expected_updated_at &&
           removed_target_ids == o.removed_target_ids &&
           tiers == o.tiers &&
@@ -141,7 +172,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [expected_updated_at, removed_target_ids, tiers, additional_properties].hash
+      [description, display_name, expected_updated_at, removed_target_ids, tiers, additional_properties].hash
     end
   end
 end

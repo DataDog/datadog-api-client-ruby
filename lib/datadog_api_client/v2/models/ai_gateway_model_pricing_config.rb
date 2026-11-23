@@ -30,6 +30,10 @@ module DatadogAPIClient::V2
     # Source information for a model's pricing.
     attr_reader :source
 
+    # Custom prices that replace the base rates for the requests they select. Only valid for custom pricing.
+    # At most 16 tiers, and no two may share the same `service_tier` and `context_min_tokens`.
+    attr_reader :tiers
+
     # Pricing configuration version. The only supported version is `1`.
     attr_reader :version
 
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
         :'overrides' => :'overrides',
         :'rates' => :'rates',
         :'source' => :'source',
+        :'tiers' => :'tiers',
         :'version' => :'version'
       }
     end
@@ -53,6 +58,7 @@ module DatadogAPIClient::V2
         :'overrides' => :'AiGatewayModelPricingRates',
         :'rates' => :'AiGatewayModelPricingRates',
         :'source' => :'AiGatewayModelPricingSource',
+        :'tiers' => :'Array<AiGatewayModelPricingTier>',
         :'version' => :'Integer'
       }
     end
@@ -87,6 +93,12 @@ module DatadogAPIClient::V2
         self.source = attributes[:'source']
       end
 
+      if attributes.key?(:'tiers')
+        if (value = attributes[:'tiers']).is_a?(Array)
+          self.tiers = value
+        end
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -97,6 +109,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @source.nil?
+      return false if !@tiers.nil? && @tiers.length > 16
       return false if @version.nil?
       return false if @version > 1
       return false if @version < 1
@@ -111,6 +124,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
       @source = source
+    end
+
+    # Custom attribute writer method with validation
+    # @param tiers [Object] Object to be assigned
+    # @!visibility private
+    def tiers=(tiers)
+      if !tiers.nil? && tiers.length > 16
+        fail ArgumentError, 'invalid value for "tiers", number of items must be less than or equal to 16.'
+      end
+      @tiers = tiers
     end
 
     # Custom attribute writer method with validation
@@ -158,6 +181,7 @@ module DatadogAPIClient::V2
           overrides == o.overrides &&
           rates == o.rates &&
           source == o.source &&
+          tiers == o.tiers &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -166,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [overrides, rates, source, version, additional_properties].hash
+      [overrides, rates, source, tiers, version, additional_properties].hash
     end
   end
 end

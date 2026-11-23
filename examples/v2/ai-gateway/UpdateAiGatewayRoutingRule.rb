@@ -10,6 +10,8 @@ api_instance = DatadogAPIClient::V2::AIGatewayAPI.new
 body = DatadogAPIClient::V2::AiGatewayRoutingRuleReplaceRequest.new({
   data: DatadogAPIClient::V2::AiGatewayRoutingRuleReplaceData.new({
     attributes: DatadogAPIClient::V2::AiGatewayRoutingRuleReplaceAttributes.new({
+      description: "Routes coding traffic to the fastest available model.",
+      display_name: "Coding fallback",
       expected_updated_at: "2026-08-24T12:00:00Z",
       removed_target_ids: [
         901,

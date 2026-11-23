@@ -1526,6 +1526,7 @@ module DatadogAPIClient
           "v2.ai_gateway_model_pricing_source" => "AiGatewayModelPricingSource",
           "v2.ai_gateway_model_pricing_source_type" => "AiGatewayModelPricingSourceType",
           "v2.ai_gateway_model_pricing_status" => "AiGatewayModelPricingStatus",
+          "v2.ai_gateway_model_pricing_tier" => "AiGatewayModelPricingTier",
           "v2.ai_gateway_model_pricing_type" => "AiGatewayModelPricingType",
           "v2.ai_gateway_model_reasoning" => "AiGatewayModelReasoning",
           "v2.ai_gateway_model_reasoning_control" => "AiGatewayModelReasoningControl",

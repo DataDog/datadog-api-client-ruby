@@ -21,6 +21,14 @@ module DatadogAPIClient::V2
   class AiGatewayRoutingRuleCreateAttributes
     include BaseGenericModel
 
+    # Optional description of what the routing rule is for. Up to 500 characters. Line breaks are allowed.
+    # Leading and trailing spaces are trimmed, and a blank value is the same as none.
+    attr_accessor :description
+
+    # Optional human-readable name shown in place of the slug. Up to 100 characters on one line. Need not be unique.
+    # Leading and trailing spaces are trimmed, and a blank value is the same as none.
+    attr_accessor :display_name
+
     # Reserved for initial View and Edit permissions. Supplying this attribute returns HTTP 400 and doesn't
     # create the route. Create the route, then set its permissions through the restriction policy API.
     attr_accessor :initial_bindings
@@ -37,6 +45,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
+        :'display_name' => :'display_name',
         :'initial_bindings' => :'initial_bindings',
         :'slug' => :'slug',
         :'tiers' => :'tiers'
@@ -47,10 +57,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
+        :'display_name' => :'String',
         :'initial_bindings' => :'Array<AiGatewayProviderInitialBinding>',
         :'slug' => :'String',
         :'tiers' => :'Array<AiGatewayRoutingRuleTierRequest>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'description',
+        :'display_name',
+      ])
     end
 
     # Initializes the object
@@ -70,6 +91,14 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
 
       if attributes.key?(:'initial_bindings')
         if (value = attributes[:'initial_bindings']).is_a?(Array)
@@ -155,6 +184,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
+          display_name == o.display_name &&
           initial_bindings == o.initial_bindings &&
           slug == o.slug &&
           tiers == o.tiers &&
@@ -165,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [initial_bindings, slug, tiers, additional_properties].hash
+      [description, display_name, initial_bindings, slug, tiers, additional_properties].hash
     end
   end
 end
