@@ -36,6 +36,12 @@ module DatadogAPIClient::V2
     # Index used to load the data.
     attr_reader :index
 
+    # Whether the job was run by Datadog to reprocess past data.
+    attr_accessor :is_backfill_job
+
+    # Whether the job is a shadow deployment run by Datadog.
+    attr_accessor :is_shadow_deployed
+
     # Message for generated results.
     attr_reader :message
 
@@ -44,6 +50,9 @@ module DatadogAPIClient::V2
 
     # Job options.
     attr_accessor :options
+
+    # Fields projected for each query, copied from the rule the job was created from.
+    attr_accessor :projected_per_query
 
     # Queries for selecting logs analyzed by the job. Up to 10 queries are allowed.
     attr_reader :queries
@@ -74,9 +83,12 @@ module DatadogAPIClient::V2
         :'from' => :'from',
         :'group_signals_by' => :'groupSignalsBy',
         :'index' => :'index',
+        :'is_backfill_job' => :'isBackfillJob',
+        :'is_shadow_deployed' => :'isShadowDeployed',
         :'message' => :'message',
         :'name' => :'name',
         :'options' => :'options',
+        :'projected_per_query' => :'projectedPerQuery',
         :'queries' => :'queries',
         :'reference_tables' => :'referenceTables',
         :'tags' => :'tags',
@@ -95,9 +107,12 @@ module DatadogAPIClient::V2
         :'from' => :'Integer',
         :'group_signals_by' => :'Array<String>',
         :'index' => :'String',
+        :'is_backfill_job' => :'Boolean',
+        :'is_shadow_deployed' => :'Boolean',
         :'message' => :'String',
         :'name' => :'String',
         :'options' => :'HistoricalJobOptions',
+        :'projected_per_query' => :'Array<String>',
         :'queries' => :'Array<HistoricalJobQuery>',
         :'reference_tables' => :'Array<SecurityMonitoringReferenceTable>',
         :'tags' => :'Array<String>',
@@ -151,6 +166,14 @@ module DatadogAPIClient::V2
         self.index = attributes[:'index']
       end
 
+      if attributes.key?(:'is_backfill_job')
+        self.is_backfill_job = attributes[:'is_backfill_job']
+      end
+
+      if attributes.key?(:'is_shadow_deployed')
+        self.is_shadow_deployed = attributes[:'is_shadow_deployed']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
       end
@@ -161,6 +184,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'options')
         self.options = attributes[:'options']
+      end
+
+      if attributes.key?(:'projected_per_query')
+        if (value = attributes[:'projected_per_query']).is_a?(Array)
+          self.projected_per_query = value
+        end
       end
 
       if attributes.key?(:'queries')
@@ -330,9 +359,12 @@ module DatadogAPIClient::V2
           from == o.from &&
           group_signals_by == o.group_signals_by &&
           index == o.index &&
+          is_backfill_job == o.is_backfill_job &&
+          is_shadow_deployed == o.is_shadow_deployed &&
           message == o.message &&
           name == o.name &&
           options == o.options &&
+          projected_per_query == o.projected_per_query &&
           queries == o.queries &&
           reference_tables == o.reference_tables &&
           tags == o.tags &&
@@ -346,7 +378,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculated_fields, cases, from, group_signals_by, index, message, name, options, queries, reference_tables, tags, third_party_cases, to, type, additional_properties].hash
+      [calculated_fields, cases, from, group_signals_by, index, is_backfill_job, is_shadow_deployed, message, name, options, projected_per_query, queries, reference_tables, tags, third_party_cases, to, type, additional_properties].hash
     end
   end
 end

@@ -42,6 +42,9 @@ module DatadogAPIClient::V2
     # IDs of reference datasets used by this query.
     attr_accessor :dataset_ids
 
+    # Version of each dataset used by the job, keyed by dataset ID. Pinned when the job is created.
+    attr_accessor :dataset_versions
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
 
@@ -56,6 +59,10 @@ module DatadogAPIClient::V2
 
     # Indexes used to load the data for this query. Mutually exclusive with `index`.
     attr_accessor :indexes
+
+    # (Deprecated) The target field to aggregate over when using the sum or max
+    # aggregations. Use the `metrics` field instead.
+    attr_accessor :metric
 
     # Group of target fields to aggregate over when using the sum, max, geo data, or new value aggregations. The sum, max, and geo data aggregations only accept one value in this list, whereas the new value aggregation accepts up to five values.
     attr_accessor :metrics
@@ -82,11 +89,13 @@ module DatadogAPIClient::V2
         :'custom_query_extension' => :'customQueryExtension',
         :'data_source' => :'dataSource',
         :'dataset_ids' => :'datasetIds',
+        :'dataset_versions' => :'datasetVersions',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
         :'index' => :'index',
         :'indexes' => :'indexes',
+        :'metric' => :'metric',
         :'metrics' => :'metrics',
         :'name' => :'name',
         :'query' => :'query',
@@ -105,11 +114,13 @@ module DatadogAPIClient::V2
         :'custom_query_extension' => :'String',
         :'data_source' => :'SecurityMonitoringStandardDataSource',
         :'dataset_ids' => :'Array<String>',
+        :'dataset_versions' => :'Hash<String, Integer>',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'has_optional_group_by_fields' => :'Boolean',
         :'index' => :'String',
         :'indexes' => :'Array<String>',
+        :'metric' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
         :'query' => :'String',
@@ -167,6 +178,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'dataset_versions')
+        self.dataset_versions = attributes[:'dataset_versions']
+      end
+
       if attributes.key?(:'distinct_fields')
         if (value = attributes[:'distinct_fields']).is_a?(Array)
           self.distinct_fields = value
@@ -191,6 +206,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'indexes']).is_a?(Array)
           self.indexes = value
         end
+      end
+
+      if attributes.key?(:'metric')
+        self.metric = attributes[:'metric']
       end
 
       if attributes.key?(:'metrics')
@@ -267,11 +286,13 @@ module DatadogAPIClient::V2
           custom_query_extension == o.custom_query_extension &&
           data_source == o.data_source &&
           dataset_ids == o.dataset_ids &&
+          dataset_versions == o.dataset_versions &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           has_optional_group_by_fields == o.has_optional_group_by_fields &&
           index == o.index &&
           indexes == o.indexes &&
+          metric == o.metric &&
           metrics == o.metrics &&
           name == o.name &&
           query == o.query &&
@@ -283,7 +304,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [additional_filters, aggregation, correlated_by_fields, correlated_query_index, custom_query_extension, data_source, dataset_ids, distinct_fields, group_by_fields, has_optional_group_by_fields, index, indexes, metrics, name, query, query_language, additional_properties].hash
+      [additional_filters, aggregation, correlated_by_fields, correlated_query_index, custom_query_extension, data_source, dataset_ids, dataset_versions, distinct_fields, group_by_fields, has_optional_group_by_fields, index, indexes, metric, metrics, name, query, query_language, additional_properties].hash
     end
   end
 end
