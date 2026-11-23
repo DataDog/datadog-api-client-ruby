@@ -33,7 +33,9 @@ module DatadogAPIClient::V2
 
     # Create deployment gate.
     #
-    # Endpoint to create a deployment gate.
+    # Create a deployment gate for a specific environment or for all environments using `*`.
+    # A gate for all environments and a gate for a specific environment cannot coexist for the
+    # same organization, service, and identifier. A conflicting creation returns 400 Bad Request.
     #
     # @param body [CreateDeploymentGateParams] 
     # @param opts [Hash] the optional parameters

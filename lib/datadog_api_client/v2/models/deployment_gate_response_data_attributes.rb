@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Basic information about a deployment gate.
+  # Basic information about a deployment gate. The environment is `*` for a gate that applies to all environments.
   class DeploymentGateResponseDataAttributes
     include BaseGenericModel
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Whether this gate is run in dry-run mode.
     attr_reader :dry_run
 
-    # The environment of the deployment gate.
+    # The environment of the deployment gate. `*` means all environments.
     attr_reader :env
 
     # The identifier of the deployment gate.

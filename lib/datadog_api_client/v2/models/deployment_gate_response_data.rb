@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DeploymentGateResponseData
     include BaseGenericModel
 
-    # Basic information about a deployment gate.
+    # Basic information about a deployment gate. The environment is `*` for a gate that applies to all environments.
     attr_reader :attributes
 
     # Unique identifier of the deployment gate.
