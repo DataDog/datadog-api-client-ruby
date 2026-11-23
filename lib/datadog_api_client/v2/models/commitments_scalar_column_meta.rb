@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsScalarColumnMeta
     include BaseGenericModel
 
-    # Unit metadata for a numeric metric.
-    attr_reader :unit
+    # Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
+    attr_accessor :unit
 
     attr_accessor :additional_properties
 
@@ -40,6 +40,14 @@ module DatadogAPIClient::V2
       {
         :'unit' => :'CommitmentsUnit'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'unit',
+      ])
     end
 
     # Initializes the object
@@ -63,24 +71,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'unit')
         self.unit = attributes[:'unit']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @unit.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param unit [Object] Object to be assigned
-    # @!visibility private
-    def unit=(unit)
-      if unit.nil?
-        fail ArgumentError, 'invalid value for "unit", unit cannot be nil.'
-      end
-      @unit = unit
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

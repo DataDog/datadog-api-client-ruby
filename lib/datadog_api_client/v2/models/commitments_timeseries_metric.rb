@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Unix timestamps in seconds for the timeseries data points.
     attr_reader :times
 
-    # Unit metadata for a numeric metric.
+    # Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
     attr_accessor :unit
 
     attr_accessor :additional_properties
@@ -50,6 +50,14 @@ module DatadogAPIClient::V2
         :'times' => :'Array<Integer>',
         :'unit' => :'CommitmentsUnit'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'unit',
+      ])
     end
 
     # Initializes the object

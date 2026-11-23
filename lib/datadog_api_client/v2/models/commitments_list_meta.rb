@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CommitmentsListMeta
     include BaseGenericModel
 
-    # Unit metadata for a numeric metric.
+    # Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
     attr_accessor :committed_spend_unit
 
     # Whether Azure cost data lacks the unused cost of some commitments, for example when an export is
@@ -46,6 +46,14 @@ module DatadogAPIClient::V2
         :'committed_spend_unit' => :'CommitmentsUnit',
         :'unused_cost_unavailable' => :'Boolean'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'committed_spend_unit',
+      ])
     end
 
     # Initializes the object

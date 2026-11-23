@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     AWS = "aws".freeze
     AZURE = "azure".freeze
+    GCP = "gcp".freeze
   end
 end

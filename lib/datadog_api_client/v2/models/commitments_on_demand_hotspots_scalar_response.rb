@@ -21,14 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsOnDemandHotspotsScalarResponse
     include BaseGenericModel
 
-    # Array of scalar columns in the response.
-    attr_reader :columns
-
-    # Metadata for the on-demand hot-spots scalar response.
-    attr_accessor :meta
-
-    # Array of scalar columns in the response.
-    attr_reader :total
+    # The scalar on-demand hot-spots resource.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns' => :'columns',
-        :'meta' => :'meta',
-        :'total' => :'total'
+        :'data' => :'data'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns' => :'Array<CommitmentsScalarColumn>',
-        :'meta' => :'CommitmentsOnDemandHotspotsScalarMeta',
-        :'total' => :'Array<CommitmentsScalarColumn>'
+        :'data' => :'CommitmentsOnDemandHotspotsScalarResponseData'
       }
     end
 
@@ -70,20 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns')
-        if (value = attributes[:'columns']).is_a?(Array)
-          self.columns = value
-        end
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
-
-      if attributes.key?(:'total')
-        if (value = attributes[:'total']).is_a?(Array)
-          self.total = value
-        end
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -91,29 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @columns.nil?
-      return false if @total.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param columns [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def columns=(columns)
-      if columns.nil?
-        fail ArgumentError, 'invalid value for "columns", columns cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @columns = columns
-    end
-
-    # Custom attribute writer method with validation
-    # @param total [Object] Object to be assigned
-    # @!visibility private
-    def total=(total)
-      if total.nil?
-        fail ArgumentError, 'invalid value for "total", total cannot be nil.'
-      end
-      @total = total
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -142,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns == o.columns &&
-          meta == o.meta &&
-          total == o.total &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -152,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, meta, total, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

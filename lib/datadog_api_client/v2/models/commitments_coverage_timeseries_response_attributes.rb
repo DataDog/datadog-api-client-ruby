@@ -17,12 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata for the on-demand hot-spots scalar response.
-  class CommitmentsOnDemandHotspotsScalarMeta
+  # Attributes of a timeseries coverage response.
+  class CommitmentsCoverageTimeseriesResponseAttributes
     include BaseGenericModel
 
-    # Active on-demand filters applied to the response.
-    attr_reader :on_demand_filters
+    # A coverage timeseries metric. For AWS and Azure, `series` holds the `on_demand_only`, `spot_only`, `ri`,
+    # and `sp` buckets, plus `ppp` for Azure pre-purchase plans when enabled. For GCP, `series` holds the
+    # `on_demand_only` and `flex_cud` buckets.
+    attr_reader :cost
+
+    # A coverage timeseries metric. For AWS and Azure, `series` holds the `on_demand_only`, `spot_only`, `ri`,
+    # and `sp` buckets, plus `ppp` for Azure pre-purchase plans when enabled. For GCP, `series` holds the
+    # `on_demand_only` and `flex_cud` buckets.
+    attr_reader :hours
+
+    # The query that produces the response values, in the same format as dashboard and notebook widget
+    # requests, so a client can graph the values in a widget. Each formula's `id` names the response value
+    # that it produces.
+    attr_accessor :query_definition
 
     attr_accessor :additional_properties
 
@@ -30,7 +42,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'on_demand_filters' => :'on_demand_filters'
+        :'cost' => :'cost',
+        :'hours' => :'hours',
+        :'query_definition' => :'query_definition'
       }
     end
 
@@ -38,7 +52,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'on_demand_filters' => :'String'
+        :'cost' => :'CommitmentsCoverageTimeseriesMetric',
+        :'hours' => :'CommitmentsCoverageTimeseriesMetric',
+        :'query_definition' => :'CommitmentsQueryDefinition'
       }
     end
 
@@ -47,7 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CommitmentsOnDemandHotspotsScalarMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CommitmentsCoverageTimeseriesResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +76,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'on_demand_filters')
-        self.on_demand_filters = attributes[:'on_demand_filters']
+      if attributes.key?(:'cost')
+        self.cost = attributes[:'cost']
+      end
+
+      if attributes.key?(:'hours')
+        self.hours = attributes[:'hours']
+      end
+
+      if attributes.key?(:'query_definition')
+        self.query_definition = attributes[:'query_definition']
       end
     end
 
@@ -69,18 +93,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @on_demand_filters.nil?
+      return false if @cost.nil?
+      return false if @hours.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param on_demand_filters [Object] Object to be assigned
+    # @param cost [Object] Object to be assigned
     # @!visibility private
-    def on_demand_filters=(on_demand_filters)
-      if on_demand_filters.nil?
-        fail ArgumentError, 'invalid value for "on_demand_filters", on_demand_filters cannot be nil.'
+    def cost=(cost)
+      if cost.nil?
+        fail ArgumentError, 'invalid value for "cost", cost cannot be nil.'
       end
-      @on_demand_filters = on_demand_filters
+      @cost = cost
+    end
+
+    # Custom attribute writer method with validation
+    # @param hours [Object] Object to be assigned
+    # @!visibility private
+    def hours=(hours)
+      if hours.nil?
+        fail ArgumentError, 'invalid value for "hours", hours cannot be nil.'
+      end
+      @hours = hours
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +144,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          on_demand_filters == o.on_demand_filters &&
+          cost == o.cost &&
+          hours == o.hours &&
+          query_definition == o.query_definition &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +154,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [on_demand_filters, additional_properties].hash
+      [cost, hours, query_definition, additional_properties].hash
     end
   end
 end

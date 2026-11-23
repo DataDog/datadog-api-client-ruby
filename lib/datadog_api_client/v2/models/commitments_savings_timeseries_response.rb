@@ -21,17 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsSavingsTimeseriesResponse
     include BaseGenericModel
 
-    # A timeseries metric containing timestamps, series values, and optional unit metadata.
-    attr_reader :actual_cost
-
-    # A timeseries metric containing timestamps, series values, and optional unit metadata.
-    attr_reader :effective_savings_rate
-
-    # A timeseries metric containing timestamps, series values, and optional unit metadata.
-    attr_reader :on_demand_equivalent_cost
-
-    # A timeseries metric containing timestamps, series values, and optional unit metadata.
-    attr_reader :realized_savings
+    # The timeseries savings resource.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'actual_cost' => :'actual_cost',
-        :'effective_savings_rate' => :'effective_savings_rate',
-        :'on_demand_equivalent_cost' => :'on_demand_equivalent_cost',
-        :'realized_savings' => :'realized_savings'
+        :'data' => :'data'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'actual_cost' => :'CommitmentsTimeseriesMetric',
-        :'effective_savings_rate' => :'CommitmentsTimeseriesMetric',
-        :'on_demand_equivalent_cost' => :'CommitmentsTimeseriesMetric',
-        :'realized_savings' => :'CommitmentsTimeseriesMetric'
+        :'data' => :'CommitmentsSavingsTimeseriesResponseData'
       }
     end
 
@@ -75,20 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'actual_cost')
-        self.actual_cost = attributes[:'actual_cost']
-      end
-
-      if attributes.key?(:'effective_savings_rate')
-        self.effective_savings_rate = attributes[:'effective_savings_rate']
-      end
-
-      if attributes.key?(:'on_demand_equivalent_cost')
-        self.on_demand_equivalent_cost = attributes[:'on_demand_equivalent_cost']
-      end
-
-      if attributes.key?(:'realized_savings')
-        self.realized_savings = attributes[:'realized_savings']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -96,51 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @actual_cost.nil?
-      return false if @effective_savings_rate.nil?
-      return false if @on_demand_equivalent_cost.nil?
-      return false if @realized_savings.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param actual_cost [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def actual_cost=(actual_cost)
-      if actual_cost.nil?
-        fail ArgumentError, 'invalid value for "actual_cost", actual_cost cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @actual_cost = actual_cost
-    end
-
-    # Custom attribute writer method with validation
-    # @param effective_savings_rate [Object] Object to be assigned
-    # @!visibility private
-    def effective_savings_rate=(effective_savings_rate)
-      if effective_savings_rate.nil?
-        fail ArgumentError, 'invalid value for "effective_savings_rate", effective_savings_rate cannot be nil.'
-      end
-      @effective_savings_rate = effective_savings_rate
-    end
-
-    # Custom attribute writer method with validation
-    # @param on_demand_equivalent_cost [Object] Object to be assigned
-    # @!visibility private
-    def on_demand_equivalent_cost=(on_demand_equivalent_cost)
-      if on_demand_equivalent_cost.nil?
-        fail ArgumentError, 'invalid value for "on_demand_equivalent_cost", on_demand_equivalent_cost cannot be nil.'
-      end
-      @on_demand_equivalent_cost = on_demand_equivalent_cost
-    end
-
-    # Custom attribute writer method with validation
-    # @param realized_savings [Object] Object to be assigned
-    # @!visibility private
-    def realized_savings=(realized_savings)
-      if realized_savings.nil?
-        fail ArgumentError, 'invalid value for "realized_savings", realized_savings cannot be nil.'
-      end
-      @realized_savings = realized_savings
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -169,10 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          actual_cost == o.actual_cost &&
-          effective_savings_rate == o.effective_savings_rate &&
-          on_demand_equivalent_cost == o.on_demand_equivalent_cost &&
-          realized_savings == o.realized_savings &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actual_cost, effective_savings_rate, on_demand_equivalent_cost, realized_savings, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
