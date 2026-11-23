@@ -36,6 +36,12 @@ module DatadogAPIClient::V2
     # Object representing a given user entity.
     attr_reader :assignee
 
+    # Cases linked to the security signal.
+    attr_accessor :cases
+
+    # Whether the signal is linked to at least one case.
+    attr_accessor :has_case
+
     # Array of incidents that are associated with this signal.
     attr_reader :incident_ids
 
@@ -59,6 +65,8 @@ module DatadogAPIClient::V2
         :'archive_comment_user' => :'archive_comment_user',
         :'archive_reason' => :'archive_reason',
         :'assignee' => :'assignee',
+        :'cases' => :'cases',
+        :'has_case' => :'hasCase',
         :'incident_ids' => :'incident_ids',
         :'state' => :'state',
         :'state_update_timestamp' => :'state_update_timestamp',
@@ -75,6 +83,8 @@ module DatadogAPIClient::V2
         :'archive_comment_user' => :'SecurityMonitoringTriageUser',
         :'archive_reason' => :'SecurityMonitoringSignalArchiveReason',
         :'assignee' => :'SecurityMonitoringTriageUser',
+        :'cases' => :'Array<SecurityMonitoringSignalCase>',
+        :'has_case' => :'Boolean',
         :'incident_ids' => :'Array<Integer>',
         :'state' => :'SecurityMonitoringSignalState',
         :'state_update_timestamp' => :'Integer',
@@ -118,6 +128,16 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'assignee')
         self.assignee = attributes[:'assignee']
+      end
+
+      if attributes.key?(:'cases')
+        if (value = attributes[:'cases']).is_a?(Array)
+          self.cases = value
+        end
+      end
+
+      if attributes.key?(:'has_case')
+        self.has_case = attributes[:'has_case']
       end
 
       if attributes.key?(:'incident_ids')
@@ -232,6 +252,8 @@ module DatadogAPIClient::V2
           archive_comment_user == o.archive_comment_user &&
           archive_reason == o.archive_reason &&
           assignee == o.assignee &&
+          cases == o.cases &&
+          has_case == o.has_case &&
           incident_ids == o.incident_ids &&
           state == o.state &&
           state_update_timestamp == o.state_update_timestamp &&
@@ -243,7 +265,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archive_comment, archive_comment_timestamp, archive_comment_user, archive_reason, assignee, incident_ids, state, state_update_timestamp, state_update_user, additional_properties].hash
+      [archive_comment, archive_comment_timestamp, archive_comment_user, archive_reason, assignee, cases, has_case, incident_ids, state, state_update_timestamp, state_update_user, additional_properties].hash
     end
   end
 end
