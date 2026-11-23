@@ -17,27 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Unit metadata for a numeric metric.
+  # Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
   class CommitmentsUnit
     include BaseGenericModel
 
     # The unit family (for example, percentage or money).
-    attr_reader :family
+    attr_accessor :family
 
     # The unit identifier.
-    attr_reader :id
+    attr_accessor :id
 
     # The unit name (for example, percent or dollar).
-    attr_reader :name
+    attr_accessor :name
 
     # The plural form of the unit name.
-    attr_reader :plural
+    attr_accessor :plural
 
     # The scale factor for the unit.
-    attr_reader :scale_factor
+    attr_accessor :scale_factor
 
     # The abbreviated unit name (for example, % or $).
-    attr_reader :short_name
+    attr_accessor :short_name
 
     attr_accessor :additional_properties
 
@@ -108,79 +108,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'short_name')
         self.short_name = attributes[:'short_name']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @family.nil?
-      return false if @id.nil?
-      return false if @name.nil?
-      return false if @plural.nil?
-      return false if @scale_factor.nil?
-      return false if @short_name.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param family [Object] Object to be assigned
-    # @!visibility private
-    def family=(family)
-      if family.nil?
-        fail ArgumentError, 'invalid value for "family", family cannot be nil.'
-      end
-      @family = family
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param plural [Object] Object to be assigned
-    # @!visibility private
-    def plural=(plural)
-      if plural.nil?
-        fail ArgumentError, 'invalid value for "plural", plural cannot be nil.'
-      end
-      @plural = plural
-    end
-
-    # Custom attribute writer method with validation
-    # @param scale_factor [Object] Object to be assigned
-    # @!visibility private
-    def scale_factor=(scale_factor)
-      if scale_factor.nil?
-        fail ArgumentError, 'invalid value for "scale_factor", scale_factor cannot be nil.'
-      end
-      @scale_factor = scale_factor
-    end
-
-    # Custom attribute writer method with validation
-    # @param short_name [Object] Object to be assigned
-    # @!visibility private
-    def short_name=(short_name)
-      if short_name.nil?
-        fail ArgumentError, 'invalid value for "short_name", short_name cannot be nil.'
-      end
-      @short_name = short_name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

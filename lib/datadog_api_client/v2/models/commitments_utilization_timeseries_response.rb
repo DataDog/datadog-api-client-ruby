@@ -21,14 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsUtilizationTimeseriesResponse
     include BaseGenericModel
 
-    # Timeseries data as a map of series names to their corresponding value arrays.
-    attr_reader :series
-
-    # Unix timestamps in seconds for the timeseries data points.
-    attr_reader :times
-
-    # Unit metadata for a numeric metric.
-    attr_accessor :unit
+    # The timeseries utilization resource.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'series' => :'series',
-        :'times' => :'times',
-        :'unit' => :'unit'
+        :'data' => :'data'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'series' => :'Hash<String, Array<Float>>',
-        :'times' => :'Array<Integer>',
-        :'unit' => :'CommitmentsUnit'
+        :'data' => :'CommitmentsUtilizationTimeseriesResponseData'
       }
     end
 
@@ -70,18 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'series')
-        self.series = attributes[:'series']
-      end
-
-      if attributes.key?(:'times')
-        if (value = attributes[:'times']).is_a?(Array)
-          self.times = value
-        end
-      end
-
-      if attributes.key?(:'unit')
-        self.unit = attributes[:'unit']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -89,29 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @series.nil?
-      return false if @times.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param series [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def series=(series)
-      if series.nil?
-        fail ArgumentError, 'invalid value for "series", series cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @series = series
-    end
-
-    # Custom attribute writer method with validation
-    # @param times [Object] Object to be assigned
-    # @!visibility private
-    def times=(times)
-      if times.nil?
-        fail ArgumentError, 'invalid value for "times", times cannot be nil.'
-      end
-      @times = times
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -140,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          series == o.series &&
-          times == o.times &&
-          unit == o.unit &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -150,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [series, times, unit, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

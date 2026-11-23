@@ -21,11 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsCoverageTimeseriesResponse
     include BaseGenericModel
 
-    # A timeseries metric containing timestamps, series values, and optional unit metadata.
-    attr_reader :cost
-
-    # A timeseries metric containing timestamps, series values, and optional unit metadata.
-    attr_reader :hours
+    # The timeseries coverage resource.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'cost' => :'cost',
-        :'hours' => :'hours'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cost' => :'CommitmentsTimeseriesMetric',
-        :'hours' => :'CommitmentsTimeseriesMetric'
+        :'data' => :'CommitmentsCoverageTimeseriesResponseData'
       }
     end
 
@@ -65,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'cost')
-        self.cost = attributes[:'cost']
-      end
-
-      if attributes.key?(:'hours')
-        self.hours = attributes[:'hours']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -78,29 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @cost.nil?
-      return false if @hours.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param cost [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def cost=(cost)
-      if cost.nil?
-        fail ArgumentError, 'invalid value for "cost", cost cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @cost = cost
-    end
-
-    # Custom attribute writer method with validation
-    # @param hours [Object] Object to be assigned
-    # @!visibility private
-    def hours=(hours)
-      if hours.nil?
-        fail ArgumentError, 'invalid value for "hours", hours cannot be nil.'
-      end
-      @hours = hours
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cost == o.cost &&
-          hours == o.hours &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cost, hours, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

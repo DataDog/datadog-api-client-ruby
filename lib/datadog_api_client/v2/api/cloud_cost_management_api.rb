@@ -1251,7 +1251,7 @@ module DatadogAPIClient::V2
     #
     # Get a list of individual cloud commitments (Reserved Instances or Savings Plans) with their utilization details. The response schema varies based on the provider, product, and commitment type.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1275,7 +1275,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_commitment_list"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1354,7 +1354,7 @@ module DatadogAPIClient::V2
     #
     # Get scalar coverage metrics for cloud commitment programs, including hours and cost coverage percentages.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1377,7 +1377,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_coverage_scalar"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1449,9 +1449,9 @@ module DatadogAPIClient::V2
 
     # Get commitments coverage (timeseries).
     #
-    # Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type (Reserved Instances, Savings Plans, On-Demand, and Spot) for both hours and cost.
+    # Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type for both hours and cost. AWS and Azure report Reserved Instances, Savings Plans, On-Demand, and Spot. GCP reports Flex Committed Use Discounts and On-Demand.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1474,7 +1474,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_coverage_timeseries"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1548,7 +1548,7 @@ module DatadogAPIClient::V2
     #
     # Get scalar on-demand hot-spots data for cloud commitment programs, showing per-dimension breakdowns of on-demand spending with coverage metrics and potential savings.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1571,7 +1571,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_on_demand_hotspots_scalar"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1645,7 +1645,7 @@ module DatadogAPIClient::V2
     #
     # Get scalar savings metrics for cloud commitment programs, including realized savings and effective savings rate.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1668,7 +1668,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_savings_scalar"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1742,7 +1742,7 @@ module DatadogAPIClient::V2
     #
     # Get timeseries savings metrics for cloud commitment programs, including actual cost, on-demand equivalent cost, realized savings, and effective savings rate over time.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1765,7 +1765,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_savings_timeseries"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1839,7 +1839,7 @@ module DatadogAPIClient::V2
     #
     # Get scalar utilization metrics for cloud commitment programs, including utilization percentage and unused cost.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1863,7 +1863,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_utilization_scalar"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
@@ -1942,7 +1942,7 @@ module DatadogAPIClient::V2
     #
     # Get timeseries utilization metrics for cloud commitment programs, including used and unused cost series over time.
     #
-    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws or azure).
+    # @param provider [CommitmentsProvider] Cloud provider for commitment programs (aws, azure, or gcp).
     # @param product [String] Cloud product identifier (for example, ec2, rds, virtualmachines).
     # @param start [Integer] Start of the query time range in Unix milliseconds.
     # @param _end [Integer] End of the query time range in Unix milliseconds.
@@ -1966,7 +1966,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'provider' when calling CloudCostManagementAPI.get_commitments_utilization_timeseries"
       end
       # verify enum value
-      allowable_values = ['aws', 'azure']
+      allowable_values = ['aws', 'azure', 'gcp']
       if @api_client.config.client_side_validation && !allowable_values.include?(provider)
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end

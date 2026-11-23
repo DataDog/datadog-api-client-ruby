@@ -21,11 +21,8 @@ module DatadogAPIClient::V2
   class CommitmentsUtilizationScalarResponse
     include BaseGenericModel
 
-    # Array of scalar columns in the response.
-    attr_reader :columns
-
-    # Array of per-product utilization breakdown entries.
-    attr_accessor :product_breakdown
+    # The scalar utilization resource.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns' => :'columns',
-        :'product_breakdown' => :'product_breakdown'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns' => :'Array<CommitmentsScalarColumn>',
-        :'product_breakdown' => :'Array<CommitmentsUtilizationScalarProductBreakdownEntry>'
+        :'data' => :'CommitmentsUtilizationScalarResponseData'
       }
     end
 
@@ -65,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns')
-        if (value = attributes[:'columns']).is_a?(Array)
-          self.columns = value
-        end
-      end
-
-      if attributes.key?(:'product_breakdown')
-        if (value = attributes[:'product_breakdown']).is_a?(Array)
-          self.product_breakdown = value
-        end
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -82,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @columns.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param columns [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def columns=(columns)
-      if columns.nil?
-        fail ArgumentError, 'invalid value for "columns", columns cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @columns = columns
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -122,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns == o.columns &&
-          product_breakdown == o.product_breakdown &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, product_breakdown, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
