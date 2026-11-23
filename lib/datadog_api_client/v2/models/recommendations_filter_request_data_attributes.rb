@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class RecommendationsFilterRequestDataAttributes
     include BaseGenericModel
 
+    # Additional fields to return from the recommendation event's custom attributes, selected
+    # by dotted paths such as `tags.env` or wildcard patterns such as `*target*`.
+    # Arrays are traversed without indexes. Matched objects and arrays are returned whole.
+    # A maximum of 256 selectors can be requested. Selectors that match nothing return no field.
+    attr_reader :extra_fields
+
     # Filter expression applied to the recommendations. When supplied, this attribute overrides
     # `data.id`, including when empty. When omitted, `data.id` is used. If the resulting filter
     # is empty, it defaults to `*`. Scope, view, and pagination still apply.
@@ -43,6 +49,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'extra_fields' => :'extra_fields',
         :'filter' => :'filter',
         :'scope' => :'scope',
         :'sort' => :'sort',
@@ -54,6 +61,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'extra_fields' => :'Array<String>',
         :'filter' => :'String',
         :'scope' => :'RecommendationsFilterRequestScope',
         :'sort' => :'Array<RecommendationsFilterRequestSortItems>',
@@ -79,6 +87,12 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'extra_fields')
+        if (value = attributes[:'extra_fields']).is_a?(Array)
+          self.extra_fields = value
+        end
+      end
+
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
       end
@@ -96,6 +110,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'view')
         self.view = attributes[:'view']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@extra_fields.nil? && @extra_fields.length > 256
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param extra_fields [Object] Object to be assigned
+    # @!visibility private
+    def extra_fields=(extra_fields)
+      if !extra_fields.nil? && extra_fields.length > 256
+        fail ArgumentError, 'invalid value for "extra_fields", number of items must be less than or equal to 256.'
+      end
+      @extra_fields = extra_fields
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -124,6 +156,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          extra_fields == o.extra_fields &&
           filter == o.filter &&
           scope == o.scope &&
           sort == o.sort &&
@@ -135,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, scope, sort, view, additional_properties].hash
+      [extra_fields, filter, scope, sort, view, additional_properties].hash
     end
   end
 end
