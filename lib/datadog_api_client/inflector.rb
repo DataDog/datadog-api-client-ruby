@@ -9073,6 +9073,7 @@ module DatadogAPIClient
           "v2.security_monitoring_signal_assignee_update_data" => "SecurityMonitoringSignalAssigneeUpdateData",
           "v2.security_monitoring_signal_assignee_update_request" => "SecurityMonitoringSignalAssigneeUpdateRequest",
           "v2.security_monitoring_signal_attributes" => "SecurityMonitoringSignalAttributes",
+          "v2.security_monitoring_signal_case" => "SecurityMonitoringSignalCase",
           "v2.security_monitoring_signal_incidents_update_attributes" => "SecurityMonitoringSignalIncidentsUpdateAttributes",
           "v2.security_monitoring_signal_incidents_update_data" => "SecurityMonitoringSignalIncidentsUpdateData",
           "v2.security_monitoring_signal_incidents_update_request" => "SecurityMonitoringSignalIncidentsUpdateRequest",
