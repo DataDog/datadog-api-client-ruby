@@ -33,13 +33,16 @@ module DatadogAPIClient::V2
     # Error details for an experiment metric evaluation.
     attr_accessor :error
 
+    # Whether a higher numeric score is better. Set to `false` when a lower score is better. If omitted, the comparison uses the boolean value of `metadata.higher_is_better` when present, or the default direction otherwise.
+    attr_accessor :higher_is_better
+
     # JSON value. Used when `metric_type` is `json`.
     attr_accessor :json_value
 
     # Label or name for the metric.
     attr_reader :label
 
-    # Arbitrary metadata associated with the metric.
+    # Arbitrary metadata associated with the metric. For a numeric score, clients can set `higher_is_better` here when they cannot send the top-level field.
     attr_accessor :metadata
 
     # Type of metric recorded for an Agent Observability experiment.
@@ -70,6 +73,7 @@ module DatadogAPIClient::V2
         :'boolean_value' => :'boolean_value',
         :'categorical_value' => :'categorical_value',
         :'error' => :'error',
+        :'higher_is_better' => :'higher_is_better',
         :'json_value' => :'json_value',
         :'label' => :'label',
         :'metadata' => :'metadata',
@@ -90,6 +94,7 @@ module DatadogAPIClient::V2
         :'boolean_value' => :'Boolean',
         :'categorical_value' => :'String',
         :'error' => :'LLMObsExperimentMetricError',
+        :'higher_is_better' => :'Boolean',
         :'json_value' => :'Hash<String, Object>',
         :'label' => :'String',
         :'metadata' => :'Hash<String, Object>',
@@ -134,6 +139,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'error')
         self.error = attributes[:'error']
+      end
+
+      if attributes.key?(:'higher_is_better')
+        self.higher_is_better = attributes[:'higher_is_better']
       end
 
       if attributes.key?(:'json_value')
@@ -256,6 +265,7 @@ module DatadogAPIClient::V2
           boolean_value == o.boolean_value &&
           categorical_value == o.categorical_value &&
           error == o.error &&
+          higher_is_better == o.higher_is_better &&
           json_value == o.json_value &&
           label == o.label &&
           metadata == o.metadata &&
@@ -272,7 +282,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assessment, boolean_value, categorical_value, error, json_value, label, metadata, metric_type, reasoning, score_value, span_id, tags, timestamp_ms, additional_properties].hash
+      [assessment, boolean_value, categorical_value, error, higher_is_better, json_value, label, metadata, metric_type, reasoning, score_value, span_id, tags, timestamp_ms, additional_properties].hash
     end
   end
 end
