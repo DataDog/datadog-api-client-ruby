@@ -10,6 +10,8 @@ api_instance = DatadogAPIClient::V2::AIGatewayAPI.new
 body = DatadogAPIClient::V2::AiGatewayRoutingRuleCreateRequest.new({
   data: DatadogAPIClient::V2::AiGatewayRoutingRuleCreateData.new({
     attributes: DatadogAPIClient::V2::AiGatewayRoutingRuleCreateAttributes.new({
+      description: "Routes coding traffic to the fastest available model.",
+      display_name: "Coding fallback",
       initial_bindings: [
         DatadogAPIClient::V2::AiGatewayProviderInitialBinding.new({
           principals: [

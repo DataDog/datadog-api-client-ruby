@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     attr_accessor :integration_config
 
     # Known provider implementation.
-    attr_accessor :known_provider
+    attr_reader :known_provider
 
     # Manually managed models to add alongside models discovered from the provider integration.
     attr_accessor :models
@@ -164,6 +164,7 @@ module DatadogAPIClient::V2
       return false if !@cost_multiplier.nil? && @cost_multiplier > 1000000
       return false if !@cost_multiplier.nil? && @cost_multiplier <= 0
       return false if !@integration_account_id.nil? && @integration_account_id.to_s.length > 256
+      return false if @known_provider.nil?
       return false if @name.nil?
       return false if @name.to_s.length > 256
       return false if @name.to_s.length < 1
@@ -196,6 +197,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "integration_account_id", the character length must be smaller than or equal to 256.'
       end
       @integration_account_id = integration_account_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param known_provider [Object] Object to be assigned
+    # @!visibility private
+    def known_provider=(known_provider)
+      if known_provider.nil?
+        fail ArgumentError, 'invalid value for "known_provider", known_provider cannot be nil.'
+      end
+      @known_provider = known_provider
     end
 
     # Custom attribute writer method with validation

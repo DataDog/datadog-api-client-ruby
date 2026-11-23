@@ -24,6 +24,12 @@ module DatadogAPIClient::V2
     # Time when the resource was created.
     attr_reader :created_at
 
+    # Description of the routing rule. Absent when unset.
+    attr_accessor :description
+
+    # Human-readable name of the routing rule. Absent when unset; show the slug instead.
+    attr_accessor :display_name
+
     # Stable numeric route identifier used by scoped policies and `ai-gateway-route` restriction policies.
     attr_reader :route_id
 
@@ -40,6 +46,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'created_at' => :'created_at',
+        :'description' => :'description',
+        :'display_name' => :'display_name',
         :'route_id' => :'route_id',
         :'tiers' => :'tiers',
         :'updated_at' => :'updated_at'
@@ -51,6 +59,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_at' => :'Time',
+        :'description' => :'String',
+        :'display_name' => :'String',
         :'route_id' => :'Integer',
         :'tiers' => :'Array<AiGatewayRoutingRuleTier>',
         :'updated_at' => :'Time'
@@ -77,6 +87,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
       end
 
       if attributes.key?(:'route_id')
@@ -176,6 +194,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           created_at == o.created_at &&
+          description == o.description &&
+          display_name == o.display_name &&
           route_id == o.route_id &&
           tiers == o.tiers &&
           updated_at == o.updated_at &&
@@ -186,7 +206,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, route_id, tiers, updated_at, additional_properties].hash
+      [created_at, description, display_name, route_id, tiers, updated_at, additional_properties].hash
     end
   end
 end

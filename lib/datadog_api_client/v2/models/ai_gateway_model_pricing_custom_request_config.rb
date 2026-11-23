@@ -27,6 +27,10 @@ module DatadogAPIClient::V2
     # Source for a custom pricing configuration.
     attr_reader :source
 
+    # Custom prices that replace the base rates for the requests they select. Only valid for custom pricing.
+    # At most 16 tiers, and no two may share the same `service_tier` and `context_min_tokens`.
+    attr_reader :tiers
+
     # Pricing configuration version. The only supported version is `1`.
     attr_reader :version
 
@@ -36,6 +40,7 @@ module DatadogAPIClient::V2
       {
         :'rates' => :'rates',
         :'source' => :'source',
+        :'tiers' => :'tiers',
         :'version' => :'version'
       }
     end
@@ -46,6 +51,7 @@ module DatadogAPIClient::V2
       {
         :'rates' => :'AiGatewayModelPricingRequiredRates',
         :'source' => :'AiGatewayModelPricingCustomRequestSource',
+        :'tiers' => :'Array<AiGatewayModelPricingTier>',
         :'version' => :'Integer'
       }
     end
@@ -74,6 +80,12 @@ module DatadogAPIClient::V2
         self.source = attributes[:'source']
       end
 
+      if attributes.key?(:'tiers')
+        if (value = attributes[:'tiers']).is_a?(Array)
+          self.tiers = value
+        end
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -85,6 +97,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @rates.nil?
       return false if @source.nil?
+      return false if !@tiers.nil? && @tiers.length > 16
       return false if @version.nil?
       return false if @version > 1
       return false if @version < 1
@@ -112,6 +125,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param tiers [Object] Object to be assigned
+    # @!visibility private
+    def tiers=(tiers)
+      if !tiers.nil? && tiers.length > 16
+        fail ArgumentError, 'invalid value for "tiers", number of items must be less than or equal to 16.'
+      end
+      @tiers = tiers
+    end
+
+    # Custom attribute writer method with validation
     # @param version [Object] Object to be assigned
     # @!visibility private
     def version=(version)
@@ -135,6 +158,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           rates == o.rates &&
           source == o.source &&
+          tiers == o.tiers &&
           version == o.version
     end
 
@@ -142,7 +166,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rates, source, version].hash
+      [rates, source, tiers, version].hash
     end
   end
 end

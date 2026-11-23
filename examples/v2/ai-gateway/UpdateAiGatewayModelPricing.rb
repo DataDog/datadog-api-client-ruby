@@ -20,6 +20,18 @@ body = DatadogAPIClient::V2::AiGatewayModelPricingRequest.new({
         source: DatadogAPIClient::V2::AiGatewayModelPricingCustomRequestSource.new({
           type: DatadogAPIClient::V2::AiGatewayModelPricingCustomRequestSourceType::CUSTOM,
         }),
+        tiers: [
+          DatadogAPIClient::V2::AiGatewayModelPricingTier.new({
+            context_min_tokens: 200000,
+            rates: DatadogAPIClient::V2::AiGatewayModelPricingRates.new({
+              cache_read_cost_per_mtok: 0.6,
+              cache_write_cost_per_mtok: 7.5,
+              non_cached_input_cost_per_mtok: 6.0,
+              output_cost_per_mtok: 22.5,
+            }),
+            service_tier: "priority",
+          }),
+        ],
         version: 1,
       }),
     }),
