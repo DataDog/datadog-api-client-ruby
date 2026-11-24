@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # The description of the widget.
     attr_accessor :description
 
+    # Color palette to apply to the widget. Supported values include `datadog16`, `datadog32`, `semantic`, `classic`, and `dog_classic`. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors
+    attr_accessor :palette
+
     # Widget definition.
     attr_reader :requests
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V1
         :'color_by_groups' => :'color_by_groups',
         :'custom_links' => :'custom_links',
         :'description' => :'description',
+        :'palette' => :'palette',
         :'requests' => :'requests',
         :'time' => :'time',
         :'title' => :'title',
@@ -81,6 +85,7 @@ module DatadogAPIClient::V1
         :'color_by_groups' => :'Array<String>',
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'description' => :'String',
+        :'palette' => :'String',
         :'requests' => :'ScatterPlotWidgetDefinitionRequests',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -124,6 +129,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'palette')
+        self.palette = attributes[:'palette']
       end
 
       if attributes.key?(:'requests')
@@ -217,6 +226,7 @@ module DatadogAPIClient::V1
           color_by_groups == o.color_by_groups &&
           custom_links == o.custom_links &&
           description == o.description &&
+          palette == o.palette &&
           requests == o.requests &&
           time == o.time &&
           title == o.title &&
@@ -232,7 +242,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by_groups, custom_links, description, requests, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
+      [color_by_groups, custom_links, description, palette, requests, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
     end
   end
 end
