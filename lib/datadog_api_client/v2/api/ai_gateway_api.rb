@@ -799,6 +799,7 @@ module DatadogAPIClient::V2
     #
     # Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
     # Delete a manually managed model catalog entry by its canonical model ID. Discovered entries are read-only.
+    # A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model` endpoint with the `canonical` query parameter instead.
     #
     # @param provider_id [Integer] Provider ID.
     # @param canonical [String] Canonical model identifier.
@@ -866,6 +867,89 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AIGatewayAPI#delete_ai_gateway_model\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a provider model by canonical ID.
+    #
+    # @see #delete_ai_gateway_model_by_canonical_with_http_info
+    def delete_ai_gateway_model_by_canonical(provider_id, canonical, opts = {})
+      delete_ai_gateway_model_by_canonical_with_http_info(provider_id, canonical, opts)
+      nil
+    end
+
+    # Delete a provider model by canonical ID.
+    #
+    # Delete a manually managed model catalog entry, naming the model in the `canonical` query parameter. Discovered entries are read-only. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+    #
+    # @param provider_id [Integer] Provider ID.
+    # @param canonical [String] Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_ai_gateway_model_by_canonical_with_http_info(provider_id, canonical, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_ai_gateway_model_by_canonical".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_ai_gateway_model_by_canonical")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_ai_gateway_model_by_canonical"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AIGatewayAPI.delete_ai_gateway_model_by_canonical ...'
+      end
+      # verify the required parameter 'provider_id' is set
+      if @api_client.config.client_side_validation && provider_id.nil?
+        fail ArgumentError, "Missing the required parameter 'provider_id' when calling AIGatewayAPI.delete_ai_gateway_model_by_canonical"
+      end
+      if @api_client.config.client_side_validation && provider_id < 1
+        fail ArgumentError, 'invalid value for "provider_id" when calling AIGatewayAPI.delete_ai_gateway_model_by_canonical, must be greater than or equal to 1.'
+      end
+      # verify the required parameter 'canonical' is set
+      if @api_client.config.client_side_validation && canonical.nil?
+        fail ArgumentError, "Missing the required parameter 'canonical' when calling AIGatewayAPI.delete_ai_gateway_model_by_canonical"
+      end
+      if @api_client.config.client_side_validation && canonical.to_s.length > 256
+        fail ArgumentError, 'invalid value for "canonical" when calling AIGatewayAPI.delete_ai_gateway_model_by_canonical, the character length must be smaller than or equal to 256.'
+      end
+      # resource path
+      local_var_path = '/api/v2/providers/{provider_id}/model'.sub('{provider_id}', CGI.escape(provider_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'canonical'] = canonical
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_ai_gateway_model_by_canonical,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AIGatewayAPI#delete_ai_gateway_model_by_canonical\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3795,7 +3879,7 @@ module DatadogAPIClient::V2
 
     # Update a model for an AI Gateway provider.
     #
-    # Update a manually managed model catalog entry. Discovered entries are read-only. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+    # Update a manually managed model catalog entry. Discovered entries are read-only. A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model` endpoint with the `canonical` query parameter instead. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
     #
     # @param provider_id [Integer] Provider ID.
     # @param canonical [String] Canonical model identifier.
@@ -3870,6 +3954,96 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AIGatewayAPI#update_ai_gateway_model\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a provider model by canonical ID.
+    #
+    # @see #update_ai_gateway_model_by_canonical_with_http_info
+    def update_ai_gateway_model_by_canonical(provider_id, canonical, body, opts = {})
+      data, _status_code, _headers = update_ai_gateway_model_by_canonical_with_http_info(provider_id, canonical, body, opts)
+      data
+    end
+
+    # Update a provider model by canonical ID.
+    #
+    # Update a manually managed model catalog entry, naming the model in the `canonical` query parameter. Discovered entries are read-only. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+    #
+    # @param provider_id [Integer] Provider ID.
+    # @param canonical [String] Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
+    # @param body [AiGatewayModelUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AiGatewayModelCatalogEntryResponse, Integer, Hash)>] AiGatewayModelCatalogEntryResponse data, response status code and response headers
+    def update_ai_gateway_model_by_canonical_with_http_info(provider_id, canonical, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_ai_gateway_model_by_canonical".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_ai_gateway_model_by_canonical")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_ai_gateway_model_by_canonical"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AIGatewayAPI.update_ai_gateway_model_by_canonical ...'
+      end
+      # verify the required parameter 'provider_id' is set
+      if @api_client.config.client_side_validation && provider_id.nil?
+        fail ArgumentError, "Missing the required parameter 'provider_id' when calling AIGatewayAPI.update_ai_gateway_model_by_canonical"
+      end
+      if @api_client.config.client_side_validation && provider_id < 1
+        fail ArgumentError, 'invalid value for "provider_id" when calling AIGatewayAPI.update_ai_gateway_model_by_canonical, must be greater than or equal to 1.'
+      end
+      # verify the required parameter 'canonical' is set
+      if @api_client.config.client_side_validation && canonical.nil?
+        fail ArgumentError, "Missing the required parameter 'canonical' when calling AIGatewayAPI.update_ai_gateway_model_by_canonical"
+      end
+      if @api_client.config.client_side_validation && canonical.to_s.length > 256
+        fail ArgumentError, 'invalid value for "canonical" when calling AIGatewayAPI.update_ai_gateway_model_by_canonical, the character length must be smaller than or equal to 256.'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AIGatewayAPI.update_ai_gateway_model_by_canonical"
+      end
+      # resource path
+      local_var_path = '/api/v2/providers/{provider_id}/model'.sub('{provider_id}', CGI.escape(provider_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'canonical'] = canonical
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AiGatewayModelCatalogEntryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_ai_gateway_model_by_canonical,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AIGatewayAPI#update_ai_gateway_model_by_canonical\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
