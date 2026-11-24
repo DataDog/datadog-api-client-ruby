@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MetricsAndMetricTagConfigurationsResponse
     include BaseGenericModel
 
-    # Array of metrics and metric tag configurations.
+    # Array of metrics, metric tag configurations, and generated metrics.
     attr_accessor :data
 
     # Array of metric volume resources included when requested with `include=metric_volumes`.
