@@ -524,6 +524,83 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an external team permission default.
+    #
+    # @see #delete_external_team_permission_setting_default_with_http_info
+    def delete_external_team_permission_setting_default(source, action, opts = {})
+      delete_external_team_permission_setting_default_with_http_info(source, action, opts)
+      nil
+    end
+
+    # Delete an external team permission default.
+    #
+    # Delete the organization-level permission default for a specific (source, action) pair, reverting that action to
+    # its built-in default for all synced teams. The operation is idempotent. Deleting an absent default returns 204. On
+    # success, triggers a sync of all existing synced teams so they re-derive their permissions without the override.
+    #
+    # @param source [ExternalTeamPermissionSettingDefaultsSource] The external team integration source.
+    # @param action [String] The permission action to delete the default for.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_external_team_permission_setting_default_with_http_info(source, action, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_external_team_permission_setting_default ...'
+      end
+      # verify the required parameter 'source' is set
+      if @api_client.config.client_side_validation && source.nil?
+        fail ArgumentError, "Missing the required parameter 'source' when calling TeamsAPI.delete_external_team_permission_setting_default"
+      end
+      # verify enum value
+      allowable_values = ['github', 'scim', 'servicenow']
+      if @api_client.config.client_side_validation && !allowable_values.include?(source)
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'action' is set
+      if @api_client.config.client_side_validation && action.nil?
+        fail ArgumentError, "Missing the required parameter 'action' when calling TeamsAPI.delete_external_team_permission_setting_default"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/settings/external-permissions/{source}/{action}'.sub('{source}', CGI.escape(source.to_s).gsub('%2F', '/')).sub('{action}', CGI.escape(action.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_external_team_permission_setting_default,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#delete_external_team_permission_setting_default\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove a team.
     #
     # @see #delete_team_with_http_info
@@ -1560,6 +1637,140 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List external team permission defaults.
+    #
+    # @see #list_external_team_permission_setting_defaults_with_http_info
+    def list_external_team_permission_setting_defaults(opts = {})
+      data, _status_code, _headers = list_external_team_permission_setting_defaults_with_http_info(opts)
+      data
+    end
+
+    # List external team permission defaults.
+    #
+    # List the organization-level permission defaults for externally synced teams. Each default maps a
+    # (source, action) pair to the Datadog permission required to perform that action on teams managed by that
+    # source. For example, a default can set which permission level can add or remove subteams on SCIM-managed
+    # teams. Returns configured defaults for all sources.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExternalTeamPermissionSettingDefaultsListResponse, Integer, Hash)>] ExternalTeamPermissionSettingDefaultsListResponse data, response status code and response headers
+    def list_external_team_permission_setting_defaults_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.list_external_team_permission_setting_defaults ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/team/settings/external-permissions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExternalTeamPermissionSettingDefaultsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_external_team_permission_setting_defaults,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#list_external_team_permission_setting_defaults\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List a source's external team permission defaults.
+    #
+    # @see #list_external_team_permission_setting_defaults_by_source_with_http_info
+    def list_external_team_permission_setting_defaults_by_source(source, opts = {})
+      data, _status_code, _headers = list_external_team_permission_setting_defaults_by_source_with_http_info(source, opts)
+      data
+    end
+
+    # List a source's external team permission defaults.
+    #
+    # List the organization-level permission defaults for a specific external team integration source. Each default
+    # maps a permission action to the Datadog permission required to perform it on teams synced from that source.
+    #
+    # @param source [ExternalTeamPermissionSettingDefaultsSource] The external team integration source.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExternalTeamPermissionSettingDefaultsListResponse, Integer, Hash)>] ExternalTeamPermissionSettingDefaultsListResponse data, response status code and response headers
+    def list_external_team_permission_setting_defaults_by_source_with_http_info(source, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.list_external_team_permission_setting_defaults_by_source ...'
+      end
+      # verify the required parameter 'source' is set
+      if @api_client.config.client_side_validation && source.nil?
+        fail ArgumentError, "Missing the required parameter 'source' when calling TeamsAPI.list_external_team_permission_setting_defaults_by_source"
+      end
+      # verify enum value
+      allowable_values = ['github', 'scim', 'servicenow']
+      if @api_client.config.client_side_validation && !allowable_values.include?(source)
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/settings/external-permissions/{source}'.sub('{source}', CGI.escape(source.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExternalTeamPermissionSettingDefaultsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_external_team_permission_setting_defaults_by_source,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#list_external_team_permission_setting_defaults_by_source\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all member teams.
     #
     # @see #list_member_teams_with_http_info
@@ -2296,6 +2507,92 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeamsAPI#sync_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an external team permission default.
+    #
+    # @see #update_external_team_permission_setting_default_with_http_info
+    def update_external_team_permission_setting_default(source, action, body, opts = {})
+      data, _status_code, _headers = update_external_team_permission_setting_default_with_http_info(source, action, body, opts)
+      data
+    end
+
+    # Update an external team permission default.
+    #
+    # Create or update the organization-level permission default for a specific (source, action) pair. This controls
+    # which Datadog permission is required to perform that action on teams synced from that source. For example, a
+    # default can require `user_access_manage` to add or remove SCIM-managed subteams. On success, triggers a sync
+    # of all existing synced teams so they re-derive the updated permission. Returns 400 if the (source, action,
+    # value) combination is not supported.
+    #
+    # @param source [ExternalTeamPermissionSettingDefaultsSource] The external team integration source.
+    # @param action [String] The permission action to configure a default for.
+    # @param body [ExternalTeamPermissionSettingDefaultUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ExternalTeamPermissionSettingDefaultResponse, Integer, Hash)>] ExternalTeamPermissionSettingDefaultResponse data, response status code and response headers
+    def update_external_team_permission_setting_default_with_http_info(source, action, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.update_external_team_permission_setting_default ...'
+      end
+      # verify the required parameter 'source' is set
+      if @api_client.config.client_side_validation && source.nil?
+        fail ArgumentError, "Missing the required parameter 'source' when calling TeamsAPI.update_external_team_permission_setting_default"
+      end
+      # verify enum value
+      allowable_values = ['github', 'scim', 'servicenow']
+      if @api_client.config.client_side_validation && !allowable_values.include?(source)
+        fail ArgumentError, "invalid value for \"source\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'action' is set
+      if @api_client.config.client_side_validation && action.nil?
+        fail ArgumentError, "Missing the required parameter 'action' when calling TeamsAPI.update_external_team_permission_setting_default"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.update_external_team_permission_setting_default"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/settings/external-permissions/{source}/{action}'.sub('{source}', CGI.escape(source.to_s).gsub('%2F', '/')).sub('{action}', CGI.escape(action.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExternalTeamPermissionSettingDefaultResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_external_team_permission_setting_default,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#update_external_team_permission_setting_default\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
