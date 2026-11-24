@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class AiGatewayModelPricingAttributes
     include BaseGenericModel
 
-    # True when models.dev pricing is authoritative for this organization and provider.
+    # True when automatic pricing is authoritative for this organization and provider.
     attr_accessor :authoritative
 
-    # The published models.dev price. Present only when it is the effective price.
+    # The automatically synced published price. Present only when it is the effective price.
     attr_accessor :automatic_pricing
 
     # True when a `BLOCK` budget covering this model rejects its requests before they reach the provider.

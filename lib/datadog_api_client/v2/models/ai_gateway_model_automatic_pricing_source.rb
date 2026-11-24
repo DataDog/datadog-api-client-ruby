@@ -27,9 +27,6 @@ module DatadogAPIClient::V2
     # Model identifier in the source.
     attr_reader :model_id
 
-    # Pricing source name.
-    attr_reader :name
-
     # Provider identifier in the source.
     attr_reader :provider_id
 
@@ -44,7 +41,6 @@ module DatadogAPIClient::V2
       {
         :'match_method' => :'match_method',
         :'model_id' => :'model_id',
-        :'name' => :'name',
         :'provider_id' => :'provider_id',
         :'revision' => :'revision'
       }
@@ -56,7 +52,6 @@ module DatadogAPIClient::V2
       {
         :'match_method' => :'String',
         :'model_id' => :'String',
-        :'name' => :'String',
         :'provider_id' => :'String',
         :'revision' => :'String'
       }
@@ -88,10 +83,6 @@ module DatadogAPIClient::V2
         self.model_id = attributes[:'model_id']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.key?(:'provider_id')
         self.provider_id = attributes[:'provider_id']
       end
@@ -107,7 +98,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @match_method.nil?
       return false if @model_id.nil?
-      return false if @name.nil?
       return false if @provider_id.nil?
       return false if @revision.nil?
       true
@@ -131,16 +121,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "model_id", model_id cannot be nil.'
       end
       @model_id = model_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
     end
 
     # Custom attribute writer method with validation
@@ -191,7 +171,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           match_method == o.match_method &&
           model_id == o.model_id &&
-          name == o.name &&
           provider_id == o.provider_id &&
           revision == o.revision &&
           additional_properties == o.additional_properties
@@ -201,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [match_method, model_id, name, provider_id, revision, additional_properties].hash
+      [match_method, model_id, provider_id, revision, additional_properties].hash
     end
   end
 end
