@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A trace propagator type.
-  class RumSdkConfigTracingUrlPropagatorType
+  class RUMSdkConfigTracingUrlPropagatorType
     include BaseEnumModel
 
     DATADOG = "datadog".freeze

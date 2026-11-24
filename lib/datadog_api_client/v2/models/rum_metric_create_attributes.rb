@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The object describing the Datadog RUM-based metric to create.
-  class RumMetricCreateAttributes
+  class RUMMetricCreateAttributes
     include BaseGenericModel
 
     # The compute rule to compute the RUM-based metric. It is set at creation and only `include_percentiles` can be updated afterward.
@@ -55,11 +55,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'compute' => :'RumMetricCompute',
-        :'event_type' => :'RumMetricEventType',
-        :'filter' => :'RumMetricFilter',
-        :'group_by' => :'Array<RumMetricGroupBy>',
-        :'uniqueness' => :'RumMetricUniqueness'
+        :'compute' => :'RUMMetricCompute',
+        :'event_type' => :'RUMMetricEventType',
+        :'filter' => :'RUMMetricFilter',
+        :'group_by' => :'Array<RUMMetricGroupBy>',
+        :'uniqueness' => :'RUMMetricUniqueness'
       }
     end
 
@@ -68,7 +68,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}

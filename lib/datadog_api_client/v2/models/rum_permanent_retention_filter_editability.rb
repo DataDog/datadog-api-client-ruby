@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Indicates which cross-product fields of a permanent RUM retention filter can be updated.
-  class RumPermanentRetentionFilterEditability
+  class RUMPermanentRetentionFilterEditability
     include BaseGenericModel
 
     # Whether the APM trace cross-product configuration of the filter can be updated.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumPermanentRetentionFilterEditability` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMPermanentRetentionFilterEditability` initialize method"
       end
 
       self.additional_properties = {}

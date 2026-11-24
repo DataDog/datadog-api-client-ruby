@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # All RUM retention filters for a RUM application.
-  class RumRetentionFiltersResponse
+  class RUMRetentionFiltersResponse
     include BaseGenericModel
 
     # A list of RUM retention filters.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RumRetentionFilterData>'
+        :'data' => :'Array<RUMRetentionFilterData>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRetentionFiltersResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRetentionFiltersResponse` initialize method"
       end
 
       self.additional_properties = {}

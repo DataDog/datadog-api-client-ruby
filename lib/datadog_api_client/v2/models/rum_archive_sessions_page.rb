@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Search pagination.
-  class RumArchiveSessionsPage
+  class RUMArchiveSessionsPage
     include BaseGenericModel
 
     # Opaque continuation cursor. Omitted when no further page is available.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveSessionsPage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveSessionsPage` initialize method"
       end
 
       self.additional_properties = {}

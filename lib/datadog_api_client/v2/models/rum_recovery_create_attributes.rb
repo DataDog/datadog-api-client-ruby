@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Targeted recovery (the default) or query-based batch recovery.
-  module RumRecoveryCreateAttributes
+  module RUMRecoveryCreateAttributes
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,8 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'RumRecoverySessionsCreateAttributes',
-          :'RumRecoveryBatchCreateAttributes'
+          :'RUMRecoverySessionsCreateAttributes',
+          :'RUMRecoveryBatchCreateAttributes'
         ]
       end
       # Builds the object

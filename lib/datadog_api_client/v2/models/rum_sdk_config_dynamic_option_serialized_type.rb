@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type identifier for a dynamic option. Always `dynamic`.
-  class RumSdkConfigDynamicOptionSerializedType
+  class RUMSdkConfigDynamicOptionSerializedType
     include BaseEnumModel
 
     DYNAMIC = "dynamic".freeze

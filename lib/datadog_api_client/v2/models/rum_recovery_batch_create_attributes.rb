@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Recover sessions selected by a query. The range cannot exceed 180 days; from cannot be more than 4 years ago and to cannot be more than 1 hour in the future. Session availability depends on the configured archive retention.
-  class RumRecoveryBatchCreateAttributes
+  class RUMRecoveryBatchCreateAttributes
     include BaseGenericModel
 
     # Optional client estimate. Creation validates and stores a fresh server estimate instead of this value.
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
         :'estimated_count' => :'Integer',
         :'from' => :'Integer',
         :'query' => :'String',
-        :'request_type' => :'RumRecoveryBatchRequestType',
+        :'request_type' => :'RUMRecoveryBatchRequestType',
         :'to' => :'Integer'
       }
     end
@@ -67,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryBatchCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryBatchCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}

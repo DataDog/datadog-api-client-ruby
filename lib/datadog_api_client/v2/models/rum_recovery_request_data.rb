@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource.
-  class RumRecoveryRequestData
+  class RUMRecoveryRequestData
     include BaseGenericModel
 
     # Recovery progress. Batch-only attributes are omitted for targeted requests; request_type is also omitted for targeted requests.
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RumRecoveryRequestAttributes',
+        :'attributes' => :'RUMRecoveryRequestAttributes',
         :'id' => :'String',
-        :'type' => :'RumRecoveryRequestType'
+        :'type' => :'RUMRecoveryRequestType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryRequestData` initialize method"
       end
 
       self.additional_properties = {}

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API resource type.
-  class RumRecoveryCountResponseDataType
+  class RUMRecoveryCountResponseDataType
     include BaseEnumModel
 
     RUM_RECOVERY_COUNT = "rum_recovery_count".freeze

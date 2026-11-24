@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # All exclusion filters for a RUM application.
-  class RumExclusionFiltersResponse
+  class RUMExclusionFiltersResponse
     include BaseGenericModel
 
     # A list of exclusion filters.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RumExclusionFilterData>'
+        :'data' => :'Array<RUMExclusionFilterData>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumExclusionFiltersResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMExclusionFiltersResponse` initialize method"
       end
 
       self.additional_properties = {}

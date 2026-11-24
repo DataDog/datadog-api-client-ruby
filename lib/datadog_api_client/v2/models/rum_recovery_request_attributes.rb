@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Recovery progress. Batch-only attributes are omitted for targeted requests; request_type is also omitted for targeted requests.
-  class RumRecoveryRequestAttributes
+  class RUMRecoveryRequestAttributes
     include BaseGenericModel
 
     # Creation time.
@@ -115,21 +115,21 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_at' => :'Time',
-        :'discovery_status' => :'RumRecoveryDiscoveryStatus',
+        :'discovery_status' => :'RUMRecoveryDiscoveryStatus',
         :'error_message' => :'String',
         :'estimated_count' => :'Integer',
         :'failed_sessions' => :'Integer',
         :'from' => :'Integer',
         :'processed_sessions' => :'Integer',
         :'query' => :'String',
-        :'request_type' => :'RumRecoveryBatchRequestType',
-        :'sessions' => :'Array<RumRecoveredSession>',
+        :'request_type' => :'RUMRecoveryBatchRequestType',
+        :'sessions' => :'Array<RUMRecoveredSession>',
         :'sessions_discovered' => :'Integer',
         :'sessions_failed' => :'Integer',
         :'sessions_processed' => :'Integer',
         :'slices_completed' => :'Integer',
         :'slices_failed' => :'Integer',
-        :'status' => :'RumRecoveryRequestStatus',
+        :'status' => :'RUMRecoveryRequestStatus',
         :'to' => :'Integer',
         :'total_sessions' => :'Integer',
         :'total_slices' => :'Integer',
@@ -142,7 +142,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}

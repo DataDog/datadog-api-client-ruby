@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Recovery request state.
-  class RumRecoveryRequestStatus
+  class RUMRecoveryRequestStatus
     include BaseEnumModel
 
     PENDING = "PENDING".freeze

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A match option used for URL or origin pattern matching.
-  class RumSdkConfigMatchOption
+  class RUMSdkConfigMatchOption
     include BaseGenericModel
 
     # The type of match pattern, either a literal string or a regex.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rc_serialized_type' => :'RumSdkConfigMatchOptionSerializedType',
+        :'rc_serialized_type' => :'RUMSdkConfigMatchOptionSerializedType',
         :'value' => :'String'
       }
     end
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigMatchOption` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigMatchOption` initialize method"
       end
 
       self.additional_properties = {}

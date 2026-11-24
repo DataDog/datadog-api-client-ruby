@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Recover 1 to 100 explicit archived sessions. Session IDs must be unique within the request.
-  class RumRecoverySessionsCreateAttributes
+  class RUMRecoverySessionsCreateAttributes
     include BaseGenericModel
 
     # Targeted recovery. Omitted request_type defaults to sessions.
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'request_type' => :'RumRecoverySessionsRequestType',
-        :'sessions' => :'Array<RumRecoverySessionInput>'
+        :'request_type' => :'RUMRecoverySessionsRequestType',
+        :'sessions' => :'Array<RUMRecoverySessionInput>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoverySessionsCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoverySessionsCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}

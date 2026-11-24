@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Unique identifier of the RUM replay session.
     attr_accessor :id
 
-    # Rum replay session resource type.
+    # RUM replay session resource type.
     attr_reader :type
 
     attr_accessor :additional_properties

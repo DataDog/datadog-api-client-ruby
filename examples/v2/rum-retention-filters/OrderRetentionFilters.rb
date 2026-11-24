@@ -4,20 +4,20 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
-api_instance = DatadogAPIClient::V2::RumRetentionFiltersAPI.new
+api_instance = DatadogAPIClient::V2::RUMRetentionFiltersAPI.new
 
-body = DatadogAPIClient::V2::RumRetentionFiltersOrderRequest.new({
+body = DatadogAPIClient::V2::RUMRetentionFiltersOrderRequest.new({
   data: [
-    DatadogAPIClient::V2::RumRetentionFiltersOrderData.new({
-      type: DatadogAPIClient::V2::RumRetentionFilterType::RETENTION_FILTERS,
+    DatadogAPIClient::V2::RUMRetentionFiltersOrderData.new({
+      type: DatadogAPIClient::V2::RUMRetentionFilterType::RETENTION_FILTERS,
       id: "325631eb-94c9-49c0-93f9-ab7e4fd24529",
     }),
-    DatadogAPIClient::V2::RumRetentionFiltersOrderData.new({
-      type: DatadogAPIClient::V2::RumRetentionFilterType::RETENTION_FILTERS,
+    DatadogAPIClient::V2::RUMRetentionFiltersOrderData.new({
+      type: DatadogAPIClient::V2::RUMRetentionFilterType::RETENTION_FILTERS,
       id: "42d89430-5b80-426e-a44b-ba3b417ece25",
     }),
-    DatadogAPIClient::V2::RumRetentionFiltersOrderData.new({
-      type: DatadogAPIClient::V2::RumRetentionFilterType::RETENTION_FILTERS,
+    DatadogAPIClient::V2::RUMRetentionFiltersOrderData.new({
+      type: DatadogAPIClient::V2::RUMRetentionFilterType::RETENTION_FILTERS,
       id: "bff0bc34-99e9-4c16-adce-f47e71948c23",
     }),
   ],

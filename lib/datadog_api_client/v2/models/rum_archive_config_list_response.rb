@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON:API document.
-  class RumArchiveConfigListResponse
+  class RUMArchiveConfigListResponse
     include BaseGenericModel
 
     # Configurations in page order.
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RumArchiveConfig>',
-        :'meta' => :'RumArchiveConfigMeta'
+        :'data' => :'Array<RUMArchiveConfig>',
+        :'meta' => :'RUMArchiveConfigMeta'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveConfigListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveConfigListResponse` initialize method"
       end
 
       self.additional_properties = {}

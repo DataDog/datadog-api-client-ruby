@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Unique identifier of the playlist.
     attr_accessor :id
 
-    # Rum replay playlist resource type.
+    # RUM replay playlist resource type.
     attr_reader :type
 
     attr_accessor :additional_properties

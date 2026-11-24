@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The RUM SDK settings for a configuration.
-  class RumSdkConfigRumAttributes
+  class RUMSdkConfigRUMAttributes
     include BaseGenericModel
 
     # A list of URL configurations for distributed tracing.
@@ -90,10 +90,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'allowed_tracing_urls' => :'Array<RumSdkConfigTracingUrlConfig>',
-        :'allowed_tracking_origins' => :'Array<RumSdkConfigMatchOption>',
+        :'allowed_tracing_urls' => :'Array<RUMSdkConfigTracingUrlConfig>',
+        :'allowed_tracking_origins' => :'Array<RUMSdkConfigMatchOption>',
         :'application_id' => :'String',
-        :'context' => :'Array<RumSdkConfigDynamicOptionPair>',
+        :'context' => :'Array<RUMSdkConfigDynamicOptionPair>',
         :'default_privacy_level' => :'String',
         :'enable_privacy_for_action_name' => :'Boolean',
         :'env' => :'String',
@@ -102,8 +102,8 @@ module DatadogAPIClient::V2
         :'session_sample_rate' => :'Integer',
         :'trace_sample_rate' => :'Integer',
         :'track_session_across_subdomains' => :'Boolean',
-        :'user' => :'Array<RumSdkConfigDynamicOptionPair>',
-        :'version' => :'RumSdkConfigDynamicOption'
+        :'user' => :'Array<RUMSdkConfigDynamicOptionPair>',
+        :'version' => :'RUMSdkConfigDynamicOption'
       }
     end
 
@@ -112,7 +112,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigRumAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigRUMAttributes` initialize method"
       end
 
       self.additional_properties = {}

@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # Create the RUM configuration for your organization.
     # Returns the RUM configuration object from the request body when the request is successful.
     #
-    # @param body [RumConfigCreateRequest] The definition of the RUM configuration to create.
+    # @param body [RUMConfigCreateRequest] The definition of the RUM configuration to create.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumConfigResponse, Integer, Hash)>] RumConfigResponse data, response status code and response headers
+    # @return [Array<(RUMConfigResponse, Integer, Hash)>] RUMConfigResponse data, response status code and response headers
     def create_rum_config_with_http_info(body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.create_rum_config".to_sym]
       if unstable_enabled
@@ -74,7 +74,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -110,7 +110,7 @@ module DatadogAPIClient::V2
     # Get the RUM configuration for your organization.
     #
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumConfigResponse, Integer, Hash)>] RumConfigResponse data, response status code and response headers
+    # @return [Array<(RUMConfigResponse, Integer, Hash)>] RUMConfigResponse data, response status code and response headers
     def get_rum_config_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_rum_config".to_sym]
       if unstable_enabled
@@ -140,7 +140,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -176,9 +176,9 @@ module DatadogAPIClient::V2
     # Update the RUM configuration for your organization.
     # Returns the RUM configuration object from the request body when the request is successful.
     #
-    # @param body [RumConfigUpdateRequest] New definition of the RUM configuration.
+    # @param body [RUMConfigUpdateRequest] New definition of the RUM configuration.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumConfigResponse, Integer, Hash)>] RumConfigResponse data, response status code and response headers
+    # @return [Array<(RUMConfigResponse, Integer, Hash)>] RUMConfigResponse data, response status code and response headers
     def update_rum_config_with_http_info(body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.update_rum_config".to_sym]
       if unstable_enabled
@@ -214,7 +214,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]

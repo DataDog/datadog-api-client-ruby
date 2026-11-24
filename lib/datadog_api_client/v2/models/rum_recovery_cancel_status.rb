@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Requested cancellation state.
-  class RumRecoveryCancelStatus
+  class RUMRecoveryCancelStatus
     include BaseEnumModel
 
     CANCELLED = "cancelled".freeze

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The definition of a RUM operation's journey, used to detect it from RUM events.
-  class RUMOperationJourneyRum
+  class RUMOperationJourneyRUM
     include BaseGenericModel
 
     # The ordered list of steps composing the RUM journey.
@@ -56,7 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMOperationJourneyRum` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMOperationJourneyRUM` initialize method"
       end
 
       self.additional_properties = {}

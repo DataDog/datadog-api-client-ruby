@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The window type over which the session limit is enforced.
-  class RumRetentionQuotaWindowType
+  class RUMRetentionQuotaWindowType
     include BaseEnumModel
 
     DAILY = "daily".freeze

@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The type of the resource. The value must be `rum_metrics`.
-  class RumMetricType
+  class RUMMetricType
     include BaseEnumModel
 
     RUM_METRICS = "rum_metrics".freeze
