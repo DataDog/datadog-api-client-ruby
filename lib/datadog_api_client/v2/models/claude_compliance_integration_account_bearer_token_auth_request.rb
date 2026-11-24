@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The authentication method type.
     attr_reader :auth_type
 
-    # Secret token used to authenticate with Claude Compliance.
+    # Anthropic Admin API key (prefix `sk-ant-admin01-`) with the `read:compliance_activities` scope, or a dedicated Compliance Access key (prefix `sk-ant-api01-`). Generate an Admin API key in the Anthropic Console under **Organization settings > API keys**.
     attr_reader :token
 
     # Attribute mapping from ruby-style variable name to JSON key.

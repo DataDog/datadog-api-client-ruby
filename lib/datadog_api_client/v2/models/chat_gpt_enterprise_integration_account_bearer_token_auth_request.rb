@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The authentication method type.
     attr_reader :auth_type
 
-    # Secret token used to authenticate with ChatGPT Enterprise.
+    # ChatGPT Enterprise admin API key with the **Costs** permission set to **Read** and every other permission category set to **None**. Create it in the [OpenAI Admin Console](https://admin.openai.com/credentials?tab=admin-keys) of your ChatGPT Enterprise workspace, not in the API Platform admin-key console.
     attr_reader :token
 
     # Attribute mapping from ruby-style variable name to JSON key.
