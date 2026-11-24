@@ -21,8 +21,7 @@ module DatadogAPIClient::V2
   class RemediationGroupData
     include BaseGenericModel
 
-    # Attributes of a remediation group. Each group includes one kind object, `package_update` or `image_update`,
-    # depending on its grouping definition.
+    # Attributes of a remediation group. Each group includes one kind object, depending on its grouping definition.
     attr_reader :attributes
 
     # Remediation key of the group: the grouping definition ID, a colon, and the group's dimensions

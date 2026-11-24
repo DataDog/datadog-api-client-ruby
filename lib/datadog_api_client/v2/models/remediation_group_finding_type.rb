@@ -22,6 +22,5 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     LIBRARY_VULNERABILITY = "library_vulnerability".freeze
-    HOST_AND_CONTAINER_VULNERABILITY = "host_and_container_vulnerability".freeze
   end
 end
