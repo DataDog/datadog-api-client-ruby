@@ -17,8 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a remediation group. Each group includes one kind object, `package_update` or `image_update`,
-  # depending on its grouping definition.
+  # Attributes of a remediation group. Each group includes one kind object, depending on its grouping definition.
   class RemediationGroupAttributes
     include BaseGenericModel
 
@@ -26,13 +25,12 @@ module DatadogAPIClient::V2
     # don't match `filter[query]`.
     attr_reader :findings
 
-    # Grouping definition that formed the group: `sca.package_update` or `cloudvm.image_update`.
+    # Grouping definition that formed the group, such as `sca.package_update`.
     attr_reader :grouping_definition_id
 
-    # An image or package to upgrade, for a group of host and container vulnerabilities (`cloudvm.image_update`).
-    # The group gathers the open vulnerabilities of running production images that have a fix available, and groups
-    # them by `grouping_location`, `remediation_kind`, and `action`.
-    attr_accessor :image_update
+    # Who should fix the group: the code owners of the group's findings, from their `@git.codeowners` attribute,
+    # and their Datadog teams, from their `team` tag. A group with no owners has empty `items` and a `total` of 0.
+    attr_reader :owners
 
     # A package to update in a repository, for a group of library vulnerabilities (`sca.package_update`). The group
     # gathers the open vulnerabilities of direct dependencies that have a recommended fix, and groups them by
@@ -50,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'findings' => :'findings',
         :'grouping_definition_id' => :'grouping_definition_id',
-        :'image_update' => :'image_update',
+        :'owners' => :'owners',
         :'package_update' => :'package_update',
         :'title' => :'title'
       }
@@ -62,7 +60,7 @@ module DatadogAPIClient::V2
       {
         :'findings' => :'RemediationGroupFindings',
         :'grouping_definition_id' => :'String',
-        :'image_update' => :'RemediationGroupImageUpdate',
+        :'owners' => :'RemediationGroupOwners',
         :'package_update' => :'RemediationGroupPackageUpdate',
         :'title' => :'String'
       }
@@ -94,8 +92,8 @@ module DatadogAPIClient::V2
         self.grouping_definition_id = attributes[:'grouping_definition_id']
       end
 
-      if attributes.key?(:'image_update')
-        self.image_update = attributes[:'image_update']
+      if attributes.key?(:'owners')
+        self.owners = attributes[:'owners']
       end
 
       if attributes.key?(:'package_update')
@@ -113,6 +111,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @findings.nil?
       return false if @grouping_definition_id.nil?
+      return false if @owners.nil?
       return false if @title.nil?
       true
     end
@@ -135,6 +134,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "grouping_definition_id", grouping_definition_id cannot be nil.'
       end
       @grouping_definition_id = grouping_definition_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param owners [Object] Object to be assigned
+    # @!visibility private
+    def owners=(owners)
+      if owners.nil?
+        fail ArgumentError, 'invalid value for "owners", owners cannot be nil.'
+      end
+      @owners = owners
     end
 
     # Custom attribute writer method with validation
@@ -175,7 +184,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           findings == o.findings &&
           grouping_definition_id == o.grouping_definition_id &&
-          image_update == o.image_update &&
+          owners == o.owners &&
           package_update == o.package_update &&
           title == o.title &&
           additional_properties == o.additional_properties
@@ -185,7 +194,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [findings, grouping_definition_id, image_update, package_update, title, additional_properties].hash
+      [findings, grouping_definition_id, owners, package_update, title, additional_properties].hash
     end
   end
 end
