@@ -41,6 +41,12 @@ module DatadogAPIClient::V2
     # Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
     attr_accessor :notify_end_types
 
+    # The user the downtime runs as. The downtime only silences monitors this user can mute. On update, omitting
+    # `run_as` resets it to the user making the update.
+    #
+    # **Note**: This feature is currently in Preview and may not be available for all organizations.
+    attr_reader :run_as
+
     # Schedule for the downtime.
     attr_accessor :schedule
 
@@ -59,6 +65,7 @@ module DatadogAPIClient::V2
         :'mute_first_recovery_notification' => :'mute_first_recovery_notification',
         :'notify_end_states' => :'notify_end_states',
         :'notify_end_types' => :'notify_end_types',
+        :'run_as' => :'run_as',
         :'schedule' => :'schedule',
         :'scope' => :'scope'
       }
@@ -74,6 +81,7 @@ module DatadogAPIClient::V2
         :'mute_first_recovery_notification' => :'Boolean',
         :'notify_end_states' => :'Array<DowntimeNotifyEndStateTypes>',
         :'notify_end_types' => :'Array<DowntimeNotifyEndStateActions>',
+        :'run_as' => :'Array<DowntimeRunAsItem>',
         :'schedule' => :'DowntimeScheduleUpdateRequest',
         :'scope' => :'String'
       }
@@ -134,6 +142,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'run_as')
+        if (value = attributes[:'run_as']).is_a?(Array)
+          self.run_as = value
+        end
+      end
+
       if attributes.key?(:'schedule')
         self.schedule = attributes[:'schedule']
       end
@@ -141,6 +155,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@run_as.nil? && @run_as.length > 1
+      return false if !@run_as.nil? && @run_as.length < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param run_as [Object] Object to be assigned
+    # @!visibility private
+    def run_as=(run_as)
+      if !run_as.nil? && run_as.length > 1
+        fail ArgumentError, 'invalid value for "run_as", number of items must be less than or equal to 1.'
+      end
+      if !run_as.nil? && run_as.length < 1
+        fail ArgumentError, 'invalid value for "run_as", number of items must be greater than or equal to 1.'
+      end
+      @run_as = run_as
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -175,6 +211,7 @@ module DatadogAPIClient::V2
           mute_first_recovery_notification == o.mute_first_recovery_notification &&
           notify_end_states == o.notify_end_states &&
           notify_end_types == o.notify_end_types &&
+          run_as == o.run_as &&
           schedule == o.schedule &&
           scope == o.scope &&
           additional_properties == o.additional_properties
@@ -184,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_timezone, message, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, schedule, scope, additional_properties].hash
+      [display_timezone, message, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, run_as, schedule, scope, additional_properties].hash
     end
   end
 end
