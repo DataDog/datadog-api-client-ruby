@@ -45,6 +45,9 @@ module DatadogAPIClient::V1
     # Whether to show the priorities column.
     attr_accessor :show_priority
 
+    # Whether to count and list each monitor's subgroups instead of its notification groups. Only changes monitors that use `notify_by`, and only for the `groups` and `combined` summary types.
+    attr_accessor :show_sub_groups
+
     # Widget sorting methods.
     attr_accessor :sort
 
@@ -80,6 +83,7 @@ module DatadogAPIClient::V1
         :'query' => :'query',
         :'show_last_triggered' => :'show_last_triggered',
         :'show_priority' => :'show_priority',
+        :'show_sub_groups' => :'show_sub_groups',
         :'sort' => :'sort',
         :'start' => :'start',
         :'summary_type' => :'summary_type',
@@ -102,6 +106,7 @@ module DatadogAPIClient::V1
         :'query' => :'String',
         :'show_last_triggered' => :'Boolean',
         :'show_priority' => :'Boolean',
+        :'show_sub_groups' => :'Boolean',
         :'sort' => :'WidgetMonitorSummarySort',
         :'start' => :'Integer',
         :'summary_type' => :'WidgetSummaryType',
@@ -160,6 +165,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'show_priority')
         self.show_priority = attributes[:'show_priority']
+      end
+
+      if attributes.key?(:'show_sub_groups')
+        self.show_sub_groups = attributes[:'show_sub_groups']
       end
 
       if attributes.key?(:'sort')
@@ -254,6 +263,7 @@ module DatadogAPIClient::V1
           query == o.query &&
           show_last_triggered == o.show_last_triggered &&
           show_priority == o.show_priority &&
+          show_sub_groups == o.show_sub_groups &&
           sort == o.sort &&
           start == o.start &&
           summary_type == o.summary_type &&
@@ -268,7 +278,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_preference, count, description, display_format, hide_zero_counts, query, show_last_triggered, show_priority, sort, start, summary_type, title, title_align, title_size, type, additional_properties].hash
+      [color_preference, count, description, display_format, hide_zero_counts, query, show_last_triggered, show_priority, show_sub_groups, sort, start, summary_type, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end
