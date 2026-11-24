@@ -4870,6 +4870,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "ElasticCloudIntegrationAccountUpdateRequest",
     },
+    "v2.CreateGitHubCostsIntegrationAccount" => {
+            "body" => "GitHubCostsIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteGitHubCostsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetGitHubCostsIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateGitHubCostsIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "GitHubCostsIntegrationAccountUpdateRequest",
+    },
     "v2.CreateNebiusCloudIntegrationAccount" => {
             "body" => "NebiusCloudIntegrationAccountCreateRequest",
     },
