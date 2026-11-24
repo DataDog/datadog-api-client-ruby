@@ -4033,6 +4033,7 @@ module DatadogAPIClient
           "v2.environment_response" => "EnvironmentResponse",
           "v2.environments_pagination_meta" => "EnvironmentsPaginationMeta",
           "v2.environments_pagination_meta_page" => "EnvironmentsPaginationMetaPage",
+          "v2.environment_subject_authorization_state" => "EnvironmentSubjectAuthorizationState",
           "v2.epss" => "EPSS",
           "v2.error_handler" => "ErrorHandler",
           "v2.escalation" => "Escalation",

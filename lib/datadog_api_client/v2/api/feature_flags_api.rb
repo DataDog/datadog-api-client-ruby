@@ -243,7 +243,9 @@ module DatadogAPIClient::V2
 
     # Create an environment.
     #
-    # Creates a new environment for organizing feature flags.
+    # Creates an environment for organizing feature flags. A non-null subject authorization provider ID
+    # must be registered in the current organization and site, even when authorization is disabled. An unknown
+    # ID returns `400 Bad Request`; an unavailable registry returns `503 Service Unavailable`.
     #
     # @param body [CreateEnvironmentRequest] 
     # @param opts [Hash] the optional parameters
@@ -1725,11 +1727,11 @@ module DatadogAPIClient::V2
     #
     # Updates an environment's name, DD_ENV values, and settings.
     #
-    # Every request must include `name` and `queries`, even when changing only `observe_full_evaluation_data`.
+    # Every request must include `name` and `queries`, even when changing only subject authorization or evaluation data settings.
     # To preserve the current name and DD_ENV values, get the environment first and include those values in the request.
     #
     # Omitting `is_production` or `require_feature_flag_approval` resets that setting to `false`.
-    # Include their current values to preserve them. Omitting `observe_full_evaluation_data` preserves its current value.
+    # Include their current values to preserve them. Omitting `observe_full_evaluation_data` preserves its current value. Omitting either subject authorization field preserves its stored value. Set `subject_authorization_oidc_provider_id` to `null` to clear the association while subject authorization is disabled. The following requests return `400 Bad Request`: enabling subject authorization without a provider, an unrecognized `subject_authorization_state` value, a malformed or zero UUID provider ID, or an unregistered provider ID. If the provider registry is unavailable, a new provider ID returns `503 Service Unavailable`. Omitted, cleared, or unchanged provider IDs skip the registry check, including when enabling a retained provider. Saving does not verify provider eligibility or key publication, so a successful save does not mean the environment is ready for assignment requests. Concurrent policy changes return `409 Conflict`; reload the environment and retry.
     #
     # @param environment_id [UUID] The ID of the environment.
     # @param body [UpdateEnvironmentRequest] 
