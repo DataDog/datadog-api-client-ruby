@@ -35,8 +35,6 @@ module DatadogAPIClient::V2
     #
     # Create a new Workload Protection policy with the given parameters.
     #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
-    #
     # @param body [CloudWorkloadSecurityAgentPolicyCreateRequest] The definition of the new Agent policy
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentPolicyResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPolicyResponse data, response status code and response headers
@@ -113,8 +111,6 @@ module DatadogAPIClient::V2
     #
     # This endpoint does not accept `kill` or `network_filter` actions, or `blocking` policies. A request that contains them returns a `400` error.
     #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
-    #
     # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
@@ -184,8 +180,6 @@ module DatadogAPIClient::V2
     #
     # Datadog-managed policies cannot be deleted. This action cannot be undone.
     #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
-    #
     # @param policy_id [String] The ID of the Agent policy
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -253,8 +247,6 @@ module DatadogAPIClient::V2
     #
     # The rule is removed from every policy that contains it. Datadog-managed rules cannot be deleted.
     # This action cannot be undone.
-    #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
@@ -325,8 +317,6 @@ module DatadogAPIClient::V2
     # Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
     # your agents to update the policy running in your environment.
     #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
-    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_csm_threats_policy_with_http_info(opts = {})
@@ -385,14 +375,18 @@ module DatadogAPIClient::V2
 
     # Get a Workload Protection agent rule (US1-FED).
     #
+    # **Note**: This endpoint is deprecated. Use [Get a Workload Protection agent rule](https://docs.datadoghq.com/api/latest/csm-threats/#get-a-workload-protection-agent-rule)
+    # instead, on all sites including US1-FED.
+    #
     # Get the details of a specific agent rule.
     #
-    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
+    # @deprecated This API is deprecated.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def get_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
+      warn "[DEPRECATION] `GetCloudWorkloadSecurityAgentRule` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.get_cloud_workload_security_agent_rule ...'
@@ -453,8 +447,6 @@ module DatadogAPIClient::V2
     # Get a Workload Protection policy.
     #
     # Get the details of a specific Workload Protection policy.
-    #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param policy_id [String] The ID of the Agent policy
     # @param opts [Hash] the optional parameters
@@ -521,8 +513,6 @@ module DatadogAPIClient::V2
     #
     # Get the details of a specific Workload Protection agent rule.
     #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
-    #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
     # @option opts [String] :policy_id The ID of the Agent policy
@@ -588,13 +578,17 @@ module DatadogAPIClient::V2
 
     # Get all Workload Protection agent rules (US1-FED).
     #
+    # **Note**: This endpoint is deprecated. Use [Get all Workload Protection agent rules](https://docs.datadoghq.com/api/latest/csm-threats/#get-all-workload-protection-agent-rules)
+    # instead, on all sites including US1-FED.
+    #
     # Get the list of agent rules.
     #
-    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
+    # @deprecated This API is deprecated.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
     def list_cloud_workload_security_agent_rules_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListCloudWorkloadSecurityAgentRules` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.list_cloud_workload_security_agent_rules ...'
@@ -651,8 +645,6 @@ module DatadogAPIClient::V2
     # Get all Workload Protection policies.
     #
     # Get the list of Workload Protection policies.
-    #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentPoliciesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPoliciesListResponse data, response status code and response headers
@@ -716,8 +708,6 @@ module DatadogAPIClient::V2
     #
     # Set `policy_id` to only return the rules of one policy. Without it, the rules of all policies are returned.
     #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
-    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :policy_id The ID of the Agent policy
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
@@ -780,8 +770,6 @@ module DatadogAPIClient::V2
     #
     # Update a specific Workload Protection policy.
     # Returns the policy object when the request is successful.
-    #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param policy_id [String] The ID of the Agent policy
     # @param body [CloudWorkloadSecurityAgentPolicyUpdateRequest] New definition of the Agent policy
@@ -860,8 +848,6 @@ module DatadogAPIClient::V2
     # See [Agent expressions](https://docs.datadoghq.com/security/workload_protection/agent_expressions/) for the syntax.
     #
     # This endpoint does not accept `kill` or `network_filter` actions, or `blocking` policies. A request that contains them returns a `400` error.
-    #
-    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the agent rule
