@@ -397,6 +397,7 @@ module DatadogAPIClient
             "v2.disable_security_findings_automation_default_inbox_rule": false,
             "v2.enable_security_findings_automation_default_inbox_rule": false,
             "v2.export_security_monitoring_terraform_resource": false,
+            "v2.get_aws_identity_center_aws_accounts": false,
             "v2.get_content_packs_states": false,
             "v2.get_entity_context": false,
             "v2.get_entity_context_recently_updated": false,

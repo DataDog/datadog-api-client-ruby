@@ -5250,6 +5250,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get AWS IAM Identity Center account prerequisites.
+    #
+    # @see #get_aws_identity_center_aws_accounts_with_http_info
+    def get_aws_identity_center_aws_accounts(opts = {})
+      data, _status_code, _headers = get_aws_identity_center_aws_accounts_with_http_info(opts)
+      data
+    end
+
+    # Get AWS IAM Identity Center account prerequisites.
+    #
+    # Get the integrated AWS accounts that the AWS IAM Identity Center entity context sync reads users from, and
+    # whether users have been collected from them. Collected users are a prerequisite for creating or enabling the
+    # AWS IAM Identity Center entity context sync configuration. The accounts include AWS Organization management
+    # accounts and any accounts that users were collected from.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringAWSIdentityCenterAWSAccountsResponse, Integer, Hash)>] SecurityMonitoringAWSIdentityCenterAWSAccountsResponse data, response status code and response headers
+    def get_aws_identity_center_aws_accounts_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_identity_center_aws_accounts".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_identity_center_aws_accounts")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aws_identity_center_aws_accounts"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_aws_identity_center_aws_accounts ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/integration_config/aws_identity_center/aws_accounts'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringAWSIdentityCenterAWSAccountsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_aws_identity_center_aws_accounts,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_aws_identity_center_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get content pack states.
     #
     # @see #get_content_packs_states_with_http_info
@@ -10546,7 +10615,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_integration_configs ...'
       end
-      allowable_values = ['GOOGLE_WORKSPACE', 'OKTA', 'ENTRA_ID', 'CROWDSTRIKE', 'SENTINELONE']
+      allowable_values = ['GOOGLE_WORKSPACE', 'OKTA', 'ENTRA_ID', 'AWS_IDENTITY_CENTER', 'CROWDSTRIKE', 'SENTINELONE']
       if @api_client.config.client_side_validation && opts[:'filter_integration_type'] && !allowable_values.include?(opts[:'filter_integration_type'])
         fail ArgumentError, "invalid value for \"filter_integration_type\", must be one of #{allowable_values}"
       end
