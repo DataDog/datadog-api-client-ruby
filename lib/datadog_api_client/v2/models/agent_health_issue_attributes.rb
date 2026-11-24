@@ -45,16 +45,16 @@ module DatadogAPIClient::V2
     # The identifier of the affected resource, interpreted according to `resource_kind`: hostname for `host`, DaemonSet UID for `deployment` (node Agent), cluster UUID for `cluster`, hostname of the host running the Cluster Agent for `cluster_agent`, or OpenTelemetry collector ID for `otel`.
     attr_reader :resource_id
 
-    # The kind of affected resource. Known values are `host`, `deployment`, `cluster`, `cluster_agent`, and `otel`.
+    # The kind of affected resource. The meaning of `resource_id` depends on this: hostname for `host`, DaemonSet UID for `deployment` (node Agent), cluster UUID for `cluster`, hostname of the host running the Cluster Agent for `cluster_agent`, or OpenTelemetry collector ID for `otel`.
     attr_reader :resource_kind
 
     # The type of the affected resource. Omitted when empty.
     attr_accessor :resource_type
 
-    # The severity of the issue. Known values are `low`, `medium`, `high`, and `unknown`.
+    # The severity of the issue.
     attr_reader :severity
 
-    # The state of the issue. Only issues with state `open` are returned.
+    # The state of the issue, such as `open`.
     attr_reader :state
 
     # Tags associated with the issue. Omitted when empty.
@@ -102,9 +102,9 @@ module DatadogAPIClient::V2
         :'issue_type' => :'String',
         :'remediation' => :'AgentHealthRemediation',
         :'resource_id' => :'String',
-        :'resource_kind' => :'String',
+        :'resource_kind' => :'AgentHealthIssueResourceKind',
         :'resource_type' => :'String',
-        :'severity' => :'String',
+        :'severity' => :'AgentHealthIssueSeverity',
         :'state' => :'String',
         :'tags' => :'Array<String>',
         :'title' => :'String',

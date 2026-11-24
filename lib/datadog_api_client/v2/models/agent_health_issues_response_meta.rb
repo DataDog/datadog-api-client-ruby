@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Aggregate counts for the matching Agent Health issues. Present only when `count_by=issue_type` is requested.
+  # Pagination metadata for the matching Agent Health issues. Always present. Includes per-issue-type counts only when `count_by=issue_type` is requested.
   class AgentHealthIssuesResponseMeta
     include BaseGenericModel
 
-    # Counts for the matching Agent Health issues.
+    # Pagination details and counts for the matching Agent Health issues.
     attr_reader :page
 
     attr_accessor :additional_properties

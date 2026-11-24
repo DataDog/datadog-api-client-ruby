@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     attr_accessor :language_version
 
     # Whether the script requires root privileges.
-    attr_accessor :requires_root
+    attr_reader :requires_root
 
     attr_accessor :additional_properties
 
@@ -99,6 +99,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'requires_root')
         self.requires_root = attributes[:'requires_root']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @requires_root.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param requires_root [Object] Object to be assigned
+    # @!visibility private
+    def requires_root=(requires_root)
+      if requires_root.nil?
+        fail ArgumentError, 'invalid value for "requires_root", requires_root cannot be nil.'
+      end
+      @requires_root = requires_root
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

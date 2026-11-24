@@ -22,10 +22,10 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The order in which to perform the step.
-    attr_accessor :order
+    attr_reader :order
 
     # The instructions for the step.
-    attr_accessor :text
+    attr_reader :text
 
     attr_accessor :additional_properties
 
@@ -72,6 +72,39 @@ module DatadogAPIClient::V2
       if attributes.key?(:'text')
         self.text = attributes[:'text']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @order.nil?
+      return false if @order > 2147483647
+      return false if @text.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param order [Object] Object to be assigned
+    # @!visibility private
+    def order=(order)
+      if order.nil?
+        fail ArgumentError, 'invalid value for "order", order cannot be nil.'
+      end
+      if order > 2147483647
+        fail ArgumentError, 'invalid value for "order", must be smaller than or equal to 2147483647.'
+      end
+      @order = order
+    end
+
+    # Custom attribute writer method with validation
+    # @param text [Object] Object to be assigned
+    # @!visibility private
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'invalid value for "text", text cannot be nil.'
+      end
+      @text = text
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
