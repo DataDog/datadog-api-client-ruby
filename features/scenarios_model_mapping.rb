@@ -1841,6 +1841,15 @@ ScenariosModelMappings = {
             "id" => "Integer",
             "body" => "AiGatewayProviderUpdateRequest",
     },
+    "v2.DeleteAIGatewayModelByCanonical" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+    },
+    "v2.UpdateAIGatewayModelByCanonical" => {
+            "provider_id" => "Integer",
+            "canonical" => "String",
+            "body" => "AiGatewayModelUpdateRequest",
+    },
     "v2.DeleteAIGatewayModelPricingByCanonical" => {
             "provider_id" => "Integer",
             "canonical" => "String",
