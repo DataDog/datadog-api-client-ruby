@@ -60,6 +60,12 @@ module DatadogAPIClient::V2
     # The status of a feature flag in an environment.
     attr_reader :status
 
+    # The environment's associated Custom OIDC provider ID, or `null` when no provider is associated.
+    attr_accessor :subject_authorization_oidc_provider_id
+
+    # Whether assignment requests for this environment require subject authorization. Allowed values are `disabled` and `enabled`. Enabling requires a provider ID formatted as a nonzero UUID. If omitted on create, defaults to `disabled`. If omitted on update, the stored state is preserved. `null` is not accepted. This setting applies only to the current Datadog site and is not copied to other sites. Before you enable it, configure an eligible Custom OIDC provider in the same organization and site, and verify that the provider's keys are published. Assignment requests fail when the required verification configuration is unavailable.
+    attr_accessor :subject_authorization_state
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -78,7 +84,9 @@ module DatadogAPIClient::V2
         :'override_variant_id' => :'override_variant_id',
         :'pending_suggestion_id' => :'pending_suggestion_id',
         :'require_feature_flag_approval' => :'require_feature_flag_approval',
-        :'status' => :'status'
+        :'status' => :'status',
+        :'subject_authorization_oidc_provider_id' => :'subject_authorization_oidc_provider_id',
+        :'subject_authorization_state' => :'subject_authorization_state'
       }
     end
 
@@ -98,7 +106,9 @@ module DatadogAPIClient::V2
         :'override_variant_id' => :'String',
         :'pending_suggestion_id' => :'String',
         :'require_feature_flag_approval' => :'Boolean',
-        :'status' => :'FeatureFlagStatus'
+        :'status' => :'FeatureFlagStatus',
+        :'subject_authorization_oidc_provider_id' => :'UUID',
+        :'subject_authorization_state' => :'EnvironmentSubjectAuthorizationState'
       }
     end
 
@@ -110,6 +120,7 @@ module DatadogAPIClient::V2
         :'default_variant_id',
         :'override_variant_id',
         :'pending_suggestion_id',
+        :'subject_authorization_oidc_provider_id',
       ])
     end
 
@@ -184,6 +195,14 @@ module DatadogAPIClient::V2
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
+
+      if attributes.key?(:'subject_authorization_oidc_provider_id')
+        self.subject_authorization_oidc_provider_id = attributes[:'subject_authorization_oidc_provider_id']
+      end
+
+      if attributes.key?(:'subject_authorization_state')
+        self.subject_authorization_state = attributes[:'subject_authorization_state']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -254,6 +273,8 @@ module DatadogAPIClient::V2
           pending_suggestion_id == o.pending_suggestion_id &&
           require_feature_flag_approval == o.require_feature_flag_approval &&
           status == o.status &&
+          subject_authorization_oidc_provider_id == o.subject_authorization_oidc_provider_id &&
+          subject_authorization_state == o.subject_authorization_state &&
           additional_properties == o.additional_properties
     end
 
@@ -261,7 +282,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, observe_full_evaluation_data, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, additional_properties].hash
+      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, observe_full_evaluation_data, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, status, subject_authorization_oidc_provider_id, subject_authorization_state, additional_properties].hash
     end
   end
 end

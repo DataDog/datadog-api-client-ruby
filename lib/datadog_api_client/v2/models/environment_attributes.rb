@@ -39,6 +39,12 @@ module DatadogAPIClient::V2
     # Indicates whether feature flag changes require approval in this environment.
     attr_accessor :require_feature_flag_approval
 
+    # The associated Custom OIDC provider ID, or `null` when no provider is associated. Disabled environments may retain a provider association.
+    attr_accessor :subject_authorization_oidc_provider_id
+
+    # Whether assignment requests for this environment require subject authorization. Allowed values are `disabled` and `enabled`. Enabling requires a provider ID formatted as a nonzero UUID. If omitted on create, defaults to `disabled`. If omitted on update, the stored state is preserved. `null` is not accepted. This setting applies only to the current Datadog site and is not copied to other sites. Before you enable it, configure an eligible Custom OIDC provider in the same organization and site, and verify that the provider's keys are published. Assignment requests fail when the required verification configuration is unavailable.
+    attr_accessor :subject_authorization_state
+
     # The timestamp when the environment was last updated.
     attr_accessor :updated_at
 
@@ -54,6 +60,8 @@ module DatadogAPIClient::V2
         :'observe_full_evaluation_data' => :'observe_full_evaluation_data',
         :'queries' => :'queries',
         :'require_feature_flag_approval' => :'require_feature_flag_approval',
+        :'subject_authorization_oidc_provider_id' => :'subject_authorization_oidc_provider_id',
+        :'subject_authorization_state' => :'subject_authorization_state',
         :'updated_at' => :'updated_at'
       }
     end
@@ -68,8 +76,18 @@ module DatadogAPIClient::V2
         :'observe_full_evaluation_data' => :'Boolean',
         :'queries' => :'Array<String>',
         :'require_feature_flag_approval' => :'Boolean',
+        :'subject_authorization_oidc_provider_id' => :'UUID',
+        :'subject_authorization_state' => :'EnvironmentSubjectAuthorizationState',
         :'updated_at' => :'Time'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'subject_authorization_oidc_provider_id',
+      ])
     end
 
     # Initializes the object
@@ -114,6 +132,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'require_feature_flag_approval')
         self.require_feature_flag_approval = attributes[:'require_feature_flag_approval']
+      end
+
+      if attributes.key?(:'subject_authorization_oidc_provider_id')
+        self.subject_authorization_oidc_provider_id = attributes[:'subject_authorization_oidc_provider_id']
+      end
+
+      if attributes.key?(:'subject_authorization_state')
+        self.subject_authorization_state = attributes[:'subject_authorization_state']
       end
 
       if attributes.key?(:'updated_at')
@@ -182,6 +208,8 @@ module DatadogAPIClient::V2
           observe_full_evaluation_data == o.observe_full_evaluation_data &&
           queries == o.queries &&
           require_feature_flag_approval == o.require_feature_flag_approval &&
+          subject_authorization_oidc_provider_id == o.subject_authorization_oidc_provider_id &&
+          subject_authorization_state == o.subject_authorization_state &&
           updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
@@ -190,7 +218,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, is_production, name, observe_full_evaluation_data, queries, require_feature_flag_approval, updated_at, additional_properties].hash
+      [created_at, is_production, name, observe_full_evaluation_data, queries, require_feature_flag_approval, subject_authorization_oidc_provider_id, subject_authorization_state, updated_at, additional_properties].hash
     end
   end
 end

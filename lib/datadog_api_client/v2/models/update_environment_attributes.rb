@@ -36,6 +36,12 @@ module DatadogAPIClient::V2
     # Indicates whether feature flag changes require approval in this environment. If omitted, resets to false. Include the existing value to preserve it.
     attr_accessor :require_feature_flag_approval
 
+    # The ID of a Custom OIDC provider, formatted as a nonzero UUID. If omitted, the stored association is preserved. Set to `null` to clear the association, which is allowed only when the resulting `subject_authorization_state` is `disabled`. A new non-null ID must be registered in the current organization and site, even when subject authorization is disabled. An unregistered ID returns `400 Bad Request`, and an unavailable registry returns `503 Service Unavailable`. Omitted, cleared, and unchanged IDs skip this check, including when you enable a retained provider. An ID that matches the stored ID in a different format, such as different letter case, is treated as unchanged. Saving does not verify provider eligibility or key publication.
+    attr_accessor :subject_authorization_oidc_provider_id
+
+    # Whether assignment requests for this environment require subject authorization. Allowed values are `disabled` and `enabled`. Enabling requires a provider ID formatted as a nonzero UUID. If omitted on create, defaults to `disabled`. If omitted on update, the stored state is preserved. `null` is not accepted. This setting applies only to the current Datadog site and is not copied to other sites. Before you enable it, configure an eligible Custom OIDC provider in the same organization and site, and verify that the provider's keys are published. Assignment requests fail when the required verification configuration is unavailable.
+    attr_accessor :subject_authorization_state
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,7 +52,9 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'observe_full_evaluation_data' => :'observe_full_evaluation_data',
         :'queries' => :'queries',
-        :'require_feature_flag_approval' => :'require_feature_flag_approval'
+        :'require_feature_flag_approval' => :'require_feature_flag_approval',
+        :'subject_authorization_oidc_provider_id' => :'subject_authorization_oidc_provider_id',
+        :'subject_authorization_state' => :'subject_authorization_state'
       }
     end
 
@@ -58,8 +66,18 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'observe_full_evaluation_data' => :'Boolean',
         :'queries' => :'Array<String>',
-        :'require_feature_flag_approval' => :'Boolean'
+        :'require_feature_flag_approval' => :'Boolean',
+        :'subject_authorization_oidc_provider_id' => :'UUID',
+        :'subject_authorization_state' => :'EnvironmentSubjectAuthorizationState'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'subject_authorization_oidc_provider_id',
+      ])
     end
 
     # Initializes the object
@@ -100,6 +118,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'require_feature_flag_approval')
         self.require_feature_flag_approval = attributes[:'require_feature_flag_approval']
+      end
+
+      if attributes.key?(:'subject_authorization_oidc_provider_id')
+        self.subject_authorization_oidc_provider_id = attributes[:'subject_authorization_oidc_provider_id']
+      end
+
+      if attributes.key?(:'subject_authorization_state')
+        self.subject_authorization_state = attributes[:'subject_authorization_state']
       end
     end
 
@@ -152,6 +178,8 @@ module DatadogAPIClient::V2
           observe_full_evaluation_data == o.observe_full_evaluation_data &&
           queries == o.queries &&
           require_feature_flag_approval == o.require_feature_flag_approval &&
+          subject_authorization_oidc_provider_id == o.subject_authorization_oidc_provider_id &&
+          subject_authorization_state == o.subject_authorization_state &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +187,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_production, name, observe_full_evaluation_data, queries, require_feature_flag_approval, additional_properties].hash
+      [is_production, name, observe_full_evaluation_data, queries, require_feature_flag_approval, subject_authorization_oidc_provider_id, subject_authorization_state, additional_properties].hash
     end
   end
 end
