@@ -34,23 +34,16 @@ module DatadogAPIClient::V2
     # Get an Agent Health issue.
     #
     # Get an Agent Health issue and its available remediation in your organization.
-    # Only open issues are returned. The `remediation` attribute is omitted when
-    # the issue has no remediation.
+    # The `remediation` attribute is omitted when the issue has no remediation.
     #
-    # Returns `404` if the issue does not exist, is not open, belongs to another
-    # organization, or you do not have access to its data. This response does not
-    # reveal whether the issue exists. Returns `403` if you lack the `hosts_read` permission.
+    # Returns `404` if the issue does not exist, belongs to another organization, or
+    # you do not have access to its data. This response does not reveal whether the
+    # issue exists. Returns `403` if you lack the `hosts_read` permission.
     #
     # @param issue_id [String] The unique identifier of the issue. It can contain `:` and must be percent-encoded by clients when included in the path.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AgentHealthIssueResponse, Integer, Hash)>] AgentHealthIssueResponse data, response status code and response headers
     def get_agent_health_issue_with_http_info(issue_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_agent_health_issue".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_agent_health_issue")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_agent_health_issue"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AgentHealthAPI.get_agent_health_issue ...'
@@ -189,16 +182,18 @@ module DatadogAPIClient::V2
     # (`high`, `medium`, `low`, then other values), then `first_seen_at` descending with
     # missing timestamps last, then issue ID ascending.
     #
-    # Set `count_by=issue_type` to include `meta.page`, where `total_count` is the number of
-    # open issues matching the filters and `counts_by_issue_type` holds the per-type counts.
-    # `meta` is omitted when `count_by` is not requested.
+    # The response always includes `meta.page` with the applied `limit`, `offset`, and
+    # `total_count` (the number of open issues matching the filters). Set `count_by=issue_type`
+    # to also include `counts_by_issue_type` with per-issue-type counts.
     #
     # Each filter accepts up to 50 comma-separated exact values of at most 256 characters
     # each, combined with OR within a filter and AND across filters. Blank entries are ignored; an all-blank filter
     # is treated as absent.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [AgentHealthIssuesCountBy] :count_by Set to `issue_type` to include `meta.page` with `total_count` and per-issue-type counts. If you don't set this parameter, the response omits `meta`. Only `issue_type` is supported.
+    # @option opts [AgentHealthIssuesCountBy] :count_by Set to `issue_type` to also include `counts_by_issue_type` in `meta.page` with per-issue-type counts. Pagination metadata is always included. Only `issue_type` is supported.
+    # @option opts [Integer] :page_limit The maximum number of issues to return. Defaults to 100, with a minimum of 1 and a maximum of 1000.
+    # @option opts [Integer] :page_offset The number of issues to skip before returning results. Defaults to 0, with a minimum of 0.
     # @option opts [String] :filter_severity Filter by a comma-separated list of exact `severity` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
     # @option opts [String] :filter_category Filter by a comma-separated list of exact `category` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
     # @option opts [String] :filter_issue_type Filter by a comma-separated list of exact `issue_type` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
@@ -206,12 +201,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_resource_id Filter by a comma-separated list of exact `resource_id` values, up to 50 values of at most 256 characters each. Values are combined with OR within this filter and AND across filters. Blank entries are ignored; an all-blank filter is treated as absent.
     # @return [Array<(AgentHealthIssuesResponse, Integer, Hash)>] AgentHealthIssuesResponse data, response status code and response headers
     def list_agent_health_issues_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_agent_health_issues".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_agent_health_issues")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_agent_health_issues"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AgentHealthAPI.list_agent_health_issues ...'
@@ -219,6 +208,15 @@ module DatadogAPIClient::V2
       allowable_values = ['issue_type']
       if @api_client.config.client_side_validation && opts[:'count_by'] && !allowable_values.include?(opts[:'count_by'])
         fail ArgumentError, "invalid value for \"count_by\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling AgentHealthAPI.list_agent_health_issues, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling AgentHealthAPI.list_agent_health_issues, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling AgentHealthAPI.list_agent_health_issues, must be greater than or equal to 0.'
       end
       if @api_client.config.client_side_validation && !opts[:'filter_severity'].nil? && opts[:'filter_severity'].to_s.length > 12850
         fail ArgumentError, 'invalid value for "opts[:"filter_severity"]" when calling AgentHealthAPI.list_agent_health_issues, the character length must be smaller than or equal to 12850.'
@@ -241,6 +239,8 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'count_by'] = opts[:'count_by'] if !opts[:'count_by'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
       query_params[:'filter[severity]'] = opts[:'filter_severity'] if !opts[:'filter_severity'].nil?
       query_params[:'filter[category]'] = opts[:'filter_category'] if !opts[:'filter_category'].nil?
       query_params[:'filter[issue_type]'] = opts[:'filter_issue_type'] if !opts[:'filter_issue_type'].nil?
@@ -280,6 +280,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: AgentHealthAPI#list_agent_health_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # List Agent Health issues.
+    #
+    # Provide a paginated version of {#list_agent_health_issues}, returning all items.
+    #
+    # To use it you need to use a block: list_agent_health_issues_with_pagination { |item| p item }
+    #
+    # @yield [AgentHealthIssueData] Paginated items
+    def list_agent_health_issues_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_agent_health_issues(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
     end
   end
 end

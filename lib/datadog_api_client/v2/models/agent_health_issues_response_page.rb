@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Counts for the matching Agent Health issues.
+  # Pagination details and counts for the matching Agent Health issues.
   class AgentHealthIssuesResponsePage
     include BaseGenericModel
 
     # The number of open issues matching the filters in each issue-type group.
-    attr_reader :counts_by_issue_type
+    attr_accessor :counts_by_issue_type
+
+    # The maximum number of issues returned, echoing the requested `page[limit]`.
+    attr_reader :limit
+
+    # The number of issues skipped, echoing the requested `page[offset]`.
+    attr_reader :offset
 
     # The total number of open issues matching the filters.
     attr_reader :total_count
@@ -34,6 +40,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'counts_by_issue_type' => :'counts_by_issue_type',
+        :'limit' => :'limit',
+        :'offset' => :'offset',
         :'total_count' => :'total_count'
       }
     end
@@ -43,6 +51,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'counts_by_issue_type' => :'Hash<String, Integer>',
+        :'limit' => :'Integer',
+        :'offset' => :'Integer',
         :'total_count' => :'Integer'
       }
     end
@@ -69,6 +79,14 @@ module DatadogAPIClient::V2
         self.counts_by_issue_type = attributes[:'counts_by_issue_type']
       end
 
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
       if attributes.key?(:'total_count')
         self.total_count = attributes[:'total_count']
       end
@@ -78,19 +96,30 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @counts_by_issue_type.nil?
+      return false if @limit.nil?
+      return false if @offset.nil?
       return false if @total_count.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param counts_by_issue_type [Object] Object to be assigned
+    # @param limit [Object] Object to be assigned
     # @!visibility private
-    def counts_by_issue_type=(counts_by_issue_type)
-      if counts_by_issue_type.nil?
-        fail ArgumentError, 'invalid value for "counts_by_issue_type", counts_by_issue_type cannot be nil.'
+    def limit=(limit)
+      if limit.nil?
+        fail ArgumentError, 'invalid value for "limit", limit cannot be nil.'
       end
-      @counts_by_issue_type = counts_by_issue_type
+      @limit = limit
+    end
+
+    # Custom attribute writer method with validation
+    # @param offset [Object] Object to be assigned
+    # @!visibility private
+    def offset=(offset)
+      if offset.nil?
+        fail ArgumentError, 'invalid value for "offset", offset cannot be nil.'
+      end
+      @offset = offset
     end
 
     # Custom attribute writer method with validation
@@ -130,6 +159,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           counts_by_issue_type == o.counts_by_issue_type &&
+          limit == o.limit &&
+          offset == o.offset &&
           total_count == o.total_count &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [counts_by_issue_type, total_count, additional_properties].hash
+      [counts_by_issue_type, limit, offset, total_count, additional_properties].hash
     end
   end
 end
