@@ -6966,6 +6966,18 @@ ScenariosModelMappings = {
             "investigation_id" => "String",
             "fields_investigations" => "Array<SecurityAgentInvestigationField>",
     },
+    "v2.UpdateSecurityAgentOutreachMode" => {
+            "body" => "SecurityAgentOutreachModeUpdateRequest",
+    },
+    "v2.AddSecurityAgentOutreachPolicyDomain" => {
+            "body" => "SecurityAgentOutreachDomainAddRequest",
+    },
+    "v2.RemoveSecurityAgentOutreachPolicyDomain" => {
+            "domain" => "String",
+    },
+    "v2.UpdateSecurityAgentOutreachPolicyRules" => {
+            "body" => "SecurityAgentOutreachRulesUpdateRequest",
+    },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
     },
