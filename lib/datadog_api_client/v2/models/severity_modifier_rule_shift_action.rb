@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Shifts matched findings up or down by one severity rank.
+  # Shifts matched findings up or down by one severity rank. Shifting down stops at the lowest severity available for the finding type, for example `low` for `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, and `static_code_vulnerability` findings. A rule that wouldn't change a finding's severity doesn't match it, so Datadog checks the next rule.
   class SeverityModifierRuleShiftAction
     include BaseGenericModel
 
     # An optional free-form explanation for the severity change.
     attr_reader :description
 
-    # The direction in which to shift the severity of matched findings by one rank.
+    # The direction in which to shift the severity of matched findings by one rank. Shifting down stops at the lowest severity available for the finding type.
     attr_reader :severity_delta
 
     # The type of a severity modifier rule action that shifts the severity by one rank.
