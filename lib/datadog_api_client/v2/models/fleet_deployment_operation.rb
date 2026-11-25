@@ -27,7 +27,9 @@ module DatadogAPIClient::V2
     # - `delete`: Removes the specified configuration file from the target hosts.
     attr_reader :file_op
 
-    # Absolute path to the target configuration file on the host.
+    # Path to the target configuration file, relative to the Agent's configuration directory.
+    # For example, `/datadog.yaml` or `/conf.d/postgres.d/conf.yaml`. Absolute host paths,
+    # such as `/etc/datadog-agent/datadog.yaml`, are rejected.
     attr_reader :file_path
 
     # Patch data in JSON format to apply to the configuration file.
