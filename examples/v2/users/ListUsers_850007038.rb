@@ -1,0 +1,14 @@
+# List all users filtered by handle returns "OK" response
+
+require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.access_token = ENV["DD_BEARER_TOKEN"]
+end
+api_instance = DatadogAPIClient::V2::UsersAPI.new
+
+# there is a valid "user" in the system
+USER_DATA_ATTRIBUTES_HANDLE = ENV["USER_DATA_ATTRIBUTES_HANDLE"]
+opts = {
+  filter_handle: USER_DATA_ATTRIBUTES_HANDLE,
+}
+p api_instance.list_users(opts)

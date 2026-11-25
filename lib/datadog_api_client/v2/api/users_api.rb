@@ -708,6 +708,7 @@ module DatadogAPIClient::V2
     # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: `asc`, `desc`.
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
     # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
+    # @option opts [String] :filter_handle Filter on the exact user handle. This filter also returns Datadog-managed users, which the list otherwise excludes. Defaults to no filtering.
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
 
@@ -729,6 +730,7 @@ module DatadogAPIClient::V2
       query_params[:'sort_dir'] = opts[:'sort_dir'] if !opts[:'sort_dir'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'filter[handle]'] = opts[:'filter_handle'] if !opts[:'filter_handle'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
