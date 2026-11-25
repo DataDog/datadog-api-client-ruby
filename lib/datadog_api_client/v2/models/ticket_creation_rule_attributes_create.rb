@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The action to take when the ticket creation rule matches a finding.
     attr_reader :action
 
-    # Whether the ticket creation rule is enabled.
+    # Whether the ticket creation rule is enabled. If it is omitted, the API saves it as `false` and the rule doesn't apply.
     attr_accessor :enabled
 
     # The name of the ticket creation rule.

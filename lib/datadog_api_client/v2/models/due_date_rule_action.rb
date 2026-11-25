@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DueDateRuleAction
     include BaseGenericModel
 
-    # A list of severity-to-due-date mappings. Each severity may appear at most once.
+    # A list of severity-to-due-date mappings. Each severity may appear at most once. The rule only matches findings whose severity is listed here.
     attr_reader :due_days_per_severity
 
     # The reference point from which the due date is calculated. When `fix_available` is selected but not applicable to the finding type, `first_seen` is used instead.

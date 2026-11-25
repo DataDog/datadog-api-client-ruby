@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MuteRuleAction
     include BaseGenericModel
 
-    # The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
+    # The Unix timestamp in milliseconds at which the mute expires. It must be in the future. If the timestamp is omitted, the mute does not expire.
     attr_accessor :expire_at
 
     # The reason for muting a security finding.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The ticketing system to create tickets in.
+  # The ticketing system to create tickets in. `case_management` is Datadog Work Management, formerly called Case Management.
   class TicketCreationTarget
     include BaseEnumModel
 
