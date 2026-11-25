@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
     attr_reader :max_connection_duration_secs
 
-    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients, or mutual TLS when `verify_certificate` is `true`. Mutual TLS also enables an optional allowlist of client certificate identities.
     attr_accessor :tls
 
     # The source type. Always `splunk_tcp`.
@@ -60,7 +60,7 @@ module DatadogAPIClient::V2
         :'address_key' => :'String',
         :'id' => :'String',
         :'max_connection_duration_secs' => :'Integer',
-        :'tls' => :'ObservabilityPipelineMtlsServerTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTlsWithClientIdentity',
         :'type' => :'ObservabilityPipelineSplunkTcpSourceType'
       }
     end

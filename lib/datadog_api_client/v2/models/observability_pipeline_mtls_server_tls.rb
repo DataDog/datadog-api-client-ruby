@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
     attr_accessor :ca_file
 
-    # Path to the TLS server certificate file used to used to identify the pipeline component to connecting clients.
+    # Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
     attr_reader :crt_file
 
     # Path to the private key file associated with the TLS server certificate.
