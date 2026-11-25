@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DetachCaseRequestData
     include BaseGenericModel
 
-    # Unique identifier of the detachment request.
+    # Optional identifier of the detachment request. The API doesn't use it to select a case: it detaches each security finding in `relationships.findings` from the case it's attached to.
     attr_accessor :id
 
     # Relationships detaching security findings from their case.
