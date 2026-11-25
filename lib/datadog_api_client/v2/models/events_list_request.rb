@@ -31,7 +31,8 @@ module DatadogAPIClient::V2
     # Pagination settings.
     attr_accessor :page
 
-    # The sort parameters when querying events.
+    # The sort order of events. `-timestamp` (the default) returns the newest events first, and `timestamp` returns
+    # the oldest first. The client libraries reject any other value.
     attr_accessor :sort
 
     attr_accessor :additional_properties
