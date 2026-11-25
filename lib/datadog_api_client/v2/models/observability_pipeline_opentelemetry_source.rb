@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+    # Configuration for enabling TLS encryption between the pipeline component and external connecting clients, or mutual TLS when `verify_certificate` is `true`. Mutual TLS also enables an optional allowlist of client certificate identities.
     attr_accessor :tls
 
     # The source type. The value should always be `opentelemetry`.
@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
         :'grpc_address_key' => :'String',
         :'http_address_key' => :'String',
         :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineMtlsServerTls',
+        :'tls' => :'ObservabilityPipelineMtlsServerTlsWithClientIdentity',
         :'type' => :'ObservabilityPipelineOpentelemetrySourceType'
       }
     end
