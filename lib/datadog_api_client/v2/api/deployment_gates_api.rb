@@ -41,12 +41,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGateResponse, Integer, Hash)>] DeploymentGateResponse data, response status code and response headers
     def create_deployment_gate_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_deployment_gate".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_deployment_gate")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_deployment_gate"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.create_deployment_gate ...'
@@ -115,12 +109,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentRuleResponse, Integer, Hash)>] DeploymentRuleResponse data, response status code and response headers
     def create_deployment_rule_with_http_info(gate_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_deployment_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_deployment_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_deployment_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.create_deployment_rule ...'
@@ -192,12 +180,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_deployment_gate_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_deployment_gate".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_deployment_gate")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_deployment_gate"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.delete_deployment_gate ...'
@@ -264,12 +246,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_deployment_rule_with_http_info(gate_id, id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_deployment_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_deployment_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_deployment_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.delete_deployment_rule ...'
@@ -339,12 +315,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGateResponse, Integer, Hash)>] DeploymentGateResponse data, response status code and response headers
     def get_deployment_gate_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_deployment_gate".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_deployment_gate")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_deployment_gate"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.get_deployment_gate ...'
@@ -410,12 +380,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGateRulesResponse, Integer, Hash)>] DeploymentGateRulesResponse data, response status code and response headers
     def get_deployment_gate_rules_with_http_info(gate_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_deployment_gate_rules".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_deployment_gate_rules")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_deployment_gate_rules"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.get_deployment_gate_rules ...'
@@ -485,12 +449,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGatesEvaluationResultResponse, Integer, Hash)>] DeploymentGatesEvaluationResultResponse data, response status code and response headers
     def get_deployment_gates_evaluation_result_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_deployment_gates_evaluation_result".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_deployment_gates_evaluation_result")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_deployment_gates_evaluation_result"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.get_deployment_gates_evaluation_result ...'
@@ -557,12 +515,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentRuleResponse, Integer, Hash)>] DeploymentRuleResponse data, response status code and response headers
     def get_deployment_rule_with_http_info(gate_id, id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_deployment_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_deployment_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_deployment_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.get_deployment_rule ...'
@@ -645,12 +597,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_cursor Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
     # @return [Array<(DeploymentGateEvaluationsResponse, Integer, Hash)>] DeploymentGateEvaluationsResponse data, response status code and response headers
     def list_deployment_gate_evaluations_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_deployment_gate_evaluations".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_deployment_gate_evaluations")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_deployment_gate_evaluations"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.list_deployment_gate_evaluations ...'
@@ -758,12 +704,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Number of results per page. Defaults to 50. Must be between 1 and 1000.
     # @return [Array<(DeploymentGatesListResponse, Integer, Hash)>] DeploymentGatesListResponse data, response status code and response headers
     def list_deployment_gates_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_deployment_gates".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_deployment_gates")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_deployment_gates"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.list_deployment_gates ...'
@@ -858,12 +798,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_cursor Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
     # @return [Array<(DeploymentGateRuleEvaluationsResponse, Integer, Hash)>] DeploymentGateRuleEvaluationsResponse data, response status code and response headers
     def list_deployment_rule_evaluations_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_deployment_rule_evaluations".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_deployment_rule_evaluations")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_deployment_rule_evaluations"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.list_deployment_rule_evaluations ...'
@@ -976,12 +910,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGatesEvaluationResponse, Integer, Hash)>] DeploymentGatesEvaluationResponse data, response status code and response headers
     def trigger_deployment_gates_evaluation_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.trigger_deployment_gates_evaluation".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.trigger_deployment_gates_evaluation")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.trigger_deployment_gates_evaluation"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.trigger_deployment_gates_evaluation ...'
@@ -1050,12 +978,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentGateResponse, Integer, Hash)>] DeploymentGateResponse data, response status code and response headers
     def update_deployment_gate_with_http_info(id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_deployment_gate".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_deployment_gate")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_deployment_gate"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.update_deployment_gate ...'
@@ -1129,12 +1051,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeploymentRuleResponse, Integer, Hash)>] DeploymentRuleResponse data, response status code and response headers
     def update_deployment_rule_with_http_info(gate_id, id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_deployment_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_deployment_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_deployment_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.update_deployment_rule ...'
