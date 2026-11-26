@@ -5,4 +5,10 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
 api_instance = DatadogAPIClient::V2::RUMOperationsAPI.new
-p api_instance.list_rum_operations()
+
+# there is a valid "rum_operation" in the system
+RUM_OPERATION_DATA_ATTRIBUTES_NAME = ENV["RUM_OPERATION_DATA_ATTRIBUTES_NAME"]
+opts = {
+  query: RUM_OPERATION_DATA_ATTRIBUTES_NAME,
+}
+p api_instance.list_rum_operations(opts)
