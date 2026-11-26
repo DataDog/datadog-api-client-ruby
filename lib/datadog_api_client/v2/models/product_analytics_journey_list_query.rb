@@ -28,6 +28,7 @@ module DatadogAPIClient::V2
     attr_accessor :conversion_type
 
     # Attribute columns to return for each row, in addition to the identity join key and `timestamp`.
+    # For example, `@usr.id` returns the user of each session.
     attr_accessor :entity_columns
 
     # Additional search query applied to the returned rows.

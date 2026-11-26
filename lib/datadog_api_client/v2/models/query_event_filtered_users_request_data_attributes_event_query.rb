@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The event platform query expression for filtering users by their event activity.
     attr_accessor :query
 
-    # The time window defining the start and end of the event query period as Unix timestamps.
+    # The time window of the event query, as Unix timestamps in milliseconds.
     attr_accessor :time_frame
 
     attr_accessor :additional_properties

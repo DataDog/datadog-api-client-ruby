@@ -24,13 +24,13 @@ module DatadogAPIClient::V2
     # Elapsed time statistics (min/max/avg in milliseconds).
     attr_reader :elapsed_time_to_next_step
 
-    # Breakdown of this step by the requested group-by facets.
-    attr_reader :groups
+    # Breakdown of this step by the requested group-by facets. Omitted when the query has no group-by.
+    attr_accessor :groups
 
     # Label of the step, derived from the node alias.
     attr_reader :label
 
-    # Unit of the elapsed time values.
+    # The entity counted in `value`, such as `session` or `user`, set by the join key.
     attr_reader :unit
 
     # Value of the computed metric at this step.
@@ -108,7 +108,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @elapsed_time_to_next_step.nil?
-      return false if @groups.nil?
       return false if @label.nil?
       return false if @unit.nil?
       return false if @value.nil?
@@ -123,16 +122,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "elapsed_time_to_next_step", elapsed_time_to_next_step cannot be nil.'
       end
       @elapsed_time_to_next_step = elapsed_time_to_next_step
-    end
-
-    # Custom attribute writer method with validation
-    # @param groups [Object] Object to be assigned
-    # @!visibility private
-    def groups=(groups)
-      if groups.nil?
-        fail ArgumentError, 'invalid value for "groups", groups cannot be nil.'
-      end
-      @groups = groups
     end
 
     # Custom attribute writer method with validation

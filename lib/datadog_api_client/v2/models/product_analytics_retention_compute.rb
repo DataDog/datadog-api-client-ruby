@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # The aggregation function applied to the metric, such as `count` or `avg`.
     attr_reader :aggregation
 
-    # The retention metric to compute, either an absolute count or a rate.
+    # The retention metric to compute. Use `__dd.retention` for the number of retained entities,
+    # or `__dd.retention_rate` for the share of the cohort that was retained. No other value is accepted.
     attr_reader :metric
 
     attr_accessor :additional_properties

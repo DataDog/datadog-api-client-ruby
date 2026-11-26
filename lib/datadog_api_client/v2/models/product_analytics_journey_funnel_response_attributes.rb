@@ -30,8 +30,9 @@ module DatadogAPIClient::V2
     # The funnel steps, in the order given by the search expression.
     attr_reader :funnel_steps
 
-    # Number of entities that entered the funnel.
-    attr_reader :initial_count
+    # Number of entities that entered the funnel. The service does not return it today; use the `value`
+    # of the first entry in `funnel_steps` instead.
+    attr_accessor :initial_count
 
     attr_accessor :additional_properties
 
@@ -101,7 +102,6 @@ module DatadogAPIClient::V2
       return false if @end_to_end_conversion_rate.nil?
       return false if @end_to_end_elapsed_time.nil?
       return false if @funnel_steps.nil?
-      return false if @initial_count.nil?
       true
     end
 
@@ -133,16 +133,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "funnel_steps", funnel_steps cannot be nil.'
       end
       @funnel_steps = funnel_steps
-    end
-
-    # Custom attribute writer method with validation
-    # @param initial_count [Object] Object to be assigned
-    # @!visibility private
-    def initial_count=(initial_count)
-      if initial_count.nil?
-        fail ArgumentError, 'invalid value for "initial_count", initial_count cannot be nil.'
-      end
-      @initial_count = initial_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

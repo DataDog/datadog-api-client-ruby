@@ -111,6 +111,9 @@ module DatadogAPIClient::V2
     # Return the individual sessions that reached, or dropped off at, a given step of the journey.
     # Each row contains the identity join key, the event timestamp, and the columns requested
     # in `entity_columns`.
+    # This endpoint only lists sessions: omit `query.search.join_keys` or set its `primary` to `@session.id`.
+    # Any other primary join key, such as `@usr.id`, returns a 400 error.
+    # To get the users behind the sessions, add `@usr.id` or `@usr.email` to `entity_columns`.
     #
     # @param body [ProductAnalyticsJourneyListRequest] 
     # @param opts [Hash] the optional parameters
@@ -482,6 +485,8 @@ module DatadogAPIClient::V2
     #
     # List the individual users or accounts counted in one cell of the retention grid.
     # Set `computation_scope` to the cohort and return period you want to examine.
+    # Indexes are zero-based, and the cohort index plus the return period index must be lower than the number of
+    # cohorts between `from` and `to`. Make the window long enough to contain the return period you ask for.
     #
     # @param body [ProductAnalyticsRetentionListRequest] The retention list query.
     # @param opts [Hash] the optional parameters
@@ -701,8 +706,9 @@ module DatadogAPIClient::V2
 
     # Compute a Sankey diagram.
     #
-    # Compute a Sankey diagram of how sessions flow between the values of two facets,
+    # Compute a Sankey diagram of how sessions flow from or to one view,
     # showing where users continue and where they drop off at each step.
+    # Set either `definition.source` or `definition.target`, and send the other one as an empty string.
     #
     # @param body [ProductAnalyticsSankeyRequest] The Sankey diagram query.
     # @param opts [Hash] the optional parameters
