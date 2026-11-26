@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The order to use, ascending or descending.
     attr_accessor :order
 
-    # The type of sorting algorithm. `alphabetical` sorts buckets by the facet value. `measure` sorts them by a computed aggregation.
+    # The type of sorting algorithm. `alphabetical` sorts buckets by the facet value. `measure` sorts them by a computed aggregation, and is required when the sort sets `aggregation` or `metric`.
     attr_accessor :type
 
     attr_accessor :additional_properties
