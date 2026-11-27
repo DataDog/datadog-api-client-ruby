@@ -229,6 +229,28 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List archive configurations.
+    #
+    # Provide a paginated version of {#list_rum_archive_configs}, returning all items.
+    #
+    # To use it you need to use a block: list_rum_archive_configs_with_pagination { |item| p item }
+    #
+    # @yield [RumArchiveConfig] Paginated items
+    def list_rum_archive_configs_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 20)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_rum_archive_configs(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # Create or update an archive configuration.
     #
     # @see #update_rum_archive_config_with_http_info

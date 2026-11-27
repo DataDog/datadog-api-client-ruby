@@ -508,6 +508,27 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Search RUM operations.
+    #
+    # Provide a paginated version of {#list_rum_operations}, returning all items.
+    #
+    # To use it you need to use a block: list_rum_operations_with_pagination { |item| p item }
+    #
+    # @yield [RUMOperationResponseData] Paginated items
+    def list_rum_operations_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_rum_operations(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
+    end
+
     # List RUM operation links.
     #
     # @see #list_rum_operation_strong_links_with_http_info
@@ -585,6 +606,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: RUMOperationsAPI#list_rum_operation_strong_links\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # List RUM operation links.
+    #
+    # Provide a paginated version of {#list_rum_operation_strong_links}, returning all items.
+    #
+    # To use it you need to use a block: list_rum_operation_strong_links_with_pagination { |item| p item }
+    #
+    # @yield [RUMOperationStrongLinkResponseData] Paginated items
+    def list_rum_operation_strong_links_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 50)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_rum_operation_strong_links(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
     end
 
     # Update a RUM operation.
