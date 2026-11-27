@@ -272,12 +272,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
     # @return [Array<(SourcemapsResponse, Integer, Hash)>] SourcemapsResponse data, response status code and response headers
     def delete_sourcemaps_with_http_info(mapkind, dry_run, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_sourcemaps".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_sourcemaps")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_sourcemaps"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.delete_sourcemaps ...'
@@ -531,12 +525,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceRepositoryInfoResponse, Integer, Hash)>] ServiceRepositoryInfoResponse data, response status code and response headers
     def get_service_repository_info_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_service_repository_info".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_service_repository_info")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_service_repository_info"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.get_service_repository_info ...'
@@ -639,12 +627,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :version The version of the service associated with the source map. Required when `debug_id` is omitted.
     # @return [Array<(SourcemapFileResponse, Integer, Hash)>] SourcemapFileResponse data, response status code and response headers
     def get_sourcemaps_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_sourcemaps".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_sourcemaps")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_sourcemaps"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.get_sourcemaps ...'
@@ -921,12 +903,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
     # @return [Array<(ListSourcemapsResponse, Integer, Hash)>] ListSourcemapsResponse data, response status code and response headers
     def list_sourcemaps_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_sourcemaps".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_sourcemaps")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_sourcemaps"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.list_sourcemaps ...'
@@ -1053,12 +1029,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_file_hash Filter by file hash (single value). Supported for `elf`.
     # @return [Array<(SourcemapsResponse, Integer, Hash)>] SourcemapsResponse data, response status code and response headers
     def restore_sourcemaps_with_http_info(mapkind, dry_run, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.restore_sourcemaps".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.restore_sourcemaps")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.restore_sourcemaps"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.restore_sourcemaps ...'
