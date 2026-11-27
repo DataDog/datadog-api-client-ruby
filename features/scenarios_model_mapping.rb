@@ -4933,6 +4933,19 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "OpenAICodexIntegrationAccountUpdateRequest",
     },
+    "v2.CreateOpenAIModelInferenceIntegrationAccount" => {
+            "body" => "OpenAIModelInferenceIntegrationAccountCreateRequest",
+    },
+    "v2.DeleteOpenAIModelInferenceIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetOpenAIModelInferenceIntegrationAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateOpenAIModelInferenceIntegrationAccount" => {
+            "account_id" => "String",
+            "body" => "OpenAIModelInferenceIntegrationAccountUpdateRequest",
+    },
     "v2.CreateSnowflakeIntegrationAccount" => {
             "body" => "SnowflakeIntegrationAccountCreateRequest",
     },
