@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Rum replay playlist resource type.
+  # RUM replay playlist resource type.
   class PlaylistDataType
     include BaseEnumModel
 

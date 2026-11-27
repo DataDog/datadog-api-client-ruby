@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The RUM retention quota configuration response.
-  class RumRetentionQuotaConfigResponse
+  class RUMRetentionQuotaConfigResponse
     include BaseGenericModel
 
     # The RUM retention quota configuration object.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RumRetentionQuotaConfigData'
+        :'data' => :'RUMRetentionQuotaConfigData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRetentionQuotaConfigResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRetentionQuotaConfigResponse` initialize method"
       end
 
       self.additional_properties = {}

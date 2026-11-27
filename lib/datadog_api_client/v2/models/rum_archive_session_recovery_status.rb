@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Session recovery state. A missing recovery record can be represented as null. Optional request_id and recovered_at are omitted when unavailable.
-  class RumArchiveSessionRecoveryStatus
+  class RUMArchiveSessionRecoveryStatus
     include BaseGenericModel
 
     # Recovery timestamp, when available.
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'recovered_at' => :'Time',
         :'request_id' => :'String',
-        :'status' => :'RumRecoverySessionStatus'
+        :'status' => :'RUMRecoverySessionStatus'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveSessionRecoveryStatus` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveSessionRecoveryStatus` initialize method"
       end
 
       self.additional_properties = {}

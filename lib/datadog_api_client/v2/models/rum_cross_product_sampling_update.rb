@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The configuration for cross-product retention filters. All fields are optional for partial updates.
-  class RumCrossProductSamplingUpdate
+  class RUMCrossProductSamplingUpdate
     include BaseGenericModel
 
     # Whether the cross-product retention filter for APM traces is enabled.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumCrossProductSamplingUpdate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMCrossProductSamplingUpdate` initialize method"
       end
 
       self.additional_properties = {}

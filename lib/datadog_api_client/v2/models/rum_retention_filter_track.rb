@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The product whose events the retention filter applies to.
-  class RumRetentionFilterTrack
+  class RUMRetentionFilterTrack
     include BaseEnumModel
 
     RUM = "rum".freeze

@@ -3,9 +3,9 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RUMRecoveryAPI.new
 
-body = DatadogAPIClient::V2::RumRecoveryCountRequest.new({
-  data: DatadogAPIClient::V2::RumRecoveryCountRequestData.new({
-    attributes: DatadogAPIClient::V2::RumRecoveryCountAttributes.new({
+body = DatadogAPIClient::V2::RUMRecoveryCountRequest.new({
+  data: DatadogAPIClient::V2::RUMRecoveryCountRequestData.new({
+    attributes: DatadogAPIClient::V2::RUMRecoveryCountAttributes.new({
       from: 1789905600000,
       query: "service:web",
       to: 1789992000000,

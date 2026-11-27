@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The configuration used when `mode` is `custom`.
-  class RumRetentionQuotaCustomConfig
+  class RUMRetentionQuotaCustomConfig
     include BaseGenericModel
 
     # The time of day when the daily quota resets, in `HH:MM` 24-hour format.
@@ -56,9 +56,9 @@ module DatadogAPIClient::V2
       {
         :'daily_reset_time' => :'String',
         :'daily_reset_timezone' => :'String',
-        :'quota_reached_action' => :'RumRetentionQuotaReachedAction',
+        :'quota_reached_action' => :'RUMRetentionQuotaReachedAction',
         :'session_limit' => :'Integer',
-        :'window_type' => :'RumRetentionQuotaWindowType'
+        :'window_type' => :'RUMRetentionQuotaWindowType'
       }
     end
 
@@ -67,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRetentionQuotaCustomConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRetentionQuotaCustomConfig` initialize method"
       end
 
       self.additional_properties = {}

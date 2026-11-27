@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     #
     # @param config_id [String] The ID of the RUM SDK configuration.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumSdkConfigResponse, Integer, Hash)>] RumSdkConfigResponse data, response status code and response headers
+    # @return [Array<(RUMSdkConfigResponse, Integer, Hash)>] RUMSdkConfigResponse data, response status code and response headers
     def get_rum_sdk_config_with_http_info(config_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_rum_sdk_config".to_sym]
       if unstable_enabled
@@ -71,7 +71,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumSdkConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMSdkConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -108,9 +108,9 @@ module DatadogAPIClient::V2
     # Returns the updated configuration when successful.
     #
     # @param config_id [String] The ID of the RUM SDK configuration.
-    # @param body [RumSdkConfigUpdateRequest] The RUM SDK configuration update.
+    # @param body [RUMSdkConfigUpdateRequest] The RUM SDK configuration update.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RumSdkConfigResponse, Integer, Hash)>] RumSdkConfigResponse data, response status code and response headers
+    # @return [Array<(RUMSdkConfigResponse, Integer, Hash)>] RUMSdkConfigResponse data, response status code and response headers
     def update_rum_sdk_config_with_http_info(config_id, body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.update_rum_sdk_config".to_sym]
       if unstable_enabled
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RumSdkConfigResponse'
+      return_type = opts[:debug_return_type] || 'RUMSdkConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]

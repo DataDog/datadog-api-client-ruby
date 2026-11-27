@@ -3,9 +3,9 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RUMRecoveryAPI.new
 
-body = DatadogAPIClient::V2::RumArchiveSessionsSearchRequest.new({
-  data: DatadogAPIClient::V2::RumArchiveSessionsSearchData.new({
-    attributes: DatadogAPIClient::V2::RumArchiveSessionsSearchAttributes.new({
+body = DatadogAPIClient::V2::RUMArchiveSessionsSearchRequest.new({
+  data: DatadogAPIClient::V2::RUMArchiveSessionsSearchData.new({
+    attributes: DatadogAPIClient::V2::RUMArchiveSessionsSearchAttributes.new({
       cursor: "example",
       from: 1789905600000,
       hide_retained: false,

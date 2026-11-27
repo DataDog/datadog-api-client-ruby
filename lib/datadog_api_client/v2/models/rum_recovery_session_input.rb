@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Archived session to recover.
-  class RumRecoverySessionInput
+  class RUMRecoverySessionInput
     include BaseGenericModel
 
     # Application UUID.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoverySessionInput` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoverySessionInput` initialize method"
       end
 
       self.additional_properties = {}

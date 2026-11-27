@@ -5,5 +5,5 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
   config.unstable_operations["v2.list_connections".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::RumAudienceManagementAPI.new
+api_instance = DatadogAPIClient::V2::RUMAudienceManagementAPI.new
 p api_instance.list_connections("users")

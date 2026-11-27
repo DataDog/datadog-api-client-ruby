@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The compute rule properties that can be updated. Only valid for metrics whose `aggregation_type` is `distribution`.
-  class RumMetricUpdateCompute
+  class RUMMetricUpdateCompute
     include BaseGenericModel
 
     # Toggle to include or exclude percentile aggregations (p50, p75, p90, p95, p99) for distribution metrics.
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumMetricUpdateCompute` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMMetricUpdateCompute` initialize method"
       end
 
       self.additional_properties = {}

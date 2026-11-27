@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Batch cancellation acknowledgment.
-  class RumRecoveryCancelResponseAttributes
+  class RUMRecoveryCancelResponseAttributes
     include BaseGenericModel
 
     # Cancellation time.
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'cancelled_at' => :'Time',
         :'cancelled_by' => :'String',
-        :'discovery_status' => :'RumRecoveryDiscoveryStatus'
+        :'discovery_status' => :'RUMRecoveryDiscoveryStatus'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryCancelResponseAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryCancelResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}

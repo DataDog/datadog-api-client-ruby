@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Batch discovery state. QUEUED indicates that the request is waiting for processing capacity.
-  class RumRecoveryDiscoveryStatus
+  class RUMRecoveryDiscoveryStatus
     include BaseEnumModel
 
     QUEUED = "QUEUED".freeze

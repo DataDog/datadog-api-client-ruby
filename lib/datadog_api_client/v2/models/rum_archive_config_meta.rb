@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Pagination metadata.
-  class RumArchiveConfigMeta
+  class RUMArchiveConfigMeta
     include BaseGenericModel
 
     # Page information.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'page' => :'RumArchiveConfigPage'
+        :'page' => :'RUMArchiveConfigPage'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumArchiveConfigMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMArchiveConfigMeta` initialize method"
       end
 
       self.additional_properties = {}

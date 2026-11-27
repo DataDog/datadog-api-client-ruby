@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A dynamic configuration option that extracts a value at runtime using a specified strategy.
-  class RumSdkConfigDynamicOption
+  class RUMSdkConfigDynamicOption
     include BaseGenericModel
 
     # The element attribute to read. Used when `strategy` is `dom`.
@@ -67,13 +67,13 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attribute' => :'String',
-        :'extractor' => :'RumSdkConfigSerializedRegex',
+        :'extractor' => :'RUMSdkConfigSerializedRegex',
         :'key' => :'String',
         :'name' => :'String',
         :'path' => :'String',
-        :'rc_serialized_type' => :'RumSdkConfigDynamicOptionSerializedType',
+        :'rc_serialized_type' => :'RUMSdkConfigDynamicOptionSerializedType',
         :'selector' => :'String',
-        :'strategy' => :'RumSdkConfigDynamicOptionStrategy'
+        :'strategy' => :'RUMSdkConfigDynamicOptionStrategy'
       }
     end
 
@@ -82,7 +82,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumSdkConfigDynamicOption` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMSdkConfigDynamicOption` initialize method"
       end
 
       self.additional_properties = {}

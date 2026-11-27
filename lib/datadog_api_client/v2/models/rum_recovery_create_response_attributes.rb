@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Accepted recovery request.
-  class RumRecoveryCreateResponseAttributes
+  class RUMRecoveryCreateResponseAttributes
     include BaseGenericModel
 
     # Creation time.
@@ -63,11 +63,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_at' => :'Time',
-        :'discovery_status' => :'RumRecoveryDiscoveryStatus',
+        :'discovery_status' => :'RUMRecoveryDiscoveryStatus',
         :'estimated_count' => :'Integer',
         :'failed_sessions' => :'Integer',
         :'processed_sessions' => :'Integer',
-        :'status' => :'RumRecoveryRequestStatus',
+        :'status' => :'RUMRecoveryRequestStatus',
         :'total_sessions' => :'Integer'
       }
     end
@@ -77,7 +77,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumRecoveryCreateResponseAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMRecoveryCreateResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}

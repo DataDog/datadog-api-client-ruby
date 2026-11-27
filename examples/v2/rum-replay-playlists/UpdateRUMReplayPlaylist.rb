@@ -4,7 +4,7 @@ require "datadog_api_client"
 DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
-api_instance = DatadogAPIClient::V2::RumReplayPlaylistsAPI.new
+api_instance = DatadogAPIClient::V2::RUMReplayPlaylistsAPI.new
 
 body = DatadogAPIClient::V2::Playlist.new({
   data: DatadogAPIClient::V2::PlaylistData.new({

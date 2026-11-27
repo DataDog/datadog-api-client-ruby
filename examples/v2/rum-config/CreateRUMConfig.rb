@@ -7,12 +7,12 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::RUMConfigAPI.new
 
-body = DatadogAPIClient::V2::RumConfigCreateRequest.new({
-  data: DatadogAPIClient::V2::RumConfigCreateData.new({
-    attributes: DatadogAPIClient::V2::RumConfigCreateAttributes.new({
+body = DatadogAPIClient::V2::RUMConfigCreateRequest.new({
+  data: DatadogAPIClient::V2::RUMConfigCreateData.new({
+    attributes: DatadogAPIClient::V2::RUMConfigCreateAttributes.new({
       enforced_application_tags: true,
     }),
-    type: DatadogAPIClient::V2::RumConfigType::RUM_CONFIG,
+    type: DatadogAPIClient::V2::RUMConfigType::RUM_CONFIG,
   }),
 })
 p api_instance.create_rum_config(body)

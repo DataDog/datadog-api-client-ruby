@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The types of changes the retention filter accepts. `complete` filters can be updated and deleted.
   # `limited` filters are default retention filters that can't be deleted.
-  class RumRetentionFilterEditionMode
+  class RUMRetentionFilterEditionMode
     include BaseEnumModel
 
     UNKNOWN = "unknown".freeze

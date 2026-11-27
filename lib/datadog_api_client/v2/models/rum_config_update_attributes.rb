@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Attributes of the RUM configuration to update.
-  class RumConfigUpdateAttributes
+  class RUMConfigUpdateAttributes
     include BaseGenericModel
 
     # Whether application tags are enforced for the RUM applications in the organization.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RumConfigUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMConfigUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}
