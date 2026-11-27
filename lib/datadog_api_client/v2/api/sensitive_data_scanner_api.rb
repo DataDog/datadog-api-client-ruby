@@ -309,7 +309,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get Agent Observability Scanning Group.
+    # Get Target Scanning Group.
     #
     # @see #get_scanning_group_with_http_info
     def get_scanning_group(group_id, opts = {})
@@ -317,9 +317,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get Agent Observability Scanning Group.
+    # Get Target Scanning Group.
     #
-    # Get an Agent Observability scanning group, with its rules included.
+    # Get an Agent Observability or AI Guard scanning group, with its rules included.
     # Scanning groups of logs, RUM, events, and APM are reported as not found.
     #
     # @param group_id [String] The ID of a group of rules.
@@ -495,7 +495,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List Agent Observability Scanning Groups.
+    # List Target Scanning Groups.
     #
     # @see #list_target_scanning_groups_with_http_info
     def list_target_scanning_groups(filter_target, opts = {})
@@ -503,10 +503,10 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List Agent Observability Scanning Groups.
+    # List Target Scanning Groups.
     #
-    # List the Agent Observability scanning groups, with their rules included.
-    # The list always includes the default Agent Observability scanning group.
+    # List the scanning groups of a target, such as Agent Observability or AI Guard, with their rules included.
+    # The list always includes the default scanning group of the target.
     # Scanning groups of logs, RUM, events, and APM are listed by the List Scanning Groups endpoint.
     #
     # @param filter_target [SensitiveDataScannerGroupTargetType] Target whose scanning groups are listed.
@@ -522,7 +522,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'filter_target' when calling SensitiveDataScannerAPI.list_target_scanning_groups"
       end
       # verify enum value
-      allowable_values = ['llm_observability']
+      allowable_values = ['llm_observability', 'ai_guard']
       if @api_client.config.client_side_validation && !allowable_values.include?(filter_target)
         fail ArgumentError, "invalid value for \"filter_target\", must be one of #{allowable_values}"
       end

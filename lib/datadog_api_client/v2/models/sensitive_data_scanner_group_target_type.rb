@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of target whose scanning groups are served by the target-scoped group routes. `llm_observability` is Agent Observability.
+  # Type of target whose scanning groups are served by the target-scoped group routes. `llm_observability` is Agent Observability, `ai_guard` is AI Guard.
   class SensitiveDataScannerGroupTargetType
     include BaseEnumModel
 
     LLM_OBSERVABILITY = "llm_observability".freeze
+    AI_GUARD = "ai_guard".freeze
   end
 end

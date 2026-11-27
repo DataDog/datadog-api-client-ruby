@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerGroupTarget
     include BaseGenericModel
 
-    # Type of target whose scanning groups are served by the target-scoped group routes. `llm_observability` is Agent Observability.
+    # Type of target whose scanning groups are served by the target-scoped group routes. `llm_observability` is Agent Observability, `ai_guard` is AI Guard.
     attr_reader :type
 
     attr_accessor :additional_properties
