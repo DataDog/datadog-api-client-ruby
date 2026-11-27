@@ -8,14 +8,13 @@ api_instance = DatadogAPIClient::V2::RumTeamsOwnershipAPI.new
 
 body = DatadogAPIClient::V2::TeamsOwnershipMappingCreateRequest.new({
   data: DatadogAPIClient::V2::TeamsOwnershipMappingCreateData.new({
-    attributes: DatadogAPIClient::V2::TeamsOwnershipMappingCreateDataAttributes.new({
-      application_id: "11111111-2222-3333-4444-555555555555",
-      match_type: DatadogAPIClient::V2::TeamsOwnershipMatchType::EXACT,
-      service: "web-checkout",
-      team_handle: "team-rum",
-      view_name: "/checkout",
-    }),
     type: DatadogAPIClient::V2::TeamsOwnershipMappingType::TEAMS_OWNERSHIP_MAPPINGS,
+    attributes: DatadogAPIClient::V2::TeamsOwnershipMappingCreateDataAttributes.new({
+      team_handle: "team-rum",
+      view_name: "/checkout-examplerumteamsownership",
+      service: "web-checkout-examplerumteamsownership",
+      match_type: DatadogAPIClient::V2::TeamsOwnershipMatchType::EXACT,
+    }),
   }),
 })
 p api_instance.create_teams_ownership_mapping(body)
