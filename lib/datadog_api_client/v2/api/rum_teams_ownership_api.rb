@@ -40,12 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamsOwnershipMappingResponse, Integer, Hash)>] TeamsOwnershipMappingResponse data, response status code and response headers
     def create_teams_ownership_mapping_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_teams_ownership_mapping".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_teams_ownership_mapping")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_teams_ownership_mapping"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumTeamsOwnershipAPI.create_teams_ownership_mapping ...'
@@ -117,12 +111,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamsOwnershipMappingBatchResponse, Integer, Hash)>] TeamsOwnershipMappingBatchResponse data, response status code and response headers
     def create_teams_ownership_mappings_batch_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_teams_ownership_mappings_batch".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_teams_ownership_mappings_batch")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_teams_ownership_mappings_batch"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumTeamsOwnershipAPI.create_teams_ownership_mappings_batch ...'
@@ -190,12 +178,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_teams_ownership_mapping_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_teams_ownership_mapping".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_teams_ownership_mapping")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_teams_ownership_mapping"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumTeamsOwnershipAPI.delete_teams_ownership_mapping ...'
@@ -261,12 +243,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamsOwnershipMappingResponse, Integer, Hash)>] TeamsOwnershipMappingResponse data, response status code and response headers
     def get_teams_ownership_mapping_with_http_info(id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_teams_ownership_mapping".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_teams_ownership_mapping")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_teams_ownership_mapping"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumTeamsOwnershipAPI.get_teams_ownership_mapping ...'
@@ -335,12 +311,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_service Filter mappings by RUM application service name.
     # @return [Array<(TeamsOwnershipMappingsResponse, Integer, Hash)>] TeamsOwnershipMappingsResponse data, response status code and response headers
     def list_teams_ownership_mappings_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_teams_ownership_mappings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_teams_ownership_mappings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_teams_ownership_mappings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumTeamsOwnershipAPI.list_teams_ownership_mappings ...'
@@ -412,12 +382,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_service Filter mappings by RUM application service name.
     # @return [Array<(TeamsOwnershipRulesResponse, Integer, Hash)>] TeamsOwnershipRulesResponse data, response status code and response headers
     def list_teams_ownership_rules_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_teams_ownership_rules".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_teams_ownership_rules")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_teams_ownership_rules"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RumTeamsOwnershipAPI.list_teams_ownership_rules ...'
