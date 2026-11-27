@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration options for the custom schedule. **This feature is in private beta.**
+  # Configuration options for the custom schedule.
   class MonitorOptionsCustomSchedule
     include BaseGenericModel
 
