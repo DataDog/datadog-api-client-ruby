@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
   class RUMAggregateRequest
     include BaseGenericModel
 
-    # The list of metrics or timeseries to compute for the retrieved buckets.
+    # The list of metrics or timeseries to compute for the retrieved buckets. All rules must have the same `type`; mixing `total` and `timeseries` rules is rejected.
     attr_accessor :compute
 
     # The search and filter query settings.
