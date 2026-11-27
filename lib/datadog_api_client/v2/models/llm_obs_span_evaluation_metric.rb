@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Type of the evaluation metric (e.g., score, categorical, boolean).
     attr_accessor :eval_metric_type
 
+    # Whether a higher numeric score is better. Omitted when no direction was specified.
+    attr_accessor :higher_is_better
+
     # Human-readable reasoning for the evaluation result.
     attr_accessor :reasoning
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'assessment' => :'assessment',
         :'eval_metric_type' => :'eval_metric_type',
+        :'higher_is_better' => :'higher_is_better',
         :'reasoning' => :'reasoning',
         :'status' => :'status',
         :'tags' => :'tags',
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
       {
         :'assessment' => :'String',
         :'eval_metric_type' => :'String',
+        :'higher_is_better' => :'Boolean',
         :'reasoning' => :'String',
         :'status' => :'String',
         :'tags' => :'Array<String>',
@@ -91,6 +96,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'eval_metric_type')
         self.eval_metric_type = attributes[:'eval_metric_type']
+      end
+
+      if attributes.key?(:'higher_is_better')
+        self.higher_is_better = attributes[:'higher_is_better']
       end
 
       if attributes.key?(:'reasoning')
@@ -140,6 +149,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           assessment == o.assessment &&
           eval_metric_type == o.eval_metric_type &&
+          higher_is_better == o.higher_is_better &&
           reasoning == o.reasoning &&
           status == o.status &&
           tags == o.tags &&
@@ -151,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assessment, eval_metric_type, reasoning, status, tags, value, additional_properties].hash
+      [assessment, eval_metric_type, higher_is_better, reasoning, status, tags, value, additional_properties].hash
     end
   end
 end

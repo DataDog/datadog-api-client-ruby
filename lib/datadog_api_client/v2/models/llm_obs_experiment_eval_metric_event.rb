@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Source type of the evaluation.
     attr_accessor :eval_source_type
 
+    # Whether a higher numeric score is better. Omitted when no direction was specified.
+    attr_accessor :higher_is_better
+
     # Unique identifier of the evaluation metric event.
     attr_accessor :id
 
@@ -79,6 +82,7 @@ module DatadogAPIClient::V2
         :'boolean_value' => :'boolean_value',
         :'categorical_value' => :'categorical_value',
         :'eval_source_type' => :'eval_source_type',
+        :'higher_is_better' => :'higher_is_better',
         :'id' => :'id',
         :'json_value' => :'json_value',
         :'label' => :'label',
@@ -102,6 +106,7 @@ module DatadogAPIClient::V2
         :'boolean_value' => :'Boolean',
         :'categorical_value' => :'String',
         :'eval_source_type' => :'String',
+        :'higher_is_better' => :'Boolean',
         :'id' => :'String',
         :'json_value' => :'Hash<String, Object>',
         :'label' => :'String',
@@ -162,6 +167,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'eval_source_type')
         self.eval_source_type = attributes[:'eval_source_type']
+      end
+
+      if attributes.key?(:'higher_is_better')
+        self.higher_is_better = attributes[:'higher_is_better']
       end
 
       if attributes.key?(:'id')
@@ -245,6 +254,7 @@ module DatadogAPIClient::V2
           boolean_value == o.boolean_value &&
           categorical_value == o.categorical_value &&
           eval_source_type == o.eval_source_type &&
+          higher_is_better == o.higher_is_better &&
           id == o.id &&
           json_value == o.json_value &&
           label == o.label &&
@@ -264,7 +274,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assessment, boolean_value, categorical_value, eval_source_type, id, json_value, label, metadata, metric_source, metric_type, reasoning, score_value, span_id, tags, timestamp_ms, trace_id, additional_properties].hash
+      [assessment, boolean_value, categorical_value, eval_source_type, higher_is_better, id, json_value, label, metadata, metric_source, metric_type, reasoning, score_value, span_id, tags, timestamp_ms, trace_id, additional_properties].hash
     end
   end
 end
