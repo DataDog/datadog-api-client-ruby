@@ -188,7 +188,8 @@ module DatadogAPIClient::V2
     # Delete a user profile.
     #
     # Delete a Product Analytics user profile.
-    # Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few minutes.
+    # Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few
+    # minutes.
     # This only deletes the user profile. To delete the RUM events of the user, use the RUM data deletion API.
     #
     # @param user_id [String] The ID of the user to delete, as sent in the `usr.id` attribute.
@@ -621,7 +622,10 @@ module DatadogAPIClient::V2
 
     # Query event filtered users.
     #
-    # Query users filtered by both user properties and event platform data
+    # Query users filtered by both user properties and event platform data.
+    # `event_query.query` selects users who have matching events in `event_query.time_frame`, which is in
+    # milliseconds.
+    # `query` and `select_columns` use user profile attribute names, not event facets.
     #
     # @param body [QueryEventFilteredUsersRequest] 
     # @param opts [Hash] the optional parameters

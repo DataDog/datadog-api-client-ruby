@@ -17,7 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The shape of the Sankey diagram, expressed as the facets to flow between and how many steps to show.
+  # The shape of the Sankey diagram: the step it is anchored on and how many steps to show.
+  # Set exactly one of `source` or `target` to a step, and send the other one as an empty string.
+  # Sending both returns `Invalid Sankey Mode`. Sending both empty starts the diagram from any view.
+  # Each column of the diagram lists view names.
   class ProductAnalyticsSankeyDefinition
     include BaseGenericModel
 
@@ -29,10 +32,14 @@ module DatadogAPIClient::V2
     # Omit it, or send `0`, to use the default of `5`.
     attr_reader :number_of_steps
 
-    # Facet forming the first column of the diagram.
+    # The step the diagram starts from. The diagram shows where sessions go after it.
+    # It is a value, not a facet name: use a view name such as `/logs`, or a query matching one view
+    # such as `@type:view @view.name:"/logs"`. Do not send `@view.name`.
+    # Send an empty string when `target` is set.
     attr_reader :source
 
-    # Facet forming the last column of the diagram.
+    # The step the diagram ends at. The diagram shows the paths sessions take to reach it.
+    # It takes the same values as `source`. Send an empty string when `source` is set.
     attr_reader :target
 
     attr_accessor :additional_properties

@@ -13,8 +13,8 @@ body = DatadogAPIClient::V2::ProductAnalyticsSankeyRequest.new({
       definition: DatadogAPIClient::V2::ProductAnalyticsSankeyDefinition.new({
         entries_per_step: 10,
         number_of_steps: 3,
-        source: "@view.name",
-        target: "@view.name",
+        source: '@type:view @view.name:"/logs"',
+        target: "",
       }),
       search: DatadogAPIClient::V2::ProductAnalyticsSankeySearch.new({
         audience_filters: DatadogAPIClient::V2::ProductAnalyticsAudienceFilters.new({
