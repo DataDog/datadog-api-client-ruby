@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The published models.dev price. Present only when it is the effective price.
+  # The automatically synced published price. Present only when it is the effective price.
   class AiGatewayModelAutomaticPricing
     include BaseGenericModel
 

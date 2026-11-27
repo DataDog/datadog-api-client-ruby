@@ -27,9 +27,6 @@ module DatadogAPIClient::V2
     # Model identifier in the metadata source provider catalog.
     attr_reader :model_id
 
-    # Metadata source name.
-    attr_reader :name
-
     # Last successful observation of this valid source record. Retained invalid entries keep their previous timestamp.
     attr_accessor :observed_at
 
@@ -47,7 +44,6 @@ module DatadogAPIClient::V2
       {
         :'matched_by' => :'matched_by',
         :'model_id' => :'model_id',
-        :'name' => :'name',
         :'observed_at' => :'observed_at',
         :'provider' => :'provider',
         :'revision' => :'revision'
@@ -60,7 +56,6 @@ module DatadogAPIClient::V2
       {
         :'matched_by' => :'AiGatewayModelMetadataSourceMatchedBy',
         :'model_id' => :'String',
-        :'name' => :'String',
         :'observed_at' => :'Time',
         :'provider' => :'String',
         :'revision' => :'String'
@@ -93,10 +88,6 @@ module DatadogAPIClient::V2
         self.model_id = attributes[:'model_id']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.key?(:'observed_at')
         self.observed_at = attributes[:'observed_at']
       end
@@ -116,7 +107,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @matched_by.nil?
       return false if @model_id.nil?
-      return false if @name.nil?
       return false if @provider.nil?
       true
     end
@@ -139,16 +129,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "model_id", model_id cannot be nil.'
       end
       @model_id = model_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
     end
 
     # Custom attribute writer method with validation
@@ -189,7 +169,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           matched_by == o.matched_by &&
           model_id == o.model_id &&
-          name == o.name &&
           observed_at == o.observed_at &&
           provider == o.provider &&
           revision == o.revision &&
@@ -200,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [matched_by, model_id, name, observed_at, provider, revision, additional_properties].hash
+      [matched_by, model_id, observed_at, provider, revision, additional_properties].hash
     end
   end
 end
