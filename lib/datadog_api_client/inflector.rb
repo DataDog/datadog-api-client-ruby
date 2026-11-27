@@ -8622,6 +8622,7 @@ module DatadogAPIClient
           "v2.saved_filter_creation_type" => "SavedFilterCreationType",
           "v2.saved_filter_data" => "SavedFilterData",
           "v2.saved_filter_data_type" => "SavedFilterDataType",
+          "v2.saved_filter_environment_reference" => "SavedFilterEnvironmentReference",
           "v2.saved_filter_flag_reference" => "SavedFilterFlagReference",
           "v2.saved_filter_jsonapi_error_response" => "SavedFilterJSONAPIErrorResponse",
           "v2.saved_filter_permission_denied_attributes" => "SavedFilterPermissionDeniedAttributes",
