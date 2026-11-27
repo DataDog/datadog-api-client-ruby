@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     USERS = "users".freeze
     ATTACHMENTS = "attachments".freeze
+    RESPONDERS = "responders".freeze
   end
 end

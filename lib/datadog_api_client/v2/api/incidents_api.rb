@@ -5452,7 +5452,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsAPI.search_incidents ...'
       end
-      allowable_values = ['users', 'attachments']
+      allowable_values = ['users', 'attachments', 'responders']
       if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
         fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
