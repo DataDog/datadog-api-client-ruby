@@ -7643,6 +7643,18 @@ ScenariosModelMappings = {
     "v2.CreateTeamConnections" => {
             "body" => "TeamConnectionCreateRequest",
     },
+    "v2.ListExternalTeamPermissionSettingDefaultsBySource" => {
+            "source" => "ExternalTeamPermissionSettingDefaultsSource",
+    },
+    "v2.DeleteExternalTeamPermissionSettingDefault" => {
+            "source" => "ExternalTeamPermissionSettingDefaultsSource",
+            "action" => "String",
+    },
+    "v2.UpdateExternalTeamPermissionSettingDefault" => {
+            "source" => "ExternalTeamPermissionSettingDefaultsSource",
+            "action" => "String",
+            "body" => "ExternalTeamPermissionSettingDefaultUpdateRequest",
+    },
     "v2.GetTeamSync" => {
             "filter_source" => "TeamSyncAttributesSource",
     },
