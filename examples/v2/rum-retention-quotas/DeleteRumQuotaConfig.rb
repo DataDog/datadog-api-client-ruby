@@ -5,4 +5,7 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
 api_instance = DatadogAPIClient::V2::RUMRetentionQuotasAPI.new
-api_instance.delete_rum_quota_config(RumRetentionQuotaScopeType::APPLICATION, "cd73a516-a481-4af5-8352-9b577465c77b")
+
+# there is a valid "rum_application" in the system
+RUM_APPLICATION_DATA_ID = ENV["RUM_APPLICATION_DATA_ID"]
+api_instance.delete_rum_quota_config(RumRetentionQuotaScopeType::APPLICATION, RUM_APPLICATION_DATA_ID)

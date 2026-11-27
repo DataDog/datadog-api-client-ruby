@@ -2,4 +2,7 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RUMManagedArchivesAPI.new
-api_instance.delete_rum_archive_config("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690")
+
+# there is a valid "rum_application" in the system
+RUM_APPLICATION_DATA_ID = ENV["RUM_APPLICATION_DATA_ID"]
+api_instance.delete_rum_archive_config(RUM_APPLICATION_DATA_ID)
