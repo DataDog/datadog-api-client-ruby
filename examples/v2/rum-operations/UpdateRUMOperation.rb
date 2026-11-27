@@ -6,42 +6,41 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::RUMOperationsAPI.new
 
+# there is a valid "rum_operation" in the system
+RUM_OPERATION_DATA_ATTRIBUTES_NAME = ENV["RUM_OPERATION_DATA_ATTRIBUTES_NAME"]
+RUM_OPERATION_DATA_ID = ENV["RUM_OPERATION_DATA_ID"]
+
 body = DatadogAPIClient::V2::RUMOperationUpdateRequest.new({
   data: DatadogAPIClient::V2::RUMOperationUpdateRequestData.new({
+    id: RUM_OPERATION_DATA_ID,
+    type: DatadogAPIClient::V2::RUMOperationType::OPERATIONS,
     attributes: DatadogAPIClient::V2::RUMOperationRequestAttributes.new({
-      application_id: "abc12345-1234-5678-abcd-ef1234567890",
-      category: nil,
-      description: nil,
-      display_name: "Checkout completed",
-      feature_ids: [],
+      name: RUM_OPERATION_DATA_ATTRIBUTES_NAME,
+      display_name: "BDD operation updated",
+      tags: [
+        "team:rum-backend",
+      ],
       journey_rum: DatadogAPIClient::V2::RUMOperationJourneyRum.new({
         rum_steps: [
           DatadogAPIClient::V2::RUMOperationJourneyStep.new({
-            composite: DatadogAPIClient::V2::RUMOperationJourneyCompositeRule.new({
-              kind: DatadogAPIClient::V2::RUMOperationJourneyCompositeRuleKind::ALL_OF,
-              max_window_ms: 30000,
-              predicates: [
-                DatadogAPIClient::V2::RUMOperationJourneyPredicate.new({
-                  query: "@type:action @action.type:click",
-                }),
-              ],
-            }),
+            type: DatadogAPIClient::V2::RUMOperationJourneyStepType::START,
             nodes: [
               DatadogAPIClient::V2::RUMOperationJourneyNode.new({
                 query: "@type:action @action.type:click",
               }),
             ],
-            type: DatadogAPIClient::V2::RUMOperationJourneyStepType::START,
+          }),
+          DatadogAPIClient::V2::RUMOperationJourneyStep.new({
+            type: DatadogAPIClient::V2::RUMOperationJourneyStepType::STOP,
+            nodes: [
+              DatadogAPIClient::V2::RUMOperationJourneyNode.new({
+                query: "@type:view",
+              }),
+            ],
           }),
         ],
       }),
-      name: "checkout_completed",
-      tags: [
-        "team:checkout",
-      ],
     }),
-    id: "abc12345-1234-5678-abcd-ef1234567890",
-    type: DatadogAPIClient::V2::RUMOperationType::OPERATIONS,
   }),
 })
-p api_instance.update_rum_operation("rum_operation_id", body)
+p api_instance.update_rum_operation(RUM_OPERATION_DATA_ID, body)

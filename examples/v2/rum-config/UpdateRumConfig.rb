@@ -10,7 +10,7 @@ api_instance = DatadogAPIClient::V2::RUMConfigAPI.new
 body = DatadogAPIClient::V2::RumConfigUpdateRequest.new({
   data: DatadogAPIClient::V2::RumConfigUpdateData.new({
     attributes: DatadogAPIClient::V2::RumConfigUpdateAttributes.new({
-      enforced_application_tags: true,
+      enforced_application_tags: false,
     }),
     type: DatadogAPIClient::V2::RumConfigType::RUM_CONFIG,
   }),

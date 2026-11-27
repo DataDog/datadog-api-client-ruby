@@ -6,16 +6,20 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::RUMOperationsAPI.new
 
+# there is a valid "rum_operation" in the system
+RUM_OPERATION_DATA_ID = ENV["RUM_OPERATION_DATA_ID"]
+
 body = DatadogAPIClient::V2::RUMOperationStrongLinkCreateRequest.new({
   data: DatadogAPIClient::V2::RUMOperationStrongLinkCreateRequestData.new({
-    attributes: DatadogAPIClient::V2::RUMOperationStrongLinkCreateRequestAttributes.new({
-      description: nil,
-      feature_id: "journey-123",
-      operation_id: "abc12345-1234-5678-abcd-ef1234567890",
-      status: DatadogAPIClient::V2::RUMOperationStrongLinkStatus::CONFIRMED,
-      tags: [],
-    }),
     type: DatadogAPIClient::V2::RUMOperationStrongLinkType::STRONG_LINKS,
+    attributes: DatadogAPIClient::V2::RUMOperationStrongLinkCreateRequestAttributes.new({
+      operation_id: RUM_OPERATION_DATA_ID,
+      feature_id: "bdd-examplerumoperation",
+      status: DatadogAPIClient::V2::RUMOperationStrongLinkStatus::DRAFT,
+      tags: [
+        "team:rum-backend",
+      ],
+    }),
   }),
 })
 p api_instance.create_rum_operation_strong_link(body)
