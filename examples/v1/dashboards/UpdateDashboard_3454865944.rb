@@ -9,7 +9,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 # there is a valid "dashboard" in the system
 DASHBOARD_ID = ENV["DASHBOARD_ID"]
 
-body = DatadogAPIClient::V1::Dashboard.new({
+body = DatadogAPIClient::V1::Dashboard_V1.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
   title: "Example-Dashboard with list_stream widget",
   description: "Updated description",
