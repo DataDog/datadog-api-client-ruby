@@ -5,4 +5,7 @@ DatadogAPIClient.configure do |config|
   config.access_token = ENV["DD_BEARER_TOKEN"]
 end
 api_instance = DatadogAPIClient::V2::RumRetentionFiltersAPI.new
-p api_instance.list_permanent_retention_filters("app_id")
+
+# there is a valid "rum_application" in the system
+RUM_APPLICATION_DATA_ID = ENV["RUM_APPLICATION_DATA_ID"]
+p api_instance.list_permanent_retention_filters(RUM_APPLICATION_DATA_ID)

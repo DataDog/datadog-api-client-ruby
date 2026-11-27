@@ -6,16 +6,19 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::RumRetentionFiltersAPI.new
 
+# there is a valid "rum_application" in the system
+RUM_APPLICATION_DATA_ID = ENV["RUM_APPLICATION_DATA_ID"]
+
 body = DatadogAPIClient::V2::RumPermanentRetentionFilterUpdateRequest.new({
   data: DatadogAPIClient::V2::RumPermanentRetentionFilterUpdateData.new({
+    id: DatadogAPIClient::V2::RumPermanentRetentionFilterID::SYNTHETICS_SESSIONS,
+    type: DatadogAPIClient::V2::RumPermanentRetentionFilterType::PERMANENT_RETENTION_FILTERS,
     attributes: DatadogAPIClient::V2::RumPermanentRetentionFilterUpdateAttributes.new({
       cross_product_sampling: DatadogAPIClient::V2::RumCrossProductSamplingUpdate.new({
         trace_enabled: true,
         trace_sample_rate: 25.0,
       }),
     }),
-    id: DatadogAPIClient::V2::RumPermanentRetentionFilterID::SYNTHETICS_SESSIONS,
-    type: DatadogAPIClient::V2::RumPermanentRetentionFilterType::PERMANENT_RETENTION_FILTERS,
   }),
 })
-p api_instance.update_permanent_retention_filter("app_id", RumPermanentRetentionFilterID::SYNTHETICS_SESSIONS, body)
+p api_instance.update_permanent_retention_filter(RUM_APPLICATION_DATA_ID, RumPermanentRetentionFilterID::SYNTHETICS_SESSIONS, body)
