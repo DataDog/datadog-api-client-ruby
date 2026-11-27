@@ -6,6 +6,9 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::RUMRetentionQuotasAPI.new
 
+# there is a valid "rum_application" in the system
+RUM_APPLICATION_DATA_ID = ENV["RUM_APPLICATION_DATA_ID"]
+
 body = DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateRequest.new({
   data: DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateData.new({
     attributes: DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateAttributes.new({
@@ -18,8 +21,8 @@ body = DatadogAPIClient::V2::RumRetentionQuotaConfigUpdateRequest.new({
       }),
       mode: DatadogAPIClient::V2::RumRetentionQuotaMode::CUSTOM,
     }),
-    id: "cd73a516-a481-4af5-8352-9b577465c77b",
+    id: RUM_APPLICATION_DATA_ID,
     type: DatadogAPIClient::V2::RumRetentionQuotaConfigType::RUM_QUOTA_CONFIG,
   }),
 })
-p api_instance.upsert_rum_quota_config(RumRetentionQuotaScopeType::APPLICATION, "cd73a516-a481-4af5-8352-9b577465c77b", body)
+p api_instance.upsert_rum_quota_config(RumRetentionQuotaScopeType::APPLICATION, RUM_APPLICATION_DATA_ID, body)
