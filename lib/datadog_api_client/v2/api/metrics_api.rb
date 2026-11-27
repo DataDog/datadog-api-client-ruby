@@ -1311,6 +1311,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List metadata for multiple metrics.
+    #
+    # @see #list_metric_metadata_with_http_info
+    def list_metric_metadata(filter_metric_name, opts = {})
+      data, _status_code, _headers = list_metric_metadata_with_http_info(filter_metric_name, opts)
+      data
+    end
+
+    # List metadata for multiple metrics.
+    #
+    # Get metadata for up to 50 metrics in one request: type, description, units, StatsD interval, percentile and
+    # historical metrics settings, how the metric is ingested, and the product that reports it.
+    # Results are returned in the order the metrics were requested. Metrics that don't exist are left out of `data`.
+    # The request doesn't fail, and no not-found entry is returned. To find missing metrics, compare the returned `id`
+    # values with the names you requested.
+    #
+    # @param filter_metric_name [String] Comma-separated list of metric names, at most 50 distinct names of up to 350 characters each, and at most 17,549 characters in total. Duplicate names are removed before counting, and results keep the order of each name's first occurrence. A name that isn't a valid metric name is treated like any other metric that doesn't exist: it's left out of `data` rather than failing the request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MetricMetadataListResponse, Integer, Hash)>] MetricMetadataListResponse data, response status code and response headers
+    def list_metric_metadata_with_http_info(filter_metric_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_metric_metadata".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_metric_metadata")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_metric_metadata"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.list_metric_metadata ...'
+      end
+      # verify the required parameter 'filter_metric_name' is set
+      if @api_client.config.client_side_validation && filter_metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_metric_name' when calling MetricsAPI.list_metric_metadata"
+      end
+      if @api_client.config.client_side_validation && filter_metric_name.to_s.length > 17549
+        fail ArgumentError, 'invalid value for "filter_metric_name" when calling MetricsAPI.list_metric_metadata, the character length must be smaller than or equal to 17549.'
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/metadata'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[metric_name]'] = filter_metric_name
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricMetadataListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_metric_metadata,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#list_metric_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List tag configuration by name.
     #
     # @see #list_tag_configuration_by_name_with_http_info

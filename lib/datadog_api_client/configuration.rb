@@ -771,6 +771,7 @@ module DatadogAPIClient
             "v2.create_tag_indexing_rule_exemption": false,
             "v2.delete_tag_indexing_rule_exemption": false,
             "v2.get_tag_indexing_rule_exemption": false,
+            "v2.list_metric_metadata": false,
             "v2.list_tag_indexing_rule_exemptions": false,
             "v2.update_tag_indexing_rule_exemption": false,
             "v2.add_model_lab_project_owner": false,
