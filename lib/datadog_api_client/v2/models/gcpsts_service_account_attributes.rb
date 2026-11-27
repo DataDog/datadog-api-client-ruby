@@ -65,6 +65,13 @@ module DatadogAPIClient::V2
     # Configurations for GCP monitored resources.
     attr_accessor :monitored_resource_configs
 
+    # Configurations that limit which GCP projects Datadog monitors, out of the projects this service
+    # account can access. Each type can have at most one configuration. A project is monitored only if
+    # it passes the filters of every configured type. By default, Datadog monitors every project the
+    # service account can access. When updating a service account, omit this field to keep the current
+    # filters, or send an empty list to remove them.
+    attr_accessor :project_filter_configs
+
     # Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
     attr_accessor :region_filter_configs
 
@@ -90,6 +97,7 @@ module DatadogAPIClient::V2
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
         :'metric_namespace_configs' => :'metric_namespace_configs',
         :'monitored_resource_configs' => :'monitored_resource_configs',
+        :'project_filter_configs' => :'project_filter_configs',
         :'region_filter_configs' => :'region_filter_configs',
         :'resource_collection_enabled' => :'resource_collection_enabled'
       }
@@ -112,6 +120,7 @@ module DatadogAPIClient::V2
         :'is_security_command_center_enabled' => :'Boolean',
         :'metric_namespace_configs' => :'Array<GCPMetricNamespaceConfig>',
         :'monitored_resource_configs' => :'Array<GCPMonitoredResourceConfig>',
+        :'project_filter_configs' => :'Array<GCPProjectFilterConfig>',
         :'region_filter_configs' => :'Array<String>',
         :'resource_collection_enabled' => :'Boolean'
       }
@@ -197,6 +206,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'project_filter_configs')
+        if (value = attributes[:'project_filter_configs']).is_a?(Array)
+          self.project_filter_configs = value
+        end
+      end
+
       if attributes.key?(:'region_filter_configs')
         if (value = attributes[:'region_filter_configs']).is_a?(Array)
           self.region_filter_configs = value
@@ -247,6 +262,7 @@ module DatadogAPIClient::V2
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
           metric_namespace_configs == o.metric_namespace_configs &&
           monitored_resource_configs == o.monitored_resource_configs &&
+          project_filter_configs == o.project_filter_configs &&
           region_filter_configs == o.region_filter_configs &&
           resource_collection_enabled == o.resource_collection_enabled &&
           additional_properties == o.additional_properties
@@ -256,7 +272,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_global_location_enabled, is_org_folder_resource_collection_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, region_filter_configs, resource_collection_enabled, additional_properties].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_global_location_enabled, is_org_folder_resource_collection_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, project_filter_configs, region_filter_configs, resource_collection_enabled, additional_properties].hash
     end
   end
 end
