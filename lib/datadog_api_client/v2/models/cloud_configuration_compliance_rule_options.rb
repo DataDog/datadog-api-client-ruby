@@ -26,6 +26,9 @@ module DatadogAPIClient::V2
     # Must be set to true if `regoRule.resourceTypes` contains more than one item. Defaults to false.
     attr_accessor :complex_rule
 
+    # Compliance framework requirements the rule maps to.
+    attr_accessor :compliance_frameworks
+
     # Rule details.
     attr_accessor :rego_rule
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'complex_rule' => :'complexRule',
+        :'compliance_frameworks' => :'complianceFrameworks',
         :'rego_rule' => :'regoRule',
         :'resource_type' => :'resourceType'
       }
@@ -49,6 +53,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'complex_rule' => :'Boolean',
+        :'compliance_frameworks' => :'Array<CloudConfigurationComplianceFramework>',
         :'rego_rule' => :'CloudConfigurationRegoRule',
         :'resource_type' => :'String'
       }
@@ -74,6 +79,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'complex_rule')
         self.complex_rule = attributes[:'complex_rule']
+      end
+
+      if attributes.key?(:'compliance_frameworks')
+        if (value = attributes[:'compliance_frameworks']).is_a?(Array)
+          self.compliance_frameworks = value
+        end
       end
 
       if attributes.key?(:'rego_rule')
@@ -112,6 +123,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           complex_rule == o.complex_rule &&
+          compliance_frameworks == o.compliance_frameworks &&
           rego_rule == o.rego_rule &&
           resource_type == o.resource_type &&
           additional_properties == o.additional_properties
@@ -121,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [complex_rule, rego_rule, resource_type, additional_properties].hash
+      [complex_rule, compliance_frameworks, rego_rule, resource_type, additional_properties].hash
     end
   end
 end
