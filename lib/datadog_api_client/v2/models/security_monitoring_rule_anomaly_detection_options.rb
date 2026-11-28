@@ -32,6 +32,9 @@ module DatadogAPIClient::V2
     # When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
     attr_accessor :instantaneous_baseline
 
+    # Maximum time in minutes to build the instantaneous baseline. Only used when `instantaneousBaseline` is true.
+    attr_reader :instantaneous_baseline_timeout_minutes
+
     # Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating.
     attr_accessor :learning_duration
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V2
         :'bucket_duration' => :'bucketDuration',
         :'detection_tolerance' => :'detectionTolerance',
         :'instantaneous_baseline' => :'instantaneousBaseline',
+        :'instantaneous_baseline_timeout_minutes' => :'instantaneousBaselineTimeoutMinutes',
         :'learning_duration' => :'learningDuration',
         :'learning_period_baseline' => :'learningPeriodBaseline'
       }
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
         :'bucket_duration' => :'SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration',
         :'detection_tolerance' => :'SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance',
         :'instantaneous_baseline' => :'Boolean',
+        :'instantaneous_baseline_timeout_minutes' => :'Integer',
         :'learning_duration' => :'SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration',
         :'learning_period_baseline' => :'Integer'
       }
@@ -94,6 +99,10 @@ module DatadogAPIClient::V2
         self.instantaneous_baseline = attributes[:'instantaneous_baseline']
       end
 
+      if attributes.key?(:'instantaneous_baseline_timeout_minutes')
+        self.instantaneous_baseline_timeout_minutes = attributes[:'instantaneous_baseline_timeout_minutes']
+      end
+
       if attributes.key?(:'learning_duration')
         self.learning_duration = attributes[:'learning_duration']
       end
@@ -107,8 +116,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@instantaneous_baseline_timeout_minutes.nil? && @instantaneous_baseline_timeout_minutes > 360
+      return false if !@instantaneous_baseline_timeout_minutes.nil? && @instantaneous_baseline_timeout_minutes < 0
       return false if !@learning_period_baseline.nil? && @learning_period_baseline < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param instantaneous_baseline_timeout_minutes [Object] Object to be assigned
+    # @!visibility private
+    def instantaneous_baseline_timeout_minutes=(instantaneous_baseline_timeout_minutes)
+      if !instantaneous_baseline_timeout_minutes.nil? && instantaneous_baseline_timeout_minutes > 360
+        fail ArgumentError, 'invalid value for "instantaneous_baseline_timeout_minutes", must be smaller than or equal to 360.'
+      end
+      if !instantaneous_baseline_timeout_minutes.nil? && instantaneous_baseline_timeout_minutes < 0
+        fail ArgumentError, 'invalid value for "instantaneous_baseline_timeout_minutes", must be greater than or equal to 0.'
+      end
+      @instantaneous_baseline_timeout_minutes = instantaneous_baseline_timeout_minutes
     end
 
     # Custom attribute writer method with validation
@@ -150,6 +174,7 @@ module DatadogAPIClient::V2
           bucket_duration == o.bucket_duration &&
           detection_tolerance == o.detection_tolerance &&
           instantaneous_baseline == o.instantaneous_baseline &&
+          instantaneous_baseline_timeout_minutes == o.instantaneous_baseline_timeout_minutes &&
           learning_duration == o.learning_duration &&
           learning_period_baseline == o.learning_period_baseline &&
           additional_properties == o.additional_properties
@@ -159,7 +184,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket_duration, detection_tolerance, instantaneous_baseline, learning_duration, learning_period_baseline, additional_properties].hash
+      [bucket_duration, detection_tolerance, instantaneous_baseline, instantaneous_baseline_timeout_minutes, learning_duration, learning_period_baseline, additional_properties].hash
     end
   end
 end

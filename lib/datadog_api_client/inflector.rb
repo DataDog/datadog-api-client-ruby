@@ -2668,6 +2668,7 @@ module DatadogAPIClient
           "v2.clone_form_data_attributes" => "CloneFormDataAttributes",
           "v2.clone_form_request" => "CloneFormRequest",
           "v2.cloud_asset_type" => "CloudAssetType",
+          "v2.cloud_configuration_compliance_framework" => "CloudConfigurationComplianceFramework",
           "v2.cloud_configuration_compliance_rule_options" => "CloudConfigurationComplianceRuleOptions",
           "v2.cloud_configuration_rego_rule" => "CloudConfigurationRegoRule",
           "v2.cloud_configuration_rule_case_create" => "CloudConfigurationRuleCaseCreate",

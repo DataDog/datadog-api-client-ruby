@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
 
+    # Default Tags for default rules (included in tags)
+    attr_accessor :default_tags
+
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
 
@@ -81,6 +84,9 @@ module DatadogAPIClient::V2
     # User ID of the user who updated the rule.
     attr_accessor :update_author_id
 
+    # The date the rule was last updated, in milliseconds.
+    attr_accessor :updated_at
+
     # The version of the rule.
     attr_accessor :version
 
@@ -96,6 +102,7 @@ module DatadogAPIClient::V2
         :'creation_author_id' => :'creationAuthorId',
         :'custom_message' => :'customMessage',
         :'custom_name' => :'customName',
+        :'default_tags' => :'defaultTags',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
@@ -110,6 +117,7 @@ module DatadogAPIClient::V2
         :'tags' => :'tags',
         :'type' => :'type',
         :'update_author_id' => :'updateAuthorId',
+        :'updated_at' => :'updatedAt',
         :'version' => :'version'
       }
     end
@@ -124,6 +132,7 @@ module DatadogAPIClient::V2
         :'creation_author_id' => :'Integer',
         :'custom_message' => :'String',
         :'custom_name' => :'String',
+        :'default_tags' => :'Array<String>',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
@@ -138,6 +147,7 @@ module DatadogAPIClient::V2
         :'tags' => :'Array<String>',
         :'type' => :'SecurityMonitoringSignalRuleType',
         :'update_author_id' => :'Integer',
+        :'updated_at' => :'Integer',
         :'version' => :'Integer'
       }
     end
@@ -184,6 +194,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'custom_name')
         self.custom_name = attributes[:'custom_name']
+      end
+
+      if attributes.key?(:'default_tags')
+        if (value = attributes[:'default_tags']).is_a?(Array)
+          self.default_tags = value
+        end
       end
 
       if attributes.key?(:'deprecation_date')
@@ -248,6 +264,10 @@ module DatadogAPIClient::V2
         self.update_author_id = attributes[:'update_author_id']
       end
 
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -285,6 +305,7 @@ module DatadogAPIClient::V2
           creation_author_id == o.creation_author_id &&
           custom_message == o.custom_message &&
           custom_name == o.custom_name &&
+          default_tags == o.default_tags &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
@@ -299,6 +320,7 @@ module DatadogAPIClient::V2
           tags == o.tags &&
           type == o.type &&
           update_author_id == o.update_author_id &&
+          updated_at == o.updated_at &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -307,7 +329,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compatible_version, created_at, creation_author_id, custom_message, custom_name, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version, additional_properties].hash
+      [cases, compatible_version, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, updated_at, version, additional_properties].hash
     end
   end
 end
